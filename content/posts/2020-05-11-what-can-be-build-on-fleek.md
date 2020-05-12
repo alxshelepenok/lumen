@@ -60,7 +60,7 @@ Fleek auto-detects certain frameworks and automatically applies the correct buil
 
 That being said, we support many more frameworks than that. *Any* framework which is a dependency as an npm package will be supported since we apply a node-based docker image by default when none is selected.
 
-In addition, if you are using a framework which is neither officially supported by Fleek nor an npm dependency, there is always the possibility of creating your own docker image to house you app.
+In addition, if you are using a framework which is neither officially supported by Fleek nor an npm dependency, there is always the possibility of creating your own docker image to house your app.
 
 # Real-World Examples Right in Front of Your Eyes
 ![](./media/WhatCanBeBuildOnFleek/frontend-fleek-app.png)
