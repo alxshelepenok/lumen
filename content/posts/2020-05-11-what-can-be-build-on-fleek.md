@@ -14,7 +14,7 @@ tags:
 
 ![](/CanDeployCover.png)
 
-What kind of app can be deployed on Fleek? Can you deploy static sites? What about dynamic sites? Maybe you are wondering if Fleek would be a good fit for your project.
+What kind of apps and sites can be deployed on Fleek? Can you deploy static sites? What about dynamic sites? Maybe you are wondering if Fleek would be a good fit for your project.
 
 Then you are at the right place! In the next few minutes, we'll discuss what types of site you can deploy with Fleek.
 
