@@ -1,7 +1,7 @@
 ---
 template: post
-title: What Can Be Deploy on Fleek
-slug: what-you-can-deploy-on-fleek
+title: What Can Be Deployed on Fleek?
+slug: what-you-can-deployed-on-fleek
 draft: true
 date: 2020-05-11T04:02:37.816Z
 description: >-
