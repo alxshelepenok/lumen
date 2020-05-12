@@ -2,19 +2,17 @@
 template: post
 title: What Can Be Deployed on Fleek?
 slug: what-you-can-deployed-on-fleek
-draft: true
+draft: false
 date: 2020-05-11T04:02:37.816Z
 description: >-
     What kind of app can be deployed on Fleek? Static sites? Dynamic sites? Learn if Fleek is a good fit for your project!
 category: "General"
-socialImage: /StorageReleaseCover.png
+socialImage: /CanDeployCover.png
 tags:
   - General
 ---
-<!-- 
-Should be same image as the thumbnail image
-![](./media/StorageReleaseCover.png)
--->
+
+![](/CanDeployCover.png)
 
 What kind of app can be deployed on Fleek? Can you deploy static sites? What about dynamic sites? Maybe you are wondering if Fleek would be a good fit for your project.
 
