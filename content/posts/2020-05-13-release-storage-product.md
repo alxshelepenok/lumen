@@ -2,7 +2,7 @@
 template: post
 title: Introducing Fleek Storage
 slug: Fleek-Storage-Release
-draft: true
+draft: false
 date: 2020-05-13T04:02:37.816Z
 description: >-
     We're excited to release Fleek Storage! Storing files on IPFS is easier and more performant than ever. We've leveraged an already popular S3 interface to interact with IPFS via our easy to use application, CLI, and SDK. The Storage solution comes with a built-in CDN, File Compression, and image resizing to achieve upmost performance.
