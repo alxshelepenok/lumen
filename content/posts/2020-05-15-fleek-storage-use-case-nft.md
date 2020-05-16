@@ -51,13 +51,48 @@ When the user clicks on the `Create NFT` button, the file is uploaded to Fleek S
 
 This data, including registry of ownership and CID, rests on the Ethereum blockchain.
 
-Right now, the Crypto Museum saves a url to an IPFS gateway using the CID as metadata. Alternatively, we could have saved the *CID only* and then the frontend could have interpreted this CID however it wanted, either by running an IPFS node or concatenating the CID to an IFPS gateway url.
+You can consult the smart contract's code of the ERC-721 token below and see how the minting and the setting of the CID works. The contract is based on the [OpenZeppelin libary](https://github.com/OpenZeppelin/openzeppelin-contracts).
+
+```
+pragma solidity >=0.5.0;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract CryptoMuseum is ERC721 {
+    constructor() ERC721("CryptoMuseum", "CM") public {
+    }
+
+    mapping(uint256 => string) private _CIDS;
+
+    function CID(uint256 tokenId) public view returns (string memory) {
+      require(_exists(tokenId), "ERC721Metadata: CID query for nonexistent token");
+
+      string memory _CID = _CIDS[tokenId];
+
+      return _CID;
+    }
+
+    function _setTokenCID(uint256 tokenId, string memory _CID) internal virtual {
+      require(_exists(tokenId), "ERC721Metadata: CID set of nonexistent token");
+      _CIDS[tokenId] = _CID;
+    }
+
+
+    function mint(string memory _CID) public {
+      uint256 _newId = totalSupply() + 1;
+      _safeMint(msg.sender, _newId);
+      _setTokenCID(_newId, _CID);
+    }
+}
+```
 
 The *Collection* section of the dapp searches for all the tokens belonging to the user, then reads the metadata containing the IPFS hash and displays the artworks.
 
 ## Fixing NFTs Moving Forward
 
 A good solution for NFTs moving forward would be to store both a URL to an IPFS gateway using the CID and the CID itself as separate pieces of metadata. The URL would allow for a smooth transition to a decentralized CID-only ecosystem, while the practice of storing a CID only becomes more widespread.
+
+The ultimate goal is to have the CID be the only identifier for the NFT token's underlying asset.
 
 # How To Easily Upload Files To IPFS With The Fleek Storage SDK
 ![](media/storageSdkNft/nft-winnie.jpg)
