@@ -2,7 +2,7 @@
 template: post
 title: "Fleek Storage SDK: Store NFT Assets in IPFS!"
 slug: fleek-storage-nft
-draft: false
+draft: true
 date: 2020-05-15T04:02:37.816Z
 description: >-
     Fleek Storage solves a fundamental problem with many NFTs today by storing assets to IPFS instead of a centralized server.
