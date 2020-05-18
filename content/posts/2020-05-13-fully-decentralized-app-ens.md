@@ -60,6 +60,8 @@ If ONLY there was a way to automatically update the IPFS hash upon site update, 
 
 Fleek simplifies ENS domain integration by auto-publishing new IFPS hashes to ENS anytime it detects a change.
 
+This is accomplished through setting Fleek as the `controller` of the ENS domain. The `controller` is responsible for day-to-day activities such as updating the IPFS hash. The user is the `registrant` which is the role that hash ultimate control of the domain. The `registrant` can change the `controller` at any time.
+
 This makes integrating ENS a breeze and an essential tool for any Dapp developer. Once ENS is setup with Fleek, the developer can simply forget about it and focus on his app.
 
 # Your Turn!
