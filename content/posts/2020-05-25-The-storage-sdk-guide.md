@@ -2,7 +2,7 @@
 template: post
 title: The Fleek Storage SDK Cookbook
 slug: fleek-storage-sdk-guide
-draft: false
+draft: true
 date: 2020-05-25T04:02:37.816Z
 description: >-
     Learn how to use the storage SDK to store files in IPFS.
