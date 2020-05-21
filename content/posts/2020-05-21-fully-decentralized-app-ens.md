@@ -2,15 +2,17 @@
 template: post
 title: Fully Decentralize Your App With ENS!
 slug: fully-decentralized-apps-with-ens
-draft: true
-date: 2020-05-13T04:02:37.816Z
+draft: false
+date: 2020-05-21T04:02:37.816Z
 description: >-
     Leave no centralized stone unturned with an ENS domain!
 category: "General"
-socialImage: /CanDeployCover.png
+socialImage: /ENSCover.jpg
 tags:
   - General
 ---
+
+![](./media/ENSCover.jpg)
 
 
 Deploying sites on IPFS allows creators to take advantage of a powerful peer-to-peer file system and, in so doing, embrace distributed technology.
