@@ -46,7 +46,7 @@ ENS therefore unlocks *total* decentralization!
 
 ENS domains can resolve to IPFS hashes.
 
-We've deployed our Fleek insfrastructure on IPFS + ENS to demonstrate how it works. Simply go to [fleekhq.eth](https://fleekhq.eth/) to witness how an ENS domain resolves to IPFS. Make sure you are using a [browser which resolves ENS domains](https://codeclimbing.com/how-to-visit-ens-enabled-websites-your-gateway-to-web3/) to access the site.
+We've deployed our Fleek insfrastructure on IPFS + ENS to demonstrate how it works. Simply go to [fleekhq.eth](https://fleekhq.eth/) to witness how an ENS domain resolves to IPFS. Make sure you are using a [browser which resolves ENS domains](https://codeclimbing.com/how-to-visit-ens-enabled-websites-your-gateway-to-web3/) to access the site. Alternatively, you can append `.link` to an ENS domain to access it, such as <https://fleekhq.eth.link>
 
 IPFS and ENS go hand in hand perfectly!
 
