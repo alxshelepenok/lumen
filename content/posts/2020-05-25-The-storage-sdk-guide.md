@@ -10,6 +10,7 @@ category: "Tutorial"
 socialImage: /SDKGuideCover.png
 tags:
   - Tutorial
+  - SDK
 ---
 
 ![](./media/SDKGuideCover.png)

@@ -6,10 +6,12 @@ draft: false
 date: 2020-05-15T04:02:37.816Z
 description: >-
     Fleek Storage solves a fundamental problem with many NFTs today by storing assets to IPFS instead of a centralized server.
-category: "General"
+category: "Tutorial"
 socialImage: /media/SDKNFT.png
 tags:
-  - General
+  - Tutorial
+  - SDK
+  - NFT
 ---
 
 ![](media/SDKNFT.png)

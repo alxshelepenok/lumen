@@ -6,10 +6,11 @@ draft: false
 date: 2020-05-21T04:02:37.816Z
 description: >-
     Leave no centralized stone unturned with an ENS domain!
-category: "General"
+category: "Tutorial"
 socialImage: /ENSCover.jpg
 tags:
-  - General
+  - Tutorial
+  - ENS
 ---
 
 ![](./media/ENSCover.jpg)
