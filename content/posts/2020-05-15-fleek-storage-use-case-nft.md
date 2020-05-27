@@ -138,7 +138,7 @@ Let's see how it work programmatically in the Crypto Museum dapp.
 
 The code above is copy-pasted from the Crypto Museum code. It's that simple.
 
-The docs for [aws s3 sdk](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) and [fleek storage](https://docs.fleek.co/Storage/CLI_SDK) give more information on how to use the SDK.
+The docs for [aws s3 sdk](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html) and [fleek storage](https://docs.fleek.co/StorageSDK) give more information on how to use the SDK.
 
 # Let's Fix NFTs!
 Fleek Storage is an amazing solution to store assets in IPFS. It fixes a lingering problem with Non Fungible Tokens by identifying the files they represent through IPFS hashes.
