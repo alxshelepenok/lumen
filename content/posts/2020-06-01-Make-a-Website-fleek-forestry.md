@@ -2,7 +2,7 @@
 template: post
 title: "No Coding Required: Make a Website With the Forestry CMS and Fleek!"
 slug: make-website-without-coding-cms
-draft: true
+draft: false
 date: 2020-06-01T04:02:37.816Z
 description: >-
     Now anyone can make a website thanks to the Forestry CMS and Fleek's site hosting... no coding required!
@@ -10,6 +10,7 @@ category: "Tutorial"
 socialImage: /media/cms/NoCode.png
 tags:
   - Tutorial
+  - CMS
 ---
 
 ![](./media/cms/NoCode.png)
