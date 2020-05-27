@@ -7,12 +7,12 @@ date: 2020-06-01T04:02:37.816Z
 description: >-
     Now anyone can make a website thanks to the Forestry CMS and Fleek's site hosting... no coding required!
 category: "Tutorial"
-socialImage: /ENSCover.jpg
+socialImage: /media/cms/NoCode.png
 tags:
   - Tutorial
 ---
 
-![](./media/ENSCover.jpg)
+![](./media/cms/NoCode.png)
 
 
 Fleek is the easiest way to deploy a website... but what about actually *making* one? Whether you do not know how to code, or you *do* know but lack the time, the solution boils down to three letters:
