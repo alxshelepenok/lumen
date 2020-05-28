@@ -100,7 +100,7 @@ The next time you log in to Forestry and make an update to your blog, Forestry w
 # No More Excuses!
 We've just seen how it was possible to make an awesome website *without writing a single line of code*!
 
-It's pretty amazing that web development tooling has come this far so that literally anyone can have his voice heard on the internet. It's so amazing, in fact, that it brushes await any excuses for *not* making that awesome blog of portfolio site you always dreamed of.
+It's pretty amazing that web development tooling has come this far so that literally anyone can have his voice heard on the internet. It's so amazing, in fact, that it brushes away any excuses for *not* making that awesome blog of portfolio site you always dreamed of.
 
 The great tools are out there. They are only awaiting your special touch!
 
