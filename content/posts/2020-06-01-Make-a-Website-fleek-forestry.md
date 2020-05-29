@@ -59,7 +59,7 @@ Finally, select `Github` as the Git Provider, specify a name for the github repo
 
 ![](./media/cms/github-select.png)
 
-Congratulations! You have created your site!
+Congratulations! You have created your site! 
 
 ## 2. Create Content
 ![](./media/cms/content-create.png)
