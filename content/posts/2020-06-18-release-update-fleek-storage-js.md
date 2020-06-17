@@ -2,17 +2,16 @@
 template: post
 title: 'Release Update: Fleek Storage Js'
 slug: release-update-fleek-storage-js
-draft: true
+draft: false
 date: 2020-06-18T12:18:31.636Z
 description: >-
   We have just released Fleek Storage Js to make pinning files to IPFS a breeze. Come take a look!
 category: Release
-socialImage: ./Release-Update-Pro-plan.png
+socialImage: ./media/fleekStorageRelease/fleek-storage-update.png
 tags:
   - Release
 ---
-<!-- TODO: Create a new thumbnail image -->
-![](/Release-Update-Pro-plan.png)
+![](/fleekStorageRelease/fleek-storage-update.png)
 
 We've just released [Fleek Storage Js](https://docs.fleek.co/FleekStorageJs), a new SDK that makes uploading and pinning files to IPFS a breeze!
 
