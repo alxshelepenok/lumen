@@ -2,7 +2,7 @@
 template: post
 title: 'Release Update: Fleek Storage Js'
 slug: release-update-fleek-storage-js
-draft: true
+draft: false
 date: 2020-06-18T12:18:31.636Z
 description: >-
   We have just released Fleek Storage Js to make pinning files to IPFS a breeze. Come take a look!
@@ -26,7 +26,9 @@ npm install @fleekhq/fleek-storage-js
 ```
 
 ### Simple Methods
-You can use simple methods like `upload` and `get` to pin and fetch your files from IPFS. You can ask for the public url, the ipfs hash, the key, or the file itself.
+You can use simple methods like `upload` and `get` to pin and fetch your files from IPFS. You can ask for the public url, the ipfs hash, the key, or the file content itself.
+
+Fleek Storage Js makes uploading and pinning to IPFS very simple.
 
 ### Download files from Fleek's IFPS gateway
 Did you know Fleek had its own [IPFS gateway](https://docs.fleek.co/Welcome/IPFSGateway)?
