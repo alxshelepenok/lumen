@@ -84,7 +84,7 @@ If using node, `fs.readFile` can be used to get a file's data from the computer.
 
 The method needs a `key`, which is the identifier that you give to the file.
 
-Files uploaded through `upload` will also appear in the [Fleek Storage web app](https://docs.fleek.co/StorageApp/Overview).
+Files uploaded through `upload` will also appear in the [Fleek Storage web app](https://docs.fleek.co/Storage/StorageApp/Overview).
 
 The file's `key` can be in the format of a path, such as in the example above. In that case, the web app will display the file as part of a folder structure.
 
@@ -133,7 +133,7 @@ In that case, `listFiles` is appropriate. It works exactly the same as `get`, ex
 ## More resources
 Here's a [Github repo](https://github.com/SamueleA/fleek-storage-js-examples) that shows an example of usage for each Fleek Storage Js method.
 
-Additionally, the [Fleek Storage Js](https://docs.fleek.co/FleekStorageJs/Overview) docs contains an exhaustive account of the inputs for each method.
+Additionally, the [Fleek Storage Js](https://docs.fleek.co/Storage/FleekStorageJs/Overview) docs contains an exhaustive account of the inputs for each method.
 
 ## Time to create!
 
