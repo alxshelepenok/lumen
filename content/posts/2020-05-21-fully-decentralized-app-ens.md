@@ -69,7 +69,7 @@ This makes integrating ENS a breeze and an essential tool for any Dapp developer
 
 # Your Turn!
 Deploy your site on IPFS and set up your ENS domain on Fleek!
-We have clear directions in the [Fleek ENS docs](https://docs.fleek.co/Sites/ENSDomains) to guide you.
+We have clear directions in the [Fleek ENS docs](https://docs.fleek.co/Hosting/ENSDomains) to guide you.
 
 You will reap the benefits of a fully decentralized application through its file system AND its domain.
 
