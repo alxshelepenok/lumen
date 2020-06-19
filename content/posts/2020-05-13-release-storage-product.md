@@ -19,7 +19,7 @@ We're excited to release Fleek Storage! Storing files on IPFS is easier and more
 
 # Fleek Storage App
 
-The Fleek app now has a Storage page. If you're already a Fleek user you'll see the new Storage page appear on the left-hand navigation menu of your screen. You can now upload, browse, and manage all your files through the app interface. All files uploaded are published to IPFS and published to DNS, with a CDN and File Compression. You can view and reference the files through the Fleek Storage URL, and can view directly on the IPFS gateway. Since our approach has been to leverage an S3 interface any S3 compatible CLI and SDK will work with Fleek. [Take a look](https://docs.fleek.co/StorageApp) at our updated tech docs to learn more about using Storage in-app.
+The Fleek app now has a Storage page. If you're already a Fleek user you'll see the new Storage page appear on the left-hand navigation menu of your screen. You can now upload, browse, and manage all your files through the app interface. All files uploaded are published to IPFS and published to DNS, with a CDN and File Compression. You can view and reference the files through the Fleek Storage URL, and can view directly on the IPFS gateway. Since our approach has been to leverage an S3 interface any S3 compatible CLI and SDK will work with Fleek. [Take a look](https://docs.fleek.co/Storage/StorageApp) at our updated tech docs to learn more about using Storage in-app.
 
 
 ![](media/FleekStorageFinal.gif)
@@ -27,7 +27,7 @@ The Fleek app now has a Storage page. If you're already a Fleek user you'll see 
 
 # Fleek Programmable Interfaces
 
-We've release the Fleek CLI, [here's the link](https://www.npmjs.com/package/@fleekhq/fleek-cli) to the npm package manager. To start, the Fleek CLI is to log in and create API keys. Since our interface is S3 compatible, you can use the S3 CLI and APIs to interact with your Fleek storage buckets. The AWS CLI and SDK work with any language that your app is built with, such as JavaScript, Go, C++, Python and Ruby. [Take a look](https://docs.fleek.co/StorageSDK) at our docs for getting set up with the CLI and integrating storage directly in your app.
+We've release the Fleek CLI, [here's the link](https://www.npmjs.com/package/@fleekhq/fleek-cli) to the npm package manager. To start, the Fleek CLI is to log in and create API keys. Since our interface is S3 compatible, you can use the S3 CLI and APIs to interact with your Fleek storage buckets. The AWS CLI and SDK work with any language that your app is built with, such as JavaScript, Go, C++, Python and Ruby. [Take a look](https://docs.fleek.co/Storage/s3Integration) at our docs for getting set up with the CLI and integrating storage directly in your app.
 
 # IPFS Pinning Summit
 

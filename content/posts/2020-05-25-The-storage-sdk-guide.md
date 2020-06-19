@@ -18,7 +18,7 @@ tags:
 
 Fleek Storage makes it easy to upload files to IPFS and distribute them on modern websites. To that end, we have made an awesome [web app](https://app.fleek.co) that allows users to store and access their files in a simple and visual manner.
 
-In some cases, however, a programmatic approach is preferable to manually interacting with a UI. That's why we have created the [Fleek Storage SDK](https://docs.fleek.co/StorageSDK), an API that will grant you greater flexibility in using our Fleek Storage product.
+In some cases, however, a programmatic approach is preferable to manually interacting with a UI. That's why we have created the [Fleek Storage SDK](https://docs.fleek.co/Storage/s3Integration), an API that will grant you greater flexibility in using our Fleek Storage product.
 
 This post will help you with common commands for the Storage SDK, so you'll be up and running in no time.
 
