@@ -2,19 +2,18 @@
 template: post
 title: 'Easily pin to IPFS with Fleek Storage Js! - A short guide'
 slug: guide-to-fleek-storage-js
-draft: true
+draft: false
 date: 2020-06-22T12:18:31.636Z
 description: >-
   It's now easier than ever to upload and pin files to IPFS thanks to Fleek Storage Js. Come learn how!
 category: Tutorial
-socialImage: ./Release-Update-Pro-plan.png
+socialImage: ./media/fleekStorateJs/fleek_storage_js_thumbnail.png
 tags:
   - Tutorial
   - Guide
   - Storage
 ---
-<!-- TODO: Create a new thumbnail image -->
-![](/Release-Update-Pro-plan.png)
+![](/fleekStorateJs/fleek_storage_js_thumbnail.png)
 
 It's now easier than ever to upload and pin files to IPFS thanks to Fleek Storage Js.
 
