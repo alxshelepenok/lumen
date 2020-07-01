@@ -22,21 +22,23 @@ For some teams, this step is an integral part of their workflow.
 
 ### Deploy previews are live!
 
-![](/newFeaturePrPreviews/fleek-learned.png)
+![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/fleek-learned.png)
 
-You can use deploy previews right as we speak! The feature is active by default for all users and all sites.  
+You can use deploy previews right as we speak! 
+
+The feature must be activated and configured in the settings. You can do so by going to the site's settings, clicking on `Build & Deploy` and interacting with the `Deploy Contexts` box.
+
+![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/deploy-contexts.png)
 
 To start a deploy preview, simply create a pull request to your production branch. The deploy preview will appear in the list of deploys of the site.
 
 Click on the deploy tagged `Deploy Preview` to view it!
 
-![](/newFeaturePrPreviews/list-of-deploys.png)
+![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/list-of-deploys.png)
 
 In addition, you are able to view the deploy preview right from the github page of your pull request. Very handy for developers wanting to see the changes resulting from a pull request!
 
-You can also configure the feature by selecting another production branch by going to the site settings, clicking on `Build & Deploy` and interacting with the `Deploy Contexts` box.
-
-![](/newFeaturePrPreviews/deploy-contexts.png)
+![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/pr-preview.png)
 
 ### Stay tuned!
 We are constantly working at improving Fleek and adding new features. So stay tuned to Fleek on social media to learn about all the new cool stuff we are working on!
