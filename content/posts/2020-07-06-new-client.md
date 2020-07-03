@@ -14,7 +14,7 @@ tags:
 
 ![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/DeployPreview.png)
 
-We've just release the space daemon, a new open source project which will help developers create privacy-focused apps on IPFS.
+We've just released the Space Daemon, a new open source project which will help developers create privacy-focused apps on IPFS.
 
 The Space Daemon can upload and read encrypted files on IPFS. These files can then be shared in a secure manner.
 
