@@ -2,7 +2,7 @@
 template: post
 title: 'New Feature Alert: Deploy Previews!'
 slug: new-feature-deploy-previews
-draft: true
+draft: false
 date: 2020-07-02T12:18:31.636Z
 description: >-
   New feature alert! You can now preview your deployments before release thanks to deploy previews!
