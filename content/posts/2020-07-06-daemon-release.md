@@ -1,7 +1,7 @@
 ---
 template: post
 title: 'The Space Daemon: A New Open Source Project for Privacy-focused IPFS Apps'
-slug: new-client
+slug: daemon-release
 draft: true
 date: 2020-07-06T12:18:31.636Z
 description: >-
