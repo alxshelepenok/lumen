@@ -2,7 +2,7 @@
 template: post
 title: 'The Space Daemon: A New Open Source Project for Privacy-focused IPFS Apps'
 slug: daemon-release
-draft: false
+draft: true
 date: 2020-07-06T12:18:31.636Z
 description: >-
   We've just release the Space Daemon, a new open source project to help developers create the next great peer-to-peer app. Come learn how you can use it!
