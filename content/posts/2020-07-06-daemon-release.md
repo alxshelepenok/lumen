@@ -5,14 +5,14 @@ slug: daemon-release
 draft: true
 date: 2020-07-06T12:18:31.636Z
 description: >-
-  We've just release the Space Daemon, a new open source project for all developers to use in their projects. Come learn how you can use it for you app!
+  We've just release the Space Daemon, a new open source project to help developers create the next great peer-to-peer app. Come learn how you can use it!
 category: Release
-socialImage: https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/DeployPreview.png
+socialImage: https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg
 tags:
   - release
 ---
 
-![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/DeployPreview.png)
+![](https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg)
 
 We've just released the Space Daemon, a new open source project which will help developers create privacy-focused apps on IPFS.
 
@@ -20,7 +20,7 @@ The Space Daemon can upload and read encrypted files on IPFS. These files can th
 
 A simple-to-use client provides an API to interact with the daemon in Javascript projects, such as Node or Electron apps.
 
-Whether it is for a hackathon, a personal project or the next big thing, the Space Daemon makes possible a wide array of privacy-focused IPFS apps.
+Whether it is for a hackathon, a personal project or the next big thing, the Space Daemon enables a wide array of privacy-focused IPFS apps.
 
 ### Getting Started
 
