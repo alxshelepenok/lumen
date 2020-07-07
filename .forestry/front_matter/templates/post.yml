@@ -5,6 +5,9 @@ fields:
 - type: text
   name: template
   label: template
+  description: Set this value to "post"
+  hidden: true
+  default: post
 - type: text
   name: title
   label: title
@@ -17,15 +20,24 @@ fields:
 - type: datetime
   name: date
   label: date
+  description: If the date is far in the future the blog post will not show up. Either
+    use the current day of the day before.
+- name: socialimage
+  type: text
+  config:
+    required: false
+  label: socialImage
+  description: Please upload the social image to Fleek Storage and paste the link
+    here. Images in the blog post itself should also come from a Fleek Storage link.
 - type: text
   name: description
   label: description
+  description: This is the description that appears below the thumbnail of the blog
+    post just before "Read More"<br><br>Include a call to action so people click on
+    read more.
 - type: text
   name: category
   label: category
-- type: file
-  name: socialImage
-  label: socialImage
 - type: list
   name: tags
   label: tags
