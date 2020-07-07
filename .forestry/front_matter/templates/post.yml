@@ -1,0 +1,31 @@
+---
+label: post
+hide_body: false
+fields:
+- type: text
+  name: template
+  label: template
+- type: text
+  name: title
+  label: title
+- type: text
+  name: slug
+  label: slug
+- type: boolean
+  name: draft
+  label: draft
+- type: datetime
+  name: date
+  label: date
+- type: text
+  name: description
+  label: description
+- type: text
+  name: category
+  label: category
+- type: file
+  name: socialImage
+  label: socialImage
+- type: list
+  name: tags
+  label: tags
