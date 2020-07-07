@@ -17,6 +17,9 @@ fields:
 - type: boolean
   name: draft
   label: draft
+  description: Set this value to false when it's time to publish and the article will
+    show up in the blog. If this value is true, the post remains invisible.
+  default: true
 - type: datetime
   name: date
   label: date
