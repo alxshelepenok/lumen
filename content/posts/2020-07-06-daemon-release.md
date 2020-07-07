@@ -31,10 +31,10 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 * Datastore for applications and application registry to enable user data controlled applications.
 * Trustless Data backups.
 * Local file system mounting.
-* More...  
-    
-  ### Share your creations!
-  We are excited to see what cool projects you will come up with using the Space Daemon, so share your ideas with us on Twitter.
+* More...
+
+### Share your creations!
+We are excited to see what cool projects you will come up with using the Space Daemon, so share your ideas with us on ![Twitter](https://twitter.com/FleekHQ).
 
 Good hacking!
 
