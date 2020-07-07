@@ -24,14 +24,19 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 
 * Fully Private file upload via encrypted textile buckets.
 * Peer to Peer file sharing selectively with other people and/or within teams.
-* Identity solution to enable users to be anywhere from fully anonymous to having as many 
+* Identity solution to enable users to be anywhere from fully anonymous to having as many
 * identity associations as they want.
 * Filecoin network interaction for file storage and retrieval markets.
 * Super easy to use Js library with easy to understand functions for File CRUD, Sharing, Identity, Backups, etc.
 * Datastore for applications and application registry to enable user data controlled applications.
 * Trustless Data backups.
 * Local file system mounting.
-* More...
+* More...  
+    
+  ### Share your creations!**  
+  We are excited to see what cool projects you will come up with using the Space Daemon, so share your ideas with us on Twitter.
+
+Good hacking!
 
 * Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
