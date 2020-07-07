@@ -39,7 +39,7 @@ We are excited to see what cool projects you will come up with using the Space D
 
 Good hacking!
 
-* [Sign up](https://app.fleek.co "Sign Up") to Fleek
+* [Sign up](https://app.fleek.co "Sign Up") to try Fleek
 * Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A "Fleek's Slack")
 * Follow us on [Twitter](https://twitter.com/FleekHQ "Fleek's Twitter")
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw "Fleek's Youtube Channel")
