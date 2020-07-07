@@ -48,7 +48,7 @@ Then you can run daemon as any other normal binary file:
 ./your_binary_file
 ```
 ![Running daemon](https://gpuente105-team-bucket.storage.fleek.co/imgs/Screen%20Shot%202020-07-07%20at%2012.35.51.png)
-> If you get a warning window when you try to execute the daemon, please follow this instructions:
+If you get a warning window when you try to execute the daemon, please follow this instructions:
 Click on cancel:
 ![Warning window](https://gpuente105-team-bucket.storage.fleek.co/imgs/Screen%20Shot%202020-07-07%20at%2012.36.06.png)
 Then go to your System Preferences/Security and Privacy and click `Allow Anyway`:
@@ -102,7 +102,10 @@ If you are running the client on the server-side, you need to declare `XMLHttpRe
 ```
 ### CRUD Operations
 #### Create bucket
-> .createBucket({ slug: string })
+```
+.createBucket({ slug: string })
+```
+
 Creates a new bucket. Returns a Promise that resolves to the new bucket instance
 ```js
   client
@@ -126,37 +129,11 @@ Creates a new bucket. Returns a Promise that resolves to the new bucket instance
     ...
   };
 ```
-#### List buckets
-> `[WIP]` <em>.listBuckets()</em>
-> 
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Returns all the buckets available
-```js
-  client
-    .listBuckets()
-    .then((res) => {
-      const buckets = res.getBucketsList();
-      
-      buckets.forEach((bucket) => {
-        console.log('key:', bucket.getKey());
-        console.log('name:', bucket.getName());
-        console.log('path:', bucket.getPath());
-        console.log('createdAt:', bucket.getCreatedat());
-        console.log('updatedAt:', bucket.getUpdatedat());
-      });
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    const res = await client.listBuckets();
-    const buckets = res.getBucketsList();
-    ...
-  };
-```
+
 #### Upload files/folders
-> .addItems({ bucket: string, targetPath: string, sourcePaths: string[] })
+```
+.addItems({ bucket: string, targetPath: string, sourcePaths: string[] })
+```
 Add new items. Returns a readable stream to resolves the new items
 ```js
   const stream = client.addItems({
@@ -177,7 +154,9 @@ Add new items. Returns a readable stream to resolves the new items
   });
 ```
 #### Create folders
-> .createFolder({ path: string, bucket: string })
+```
+.createFolder({ path: string, bucket: string })
+```
 Creates a new empty folder. Returns a Promise that resolves to the new folder
 ```js
   client
@@ -194,7 +173,9 @@ Creates a new empty folder. Returns a Promise that resolves to the new folder
   };
 ```
 #### List a directory
-> .listDirectory({ path: string, bucket: string })
+```
+.listDirectory({ path: string, bucket: string })
+```
 Returns a promise that resolves to list of Entry instances representing each folder and files present in the path directory.
 ```js
   client
@@ -225,7 +206,9 @@ Returns a promise that resolves to list of Entry instances representing each fol
   };
 ```
 #### List all the bucket directories/files
-> .listDirectories({ bucket: string })
+```
+.listDirectories({ bucket: string })
+```
 Returns a Promise that resolves to list of Entry representing all the folders and files inside the bucket.
 ```js
   client
@@ -256,7 +239,9 @@ Returns a Promise that resolves to list of Entry representing all the folders an
   };
 ```
 #### Open a file
-> .openFile({ path: string, bucket: string })
+```
+.openFile({ path: string, bucket: string })
+```
 Copies the file referenced by the path arg to a temp folder on your machine and returns a Promise that resolves to the file location
 ```js
 const asyncFunc = async () => {
@@ -274,7 +259,9 @@ const asyncFunc = async () => {
 };
 ```
 #### Subscribe to txl events
-> .txlSubscribe()
+```
+.txlSubscribe()
+```
 Returns a ReadableStream that notifies when something changed on the bucket (data stream returns the Bucket name).
 ```js
   const txlStream = client.txlSubscribe();
@@ -284,7 +271,9 @@ Returns a ReadableStream that notifies when something changed on the bucket (dat
   });
 ```
 #### Subscribe to buckets events
-> .subscribe()
+```
+.subscribe()
+```
 Returns a ReadableStream that notifies when something changed on the bucket (data stream returns the event type + the entry affected).
 Event type can be one of `[ENTRY_ADDED, ENTRY_DELETED, ENTRY_UPDATED]`
 ```js
@@ -305,7 +294,9 @@ Event type can be one of `[ENTRY_ADDED, ENTRY_DELETED, ENTRY_UPDATED]`
 ```
 ### Identity
 #### Create username and email
-> .createUsernameAndEmail({ username: string, email?: string })
+```
+.createUsernameAndEmail({ username: string, email?: string })
+```
 Create a new username with/out email. Returns a Promise that resolves to the username
 ```js
   client
@@ -322,7 +313,9 @@ Create a new username with/out email. Returns a Promise that resolves to the use
   };
 ```
 #### Get identity by username
-> .getIdentityByUsername({ username: string, email?: string })
+```
+.getIdentityByUsername({ username: string, email?: string })
+```
 Get an indentity based on a username. Returns a Promise that resolves if a username already exists
 ```js
   client
@@ -341,32 +334,10 @@ Get an indentity based on a username. Returns a Promise that resolves if a usern
   };
 ```
 ### Sharing
-#### Share a bucket via email
-> `[WIP]` <em>.shareBucketViaEmail({ bucket: string, email: string })</em>
->
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Shares a bucket via email
-```js
-  client
-    .shareBucketViaEmail({ bucket: 'my-bucket-slug', email: 'email@gmail.com' })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Asyn/Await */
-  const asyncFunc = async () => {
-    const res = await client.shareBucketViaEmail({
-      bucket: 'my-bucket-slug',
-      email: 'email@gmail.com',
-    });
-    
-    console.log(res);
-  };
-```
 #### Share a bucket via identity
-> .shareBucketViaIdentity({ identityType: 'USERNAME' | 'EMAIL', identityValue: string, bucket: string })
+```
+.shareBucketViaIdentity({ identityType: 'USERNAME' | 'EMAIL', identityValue: string, bucket: string })
+```
 Shares a bucket via identity
 ```js
   client
@@ -392,35 +363,11 @@ Shares a bucket via identity
     console.log(res);
   };
 ```
-#### Generate a file share link
-> `[WIP]` <em>.generateFileShareLink({ bucket: string, filePath: string })</em>
->
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Generates a share link
-```js
-  client
-    .generateFileShareLink({
-      bucket: 'my-bucket-slug',
-      filePath: 'path/to/file.js',
-    })
-    .then((res) => {
-      console.log(res.getLink());
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    const res = await client.generateFileShareLink({
-      bucket: 'my-bucket-slug',
-      filePath: 'path/to/file.js',
-    });
-    
-    console.log(res.getLink());
-  };
-```
+
 #### Share a bucket
-> .shareBucket({ bucket: string })
+```
+.shareBucket({ bucket: string })
+```
 Shares a bucket. Returns a promis that resolves to the threadInfo (required to join a bucket)
 ```js
   client
@@ -441,7 +388,9 @@ Shares a bucket. Returns a promis that resolves to the threadInfo (required to j
   };
 ```
 #### Join a shared bucket
-> .joinBucket({ bucket: string, threadInfo: { key: string, addresses: [string] } })
+```
+.joinBucket({ bucket: string, threadInfo: { key: string, addresses: [string] } })
+```
 Joins a shared bucket
 ```js
   client
@@ -469,100 +418,6 @@ Joins a shared bucket
     });
     console.log('result', res.getResult());
     ...
-  };
-```
-### Backup
-#### Backup keys by passphrase
-> `[WIP]` <em>.backupKeysByPassphrase({ passphrase: string })</em>
-> 
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Backup keys by passphrase
-```js
-  client
-    .backupKeysByPassphrase({
-      passphrase: 'my-passphrase',
-    })
-    .then(() => {
-      console.log('keys backup');
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    await client.backupKeysByPassphrase({
-      passphrase: 'my-passphrase',
-    });
-  };
-```
-#### Recovery keys by passphrase
-> `[WIP]` <em>.recoverKeysByPassphrase({ passphrase: string })</em>
-> 
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Recovery keys by passphrase
-```js
-  client
-    .recoverKeysByPassphrase({
-      passphrase: 'my-passphrase',
-    })
-    .then(() => {
-      console.log('recovery keys');
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    await client.recoverKeysByPassphrase({
-      passphrase: 'my-passphrase',
-    });
-  };
-```
-### Mount
-#### Toggle fuse drive
-> `[WIP]` <em>.toggleFuseDrive({ mountDrive: boolean })</em>
-> 
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Mounts the fuse drive on your machine
-```js
-  client
-    .toggleFuseDrive({
-      mountDrive: true || false,
-    })
-    .then((res) => {
-      console.log(res.getFusedrivemounted());
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    const res = await client.toggleFuseDrive({
-      mountDrive: true || false,
-    });
-    
-    console.log(res.getFusedrivemounted());
-  };
-```
-#### Get fuse drive status
-> `[WIP]` <em>.getFuseDriveStatus({})</em>
-> 
-> this method is still not supported by [space-daemon](https://github.com/FleekHQ/space-daemon)
-Get the current Fuse drive status
-```js
-  client
-    .getFuseDriveStatus({})
-    .then((res) => {
-      console.log(res.getFusedrivemounted());
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  /* Or using Async/Await */
-  const asyncFunc = async () => {
-    const res = await client.getFuseDriveStatus({});
-    
-    console.log(res.getFusedrivemounted());
   };
 ```
 
