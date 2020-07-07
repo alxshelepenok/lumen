@@ -33,7 +33,7 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 * Local file system mounting.
 * More...  
     
-  ### Share your creations!**  
+  ### Share your creations!
   We are excited to see what cool projects you will come up with using the Space Daemon, so share your ideas with us on Twitter.
 
 Good hacking!
