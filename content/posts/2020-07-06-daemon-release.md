@@ -7,12 +7,12 @@ date: 2020-07-06T12:18:31.636+00:00
 description: We’re excited to introduce our latest and most exciting decentralized
   development, the Space Daemon. Come learn more and how to use it!
 category: Release
-socialImage: https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg
+socialImage: https://fleek-team-bucket.storage.fleek.co/SpaceDaemon.png
 tags:
 - release
 
 ---
-![](https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg)
+![](https://fleek-team-bucket.storage.fleek.co/SpaceDaemon.png)
 
 We’re excited to introduce our latest and most exciting decentralized development, the Space Daemon.
 
