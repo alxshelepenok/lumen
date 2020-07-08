@@ -13,7 +13,7 @@ tags:
 ---
 ![](/fleekStorageRelease/fleek-storage-update.png)
 
-We've just released [Fleek Storage Js](https://docs.fleek.co/Storage/FleekStorageJs), a new SDK that makes uploading and pinning files to IPFS a breeze!
+We've just released [Fleek Storage Js](https://docs.fleek.co/storage/fleek-storage-js), a new SDK that makes uploading and pinning files to IPFS a breeze!
 
 ### Install now!
 
@@ -31,16 +31,16 @@ You can use simple methods like `upload` and `get` to pin and fetch your files f
 Fleek Storage Js makes uploading and pinning to IPFS very simple.
 
 ### Download files from Fleek's IFPS gateway
-Did you know Fleek had its own [IPFS gateway](https://docs.fleek.co/Welcome/IPFSGateway)?
+Did you know Fleek had its own IPFS gateway?
 
 Simply substitute the IPFS hash in the url below to use it.
 `https://ipfs.fleek.co/ipfs/<HASH>`
 
-Also, Fleek Storage Js provides a [utility method](https://docs.fleek.co/Storage/FleekStorageJs/getFileFromHash) to download any file on IPFS through our gateway, no account needed!
+Also, Fleek Storage Js provides a [utility method](https://docs.fleek.co/storage/fleek-storage-js/#getFileFromHash) to download any file on IPFS through our gateway, no account needed!
 
 ### Learn more in our docs!
 
-Read more about Fleek Storage Js and Fleek Storage in our [docs](https://docs.fleek.co/Storage/FleekStorageJs).
+Read more about Fleek Storage Js and Fleek Storage in our [docs](https://docs.fleek.co/storage/fleek-storage-js).
 
 We've made a special effort to document clearly each method of Fleek Storage Js to make its integration as straightforward as possible.
 
