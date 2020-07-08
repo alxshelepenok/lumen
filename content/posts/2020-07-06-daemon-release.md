@@ -5,7 +5,7 @@ slug: daemon-release
 draft: false
 date: 2020-07-06T12:18:31.636+00:00
 description: We’re excited to introduce our latest and most exciting decentralized
-  development, the Space Daemon. Come learn how you can use it!
+  development, the Space Daemon. Come learn what is is and how you can use it!
 category: Release
 socialImage: https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg
 tags:
