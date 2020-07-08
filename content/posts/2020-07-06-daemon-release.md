@@ -18,7 +18,7 @@ We’re excited to introduce our latest and most exciting decentralized developm
 
 The[ Space Daemon](https://github.com/FleekHQ/space-daemon "Space Daemon") packages together [IPFS](https://ipfs.io/ "IPFS"), [Textile](https://textile.io/ "Textile") Threads/Buckets, and Textile Powergate (Filecoin) into one easy to install and JS interface to make it easy to build peer to peer and privacy focused apps.
 
-Installing the [Space Daemon](https://github.com/FleekHQ/space-daemon "Space Daemon") is easy and comes with all the tools packaged together including IPFS and Textile nodes, and and also exposes gRPC methods specific to the features you want for your app including: File Upload (encrypted), File Sharing, Filecoin Markets, and User Controlled Data. You can access same methods using our [JS client](https://github.com/FleekHQ/space-client "Space Client"), so you don't need to worry about gRCP calls.
+Installing the [Space Daemon](https://github.com/FleekHQ/space-daemon "Space Daemon") is easy and comes with all the tools packaged together including IPFS and Textile nodes, and also exposes gRPC methods specific to the features you want for your app including File Upload (encrypted), File Sharing, Filecoin Markets, and User Controlled Data. You can access the same methods using our [JS client](https://github.com/FleekHQ/space-client "Space Client"), so you don't need to worry about gRCP calls.
 
 Space is the next evolution of Cloud, where users can interact with apps fully private, p2p, and control their own data. Big tech has taken advantage of user data for far too long, it's time to let users take back control and privacy of their data. Here are the features the Space Daemon will bring to your application:
 
@@ -36,37 +36,45 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 
 ### Installation
 
-The installation process is done in two part. The first is to [download the daemon](https://github.com/FleekHQ/space-daemon) and the second is to setup the client so your Javascript application can communicate with the daemon.
+The installation process is done in two parts. The first part to [download the daemon](https://github.com/FleekHQ/space-daemon) and the second is to set up the client so your Javascript application can communicate with the daemon.
 
-The daemon is available for any desktop platforms (Windows, Mac and Linux).
+The daemon is available for any desktop platforms (Windows, Mac, and Linux).
 
 We have detailed instructions in our [docs on installing the space daemon](https://docs.fleek.co/space-daemon/getting-started/#installation).
 
 ### Privacy-focused file commands
 
-You can perform any CRUD(Create, Read, Update, Delete) operation with the Space Client, such as adding files, opening files and managing the encrypted buckets in which your files reside.
+You can perform any CRUD(Create, Read, Update, Delete) operation with the Space Client, such as adding files, opening files and managing the encrypted buckets in which your files reside. Each action interacting with files is interacting with client-side encryption methods and storing the files privately on IPFS and/or Filecoin. The files are stored locally on the users computer with utmost privacy and security.
 
-These operations are performed in a manner mindful of users' privacy through the use of cryptographic keys. 
+These operations are performed in a manner mindful of users' privacy through the use of cryptographic keys.
 
 Learn more about [CRUD commands](https://docs.fleek.co/space-daemon/getting-started/#crud-operations).
 
 ### Sharing
 
-Space daemon allows users to share files between them. We provide commands so that those operations can be performed while preserving privacy.
+Space daemon enables the most peer to peer capabilities for users to share files directly between each other, selectively with one another, within a team, etc. All the Sharing commands come ready to go with the Daemon to make it easy for application developers to give users the peer to peer experience of sharing data without touching any servers, and preserving the privacy of the files. 
 
-Read more about [sharing files](https://docs.fleek.co/space-daemon/getting-started/#sharing).
+Read more about [sharing files](https://docs.fleek.co/space-daemon/getting-started/#sharing) via the Space Daemon.
 
 ### Identity
 
-To simplify app creation the Space Daemon comes with out-of-the-box identity management system. This system is centralized, but optional, and meant for convenience only.
+The Space Daemon comes with an out-of-the-box identity service that is open-source and allows anywhere from the most anonymous all the way to the user having as many identity proofs as they like. This provides for a very user-friendly experience of users being able to use friendly recognizable names while taking full advantage of privacy via encryption keys and peer to peer sharing. 
 
-Users can identify themselves with a username and/or email. The identity management system allows users to share files by email without having to use a potentially intimidating-looking public key.
+To start, the Identity service supports usernames and/or emails that can be associated and verified to the user. We are quickly adding more types of identities and proofs that users can associate and prove their association with to connect more easily with other users. 
 
 Learn more about how to use [identity in the space client](https://docs.fleek.co/space-daemon/getting-started/#identity).
 
+## Open Source
+
+Everything about the Space Daemon is open source! The Daemon that is installed, the Javascript client for developers to easily build on it, the identity service, and more. 
+
+We believe in open source and the community behind it. If there is a better way to do things we want it to be heard, contributed, and pluggable. There will be an app ecosystem of plugins, services, and applications that can utilize the benefits of the foundational Space Daemon as a user-controlled, private, and peer to peer data repository. 
+
+We're really excited to receive more feedback and see what people build!
+
 ## Example Desktop App
 
-We've also created a [repository](https://github.com/FleekHQ/space-client-workshop) with an example desktop application to show off the features that can be utilized from the Space Daemon. Its a simple create react app + electron implementation to show [space-daemon](https://github.com/FleekHQ/space-daemon) and [space-client](https://github.com/FleekHQ/space-client) features.
+We've also created a [repository](https://github.com/FleekHQ/space-client-workshop) with an example desktop application to show off the features that can be utilized from the Space Daemon. It's a simple create react app + electron implementation to show [space-daemon](https://github.com/FleekHQ/space-daemon) and [space-client](https://github.com/FleekHQ/space-client) features.
 
 ### Run the project:
 
