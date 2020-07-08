@@ -31,7 +31,7 @@ You can now collaborate, share, and ship with the rest of your team. Invite all 
 
 ### Zero Config Deployment
 
-Using a .fleek.json configuration file, placed at the root of a git repository, you can provide options that change the default build behavior and overrides settings in the User Interface. [Take a look](https://docs.fleek.co/BuildConfigurations) at our tech docs .fleek.json config file section for an example and more details how to use it.
+Using a .fleek.json configuration file, placed at the root of a git repository, you can provide options that change the default build behavior and overrides settings in the User Interface. [Take a look](https://docs.fleek.co/build-configurations) at our tech docs .fleek.json config file section for an example and more details how to use it.
 
 ![](./media/Rebrand-release/DeploymentConfigFile.png)
 
