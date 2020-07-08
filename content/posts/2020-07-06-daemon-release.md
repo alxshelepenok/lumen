@@ -4,8 +4,8 @@ title: 'Introducing The Space Daemon: Build Privacy-focused and Peer to Peer App
 slug: daemon-release
 draft: false
 date: 2020-07-06T12:18:31.636+00:00
-description: We've just release the Space Daemon, a new open source project to help
-  developers create the next great peer-to-peer app. Come learn how you can use it!
+description: We’re excited to introduce our latest and most exciting decentralized
+  development, the Space Daemon. Come learn how you can use it!
 category: Release
 socialImage: https://fleekblog-team-bucket.storage.fleek.co/daemon-release/space-daemon.jpg
 tags:
