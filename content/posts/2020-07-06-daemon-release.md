@@ -34,7 +34,7 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 
 ## Getting Started
 
-### Installation
+#### Installation
 
 The installation process is done in two parts. The first part to [download the daemon](https://github.com/FleekHQ/space-daemon) and the second is to set up the client so your Javascript application can communicate with the daemon.
 
@@ -42,7 +42,7 @@ The daemon is available for any desktop platforms (Windows, Mac, and Linux).
 
 We have detailed instructions in our [docs on installing the space daemon](https://docs.fleek.co/space-daemon/getting-started/#installation).
 
-### Privacy-focused file commands
+#### Privacy-focused file commands
 
 You can perform any CRUD(Create, Read, Update, Delete) operation with the Space Client, such as adding files, opening files and managing the encrypted buckets in which your files reside. Each action interacting with files is interacting with client-side encryption methods and storing the files privately on IPFS and/or Filecoin. The files are stored locally on the users computer with utmost privacy and security.
 
@@ -50,13 +50,13 @@ These operations are performed in a manner mindful of users' privacy through the
 
 Learn more about [CRUD commands](https://docs.fleek.co/space-daemon/getting-started/#crud-operations).
 
-### Sharing
+#### Sharing
 
-Space daemon enables the most peer to peer capabilities for users to share files directly between each other, selectively with one another, within a team, etc. All the Sharing commands come ready to go with the Daemon to make it easy for application developers to give users the peer to peer experience of sharing data without touching any servers, and preserving the privacy of the files. 
+Space daemon enables the most peer to peer capabilities for users to share files directly between each other, selectively with one another, within a team, etc. All the Sharing commands come ready to go with the Daemon to make it easy for application developers to give users the peer to peer experience of sharing data without touching any servers while preserving the privacy of the files. 
 
 Read more about [sharing files](https://docs.fleek.co/space-daemon/getting-started/#sharing) via the Space Daemon.
 
-### Identity
+#### Identity
 
 The Space Daemon comes with an out-of-the-box identity service that is open-source and allows anywhere from the most anonymous all the way to the user having as many identity proofs as they like. This provides for a very user-friendly experience of users being able to use friendly recognizable names while taking full advantage of privacy via encryption keys and peer to peer sharing. 
 
