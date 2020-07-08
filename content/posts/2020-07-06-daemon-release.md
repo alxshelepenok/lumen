@@ -70,7 +70,7 @@ Learn more about how to use [identity in the space client](https://docs.fleek.co
 
 ![](https://fleek-team-bucket.storage.fleek.co/open-source-collaboration.jpg)
 
-Everything about the Space Daemon is open source! The Daemon that gets installed, the Javascript client for developers to easily build on top of the Dameon, the identity service, and more.
+Everything about the Space Daemon is [open source](https://github.com/fleekhq)! The Daemon that gets installed, the Javascript client for developers to easily build on top of the Dameon, the identity service, and more.
 
 We believe in open source and the community behind it. If there is a better way to do things we want it to be heard, contributed, and pluggable. There will be an app ecosystem of plugins, services, and applications that can utilize the benefits of the foundational Space Daemon as a user-controlled, private, and peer to peer data repository.
 
