@@ -34,6 +34,8 @@ Space is the next evolution of Cloud, where users can interact with apps fully p
 
 ## Getting Started
 
+![](https://fleek-team-bucket.storage.fleek.co/hero.png)
+
 #### Installation
 
 The installation process is done in two parts. The first part to [download the daemon](https://github.com/FleekHQ/space-daemon) and the second is to set up the client so your Javascript application can communicate with the daemon.
@@ -66,7 +68,9 @@ Learn more about how to use [identity in the space client](https://docs.fleek.co
 
 ## Open Source
 
-Everything about the Space Daemon is open source! The Daemon that is installed, the Javascript client for developers to easily build on it, the identity service, and more. 
+![](https://fleek-team-bucket.storage.fleek.co/open-source-collaboration.jpg)
+
+Everything about the Space Daemon is open source! The Daemon that gets installed, the Javascript client for developers to easily build on top of the Dameon, the identity service, and more. 
 
 We believe in open source and the community behind it. If there is a better way to do things we want it to be heard, contributed, and pluggable. There will be an app ecosystem of plugins, services, and applications that can utilize the benefits of the foundational Space Daemon as a user-controlled, private, and peer to peer data repository. 
 
@@ -74,7 +78,7 @@ We're really excited to receive more feedback and see what people build!
 
 ## Example Desktop App
 
-We've also created a [repository](https://github.com/FleekHQ/space-client-workshop) with an example desktop application to show off the features that can be utilized from the Space Daemon. It's a simple create react app + electron implementation to show [space-daemon](https://github.com/FleekHQ/space-daemon) and [space-client](https://github.com/FleekHQ/space-client) features.
+![](https://fleek-team-bucket.storage.fleek.co/spaceDaemonExampleRepo.png)We've also created a [repository](https://github.com/FleekHQ/space-client-workshop) with an example desktop application to show off the features that can be utilized from the Space Daemon. It's a simple create react app + electron implementation to show [space-daemon](https://github.com/FleekHQ/space-daemon) and [space-client](https://github.com/FleekHQ/space-client) features.
 
 ### Run the project:
 
@@ -91,8 +95,6 @@ or
 Run the project:
 
 `yarn electron:dev`
-
-### ![](https://fleek-team-bucket.storage.fleek.co/spaceDaemonExampleRepo.png)
 
 ### Share your creations!
 
