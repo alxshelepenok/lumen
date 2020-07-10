@@ -20,7 +20,7 @@ Many have asked for it and now we deliver. We've added support for three new fra
 
 ![](https://fleekblog-team-bucket.storage.fleek.co/new-frameworks/three-framework-meme.jpeg)
 
-The three frameworks in question are Gridsome, Svelte and Mkdocs (which by the way we are using for[ our revamped docs](https://docs.fleek.co/)).
+The three frameworks in question are Gridsome, Svelte and Mkdocs (which by the way we are using for [our revamped docs](https://docs.fleek.co/)).
 
 The support for these frameworks include auto-detection at the site creation stage and [official Fleek docker images](https://hub.docker.com/orgs/fleek/repositories) that you can use right away!
 
