@@ -44,3 +44,5 @@ fields:
 - type: list
   name: tags
   label: tags
+pages:
+- content/posts/three-new-frameworks-added-to-fleek-s-roster-gridsome-svelte-and-mkdocs.md
