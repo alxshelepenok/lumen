@@ -9,13 +9,13 @@ description: Today, we’re excited to launch a new version of Fleek - the easie
   deployment, Fleek provides one seamless workflow with everything you need to build
   fast, modern sites & web apps hosted on IPFS.
 category: General
-socialImage: "./media/Intro.png"
+socialImage: https://fleek-team-bucket.storage.fleek.co/FleekIntro.jpg
 tags:
 - general
 - launch
 
 ---
-![](./media/Intro.png)
+![](https://fleek-team-bucket.storage.fleek.co/FleekIntro.jpg)
 
 Today, we’re excited to launch a new version of Fleek - the easiest way to build, deploy, and host websites & apps on IPFS. From local development to global deployment, Fleek provides one seamless workflow with everything you need to build fast, modern sites & web apps hosted on IPFS. All you have to do is link your github, and within a few clicks you will have your first site deployed to IPFS (and everytime after that it will happen automatically 😄)
 
