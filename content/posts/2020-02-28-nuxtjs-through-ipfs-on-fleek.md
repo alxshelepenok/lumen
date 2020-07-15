@@ -3,68 +3,62 @@ template: post
 title: Deploying NuxtJS through IPFS on Fleek
 slug: Deploying-nuxtJS-through-IPFS-on-Fleek
 draft: false
-date: 2020-04-28T04:02:37.816Z
+date: 2020-04-28T04:02:37.816+00:00
 description: Get started with deploying your NuxtJS site through IPFS on Fleek
 category: getting started
-socialImage: ./media/nuxtjs/main.png
+socialImage: "./media/nuxtjs/main.png"
 tags:
-  - general
-  - nuxtjs
-  - ipfs
-  - getting started
+- general
+- nuxtjs
+- ipfs
+- getting started
+
 ---
-![](images/nuxtjs/main.png) 
+![](images/nuxtjs/main.png)
 
+In this article, we will show you how to deploy your site built on NuxtJS and deploying using IPFS on Fleek
 
-In this article, we will show you how to deploy your site built on NuxtJS and deploying using IPFS on Fleek 
-
-```
-# Table of Contents
-- What is Fleek
-- What is IPFS
-- Starting a NuxtJS Project
-- File Structure Content
-- Deploying to IPFS on Fleek
-- Switching name or adding a domain on Fleek
-- Closing Thoughts
-- Resources
-```
+    # Table of Contents
+    - What is Fleek
+    - What is IPFS
+    - Starting a NuxtJS Project
+    - File Structure Content
+    - Deploying to IPFS on Fleek
+    - Switching name or adding a domain on Fleek
+    - Closing Thoughts
+    - Resources
 
 # What is Fleek
+
 Fleek is everything you need to build fast, modern sites & apps on IPFS. All in one seamless workflow, From local development to global deployment, Your site will not only run on IPFS, but it’s also supplemented with a global, enterprise-grade CDN, allowing for speed, scale, and performance that is superior to normal hosting.
 
 # What is IPFS
+
 [IPFS](https://ipfs.io) stands for `InterPlanetary File System`, The InterPlanetary File System is a protocol and peer-to-peer network for storing and sharing data in a distributed file system. IPFS uses content-addressing to uniquely identify each file in a global namespace connecting all computing devices.
 
 # Starting a NuxtJS Project
 
 The first step is to create a nuxt app wrapped around create-nuxt-app, the name of my directory is `deploy-nuxtjs-using-ipfs-on-fleek` yours can be named whatever you like.
 
-```
-$ npx create-nuxt-app deploy-nuxtjs-using-ipfs-on-fleek
-
-```
+    $ npx create-nuxt-app deploy-nuxtjs-using-ipfs-on-fleek
+    
 
 Once that is done you now have your repo created, all that is left is to enter into the directory using the company below
 
-```
-cd deploy-nuxtjs-using-ipfs-on-fleek
-```
+    cd deploy-nuxtjs-using-ipfs-on-fleek
 
 run the command below to start the development server which would create a server on `http://localhost:3000/`
 
-```
-yarn dev
-```
+    yarn dev
 
 Once that is running you would see a preview that similar to the below
 
 ![](images/nuxtjs/nuxt-main.png)
 
-
 # File Structure Content
 
 ## Assets
+
 The `assets` directory is made for assets in relations to design/style, for this project we are running on tailwind CSS, so in our assets/css we have `tailwind.css`
 
 ```css
@@ -151,7 +145,7 @@ export default {
 </style>
 ```
 
-To learn more about Nuxt.js code directory click [Here](https://nuxtjs.org/guide/directory-structure/) 
+To learn more about Nuxt.js code directory click [Here](https://nuxtjs.org/guide/directory-structure/)
 
 # Deploying to IPFS on Fleek
 
@@ -166,6 +160,8 @@ Once that's done click on `Add New Site` that should take you to a new page like
 Immediately after connection search for the name of the repo over GitHub using the search feature by the right-hand side of the screen and click the repo that was listed, similar to the below
 
 ![](images/nuxtjs/search.png)
+
+It is worth noting at this point that Nuxt supports SSR (server-side rendering). We _do not_ want to run our site on SSR because our files are simply hosted on IPFS and there is no server running in this scenario. Therefore, we must make sure that the site is exported as a _static_ site.
 
 The next step is the deploy settings page, the framework/language is automatically selected by Fleek, once you have gotten to this screen click `Deploy Site`
 
@@ -191,6 +187,6 @@ Usually, when you deploy a new site on Fleek, you have a very funny looking doma
 
 # Resources
 
-- [GitHub Repo](https://github.com/Developerayo/deploy-nuxtjs-using-ipfs-on-fleek)
-- [Deployed Site](https://deploy-nuxtjs-using-ipfs-on-fleek.on.fleek.co/)
-- [NuxtJS Guide](https://nuxtjs.org/guide/)
+* [GitHub Repo](https://github.com/Developerayo/deploy-nuxtjs-using-ipfs-on-fleek)
+* [Deployed Site](https://deploy-nuxtjs-using-ipfs-on-fleek.on.fleek.co/)
+* [NuxtJS Guide](https://nuxtjs.org/guide/)
