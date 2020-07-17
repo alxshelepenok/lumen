@@ -1,7 +1,8 @@
 ---
 template: post
 draft: true
-title: 'Three new frameworks added to Fleek''s Roster: Gridsome, Svelte and Mkdocs '
+title: '3 New Frameworks Added to Fleek''s Automatic Detection: Gridsome, Svelte and
+  Mkdocs '
 slug: gridsome-svelte-mkdocs
 date: 2020-07-13T04:00:00Z
 socialimage: ''
