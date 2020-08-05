@@ -45,4 +45,5 @@ fields:
   name: tags
   label: tags
 pages:
+- content/posts/introducing-space.md
 - content/posts/three-new-frameworks-added-to-fleek-s-roster-gridsome-svelte-and-mkdocs.md
