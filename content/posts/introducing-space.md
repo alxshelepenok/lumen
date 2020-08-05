@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Introducing Space
 slug: Introducing-Space-fleek
-date: 2020-08-05T14:00:00Z
+date: 2020-08-05T14:00:00.000+00:00
 socialimage: https://fleek-team-bucket.storage.fleek.co/Space.png
 description: 'Today the Fleek team is super excited to announce a brand new product
   we’ve been working on for the past few months: Space! '
@@ -26,7 +26,6 @@ Below is some additional info on Space, why we built it, and the product roadmap
 
 And we need to fix it now. Content is becoming more and more censored, hacks are becoming more and more serious, and big tech companies and governments are spying on users, violating their privacy, and abusing their data more and more everyday. In the past few months alone there have been multiple platforms ([Reddit](https://www.wsws.org/en/articles/2020/07/02/redd-j02.html), [Youtube](https://fee.org/articles/youtube-to-ban-content-that-contradicts-who-on-covid-19-despite-the-un-agency-s-catastrophic-track-record-of-misinformation/)) and governments ([Turkey](https://apnews.com/9abc40bdd22f6c8df763bad0b4c55924), [Hong Kong](https://fortune.com/2020/07/07/hong-kong-law-internet-freedom/)) increasing internet censorship, Twitter got [badly hacked](https://www.bbc.com/news/technology-53445090), and a [bill was introduced](https://www.cnet.com/news/republicans-push-bill-requiring-tech-companies-to-help-access-encrypted-data/) in the US that would force tech companies to unencrypt private data about users (if technically possible) and give it to the government! The trend is frightening, especially with things like personal health, genetic and brain data on the horizon, coupled with AI, we could be headed to a real dystopia if something isn’t done about this soon.
 
-  
 There’s only one possible way out of the current situation and to save the internet: distribute the web.
 
 ## Distributing The Web Is Our Only Way Out
@@ -77,7 +76,7 @@ That’s the goal. It’s only right that a user owned internet (aka the Dweb) i
 
 ## Final Thought: Data is the New Currency. Stop Letting People Steal It From You.
 
-These big tech companies are getting rich off your data, without asking your permission, giving you nothing for it, and then turning around and using it against you. If you have the option between using a product that abuses your data and privacy (Google Drive, Dropbox, etc.) vs. ones that don’t (Space), why would you choose to allow yourself to be spied on, robbed of value, and abused? It’s the same argument as crypto vs. fiat. Governments abuse fiat currencies to the detriment of the users who hold/use it by diminishing it’s value, censoring who can use it, and weaponizing it against you. Well data is no different. There’s a reason google isn’t charging you to store files in google drive. Smarten up. Take back control of your data and privacy. Use Space and help make the Dweb a reality!
+These big tech companies are getting rich off your data, without asking your permission, giving you nothing for it, and then turning around and using it against you. If you have the option between using products that abuse your data and privacy (Google Drive, Dropbox, etc.) vs. ones that don’t (Space, Signal, etc.), why would you choose to allow yourself to be spied on, robbed of value, and abused? It’s finally time to wake up. Take back control of your data and privacy. Use Space and help make the Dweb a reality!
 
 We’re super excited to embark on this new Space journey and to help bring millions of users to the Dweb. We’d love to invite you all into our community to try out the new product and get your feedback. And if you feel there are opportunities to collaborate with us please reach out, we’d be happy to chat!
 
