@@ -1,8 +1,8 @@
 ---
 template: post
 title: 'Getting Started with the Space Daemon'
-slug: space-daemon
-draft: false
+slug: space-daemon-getting-started
+draft: true
 date: 2020-08-03T12:18:31.636+00:00
 description: Want to create the next great app using the Space Daemon? This guide will get you started! 
 category: Tutorial
