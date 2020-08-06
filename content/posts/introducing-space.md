@@ -6,7 +6,8 @@ slug: Introducing-Space-fleek
 date: 2020-08-05T14:00:00.000+00:00
 socialimage: https://fleek-team-bucket.storage.fleek.co/Space.png
 description: 'Today the Fleek team is super excited to announce a brand new product
-  we’ve been working on for the past few months: Space! '
+  we’ve been working on for the past few months: Space! Space is an open source file
+  storage, sharing, and collaboration platform built on the distributed web.'
 category: Announcement
 tags:
 - Space
@@ -14,9 +15,11 @@ tags:
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Space.png)
 
-Today the Fleek team is super excited to announce a brand new product we’ve been working on for the past few months: Space!![](https://fleek-team-bucket.storage.fleek.co/SpaceScreenshot3.png)
+Today the Fleek team is super excited to announce a brand new product we’ve been working on for the past few months: Space!
 
 Space is an open source file storage, sharing and collaboration platform built on the distributed web. You can think of V1 of Space as a private, encrypted, p2p version of dropbox or google drive, and you can use Space the same way that you would use those products. The big benefit of using Space over those other products is you don’t need to sacrifice your privacy and allow those companies to spy on you and control your files/data, because with Space everything is private, user owned, end-to-end encrypted, and peer-to-peer!
+
+![](https://fleek-team-bucket.storage.fleek.co/SpaceScreenshot3.png)
 
 Starting today, Space is accepting beta signups. If you’re interested in getting early access to Space and participating in the beta, sign up [here](https://space.storage) and we will reach out in the coming weeks when it’s your turn. This first version of Space is a desktop app available on Mac, Windows, and Linux. We plan to release a mobile app and web app in the future as well once it’s feasible (discussed more below).
 
@@ -24,7 +27,7 @@ Below is some additional info on Space, why we built it, and the product roadmap
 
 ## The Internet Is Broken
 
-And we need to fix it now. Content is becoming more and more censored, hacks are becoming more and more serious, and big tech companies and governments are spying on users, violating their privacy, and abusing their data more and more everyday. In the past few months alone there have been multiple platforms ([Reddit](https://www.wsws.org/en/articles/2020/07/02/redd-j02.html)) and governments ([Turkey](https://apnews.com/9abc40bdd22f6c8df763bad0b4c55924), [Hong Kong](https://fortune.com/2020/07/07/hong-kong-law-internet-freedom/)) increasing internet censorship, Twitter got [badly hacked](https://www.bbc.com/news/technology-53445090), and a [bill was introduced](https://www.cnet.com/news/republicans-push-bill-requiring-tech-companies-to-help-access-encrypted-data/) in the US that would force tech companies to unencrypt private data about users (if technically possible) and give it to the government! The trend is frightening, especially with things like personal health, genetic and brain data on the horizon, coupled with AI, we could be headed to a real dystopia if something isn’t done about this soon.
+And we need to fix it now. Content is becoming more and more censored, hacks are becoming more and more serious, and big tech companies and governments are spying on users, violating their privacy, and abusing their data more and more everyday. In the past few months alone there have been multiple platforms ([Reddit](https://www.wsws.org/en/articles/2020/07/02/redd-j02.html), [Youtube](https://fee.org/articles/youtube-to-ban-content-that-contradicts-who-on-covid-19-despite-the-un-agency-s-catastrophic-track-record-of-misinformation/)) and governments ([Turkey](https://apnews.com/9abc40bdd22f6c8df763bad0b4c55924), [Hong Kong](https://fortune.com/2020/07/07/hong-kong-law-internet-freedom/)) increasing internet censorship, Twitter got [badly hacked](https://www.bbc.com/news/technology-53445090), and a [bill was introduced](https://www.cnet.com/news/republicans-push-bill-requiring-tech-companies-to-help-access-encrypted-data/) in the US that would force tech companies to unencrypt private data about users (if technically possible) and give it to the government. The trend is frightening, especially with things like personal health, genetic and brain data on the horizon, coupled with AI, we could be headed to a real dystopia if something isn’t done about this soon.
 
 There’s only one possible way out of the current situation and to save the internet: distribute the web.
 
@@ -60,7 +63,7 @@ The value prop of storing backup encrypted copies of your files in Space is simi
 
 Right now they are completely separate products. But in the future we plan on adding features to Fleek to make it super easy to deploy true Dweb sites & build true Dweb apps on top of Space/Space Daemon (similar to how we make it easy today to deploy sites/apps directly to IPFS). So the plan is still for Fleek to become a Firebase type platform for building Dweb sites/apps. But Space will always remain a separate, fully open sourced project and product with an open app ecosystem (and hopefully a token at some point in the future).
 
-## What’s the Vision… You Mentioned I Can Build Apps On Top of Space/Space Daemon?
+## What’s the Vision… I Can Build Apps On Top of Space/Space Daemon?
 
 Yes, that is the vision. We want Space the storage app to be just the first of many apps built on Space/Space Daemon. For developers we want Space/Space Daemon to serve as a super easy to use Dweb storage/db/interface layer for building Dweb apps that wow users while staying true to the Dweb principals/values (user privacy, data ownership, censorship resistance, self hosted, etc.). For example, some ideas for apps we think would be cool to build on top of Space would be true Dweb equivalents to apps like Google Docs, Sheets, Gmail, Github, Reddit, Youtube, or even simple things like a Notes app, a Photo Album app, or other interfaces/apps like that. The possibilities are endless, and the opportunities are massive. We’re happy to help any interested developers ideate and help support them build these apps. The idea is we will surface these apps/sites somewhere within the Space interface so users can easily access/discover Dweb sites and apps. But there won’t be any ‘app approval process’ or anything like that, it will be more like a browser in that sense where any Dweb site or app can be published in Space and discovered/accessed by anyone who wants to use it. And so for users the vision is that the Space interface can potentially become a gateway/browser/interface specifically for the Dweb in addition to being the place users store all their files and data from the Dweb and from elsewhere.
 
