@@ -29,7 +29,7 @@ We wanted to take a moment and showcase some of the Fleek prize winners and shar
 
 #### Shop FS
 
-The Shop FS team created a web app for encrypted file storage and an array of options to buy and sell decentralized content using Fleek Space Daemon. Not only did they show how IPFS and encryption tools can provide a fully private and peer-to-peer storage solution for end users, they also provided a way for users to list encrypted files on Ethereum for sale and created novel sharing mechanisms for the buyer to gain access to the encrypted file once their purchase is confirmed. All in a very private user experience. This confirms some of our expectations that developers will build web2 equivalents (sorta like dropbox + marketplace) that bring the privacy and peer to peer features to it.
+The [Shop FS](https://hack.ethglobal.co/showcase/shop-fs-recSnBFT0TY7XgYNK) team created a web app for encrypted file storage and an array of options to buy and sell decentralized content using Fleek Space Daemon. Not only did they show how IPFS and encryption tools can provide a fully private and peer-to-peer storage solution for end users, they also provided a way for users to list encrypted files on Ethereum for sale and created novel sharing mechanisms for the buyer to gain access to the encrypted file once their purchase is confirmed. All in a very private user experience. This confirms some of our expectations that developers will build web2 equivalents (sorta like dropbox + marketplace) that bring the privacy and peer to peer features to it.
 
 **How was Shop FS made:**
 
@@ -37,7 +37,7 @@ The Shop FS team created a web app for encrypted file storage and an array of op
 
 #### BlockSig
 
-The BlockSig team built a fully private and encrypted notary service, like DocuSign, with all the documents to be notarized getting uploaded fully encrypted via the Space Daemon and Ethereum based tokens for signing authorization of the encrypted IPFS stored documents before sharing the encrypted files directly with the other users peer-to-peer. This is another great example of how the Space Daemon can be used to build privacy first and peer-to-peer web 2 equivalents, in this case like DocuSign.
+The [BlockSig](https://hack.ethglobal.co/showcase/blocksig-recT3kpIaPtPKNek2) team built a fully private and encrypted notary service, like DocuSign, with all the documents to be notarized getting uploaded fully encrypted via the Space Daemon and Ethereum based tokens for signing authorization of the encrypted IPFS stored documents before sharing the encrypted files directly with the other users peer-to-peer. This is another great example of how the Space Daemon can be used to build privacy first and peer-to-peer web 2 equivalents, in this case like DocuSign.
 
 **How BlockSig was made:**
 
@@ -45,7 +45,7 @@ They actually used all 3 Fleek products together, "...Fleek for Hosting \[our we
 
 #### IPFS-FPS
 
-The IPFS-FPS team created a fun and interacted first person shooter game combining web2 Unity tools with IPFS and Filecoin, where the mission of the game is to collect all the Filecoins while the app files are all referenced via IPFS. The gaming web application is hosted by Fleek Hosting.
+The [IPFS-FPS](https://hack.ethglobal.co/showcase/ipfs-fps-rec1OcC5wSjdp1LEp) team created a fun and interacted first person shooter game combining web2 Unity tools with IPFS and Filecoin, where the mission of the game is to collect all the Filecoins while the app files are all referenced via IPFS. The gaming web application is hosted by Fleek Hosting.
 
 Since the creation of the Fleek Hosting product we've used it to host our own sites and apps, and we love to see showcases of teams using it to build complex, even web2 based applications, that can leverage IPFS hosting.
 
