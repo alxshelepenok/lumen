@@ -56,3 +56,14 @@ Since the creation of the Fleek Hosting product we've used it to host our own si
 ### Conclusion
 
 Thank you to all the developers and participants of HackFS, especially those that leveraged the Fleek product suite. We had a ton of fun and helpful feedback from working hard with you all each day throughout the hackathon. We loved seeing web2 equivalents like Dropbox and DocuSign, have alternatives built where users can control their own data and trust the privacy while interacting with each other peer-to-peer using the Fleek Space Daemon. And to see the uptick in the Fleek Hosting and Storage products during the hackathon with nearly 80 teams building on them was amazing. The result was a bunch of awesome IPFS, Filecoin, Textile, and Ethereum based DApps. The cross-collaboration in the web3 ecosystem is unbelievable and this hackathon shows that developers want to plug and play several web3 protocols for different use cases. Congrats to all the prize winners! Look forward to seeing you move forward in your projects at both [Apollo](https://gitcoin.co/blog/apollo/) and the [Filecoin Launchpad](https://consensys.net/blog/press-release/filecoin-launchpad-accelerator-powered-by-tachyon/?utm_medium=email&_hsmi=92848280&_hsenc=p2ANqtz-_yPBeBqoeFLXlvXNJuDgEr73_DgeIo0-8FprDKMIDUdMK2TUFAi4L5dk8OROBzHA_2GJddl3qx6sYf_iArQcorulBLHQ&utm_content=92848280&utm_source=hs_email).
+
+Happy hacking!
+
+\- Fleek Team
+
+* [Sign up](https://app.fleek.co "Sign Up") to try Fleek
+* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A "Fleek's Slack")
+* Follow us on [Twitter](https://twitter.com/FleekHQ "Fleek's Twitter")
+* Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw "Fleek's Youtube Channel")
+* Check out our [Tech Docs](https://docs.fleek.co/ "Fleek Docs")
+* Contact us at support@fleek.co
