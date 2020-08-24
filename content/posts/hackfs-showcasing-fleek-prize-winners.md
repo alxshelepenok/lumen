@@ -3,7 +3,7 @@ template: post
 draft: false
 title: 'HackFS: Showcasing Fleek Prize Winners'
 slug: HackFS-winners
-date: 2020-08-24T04:00:00Z
+date: 2020-08-24T04:00:00.000+00:00
 description: Thank you to Protocol Labs and ETH Global, the month of July - August
   2020 has been really exciting to watch developer teams build a bunch of awesome
   projects in the IPFS and Filecoin Ecosystem.
@@ -15,7 +15,7 @@ socialImage: https://fleek-team-bucket.storage.fleek.co/HackFS.jpg
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/HackFS.jpg)
 
-Thank you to Protocol Labs and ETH Global, the month of July - August 2020 has been really exciting to watch developer teams build a bunch of awesome projects in the IPFS and Filecoin Ecosystem.
+Thank you to Protocol Labs and ETH Global for hosting HackFS! The month of July - August 2020 has been really exciting to watch developer teams build a bunch of awesome projects in the IPFS and Filecoin Ecosystem.
 
 The Fleek team was fortunate to be a Presenter Sponsor, giving an opening talk, workshops, office hours, etc. to the developer teams in HackFS, and had nearly 80 teams out of the 134 teams build on at least one or more Fleek product (Fleek Hosting, Fleek Storage, or Fleek's Space Daemon).
 
@@ -31,11 +31,11 @@ We wanted to take a moment and showcase some of the Fleek prize winners and shar
 
 #### Shop FS
 
-The [Shop FS](https://hack.ethglobal.co/showcase/shop-fs-recSnBFT0TY7XgYNK) team created a web app for encrypted file storage and an array of options to buy and sell decentralized content using Fleek Space Daemon. Not only did they show how IPFS and encryption tools can provide a fully private and peer-to-peer storage solution for end users, they also provided a way for users to list encrypted files on Ethereum for sale and created novel sharing mechanisms for the buyer to gain access to the encrypted file once their purchase is confirmed. All in a very private user experience. This confirms some of our expectations that developers will build web2 equivalents (sorta like dropbox + marketplace) that bring the privacy and peer to peer features to it.
+The [Shop FS](https://hack.ethglobal.co/showcase/shop-fs-recSnBFT0TY7XgYNK) team created a web app for encrypted file storage and an array of options to buy and sell decentralized content using the Fleek Space Daemon. Not only did they show how IPFS and encryption tools can provide a fully private and peer-to-peer storage solution for end users, they also provided a way for users to list encrypted files on Ethereum for sale and created novel sharing mechanisms for the buyer to gain access to the encrypted file once their purchase is confirmed. All in a very private user experience. This confirms some of our expectations that developers will build web2 equivalents (sorta like dropbox + marketplace in this case) that bring the privacy and peer to peer features to it.
 
 **How was Shop FS made:**
 
-"...with the introduction of a Fleek's Space Daemon which stores files in private encrypted form in buckets & a Node-Red Monitoring Service that overlooks all events happening on the contract through Graph and after verification of signatures from both sellers & buyers we ensure the buyer has private access to the file."
+"...with the introduction of Fleek's Space Daemon which stores files in private encrypted form in buckets & a Node-Red Monitoring Service that overlooks all events happening on the contract through Graph and after verification of signatures from both sellers & buyers we ensure the buyer has private access to the file."
 
 #### BlockSig
 
@@ -43,11 +43,11 @@ The [BlockSig](https://hack.ethglobal.co/showcase/blocksig-recT3kpIaPtPKNek2) te
 
 **How BlockSig was made:**
 
-They actually used all 3 Fleek products together, "...Fleek for Hosting \[our web apps front end\] & Storage, and the Space Daemon (which includes Textile buckets) to store encrypted files". And their explanation of interacting with Ethereum for tracking notary, "Once all signatures proofs have propagated on chain, the smart contract fires a "notarization request". The email oracle now generated a new token and sends to notary for signing." shows the endless use cases for building apps that utilize IPFS/Filecoin and Ethereum.
+They actually used all three Fleek products together, "...Fleek for Hosting \[our web apps front end\] & Storage, and the Space Daemon (which includes Textile buckets) to store encrypted files". And their explanation of interacting with Ethereum for tracking notary, "Once all signatures proofs have propagated on chain, the smart contract fires a "notarization request". The email oracle now generated a new token and sends to notary for signing." shows the endless use cases for building apps that utilize IPFS/Filecoin and Ethereum.
 
 #### IPFS-FPS
 
-The [IPFS-FPS](https://hack.ethglobal.co/showcase/ipfs-fps-rec1OcC5wSjdp1LEp) team created a fun and interacted first person shooter game combining web2 Unity tools with IPFS and Filecoin, where the mission of the game is to collect all the Filecoins while the app files are all referenced via IPFS. The gaming web application is hosted by Fleek Hosting.
+The [IPFS-FPS](https://hack.ethglobal.co/showcase/ipfs-fps-rec1OcC5wSjdp1LEp) team created a fun and interactive first person shooter game combining web2 Unity tools with IPFS and Filecoin, where the mission of the game is to collect all the Filecoins. All the app files are all hosted and referenced via IPFS. The gaming web application is hosted by Fleek Hosting.
 
 Since the creation of the Fleek Hosting product we've used it to host our own sites and apps, and we love to see showcases of teams using it to build complex, even web2 based applications, that can leverage IPFS hosting.
 
@@ -57,7 +57,7 @@ Since the creation of the Fleek Hosting product we've used it to host our own si
 
 ### Conclusion
 
-Thank you to all the developers and participants of HackFS, especially those that leveraged the Fleek product suite. We had a ton of fun and helpful feedback from working hard with you all each day throughout the hackathon. We loved seeing web2 equivalents like Dropbox and DocuSign, have alternatives built where users can control their own data and trust the privacy while interacting with each other peer-to-peer using the Fleek Space Daemon. And to see the uptick in the Fleek Hosting and Storage products during the hackathon with nearly 80 teams building on them was amazing. The result was a bunch of awesome IPFS, Filecoin, Textile, and Ethereum based DApps. The cross-collaboration in the web3 ecosystem is unbelievable and this hackathon shows that developers want to plug and play several web3 protocols for different use cases. Congrats to all the prize winners! Look forward to seeing you move forward in your projects at both [Apollo](https://gitcoin.co/blog/apollo/) and the [Filecoin Launchpad](https://consensys.net/blog/press-release/filecoin-launchpad-accelerator-powered-by-tachyon/?utm_medium=email&_hsmi=92848280&_hsenc=p2ANqtz-_yPBeBqoeFLXlvXNJuDgEr73_DgeIo0-8FprDKMIDUdMK2TUFAi4L5dk8OROBzHA_2GJddl3qx6sYf_iArQcorulBLHQ&utm_content=92848280&utm_source=hs_email).
+Thank you to all the developers and participants of HackFS, especially those that leveraged the Fleek product suite. We had a ton of fun and helpful feedback by working side by side with you all each day throughout the hackathon. We loved seeing teams create alternatives to web2 equivalents, like Dropbox and DocuSign, where users can control their own data and trust the privacy while interacting with each other peer-to-peer using the Fleek Space Daemon. And to see the uptick in the Fleek Hosting and Storage products during the hackathon with nearly 80 teams building on them was amazing. The result was a bunch of awesome IPFS, Filecoin, Textile, and Ethereum based DApps. The cross-collaboration in the web3 ecosystem is unbelievable and this hackathon shows that developers want to plug and play several web3 protocols for different use cases. Congrats to all the prize winners! Look forward to seeing you move forward in your projects at both [Apollo](https://gitcoin.co/blog/apollo/) and the [Filecoin Launchpad](https://consensys.net/blog/press-release/filecoin-launchpad-accelerator-powered-by-tachyon/?utm_medium=email&_hsmi=92848280&_hsenc=p2ANqtz-_yPBeBqoeFLXlvXNJuDgEr73_DgeIo0-8FprDKMIDUdMK2TUFAi4L5dk8OROBzHA_2GJddl3qx6sYf_iArQcorulBLHQ&utm_content=92848280&utm_source=hs_email).
 
 Happy hacking!
 
