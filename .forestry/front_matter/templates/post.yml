@@ -25,7 +25,7 @@ fields:
   label: date
   description: If the date is far in the future the blog post will not show up. Either
     use the current day of the day before.
-- name: socialimage
+- name: socialImage
   type: text
   config:
     required: false
