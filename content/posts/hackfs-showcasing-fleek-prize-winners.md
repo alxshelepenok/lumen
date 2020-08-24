@@ -4,7 +4,6 @@ draft: false
 title: 'HackFS: Showcasing Fleek Prize Winners'
 slug: HackFS-winners
 date: 2020-08-24T04:00:00Z
-socialimage: 'https://fleek-team-bucket.storage.fleek.co/HackFS.jpg '
 description: Thank you to Protocol Labs and ETH Global, the month of July - August
   2020 has been really exciting to watch developer teams build a bunch of awesome
   projects in the IPFS and Filecoin Ecosystem.
