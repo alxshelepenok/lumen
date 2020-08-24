@@ -11,6 +11,7 @@ description: Thank you to Protocol Labs and ETH Global, the month of July - Augu
 category: Announcement
 tags:
 - Hackathon
+socialImage: https://fleek-team-bucket.storage.fleek.co/HackFS.jpg
 
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/HackFS.jpg)
