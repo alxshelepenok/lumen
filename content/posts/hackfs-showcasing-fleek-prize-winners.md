@@ -10,10 +10,10 @@ description: Thank you to Protocol Labs and ETH Global, the month of July - Augu
 category: Announcement
 tags:
 - Hackathon
-socialImage: https://fleek-team-bucket.storage.fleek.co/HackFS2.jpg
+socialImage: https://fleek-team-bucket.storage.fleek.co/HackFS2%20(1).jpg
 
 ---
-![](https://fleek-team-bucket.storage.fleek.co/HackFS2.jpg)
+![](https://fleek-team-bucket.storage.fleek.co/HackFS2%20(1).jpg)
 
 Thank you to Protocol Labs and ETH Global for hosting HackFS! The month of July - August 2020 has been really exciting to watch developer teams build a bunch of awesome projects in the IPFS and Filecoin Ecosystem.
 
