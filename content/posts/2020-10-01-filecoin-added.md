@@ -18,7 +18,7 @@ October 15th: Mark this date on your calendars, folks!
 
 Indeed, as announced in a [recent blog post from Protocol Labs](https://filecoin.io/blog/mainnet-ignition/), the Filecoin Mainnet will launch on October 15th. This is a landmark event not just for Filecoin, but for the Dweb community as a whole.
 
-And at Fleek we've been eagerly anticipating the Filecion Launch!
+And at Fleek we're excited for the Filecion Launch!
 
 # The Space Daemon: Now with more Filecoin
 
