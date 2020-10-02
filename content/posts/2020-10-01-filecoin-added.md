@@ -2,7 +2,7 @@
 template: post
 title: We Added Filecoin to the Space Daemon
 slug: filecoin-added
-draft: true
+draft: false
 date: 2020-10-01T12:18:31.636+00:00
 description: The Space Daemon is getting the Filecoin treatment! Learn about our recent
   Filecoin integration and what it means for decentralized web.
