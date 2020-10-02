@@ -66,4 +66,3 @@ If you are developing an application on top of the Space Daemon and want some of
 * Follow us on [Twitter](https://twitter.com/spacestorage)
 * Reach out at hi@space.storage
 * Check out our [Tech Docs](https://docs.fleek.co/space-daemon/overview/)
-* Spread the word
