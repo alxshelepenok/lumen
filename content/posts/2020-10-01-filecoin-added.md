@@ -13,7 +13,7 @@ tags:
 - Filecoin
 
 ---
-![](https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space+Filecoin.jpg)
+![](https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space+Filecoin (1).jpg)
 
 October 15th: Mark this date on your calendars, folks!
 
