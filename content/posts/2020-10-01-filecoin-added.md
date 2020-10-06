@@ -7,13 +7,12 @@ date: 2020-10-01T12:18:31.636+00:00
 description: The Space Daemon is getting the Filecoin treatment! Learn about our recent
   Filecoin integration and what it means for decentralized web.
 category: General
-socialImage: https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space+Filecoin
-  (1).jpg
+socialImage: https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space-Filecoin-logo.jpg
 tags:
 - Filecoin
 
 ---
-![](https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space+Filecoin (1).jpg)
+![](https://fleekblog-team-bucket.storage.fleek.co/space-daemon-filecoin/Space-Filecoin-logo.jpg)
 
 October 15th: Mark this date on your calendars, folks!
 
