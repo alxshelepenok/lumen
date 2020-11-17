@@ -6,12 +6,12 @@ draft: false
 date: 2020-03-06T03:02:20.010Z
 description: Create and deploy a static website using Fleek and IPFS
 category: Tutorial
-socialImage: ./HelloWorld.png 
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png 
 tags:
   - Tutorial
   - Resource
 ---
-![](./Fleek+IPFS.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png)
 
 ## Overview
 

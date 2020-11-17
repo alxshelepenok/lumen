@@ -11,7 +11,8 @@ type Props = {
   children: ReactNode,
   title: string,
   description?: string,
-  slug? :string
+  slug? :string,
+  socialImage ?: string,
 };
 
 const Layout = ({
@@ -19,6 +20,7 @@ const Layout = ({
   title,
   description,
   slug = '',
+  socialImage,
 }: Props) => {
   const metaData = useSiteMetadata();
   const { url } = metaData;
@@ -33,11 +35,11 @@ const Layout = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:site_name" content={title} />
-        <meta property="og:image" content={absolutePathToSocialImage} />
+        <meta property="og:image" content={socialImage || absolutePathToSocialImage} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={absolutePathToSocialImage} />
+        <meta name="twitter:image" content={socialImage || absolutePathToSocialImage} />
       </Helmet>
       {children}
     </div>

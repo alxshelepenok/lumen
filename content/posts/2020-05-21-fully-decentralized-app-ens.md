@@ -7,13 +7,13 @@ date: 2020-05-21T04:02:37.816Z
 description: >-
     Leave no centralized stone unturned with an ENS domain!
 category: "Tutorial"
-socialImage: /ENSCover.jpg
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENSCover.jpg
 tags:
   - Tutorial
   - ENS
 ---
 
-![](./media/ENSCover.jpg)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENSCover.jpg)
 
 
 Deploying sites on IPFS allows creators to take advantage of a powerful peer-to-peer file system and, in so doing, embrace distributed technology.

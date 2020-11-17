@@ -7,13 +7,13 @@ date: 2020-04-16T04:02:37.816Z
 description: >-
   Go with Hugo and Fleek to create a beautiful blog and deploy it on IPFS!
 category: Tutorial
-socialImage: ./media/Hugo/HugoSocialImage.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/HugoSocialImage.png
 tags:
   - Tutorial
   - Resource
 ---
 
-![](./Hugo/HugoSocialImage.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/HugoSocialImage.png)
 
 
 In this tutorial, we will show you how to create a themed Hugo blog, make your first blog post and how to share it with the world by hosting your site to IPFS by using Fleek.

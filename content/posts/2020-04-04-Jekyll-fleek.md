@@ -7,13 +7,13 @@ date: 2020-04-04T04:02:37.816Z
 description: >-
   Get your Jekyll blog sailing on the Web3 waters! In this short tutorial, we will learn how to create a Jekyll blog and deploy it on Fleek so it can be shared through IPFS.
 category: Tutorial
-socialImage: ./media/Jekyll/jekyll-social-img.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/jekyll-social-img.png
 tags:
   - Tutorial
   - Resource
 ---
 
-![](./Jekyll/jekyll-social-img.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/jekyll-social-img.png)
 
 Get your Jekyll blog sailing on the Web3 waters! In this short tutorial, we will learn how to create a Jekyll blog and deploy it on Fleek so it can be shared through IPFS.
 

@@ -8,11 +8,11 @@ description: >-
   Its been a few weeks of 150+ onboarding calls with users excited to get their hands on Fleek. The feedback has been resounding and very appreciated. The
   The starter team plan comes with a full set of hosting and DNS features. Now we are releasing the Pro team plan that includes more build minutes, more bandwidth, and more sites per month. The Pro team plan will also include team features soon.
 category: Release
-socialImage: ./Release-Update-Pro-plan.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Pro-plan.png
 tags:
   - Release
 ---
-![](/Release-Update-Pro-plan.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Pro-plan.png)
 
 Its been a few weeks of 250+ onboarding calls with users and tons of IPFS deployments! The feedback has been resounding and very appreciated. The Starter team plan comes with a full set of hosting and DNS features. Now we are releasing the Pro team plan that includes more build minutes, more bandwidth, and more sites per month. The Pro team plan will also include team features soon.
 

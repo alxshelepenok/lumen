@@ -6,7 +6,7 @@ draft: false
 date: 2020-04-28T04:02:37.816+00:00
 description: Get started with deploying your NuxtJS site through IPFS on Fleek
 category: getting started
-socialImage: "./media/nuxtjs/main.png"
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/nuxt-js.png
 tags:
 - general
 - nuxtjs
@@ -14,7 +14,7 @@ tags:
 - getting started
 
 ---
-![](images/nuxtjs/main.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/nuxt-js.png)
 
 In this article, we will show you how to deploy your site built on NuxtJS and deploying using IPFS on Fleek
 

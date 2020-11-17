@@ -7,12 +7,12 @@ date: 2020-03-24T04:02:37.816Z
 description: >-
   IPFS presents itself as a radical innovation whose aim is to reshape the entire web as we know it into a system that is more secure, efficient, and reliable.
 category: Tutorial
-socialImage: ./media/intro/IPFS.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/IPFS.png
 tags:
   - Guide
   - IPFS
 ---
-![](./media/intro/IPFS.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/IPFS.png)
 
 “You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.”
 ― Buckminster Fuller

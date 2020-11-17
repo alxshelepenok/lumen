@@ -7,13 +7,13 @@ date: 2020-04-30T04:02:37.816Z
 description: >-
     This release brings the IPFS community ENS Domains! Since so much of the Ethereum space uses IPFS for their sites and apps, ENS support has been one of our most requested features.
 category: "Announcement"
-socialImage: /Release-Update-UI-rebrand.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png
 tags:
   - Announcement
   - Release Update
 ---
 
-![](Release-Update-UI-rebrand.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png)
 
 This release brings the IPFS community ENS Domains! Since so much of the Ethereum space uses IPFS for their sites and apps, ENS support has been one of our most requested features.
 

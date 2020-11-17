@@ -7,13 +7,13 @@ date: 2020-05-25T04:02:37.816Z
 description: >-
     Learn how to use the storage SDK to store files in IPFS.
 category: "Tutorial"
-socialImage: /SDKGuideCover.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/SDKGuideCover.png
 tags:
   - Tutorial
   - SDK
 ---
 
-![](./media/SDKGuideCover.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/SDKGuideCover.png)
 
 
 Fleek Storage makes it easy to upload files to IPFS and distribute them on modern websites. To that end, we have made an awesome [web app](https://app.fleek.co) that allows users to store and access their files in a simple and visual manner.

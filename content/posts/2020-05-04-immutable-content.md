@@ -7,13 +7,13 @@ date: 2020-05-04T04:02:37.816Z
 description: >-
     How can constant links be generated for IPFS websites? What is IPNS, DNS Link and ENS?
 category: "General"
-socialImage: ./media/ConstantLinks/thumbnail.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/immutable-ipfs.png
 tags:
   - General
   - Informational
 ---
 
-![](./media/ConstantLinks/thumbnail.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/immutable-ipfs.png)
 
 We tend to take constant links for granted when navigating the web. For example, if I invited you to visit Fleek's homepage, I'd give you the following link: <https://fleek.co>. This link never changes, that is why I can share it with you.
 

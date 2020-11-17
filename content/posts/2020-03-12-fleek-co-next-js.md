@@ -8,12 +8,12 @@ description: >-
   We’ll create a Next.js app and deploy it on Fleek. This whole process
   It should take 10 minutes.
 category: Tutorial
-socialImage: ./media/nextjs/Next.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Next.png
 tags:
   - Tutorial
   - Guide
 ---
-![](./media/nextjs/Next.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Next.png)
 
 ## Overview
 
