@@ -8,14 +8,14 @@ description: Gatsby allows for the creation of static sites in a simple, straigh
   manner. In this tutorial, we will show you how to create a Gatsby project and deploy
   it to IPFS thanks to Fleek.
 category: Guide
-socialImage: "./media/GatsbySocialimage.png"
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/GatsbySocialimage.png
 tags:
 - Tutorial
 - Guide
 - Gatsby
 
 ---
-![](./media/GatsbySocialimage.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/GatsbySocialimage.png)
 
 Gatsby allows for the creation of static sites in a simple, straightforward manner. In this tutorial, we will show you how to create a Gatsby project and deploy it to IPFS thanks to Fleek.
 

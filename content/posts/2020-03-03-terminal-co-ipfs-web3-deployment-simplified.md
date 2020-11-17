@@ -9,12 +9,12 @@ description: >-
   deploy and manage sites on IPFS. Focus on content and code. Fleek handles
   the rest.
 category: Informational
-socialImage: ./Fleek+IPFS.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png
 tags:
   - Informational
   - Guide
 ---
-![](./Fleek+IPFS.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png)
 
 ## Overview
 

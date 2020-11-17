@@ -7,7 +7,7 @@ date: 2020-05-05T04:02:37.816Z
 description: >-
   Get started with deploying your AngularJS app on IPFS on Fleek
 category: Tutorial
-socialImage: ./media/angular/hero.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/angular.png
 tags:
   - general
   - angularjs
@@ -15,7 +15,7 @@ tags:
   - getting started
 ---
 
-![](images/angular/hero.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/angular.png)
 
 
 Get your AngularJS app sailing on IPFS. In this short tutorial, we will learn how to create an Angular app and deploy it on Fleek so it can be shared on the decentralized web.

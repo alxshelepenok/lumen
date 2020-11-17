@@ -7,13 +7,13 @@ date: 2020-04-04T04:02:37.816Z
 description: >-
   A walkthrough of Fleek's Docker Hub repository. You will see Fleek's official images which we encourage you to use for your site.
 category: Tutorial
-socialImage: ./media/Docker-hub-overview/cover.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/docker-hub-overview.png
 tags:
   - Docker
   - Resource
 ---
 
-![](./media/Docker-hub-overview/cover.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/docker-hub-overview.png)
 
 Fleek has an official Docker Hub repo! We store all our official Docker Images there. In this post, we'll introduce you to its content so you can use it to create the best site ever.
 

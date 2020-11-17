@@ -13,7 +13,7 @@ tags:
   - Informational
 ---
 
-![](./media/FleekOnFleek/socialImage.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-on-fleek.png)
 
 
 
@@ -24,7 +24,7 @@ Let's see what that entails, and how you can do the same!
 
 # Our Whole Deployment Flow Uses Fleek
 
-![](./media/FleekOnFleek/meme.jpg)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-on-fleek.png)
 
 
 We integrate Fleek in our deployment flow in order to push new deploys on IPFS. Those deployments are done *automatically*.

@@ -8,12 +8,12 @@ description: >-
   A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together like peanut butter and jelly, allowing for
   development and deployment to be complete in a flash.
 category: Tutorial
-socialImage: ./media/CreateReactAppSocialimage.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/CreateReactAppSocialimage.png
 tags:
   - Tutorial
   - Guide
 ---
-![](./media/CreateReactAppSocialimage.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/CreateReactAppSocialimage.png)
 
 A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together like peanut butter and jelly, allowing for development and deployment to be complete in a flash.
 

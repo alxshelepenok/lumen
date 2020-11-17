@@ -10,11 +10,11 @@ description: >-
   We are currently in private beta and from all the amazing feedback from our groundfloor users, we have released several updates that focus on improving the deployment process. We've also enhanced the experience all around the app
   and fixed many bugs.
 category: Release
-socialImage: ./Release-Update-Docker.png 
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Docker.png 
 tags:
   - Release
 ---
-![](./Release-Update-Docker.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Docker.png)
 
 ## Release Notes:
 

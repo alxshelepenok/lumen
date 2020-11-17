@@ -16,7 +16,7 @@ const PostTemplate = ({ data }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { frontmatter, fields } = data.markdownRemark;
   const { slug } = fields;
-  const { title: postTitle, description: postDescription } = frontmatter;
+  const { title: postTitle, description: postDescription, socialImage } = frontmatter;
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
@@ -24,6 +24,7 @@ const PostTemplate = ({ data }: Props) => {
       title={`${postTitle} - ${siteTitle}`}
       description={metaDescription}
       slug={slug}
+      socialImage={socialImage}
     >
       <Post post={data.markdownRemark} />
     </Layout>

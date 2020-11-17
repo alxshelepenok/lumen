@@ -7,13 +7,13 @@ date: 2020-04-03T04:02:37.816Z
 description: >-
   We underwent a full platform rebranding to Fleek! We've also released a bunch of exciting features, enhancements, and bug fixes that we will deep dive into this release update.
 category: Announcement
-socialImage: ./Release-Update-UI-rebrand.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png
 tags:
   - Announcement
   - Release Update
 ---
 
-![](./Release-Update-UI-rebrand.png)
+![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png)
 
 We underwent a full platform rebranding to Fleek! We've also released a bunch of exciting features, enhancements, and bug fixes that we will deep dive into this release update. Our team is very excited to share the latest:
 
