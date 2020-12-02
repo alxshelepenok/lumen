@@ -5,10 +5,10 @@ title: The Dweb Protocols Behind Space
 slug: the-dweb-protocols-behind-space
 date: 2020-12-03T04:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Dweb%20Stack.jpg
-description: For Space, we’re using a Dweb protocol stack that, when combined, allows
-  us to break the molds of how file storage is traditionally made, making user-owned
-  and non-siloed decentralized storage possible. Get to know what each one them helps
-  us achieve!
+description: For Space, we’re using the Dweb protocol stack in the Space Daemon. When
+  combined, they allow us to break the molds of how file storage is traditionally
+  made, making user-owned and non-siloed decentralized storage possible. Get to know
+  what each one them helps us achieve!
 category: General
 tags:
 - Space
