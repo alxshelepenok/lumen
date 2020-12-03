@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: The Dweb Protocols Behind Space
 slug: the-dweb-protocols-behind-space
 date: 2020-12-03T04:00:00Z
