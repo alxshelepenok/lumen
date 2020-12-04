@@ -10,6 +10,7 @@ description: For Space, we’re using the Dweb protocol stack in the Space Daemo
   made, making user-owned and non-siloed decentralized storage possible. Get to know
   what each one them helps us achieve!
 category: General
+canonical: https://blog.space.storage/posts/the-dweb-protocols-behind-space
 tags:
 - Space
 

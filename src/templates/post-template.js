@@ -16,7 +16,7 @@ const PostTemplate = ({ data }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
   const { frontmatter, fields } = data.markdownRemark;
   const { slug } = fields;
-  const { title: postTitle, description: postDescription, socialImage } = frontmatter;
+  const { title: postTitle, description: postDescription, socialImage, canonical } = frontmatter;
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
@@ -25,6 +25,7 @@ const PostTemplate = ({ data }: Props) => {
       description={metaDescription}
       slug={slug}
       socialImage={socialImage}
+      canonical={canonical}
     >
       <Post post={data.markdownRemark} />
     </Layout>
@@ -46,6 +47,7 @@ export const query = graphql`
         tags
         title
         socialImage
+        canonical
       }
     }
   }
