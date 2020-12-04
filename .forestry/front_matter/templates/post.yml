@@ -32,6 +32,12 @@ fields:
   label: socialImage
   description: Please upload the social image to Fleek Storage and paste the link
     here. Images in the blog post itself should also come from a Fleek Storage link.
+- name: canonical
+  type: text
+  config:
+    required: false
+  label: canonical
+  description: Link to the original post of the article for SEO purposes if the post was originally posted elsewhere such as the space blog.
 - type: text
   name: description
   label: description

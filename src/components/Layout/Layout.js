@@ -13,6 +13,7 @@ type Props = {
   description?: string,
   slug? :string,
   socialImage ?: string,
+  canonical ?: string,
 };
 
 const Layout = ({
@@ -21,6 +22,7 @@ const Layout = ({
   description,
   slug = '',
   socialImage,
+  canonical,
 }: Props) => {
   const metaData = useSiteMetadata();
   const { url } = metaData;
@@ -40,6 +42,9 @@ const Layout = ({
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={socialImage || absolutePathToSocialImage} />
+        {canonical && (
+          <link rel="canonical" href={canonical} />
+        )}
       </Helmet>
       {children}
     </div>
