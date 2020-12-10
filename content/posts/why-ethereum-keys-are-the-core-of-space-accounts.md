@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Why Ethereum Keys are the Core of Space Accounts
 slug: why-ethereum-keys-are-the-core-of-space-accounts
 date: 2020-12-09T03:00:00Z
