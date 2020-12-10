@@ -37,7 +37,8 @@ fields:
   config:
     required: false
   label: canonical
-  description: Link to the original post of the article for SEO purposes if the post was originally posted elsewhere such as the space blog.
+  description: Link to the original post of the article for SEO purposes if the post
+    was originally posted elsewhere such as the space blog.
 - type: text
   name: description
   label: description
@@ -54,3 +55,4 @@ pages:
 - content/posts/hackfs-showcasing-fleek-prize-winners.md
 - content/posts/introducing-space.md
 - content/posts/the-dweb-protocols-behind-space.md
+- content/posts/why-ethereum-keys-are-the-core-of-space-accounts.md
