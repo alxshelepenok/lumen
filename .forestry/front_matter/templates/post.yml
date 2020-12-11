@@ -54,5 +54,6 @@ fields:
 pages:
 - content/posts/hackfs-showcasing-fleek-prize-winners.md
 - content/posts/introducing-space.md
+- content/posts/space-sdk-release.md
 - content/posts/the-dweb-protocols-behind-space.md
 - content/posts/why-ethereum-keys-are-the-core-of-space-accounts.md
