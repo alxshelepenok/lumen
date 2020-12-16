@@ -34,9 +34,9 @@ Let’s do an overview of what ENS domains are, why they are important, and how 
 
 **What you will learn on this article:**
 
-* [What is the Ethereum Name Service (ENS)?]( "What is the Ethereum Name Service (ENS)?")
-* [How to buy ENS domains and register them?]( "How to Buy ENS Domains and Register Them")
-* [How to link your ENS domain to an IPFS site with Fleek.]( "How to link ENS Domains to IPFS Sites")
+* [What is the Ethereum Name Service (ENS)?](#what-is-the-ethereum-name-service-ens)
+* [How to buy ENS domains and register them?](https://h0i5s59gvtxamw.instant.forestry.io/posts/guide-ens-domains-ipfs-ethereum-name-service#how-to-buy-ens-domains-and-register-them)
+* [How to link your ENS domain to an IPFS site with Fleek.](https://h0i5s59gvtxamw.instant.forestry.io/posts/guide-ens-domains-ipfs-ethereum-name-service#how-to-link-ens-domains-to-ipfs-sites)
 
 ## What is the Ethereum Name Service (ENS)?
 
@@ -54,7 +54,7 @@ Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask 
 
 What’s more, “.eth” is not the only suffix! As of today, some TLDs like .xyz [can be registered](https://docs.ens.domains/dns-registrar-guide) and claimed on ENS, however “.eth” does still benefit from being exclusively blockchain-native.
 
-## Why are ENS domains important?
+### Why are ENS domains important?
 
 Not only ENS offers a decentralized alternative to address complex resources on or off the blockchain with easy-to-read names, but it also is a complementary piece on the **road to decentralizing web/app hosting entirely**.
 
