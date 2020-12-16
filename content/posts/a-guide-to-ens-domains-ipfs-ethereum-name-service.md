@@ -26,7 +26,7 @@ Instead of recalling, for example, a 42 character hexadecimal ETH wallet address
 
 But, there’s more to ENS domain names than just making memorable wallet addresses, or accessing your favorite IPFS-hosted picture on the go.
 
-ENS opens up the door for websites, Dapps, and more Dweb resources/services to make themselves accessible via a **decentralized, censorship-resistant, and user-controlled** domain naming system**.**
+ENS opens up the door for websites, Dapps, and more Dweb resources/services to make themselves accessible via a **decentralized, censorship-resistant, and user-controlled** domain naming system.
 
 Unlike DNS, which is handled by centralized authorities, ENS lives on smart contracts on the Ethereum blockchain and is censorship-resistant.
 
@@ -34,9 +34,9 @@ Let’s do an overview of what ENS domains are, why they are important, and how 
 
 **What you will learn on this article:**
 
-* What is the Ethereum Name Service (ENS)?
-* How to buy ENS domains and register them?
-* How to link your ENS domain to an IPFS site with Fleek.
+* [What is the Ethereum Name Service (ENS)?]( "What is the Ethereum Name Service (ENS)?")
+* [How to buy ENS domains and register them?]( "How to Buy ENS Domains and Register Them")
+* [How to link your ENS domain to an IPFS site with Fleek.]( "How to link ENS Domains to IPFS Sites")
 
 ## What is the Ethereum Name Service (ENS)?
 
