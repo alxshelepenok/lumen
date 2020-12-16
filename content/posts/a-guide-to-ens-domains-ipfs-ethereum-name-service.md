@@ -77,6 +77,8 @@ And, above all, ENS resides in the Ethereum ecosystem, which is not a minor perk
 
 ## How to Buy ENS Domains and Register Them
 
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/I want one ENS.jpg)
+
 Let’s get started on your road to decentralizing your website using ENS and IPFS. The first step you need to take is **registering an ENS domain.** We’ll use ENS’s dashboard as an example, and then follow Fleek’s flow for integrating it with your IPFS-hosted site.
 
 The acquisition, ownership, and registration aspect of ENS is decentralized as well.
