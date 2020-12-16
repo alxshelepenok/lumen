@@ -147,7 +147,9 @@ Alternatively you can see this [IPFS guide](https://docs.ipfs.io/how-to/websites
 
 ### 1. Host Your Site on IPFS Using Fleek + Github
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek IPFS Github.jpg)You can sign up for [Fleek’s free Basic](https://docs.fleek.co/hosting/site-deployment/) plan to get your first ENS+IPFS website up for this test. Before you begin, you will need to have your test site on a Github repository. You can use many popular frameworks, like Gatsby, Wordpress, NextJS, React, Hugo, Angular, etc. We have specific guides for [each of these](https://docs.fleek.co/tutorials/hosting/) frameworks to help prepare your site.
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek IPFS Github.jpg)
+
+You can sign up for [Fleek’s free Basic](https://docs.fleek.co/hosting/site-deployment/) plan to get your first ENS+IPFS website up for this test. Before you begin, you will need to have your test site on a Github repository. You can use many popular frameworks, like Gatsby, Wordpress, NextJS, React, Hugo, Angular, etc. We have specific guides for [each of these](https://docs.fleek.co/tutorials/hosting/) frameworks to help prepare your site.
 
 With the Github repository ready, deploying and hosting your site on IPFS takes just three steps: connect your repository, add your build settings, and deploy.
 
