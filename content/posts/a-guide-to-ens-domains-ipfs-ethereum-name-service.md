@@ -11,6 +11,8 @@ description: Learn how to register your first ENS domain and use it to host a de
   IPFS website in Fleek
 category: Tutorial
 tags:
+- Tutorial
+- Guide
 - ENS
 
 ---
