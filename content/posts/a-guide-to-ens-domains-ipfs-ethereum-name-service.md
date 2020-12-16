@@ -35,8 +35,8 @@ Let’s do an overview of what ENS domains are, why they are important, and how 
 **What you will learn on this article:**
 
 * [What is the Ethereum Name Service (ENS)?](#what-is-the-ethereum-name-service-ens)
-* How to buy ENS domains and register them?
-* How to link your ENS domain to an IPFS site with Fleek.
+* [How to buy ENS domains and register them?](#how-to-buy-ens-domains-and-register-them)
+* [How to link your ENS domain to an IPFS site with Fleek.](#how-to-link-ens-domains-to-ipfs-sites)
 
 ## What is the Ethereum Name Service (ENS)?
 
