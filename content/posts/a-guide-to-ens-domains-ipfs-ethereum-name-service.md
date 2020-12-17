@@ -157,7 +157,7 @@ Fleek can auto detect the required build parameters from the inputted framework,
 
 ### 2. Add an ENS Domain to Your IPFS Site.
 
-### ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS Domain Fleek.jpg)
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS Domain Fleek.jpg)
 
 Once your deployment is successfully finished, you will see your website’s detail and configuration page. Navigate to the **Settings → Domain Management** tab, where you will find the ENS setup flow waiting for you.
 
