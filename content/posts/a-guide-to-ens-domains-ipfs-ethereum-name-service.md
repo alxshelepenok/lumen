@@ -8,7 +8,7 @@ socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENS - In
   Guide.jpg
 canonical: ''
 description: Learn how to register your first ENS domain and use it to host a decentralized
-  IPFS website in Fleek
+  IPFS website in Fleek!
 category: Tutorial
 tags:
 - Tutorial
