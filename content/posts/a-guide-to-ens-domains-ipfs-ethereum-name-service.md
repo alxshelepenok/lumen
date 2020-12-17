@@ -18,7 +18,7 @@ tags:
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENS - Introduction Guide.jpg)
 
-[Ethereum Name Service](https://ens.domains/) domains, much like the name entails, are the decentralized Ethereum-based naming system alternative to DNS (Domain Name System).
+ENS ([Ethereum Name Service](https://ens.domains/)) domains, much like the name entails, are the decentralized Ethereum-based naming system alternative to DNS (Domain Name System).
 
 Both carry out the same basic task. **They are lookup systems** which use domain names to map and reference complex addresses. The difference is that, while DNS uses domain names to translate a website’s underlying IP address, ENS uses .eth suffix domain names to reference [Ethereum](https://ethereum.org/) addresses, or any other hard to remember resources, like IPFS file hashes or Tor .onion addresses!
 
@@ -50,7 +50,7 @@ At its core, ENS is composed of two main pieces. **Firstly, the ENS registry,** 
 
 With those two components we can map the basic ENS architecture and flow. When resolving an ENS address, one first queries the ENS registry for an ENS address → the registry then answers what resolver should be queried for the mapped content → and that resolver in return points the user to the final address or content the domain references.
 
-Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](http://fleek.co/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, with over 4000 sites that added them to their platforms.
+Right now ENS is growing in popularity and browsers like Opera mobile, MetaMask mobile, or any popular browser using the MetaMask extension supports .eth domains. [Even in Fleek](http://fleek.co/), ENS domains are gaining a lot of traction! Over 10% of deployments in Fleek are associated with an ENS domain, and over 4000 sites have added an ENS name already.
 
 What’s more, “.eth” is not the only suffix! As of today, some TLDs like .xyz [can be registered](https://docs.ens.domains/dns-registrar-guide) and claimed on ENS, however “.eth” does still benefit from being exclusively blockchain-native.
 
@@ -62,7 +62,7 @@ Instead of having Domain Name Registrars like GoDaddy, and DNS Servers, ENS has 
 
 After all, today in the Web 2.0, **most hosting components are centralized**: Domains, dedicated hosting servers, and CDNs. ENS is the starting point for changing that, by making internet naming decentralized.
 
-And, when combined with [IPFS](https://ipfs.io/) (InterPlanetary File System), a P2P and user-controlled storage/hosting system, ENS begins to open up the door for decentralizing those Web 2.0’s hosting components, and making **entirely P2P & decentralized websites possible**.
+And, when combined with [IPFS](https://ipfs.io/) (InterPlanetary File System), a distributed, P2P file system, ENS begins to open up the door for getting rid of the centralized, censorship-prone DNS components of Web 2.0, and making **decentralized, P2P and censorship-resistant websites & apps possible**.
 
 Especially because of the fact ENS allows us to access content on decentralized storage like IPFS via decentralized [constant links](https://blog.fleek.co/posts/immutable-ipfs). Remember that, on IPFS, files are identified by their content not by a storage URL. Meaning their addresses/hashes (CID) change every time the content does. Imagine having to change your website’s url every time you made an update!
 
