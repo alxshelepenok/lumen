@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: A Guide to ENS Domains + IPFS (Ethereum Name Service)
 slug: guide-ens-domains-ipfs-ethereum-name-service
-date: 2020-12-16T03:00:00Z
+date: 2020-12-17T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENS - Introduction
   Guide.jpg
 canonical: ''
