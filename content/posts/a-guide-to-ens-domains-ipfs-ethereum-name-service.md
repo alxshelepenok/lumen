@@ -75,6 +75,8 @@ ENS adoption still needs to grow, and P2P content storage/delivery networks are 
 
 And, above all, ENS resides in the Ethereum ecosystem, which is not a minor perk! Rather than being an alternate blockchain/network, it exists in an ecosystem in which it can easily interact with most of the decentralized use cases it pairs up well with: Dapps, Defi, NFTs, DAOs, wallets, etc.
 
+Not only that, but it can integrate all of those use cases under a single address! With DNS,  your domain, identity, payments, and bank are all separate things. ENS can unite it all in a single address that becomes not only your site, but identity, and bank. After all, not only it can carry an IPFS hash, but ETH, or BTC addresses and more things at once. 
+
 ## How to Buy ENS Domains and Register Them
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/I want one ENS.jpg)
