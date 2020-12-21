@@ -12,4 +12,6 @@ tags: []
 
 ---
 
-[https://twitter.com/balajis/status/1338559856366690305?s=20](https://twitter.com/balajis/status/1338559856366690305?s=20 "https://twitter.com/balajis/status/1338559856366690305?s=20")
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Real names weren’t built for the internet.</p>&mdash; balajis.com (@balajis) <a href="https://twitter.com/balajis/status/1338559856366690305?ref_src=twsrc%5Etfw">December 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
