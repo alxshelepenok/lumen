@@ -1,15 +1,19 @@
 ---
 template: post
-draft: true
+draft: false
 title: Why ENS Names are Much More Than Domains
 slug: why-ens-names-are-much-more-than-domains
 date: 2020-12-23T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS DOmains All
   in one web tool.jpg
 canonical: ''
-description: ''
-category: ''
-tags: []
+description: ENS domains have the power to combine multiple web services (banking,
+  billing, hosting,  authentication, identity, etc...) into a single, frictionless
+  one. Learn how this new web stack changes and simplifies how we build websites and
+  web applications.
+category: General
+tags:
+- ENS
 
 ---
 ![ENS Domains web infrastructure](https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS DOmains All in one web tool.jpg)
