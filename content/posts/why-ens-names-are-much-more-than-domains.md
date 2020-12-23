@@ -3,7 +3,7 @@ template: post
 draft: false
 title: Why ENS Names are Much More Than Domains
 slug: why-ens-names-are-much-more-than-domains
-date: 2020-12-23T03:00:00Z
+date: 2020-12-23T04:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS DOmains All
   in one web tool.jpg
 canonical: ''
