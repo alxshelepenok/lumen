@@ -34,7 +34,7 @@ These multi-address/record domains work contextually. Yourdomain.eth could be yo
 
 ## ENS Combines Multiple Web Services into a Frictionless One
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS Websites vs Trad.jpg)
+![ens web stack](https://fleek-team-bucket.storage.fleek.co/Blog Inline/ENS Websites vs Trad.jpg)
 
 The main benefit of this multi-address/resource capability is that ENS unifies and facilitates many complex web services **into a single resource**.
 
@@ -48,7 +48,7 @@ It’s not minor to say that ENS gives you **easy access to an open decentralize
 
 ## ENS Domains Could Unify Online Identities
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/PowerRanger ENS.jpg)
+![ens unified identity](https://fleek-team-bucket.storage.fleek.co/Blog Inline/PowerRanger ENS.jpg)
 
 Like Balaji S. Srinivasan said in this [Twitter thread](https://twitter.com/balajis/status/1338559856366690305), **real names weren’t built for the internet**. They don’t carry out metadata behind them. They are mostly descriptors, tied to other main identifiers: usernames, domains, emails, bank accounts, that are platform-specific and that you need to recall, build, and share separately. Real names are secondary online identifiers, and at times they are more risky than useful.
 
