@@ -6,8 +6,11 @@ slug: fleek-in-2020-looking-back-to-our-first-year
 date: 2020-12-30T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/2020 in Review.jpg
 canonical: ''
-description: ''
-category: ''
+description: From the expected, to the extremely and globally unexpected, we’re grateful
+  to look back at our run this 2020 and see that, since Fleek’s release in the year’s
+  first quarter, all changes that came pushed us forward to reach new heights and
+  better help build the Dweb.
+category: General
 tags: []
 
 ---
