@@ -53,6 +53,7 @@ fields:
   label: tags
 pages:
 - content/posts/a-guide-to-ens-domains-ipfs-ethereum-name-service.md
+- content/posts/fleek-in-2020-looking-back-to-our-first-year.md
 - content/posts/hackfs-showcasing-fleek-prize-winners.md
 - content/posts/introducing-space.md
 - content/posts/space-sdk-release.md
