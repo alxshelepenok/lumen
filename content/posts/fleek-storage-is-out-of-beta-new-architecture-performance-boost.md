@@ -28,15 +28,15 @@ What has changed? In a TL;DR fashion, we migrated our Storage architecture to a 
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Storage V2 Speed.gif)
 
-Our goal behind V2 is to provide a Storage service that’s able to handle hundreds of requests per minute, with faster speeds than V1’s, so that anyone interested in interacting with our SDK/CLI will be able to move **high volumes of data to IPFS efficiently** **using Fleek**.
+Our goal behind V2 is to provide a Storage service that’s able to handle hundreds of requests per minute, with faster speeds than V1’s, so that anyone interested in interacting with it will be able to move **high volumes of data to IPFS efficiently** **using Fleek**.
 
-The main point of constriction in V1 was that, whenever a file was uploaded to IPFS and the IPFS hash was modified, and files were linked to that bucket/hash, the process was done in a synchronized manner, meaning that for each file we had to lock a bucket and wait for each file to be uploaded and linked on IPFS before moving on to the next one.
+The main point of constriction in V1 was that, whenever a file was uploaded to IPFS and the IPFS hash was modified as files were linked to that bucket/hash, the process was done in a synchronized manner, meaning that for each file we had to lock the bucket and wait for each file to be uploaded and linked on IPFS before moving on to the next one.
 
-Now, on V2, this process is done **in an** **asynchronous way**, also using DynamoDB to store metadata needed to provide a quick way of browsing uploaded files as they are asynchronously linked on IPFS.
+Now, on V2, this process is done **in an** **asynchronous way**, dramatically improving performance, and also using DynamoDB to store metadata needed to provide a quick way of browsing uploaded files as they are asynchronously linked on IPFS.
 
-However, the other thing async IPFS linking enables is parallel uploads, since buckets are not locked. This comes as a tremendous efficiency benefit when it comes to high-volume file uploads.
+Async IPFS linking also enables **parallel uploads**, since buckets are not locked. This comes as a tremendous efficiency benefit when it comes to high-volume file uploads.
 
-In tests, we saw a clear improvement in performance! For small files, we went from a 1.5s upload on V1 to **less than 100ms** in V2.
+In tests, we saw a clear improvement in performance. For small files, we went from a 1.5s upload on V1 to **less than 100ms** in V2.
 
 What about bigger uploads? On the current build and with a bigger load test, we uploaded 18000 files in 34 minutes (\~100ms per file), and **using parallel upload** we achieved a total time of **around 10 minutes**.
 
