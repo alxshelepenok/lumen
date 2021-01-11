@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Fleek Storage is out of Beta: New Architecture & Performance Boost ⚡'
 slug: fleek-storage-is-out-of-beta-v2-release
 date: 2021-01-11T03:00:00Z
