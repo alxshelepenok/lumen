@@ -3,7 +3,7 @@ template: post
 draft: true
 title: 'Fleek Storage is out of Beta: New Architecture & Performance Boost ⚡'
 slug: fleek-storage-is-out-of-beta-v2-release
-date: 2021-01-06T03:00:00Z
+date: 2021-01-11T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek-Storage-V2.jpg
 canonical: https://blog.fleek.co/posts/fleek-storage-is-out-of-beta-v2-release
 description: The V2 of our Fleek Storage product is out, and it is packing a major
