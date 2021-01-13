@@ -53,6 +53,7 @@ fields:
   label: tags
 pages:
 - content/posts/a-guide-to-ens-domains-ipfs-ethereum-name-service.md
+- content/posts/filecoin-archiving-comes-to-fleek-sites-and-storage.md
 - content/posts/fleek-in-2020-looking-back-to-our-first-year.md
 - content/posts/fleek-storage-is-out-of-beta-new-architecture-performance-boost.md
 - content/posts/hackfs-showcasing-fleek-prize-winners.md
