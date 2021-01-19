@@ -75,7 +75,7 @@ ENS adoption still needs to grow, and P2P content storage/delivery networks are 
 
 And, above all, ENS resides in the Ethereum ecosystem, which is not a minor perk! Rather than being an alternate blockchain/network, it exists in an ecosystem in which it can easily interact with most of the decentralized use cases it pairs up well with: Dapps, Defi, NFTs, DAOs, wallets, etc.
 
-Not only that, but it can integrate all of those use cases under a single address! With DNS,  your domain, identity, payments, and bank are all separate things. ENS can unite it all in a single address that becomes not only your site, but identity, and bank. After all, not only it can carry an IPFS hash, but ETH, or BTC addresses and more things at once. 
+Not only that, but it can integrate all of those use cases under a single address! With DNS,  your domain, identity, payments, and bank are all separate things. ENS can unite it all in a single address that becomes not only your site, but identity, and bank. After all, not only it can carry an IPFS hash, but ETH, or BTC addresses and more things at once.
 
 ## How to Buy ENS Domains and Register Them
 
@@ -192,7 +192,7 @@ Now that you know how to register your first ENS domain, and how to use it toget
 **Stay tuned for more updates** on ENS features that are coming to Fleek ⚡ We’re currently working on an adjustment that would change how Fleek is given access to modify/update the records on your ENS domains automatically, by using the “setAuthorisation” function of the resolver, which is a more flexible approach than assigning us as the Controller itself because it allows users to continue to create subdomains themselves.
 
 * [Sign up](https://app.fleek.co/) to try Fleek
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
 * Check out our [Tech Docs](https://docs.fleek.co/)
