@@ -66,7 +66,7 @@ From our perspective, **ENS plays a significant role** in opening up and better 
 
 Our second big highlight of the year landed back in July, with the release of [the Space Daemon](https://blog.fleek.co/posts/space-daemon-getting-to-know), our first **open source library for building Dweb applications** which packages underlying protocols such as IPFS, Textile, Ethereum, and Filecoin and uses them to provide Dweb-enabled functionalities.
 
-<blockquote class="twitter-tweet" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">The <a href="https://twitter.com/FleekHQ?ref_src=twsrc%5Etfw">@FleekHQ</a> Space Daemon packages together <a href="https://twitter.com/IPFS?ref_src=twsrc%5Etfw">@IPFS</a>, <a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a> Threads/Buckets, &amp; Powergate into one easy to install &amp; JS interface to make it easy to build peer to peer &amp; privacy focused apps. Watch this Master Class w/ <a href="https://twitter.com/SamueleAgostin5?ref_src=twsrc%5Etfw">@SamueleAgostin5</a> to learn more: <a href="https://t.co/j8KWeuOkbs">https://t.co/j8KWeuOkbs</a></p>&mdash; Filecoin (@Filecoin) <a href="https://twitter.com/Filecoin/status/1344017888752054273?ref_src=twsrc%5Etfw">December 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">The <a href="https://twitter.com/FleekHQ?ref_src=twsrc%5Etfw">@FleekHQ</a> Space Daemon packages together <a href="https://twitter.com/IPFS?ref_src=twsrc%5Etfw">@IPFS</a>, <a href="https://twitter.com/textileio?ref_src=twsrc%5Etfw">@textileio</a> Threads/Buckets, & Powergate into one easy to install & JS interface to make it easy to build peer to peer & privacy focused apps. Watch this Master Class w/ <a href="https://twitter.com/SamueleAgostin5?ref_src=twsrc%5Etfw">@SamueleAgostin5</a> to learn more: <a href="https://t.co/j8KWeuOkbs">https://t.co/j8KWeuOkbs</a></p>— Filecoin (@Filecoin) <a href="https://twitter.com/Filecoin/status/1344017888752054273?ref_src=twsrc%5Etfw">December 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 The Space Daemon is not only a result of, but the very backbone itself of [Space](http://space.storage/), our upcoming distributed and user-controlled storage platform which we will talk about a bit later! As we worked our way towards creating a trustless storage app, we organized the core pieces needed for any Dweb app’s architecture, and packaged them **for anyone to reuse** and power their app’s functionality with.
 
@@ -119,7 +119,7 @@ We’re thrilled to start the year with a bang. After this past year, and with a
 Best wishes from the team, and a happy new year! 🎊 Remember that, if the new year sparks some Dweb ideas, you can reach out or join our Slack community anytime. We’ll be happy to jam and discuss it, or provide any advice or help if we can 🙌
 
 * [Sign up](https://app.fleek.co/) to try Fleek
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
 * Check out our [Tech Docs](https://docs.fleek.co/)
