@@ -97,7 +97,7 @@ Now, having matured and grown in use cases, it is time to think of them as an am
 Check out the [ENS documentation](https://docs.ens.domains/ens-migration/guide-for-dapp-developers) site for further use case examples and experiments you can make in your Dapp! You can get started with [IPFS+ENS hosting in Fleek](https://fleek.co/ens-domains/), so get building and share with us your latest project 👋
 
 * [Sign up](https://app.fleek.co/) to try Fleek
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
 * Check out our [Tech Docs](https://docs.fleek.co/)
