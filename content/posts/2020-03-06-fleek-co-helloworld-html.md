@@ -3,13 +3,14 @@ template: post
 title: Deploy and Host your site on IPFS Using Fleek
 slug: fleek helloWorld
 draft: false
-date: 2020-03-06T03:02:20.010Z
+date: 2020-03-06T03:02:20.010+00:00
 description: Create and deploy a static website using Fleek and IPFS
 category: Tutorial
-socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png 
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png
 tags:
-  - Tutorial
-  - Resource
+- Tutorial
+- Resource
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png)
 
@@ -17,12 +18,11 @@ tags:
 
 We're going to deploy a site onto IPFS in under 30 seconds using [Fleek](http://Fleek.co/). Let's get started!
 
-If you don't have a site or app handy in a GitHub repo, let's create a simple `index.html`. If you do, just skip directly to STEP 2. 
+If you don't have a site or app handy in a GitHub repo, let's create a simple `index.html`. If you do, just skip directly to STEP 2.
 
 Fleek will connect to your git provider and auto-detect whatever framework your site is using for quick deployment (you can also customize build settings if you'd like).
 
 ![](./media/Rebrand-release/GatsbyPrefilledSettings.png)
-
 
 ## Step 1: Set Up a Repo on Github
 
@@ -44,7 +44,7 @@ Now your repository is ready to go!
 
 ## Step 2: Set Up Fleek
 
-Go to: <https://app.fleek.co/>
+Go to: [https://app.fleek.co/](https://app.fleek.co/)
 
 Sign in or up with Github or Email
 
@@ -93,7 +93,7 @@ Or verify with the CID.
 Fleek will automatically redeploy your website whenever you make changes to GitHub. The provided domain name will remain the same and will point to the new CID. This enables you to build fast modern websites hosted on IPFS.
 
 * [Sign up](https://app.fleek.co)
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
