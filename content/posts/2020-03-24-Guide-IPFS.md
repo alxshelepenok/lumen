@@ -3,14 +3,15 @@ template: post
 title: A People’s Guide to IPFS
 slug: Guide-IPFS
 draft: false
-date: 2020-03-24T04:02:37.816Z
-description: >-
-  IPFS presents itself as a radical innovation whose aim is to reshape the entire web as we know it into a system that is more secure, efficient, and reliable.
+date: 2020-03-24T04:02:37.816+00:00
+description: IPFS presents itself as a radical innovation whose aim is to reshape
+  the entire web as we know it into a system that is more secure, efficient, and reliable.
 category: Tutorial
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/IPFS.png
 tags:
-  - Guide
-  - IPFS
+- Guide
+- IPFS
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/IPFS.png)
 
@@ -64,8 +65,9 @@ The combination of the peer to peer network and content addressing solves the th
 We have but scratched the surface of the technology and innovation behind IPFS. It is already a vibrant ecosystem bustling with interesting ideas and projects. However, the summary above should give you a good understanding of why IPFS is needed, why it will radically change the way the Internet operates, and why it is generating so much interest.
 
 ## Connect with Fleek team
+
 * [Sign up](https://app.fleek.co) to try yourself
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
