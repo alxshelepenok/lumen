@@ -3,16 +3,15 @@ template: post
 title: 'Fleek + IPFS: Web3 Deployment Simplified'
 slug: Terminal+IPFS
 draft: false
-date: 2020-03-03T02:39:47.298Z
-description: >-
-  Fleek.co offers a seamless workflow. It offers all the tools needed to
-  deploy and manage sites on IPFS. Focus on content and code. Fleek handles
-  the rest.
+date: 2020-03-03T02:39:47.298+00:00
+description: Fleek.co offers a seamless workflow. It offers all the tools needed to
+  deploy and manage sites on IPFS. Focus on content and code. Fleek handles the rest.
 category: Informational
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png
 tags:
-  - Informational
-  - Guide
+- Informational
+- Guide
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/fleek-plus-ipfs.png)
 
@@ -26,9 +25,9 @@ IPFS stands for Interplanetary File System. It’s a distributed file system use
 
 ![Photo by Nicolas Picard on Unsplash](./media/unsplash_1.jpeg)
 
-IPFS is decentralized by creating a peer-to-peer network that can be hosted anywhere. It provides data integrity *by linking to its content* instead of location. For example:
+IPFS is decentralized by creating a peer-to-peer network that can be hosted anywhere. It provides data integrity _by linking to its content_ instead of location. For example:
 
-<https://ipfs.io/ipfs/QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u>
+[https://ipfs.io/ipfs/QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u](https://ipfs.io/ipfs/QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvs8u)
 
 ![](./media/ipfshashbrowser.png)
 
@@ -36,7 +35,7 @@ The QmWAT… is the hash of the content “Hello World”.
 
 If someone were to change “Hello World” to “Goodbye World”, the hash **and thus** the link will change.
 
-<https://ipfs.io/ipfs/QmP8CvqzGRgH3WyeVKm8F1Pr6S4PGfuaCx6NVWuc929HWf>
+[https://ipfs.io/ipfs/QmP8CvqzGRgH3WyeVKm8F1Pr6S4PGfuaCx6NVWuc929HWf](https://ipfs.io/ipfs/QmP8CvqzGRgH3WyeVKm8F1Pr6S4PGfuaCx6NVWuc929HWf)
 
 ![](./media/goodbye_world.png)
 
@@ -71,8 +70,8 @@ Some features:
 
 ## More Info
 
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
-* Contact us at support@fleek.co 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
+* Contact us at support@fleek.co
 
 Check out [Tech Docs](https://docs.fleek.co/)
