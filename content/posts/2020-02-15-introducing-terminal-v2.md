@@ -54,7 +54,7 @@ A lot of the inspiration for Fleek comes from the low code movement that compani
 
 We’re super excited to embark on this new journey and to help bring the next million devs into the Web 3 space. We’d love to invite you all into our community to try out the new product and get your feedback. And if you feel there are opportunities to collaborate with us please reach out, we’d be happy to chat!
 
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Contact us at hi@fleek.co
 
