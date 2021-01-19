@@ -3,15 +3,15 @@ template: post
 title: How to deploy a Next.js app onto IPFS using Fleek
 slug: fleek-nextJS
 draft: false
-date: 2020-03-12T14:06:38.733Z
-description: >-
-  We’ll create a Next.js app and deploy it on Fleek. This whole process
+date: 2020-03-12T14:06:38.733+00:00
+description: We’ll create a Next.js app and deploy it on Fleek. This whole process
   It should take 10 minutes.
 category: Tutorial
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Next.png
 tags:
-  - Tutorial
-  - Guide
+- Tutorial
+- Guide
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Next.png)
 
@@ -33,69 +33,60 @@ Create an empty repository and clone it.
 
 Create a Next.js app using:
 
-`$ mkdir nextjs && cd nextjs` `$ npm init --y'
-'$ npm install next react react-dom`
+`$ mkdir nextjs && cd nextjs` `$ npm init --y' '$ npm install next react react-dom`
 
 ![](./media/nextjs/CreateNextjsapp.png)
 
 Open `package.json` and add in the following scripts
 
-```
-"scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export"  
-}
-```
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "export": "next export"  
+    }
 
 ![](./media/nextjs/Openpackagejson.png)
 
 Create a `next.config.js` file in the root directory
 
-```
-module.exports = {
-  exportTrailingSlash: true,
-  exportPathMap: function() {
-    return {
-      '/': { page: '/' }
+    module.exports = {
+      exportTrailingSlash: true,
+      exportPathMap: function() {
+        return {
+          '/': { page: '/' }
+        };
+      }
     };
-  }
-};
-```
 
 ![](./media/nextjs/createNextConfigJS.png)
 
 Let’s create some pages: Create a folder called pages Inside pages, create `index.js`
 
-```
-// index.js
-import Link from "next/link";
-
-export default function Index() {
-  return (
-    <div>
-      <h1> Index </h1>
-      <Link href="/about">
-        <a> About </a>
-      </Link>
-    </div>
-  );
-}
-```
+    // index.js
+    import Link from "next/link";
+    
+    export default function Index() {
+      return (
+        <div>
+          <h1> Index </h1>
+          <Link href="/about">
+            <a> About </a>
+          </Link>
+        </div>
+      );
+    }
 
 and `about.js`
 
-```
-// about.js
-export default function About() {
-  return (
-    <div>
-      <h1> About </h1>
-    </div>
-  );
-}
-```
+    // about.js
+    export default function About() {
+      return (
+        <div>
+          <h1> About </h1>
+        </div>
+      );
+    }
 
 It should look something like this
 
@@ -167,7 +158,7 @@ Or verify with the CID.
 Fleek will automatically redeploy your website whenever you make changes to GitHub. Make sure to provide the domain name will remain the same and will point to the new CID. This enables you to build fast modern websites hosted on IPFS.
 
 * [Sign up](https://app.fleek.co) to try yourself
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
