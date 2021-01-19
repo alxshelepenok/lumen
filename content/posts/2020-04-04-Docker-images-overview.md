@@ -3,16 +3,16 @@ template: post
 title: Overview of Fleek's Docker Hub Repository
 slug: overview-fleek-docker-hub-repo
 draft: false
-date: 2020-04-04T04:02:37.816Z
-description: >-
-  A walkthrough of Fleek's Docker Hub repository. You will see Fleek's official images which we encourage you to use for your site.
+date: 2020-04-04T04:02:37.816+00:00
+description: A walkthrough of Fleek's Docker Hub repository. You will see Fleek's
+  official images which we encourage you to use for your site.
 category: Tutorial
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/docker-hub-overview.png
 tags:
-  - Docker
-  - Resource
----
+- Docker
+- Resource
 
+---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/docker-hub-overview.png)
 
 Fleek has an official Docker Hub repo! We store all our official Docker Images there. In this post, we'll introduce you to its content so you can use it to create the best site ever.
@@ -45,16 +45,14 @@ As you can see in the tags section, many node versions are available. For exampl
 
 If you wish to consult the Dockerfile from which those images are built, you can consult the Github repository with all the Dockerfiles from which the images built.
 
-<https://github.com/FleekHQ/site-builder-docker-images>
+[https://github.com/FleekHQ/site-builder-docker-images](https://github.com/FleekHQ/site-builder-docker-images)
 
 ## Farewell!
 
-We hope you enjoyed this tour through Fleek's Docker Hub! If you feel we are missing docker images or have suggestions, do not hesitate to contact us! 
+We hope you enjoyed this tour through Fleek's Docker Hub! If you feel we are missing docker images or have suggestions, do not hesitate to contact us!
 
 * [Sign up](https://app.fleek.co) to try for yourself
-* [Join](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A) our Community Chat
+* [Join](https://slack.fleek.co/) our Community Chat
 * [Follow](https://twitter.com/FleekHQ) us on Twitter
 * [Read](https://docs.fleek.co/) out our Tech Docs
-* Contact us at support@fleek.co 
-
-
+* Contact us at support@fleek.co
