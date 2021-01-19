@@ -1,18 +1,21 @@
 ---
 template: post
-title: Release Updates - DNS Link, Custom Fleek URLs, NuxtJS Support, Build and Bandwidth Stats and more!
+title: Release Updates - DNS Link, Custom Fleek URLs, NuxtJS Support, Build and Bandwidth
+  Stats and more!
 slug: Fleek-Release-Update-DNS-Link
 draft: false
-date: 2020-04-15T04:02:37.816Z
-description: >-
-    "We're happy to bring you another release! This one is special because of all the request for DNS Link Support in particular. We have also released Custom Fleek URLs and custom naming of your site, NuxtJS framework auto detection, some stats on your build minutes and bandwidth, and more!"
-category: "Announcement"
+date: 2020-04-15T04:02:37.816+00:00
+description: '"We''re happy to bring you another release! This one is special because
+  of all the request for DNS Link Support in particular. We have also released Custom
+  Fleek URLs and custom naming of your site, NuxtJS framework auto detection, some
+  stats on your build minutes and bandwidth, and more!"'
+category: Announcement
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png
 tags:
-  - Announcement
-  - Release Update
----
+- Announcement
+- Release Update
 
+---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-UI-rebrand.png)
 
 We're happy to bring you another release! This one is special because of all the request for DNS Link Support in particular. We have also released Custom Fleek URLs and custom naming of your site, NuxtJS framework auto detection, some stats on your build minutes and bandwidth, and more!
@@ -37,14 +40,13 @@ VueJS is very popular and NuxtJS is one of its most popular static site generato
 
 ![](media/DNSrelease/Nuxt.png)
 
-## Build Minutes and Bandwidth Statistics 
+## Build Minutes and Bandwidth Statistics
 
 Keep track of how many build minutes and how much bandwidth the sites in your team have used throughout the month. If you're getting close to running out you can upgrade to the pro plan!
 
 ![](media/DNSrelease/BuildBandwidth.png)
 
-# Enhancements 
-
+# Enhancements
 
 ## Support for Git Submodules
 
@@ -53,7 +55,6 @@ We modified and improved the way we clone git repos to account for any submodule
 ## DNS Verification UX
 
 We improved the flow of verifying your external subdomain or root domain with Fleek. The instructions are very clear and it only takes one click. You can also add a DNS Link to each domain optionally whenever you want.
-
 
 # Bugs Fixes
 
@@ -71,19 +72,18 @@ During the add a site, create a team, and add a custom domain flows if the user 
 
 ## Inviting Team Members
 
-If you invited a team member that had not signed up with Fleek before and accepted the invite to sign up with a different email, they saw an error. Now it's as smooth as butter. 
+If you invited a team member that had not signed up with Fleek before and accepted the invite to sign up with a different email, they saw an error. Now it's as smooth as butter.
 
-## Reset Password 
+## Reset Password
 
-After you reset your password you are now redirected back to login 
-
+After you reset your password you are now redirected back to login
 
 # Thanks for Reading
 
 Thanks so much for reading the updates! Sign back in and check out the new features, enhancements, and bug fixes.
 
 * [Sign up](https://app.fleek.co) to try for yourself
-* [Join](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A) our Community Chat
+* [Join](https://slack.fleek.co/) our Community Chat
 * [Follow](https://twitter.com/FleekHQ) us on Twitter
 * [Read](https://docs.fleek.co/) out our Tech Docs
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
