@@ -1,18 +1,19 @@
 ---
 template: post
-title: >-
-  Release Update: Custom Docker, Environment Variables, Faster Performance, and
-  more..
+title: 'Release Update: Custom Docker, Environment Variables, Faster Performance,
+  and more..'
 slug: Release-update-1
 draft: false
-date: 2020-03-05T04:30:23.237Z
-description: >-
-  We are currently in private beta and from all the amazing feedback from our groundfloor users, we have released several updates that focus on improving the deployment process. We've also enhanced the experience all around the app
-  and fixed many bugs.
+date: 2020-03-05T04:30:23.237+00:00
+description: We are currently in private beta and from all the amazing feedback from
+  our groundfloor users, we have released several updates that focus on improving
+  the deployment process. We've also enhanced the experience all around the app and
+  fixed many bugs.
 category: Release
-socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Docker.png 
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Docker.png
 tags:
-  - Release
+- Release
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/Release-Update-Docker.png)
 
@@ -30,7 +31,7 @@ Before your app or site is deployed onto IPFS it is built using docker images. W
 
 ##### Environment Variables:
 
-Users can now specify any number of environment variables before deploying their app. They can also be edited and updated later on to support flexible and robust DevOps practices. 
+Users can now specify any number of environment variables before deploying their app. They can also be edited and updated later on to support flexible and robust DevOps practices.
 
 ![](./media/Screen Shot 2020-03-05 at 12.01.19 AM.png "Environment Variables Component")
 
@@ -60,8 +61,7 @@ Deploy any combination of files or directories that do not require specifying an
 
 We're very excited to be launching the Public Beta soon! In the meantime:
 
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
-
+* Contact us at support@fleek.co
