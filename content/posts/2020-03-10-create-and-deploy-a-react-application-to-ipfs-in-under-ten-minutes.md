@@ -3,15 +3,17 @@ template: post
 title: Create and Deploy a React Application to IPFS in Under Ten Minutes
 slug: fleek-create-react-app
 draft: false
-date: 2020-03-10T02:38:34.993Z
-description: >-
-  A React application can be bootstrapped in a matter of minutes with create-react-app. Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together like peanut butter and jelly, allowing for
-  development and deployment to be complete in a flash.
+date: 2020-03-10T02:38:34.993+00:00
+description: A React application can be bootstrapped in a matter of minutes with create-react-app.
+  Fleek allows apps to be deployed to IPFS in a matter of minutes. These two go together
+  like peanut butter and jelly, allowing for development and deployment to be complete
+  in a flash.
 category: Tutorial
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/CreateReactAppSocialimage.png
 tags:
-  - Tutorial
-  - Guide
+- Tutorial
+- Guide
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/CreateReactAppSocialimage.png)
 
@@ -21,8 +23,8 @@ We will do it in two steps which are: 1. Creating a react application with creat
 
 ### Step 1: Creating a React application with create-react-app
 
-Create-react-app requires npm => 5.6 and node >= 8.10, so make sure they are installed at the correct version.\
-\
+Create-react-app requires npm => 5.6 and node >= 8.10, so make sure they are installed at the correct version.  
+  
 We will start by running the following commands to create and preview the react application.
 
 `npx create-react-app my-app`
@@ -31,7 +33,7 @@ We will start by running the following commands to create and preview the react 
 
 `npm start`
 
-Go to <http://localhost:3000> in your browser and you will see the default create-react-app application.
+Go to [http://localhost:3000](http://localhost:3000) in your browser and you will see the default create-react-app application.
 
 ![](./media/1-localhost.png)
 
@@ -41,47 +43,45 @@ Now, it’s time to develop the app if you wish to do so, or simply use the defa
 
 Finally, we need to make a slight modification to the package.json file by adding the field `homepage: '.'`.
 
-```
-{
-  "name": "my-app",
-  "homepage": ".",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
-}
-```
+    {
+      "name": "my-app",
+      "homepage": ".",
+      "version": "0.1.0",
+      "private": true,
+      "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "react": "^16.13.0",
+        "react-dom": "^16.13.0",
+        "react-scripts": "3.4.0"
+      },
+      "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
+      "eslintConfig": {
+        "extends": "react-app"
+      },
+      "browserslist": {
+        "production": [
+          ">0.2%",
+          "not dead",
+          "not op_mini all"
+        ],
+        "development": [
+          "last 1 chrome version",
+          "last 1 firefox version",
+          "last 1 safari version"
+        ]
+      }
+    }
 
 This will make it so the page will also work on IPFS gateways whose URLs are in the format `/ipfs/HASH`
 
-Fleek will grab the application from your GitHub repo, so the next thing to do is to create a GitHub repository with our app in it. This is the repo for the app above: <https://github.com/SamueleA/create-react-app-ipfs-deploy>Feel free to fork it. Let’s deploy it now!
+Fleek will grab the application from your GitHub repo, so the next thing to do is to create a GitHub repository with our app in it. This is the repo for the app above: [https://github.com/SamueleA/create-react-app-ipfs-deploy](https://github.com/SamueleA/create-react-app-ipfs-deploy)Feel free to fork it. Let’s deploy it now!
 
 ### Step 2: Deploying the App Through Fleek
 
@@ -103,14 +103,14 @@ Success! The deployment worked and the yellow indicator at the top turned blue a
 
 ![](./media/6-og-success.png)
 
-Here is the link to see the result: <https://polished-hat-0578.on.fleek.co/> You can also click on the “Verify on IPFS” link which will lead you to an IPFS gateway using the IPFS hash, where the app can be admired in all its distributed, uncensorable glory. Creating the default react app and deploying it to IPFS takes less than 10 minutes, so I invite you to create and deploy your application by signing up for [Fleek](https://app.fleek.co).
+Here is the link to see the result: [https://polished-hat-0578.on.fleek.co/](https://polished-hat-0578.on.fleek.co/) You can also click on the “Verify on IPFS” link which will lead you to an IPFS gateway using the IPFS hash, where the app can be admired in all its distributed, uncensorable glory. Creating the default react app and deploying it to IPFS takes less than 10 minutes, so I invite you to create and deploy your application by signing up for [Fleek](https://app.fleek.co).
 
-**\
-Documentation** 
+**  
+Documentation**
 
-**[Create-React-App](https://reactjs.org/docs/create-a-new-react-app.html)**
+[**Create-React-App**](https://reactjs.org/docs/create-a-new-react-app.html)
 
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
