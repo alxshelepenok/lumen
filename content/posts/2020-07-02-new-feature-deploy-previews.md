@@ -3,15 +3,15 @@ template: post
 title: 'New Feature Alert: Deploy Previews!'
 slug: new-feature-deploy-previews
 draft: false
-date: 2020-07-02T12:18:31.636Z
-description: >-
-  New feature alert! You can now preview your deployments before release thanks to deploy previews!
+date: 2020-07-02T12:18:31.636+00:00
+description: New feature alert! You can now preview your deployments before release
+  thanks to deploy previews!
 category: Release
 socialImage: https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/DeployPreview.png
 tags:
-  - release
----
+- release
 
+---
 ![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/DeployPreview.png)
 
 Deploy previews are the latest improvement to our web hosting product.
@@ -42,17 +42,17 @@ In addition, you are able to view the deploy preview right from the github page 
 
 ![](https://fleekblog-team-bucket.storage.fleek.co/new-feature-pr-deploys/newFeaturePrPreviews/pr-preview.png)
 
-
 If you are an existing Fleek user, you should have received an email from Github to update your permissions. The permissions are necessary so you can receive information about your deployments right from Github.
 
 ### Stay tuned!
+
 We are constantly working at improving Fleek and adding new features. So stay tuned to Fleek on social media to learn about all the new cool stuff we are working on!
 
 If you have feedback about deploy previews or even suggestions to further improve Fleek, do not hesitate to contact us!
 
 * [Sign up](https://app.fleek.co) to try yourself
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
