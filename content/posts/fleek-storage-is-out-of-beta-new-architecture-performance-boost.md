@@ -61,7 +61,7 @@ Now it’s time for you to take Fleek Storage for a new test run! Give this new 
 This won’t be the last Storage-related thing you’ll hear from us in the near future, so expect new announcements soon!
 
 * [Sign up](https://app.fleek.co/) to try Fleek
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
+* Join our [Community Chat](https://slack.fleek.co/)
 * Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
 * Check out our [Tech Docs](https://docs.fleek.co/)
