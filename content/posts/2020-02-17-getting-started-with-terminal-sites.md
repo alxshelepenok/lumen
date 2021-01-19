@@ -3,14 +3,15 @@ template: post
 title: Getting Started on Fleek
 slug: getting-started
 draft: false
-date: 2020-02-17T19:22:21.659Z
+date: 2020-02-17T19:22:21.659+00:00
 description: Get started deploying your first site on IPFS on Fleek
 category: getting started
-socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/getting-started.png 
+socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/getting-started.png
 tags:
-  - general
-  - getting started
-  - fleek
+- general
+- getting started
+- fleek
+
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/getting-started.png)
 
@@ -45,8 +46,6 @@ Let’s get started by signing up for Fleek and deploying a website:
 ### **6**. **Deploy your Site!**
 
 ![Deploy Site](./media/Deploy Settings Click.png "Deploy Site")
-
-
 
 While your site is deploying you’re redirected to monitor its progress with detailed logs during each step of the deployment.
 
@@ -117,7 +116,7 @@ Now that you have deployed a performant website on IPFS, let's add or buy a doma
 ![Encrypted](./media/certroot.png "Encrypted")
 
 * [Sign up](https://app.fleek.co) to try yourself
-* Join our [Community Chat](https://join.slack.com/t/fleek-public/shared_invite/zt-bxna7y1d-PbVdut4rgHt5jM6Zjg9g9A)
-* Follow us on [Twitter](https://twitter.com/FleekHQ) 
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
 * Check out our [Tech Docs](https://docs.fleek.co/)
-* Contact us at support@fleek.co 
+* Contact us at support@fleek.co
