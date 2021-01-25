@@ -23,8 +23,8 @@ We will do it in two steps which are: 1. Creating a react application with creat
 
 ### Step 1: Creating a React application with create-react-app
 
-Create-react-app requires npm => 5.6 and node >= 8.10, so make sure they are installed at the correct version.  
-  
+Create-react-app requires npm => 5.6 and node >= 8.10, so make sure they are installed at the correct version.
+
 We will start by running the following commands to create and preview the react application.
 
 `npx create-react-app my-app`
@@ -103,10 +103,21 @@ Success! The deployment worked and the yellow indicator at the top turned blue a
 
 ![](./media/6-og-success.png)
 
-Here is the link to see the result: [https://polished-hat-0578.on.fleek.co/](https://polished-hat-0578.on.fleek.co/) You can also click on the “Verify on IPFS” link which will lead you to an IPFS gateway using the IPFS hash, where the app can be admired in all its distributed, uncensorable glory. Creating the default react app and deploying it to IPFS takes less than 10 minutes, so I invite you to create and deploy your application by signing up for [Fleek](https://app.fleek.co).
+Here is the link to see the result: [https://polished-hat-0578.on.fleek.co/](https://polished-hat-0578.on.fleek.co/) You can also click on the “Verify on IPFS” link which will lead you to an IPFS gateway using the IPFS hash, where the app can be admired in all its distributed, uncensorable glory.
 
-**  
-Documentation**
+### **Additional Considerations Concerning Routing**
+
+The app we've creating is very simple since it does not contain any routes. In most serious applications, however, you will want to organize your app into routes.
+
+One problem that will occur is that the routes will work properly when accessing the site through the main domain, but will not work when accessing it through an IPFS gateway with the hash in the path such as`https://ipfs.io/ipfs/HASH`.
+
+This is due to fact that the gateway is formatted with the hash in a path in the URL which causes the gateway to think the user is looking for a file while in reality the user is trying to access the app from a particular route. The problem is explained in more details [here](https://youtu.be/EOca15VdP-8?t=155).
+
+The solution we recommend is to use hash routing instead. Urls will then render in the following format: `https://ifps.io/ipfs/HASH/#/YOUR_ROUTE` and the problem will be fixed.
+
+Creating the default react app and deploying it to IPFS takes less than 10 minutes, so I invite you to create and deploy your application by signing up for Fleek.
+
+**Documentation**
 
 [**Create-React-App**](https://reactjs.org/docs/create-a-new-react-app.html)
 
