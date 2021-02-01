@@ -1,7 +1,7 @@
 ---
 template: post
 draft: true
-title: 'Introducing the Space SDK: Build Your Web & Mobile App on the Dweb'
+title: 'Introducing the Space SDK: Build Your Web & Mobile App on the Open Web'
 slug: introducing-space-sdk-release
 date: 
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/SpaceSDK.png
