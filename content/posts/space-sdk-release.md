@@ -40,7 +40,7 @@ The Space SDK is a complimentary framework that enables the use of [IPFS](https:
 
 All features in the Space SDK are simplified. Things like storage, file sharing, key-based authentication are easily accessible via **ready-to-use methods** 🔥
 
-Unlike the Space Daemon, the Space SDK is **modular and protocol agnostic**. Each module can be customized, meaning, you can take advantage of each module as it is with the protocols/connections we provide, use it as a framework to plug in your own implementations, or replace a piece alltogether!
+Unlike the Space Daemon, the Space SDK is **modular and protocol agnostic**. Each module can be customized, meaning, you can take advantage of each module as it is with the protocols/connections we provide, use it as a framework to plug in your own implementations, or replace a piece altogether!
 
 For example, instead of using the default connection to the Textile hub on the Storage module, **you can replace it with your own storage layer** -for example, [Hypercore](https://hypercore-protocol.org/)- and still be able to work with the rest of the SDK’s functionalities.
 
@@ -85,7 +85,7 @@ The Storage Module enables web/mobile applications to upload, pin, manage, and f
 
 * Create files / directories
 * List files /directories
-* Create buckets 
+* Create buckets
 * Sharing **(coming soon!)**
 
 ### Interface Highlights ✨
@@ -127,7 +127,6 @@ That's all! You're set to get started using our different APIs.
     // backed up users identity can also be recovered later
     const recoveredUser = await users.recoverKeysByPassphrase(uuid, passphrase, backupType);
     // `recoveredUser` has same authentication as `user` above.
-    
 
 Want more examples? Read the [User's class document](https://fleekhq.github.io/space-sdk/docs/sdk.users).
 
@@ -159,7 +158,6 @@ Want more examples? Read the [User's class document](https://fleekhq.github.io/s
       const summary = data as AddItemsResultSummary;
       // returns a summary of all files and their upload status
     });
-    
 
 Want more examples on storage? Read the [Storage API's documentation.](https://fleekhq.github.io/space-sdk/docs/sdk.userstorage)
 
