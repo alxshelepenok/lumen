@@ -13,7 +13,7 @@ tags: []
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/SpaceSDK.png)
 
-The team’s thrilled to showcase our latest open source endeavor… A new library for developing decentralized applications on browser and mobile: **the Space SDK!**
+The team’s thrilled to showcase our latest open source endeavor… A new library for developing decentralized applications on web and mobile: **the Space SDK!**
 
 The **Space SDK** is a JavaScript/TypeScript library that you can integrate with your **website or mobile application** to enable them to store files in a user-owned way on the distributed web ([IPFS](https://ipfs.io/)/[Textile](https://textile.io/) nodes), and easily access to more Web 3.0 protocols via an implementation of the Space API.
 
@@ -46,11 +46,11 @@ That’s how we built the Space SDK: flexible, light, and as mobile and web frie
 
 If you recall, earlier last year, we released the [Space Daemon](https://github.com/FleekHQ/space-daemon), a library for **desktop** that comes with IPFS/Textile nodes, exposed gRPC methods for features like encrypted file upload, file sharing, user-controlled accounts, and more tools for building Open Web applications, under the same underlying protocols.
 
-Today, the Space SDK arrives to **make all of these features readily available on browser/mobile.**
+Today, the Space SDK arrives to **make all of these features readily available on web/mobile.**
 
 The main difference between the two, aside from the fact **the SDK is built on JavaScript while the Space Daemon is built on GoLang**, is that the Space Daemon embeds an IPFS/Textile node and caches files there, while the SDK only uses GunDB’s decentralized database for storing file/bucket metadata and keys, and relies on the remote Textile Hub for distributed online storage.
 
-This switch comes with a great perk. Not only can browser / mobile apps can access Space’s distributed storage network. But, in the future, we expect to open up Space so that our users, and any other platform **and their users**, can host and deliver content via Space’s open storage layer.
+This switch comes with a great perk. Not only can web/ mobile apps can access Space’s distributed storage network. But, in the future, we expect to open up Space so that our users, and any other platform **and their users**, can host and deliver content via Space’s open storage layer.
 
 This is one of many stops on our exploration of ways to provide an interface for decentralized storage for both users, and platforms, so stay tuned as we bring more updates later on this year.
 
@@ -167,7 +167,7 @@ We think the path forward to the distributed/decentralized web is open source an
 
 You can get started with the Space SDK on its [Github page](https://github.com/FleekHQ/space-sdk), and join our [Developer Community](https://slack.fleek.co/) in Slack to share your project or chat with the team if you have any questions/suggestions.
 
-We’re looking forward to seeing what cool projects come up! It’s exciting to think that, with the SDK, Dapps and websites across all platforms (browser/mobile/desktop) can explore new ways of providing Web3 enabled features 🔥
+We’re looking forward to seeing what cool projects come up! It’s exciting to think that, with the SDK, Dapps and websites across all platforms (web/mobile/desktop) can explore new ways of providing Web3 enabled features 🔥
 
 * [Sign up](https://app.fleek.co/) to try Fleek
 * Join our [Community Chat](https://slack.fleek.co/)
