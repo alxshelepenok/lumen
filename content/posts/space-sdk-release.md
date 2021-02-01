@@ -3,12 +3,18 @@ template: post
 draft: true
 title: 'Introducing the Space SDK: Build Your Web & Mobile App on the Open Web'
 slug: introducing-space-sdk-release
-date: 
+date: 2021-02-02T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/SpaceSDK.png
-canonical: ''
-description: ''
-category: ''
-tags: []
+canonical: https://blog.space.storage/posts/introducing-space-sdk-release
+description: The Space SDK is a complimentary framework that enables the use of features
+  enabled by IPFS, Textile, Ethereum, GunDB, and other Open Web protocols via the
+  Space API.
+category: Release
+tags:
+- Textile
+- IPFS
+- GunDB
+- Space
 
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/SpaceSDK.png)
