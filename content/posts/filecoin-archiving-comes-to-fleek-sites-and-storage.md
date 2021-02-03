@@ -17,11 +17,11 @@ tags:
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek-Filecoin.png)
 
-Another update incoming! Last time, we announced the release of the [Space SDK](https://github.com/FleekHQ/space-sdk), our new open source library. Today, we’re excited to announce **we’re enabling automatic Filecoin archiving / backups for all sites and storage on Fleek.**
+Another update incoming! Last time, we announced the release of the [Space SDK](https://github.com/FleekHQ/space-sdk), our new open source library. Today, we’re excited to announce **we’re enabling automated Filecoin archiving / backups for all sites and storage on Fleek.**
 
-That’s right. We’re adding Filecoin as an archiving storage layer, and everyone using Fleek right now will benefit from it right away, **no extra cost attached.**
+That’s right. We’re adding Filecoin as an archiving storage layer, and everyone using Fleek right now will benefit from it right away, **no extra cost involved and available for all.**
 
-That means that if you have a website running on IPFS with Fleek, or store files on IPFS with us, then your files and data will be replicated and backed up on a **decentralized storage network** to take them even further into the Web 3.0 paradigm!
+That means that if you have a website running on IPFS with Fleek or store files on IPFS with us, no matter your plan, then you'll benefit from having them backed up on a **decentralized storage network,** taking your project even further into the Web 3.0!
 
 ## Why Filecoin Archiving?
 
