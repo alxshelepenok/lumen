@@ -1,9 +1,9 @@
 ---
 template: post
 draft: true
-title: 'Release Update: '
-slug: Release Updates - Multiple Custom Domains, WalletConnect for ENS, and Auto-DNS
+title: Release Updates - Multiple Custom Domains, WalletConnect for ENS, and Auto-DNS
   Verification
+slug: release-update-multiple-custom-domains-walletconnect-dns-verification
 date: 2021-02-11T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Release Update  Feb.png
 canonical: ''
