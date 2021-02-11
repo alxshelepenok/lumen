@@ -37,7 +37,7 @@ Quite self explanatory! You can now add and manage multiple custom domains to yo
 
 We have integrated WalletConnect to support a [vast number of new wallets](https://walletconnect.org/wallets/) in our ENS domain management flow. Whenever you need to verify or set up your new Ethereum Name Service domain name through Fleek, you will now see the following options:
 
-![](https://lh6.googleusercontent.com/CjkWaJYP8jhWeYKkP-h6CUY6I2buxffL5CHE9V4R4ePhDKJrRKUXb0V8-076tshPeJXVGxxP3sw3tTWJw6av5-vS4mC6-WxQMDKTlJiMZZnuSRKkWjXRiCkQVny6qNsuoQfYf5O8 =565x327)
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/walletconnect.png)
 
 ### TLD Verification
 
