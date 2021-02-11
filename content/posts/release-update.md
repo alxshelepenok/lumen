@@ -1,13 +1,13 @@
 ---
 template: post
-draft: true
-title: Release Updates - Multiple Custom Domains, WalletConnect for ENS, and Auto-DNS
-  Verification
-slug: release-update-multiple-custom-domains-walletconnect-dns-verification
+draft: false
+title: Release Updates - Multiple Custom Domains, WalletConnect for ENS, and TLD Verification
+slug: release-update-multiple-custom-domains-walletconnect-tld-verification
 date: 2021-02-11T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Release Update  Feb.png
 canonical: ''
-description: ''
+description: Another round of weekly updates, releases, and enhancements comes our
+  way on February!
 category: Announcement
 tags:
 - WalletConnect
@@ -39,9 +39,11 @@ We have integrated WalletConnect to support a [vast number of new wallets](https
 
 ![](https://lh6.googleusercontent.com/CjkWaJYP8jhWeYKkP-h6CUY6I2buxffL5CHE9V4R4ePhDKJrRKUXb0V8-076tshPeJXVGxxP3sw3tTWJw6av5-vS4mC6-WxQMDKTlJiMZZnuSRKkWjXRiCkQVny6qNsuoQfYf5O8 =565x327)
 
-### Auto-DNS Verification
+### TLD Verification
 
-We have changed how DNS domains are verified! Now instead of manually triggering a verification after adding the pertinent CNAME record, Fleek will automatically detect and verify it after its propagation.
+We have changed how DNS domains and their TLDs (Top level domains) are verified! In the past, if you tried to add a custom DNS domain to your website on Fleek, and it had a an odd TLD, like .ooo, that might not have been supported by standard providers we interact with (like GoDaddy), you could get an error because they were not identified as valid and had to be manually added by the team.
+
+Now, these are supported as well and can be verified! So you can go nuts and use the weirdest TLDs for your custom domains, without having to stir out of the usual flow.
 
 ## That’s all for today!
 
