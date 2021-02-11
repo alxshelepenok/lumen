@@ -4,7 +4,7 @@ draft: false
 title: Release Updates - Multiple Custom Domains, WalletConnect for ENS, and TLD Verification
 slug: release-update-multiple-custom-domains-walletconnect-tld-verification
 date: 2021-02-11T03:00:00Z
-socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Release Update  Feb.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/release-update.png
 canonical: ''
 description: Another round of weekly updates, releases, and enhancements comes our
   way on February!
