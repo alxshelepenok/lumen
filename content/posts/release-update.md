@@ -8,8 +8,11 @@ date: 2021-02-11T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Release Update  Feb.png
 canonical: ''
 description: ''
-category: ''
-tags: []
+category: Announcement
+tags:
+- WalletConnect
+- DNS
+- ENS
 
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Release Update  Feb.png)
@@ -20,11 +23,13 @@ What news do we have in store in this batch? Well, three things are new in Fleek
 
 1. Multiple Custom Domain Support
 2. WalletConnect Support in ENS flow
-3. Auto-DNS Verfication
+3. Auto-DNS Verification
 
 ## New Features
 
 ### Multiple Custom Domain Support
+
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/MultipleDomains.png)
 
 Quite self explanatory! You can now add and manage multiple custom domains to your Fleek-hosted sites to provide different points of entry, or redirect automatically to your primary domain addresses. You can find this under the Domain Management tab, in a website’s setting section.
 
@@ -33,6 +38,10 @@ Quite self explanatory! You can now add and manage multiple custom domains to yo
 We have integrated WalletConnect to support a [vast number of new wallets](https://walletconnect.org/wallets/) in our ENS domain management flow. Whenever you need to verify or set up your new Ethereum Name Service domain name through Fleek, you will now see the following options:
 
 ![](https://lh6.googleusercontent.com/CjkWaJYP8jhWeYKkP-h6CUY6I2buxffL5CHE9V4R4ePhDKJrRKUXb0V8-076tshPeJXVGxxP3sw3tTWJw6av5-vS4mC6-WxQMDKTlJiMZZnuSRKkWjXRiCkQVny6qNsuoQfYf5O8 =565x327)
+
+### Auto-DNS Verification
+
+We have changed how DNS domains are verified! Now instead of manually triggering a verification after adding the pertinent CNAME record, Fleek will automatically detect and verify it after its propagation.
 
 ## That’s all for today!
 
