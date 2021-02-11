@@ -23,7 +23,7 @@ What news do we have in store in this batch? Well, three things are new in Fleek
 
 1. Multiple Custom Domain Support
 2. WalletConnect Support in ENS flow
-3. Auto-DNS Verification
+3. TLD Verification
 
 ## New Features
 
