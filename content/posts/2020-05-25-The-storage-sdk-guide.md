@@ -177,8 +177,8 @@ For use cases in which the IPFS hash must be store on a blockchain such as Ether
 
 The hash is also available from the web app by clicking on `Verify on IPFS`.
 
-For example, here's the hash for the gif used as example: `bafybeieosa4izdyojswkzddssuekz47ly7suwb4spiniv33e5ht5kbz5vu`.
-And it can be accessed through an IPFS gateway: [https://gateway.temporal.cloud/ipfs/bafybeieosa4izdyojswkzddssuekz47ly7suwb4spiniv33e5ht5kbz5vu](https://gateway.temporal.cloud/ipfs/bafybeieosa4izdyojswkzddssuekz47ly7suwb4spiniv33e5ht5kbz5vu)
+For example, here's the hash for the gif used as example: `bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora`. And it can be accessed through an IPFS gateway:   
+[https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora](https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora "https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora")
 
 # Existing AWS S3 SDK projects
 
