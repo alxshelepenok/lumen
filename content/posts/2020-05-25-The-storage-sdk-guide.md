@@ -22,7 +22,7 @@ This post will help you with common commands for the Storage SDK, so you'll be u
 
 # The Fleek Storage SDK Cookbook: The most common commands
 
-![](https://samuelea-team-bucket.storage.fleek.co/homer-cooking.gif)
+![](https://fleek-team-bucket.storage.fleek.co/homer-cooking.gif)
 _The gif above was uploaded and is being shared through Fleek Storage. You can use Fleek Storage to serve web assets for YOUR site!_
 
 Below are some common commands for the Fleek Storage SDK. They are only a small portion of possible commands. A more comprehensive list can be found in the [AWS S3 SDK documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html).
@@ -88,7 +88,6 @@ The bucket contains all your files and must be specified when either fetching or
           console.log("Success when listing buckets", data);
         }
      });
-    
 
 Make sure to save the name of the bucket somewhere for use with other commands.
 
@@ -118,7 +117,7 @@ An example of a typical response is provided below.
            Size: 2078126,
            StorageClass: 'STANDARD',
            Owner: [Object] } ],
-      Name: 'samuelea-team-bucket',
+      Name: 'fleek-team-bucket',
       Prefix: '',
       Delimiter: '',
       MaxKeys: 20,
@@ -137,7 +136,7 @@ This public URL can easily be found in the web app, but you can also generate it
 
 For example, here's the URL for the gif shown above:
 
-    https://samuelea-team-bucket.storage.fleek.co/homer-cooking.gif
+    https://fleek-team-bucket.storage.fleek.co/homer-cooking.gif
 
 `samuelea-team-bucket` is the bucket.
 `homer-cooking.gif` is the file's key.
@@ -171,7 +170,6 @@ All files on Fleek Storage are uploaded to IPFS, which means they are identified
         const ipfsHashV0 = headers['x-fleek-ipfs-hash-v0'];
         // Do stuff with the short v0 ipfs hash... (appropriate for storing on blockchains)
       }).send();
-    
 
 We recommend getting the hash from the `x-fleek-ipfs-hash` header, which will return a base32, v1 IPFS hash.
 
