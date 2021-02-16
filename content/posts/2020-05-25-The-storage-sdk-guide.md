@@ -138,8 +138,7 @@ For example, here's the URL for the gif shown above:
 
     https://fleek-team-bucket.storage.fleek.co/homer-cooking.gif
 
-`samuelea-team-bucket` is the bucket.
-`homer-cooking.gif` is the file's key.
+`fleek-team-bucket` is the bucket. `homer-cooking.gif` is the file's key.
 
 ## Uploading Files
 
@@ -177,7 +176,7 @@ For use cases in which the IPFS hash must be store on a blockchain such as Ether
 
 The hash is also available from the web app by clicking on `Verify on IPFS`.
 
-For example, here's the hash for the gif used as example: `bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora`. And it can be accessed through an IPFS gateway:   
+For example, here's the hash for the gif used as example: `bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora`. And it can be accessed through an IPFS gateway:  
 [https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora](https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora "https://ipfs.fleek.co/ipfs/bafybeid7bsteflmk2lxu4lankv5q5ahwlaibzxwjc2vkldst3zmxtlkora")
 
 # Existing AWS S3 SDK projects
