@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Filecoin Archiving Comes to Fleek Sites and Storage
 slug: filecoin-archiving-backup-fleek-sites-and-storage
-date: 2021-02-08T03:00:00Z
+date: 2021-02-18T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek-Filecoin.png
 canonical: ''
 description: Archive your IPFS sites and storage hosted on Fleek automatically on
