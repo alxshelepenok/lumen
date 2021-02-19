@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Filecoin Archiving Comes to Fleek Sites and Storage
 slug: filecoin-archiving-backup-fleek-sites-and-storage
-date: 2021-02-18T03:00:00Z
+date: 2021-02-19T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/Fleek-Filecoin.png
 canonical: ''
 description: Archive your IPFS sites and storage hosted on Fleek automatically on
@@ -59,11 +59,13 @@ This is just the beginning, though! As Filecoin grows both its network and funct
 
 Now, let’s dive into how Filecoin archiving behaves in this first release. When you upload a file or host a site on IPFS, Fleek will begin to **package them into batches** and ready them to be stored in Filecoin.
 
-These payloads (composed by multiple files, not individual ones) are then sent to a Filecoin miner who receives the pieces of data, prompting a deal on chain upon completion, and beginning Filecoin’s verification process that’s called “sector sealing”. Here the miner generates a proof-of-replication, a unique representation and replica of the data, sealed in the storage “sector” after being encoded into a new configuration.
+These payloads (composed by multiple files, not individual ones) are then sent to a Filecoin miners who receive the pieces of data, prompting a deal on chain, and beginning Filecoin’s  “sector sealing” process. Here the miner generates a proof-of-replication, a unique representation and replica of the data, sealed in the storage “sector” after being encoded into a new configuration that allows for the next proof process (PoS).
 
-After this, miners must constantly present a Proof-of-Spacetime, or proof of the continuous storage of this information. The challenge of this PoSt is directly related to the corresponding sealed sector’s features to ensure the representation of data **hasn’t changed.**
+After this, miners must constantly present a Proof-of-Spacetime, or proof of the continuous storage of this information.
 
-And thus, your files and data from Fleek are archived in Filecoin! If you access your Fleek account and navigate to a live site, or to a file in your storage, you will be able to see the corresponding deal ID for the Filecoin transaction confirming it is archived in the network.
+And thus, your files and data from Fleek are archived in Filecoin! If you access your Fleek account and navigate to a live site, or to a file in your storage, you will be able to see the corresponding deal ID for the Filecoin transaction confirming it is archived in the network. When your file is scheduled but hasn't been archived yet, you will see a pending state.
+
+![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Filecoin Screenshot.png)
 
 In V1, Fleek interacts as with the Filecoin network on behalf of users to generate these data payloads and ensure the viability of the process; we expect to see this framework changing as Filecoin does as well, enabling per-file dynamics in the archiving/retrieval process, and the direct interaction of our users with the network.
 
@@ -75,7 +77,7 @@ The groundwork is set, and the first of many steps has been taken. Now, it’s a
 
 Thanks to the team at Protocol Labs for the amazing work together these past few months, and we’ve got nothing but high hopes for what’s coming next!
 
-And do stay alert for that, because like we said, this is just the beginning. We are one month into the year and we can say that, without a doubt, it will be jam-packed with news from IPFS, Filecoin, us, and the rest of the Open Web community.
+And do stay alert for that, because like we said, this is just the beginning. We are two months into the year and we can say that, without a doubt, it will be jam-packed with news from IPFS, Filecoin, us, and the rest of the Open Web community.
 
 * [Sign up](https://app.fleek.co/) to try Fleek
 * Join our [Community Chat](https://slack.fleek.co/)
