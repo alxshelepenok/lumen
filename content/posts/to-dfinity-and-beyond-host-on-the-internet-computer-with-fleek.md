@@ -193,6 +193,8 @@ By moving everything, procedurally to Dfinity in a canister-setup that’s open 
 
 For us **Dfinity is an additive to all the protocols we currently work with**, not at all a replacement. In concept it would allow us to take an element of trust (us running an IPFS-node infrastructure for storage and hosting) and build it decentralized, on top of Dfinity, so that our suite of services is not reliant on Web 2.0 infrastructure only we control.
 
+![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/yeahteamwork.gif)
+
 It acts, in a way, as the **base layer** that ensures all other protocols we work with, and the features they provide, are built on top of and supported by an open network, and not closed or centralized providers.
 
 **We are on an exploratory phase,** but in our history of combining Open Web protocols, we have found nothing but great use cases. **IPFS and Filecoin** set the groundwork for new distributed ways of handling storage and hosting; its content addressing and hash model is simply AMAZING.
