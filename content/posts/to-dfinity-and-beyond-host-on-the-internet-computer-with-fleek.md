@@ -5,7 +5,7 @@ title: 'To Dfinity and Beyond:  Static Front-end Hosting, IC Gateway, and the Ne
   Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
-socialImage: ''
+socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/ToDfinityandBeyond.png
 canonical: ''
 description: It’s happening. Dfinity + Fleek are coming together to power front-end
   and sites hosting, a new IC Gateway, and our path forward into building trustless
@@ -16,6 +16,8 @@ tags:
 - Dfinity
 
 ---
+![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/ToDfinityandBeyond.png)
+
 Major day for Fleek doesn’t begin to even cover it. Today, in tandem with [Dfinity’s “Exploring Entrepreneurship in the Open Internet Boom” Techcrunch](https://dfinity.org/techcrunch/) event, we are revealing that we are joining the Dfinity ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
 It’s a special release day, because not only we have a series of new Dfinity-specific features coming out into the Fleek platform, like **Static Front-end Hosting** on the Internet Computer! Meaning you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Dfinity IC Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and a powerful hosting CLI to manage it all!
