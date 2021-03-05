@@ -44,7 +44,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 ***
 
 ## New Dfinity Features in Fleek.  
-1) Frontend Hosting.
+1) Static Frontend Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
@@ -117,7 +117,7 @@ Combine these two issues, and a little bit of radioactive open source code, and 
 
 The Fleek Dfinity/IC Gateway lives on: ic.fleek.co
 
-To access any canister, just add your canister ID before the URL (), to get a url like this: 
+To access any canister, just add your canister ID before the URL (), to get a url like this:
 
     [CANISTER_ID].ic.fleek.co
 
@@ -176,8 +176,9 @@ The piece that was always left hanging was the centralization and lack of trustl
 
 It’s an element of trust that is hard to remove, but has to be removed at some point in time so that we can have the base infrastructure of the new web built on trustless and decentralized technologies.
 
-## The Next Steps  
-2) Why do it on Dfinity
+## The Next Steps
+
+## 2) Why do it on Dfinity
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/whydfinity.png)
 
@@ -185,7 +186,7 @@ With Dfinity and the Internet Computer, we want to achieve that. It’s still pr
 
 Dfinity, as a computational blockchain, **provides us with the missing link.** A computational blockchain with smart contract functionality, capable of powering and hosting web services in a trustless, permissionless, and decentralized way.
 
-It’s like the benefits we see in using Ethereum for Dapps, but applied to the **core of the web, which is its supporting infrastructure (hosting / storage / serverless functions / and so on..)**. All this, software logic, data, 
+It’s like the benefits we see in using Ethereum for Dapps, but applied to the **core of the web, which is its supporting infrastructure (hosting / storage / serverless functions / and so on..)**. All this, software logic, data,
 
 So, the natural next step for us is to begin transitioning Fleek from a centralized infrastructure and product, **to a Dfinity, canister-based solution**. Today, our IPFS hosting and storage, for example, relies on us running the infrastructure for it, and the interface itself is dependent on a Web 2.0 infrastructure.
 
