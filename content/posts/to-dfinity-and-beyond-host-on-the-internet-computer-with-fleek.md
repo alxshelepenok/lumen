@@ -4,7 +4,7 @@ draft: true
 title: 'To Dfinity and Beyond:  Static Front-end Hosting, IC Gateway, and the Next
   Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
-date: 
+date: 2021-03-09T03:00:00Z
 socialImage: ''
 canonical: ''
 description: It’s happening. Dfinity + Fleek are coming together to power front-end
