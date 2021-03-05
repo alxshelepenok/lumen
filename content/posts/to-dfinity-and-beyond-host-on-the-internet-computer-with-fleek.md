@@ -179,6 +179,8 @@ It’s an element of trust that is hard to remove, but has to be removed at some
 ## The Next Steps  
 2) Why do it on Dfinity
 
+![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/whydfinity.png)
+
 With Dfinity and the Internet Computer, we want to achieve that. It’s still pretty early, but V1 of our Dfinity Hosting product is an amazing example of the steps we can take by combining a suite of tools built on IPFS, Filecoin, Ethereum, and so on, **with a trustless infrastructure living on the Internet Computer’s** blockchain network.
 
 Dfinity, as a computational blockchain, **provides us with the missing link.** A computational blockchain with smart contract functionality, capable of powering and hosting web services in a trustless, permissionless, and decentralized way.
@@ -200,7 +202,7 @@ Much like we combined IPFS and Filecoin in the past (when building [Space](http:
 We believe that marrying them both to Dfinity in the future, could open up amazing opportunities for creating performant and distributed content networks. A couple of things that we’re excited about is having **dual-hosting, on IPFS and Dfinity,** or on IPFS systems running on Dfinity itself; which we are exploring.
 
 ## The Next Steps  
-3) Wrapping it up
+3) Wrapping it up 🚀
 
 This deep dive into the Internet Computer, and first batch of releases in Fleek of Dfinity features has helped us get our hands dirty, and really understand the potential behind it and what it could mean for the Open Web.
 
@@ -208,6 +210,13 @@ We’re literally on the edge of our seats, and as confident as ever, that reach
 
 It’s month 3 on the year, and we have already announced Space, [the Space SDK](https://blog.fleek.co/posts/introducing-space-sdk-release), [Filecoin Archiving](https://blog.fleek.co/posts/filecoin-archiving-backup-fleek-sites-and-storage), [Fleek Storage V2](https://blog.fleek.co/posts/fleek-storage-is-out-of-beta-v2-release), **and now our first steps into Dfinity**, and a future transition to a decentralized and user-controlled version of our platform that looks as bright as ever.
 
-We told you **2021 in the Open Web was going to be AWESOME**.
+We told you **2021 in the Open Web was going to be AWESOME** 🔥
 
 So stay posted, because we’re bringing more updates soon, and we are not thinking about slowing down our pace with these kinds of surprises!
+
+* [Sign up](https://app.fleek.co/) to try Fleek
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
+* Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
+* Check out our [Tech Docs](https://docs.fleek.co/)
+* Contact us at support@fleek.co
