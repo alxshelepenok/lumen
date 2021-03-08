@@ -123,8 +123,7 @@ To access any canister, just add your canister ID before the URL (), to get a ur
 
 For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/_](https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/ "https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/")
 
-## New Dfinity Features in Fleek:  
-Canister Proxying.
+## New Dfinity Features in Fleek: Canister Proxying.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
