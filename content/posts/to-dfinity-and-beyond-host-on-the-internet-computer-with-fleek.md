@@ -8,7 +8,7 @@ date: 2021-03-09T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/ToDfinityandBeyond.png
 canonical: ''
 description: It’s happening. Dfinity + Fleek are coming together to power front-end
-  and sites hosting, a new IC Gateway, and our path forward into building trustless
+  and sites hosting, a new ICP Gateway, and our path forward into building trustless
   web services.
 category: Release
 tags:
@@ -45,8 +45,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 ***
 
-## New Dfinity Features in Fleek.  
-Static Frontend Hosting.
+## New Dfinity Features in Fleek: Static Frontend Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
@@ -102,8 +101,7 @@ Simply specify your custom domain, click **verify DNS configuration**, and add t
 
 What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (Handshake)**?** We are working with all parties to combine Dfinity + Blockchain Domains, adding more and more options to peel off layers of centralization. We already have worked on experimental implementations, so expect news soon...
 
-## New Dfinity Features in Fleek.  
-Fleek's Dfinity/ICP Gateway.
+## New Dfinity Features in Fleek: Dfinity/ICP Gateway.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
@@ -125,8 +123,8 @@ To access any canister, just add your canister ID before the URL (), to get a ur
 
 For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/_](https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/ "https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/")
 
-## New Dfinity Features in Fleek.  
-Canister Proxying: Proxy & Service Workers.
+## New Dfinity Features in Fleek:  
+Canister Proxying.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
@@ -153,8 +151,7 @@ This alternative option is for users that want to further decentralize their exp
 
 When you use the Service Workers option, a **Dfinity loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
 
-## New Dfinity Features in Fleek.  
-Fleek CLI for Hosting.
+## New Dfinity Features in Fleek: Fleek CLI for Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
 
@@ -167,8 +164,7 @@ You can push a site right **from your desktop, to the Internet Computer or IPFS*
 
 Get started with it, **visit the CLI’s** [**quick overview here**](http://docs.fleek.co/fleek-cli/overview/)**.**
 
-## The Next Steps  
-Building Canister-based Services
+## The Next Steps: Building Canister-based Services
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Group 5643.png)
 
@@ -178,8 +174,7 @@ The piece that was always left hanging was the centralization and lack of trustl
 
 It’s an element of trust that is hard to remove, but has to be removed at some point in time so that we can have the base infrastructure of the new web built on trustless and decentralized technologies.
 
-## The Next Steps.  
-Why do it on Dfinity
+## The Next Steps: Why do it on Dfinity
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/whydfinity.png)
 
@@ -205,8 +200,7 @@ Much like we combined IPFS and Filecoin in the past (when building [Space](http:
 
 We believe that marrying them both to Dfinity in the future, could open up amazing opportunities for creating performant and distributed content networks. A couple of things that we’re excited about is having **dual-hosting, on IPFS and Dfinity,** or on IPFS systems running on Dfinity itself; which we are exploring.
 
-## The Next Steps.  
-Wrapping it up 🚀
+## The Next Steps: Wrapping it up 🚀
 
 This deep dive into the Internet Computer, and first batch of releases in Fleek of Dfinity features has helped us get our hands dirty, and really understand the potential behind it and what it could mean for the Open Web.
 
