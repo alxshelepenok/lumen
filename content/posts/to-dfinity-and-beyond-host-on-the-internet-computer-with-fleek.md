@@ -34,7 +34,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 1. [Frontend Hosting on Dfinity](#new-dfinity-features-static-frontend-hosting)
 2. [Fleek's Dfinity/ICP Gateway](#new-dfinity-features-dfinityicp-gateway)
-3. [Canister Proxying](new-dfinity-features-canister-proxying)
+3. [Canister Proxying](#new-dfinity-features-canister-proxying)
 4. [Fleek's Hosting CLI](#new-dfinity-features-fleek-cli-for-hosting)
 
 #### The Next Steps
@@ -106,8 +106,6 @@ What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (H
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
 There are two main things we had to address when tackling Dfinity Hosting on Fleek. First, there isn’t a standard and quick way of **accessing Canister data on the Internet Computer via HTTP**, on the current web standards, without having to make actual Canister calls.
-
-**Check out the Gateway’s open sourced repository here!**
 
 What’s more, this goes for **all canisters on Dfinity and their data**, not just FE canisters created by Fleek.
 
