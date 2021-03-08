@@ -45,7 +45,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 ***
 
-## New Dfinity Features in Fleek: Static Frontend Hosting.
+## New Dfinity Features: Static Frontend Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
@@ -101,7 +101,7 @@ Simply specify your custom domain, click **verify DNS configuration**, and add t
 
 What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (Handshake)**?** We are working with all parties to combine Dfinity + Blockchain Domains, adding more and more options to peel off layers of centralization. We already have worked on experimental implementations, so expect news soon...
 
-## New Dfinity Features in Fleek: Dfinity/ICP Gateway.
+## New Dfinity Features: Dfinity/ICP Gateway.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
@@ -123,7 +123,7 @@ To access any canister, just add your canister ID before the URL (), to get a ur
 
 For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/_](https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/ "https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/")
 
-## New Dfinity Features in Fleek: Canister Proxying.
+## New Dfinity Features: Canister Proxying.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
@@ -150,7 +150,7 @@ This alternative option is for users that want to further decentralize their exp
 
 When you use the Service Workers option, a **Dfinity loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
 
-## New Dfinity Features in Fleek: Fleek CLI for Hosting.
+## New Dfinity Features: Fleek CLI for Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
 
