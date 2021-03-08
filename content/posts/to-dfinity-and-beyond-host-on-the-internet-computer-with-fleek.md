@@ -32,16 +32,16 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 #### New Dfinity Feature Releases:
 
-1. Frontend Hosting on Dfinity
-2. Fleek's Dfinity/ICP Gateway
-3. Canister Proxying
-4. Fleek's Hosting CLI
+1. [Frontend Hosting on Dfinity](#new-dfinity-features-static-frontend-hosting)
+2. [Fleek's Dfinity/ICP Gateway](#new-dfinity-features-dfinityicp-gateway)
+3. [Canister Proxying](new-dfinity-features-canister-proxying)
+4. [Fleek's Hosting CLI](#new-dfinity-features-fleek-cli-for-hosting)
 
 #### The Next Steps
 
-1. Building Canister-based Services
-2. Why do it on Dfinity
-3. Wrapping it up!
+1. [Building Canister-based Services](#the-next-steps-building-canister-based-services)
+2. [Why do it on Dfinity](#the-next-steps-why-do-it-on-dfinity)
+3. [Wrapping it up!](#the-next-steps-wrapping-it-up-)
 
 ***
 
