@@ -169,7 +169,7 @@ Last, but definitely not least. We are pairing up this release with the rework o
 
 You can push a site right **from your desktop, to the Internet Computer or IPFS**, through Fleek with a personalized workflow, and extra control over the entire process. This is the first of many updates to Fleek that are entirely **developer-focused**, and don’t be surprised if you hear about a new **Fleek API** soon...
 
-Get started with it, **visit the CLI’s technical documentation here.**
+Get started with it, **visit the CLI’s** [**quick overview here**](http://docs.fleek.co/fleek-cli/overview/)**.**
 
 ## The Next Steps
 
