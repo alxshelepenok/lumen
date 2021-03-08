@@ -74,7 +74,7 @@ The process in the background is straightforward. When you connect your reposito
 
 Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the Dfinity SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on ICP:
 
-* No content update delays
+* No content update delay
 * No risk of conflicts
 * Automatic SSL / DNS
 * CDN and caching
