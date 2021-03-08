@@ -1,7 +1,7 @@
 ---
 template: post
 draft: true
-title: 'To Dfinity and Beyond:  Static Front-end Hosting, IC Gateway, and the Next
+title: 'To Dfinity and Beyond:  Static Front-end Hosting, ICP Gateway, and the Next
   Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
@@ -20,7 +20,7 @@ tags:
 
 Major day for Fleek doesn’t begin to even cover it. Today, in tandem with [Dfinity’s “Exploring Entrepreneurship in the Open Internet Boom” Techcrunch](https://dfinity.org/techcrunch/) event, we are revealing that we are joining the Dfinity ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
-It’s a special release day, because not only we have a series of new Dfinity-specific features coming out into the Fleek platform, like **Static Front-end Hosting** on the Internet Computer! Meaning you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Dfinity IC Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and a powerful hosting CLI to manage it all!
+It’s a special release day, because not only we have a series of new Dfinity-specific features coming out into the Fleek platform, like **Static Front-end Hosting** on the Internet Computer! Meaning you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Dfinity ICP Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and a powerful hosting CLI to manage it all!
 
 But we are also sharing **our path forward with Dfinity, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (hosting, storage, etc.) on Dfinity canisters!
 
@@ -33,7 +33,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 #### New Dfinity Feature Releases:
 
 1. Frontend Hosting on Dfinity
-2. Fleek's Dfinity/IC Gateway
+2. Fleek's Dfinity/ICP Gateway
 3. Canister Proxying
 4. Fleek's Hosting CLI
 
@@ -45,8 +45,9 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 ***
 
-## New Dfinity Features in Fleek.  
-1) Static Frontend Hosting.
+## New Dfinity Features in Fleek.
+
+1. Static Frontend Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
@@ -67,13 +68,13 @@ You can take any static site you used before in Fleek, and take it to the Intern
 
 You can build **static frontends**, which means either static websites as we mentioned, or Dapps or front-end apps that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
 
-### How Does Fleek Achieve Frontend Hosting on the IC?
+### How Does Fleek Achieve Frontend Hosting on the ICP?
 
 The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **Dfinity SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/flow.png)
 
-Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the Dfinity SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on IC:
+Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the Dfinity SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on ICP:
 
 * No content update delays
 * No risk of conflicts
@@ -84,7 +85,7 @@ All these are considered, in many ways, Web 2.0 elements that act as a bridge be
 
 ### Domain Management and Resolving on Dfinity
 
-When you deploy a new site on the Internet Computer with Fleek, **a free generic preview link** will be created, using Fleek’s Dfinity/IC Gateway and the your front-end Canister’s ID.
+When you deploy a new site on the Internet Computer with Fleek, **a free generic preview link** will be created, using Fleek’s Dfinity/ICP Gateway and the your front-end Canister’s ID.
 
 It will look something like this: \[CANISTER_ID\].ic.fleek.co
 
@@ -102,8 +103,9 @@ Simply specify your custom domain, click **verify DNS configuration**, and add t
 
 What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (Handshake)**?** We are working with all parties to combine Dfinity + Blockchain Domains, adding more and more options to peel off layers of centralization. We already have worked on experimental implementations, so expect news soon...
 
-## New Dfinity Features in Fleek.  
-2) Fleek's Dfinity/IC Gateway.
+## New Dfinity Features in Fleek.
+
+1. Fleek's Dfinity/ICP Gateway.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
@@ -113,11 +115,11 @@ There are two main things we had to address when tackling Dfinity Hosting on Fle
 
 What’s more, this goes for **all canisters on Dfinity and their data**, not just FE canisters created by Fleek.
 
-Secondly, we also have to consider that even if hosted on Dfinity, if we wanted to surface static sites from the IC on the current Web 2.0 we would need to handle basic concepts such as SSL, CDN, and DNS for our users.
+Secondly, we also have to consider that even if hosted on Dfinity, if we wanted to surface static sites from the ICP on the current Web 2.0 we would need to handle basic concepts such as SSL, CDN, and DNS for our users.
 
-Combine these two issues, and a little bit of radioactive open source code, and you get the reason why **Fleek’s Dfinity/IC Gateway was born!** Our very own transdimensional portal, (minus the disintegration-risk) that **anyone, not just Fleek users,** can use to access their Dfinity-hosted Canister data over HTTP and an accessible URL format.
+Combine these two issues, and a little bit of radioactive open source code, and you get the reason why **Fleek’s Dfinity/ICP Gateway was born!** Our very own transdimensional portal, (minus the disintegration-risk) that **anyone, not just Fleek users,** can use to access their Dfinity-hosted Canister data over HTTP and an accessible URL format.
 
-The Fleek Dfinity/IC Gateway lives on: ic.fleek.co
+The Fleek Dfinity/ICP Gateway lives on: ic.fleek.co
 
 To access any canister, just add your canister ID before the URL (), to get a url like this:
 
@@ -125,14 +127,15 @@ To access any canister, just add your canister ID before the URL (), to get a ur
 
 For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/_](https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/ "https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/")
 
-## New Dfinity Features in Fleek.  
-3) Canister Proxying: Proxy & Service Workers.
+## New Dfinity Features in Fleek.
+
+1. Canister Proxying: Proxy & Service Workers.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
 The Gateway itself as a proxy between users, and canisters on the Internet Computer. So, when it receives a request for a certain Canister ID, it translates that request, and the user receives the canister’s data through HTTP.
 
-However, that is not all the Gateway does. Fleek’s Dfinity/IC Gateway gives user **two Canister proxying options,** or ways to connect visitors to your static site.
+However, that is not all the Gateway does. Fleek’s Dfinity/ICP Gateway gives user **two Canister proxying options,** or ways to connect visitors to your static site.
 
 1. Using Fleek's seamless proxy (more centralized, but no loading state)
 2. Using Fleek's service workers (less centralized, initial loading state)
@@ -141,20 +144,21 @@ However, that is not all the Gateway does. Fleek’s Dfinity/IC Gateway gives us
 
 ### Using Fleek as a Proxy
 
-The default option is using Fleek as a proxy, meaning the initial request will hit our servers, translate the user’s request, and return the data from the canister to the visitor. This experience is just as any current website, **seamless**, **but it does mean Fleek acts as a constant intermediary** between the user and the IC.
+The default option is using Fleek as a proxy, meaning the initial request will hit our servers, translate the user’s request, and return the data from the canister to the visitor. This experience is just as any current website, **seamless**, **but it does mean Fleek acts as a constant intermediary** between the user and the ICP.
 
 This is also the **default option for bots, crawlers, and extraterrestrial** requests. For example, search engines and social crawlers. This way we ensure your static site on Dfinity is crawlable, indexed, and its metadata is readable by bots for important details like… Displaying Twitter cards, or images when sharing links on social!
 
 ### Using Fleek's Service Workers
 
-This alternative option is for users that want to further decentralize their experience, and **connect their users directly to the IC.** How does it work? If selected, **only the first request will hit our Gateway,** which will return a bootstrap script to the user, installing a Service Worker on their browser once, to connect them directly to Dfinity and retrieving all further requests directly from there, **without having Fleek as a constant intermediary.**
+This alternative option is for users that want to further decentralize their experience, and **connect their users directly to the ICP.** How does it work? If selected, **only the first request will hit our Gateway,** which will return a bootstrap script to the user, installing a Service Worker on their browser once, to connect them directly to Dfinity and retrieving all further requests directly from there, **without having Fleek as a constant intermediary.**
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Loading (2).gif)
 
 When you use the Service Workers option, a **Dfinity loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
 
-## New Dfinity Features in Fleek.  
-4) Fleek CLI for Hosting.
+## New Dfinity Features in Fleek.
+
+1. Fleek CLI for Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
 
@@ -167,8 +171,9 @@ You can push a site right **from your desktop, to the Internet Computer or IPFS*
 
 Get started with it, **visit the CLI’s technical documentation here.**
 
-## The Next Steps  
-1) Building Canister-based Services
+## The Next Steps
+
+1. Building Canister-based Services
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Group 5643.png)
 
@@ -206,8 +211,9 @@ Much like we combined IPFS and Filecoin in the past (when building [Space](http:
 
 We believe that marrying them both to Dfinity in the future, could open up amazing opportunities for creating performant and distributed content networks. A couple of things that we’re excited about is having **dual-hosting, on IPFS and Dfinity,** or on IPFS systems running on Dfinity itself; which we are exploring.
 
-## The Next Steps  
-3) Wrapping it up 🚀
+## The Next Steps
+
+1. Wrapping it up 🚀
 
 This deep dive into the Internet Computer, and first batch of releases in Fleek of Dfinity features has helped us get our hands dirty, and really understand the potential behind it and what it could mean for the Open Web.
 
