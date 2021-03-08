@@ -201,7 +201,7 @@ We believe that marrying them both to Dfinity in the future, could open up amazi
 
 This deep dive into the Internet Computer, and first batch of releases in Fleek of Dfinity features has helped us get our hands dirty, and really understand the potential behind it and what it could mean for the Open Web.
 
-We’re literally on the edge of our seats, and as confident as ever, that reaching **fully decentralized, trustless, and user-controlled** services is not only possible, but the technology for it is already here, peeling off a bazillion of the remaining trust layers that today affect web services, Dapps, and more complex platforms that can’t be fully decentralized yet because they rely on services like AWS.
+We’re pumped and as confident as ever, that reaching **fully decentralized, trustless, and user-controlled** services is not only possible, but the technology for it is already here, peeling off a bazillion of the remaining trust layers that today affect web services, Dapps, and more complex platforms that can’t be fully decentralized yet because they rely on services like AWS.
 
 It’s month 3 on the year, and we have already announced Space, [the Space SDK](https://blog.fleek.co/posts/introducing-space-sdk-release), [Filecoin Archiving](https://blog.fleek.co/posts/filecoin-archiving-backup-fleek-sites-and-storage), [Fleek Storage V2](https://blog.fleek.co/posts/fleek-storage-is-out-of-beta-v2-release), **and now our first steps into Dfinity**, and a future transition to a decentralized and user-controlled version of our platform that looks as bright as ever.
 
