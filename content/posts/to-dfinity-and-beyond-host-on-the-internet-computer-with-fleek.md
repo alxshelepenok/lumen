@@ -35,7 +35,7 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
 #### New Feature Releases:
 
-1. [Static frontend Hosting on the Internet Computer](#new-features-static-frontend-hosting-on-dfinity-internet-computer)
+1. [Static frontend Hosting on the Internet Computer](#new-features-static-frontend-hosting-on-dfinitys-internet-computer)
 2. [Fleek's Internet Computer Gateway](#new-features-fleeks-internet-computer-gateway)
 3. [Canister Proxying](#new-features-canister-proxying)
 4. [Sneak peek: Fleek's Hosting CLI](#sneak-peek-fleek-cli-for-hosting)
