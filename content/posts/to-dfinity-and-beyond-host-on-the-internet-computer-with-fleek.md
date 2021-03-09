@@ -1,7 +1,7 @@
 ---
 template: post
 draft: true
-title: 'To Dfinity and Beyond: Static Front-end Hosting, Internet Computer Gateway,
+title: 'To DFINITY and Beyond: Static Front-end Hosting, Internet Computer Gateway,
   and the Next Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
@@ -30,7 +30,7 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
 ### TL;DR Agenda
 
-#### New Internet Computer Feature Releases:
+#### New Feature Releases:
 
 1. [Static frontend Hosting on the Internet Computer](#new-dfinity-features-static-frontend-hosting)
 2. [Fleek's Internet Computer Gateway](#new-dfinity-features-dfinityic-gateway)
@@ -45,7 +45,7 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
 ***
 
-## New Internet Computer Features: Static Frontend Hosting.
+## New Features: Static Frontend Hosting on DFINITY' Internet Computer
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
@@ -107,7 +107,7 @@ Simply specify your custom domain, click **verify DNS configuration**, and add t
 
 What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (Handshake)**?** We are working with all parties to combine the Internet Computer + Blockchain Domains, adding more and more options to peel off layers of centralization. We already have worked on experimental implementations, so expect news soon...
 
-## New Internet Computer Features: Fleek's IC Gateway.
+## New Features: Fleek's Internet Computer Gateway.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
@@ -127,7 +127,7 @@ To access any canister, just add your canister ID before the URL (), to get a ur
 
 For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/_](https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/ "https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/")
 
-## New Internet Computer Features: Canister Proxying.
+## New Features: Canister Proxying.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
