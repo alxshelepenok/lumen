@@ -23,7 +23,7 @@ Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event 
 
 It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
-This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, we brought a sneak peek of the powerful hosting CLI that will help manage it all!
+This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer.
 
 But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) using Internet Computer canisters!
 
@@ -38,7 +38,6 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 1. [Static frontend Hosting on the Internet Computer](#new-features-static-frontend-hosting-on-dfinitys-internet-computer)
 2. [Fleek's Internet Computer Gateway](#new-features-fleeks-internet-computer-gateway)
 3. [Canister Proxying](#new-features-canister-proxying)
-4. [Sneak peek: Fleek's Hosting CLI](#sneak-peek-fleek-cli-for-hosting)
 
 #### Next Steps
 
@@ -128,7 +127,7 @@ Combine these two issues, and a little bit of radioactive open source code, and 
 
 The Fleek Internet Computer Gateway lives on: ic.fleek.co
 
-To access any canister, just add your canister ID before the URL (), to get a url like this:
+To access any canister, just add your canister ID before the URL , to get a url like this:
 
     [CANISTER_ID].ic.fleek.co
 
@@ -160,19 +159,6 @@ This alternative option is for users that want to further decentralize their exp
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Loading (2).gif)
 
 When you use the Service Workers option, a **loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
-
-## Sneak Peek: Fleek CLI for Hosting.
-
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
-
-Last, but definitely not least, we wanted to give a sneak peek of what's coming next! Later this week, we'll be releasing the revamped **Fleek CLI**, adding full functionality to control **our Hosting suite and workflow through your terminal**, and enabling a ton of new features like:
-
-* Using alternative deployment environments (e.g. local machine)
-* Integrating custom GitHub Actions into your workflow
-
-You'll be able to push sites right **from your desktop to the Open Web** through Fleek with a personalized workflow, and extra control over the entire process.
-
-This is the first of many updates to Fleek that will be entirely **dev-focused**, and don’t be surprised if you hear about a new **Fleek API too**... Keep an ear out for this later this week!
 
 ## Next Steps: Building Canister-based Services
 
