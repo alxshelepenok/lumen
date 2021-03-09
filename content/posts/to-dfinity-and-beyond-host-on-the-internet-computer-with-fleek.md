@@ -66,6 +66,12 @@ You can take any static site you used before in Fleek, and take it to the Intern
 
 You can build **static frontends**, which means either static websites as we mentioned, or Dapps or front-end apps that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
 
+### The Internet Computer's Mainnet Alpha
+
+**It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Mainnet Alpha.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer, in a realistic environment with cycles, in preparation for the **Mainnet Beta release**!
+
+We'll progress the product as the Internet Computer progresses with the Mainnet, and once we reach the Mainnet's Beta, we will **do a migration/redeployment** of all sites to the Mainnet after Genesis arrives.
+
 ### How Does Fleek Achieve Frontend Hosting on the Internet Computer?
 
 The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **Dfinity SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
