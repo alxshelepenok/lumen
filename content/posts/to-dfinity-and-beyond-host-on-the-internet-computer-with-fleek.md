@@ -17,7 +17,7 @@ tags:
 - Dfinity
 
 ---
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/DFINITY-BEYOND.png)
+![](https://fleek-team-bucket.storage.fleek.co/Dfinity+Fleek.png)
 
 Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
