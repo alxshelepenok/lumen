@@ -32,20 +32,20 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
 #### New Feature Releases:
 
-1. [Static frontend Hosting on the Internet Computer](#new-dfinity-features-static-frontend-hosting)
-2. [Fleek's Internet Computer Gateway](#new-dfinity-features-dfinityic-gateway)
-3. [Canister Proxying](#new-dfinity-features-canister-proxying)
+1. [Static frontend Hosting on the Internet Computer](#new-features-static-frontend-hosting-on-dfinity-internet-computer)
+2. [Fleek's Internet Computer Gateway](#new-features-fleeks-internet-computer-gateway)
+3. [Canister Proxying](#new-features-canister-proxying)
 4. [Sneak peek: Fleek's Hosting CLI](#sneak-peek-fleek-cli-for-hosting)
 
 #### Next Steps
 
-1. [Building Canister-based Services](#the-next-steps-building-canister-based-services)
-2. [Why do it on the Internet Computer](#the-next-steps-why-do-it-on-dfinity)
-3. [Wrapping it up!](#the-next-steps-wrapping-it-up-)
+1. [Building Canister-based Services](#next-steps-building-canister-based-services)
+2. [Why do it on the Internet Computer](#next-steps-why-do-it-on-the-internet-computer)
+3. [Wrapping it up!](#next-steps-wrapping-it-up-)
 
 ***
 
-## New Features: Static Frontend Hosting on DFINITY' Internet Computer
+## New Features: Static Frontend Hosting on DFINITY's Internet Computer
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
