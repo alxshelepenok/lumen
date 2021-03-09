@@ -75,6 +75,8 @@ You can build **static frontends**, which means either static websites as we men
 
 **It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Mainnet Alpha.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer, in a realistic environment with cycles, in preparation for the **Mainnet Beta release**!
 
+A minor limitation of this stage, for example, is a per-file size limit of 2MB, and a site/app total (for the entirety of the Canister) of about 2.5GB. This won't signify much on most static projects, but some media files (video/gifs/images) might be affected.
+
 We'll progress the product as the Internet Computer progresses with the Mainnet, and once we reach the Mainnet's Beta, we will **do a migration/redeployment** of all sites to the Mainnet after Genesis arrives.
 
 ### How Does Fleek Achieve Frontend Hosting on the Internet Computer?
