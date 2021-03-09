@@ -38,7 +38,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 
 #### Coming Soon:
 
-1. [Fleek's Hosting CLI](#new-dfinity-features-fleek-cli-for-hosting)
+1. [Fleek's Hosting CLI](#coming-soon-fleek-cli-for-hosting)
 
 #### The Next Steps
 
