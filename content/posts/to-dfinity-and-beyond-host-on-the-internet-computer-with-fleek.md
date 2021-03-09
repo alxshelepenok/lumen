@@ -23,7 +23,7 @@ Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event 
 
 It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
-This means you can now host your websites and apps on the early version (the Internet Computer's Mainnet Alpha) of a trustless blockchain-based infrastructure; or use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, a we brought a sneak peek of the powerful hosting CLI that will help manage it all!
+This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Mainnet Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, we brought a sneak peek of the powerful hosting CLI that will help manage it all!
 
 But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) using Internet Computer canisters!
 
