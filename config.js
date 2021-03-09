@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://blog.fleek.co',
   pathPrefix: '__GATSBY_IPFS_PATH_PREFIX__',
   title: 'Fleek Blog',
-  subtitle: 'From local development to global deployment, Fleek is everything you need to build fast modern websites hosted on IPFS. Welcome to the new internet.',
+  subtitle: 'Fleek is all you need to build websites and apps on the Open Web: permissionless, trustless, censorship resistant, and free of centralized gatekeepers. Welcome to the new internet.',
   copyright: '© 2020 Deployed using IPFS on Fleek, — Built with Gatsby',
   disqusShortname: '',
   postsPerPage: 4,
@@ -23,7 +23,7 @@ module.exports = {
   author: {
     name: 'Fleek Blog',
     photo: '/BlogIcon.png',
-    bio: 'From local development to global deployment, Fleek is everything you need to build fast modern websites hosted on IPFS. Welcome to the new internet.',
+    bio: 'Fleek is all you need to build websites and apps on the new Open Web: permissionless, trustless, censorship resistant, and free of centralized gatekeepers. Welcome to the new internet.',
     contacts: {
       email: 'mailto:hi@Fleek.co',
       twitter: 'FleekHQ',
