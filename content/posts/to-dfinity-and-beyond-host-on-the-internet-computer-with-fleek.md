@@ -12,6 +12,7 @@ description: It’s happening. DFINITY + Fleek are coming together to power fron
   trustless web services.
 category: Release
 tags:
+- Internet Computer
 - Hosting
 - Dfinity
 
@@ -20,11 +21,11 @@ tags:
 
 Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
-It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**! 
+It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
 This means you can now host your websites and apps on the early version (the Internet Computer's Mainnet Alpha) of a trustless blockchain-based infrastructure; or use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, a we brought a sneak peek of the powerful hosting CLI that will help manage it all!
 
-But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) on using Internet Computer canisters!
+But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) using Internet Computer canisters!
 
 Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
@@ -64,7 +65,7 @@ It’s as easy as it is to host any static site on IPFS with Fleek. You just nee
 
 That is all there is to it. **Fleek abstracts the entire process for you.** Canister creation, content updates, resolving, cycle management (though right now cycles are free-use on Mainnet, until they are fully implemented).
 
-You can take any static site you used before in Fleek, and take it to the Internet Computer. All supported Jamstack sites on IPFS are **fully supported** on the Internet Computer, and there is **no change whatsoever in build settings or requirements.**
+You can take any static site you used before in Fleek, and take it to the Internet Computer. All supported Jamstack sites on IPFS are **fully working** on the Internet Computer, and there is **no change whatsoever in build settings or requirements.**
 
 You can build **static frontends**, which means either static websites as we mentioned, or Dapps or front-end apps that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
 
@@ -76,11 +77,11 @@ We'll progress the product as the Internet Computer progresses with the Mainnet,
 
 ### How Does Fleek Achieve Frontend Hosting on the Internet Computer?
 
-The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **Dfinity SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
+The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **DFINITY SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/flow.png)
 
-Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the Dfinity SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on the Internet Computer:
+Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the DFINITY SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on the Internet Computer:
 
 * No content update delay
 * No risk of conflicts
