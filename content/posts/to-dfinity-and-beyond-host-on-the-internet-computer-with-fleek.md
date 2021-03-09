@@ -61,7 +61,7 @@ It’s as easy as it is to host any static site on IPFS with Fleek. You just nee
 3. Select Internet Computer
 4. Configure, build, and deploy
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/hosting-dfinity.gif)
+![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/host.gif)
 
 That is all there is to it. **Fleek abstracts the entire process for you.** Canister creation, content updates, resolving, cycle management (though right now cycles are free-use on Mainnet, until they are fully implemented).
 
