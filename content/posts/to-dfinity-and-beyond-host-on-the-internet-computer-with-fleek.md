@@ -4,12 +4,12 @@ draft: true
 title: 'To DFINITY and Beyond: Static Front-end Hosting, Internet Computer Gateway,
   and the Next Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
-date: 2021-03-09T03:00:00Z
+date: 2021-03-09T03:00:00.000+00:00
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DfinitySites.png
 canonical: https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting
 description: It’s happening. DFINITY + Fleek are coming together to power front-end
-  and sites hosting, a new Internet Computer Gateway, and our path forward into building
-  trustless web services.
+  and sites hosting on the Internet Computer, a new Internet Computer Gateway, and
+  our path forward into building trustless web services.
 category: Release
 tags:
 - Internet Computer
@@ -23,7 +23,7 @@ Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event 
 
 It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
-This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer.
+This means you can now host and experiment with websites and apps on the Internet Computer's Alpha, a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer.
 
 But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) using Internet Computer canisters!
 
@@ -72,7 +72,9 @@ You can build **static frontends**, which means either static websites as we men
 
 ### The Internet Computer's Alpha
 
-**It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Alpha/Testnet.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer, in a realistic environment with cycles, in preparation for the **Mainnet Beta genesis**!
+**It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Alpha/Testnet.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer in preparation for the **Mainnet Beta genesis**!
+
+Now's the time to test, experiment, and get your hands dirty building on the IC.
 
 A minor limitation of this stage, for example, is a per-file size limit of 2MB, and a site/app total (for the entirety of the Canister) of about 2.5GB. This won't signify much on most static projects, but some media files (video/gifs/images) might be affected.
 
@@ -80,7 +82,9 @@ We'll progress the product as the Internet Computer progresses with the Mainnet,
 
 ### How Does Fleek Achieve Frontend Hosting on the Internet Computer?
 
-The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **DFINITY SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
+The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **DFINITY SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. 
+
+Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
 
 ![fleek canisters](https://fleek-team-bucket.storage.fleek.co/Blog Inline/flow.png)
 
