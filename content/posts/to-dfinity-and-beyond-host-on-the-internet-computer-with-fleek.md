@@ -5,7 +5,7 @@ title: 'To DFINITY and Beyond: Static Front-end Hosting, Internet Computer Gatew
   and the Next Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
-socialImage: https://fleek-team-bucket.storage.fleek.co/Blog Inline/DFINITY-BEYOND.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DFINITY-BEYOND.png
 canonical: https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting
 description: It’s happening. DFINITY + Fleek are coming together to power front-end
   and sites hosting, a new Internet Computer Gateway, and our path forward into building
@@ -17,7 +17,7 @@ tags:
 - Dfinity
 
 ---
-![](https://fleek-team-bucket.storage.fleek.co/Dfinity+Fleek.png)
+![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DFINITY-BEYOND.png)
 
 Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
