@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: 'To DFINITY and Beyond: Static Front-end Hosting, Internet Computer Gateway,
   and the Next Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
