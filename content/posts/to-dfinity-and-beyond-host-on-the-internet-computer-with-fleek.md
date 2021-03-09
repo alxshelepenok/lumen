@@ -205,7 +205,7 @@ We believe that marrying them both to the Internet Computer in the future, could
 
 ## Next Steps: Wrapping it up 🚀
 
-This deep dive into the Internet Computer, and first batch of releases in Fleek features for it has helped us get our hands dirty, and really understand the potential behind it and what it could mean for the Open Web.
+This deep dive into the Internet Computer's Mainnet Alpha, and first batch of releases in Fleek features for it has helped us get our hands dirty, and really understand the potential behind the Internet Computer and what it could mean for the Open Web.
 
 We’re pumped and as confident as ever, that reaching **fully decentralized, trustless, and user-controlled** services is not only possible, but the technology for it is already here, peeling off a bazillion of the remaining trust layers that today affect web services, Dapps, and more complex platforms that can’t be fully decentralized yet because they rely on services like AWS.
 
