@@ -67,7 +67,9 @@ That is all there is to it. **Fleek abstracts the entire process for you.** Cani
 
 You can take any static site you used before in Fleek, and take it to the Internet Computer. All supported Jamstack sites on IPFS are **fully working** on the Internet Computer, and there is **no change whatsoever in build settings or requirements.**
 
-You can build **static frontends**, which means either static websites as we mentioned, or Dapps or front-end apps that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
+**Need help getting started?** [Visit our docs page!](https://docs.fleek.co/internet-computer-hosting/overview/)
+
+You can build **static frontends**, which means either static websites as we mentioned, or **Dapps or front-end apps** that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
 
 ### The Internet Computer's Mainnet Alpha
 
