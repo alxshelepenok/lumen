@@ -117,7 +117,7 @@ What’s more, this goes for **all canisters and their data**, not just FE canis
 
 Secondly, we also have to consider that even if hosted on the Internet Computer, if we wanted to surface static sites from the IC on the current Web 2.0 we would need to handle basic concepts such as SSL, CDN, and DNS for our users.
 
-Combine these two issues, and a little bit of radioactive open source code, and you get the reason why **Fleek’s Gateway was born!** Our very own transdimensional portal, (minus the disintegration-risk) that **anyone, not just Fleek users,** can use to access their Internet Computer-hosted Canister data over HTTP and an accessible URL format.
+Combine these two issues, and a little bit of radioactive open source code, and you get the reason why [**Fleek’s Gateway was born**](https://github.com/FleekHQ/ic-proxy)**!** Our very own transdimensional portal, (minus the disintegration-risk) that **anyone, not just Fleek users,** can use to access their Internet Computer-hosted Canister data over HTTP and an accessible URL format.
 
 The Fleek Internet Computer Gateway lives on: ic.fleek.co
 
