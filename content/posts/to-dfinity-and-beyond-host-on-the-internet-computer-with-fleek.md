@@ -6,7 +6,7 @@ title: 'To Dfinity and Beyond:  Static Front-end Hosting, IC Gateway, and the Ne
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
 socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/ToDfinityandBeyond.png
-canonical: ''
+canonical: https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting
 description: It’s happening. Dfinity + Fleek are coming together to power front-end
   and sites hosting, a new IC Gateway, and our path forward into building trustless
   web services.
