@@ -19,7 +19,7 @@ tags:
 ---
 ![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DFINITY-BEYOND.png)
 
-Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
+Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and releasing on the Internet Computer’s Alpha!
 
 It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
