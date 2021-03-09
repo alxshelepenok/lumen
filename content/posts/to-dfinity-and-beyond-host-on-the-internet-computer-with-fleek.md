@@ -23,7 +23,7 @@ Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event 
 
 It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**!
 
-This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Mainnet Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, we brought a sneak peek of the powerful hosting CLI that will help manage it all!
+This means you can now host and experiment with websites and apps on the early version (the Internet Computer's Alpha) of a trustless blockchain-based infrastructure; as well as use our Internet Computer Gateway for accessing canisters over HTTP; or our Canister Proxying for resolving sites on the Internet Computer; and what's more, we brought a sneak peek of the powerful hosting CLI that will help manage it all!
 
 But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) using Internet Computer canisters!
 
@@ -71,9 +71,9 @@ You can take any static site you used before in Fleek, and take it to the Intern
 
 You can build **static frontends**, which means either static websites as we mentioned, or **Dapps or front-end apps** that don’t require a back-end infrastructure and leverage instead APIs from the FE to implement services/features!
 
-### The Internet Computer's Mainnet Alpha
+### The Internet Computer's Alpha
 
-**It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Mainnet Alpha.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer, in a realistic environment with cycles, in preparation for the **Mainnet Beta release**!
+**It's important to note that** this is an Alpha product, which we are launching and building on top of the **Internet Computer's Alpha/Testnet.** It is an experimental and early version that will help anyone test and build sites, apps or Dapps on the Internet Computer, in a realistic environment with cycles, in preparation for the **Mainnet Beta genesis**!
 
 A minor limitation of this stage, for example, is a per-file size limit of 2MB, and a site/app total (for the entirety of the Canister) of about 2.5GB. This won't signify much on most static projects, but some media files (video/gifs/images) might be affected.
 
@@ -212,7 +212,7 @@ We believe that marrying them both to the Internet Computer in the future, could
 
 ## Next Steps: Wrapping it up 🚀
 
-This deep dive into the Internet Computer's Mainnet Alpha, and first batch of releases in Fleek features for it has helped us get our hands dirty, and really understand the potential behind the Internet Computer and what it could mean for the Open Web.
+This deep dive into the Internet Computer's Alpha, and first batch of releases in Fleek features for it has helped us get our hands dirty, and really understand the potential behind the Internet Computer and what it could mean for the Open Web.
 
 We’re pumped and as confident as ever, that reaching **fully decentralized, trustless, and user-controlled** services is not only possible, but the technology for it is already here, peeling off a bazillion of the remaining trust layers that today affect web services, Dapps, and more complex platforms that can’t be fully decentralized yet because they rely on services like AWS.
 
