@@ -35,10 +35,7 @@ Buckle up, because when we say “To Dfinity and Beyond” we mean it.
 1. [Frontend Hosting on Dfinity](#new-dfinity-features-static-frontend-hosting)
 2. [Fleek's Dfinity/IC Gateway](#new-dfinity-features-dfinityic-gateway)
 3. [Canister Proxying](#new-dfinity-features-canister-proxying)
-
-#### Coming Soon:
-
-1. [Fleek's Hosting CLI](#coming-soon-fleek-cli-for-hosting)
+4. [Sneak peek: Fleek's Hosting CLI](#sneak-peek-fleek-cli-for-hosting)
 
 #### The Next Steps
 
@@ -151,18 +148,18 @@ This alternative option is for users that want to further decentralize their exp
 
 When you use the Service Workers option, a **Dfinity loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
 
-## Coming Soon: Fleek CLI for Hosting.
+## Sneak Peek: Fleek CLI for Hosting.
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
 
-Last, but definitely not least. We are pairing up this release with the rework of the **Fleek CLI**, adding full functionality to control **our Hosting suite and workflow through your terminal**, and enabling a ton of new features like:
+Last, but definitely not least, we wanted to give a sneak peek of what's coming next! Later this week, we'll be releasing the **Fleek CLI**, adding full functionality to control **our Hosting suite and workflow through your terminal**, and enabling a ton of new features like:
 
 * Using alternative deployment environments (e.g. local machine)
 * Integrating custom GitHub Actions into your workflow
 
-You can push a site right **from your desktop to the Open Web** through Fleek with a personalized workflow, and extra control over the entire process. This Alpha release includes IPFS only as a deployment location, but Dfinity will be added later this week.
+You'll be able to push sites right **from your desktop to the Open Web** through Fleek with a personalized workflow, and extra control over the entire process.
 
-This is the first of many updates to Fleek that are entirely **developer-focused**, and don’t be surprised if you hear about a new **Fleek API** soon... Get started with it, **visit the CLI’s** [**quick overview here**](http://docs.fleek.co/fleek-cli/overview/)**.**
+This is the first of many updates to Fleek that are entirely **developer-focused**, and don’t be surprised if you hear about a new **Fleek API too**... Keep an ear out for this later this week!
 
 ## The Next Steps: Building Canister-based Services
 
