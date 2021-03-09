@@ -152,14 +152,14 @@ When you use the Service Workers option, a **Dfinity loading animation will appe
 
 ![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/fleekclicoding.webp)
 
-Last, but definitely not least, we wanted to give a sneak peek of what's coming next! Later this week, we'll be releasing the **Fleek CLI**, adding full functionality to control **our Hosting suite and workflow through your terminal**, and enabling a ton of new features like:
+Last, but definitely not least, we wanted to give a sneak peek of what's coming next! Later this week, we'll be releasing the revamped **Fleek CLI**, adding full functionality to control **our Hosting suite and workflow through your terminal**, and enabling a ton of new features like:
 
 * Using alternative deployment environments (e.g. local machine)
 * Integrating custom GitHub Actions into your workflow
 
 You'll be able to push sites right **from your desktop to the Open Web** through Fleek with a personalized workflow, and extra control over the entire process.
 
-This is the first of many updates to Fleek that are entirely **developer-focused**, and don’t be surprised if you hear about a new **Fleek API too**... Keep an ear out for this later this week!
+This is the first of many updates to Fleek that will be entirely **dev-focused**, and don’t be surprised if you hear about a new **Fleek API too**... Keep an ear out for this later this week!
 
 ## The Next Steps: Building Canister-based Services
 
