@@ -20,7 +20,7 @@ tags:
 
 Major day for Fleek doesn’t begin to even cover it. Today, in tandem with [Dfinity’s “Exploring Entrepreneurship in the Open Internet Boom” Techcrunch](https://dfinity.org/techcrunch/) event, we are revealing that we are joining the Dfinity ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
-It’s a special release day, because not only we have a series of new Dfinity-specific features coming out into the Fleek platform, like **Static Front-end Hosting** on the Internet Computer! Meaning you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Dfinity IC Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and a powerful hosting CLI to manage it all!
+It’s a special release day, because not only we have a series of new Dfinity-specific features coming out into the Fleek platform, like **Static Front-end Hosting** on the Internet Computer! Meaning you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Dfinity IC Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and sneak peek of the powerful hosting CLI that will help manage it all!
 
 But we are also sharing **our path forward with Dfinity, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (hosting, storage, etc.) on Dfinity canisters!
 
