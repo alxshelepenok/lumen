@@ -5,7 +5,7 @@ title: 'To DFINITY and Beyond: Static Front-end Hosting, Internet Computer Gatew
   and the Next Steps.'
 slug: to-dfinity-and-beyond-dfinity-frontend-hosting
 date: 2021-03-09T03:00:00Z
-socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DFINITY-BEYOND.png
+socialImage: https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DfinitySites.png
 canonical: https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting
 description: It’s happening. DFINITY + Fleek are coming together to power front-end
   and sites hosting, a new Internet Computer Gateway, and our path forward into building
@@ -17,7 +17,7 @@ tags:
 - Dfinity
 
 ---
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DFINITY-BEYOND.png)
+![dfinity release](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/DfinitySites.png)
 
 Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the [DFINITY Foundation](https://dfinity.org/) in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and going live on the Internet Computer!
 
@@ -29,7 +29,7 @@ But we are also sharing **our path forward on the Internet Computer, and into ou
 
 Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/dfinitybeyond.webp)
+![dfinity and beyond](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/dfinitybeyond.webp)
 
 ### TL;DR Agenda
 
@@ -49,7 +49,7 @@ Buckle up, because when we say “To DFINITY and Beyond” we mean it.
 
 ## New Features: Static Frontend Hosting on DFINITY's Internet Computer
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
+![internet computer hosting](https://fleek-team-bucket.storage.fleek.co/Blog Inline/dfinitydapp.png)
 
 As of this moment, you can **take your static front-ends and host them on the Internet Computer with Fleek**! In just a couple of clicks, you can move your site further into Web 3.0 by hosting it on a computational blockchain network growing to become the trustless base layer of the new web.
 
@@ -60,7 +60,7 @@ It’s as easy as it is to host any static site on IPFS with Fleek. You just nee
 3. Select Internet Computer
 4. Configure, build, and deploy
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/host.gif)
+![internet computer fleek](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/host.gif)
 
 That is all there is to it. **Fleek abstracts the entire process for you.** Canister creation, content updates, resolving, cycle management (though right now cycles are free-use on Mainnet, until they are fully implemented).
 
@@ -82,7 +82,7 @@ We'll progress the product as the Internet Computer progresses with the Mainnet,
 
 The process in the background is straightforward. When you connect your repository to Fleek, and make a deployment, Fleek uses the **DFINITY SDK** [(view documentation)](https://sdk.dfinity.org/docs/index.html) to create a front-end Canister on mainnet, and build and deploy your website’s code to it. Right now, we do front-end canisters only (thus, static sites), but in the future we will allow for back-end as well.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/flow.png)
+![fleek canisters](https://fleek-team-bucket.storage.fleek.co/Blog Inline/flow.png)
 
 Then, the continuous deployment process begins! With your canister up and running, upon any pushed changes to your linked repository’s branch, Fleek will use the DFINITY SDK again to make Canister calls and update your website’s content **reflecting changes immediately.** This means you get all the usual perks, but with your site on the Internet Computer:
 
@@ -101,21 +101,21 @@ It will look something like this: \[CANISTER_ID\].ic.fleek.co
 
     https://x4ytk-6yaaa-aaaab-qaiqq-cai.ic.fleek.co/
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/checkdns.png)
+![domains](https://fleek-team-bucket.storage.fleek.co/Blog Inline/checkdns.png)
 
 This URL is a direct HTTP access to your site/app on the Internet Computer! We’ll go into the Gateways detail on the next point. But, of course, **we allow for custom DNS domains on the Internet Computer and the process is the same as it is with other environments.**
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/verifydns.png)
+![dns](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/verifydns.png)
 
 Simply specify your custom domain, click **verify DNS configuration**, and add the appropriate record to your domain’s CNAME (instructions might vary according to your provider). Once all is set and done, you can click verify again (wait a couple minutes until it propagates) and your site will be up and running on your own custom domain.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/finished-add-domain.png)
+![custom domains ic](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/finished-add-domain.png)
 
 What about **blockchain domains like ENS** (Ethereum Name Service) **or HNS** (Handshake)**?** We are working with all parties to combine the Internet Computer + Blockchain Domains, adding more and more options to peel off layers of centralization. We already have worked on experimental implementations, so expect news soon...
 
 ## New Features: Fleek's Internet Computer Gateway.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
+![gateway](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/portal-gateway.webp)
 
 There are two main things we had to address when tackling Internet Computer Hosting on Fleek. First, there isn’t a standard and quick way of **accessing Canister data on the Internet Computer via HTTP**, on the current web standards, without having to make actual Canister calls.
 
@@ -135,7 +135,7 @@ For example, for this Create React App we mentioned above! [_https://x4ytk-6yaaa
 
 ## New Features: Canister Proxying.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
+![canister proxying](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/proxy-service-workers@2x.png)
 
 The Gateway itself as a proxy between users, and canisters on the Internet Computer. So, when it receives a request for a certain Canister ID, it translates that request, and the user receives the canister’s data through HTTP.
 
@@ -144,7 +144,7 @@ However, that is not all the Gateway does. Fleek’s Gateway gives users **two C
 1. Using Fleek's seamless proxy (more centralized, but no loading state)
 2. Using Fleek's service workers (less centralized, initial loading state)
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/service-worker.jpeg)
+![bots gateways](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/service-worker.jpeg)
 
 ### Using Fleek as a Proxy
 
@@ -156,13 +156,13 @@ This is also the **default option for bots, crawlers, and extraterrestrial** req
 
 This alternative option is for users that want to further decentralize their experience, and **connect their users directly to the Internet Computer.** How does it work? If selected, **only the first request will hit our Gateway,** which will return a bootstrap script to the user, installing a Service Worker on their browser once, to connect them directly to the Internet Computer and retrieving all further requests directly from there, **without having Fleek as a constant intermediary.**
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Loading (2).gif)
+![fleek service workers](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Loading (2).gif)
 
 When you use the Service Workers option, a **loading animation will appear once** upon first visit (as the service worker is registered). All further visits are as seamless as the proxy, no loading screen, but without Fleek as a constant middleman.
 
 ## Next Steps: Building Canister-based Services
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Group 5643.png)
+![canister services](https://fleek-team-bucket.storage.fleek.co/Blog Inline/Group 5643.png)
 
 Now, let’s switch gears from **short-term to long-term planning.** What’s the “Beyond” in “To DFINITY and Beyond”? For a while now, at Fleek we have been working on becoming an aggregator of the base layer of the Open Web, combining its protocols (Internet Computer, IPFS, Filecoin, Ethereum, Textile, GunDB, ENS, etc.) to create the bits and pieces that together form the base layer of web services that the new internet needs.
 
@@ -172,7 +172,7 @@ It’s an element of trust that is hard to remove, but has to be removed at some
 
 ## Next Steps: Why do it on the Internet Computer
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/whydfinity.png)
+![dfinity base layer](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/whydfinity.png)
 
 With DFINITY and the Internet Computer, we want to achieve that. It’s still pretty early, but V1 of this trustless hosting product is an amazing example of the steps we can take by combining a suite of tools built on IPFS, Filecoin, Ethereum, and so on, **with a trustless infrastructure living on the Internet Computer’s** blockchain network.
 
@@ -186,7 +186,7 @@ By moving everything, procedurally to the Internet Computer in a canister-setup 
 
 For us **the Internet Computer is an additive to all the protocols we currently work with**, not at all a replacement. In concept it would allow us to take an element of trust (us running an IPFS-node infrastructure for storage and hosting) and build it decentralized, on top of the Internet Computer, so that our suite of services is not reliant on Web 2.0 infrastructure only we control.
 
-![](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/yeahteamwork.gif)
+![teamwork](https://fleek-team-bucket.storage.fleek.co/Blog%20Inline/yeahteamwork.gif)
 
 It acts, in a way, as the **base layer** that ensures all other protocols we work with, and the features they provide, are built on top of and supported by an open network, and not closed or centralized providers.
 
