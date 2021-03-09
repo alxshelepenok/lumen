@@ -20,7 +20,7 @@ tags:
 
 Major day for Fleek doesn’t begin to even cover it. Today, at a virtual event titled[ “Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) hosted by the DFINITY Foundation in partnership with Techcrunch, we are revealing that we are joining the Internet Computer ecosystem in **full force** and becoming one of the first projects to release on the Internet Computer’s Mainnet.
 
-It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**! This means you can now host your websites and apps on a trustless blockchain-based infrastructure; or our Internet Computer Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and sneak peek of the powerful hosting CLI that will help manage it all!
+It’s a special release day  — we have a series of new Internet Computer specific features coming out onto the Fleek platform, like **Static Front-end Hosting**! This means you can now host your websites and apps on the early version (the Internet Computer's Mainnet Alpha) of a trustless blockchain-based infrastructure; or our Internet Computer Gateway, for accessing canisters over HTTP; our Canister Proxying for sites; and sneak peek of the powerful hosting CLI that will help manage it all!
 
 But we are also sharing **our path forward on the Internet Computer, and into our idea of building a truly trustless, decentralized, and permissionless version** of our Open Web services (e.g., hosting, storage, etc.) on using Internet Computer canisters!
 
