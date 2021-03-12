@@ -13,7 +13,7 @@ tags: []
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/cli-api.png)
 
-Thought we'd take a break from news for a while after announcing [Static Frontend Hosting, a new Gateway, and Canister Proxying on the Internet Computer](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting)? Well, not today.
+Thought we'd take a break from news for a while after announcing trustless [Static Frontend Hosting, a new Gateway, and Canister Proxying on the Internet Computer](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting)? Well, _not today._
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/no.gif)
 
@@ -23,9 +23,9 @@ We keep them updates coming 🔥 Today's release gives **developers a lot more c
 * GitHub Actions
 * Fleek's GraphQL API
 
-## The Fleek CLI 💻
+## The Hosting CLI 💻
 
-We gave our CLI a power up, and now it includes our hosting pipeline! Interact with Fleek’s Hosting directly from command line, **and try new cool workflow alternatives** like:
+We gave our CLI a power up, and now it includes our hosting pipeline! You can now interact with Fleek’s Hosting directly from command line, **and try new cool workflow alternatives** like:
 
 * Fleek site deployments from local machine.
 * Usinh custom GitHub actions or deploy from other CIs.
@@ -41,7 +41,7 @@ Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handl
 3. Initialize your built repo directory on the CLI
 4. Deploy your built site to Fleek through the CLI
 
-### To install the CLI:
+### Install the CLI:
 
     npm install -g @fleekhq/fleek-cli
 
@@ -110,13 +110,13 @@ In a nutshell, this is possible because the CI **enables you to prepare your Fle
 
 >     FLEEK_API_KEY
 
-This can be used as a **subtitute to the CLI's login flow, overriding the need for it,** which would be a manual-browser flow that can't be carried out automatically by your CI of choice. 
+This can be used as a **subtitute to the CLI's login flow, overriding the need for it,** which would be a manual-browser flow that can't be carried out automatically by your CI of choice.
 
 So instead, you pass the API as an environment variable, and that way you can execute all commands (site:init // site:deploy) on the command line without any breaking flows that require manual interventions.
 
 ## The Fleek GraphQL API ⚙️
 
-And if that wasn't enough, behind our CLI, and now also available as its very own thing, we have a new **GraphQL Fleek API** for our hosting suite of products! With all these tools, your hosting control room will be getting quite the upgrade 😎 
+And if that wasn't enough, behind our CLI, and now also available as its very own thing, we have a new **GraphQL Fleek API** for our hosting suite of products! With all these tools, your hosting control room will be getting quite the upgrade 😎
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/138828.gif)
 
@@ -158,6 +158,8 @@ Most GraphQL client libraries let you add a header to all your requests, for exa
 
 ### Query Example: Fetching Site & Publishment Details
 
+You can find more examples on the [API's documentation](https://docs.fleek.co/fleek-api/overview/), this first snippet is an easy way to retrieve details from your published site on Fleek and its deployment.
+
     query {
         getSiteBySlug(slug: "site-name-here") {
             id
@@ -178,3 +180,9 @@ Most GraphQL client libraries let you add a header to all your requests, for exa
     }
 
 ## Wrapping Things Up 🗞️
+
+This is just the beginning for these interfaces. So, hop on them and let us know what more things you'd like to see in the CLI/API. Our team will be on top of both projects to add more features and firepower soon, so that integrate Fleek into crazy new workflows and usecases, and platforms 🔥
+
+**On other news,** we are joining **Gitcoin Grants Round 9 Hackathon** with Protocol Labs, Textile, IPFS, Filecoin, and a ton of more amazing Open Web projects! 
+
+Fleek's [bounties are live](https://gitcoin.co/issue/protocol/grants/7/100025064), with three open tracks (Innovation, NFTs, Communication), for building Dapps using the [Space SDK](https://github.com/FleekHQ/space-sdk). Up for the challenge? ⚡⚡⚡
