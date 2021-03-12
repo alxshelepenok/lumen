@@ -25,12 +25,14 @@ We keep them updates coming 🔥 Today's release gives **developers a lot more c
 
 ## The Fleek CLI 💻
 
-We have reworked our CLI to include our hosting pipeline! You can now interact Fleek’s Hosting directly from command line, and do **new cool things like** for example:
+We gave our CLI a power up, and now it includes our hosting pipeline! Interact with Fleek’s Hosting directly from command line, **and try new cool workflow alternatives** like:
 
-* Fleek site deployments from local machines.
-* Use custom GitHub actions or deploy from other CIs.
+* Fleek site deployments from local machine.
+* Usinh custom GitHub actions or deploy from other CIs.
 
-Everything is abstracted into just a couple of commands. Install, login, initialize, deploy, and you're done. Can't get any simpler. 
+Everything is abstracted into just a couple of commands. Install, login, initialize, deploy, and you're done. Can't get any simpler. **Want to get started with it? Here's all you need:** [CLI Documentation/Overview](https://docs.fleek.co/fleek-cli/overview/).
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/5bfd08e4-c403-4481-b53c-c110806e1870_text.gif)
 
 Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handle the the build process**, which simplifies the need of configuring build settings through the CLI itself. The workflow when using the CLI looks a little something like this:
 
@@ -38,8 +40,6 @@ Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handl
 2. Build your project locally.
 3. Initialize your built repo directory on the CLI
 4. Deploy your built site to Fleek through the CLI
-
-**Want to get started with it? Here's all you need:** [CLI Documentation/Overview](https://docs.fleek.co/fleek-cli/overview/)
 
 ### To install the CLI:
 
@@ -73,9 +73,11 @@ If all goes well, a **.fleek.json** file will be created in your local directory
 
 You have your local built site, it is initialized and has its .fleek.json file. Now what?
 
-Time to deploy! From terminal and the same local directory, run:
+**Time to deploy!** From terminal and the same local directory, run:
 
     fleek site:deploy
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/launch.gif)
 
 And this would package the content in your local machine, and push it to the new site (or existing one) you selected from your Fleek account in the previous step
 
@@ -89,7 +91,7 @@ For example, **doing it from your own GitHub CI workflow, using custom GitHub Ac
 
 ### Using GitHub Actions to Replace the CLI's Deploy
 
-If you want to build and prepare your site locally or however you please, but still use GitHub as your CI, you can replace the need to use `site:init` in the CLI with a GitHub repo that has a **Fleek-deploy GitHub Action.**
+If you want to build and prepare your site locally or however you please, but still use GitHub as your CI, you can replace the need to use `site:deploy` in the CLI with a GitHub repo that has a **Fleek-deploy GitHub Action.**
 
 1. You run the CLI's `site:init` call on a built repository to create the necessary .fleek.json config file.
 2. The updated, built, and initialized code is then pushed to GitHub to reflect changes.
@@ -100,4 +102,79 @@ If you want to build and prepare your site locally or however you please, but st
 
 View the repository above for detailed instructions on how to configure it with your API key.
 
-### Other Environments, Like Circle CI!
+### Other Environments
+
+Much like the example above, the CLI gives you the possibility of integrating other CI platforms other than GitHub or your local machine.
+
+In a nutshell, this is possible because the CI **enables you to prepare your Fleek site (initialize it)** for deployment. Another important fact to enable other CI environments is that you can **pass your API key as a Environment Variable:**
+
+>     FLEEK_API_KEY
+
+This can be used as a **subtitute to the CLI's login flow, overriding the need for it,** which would be a manual-browser flow that can't be carried out automatically by your CI of choice. 
+
+So instead, you pass the API as an environment variable, and that way you can execute all commands (site:init // site:deploy) on the command line without any breaking flows that require manual interventions.
+
+## The Fleek GraphQL API ⚙️
+
+And if that wasn't enough, behind our CLI, and now also available as its very own thing, we have a new **GraphQL Fleek API** for our hosting suite of products! With all these tools, your hosting control room will be getting quite the upgrade 😎 
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/138828.gif)
+
+This new simple GraphQL API is accessible via [https://api.fleek.co/graphql](https://api.fleek.co/graphql "https://api.fleek.co/graphql")
+
+It exposes features to manage sites/hosting in Fleek, fetch data from them, and trigger new deployments. It requires an **Hosting API Key** to authenticate yourself, which you can now easily get through your account's settings.
+
+### Getting Started With the API
+
+You can see and navigate the entire API's schema to [learn all queries and mutations here](https://docs.fleek.co/fleek-api/schema/). Right now it is an introduction to our hosting suite, and allows things like triggering deployments, retrying previous ones, query sites and site data (status and IPFS hash, for example), and query deployment statuses.
+
+**First things first, you need a Hosting API Key.** To get it, visit your account's settings...
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/settingsapi.gif)
+
+And generate a new key in the Hosting API Key module, you can do several if you want to separate them for different purposes.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/apikey.gif)
+
+And you're good to go! **Authenticating** is just passing the the key in the `Authorization` heather request to auth your requests, for example authenticating a curl request...
+
+    curl -H "Authorization: <fleek-api-key===>" \
+        -H "Content-Type: application/json" \
+        -d '{"query": "{ __typename }"}}' \
+        https://api.fleek.co/graphql
+
+Most GraphQL client libraries let you add a header to all your requests, for example in JS with [Apollo Boost](https://www.npmjs.com/package/apollo-boost):
+
+    import ApolloClient from 'apollo-boost';
+    
+    const fleekApiKey = process.env.FLEEK_API_KEY;
+    const client = new ApolloClient({
+        uri: 'https://api.fleek.co/graphql',
+        fetch: fetch,
+        headers: {
+            authorization: fleekApiKey
+        }
+    });
+
+### Query Example: Fetching Site & Publishment Details
+
+    query {
+        getSiteBySlug(slug: "site-name-here") {
+            id
+            name
+            platform
+            publishedDeploy {
+                id
+                status
+                ipfsHash
+                log
+                completedAt
+            }
+            team {
+                id
+                name
+            }
+        }
+    }
+
+## Wrapping Things Up 🗞️
