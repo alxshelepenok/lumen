@@ -7,7 +7,7 @@
 
 Welcome to Fleek's Blog! Our team's front for sharing news, feature releases, development guides and tutorials, and more on Fleek, its development tools, and our work and roadmap as we help push the Open Web forward ⚡⚡⚡
 
-How's our blog built? A potpurri mix, using the [Gatsby](https://github.com/gatsbyjs/gatsby) framework, with the [Lumen](https://github.com/alxshelepenok/gatsby-starter-lumen) Gatsby Starter, and [Forestry](https://forestry.io/) as our headless CMS piece. Everything is **hosted on IPFS with [Fleek](https://fleek.co/), of course!** All edits on Forestry are pushed to this repository, connected to Fleek which seamlessly pushes changes to IPFS 🚀🚀🚀
+How's our blog built? A potpurri mix, using the [Gatsby](https://github.com/gatsbyjs/gatsby) framework, with the [Lumen](https://github.com/alxshelepenok/gatsby-starter-lumen) Gatsby Starter, and [Forestry](https://forestry.io/) as our headless CMS piece. Everything is **hosted on IPFS with [Fleek](https://fleek.co/), of course!** All edits on Forestry are pushed to this repository, connected to Fleek which seamlessly pushes changes to its IPFS distributed infrastructure automatically, making all changes live instantly 🚀🚀🚀
 
 **Some Reads to Get You Started**
 - [To DFINITY and Beyond: Fleek + the Internet Computer](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting)
