@@ -5,9 +5,9 @@
 [![Dev Slack](https://img.shields.io/badge/Dev%20Slack-Channel-blue)](https://slack.fleek.co/)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://github.com/FleekHQ/space-sdk/blob/master/LICENSE)
 
-Welcome to Fleek's Blog! Our team's front for sharing news, feature releases, development guides and tutorials, and more on Fleek, its development tools, and our work and roadmap as we help push the Open Web forward.
+Welcome to Fleek's Blog! Our team's front for sharing news, feature releases, development guides and tutorials, and more on Fleek, its development tools, and our work and roadmap as we help push the Open Web forward ⚡⚡⚡
 
-How's our blog built? A potpurri mix, using the [Gatsby](https://github.com/gatsbyjs/gatsby) framework, with the [Lumen](https://github.com/alxshelepenok/gatsby-starter-lumen) Gatsby Starter, and [Forestry](https://forestry.io/) as our headless CMS piece. Everything is **hosted on IPFS with [Fleek](https://fleek.co/), of course!**. All edits on Forestry are pushed to this repository, connected to Fleek which seamlessly pushes changes to IPFS ⚡⚡⚡
+How's our blog built? A potpurri mix, using the [Gatsby](https://github.com/gatsbyjs/gatsby) framework, with the [Lumen](https://github.com/alxshelepenok/gatsby-starter-lumen) Gatsby Starter, and [Forestry](https://forestry.io/) as our headless CMS piece. Everything is **hosted on IPFS with [Fleek](https://fleek.co/), of course!** All edits on Forestry are pushed to this repository, connected to Fleek which seamlessly pushes changes to IPFS 🚀🚀🚀
 
 **Some Reads to Get You Started**
 - [To DFINITY and Beyond: Fleek + the Internet Computer](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting)
