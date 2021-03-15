@@ -17,7 +17,7 @@ Thought we'd take a break from news for a while after announcing trustless [Stat
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/no.gif)
 
-We keep them updates coming 🔥 Today's release gives **developers a lot more control over their experience in Fleek**, especially over our Hosting suite of tools for building sites on the Open Web, and for integrating Fleek to other experiences:
+We keep updates coming 🔥 Today's release gives **developers a lot more control over their experience in Fleek**, especially over our Hosting suite of tools for building sites on the Open Web, and for integrating Fleek to other experiences:
 
 * Hosting CLI
 * GitHub Actions
@@ -34,7 +34,7 @@ Everything is abstracted into just a couple of commands. Install, login, initial
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/5bfd08e4-c403-4481-b53c-c110806e1870_text.gif)
 
-Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handle the the build process**, which simplifies the need of configuring build settings through the CLI itself. The workflow when using the CLI looks a little something like this:
+Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handle the build process**, which simplifies the need of configuring build settings through the CLI itself. The workflow when using the CLI looks a little something like this:
 
 1. Create a local repository.
 2. Build your project locally.
@@ -110,7 +110,7 @@ In a nutshell, this is possible because the CI **enables you to prepare your Fle
 
 >     FLEEK_API_KEY
 
-This can be used as a **subtitute to the CLI's login flow, overriding the need for it,** which would be a manual-browser flow that can't be carried out automatically by your CI of choice.
+This can be used as a **substitute to the CLI's login flow, overriding the need for it,** which would be a manual-browser flow that can't be carried out automatically by your CI of choice.
 
 So instead, you pass the API as an environment variable, and that way you can execute all commands (site:init // site:deploy) on the command line without any breaking flows that require manual interventions.
 
@@ -136,7 +136,7 @@ And generate a new key in the Hosting API Key module, you can do several if you 
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/apikey.gif)
 
-And you're good to go! **Authenticating** is just passing the the key in the `Authorization` heather request to auth your requests, for example authenticating a curl request...
+And you're good to go! **Authenticating** is just passing the key in the `Authorization` heather request to auth your requests, for example authenticating a curl request...
 
     curl -H "Authorization: <fleek-api-key===>" \
         -H "Content-Type: application/json" \
@@ -181,8 +181,8 @@ You can find more examples on the [API's documentation](https://docs.fleek.co/fl
 
 ## Wrapping Things Up 🗞️
 
-This is just the beginning for these interfaces. So, hop on them and let us know what more things you'd like to see in the CLI/API. Our team will be on top of both projects to add more features and firepower soon, so that integrate Fleek into crazy new workflows and usecases, and platforms 🔥
+This is just the beginning for these interfaces. So, hop on them and let us know what more things you'd like to see in the CLI/API. Our team will be on top of both projects to add more features and firepower soon, so that integrate Fleek into crazy new workflows and use cases, and platforms 🔥
 
-**On other news,** we are joining **Gitcoin Grants Round 9 Hackathon** with Protocol Labs, Textile, IPFS, Filecoin, and a ton of more amazing Open Web projects! 
+**On other news,** we are joining **Gitcoin Grants Round 9 Hackathon** with Protocol Labs, Textile, IPFS, Filecoin, and a ton of more amazing Open Web projects!
 
 Fleek's [bounties are live](https://gitcoin.co/issue/protocol/grants/7/100025064), with three open tracks (Innovation, NFTs, Communication), for building Dapps using the [Space SDK](https://github.com/FleekHQ/space-sdk). Up for the challenge? ⚡⚡⚡
