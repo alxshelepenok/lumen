@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Hosting Static Webflow Sites on Fleek (No CMS)
 slug: hosting-static-webflow-sites-on-fleek
 date: 2021-03-17T03:00:00Z
@@ -18,9 +18,9 @@ tags:
 
 [Webflow’s](https://webflow.com/) site builder is an amazing tool for quickly setting up a new site, both at a no-code beginner level and at an advanced hands-on one. But what if you want to build your site from scratch with this tool, and then **host it on the Open Web** on IPFS or the Internet Computer with Fleek?
 
-You can! **This guide is focused on static-sites only,** meaning sites that don’t use Webflow’s CMS/Collection or E-Commerce features. There are some details in Webflow’s export that make for this limitation which we will detail below.
+You can! **This guide is focused on static-sites only,** meaning sites that don’t use Webflow’s CMS/Collection or E-Commerce features. There are some details in Webflow’s export that result in this limitation which we will detail below.
 
-But, as for static sites, nothing that we can’t solve with a GitHub repos and a little Python magic.
+But, as for static sites, nothing that we can’t solve with a GitHub repo and a little Python magic.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/magic.gif)
 
@@ -40,7 +40,7 @@ Secondly, if you were to host a site directly after export **you would get .html
 
 ### The Alternative for Webflow CMS Sites
 
-Have a Webflow site using the CMS and want to still give it a go? CMS/Collection content (like your blog articles) **can be exported separately** but in .csv format, which does not automatically translate to something buildable or digestible by common frameworks.
+Have a Webflow site using the CMS and want to still give it a try? CMS/Collection content (like your blog articles) **can be exported separately** but in .csv format, which does not automatically translate to something buildable or digestible by common frameworks.
 
 **For users who want to use Webflow’s CMS/Collection features,** we recommend you look at [**Udesly’s adapter**](https://www.udesly.com/) tool, which can process the .csv files and convert your templates into Fleek-friendly ones, like Wordpress.
 
@@ -70,7 +70,7 @@ Make sure you clean up any unused pages (like blog templates) from your folder/e
 
 ### Second, Create a Repo With the Python Script
 
-Looking good? If you were to host this directly on Fleek, you would get **.html urls for all pages** but the homepage; something that we will fix beforehand by preparing a **repository with a simple Python script** that handles all the work we need to host this on Fleek with clean urls and properly referenced styles/assets.
+Looking good? If you were to host this directly on Fleek, you would get **yourpage.html urls for all pages** but the homepage; something that we will fix beforehand by preparing a **repository with a simple Python script** that handles all the work we need to host this on Fleek with clean urls and properly referenced stylesheets/assets.
 
 Don’t worry, we already have a [**repository that you can fork,**](https://github.com/FleekHQ/webflow-example) **with Space’s Webflow site as an example, and the configurable Python script.**
 
@@ -91,7 +91,7 @@ The **SRC** folder is the directory where you will place your site’s exported 
 
 ### Fourth, Configure the Python Script for Your Site
 
-The **fleek.json file** includes a set of instructions for the Fleek platform; while the **build.py is the script** that will make all the work of reorganizing your site’s folder structure and transforming the Webflow content to properly reference CSS/Assets/JS in their new Fleek-ready structure.
+The **fleek.json file** includes a set of instructions for the Fleek platform; while the **build.py is the script** **itself** that will make all the work of reorganizing your site’s folder structure and transforming the Webflow content to properly reference CSS/Assets/JS in their new Fleek-ready structure.
 
 Those don’t require tweaking and are ready to go. **You only need to configure the config.json file,** which has the instructions for the Python script to carry out the proper transforms to your site’s directory architecture and links.
 
@@ -156,9 +156,9 @@ The final piece of the script takes all past work and applies it to each of your
           "apply_file_links_replacements": true
         },
 
-You will need to set entries **for all your Webflow’s pages,** using the appropriate name and filepath. For **all pages that are not the homepage** you must set move to **subfolder to true**.
+You will need to set entries **for all your Webflow’s pages,** using the appropriate name and filepath. For **all pages that are not the homepage** you must set all booleans, including move to subfolder**, to true**.
 
-For the Homepage’s html (index.html) you only have to change that setting **(move to subfolder) to false**. Other settings in the config remain the same.
+For your Homepage’s html (index.html) you only have to change that setting **(move to subfolder) to false**. Other settings in the config remain the same.
 
         {
           "name": "index",
@@ -181,11 +181,11 @@ Once your config.json file is set, you can go back to [Fleek ](http://fleek.co/)
 
 **What build settings do you need?**
 
-For this custom deployment we’re making with Webflow we need to input a **docker image** with the valid Python version used for the script (currently python:3.8-alpine), the **build command** that executes the Python script (python build.py) and the **publish directory** we set (dist).
+For this custom deployment we’re making with Webflow we need to input a **docker image** with the valid Python version used for the script (currently python:3.8-alpine), the **build command** that executes the Python script during build (python build.py) and the **publish directory** we set (dist).
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/build%20settings.png)
 
-Hit deploy, and the script will work its magic on the Webflow export in the src folder on your repository. You can see in the logs as each page is transformed (you can see if you missed any there).
+Hit deploy, and the script you configured in your repo will work its magic on the Webflow export in the src folder. You can see in the logs as each page is transformed (and see if you missed configuring any of them).
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/logs.png)
 
