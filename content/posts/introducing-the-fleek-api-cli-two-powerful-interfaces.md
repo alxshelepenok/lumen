@@ -1,7 +1,7 @@
 ---
 template: post
-draft: true
-title: Release Updates - Fleek CLI & API, and Github Actions
+draft: false
+title: Release Updates - Fleek Hosting CLI & API, and Github Actions
 slug: release-update-fleek-cli-github-actions
 date: 
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/cli-api.png
