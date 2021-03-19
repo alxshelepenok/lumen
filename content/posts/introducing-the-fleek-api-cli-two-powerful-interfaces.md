@@ -190,3 +190,10 @@ This is just the beginning for these interfaces. So, hop on them and let us know
 **On other news,** we are joining **Gitcoin Grants Round 9 Hackathon** with Protocol Labs, Textile, IPFS, Filecoin, and a ton of more amazing Open Web projects!
 
 Fleek's [bounties are live](https://gitcoin.co/issue/protocol/grants/7/100025064), with three open tracks (Innovation, NFTs, Communication), for building Dapps using the [Space SDK](https://github.com/FleekHQ/space-sdk). Up for the challenge? ⚡⚡⚡
+
+* [Sign up](https://app.fleek.co/) to try Fleek
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
+* Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
+* Check out our [Tech Docs](https://docs.fleek.co/)
+* Contact us at support@fleek.co
