@@ -7,7 +7,7 @@ date:
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/cli-api.png
 canonical: ''
 description: A new hosting CLI & GraphQL API to manage and control your hosting suite
-  on Fleek. Depoy from local machine, use custom GitHub Actions, and more!
+  on Fleek. Deploy from local machine, use custom GitHub Actions, and more!
 category: Release
 tags:
 - Hosting
