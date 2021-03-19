@@ -32,7 +32,7 @@ We keep updates coming 🔥 Today's release gives **developers a lot more contro
 We gave our CLI a power up, and now it includes our hosting pipeline! You can now interact with Fleek’s Hosting directly from command line, **and try new cool workflow alternatives** like:
 
 * Fleek site deployments from local machine.
-* Usinh custom GitHub actions or deploy from other CIs.
+* Using custom GitHub actions or deploy from other CIs.
 
 Everything is abstracted into just a couple of commands. Install, login, initialize, deploy, and you're done. Can't get any simpler. **Want to get started with it? Here's all you need:** [CLI Documentation/Overview](https://docs.fleek.co/fleek-cli/overview/).
 
