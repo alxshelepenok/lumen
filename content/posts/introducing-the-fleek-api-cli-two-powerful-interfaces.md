@@ -6,9 +6,13 @@ slug: release-update-fleek-cli-github-actions
 date: 
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/cli-api.png
 canonical: ''
-description: ''
-category: ''
-tags: []
+description: A new hosting CLI & GraphQL API to manage and control your hosting suite
+  on Fleek. Depoy from local machine, use custom GitHub Actions, and more!
+category: Release
+tags:
+- Hosting
+- CLI
+- API
 
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/cli-api.png)
