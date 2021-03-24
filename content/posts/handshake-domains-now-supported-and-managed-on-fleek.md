@@ -18,10 +18,10 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
 
-The Fleek protocols ranks grow again! Make room for **Handshake**, now supported in Fleek. You can add custom HNS domains for both IPFS & Internet Computer hosted websites and applications, seamlessly, and as easy as it is to set up DNS or ENS.
+Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming sytem blockchain. You can add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as easy as it is to set up DNS or ENS.
 
-The peer-to-peer root naming system blockchain has a thriving community, and we're excited to make way for another alternative to centralized DNS that is blockchain-powered and has a focus on making unstoppable and user-owned naming a reality.
+Handshake has a thriving community and we're excited to welcome them into the platform as another blockchain alternative to DNS. Together with ENS (Ethereum Name Service), they are forging the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
-Plus, let's be real. We can't wait to see which hilarious custom TLDs you bring to Fleek.
+Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what hilarious and weird domain+TLDs combos you bring on to Fleek.
 
-## Handshake & Namebase 
+## Handshake & Namebase
