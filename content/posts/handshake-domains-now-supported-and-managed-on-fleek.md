@@ -24,15 +24,17 @@ Handshake has had amazing growth, and its thriving development and community blo
 
 Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what awesome domain+TLDs combos you bring on to Fleek.
 
-## Handshake & Namebase
+## Handshake & Namebase 🤝
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/hnsnmbs.png)
 
-A blockchain-based naming protocol and certificate authority, and a fire registry to compliment it. Name a better duo. If you haven't had the chance yet to know Handshake, it's [time to catch up.](https://hsd-dev.org/) 
+A blockchain-based naming protocol and certificate authority, and a fire registry to compliment it. Name a better duo. If you haven't had the chance yet to know Handshake, it's time to catch up.
+
+Our top picks to dive in? [HNS' documentation](https://hsd-dev.org/), [learnhns.com](http://learnhns.com/), and [The Shake](https://theshake.substack.com/).
 
 In a nutshell, it acts like a **decentralized extension of DNS' root zone file**, where the ownership data of the web's TLDs are stored.
 
-But with the added perk that it is done through a decentralized blockchain system that's permissionless and uncensorable. **No middlemen or controllers**. Domain buyers own the top level domains, and no entity (ICANN) could snatch it away or avoid the registration of weird & creative TLDs (.mars, .moonmoon, .whatever). 
+But with the added perk that it is done through a decentralized blockchain system that's permissionless and uncensorable. **No middlemen or controllers**. Domain buyers own the top level domains, and no entity (ICANN) could snatch it away or avoid the registration of weird & creative TLDs (.mars, .moonmoon, .whatever).
 
 It's as if the current DNS registrar level was wiped, and TLD **owners in HNS would retake that role for themselves**, each being the registrar of their own TLDs and doing with them as they see fit (commercialize domains, sell, transfer, etc), validated and backed by a blockchain network.
 
@@ -44,4 +46,23 @@ To top it all, HNS aims to peel off another important layer of trust/centralizat
 
 You could operate and interact with [Handshake directly](https://hsd-dev.org/) via their native suite/node; Namebase is the abstraction of that process and a friendly web-platform alternative to installing installing a full Handshake node.
 
-## 
+## Using HNS Domains in Fleek ⚡
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/handshake.webp)  
+Recap aside, let's jump into HNS & Fleek! This will be short and quick, because adding HNS domains to your site on Fleek is **as easy as it is to add ENS or DNS** domains. No surprises, and it is supported for both sites/apps hosted on IPFS or DFINITY's Internet Computer.
+
+Once you have a site or app hosted on Fleek, you just need to visit the **Domain Management Tab** inside your site's settings to find HNS.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/hns.gif)
+
+There, click Add HNS, and a modal will pop up where you'll be able to specify an HNS domain, and verify if it is owned already or available for purchase. If it's already owned, you just click Add Domain and you move on to the verification step.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/hnstest (1).png)
+
+How do you verify an HNS domain and link it to your site? Same way you do with DNS. Set up a custom record to point it to your Fleek site. If you used **Namebase** to get your HNS TLD/domain, you can quickly update your records through there, or use your own Handshake Nameserver as an alternative.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/records%20(1).png)
+
+Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hosting with a blockchain-based domain name.
+
+## Wrapping it Up 🗞️
