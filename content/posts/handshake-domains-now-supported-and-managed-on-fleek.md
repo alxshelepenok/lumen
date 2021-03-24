@@ -20,7 +20,9 @@ tags:
 
 Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
-Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/), or HNS support in the [Puma mobile browser](https://www.pumabrowser.com/)! We're pumped about welcoming this ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
+Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/) earlier this year or community projects like [Flip.Flops](http://flip.flops.hns.to/), an email service on top of HNS! 
+
+We're pumped about welcoming this ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
 Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what awesome domain+TLDs combos you bring on to Fleek.
 
@@ -51,7 +53,7 @@ You could operate and interact with [Handshake directly](https://hsd-dev.org/) v
 ## Using HNS Domains in Fleek ⚡
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/handshake.webp)  
-Recap aside, let's jump into HNS & Fleek! This will be short and quick, because adding HNS domains to your site on Fleek is **as easy as it is to add ENS or DNS** domains. No surprises, and it is supported for both sites/apps hosted on IPFS or DFINITY's Internet Computer.
+Recap aside, let's jump into HNS & Fleek! This will be short and quick, because adding HNS domains to your site on Fleek is **as easy as it is to add ENS or DNS** domains to any site. No surprises, and it is supported for both sites/apps hosted on IPFS or DFINITY's Internet Computer.
 
 Once you have a site or app hosted on Fleek, you just need to visit the **Domain Management Tab** inside your site's settings to find HNS.
 
