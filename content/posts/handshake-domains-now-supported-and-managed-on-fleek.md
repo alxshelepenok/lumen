@@ -5,7 +5,7 @@ title: Release Update - Handshake Domains, Now Supported on Fleek!
 slug: handshake-domains-support-release
 date: 2021-03-23T03:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png
-canonical: ''
+canonical: https://blog.fleek.co/posts/handshake-domains-support-release
 description: Link HNS domains to your IPFS or Interet Computer sites on Fleek! Mix
   the power of decentralized blockchain domains with distributed sites on the Open
   Web.
@@ -18,9 +18,9 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
 
-Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming sytem blockchain. You can add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as easy as it is to set up DNS or ENS.
+Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming sytem blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
-Handshake has had amazing growth, and its thriving development and community blows us away each week with [dope news like the release of dLinks](https://www.namebase.io/blog/dlinks-launch/) by Namebase, or HNS support in the [Puma mobile browser](https://www.pumabrowser.com/)! We're pumped about welcoming the ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
+Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/), or HNS support in the [Puma mobile browser](https://www.pumabrowser.com/)! We're pumped about welcoming this ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
 Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what awesome domain+TLDs combos you bring on to Fleek.
 
@@ -28,9 +28,9 @@ Plus, let's be honest. Owning top level domains is just cool and we can't wait t
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/hnsnmbs.png)
 
-A blockchain-based naming protocol and certificate authority, and a fire registry to compliment it. Name a better duo. If you haven't had the chance yet to know Handshake, it's time to catch up.
+A blockchain-based naming protocol / certificate authority, and a fire registry to compliment it. Name a better duo. If you haven't had the chance yet to know Handshake, it's time to catch up.
 
-Our top picks to dive in? [HNS' documentation](https://hsd-dev.org/), [learnhns.com](http://learnhns.com/), and [The Shake](https://theshake.substack.com/).
+Our top picks for a quick start? [HNS' documentation](https://hsd-dev.org/), [learnhns.com](http://learnhns.com/), and [The Shake](https://theshake.substack.com/).
 
 In a nutshell, it acts like a **decentralized extension of DNS' root zone file**, where the ownership data of the web's TLDs are stored.
 
@@ -66,3 +66,9 @@ How do you verify an HNS domain and link it to your site? Same way you do with D
 Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hosting with a blockchain-based domain name.
 
 ## Wrapping it Up 🗞️
+
+For us the main driving factor of Web3 is how open and collaborative and community-driven it is. The creativity engine of the Open Web is just on fire 24/7 🔥 
+
+To keep that engine fired, it's a must to keep integrating new protocols and helping to abstract and connect them to enable devs and users to easily explore the new internet's raw potential. 
+
+Handshake's ecosystem will be a fire addition to the set, and this is just the first step into HNS. We can't wait to jam with the community on what could come next for HNS + Fleek, so feel free to pop into our Slack community and to brainstorm with the team on some ideas ⚡.
