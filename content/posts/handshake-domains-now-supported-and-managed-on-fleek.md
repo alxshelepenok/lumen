@@ -22,6 +22,10 @@ Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer
 
 Handshake has a thriving community and we're excited to welcome them into the platform as another blockchain alternative to DNS. Together with ENS (Ethereum Name Service), they are forging the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
-Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what hilarious and weird domain+TLDs combos you bring on to Fleek.
+Plus, let's be honest. Owning top level domains is just cool and we can't wait to see what awesome domain+TLDs combos you bring on to Fleek.
 
 ## Handshake & Namebase
+
+![](https://storageapi.fleek.co/fleek-team-bucket/hnsnmbs.png)
+
+A decentralized naming protocol, and a blockchain-based registry to compliment it. 
