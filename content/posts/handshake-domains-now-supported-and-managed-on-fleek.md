@@ -18,7 +18,7 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
 
-Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming sytem blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
+Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
 Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/), or HNS support in the [Puma mobile browser](https://www.pumabrowser.com/)! We're pumped about welcoming this ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
@@ -36,15 +36,17 @@ In a nutshell, it acts like a **decentralized extension of DNS' root zone file**
 
 But with the added perk that it is done through a decentralized blockchain system that's permissionless and uncensorable. **No middlemen or controllers**. Domain buyers own the top level domains, and no entity (ICANN) could snatch it away or avoid the registration of weird & creative TLDs (.mars, .moonmoon, .whatever).
 
-It's as if the current DNS registrar level was wiped, and TLD **owners in HNS would retake that role for themselves**, each being the registrar of their own TLDs and doing with them as they see fit (commercialize domains, sell, transfer, etc), validated and backed by a blockchain network.
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/comp.png)
 
-Plus, it is **backwards compatible with ICANN's** root zone (.com, .org, etc.) to avoid conflicts with current DNS owners, who have their names and ownership reserved for their domains on HNS.
+It's as if the current DNS registrar role was rethinked, and TLD **owners in HNS would retake that role for themselves**, each being the registrar of their own TLDs and doing with them as they see fit (commercialize domains, sell, transfer, etc), validated and backed by a blockchain network.
 
-To top it all, HNS aims to peel off another important layer of trust/centralization of the web. Certificate authorities. Scrap centralized lists in hundreds of authorities for key authenticity verification (known to have gone rogue and compromised securit in the past) and replace it with a decentralized blockchain-based and cryptographically-backed key verification.
+It's also **backwards compatible with ICANN's** root zone (.com, .org, etc.) to avoid conflicts with current DNS owners, who have their names and ownership reserved for their domains on HNS.
 
-**Namebase** on the other hand, is a parallel project, a seamless front for HNS, a registry and marketplace app where you can purchase, sell or trade domains on the HNS blockchain. It's uses a simple bid/auction process for purchasing TLDs (emphasis on purchase, not rent).
+To top it all, HNS aims to peel off another important layer of trust/centralization of the web. Certificate authorities. Scrap centralized lists in hundreds of authorities for key authenticity verification (known to have gone rogue and compromised security in the past) and replace it with a decentralized blockchain-based and cryptographically-backed key verification.
 
-You could operate and interact with [Handshake directly](https://hsd-dev.org/) via their native suite/node; Namebase is the abstraction of that process and a friendly web-platform alternative to installing installing a full Handshake node.
+**Namebase** on the other hand, is a parallel project, a seamless front for HNS, a registry and marketplace app where you can purchase, sell or trade domains on the HNS blockchain. It uses a simple bid/auction process for purchasing TLDs (emphasis on purchase, not rent).
+
+You could operate and interact with [Handshake directly](https://hsd-dev.org/) via their native suite/node; Namebase is the abstraction of that process and a friendly web-platform alternative to installing a full Handshake node.
 
 ## Using HNS Domains in Fleek ⚡
 
@@ -59,7 +61,7 @@ There, click Add HNS, and a modal will pop up where you'll be able to specify an
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/hnstest (1).png)
 
-How do you verify an HNS domain and link it to your site? Same way you do with DNS. Set up a custom record to point it to your Fleek site. If you used **Namebase** to get your HNS TLD/domain, you can quickly update your records through there, or use your own Handshake Nameserver as an alternative.
+How do you verify an HNS domain and link it to your site? Same way you do with DNS. Set up a custom record to point it to your Fleek site. If you use **Namebase** to get your HNS TLD/domain, you can quickly update your records through there, or use your own Handshake Nameserver as an alternative.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/records%20(1).png)
 
@@ -69,6 +71,6 @@ Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hos
 
 For us the main driving factor of Web3 is how open and collaborative and community-driven it is. The creativity engine of the Open Web is just on fire 24/7 🔥 
 
-To keep that engine fired, it's a must to keep integrating new protocols and helping to abstract and connect them to enable devs and users to easily explore the new internet's raw potential. 
+To keep that engine fired, it's a must to keep integrating new protocols (like Handshake!) and helping to abstract and connect them to enable devs and users to easily explore the new internet's raw potential.
 
-Handshake's ecosystem will be a fire addition to the set, and this is just the first step into HNS. We can't wait to jam with the community on what could come next for HNS + Fleek, so feel free to pop into our Slack community and to brainstorm with the team on some ideas ⚡.
+And Handshake's ecosystem packs a punch, we can't wait to see what new opportunities it opens up, and jam with the community on what could come next for HNS + Fleek. Feel free to pop into our Slack community and to brainstorm with the team on some ideas ⚡.
