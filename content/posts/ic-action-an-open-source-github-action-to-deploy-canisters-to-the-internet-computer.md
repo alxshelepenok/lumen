@@ -5,18 +5,22 @@ title: IC Action - An Open Source GitHub Action to Deploy Canisters to the Inter
   Computer!
 slug: ic-action-deploy-canisters-internet-computer
 date: 2021-03-25T03:00:00Z
-socialImage: ''
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png
 canonical: ''
 description: ''
 category: ''
 tags: []
 
 ---
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png)
+
 We're back with a surprise open source release for developers working on DFINITY's Internet Computer! The team just made public the [**IC Action**](https://github.com/FleekHQ/IC-Deploy-Action)**,** a GitHub Action anyone can use to deploy **any type of canisters** seamlessly to DFINITY's Internet Computer through GitHub's CI/CD pipeline.
 
 This IC deploy action wraps commands from [DFINITY's DFX](https://github.com/dfinity/docs) command line tool, triggering new deployments when you push commits to GitHub, deploying and updating your canisters on the Internet Computer.
 
 ## The Internet Computer & Fleek 🌀
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
 
 If nothing rings a bell, well, _you've missed a big one_. A couple weeks ago we announced that Fleek was joining the [Internet Computer's ecosystem](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting) in full force, releasing a stack of Internet Computer focused  features to Fleek:
 
@@ -28,13 +32,15 @@ In Fleek, DFINITY's Internet Computer comes as an alternative to hosting on IPFS
 
 But, if you look outside of Fleek, it is much more.
 
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/illshowyou.webp)
+
 The Internet Computer itself is a new approach at rebuilding the web through a unified protocol capable of running **the entire base layer of the web** (hosting / storage / services/ etc..) as well as the apps and experiences of it in that open and decentralized computing blockchain network.
 
 And in the center of it all? Canisters.
 
-On the Internet Computer, everything lives in canisters. Think smart contracts on Ethereum, but capable of powering FE, BE, and pretty any web service because they include both program and state.
+On the Internet Computer, everything lives in canisters. Think smart contracts on Ethereum, but **capable of powering FE, BE, and pretty much any web service** because they can include both program and state and are built to scale performantly. They are built specifically for supporting the web.
 
-Its execution is still governed by a secure protocol (the Internet Computer Protocol), but they are capable of hosting services that scale performantly, since they are built just for that very thing.
+Still, like Smart Contracts, its execution is governed by a secure protocol (the Internet Computer Protocol) on the blockchain, and they can be only affected by it.
 
 If this is the first time you're hearing about it you might need to step back, take a breather, and binge watch the ["Exploring Entrepeneurship in the Open Internet Boom"](https://dfinity.org/techcrunch/), hosted by DFINITY and explore [their site](). There's a lot of exciting experimental technology ramping up to potentially become a new leap forward in blockchain/Web3 development, and the Internet Computer's Mainnet Beta Genesis is coming up, so got to prep up!
 
@@ -107,7 +113,7 @@ If you can't find these files in the directory, you probably haven't deployed yo
 
 ## Deploy, deploy, deploy! 🛢️
 
-That's all! Quick and easy. With all secrets set and your canister deployed, you're ready to push seamlessly to your canisters via GitHub's CI/CD workflow on every commit. **Feeling like Fleek already.** 
+That's all! Quick and easy. With all secrets set and your canister deployed, you're ready to push seamlessly to your canisters via GitHub's CI/CD workflow on every commit. **Feeling like Fleek already.**
 
 The added perk is that you get that seamless flow, with any canister type, not just FE-hosted sites. Plus all the collaboration, organization, and version control features you're pretty much used to today.
 
