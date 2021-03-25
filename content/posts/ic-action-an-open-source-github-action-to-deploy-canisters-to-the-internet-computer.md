@@ -48,9 +48,11 @@ If this is the first time you're hearing about it you might need to step back, t
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/Group 5818.png)
 
-Feel a little less lost? Then back to the news! There are many ways to deploy code/apps to canisters on the Internet Computer. For example, DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html) and SDK.
+Feel a little less lost? Then back to the news! There are **many ways to deploy your projects and code to canisters on the Internet Computer**. 
 
-But, having worked on the Internet Computer for a while in the past months, we thought everyone could use a little CI/CD seamlessness on their canister management lives. So the team jumped onto the task and built this open source GitHub Action for it 🔥
+For example, DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html) and SDK.
+
+But, having worked on the Internet Computer for a while in the past months, we thought everyone could use **a** **little CI/CD seamlessness on their canister management lives**. So the team jumped onto the task and built this [open source GitHub Action](https://github.com/FleekHQ/IC-Deploy-Action) for it 🔥
 
 **TL;DR on how it works?** First you'll create and deploy a project/canister using the dfx CLI in your repository, and then you'll add Fleek's IC Deploy Action to your CI/CD pipeline, which will automatically trigger new deployments to you canister when commits are pushed to that repo.
 
@@ -58,7 +60,9 @@ Now the long version.
 
 ### Using Fleek's IC Deploy Action
 
-Kick things off by configuring and deploying a project to the Internet Computer using the [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html). You have to start with this so that your repository has the right canister identifiers and configuration files.
+Here's the [IC Deploy Action's repository](https://github.com/FleekHQ/IC-Deploy-Action), you can also find it in the action marketplace. But, before getting started with the IC Action, kick things off by configuring and deploying a project to the Internet Computer using the [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html). 
+
+You have to start with this so that your repository has the right canister identifiers and the configuration files to fill in the necessary GitHub secrets. 
 
 To create a new project with the dfx CLI:
 
