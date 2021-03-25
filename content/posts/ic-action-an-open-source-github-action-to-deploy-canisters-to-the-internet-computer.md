@@ -1,15 +1,20 @@
 ---
 template: post
-draft: true
+draft: false
 title: IC Action - An Open Source GitHub Action to Deploy Canisters to the Internet
   Computer!
 slug: ic-action-deploy-canisters-internet-computer
 date: 2021-03-25T03:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png
 canonical: ''
-description: ''
-category: ''
-tags: []
+description: For any current (and future) devs building on DFINITY's IC (Internet
+  Computer) and looking for GitHub CI/CD deployments for canisters, we got your back.
+category: Release
+tags:
+- CI/CD
+- Internet Computer
+- DFINITY
+- open source
 
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png)
@@ -28,7 +33,7 @@ If nothing rings a bell, well, _you've missed a big one_. A couple weeks ago we 
 * A new Internet Computer HTTP Gateway
 * Canister Proxying
 
-In Fleek, DFINITY's Internet Computer comes as an alternative to hosting on IPFS, with a different set of perks and purpose. It's a trustless, permissionless, and open blockhain-based infrastructure, and in the future it could allow us to rebuild Fleek on top of a 100% decentralized infrastructure. 
+In Fleek, DFINITY's Internet Computer comes as an alternative to hosting on IPFS, with a different set of perks and purposes. It's a trustless, permissionless, and open blockchain-based infrastructure, and in the future it could allow us to rebuild Fleek on top of a 100% decentralized infrastructure. 
 
 But, if you look outside of Fleek, it is much more.
 
@@ -42,7 +47,7 @@ On the Internet Computer, everything lives in canisters. Think smart contracts o
 
 Still, like Smart Contracts, its execution is governed by a secure protocol (the Internet Computer Protocol) on the blockchain, and they can be only affected by it.
 
-If this is the first time you're hearing about it you might need to step back, take a breather, and binge watch the ["Exploring Entrepeneurship in the Open Internet Boom"](https://dfinity.org/techcrunch/), hosted by DFINITY and explore [their site](). There's a lot of exciting experimental technology ramping up to potentially become a new leap forward in blockchain/Web3 development, and the Internet Computer's Mainnet Beta Genesis is coming up, so got to prep up!
+If this is the first time you're hearing about it you might need to step back, take a breather, and binge watch the ["Exploring Entrepreneurship in the Open Internet Boom"](https://dfinity.org/techcrunch/), hosted by DFINITY and explore [their site](). There's a lot of exciting experimental technology ramping up to potentially become a new leap forward in blockchain/Web3 development, and the Internet Computer's Mainnet Beta Genesis is coming up, so got to prep up!
 
 ## Fleek's IC Deploy Action for Deploying Canisters via GitHub ⚡
 
@@ -54,7 +59,7 @@ For example, DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/c
 
 But, having worked on the Internet Computer for a while in the past months, we thought everyone could use **a** **little CI/CD seamlessness on their canister management lives**. So the team jumped onto the task and built this [open source GitHub Action](https://github.com/FleekHQ/IC-Deploy-Action) for it 🔥
 
-**TL;DR on how it works?** First you'll create and deploy a project/canister using the dfx CLI in your repository, and then you'll add Fleek's IC Deploy Action to your CI/CD pipeline, which will automatically trigger new deployments to you canister when commits are pushed to that repo.
+**TL;DR on how it works?** First you'll create and deploy a project/canister using the dfx CLI in your repository, and then you'll add Fleek's IC Deploy Action to your CI/CD pipeline, which will automatically trigger new deployments to your canister when commits are pushed to that repo.
 
 Now the long version.
 
@@ -72,7 +77,7 @@ Then deploy that new project to the Internet Computer to have your first caniste
 
     dfx deploy --network=ic
 
-With your dependencies install, and your work deployed, you got your first canister! You should see a canister_ids.json file on your repository, which identifies your Canister on the Internet Computer. **Make sure that after deploying your first canister you push these files to GitHub**, as they are needed later on.
+With your dependencies installed, and your work deployed, you got your first canister! You should see a canister_ids.json file on your repository, which identifies your Canister on the Internet Computer. **Make sure that after deploying your first canister you push these files to GitHub**, as they are needed later on.
 
 Canisters also deploy with a particular entity, `default` by default. We'll use Github secrets to export the private key for that identity.
 
