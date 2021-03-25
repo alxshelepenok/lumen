@@ -3,7 +3,7 @@ template: post
 draft: false
 title: Release Updates - Fleek Hosting CLI & API, and Github Actions
 slug: release-update-fleek-cli-github-actions
-date: 
+date: 2021-03-19T03:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/cli-api.png
 canonical: ''
 description: A new hosting CLI & GraphQL API to manage and control your hosting suite
