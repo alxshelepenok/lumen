@@ -20,7 +20,7 @@ tags:
 
 Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
-Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/) earlier this year or community projects like [Flip.Flops](http://flip.flops.hns.to/), an email service on top of HNS! 
+Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/) earlier this year or community projects like [Flip.Flops](http://flip.flops.hns.to/), an email service on top of HNS!
 
 We're pumped about welcoming this ecosystem into Fleek, and add another blockchain alternative to DNS, together with ENS (Ethereum Name Service), as they forge the road towards making unstoppable and user-owned naming a reality on the Open Web.
 
@@ -69,9 +69,21 @@ How do you verify an HNS domain and link it to your site? Same way you do with D
 
 Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hosting with a blockchain-based domain name.
 
+### Accesing HNS Domains
+
+Handshake domains live on the Handshake blockchain, much like ENS names live on Ethereum, and are not yet fully supported/resolved but most browsers.
+
+Still, while that gap is bridged, there are many ways of sites using HNS domains. The most quick and easy way is to use [**hns.to**](https://hns.to/) to quickly verify that your new  site is up and running correctly. hns.to is a Handshake resolver, you can use its search engine to find your site, or append at the end of your HNS domain name `my.site.hns.to` to view it over HTTP.
+
+Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome. 
+
+If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/); or go all the way and install **Handshake's node,** [**hds **](https://hsd-dev.org/)to resolve their domains trustlessly.
+
+Without a doubt there's a ton of options, and if you need more you can peek at Namebase's guide, [separated by technical level](https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites).
+
 ## Wrapping it Up 🗞️
 
-For us the main driving factor of Web3 is how open and collaborative and community-driven it is. The creativity engine of the Open Web is just on fire 24/7 🔥 
+For us the main driving factor of Web3 is how open and collaborative and community-driven it is. The creativity engine of the Open Web is just on fire 24/7 🔥
 
 To keep that engine fired, it's a must to keep integrating new protocols (like Handshake!) and helping to abstract and connect them to enable devs and users to easily explore the new internet's raw potential.
 
