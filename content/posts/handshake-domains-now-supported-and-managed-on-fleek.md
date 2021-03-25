@@ -76,3 +76,10 @@ For us the main driving factor of Web3 is how open and collaborative and communi
 To keep that engine fired, it's a must to keep integrating new protocols (like Handshake!) and helping to abstract and connect them to enable devs and users to easily explore the new internet's raw potential.
 
 And Handshake's ecosystem packs a punch, we can't wait to see what new opportunities it opens up, and jam with the community on what could come next for HNS + Fleek. Feel free to pop into our Slack community and to brainstorm with the team on some ideas ⚡.
+
+* [Sign up](https://app.fleek.co/) to try Fleek
+* Join our [Community Chat](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
+* Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
+* Check out our [Tech Docs](https://docs.fleek.co/)
+* Contact us at support@fleek.co
