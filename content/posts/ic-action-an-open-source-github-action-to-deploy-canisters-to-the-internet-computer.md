@@ -38,7 +38,7 @@ If you're still catching up with the IC, we suggest you binge watch the ["Explor
 
 ## Fleek's IC Deploy Action for Deploying Canisters via GitHub
 
-There are many ways to deploy and work with canisters, like DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html) and SDK. But, working on the IC for a while, we thought everyone could use a little CI seamlessness on their canister management lives. So, the team jumped onto the task and built this open source GitHub Action for it
+There are many ways to deploy code/apps to canisters on the Internet Computer. For example, DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html) and SDK. But, working on the IC for a while, we thought everyone could use a little CI seamlessness on their canister management lives. So, the team jumped onto the task and built this open source GitHub Action for it
 
 **TL;DR on how it works?** First you'll create and deploy a project/canister using the dfx CLI in your repository, and then you'll add Fleek's IC Deploy Action to your CI/CD pipeline, which will automatically trigger new deployments to you canister when commits are pushed to that repo.
 
