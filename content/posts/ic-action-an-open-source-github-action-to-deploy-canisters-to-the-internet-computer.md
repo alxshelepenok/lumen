@@ -46,6 +46,8 @@ If this is the first time you're hearing about it you might need to step back, t
 
 ## Fleek's IC Deploy Action for Deploying Canisters via GitHub ⚡
 
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/Group 5818.png)
+
 Feel a little less lost? Then back to the news! There are many ways to deploy code/apps to canisters on the Internet Computer. For example, DFINITY's [dfx CLI](https://sdk.dfinity.org/docs/developers-guide/cli-reference.html) and SDK.
 
 But, having worked on the Internet Computer for a while in the past months, we thought everyone could use a little CI/CD seamlessness on their canister management lives. So the team jumped onto the task and built this open source GitHub Action for it 🔥
