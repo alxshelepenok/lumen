@@ -69,7 +69,7 @@ How do you verify an HNS domain and link it to your site? Same way you do with D
 
 Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hosting with a blockchain-based domain name.
 
-### Accesing HNS Domains
+### Accessing HNS Domains
 
 Handshake domains live on the Handshake blockchain, much like ENS names live on Ethereum, and are not yet fully supported/resolved but most browsers.
 
@@ -79,7 +79,7 @@ Another option is to use an **HNS compatible browser or extension**, [like PUMA]
 
 If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/); or go all the way and install **Handshake's node,** [**hds **](https://hsd-dev.org/)to resolve their domains trustlessly.
 
-Without a doubt there's a ton of options, and if you need more you can peek at Namebase's guide, [separated by technical level](https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites).
+Without a doubt there's a ton of options, and if you need more you can peek at Namebase's guide, [separated by technical level](https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites#level-3-dns).
 
 ## Wrapping it Up 🗞️
 
