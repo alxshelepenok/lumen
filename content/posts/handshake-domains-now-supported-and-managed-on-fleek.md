@@ -73,11 +73,11 @@ Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hos
 
 Handshake domains live on the Handshake blockchain, much like ENS names live on Ethereum, and are not yet fully supported/resolved but most browsers.
 
-Still, while that gap is bridged, there are many ways of sites using HNS domains. The most quick and easy way is to use [**hns.to**](https://hns.to/) to quickly verify that your new  site is up and running correctly. hns.to is a Handshake resolver, you can use its search engine to find your site, or append at the end of your HNS domain name `my.site.hns.to` to view it over HTTP.
+Still, while that gap is bridged, there are many ways of sites using HNS domains. The most quick and easy way is to use [**hns.to**](https://hns.to/) to quickly verify that your new  site is up and running correctly. hns.to is a Handshake resolver, you can enter your domain in its search bar to find your site, or append its url at the end of your HNS domain name (`my.site.hns.to` ) to use it as a gateway to view it over HTTP.
 
-Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome. 
+Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome, that 
 
-If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/); or go all the way and install **Handshake's node,** [**hds **](https://hsd-dev.org/)to resolve their domains trustlessly.
+If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/) or [NextDNS](https://nextdns.io/); you could even go all the way and install **Handshake's node,** [**hds**](https://hsd-dev.org/) to resolve their domains trustlessly from your device.
 
 Without a doubt there's a ton of options, and if you need more you can peek at Namebase's guide, [separated by technical level](https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites#level-3-dns).
 
