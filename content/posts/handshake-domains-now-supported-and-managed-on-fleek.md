@@ -77,7 +77,7 @@ Still, while that gap is bridged, there are many ways of sites using HNS domains
 
 Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome, that 
 
-If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/) or [NextDNS](https://nextdns.io/); you could even go all the way and install **Handshake's node,** [**hds**](https://hsd-dev.org/) to resolve their domains trustlessly from your device.
+If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/) or [NextDNS](https://nextdns.io/); you could even go all the way and install **Handshake's node,** [**hds**](https://hsd-dev.org/) to resolve their domains trustlessly and locally.
 
 Without a doubt there's a ton of options, and if you need more you can peek at Namebase's guide, [separated by technical level](https://learn.namebase.io/starting-from-zero/how-to-access-handshake-sites#level-3-dns).
 
