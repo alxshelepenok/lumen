@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - Handshake Domains, Now Supported on Fleek!
 slug: handshake-domains-support-release
 date: 2021-03-23T03:00:00Z
@@ -18,7 +18,7 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
 
-Fleek's protocol ranks grow again! Make room for **Handshake**, the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
+Fleek's protocol ranks grow again! Make room for [**Handshake**](https://handshake.org/), the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
 Handshake and its thriving ecosystem & community blows us away each week with dope news like the [release of dLinks by Namebase](https://www.namebase.io/blog/dlinks-launch/) earlier this year or community projects like [Flip.Flops](http://flip.flops.hns.to/), an email service on top of HNS!
 
@@ -75,7 +75,7 @@ Handshake domains live on the Handshake blockchain, much like ENS names live on 
 
 Still, while that gap is bridged, there are many ways of sites using HNS domains. The most quick and easy way is to use [**hns.to**](https://hns.to/) to quickly verify that your new  site is up and running correctly. hns.to is a Handshake resolver, you can enter your domain in its search bar to find your site, or append its url at the end of your HNS domain name (`my.site.hns.to` ) to use it as a gateway to view it over HTTP.
 
-Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome, that 
+Another option is to use an **HNS compatible browser or extension**, [like PUMA](https://www.pumabrowser.com/), or the [LinkFrame extension](https://chrome.google.com/webstore/detail/linkframe/klcheodcjdbkbiljlcfiphagmkhbifmm?hl=en-US&authuser=0) for Chrome, that
 
 If you want, you can also change your **devices' DNS** to point to HNS resolving ones, like [HDNS](https://www.hdns.io/) or [NextDNS](https://nextdns.io/); you could even go all the way and install **Handshake's node,** [**hds**](https://hsd-dev.org/) to resolve their domains trustlessly and locally.
 
