@@ -3,7 +3,7 @@ template: post
 draft: false
 title: Release Update - Handshake Domains, Now Supported on Fleek!
 slug: handshake-domains-support-release
-date: 2021-03-23T03:00:00Z
+date: 2021-03-29T03:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png
 canonical: https://blog.fleek.co/posts/handshake-domains-support-release
 description: Link HNS domains to your IPFS or Interet Computer sites on Fleek! Mix
