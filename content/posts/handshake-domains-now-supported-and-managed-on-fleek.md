@@ -61,7 +61,7 @@ Once you have a site or app hosted on Fleek, you just need to visit the **Domain
 
 There, click Add HNS, and a modal will pop up where you'll be able to specify an HNS domain, and verify if it is owned already or available for purchase. If it's already owned, you just click Add Domain and you move on to the verification step.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/hnstest (1).png)
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/hnstest%20(1).png)
 
 How do you verify an HNS domain and link it to your site? Same way you do with DNS. Set up a custom record to point it to your Fleek site. If you use **Namebase** to get your HNS TLD/domain, you can quickly update your records through there, or use your own Handshake Nameserver as an alternative.
 
