@@ -69,7 +69,7 @@ Kudos to the dope retro interface! An amazingly straightforward tool, with a lot
 
 ### StoriesNFT
 
-<iframe width="560" height="215" src="[https://www.youtube.com/embed/LNgazG0Npjc](https://www.youtube.com/embed/LNgazG0Npjc "https://www.youtube.com/embed/LNgazG0Npjc")" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="215" src="https://www.youtube.com/embed/LNgazG0Npjc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The next project in the second place tier is [**StoriesNFT**](https://storiesnft.netlify.app/) by You Song Hou (@ysongh). An NFT marketplace for writing, selling, and buying written stories as NFTs! It uses the Space SDK to create a writer's identity, giving them a suite to upload their story files (PDF, for example) to Fleek's IPFS storage, and publishing them for sale as an NFT (associated to the writer's wallet address, MetaMask supported).
 
