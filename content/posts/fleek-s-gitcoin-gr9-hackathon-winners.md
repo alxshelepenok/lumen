@@ -6,8 +6,9 @@ slug: gitcoin-gr9-hackathon-fleek-winners
 date: 2021-04-07T04:00:00Z
 socialImage: ''
 canonical: ''
-description: We challenged developers to build using the Space SDK and Fleek Storage
-  JS! Let's review this year's winning projects for Fleek's GR9 Hackathon challenge.
+description: We challenged developers to build their hacks using the Space SDK and
+  Fleek Storage JS! Let's review this year's winning projects for Fleek's GR9 Hackathon
+  challenge.
 category: General
 tags:
 - Storage JS
@@ -60,7 +61,7 @@ A little bit later, you'll get your NFT uploaded to IPFS through Fleek Storage J
 
 ### Space Case
 
-<iframe width="450" height="215" src="https://www.youtube.com/watch?v=itK1P0bUPgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="215" src="https://www.youtube.com/embed/itK1P0bUPgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Morganstar earned his spot on the second place with Space Case, an app that combines the Moon Cat Rescue library to create unique identicats with Fleek Space SDK identities to deliver a cool File Manager experience, with support for a feline contact list, and file sharing/uploading via the SDK's implementation of IPFS/Textile.
 
@@ -68,7 +69,7 @@ Kudos to the dope retro interface! An amazingly straightforward tool, with a lot
 
 ### StoriesNFT
 
-<iframe width="450" height="215" src="https://www.youtube.com/watch?v=LNgazG0Npjc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="215" src="[https://www.youtube.com/embed/LNgazG0Npjc](https://www.youtube.com/embed/LNgazG0Npjc "https://www.youtube.com/embed/LNgazG0Npjc")" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The next project in the second place tier is [**StoriesNFT**](https://storiesnft.netlify.app/) by You Song Hou (@ysongh). An NFT marketplace for writing, selling, and buying written stories as NFTs! It uses the Space SDK to create a writer's identity, giving them a suite to upload their story files (PDF, for example) to Fleek's IPFS storage, and publishing them for sale as an NFT (associated to the writer's wallet address, MetaMask supported).
 
@@ -76,7 +77,7 @@ Readers can then visit the homepage and support a writer by purchasing a story t
 
 ### Bottle
 
-<iframe width="450" height="215" src="https://www.youtube.com/watch?v=3dtVqwtldSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="215" src="https://www.youtube.com/embed/3dtVqwtldSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Now, on the third place tier, Bottle by @koder-abc123. A Telegram bot that interacts with the Matic network and uses Fleek storage as a personal wallet manager and product marketplace.
 
@@ -84,7 +85,7 @@ By chatting with Bottle, a user can sell or purchase products on a Matic marketp
 
 ### Fleek Chat / React Starter Kit
 
-<iframe width="450" height="215" src="https://www.youtube.com/watch?v=1Z6tnafYcxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="215" src="https://www.youtube.com/embed/1Z6tnafYcxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Last but not least, Zachary Belford submitted a **React Starting Kit** for building Fleek apps. It started as an attempt to tackle a chat app, and resulted in a cool template with a login and registration flow for anyone to build upon. 
 
