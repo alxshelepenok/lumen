@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Fleek's Gitcoin GR9 Hackathon Prize Winners!
 slug: gitcoin-gr9-hackathon-fleek-winners
-date: 2021-04-07T04:00:00Z
+date: 2021-04-08T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png
 canonical: ''
 description: We challenged developers to build their hacks using the Space SDK and
@@ -33,17 +33,17 @@ We opened up three tracks, focused on **Innovation, NFTs, and Communication.** A
 
 **What are the prize tiers?**
 
-1st place: $2,000 + Protocol Labs matching.  
-2nd places: $1,000 + Protocol Labs matching.  
-3rd places: $500 + Protocol Labs matching.
+* 1st place: $2,000 + Protocol Labs matching.
+* 2nd places: $1,000 + Protocol Labs matching.
+* 3rd places: $500 + Protocol Labs matching.
 
 ## The Winning Projects
 
-In total we selected five winners! This year [@stevegachau](https://gitcoin.co/stevegachau) took the win home in **first place** with **MintBot**, a Telegram bot for minting NFTs in seconds.
+In total we selected five winners! This year [@stevegachau](https://gitcoin.co/stevegachau) took the win home in **first place** with [**MintBot**](https://github.com/stevegachau/MintBot), a Telegram bot for minting NFTs in seconds.
 
-Sharing second place, [@ysongh](https://gitcoin.co/ysongh) with StoriesNFT, a Dapp for minting written stories and selling them as NFTs; together with [@morganstar](https://gitcoin.co/morganstar) who presented Space Case, an identity management and file sharing app!
+Sharing second place, [@ysongh](https://gitcoin.co/ysongh) with [**StoriesNFT**](https://github.com/ysongh/StoriesNFT), a Dapp for minting written stories and selling them as NFTs; together with [@morganstar](https://gitcoin.co/morganstar) who presented [**Space Case**](https://github.com/endowl/space-case), an identity management and file sharing app!
 
-In Third we have  [@koder-abc123](https://gitcoin.co/koder-abc123) with Bottle, a Telegram bot for interacting with the Matic network, and [@belfordz](https://gitcoin.co/belfordz) with Fleek Chat, a Fleek react starter kit.
+In Third we have  [@koder-abc123](https://gitcoin.co/koder-abc123) with [**Bottle**](https://github.com/koder-abc123/Bottle), a Telegram bot for interacting with the Matic network, and [@belfordz](https://gitcoin.co/belfordz) with [**Fleek Chat**](https://github.com/xops/fleekchat), a Fleek react starter kit.
 
 Cheers everyone! Thanks a lot for joining us and hacking away, it's exciting to see developers jump on to prove what's possible with the power of the Open Web!
 
@@ -65,9 +65,9 @@ A little bit later, you'll get your NFT uploaded to IPFS through Fleek Storage J
 
 <iframe width="560" height="215" src="https://www.youtube.com/embed/itK1P0bUPgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Morganstar earned his spot on the second place with Space Case, an app that combines the Moon Cat Rescue library to create unique identicats with Fleek Space SDK identities to deliver a cool File Manager experience, with support for a feline contact list, and file sharing/uploading via the SDK's implementation of IPFS/Textile.
+Morganstar earned his spot on the second place with [**Space Case**](https://github.com/endowl/space-case), an app that combines the Moon Cat Rescue library to create unique identicats with Fleek Space SDK identities to deliver a cool File Manager experience, with support for a feline contact list, and file sharing/uploading via the SDK's implementation of IPFS/Textile.
 
-Kudos to the dope retro interface! An amazingly straightforward tool, with a lot of potential to become its own hub. 
+Kudos to the dope retro interface! An amazingly straightforward tool, with a lot of potential to become its own hub.
 
 ### StoriesNFT
 
@@ -81,15 +81,15 @@ Readers can then visit the homepage and support a writer by purchasing a story t
 
 <iframe width="560" height="215" src="https://www.youtube.com/embed/3dtVqwtldSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Now, on the third place tier, Bottle by @koder-abc123. A Telegram bot that interacts with the Matic network and uses Fleek storage as a personal wallet manager and product marketplace.
+Now, on the third place tier, [**Bottle **](https://github.com/koder-abc123/Bottle)by @koder-abc123. A Telegram bot that interacts with the Matic network and uses Fleek storage as a personal wallet manager and product marketplace.
 
-By chatting with Bottle, a user can sell or purchase products on a Matic marketplace without needing a browser extension, leaving the transaction work to Bottle, reflecting changes in the marketplace UI instantly.  
+By chatting with Bottle, a user can sell or purchase products on a Matic marketplace without needing a browser extension, leaving the transaction work to Bottle, reflecting changes in the marketplace UI instantly.
 
 ### Fleek Chat / React Starter Kit
 
 <iframe width="560" height="215" src="https://www.youtube.com/embed/1Z6tnafYcxU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Last but not least, Zachary Belford submitted a **React Starting Kit** for building Fleek apps. It started as an attempt to tackle a chat app, and resulted in a cool template with a login and registration flow for anyone to build upon. 
+Last but not least, Zachary Belford submitted a [**React Starting Kit**](https://github.com/xops/fleekchat) for building Fleek apps. It started as an attempt to tackle a chat app, and resulted in a cool template with a login and registration flow for anyone to build upon.
 
 We're all about creating open resources to help anyone build on Web3, so we really appreciate this hack! We love the seamlessness the auto-login gives for an app experience, and the approach of building familiar Web2-like login flows powered by the benefits of the Open Web in the background.
 
