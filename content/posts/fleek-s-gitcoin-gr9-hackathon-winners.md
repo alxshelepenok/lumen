@@ -4,7 +4,7 @@ draft: true
 title: Fleek's Gitcoin GR9 Hackathon Prize Winners!
 slug: gitcoin-gr9-hackathon-fleek-winners
 date: 2021-04-07T04:00:00Z
-socialImage: ''
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png
 canonical: ''
 description: We challenged developers to build their hacks using the Space SDK and
   Fleek Storage JS! Let's review this year's winning projects for Fleek's GR9 Hackathon
@@ -17,15 +17,17 @@ tags:
 - GR9
 
 ---
-Last week Gitcoin's Grant Round 9 Hackathon came to an end, with an inmense folder of dope projects and groups participating in another jampacked grant hackathon. The event wrapped with over 1.2 million raised by the community, and over $300k in hackathon prizes!
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png)
 
-This year we didn't come alone. We teamed up with Protocol Labs, together with Textile, IPFS, and Filecoin to bring some cool Web3 challenges for hackers on GR9 take on, placing over $63k in Filecoin (FIL) prizes as a whole together with Protocol Lab's matching of the prizes!
+Last week Gitcoin's Grant Round 9 Hackathon came to an end, with an immense folder of dope projects and groups participating in another jampacked hackathon. The event wrapped with over 1.2 million raised by the community, and over $300k in hackathon prizes!
+
+This year we didn't come alone. We teamed up with [Protocol Labs](https://protocol.ai/), together with [Textile](http://textile.io/), [IPFS](https://ipfs.io/), and [Filecoin ](https://filecoin.io/)to bring some cool Web3 challenges for hackers on GR9 take on, placing over $63k in Filecoin (FIL) prizes as a whole together with Protocol Lab's matching of the prizes!
 
 Two weeks after, and a couple dope projects later, it's time to take a look at the projects **that surprised us** **and** **took the win home this year!**
 
 ## The Challenge
 
-What was our challenge? To build an app or Dapp **using Fleek's open source tools**. For example the [Space SDK](https://fleek.co/space-sdk/) open source library, or [Fleek's Storage JS](https://docs.fleek.co/storage/fleek-storage-js/) for interacting programatically with Fleek's IPFS storage.
+What was our challenge? To build an app or Dapp **using Fleek's open source tools**. For example the [Space SDK](https://fleek.co/space-sdk/) open source library, or [Fleek's Storage JS](https://docs.fleek.co/storage/fleek-storage-js/) for interacting programmatically with Fleek's IPFS storage.
 
 We opened up three tracks, focused on **Innovation, NFTs, and Communication.** And judged based on originality of implementation, its quality, and good usability.
 
@@ -37,7 +39,7 @@ We opened up three tracks, focused on **Innovation, NFTs, and Communication.** A
 
 ## The Winning Projects
 
-In total we selected five winners! This year [@stevegachau](https://gitcoin.co/stevegachau) took the win home on **first place** with **MintBot**, a Telegram bot for minting NFTs in seconds.
+In total we selected five winners! This year [@stevegachau](https://gitcoin.co/stevegachau) took the win home in **first place** with **MintBot**, a Telegram bot for minting NFTs in seconds.
 
 Sharing second place, [@ysongh](https://gitcoin.co/ysongh) with StoriesNFT, a Dapp for minting written stories and selling them as NFTs; together with [@morganstar](https://gitcoin.co/morganstar) who presented Space Case, an identity management and file sharing app!
 
@@ -51,7 +53,7 @@ Cheers everyone! Thanks a lot for joining us and hacking away, it's exciting to 
 
 <iframe width="450" height="215" src="https://www.youtube.com/embed/08w-y__hEec" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Steve surprised us with an extremely seamless implementation of an NFT minting bot on Telegram. [**MintBot** ](https://github.com/stevegachau/MintBot)interacts with Polygon to mint images directly fom Telegram messages, covering the gas costs, and with support for ENS domains and .crypto Unstoppable domains.
+Steve surprised us with an extremely seamless implementation of an NFT minting bot on Telegram. [**MintBot** ](https://github.com/stevegachau/MintBot)interacts with Polygon to mint images directly from Telegram messages, covering the gas costs, and with support for ENS domains and .crypto Unstoppable domains.
 
 As quick as attaching an image to a message and sending a caption with the required metadata, being address your ENS/wallet address.
 
