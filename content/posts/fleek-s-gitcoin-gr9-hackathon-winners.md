@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: Fleek's Gitcoin GR9 Hackathon Prize Winners!
 slug: gitcoin-gr9-hackathon-fleek-winners
 date: 2021-04-08T04:00:00Z
