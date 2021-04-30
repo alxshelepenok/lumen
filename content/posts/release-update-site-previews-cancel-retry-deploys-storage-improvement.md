@@ -7,8 +7,8 @@ date: 2021-04-29T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png
 canonical: ''
 description: New features, incoming! Welcome the long-time expected cancel & retry
-  buttons for deployments, site preview images for your sites on Fleek, and performance
-  enhancements to our platform's tables!
+  buttons for deployments, site preview images for your sites, and performance enhancements
+  to our platform's tables.
 category: Announcement
 tags: []
 
