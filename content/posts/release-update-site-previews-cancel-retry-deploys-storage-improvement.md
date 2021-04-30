@@ -4,7 +4,7 @@ draft: true
 title: Release Update - Site Previews, Cancel & Retry Deploys, Table Improvements
 slug: fleek-site-preview-cancel-retry-deploys
 date: 2021-04-29T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/previews.png
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png
 canonical: ''
 description: New features, incoming! Welcome the long-time expected cancel & retry
   buttons for deployments, site preview images for your sites on Fleek, and performance
@@ -13,7 +13,7 @@ category: Announcement
 tags: []
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/previews.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png)
 
 It's fixes and enhnancements time ⚡ This week we're bringing another batch of updates that are focused on making your life a little better on Fleek. Most of these are user requests, so keep em' coming our way 🔥
 
