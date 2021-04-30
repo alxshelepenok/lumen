@@ -15,7 +15,7 @@ tags: []
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png)
 
-It's fixes and enhnancements time ⚡ This week we're bringing another batch of updates that are focused on making your life a little better on Fleek. Most of these are user requests, so keep em' coming our way 🔥
+It's fixes and enhancements time ⚡ This week we're bringing another batch of updates that are focused on making your life a little better on Fleek. Most of these are user requests, so keep em' coming our way 🔥
 
 What do we have in store this week?
 
@@ -47,7 +47,7 @@ When you visit the hosting and storage section, the files you store or the sites
 
 ## Wrapping it Up
 
-That is all for today's release notes! Stay tuend for more updates and improvements coming later on next week. As always, you can hit us up in Twitter or Slack to let us know the features, improvements, or bugs you'd like to see tackled next 😎
+That is all for today's release notes! Stay tuned for more updates and improvements coming later on next week. As always, you can hit us up in Twitter or Slack to let us know the features, improvements, or bugs you'd like to see tackled next 😎
 
 * [Sign up](https://app.fleek.co/) to try Fleek
 * Join our [Community Chat](https://slack.fleek.co/)
