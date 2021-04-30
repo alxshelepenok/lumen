@@ -20,20 +20,24 @@ It's fixes and enhnancements time ⚡ This week we're bringing another batch of 
 What do we have in store this week?
 
 * Site Previews
-* Cancel & Restart Deployments
+* Cancel & Retry Deployments
 * Storage & Hosting Table Fixes
 
 ## New Features
 
 ### Site Previews
 
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/site-preview.png)
+
 First off, site previews have landed on our Hosting product. You've probably seen that when you navigate your site list and their settings, there is a small image box that was previously empty. Well now, upon each new deployment, Fleek will **take a snapshot** of your site and display it on that box as a **site preview!**
 
 This way you can easily differentiate your sites/apps on the Hosting list, and have a clear visual confirmation of how your website looks currently.
 
-### Cancel & Restart Deployments
+### Cancel & Retry Deployments
 
-Because things can go wrong, and time shouldn't be wasted, we added **cancel and restart buttons** for your deployments on Fleek. If your deployment is stuck, queued in a series of other unnecessary ones, or simply anything went wrong with it, you can **stop or restart it** and start over. No more waiting for a timeout.
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/cancel.gif)Because things can go wrong, and time shouldn't be wasted, we added **cancel and retry buttons** for your deployments on Fleek. If your deployment is stuck, queued in a series of other unnecessary ones, or simply anything went wrong with it, you can **stop or retry it** and start over. No more waiting for a timeout.
+
+This was probably our most user-requested feature of all time! Better late than never right?
 
 ## Enhancements
 
