@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - Site Previews, Cancel & Retry Deploys, Table Improvements
 slug: fleek-site-preview-cancel-retry-deploys
 date: 2021-04-29T04:00:00Z
@@ -27,7 +27,7 @@ What do we have in store this week?
 
 ### Site Previews
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/site-preview.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview-wide.png)
 
 First off, site previews have landed on our Hosting product. You've probably seen that when you navigate your site list and their settings, there is a small image box that was previously empty. Well now, upon each new deployment, Fleek will **take a snapshot** of your site and display it on that box as a **site preview!**
 
@@ -43,7 +43,7 @@ This was probably our most user-requested feature of all time! Better late than 
 
 ### Hosting and Storage Tables
 
-When you visit the hosting and storage section, the files you store or the sites/apps shown are listed in an infinite scroll table. In the past, we've had users with issues in the table's loading animation and resizing. We've fixed those issues and improved the performance of both tables.
+When you visit the hosting and storage section, the files you store or the sites/apps shown are listed in an infinite scroll table. Recently, some issues appeared in the table's loading animation and resizing. We've fixed those issues and improved the performance of both tables.
 
 ## Wrapping it Up
 
