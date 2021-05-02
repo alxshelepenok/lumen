@@ -27,7 +27,7 @@ The most important perks this change brings is adding a powerful and scalable an
 
 But, there's more perks other than security. Bunny expands our CDN perks with a redundant **perma-cache** layer that ensures, even in the worst scenarios, your site will be up and their files served in the most optimized way possible, **re-routing requests** **in real-time** to avoid downtimes or unefficient requests. Expect faster, and meaner sites ⚡
 
-**Important:** This new DNS configuration requires ANAME support by the DNS service/provider where you have acquired and manage your domain.
+**Important:** This new DNS configuration requires ANAME record support by the DNS service/provider where you have acquired and manage your domain.
 
 ## Migrating Your Site to the New DNS ⚡
 
@@ -43,7 +43,7 @@ Once inside a site's detail view, **visit the SETTINGS** tab and there, look for
 
 There, you will see the **Custom Domains** section, showing the **Custom DNS Domain** name you set up and connected to your Fleek site/app. **Click on the "Upgrade DNS Button"** to re-configure your site.
 
-In a nutshell, you will need to **update your CNAME record** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
+In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
 
 Once you have updated your CNAME record on your DNS provider, come back to Fleek to **Verify the DNS Configuration**. That is all! Your site will be updated to our new faster, and safer, DNS configuration.
 
