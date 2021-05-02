@@ -27,6 +27,8 @@ The most important perks this change brings is adding a powerful and scalable an
 
 But, there's more perks other than security. Bunny expands our CDN perks with a redundant **perma-cache** layer that ensures, even in the worst scenarios, your site will be up and their files served in the most optimized way possible, **re-routing requests** **in real-time** to avoid downtimes or unefficient requests. Expect faster, and meaner sites ⚡
 
+**Important:** This new DNS configuration requires ANAME support by the DNS service/provider where you have acquired and manage your domain.
+
 ## Migrating Your Site to the New DNS ⚡
 
 If you **already have a site on Fleek**, you need to **migrate it from the dashboard to the new DNS configuration** to take advantage of these new features. It only takes a minute!
