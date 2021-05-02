@@ -21,7 +21,7 @@ New upgrade coming for everyone hosting sites/apps on Fleek using custom DNS dom
 
 # Our New DNS Configuration
 
-We’re upgrading our custom DNS domain infrastructure to move away from HAProxy, and **transition to using BunnyCDN** so that we can supercharge all Fleek sites with extra CDN features, security, and a layer of redundancy when it comes to high-availability and 24/7 uptime.
+We’re upgrading our custom DNS domain infrastructure to move away from HAProxy, and **transition to using** [**BunnyCDN**]() so that we can supercharge all Fleek sites with extra CDN features, security, and a layer of redundancy when it comes to high-availability and 24/7 uptime.
 
 The most important perks this change brings is adding a powerful and scalable anti-DDOS for all of our Fleek users, **no matter their site’s size or plan**, protecting their sites and apps automatically from all variants, without compromising their uptime or deliverability.
 
