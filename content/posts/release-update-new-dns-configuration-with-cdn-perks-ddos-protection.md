@@ -43,9 +43,15 @@ If you are hosting **a new site or app on Fleek,** you don’t have to do anythi
 
 Once inside a site's detail view, **visit the SETTINGS** tab and there, look for the **Domain Management** tab on the vertical sub-menu.
 
-There, you will see the **Custom Domains** section, showing the **Custom DNS Domain** name you set up and connected to your Fleek site/app. **Click on the "Upgrade DNS Button"** to re-configure your site.
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/dns.gif)
+
+There, you will see the **Custom Domains** section, showing the **Custom DNS Domain** name you previously set up and connected to your Fleek site/app. **Click on the "Upgrade DNS Configuration" button** to re-configure your site.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/dns-space.png)
 
 In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**. Remember that to utilize this, you require your DNS provider to support **ANAME** records.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/image%20(16).png)
 
 Once you have updated your CNAME record on your DNS provider, come back to Fleek to **Verify the DNS Configuration**. That is all! Your site will be updated to our new faster, and safer, DNS configuration.
 
