@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Release Update - New DNS Configuration with CDN Perks & DDOS Protection
 slug: new-dns-configuration-ddos-cdn
-date: 2021-05-02T04:00:00Z
+date: 2021-05-03T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/dns-1.png
 canonical: ''
 description: We're upgrading our infrastructure to offer a faster, safer, and resilient
