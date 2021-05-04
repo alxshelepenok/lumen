@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - New DNS Configuration with CDN Perks & DDOS Protection
 slug: new-dns-configuration-ddos-cdn
 date: 2021-05-03T04:00:00Z
