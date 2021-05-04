@@ -53,11 +53,11 @@ There, you will see the **Custom Domains** section, showing the **Custom DNS Dom
 
 In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/cname.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/aname.png)
 
-Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.**
+Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.** In some providers like Cloudflare, ANAME records are set as CNAME, so do check first with your provider's documentation.
 
-Once you have updated your CNAME record on your DNS provider, come back to Fleek to **Verify the DNS Configuration**. That is all! Your site will be updated to our new faster, and safer, DNS configuration.
+Once you have updated your record on your DNS provider, come back to Fleek to **Verify the DNS Configuration**. That is all! Your site will be updated to our new faster, and safer, DNS configuration.
 
 ## Wrapping it Up 🗞️
 
