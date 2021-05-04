@@ -37,11 +37,11 @@ If you **already have a site on Fleek**, you need to **migrate it from the dashb
 
 If you are hosting **a new site or app on Fleek,** you don’t have to do anything but configure your DNS domain when you create it, since this new infrastructure **is now the default setup for all newly created sites**.
 
-This new DNS configuration **will deprecate the previous one, and all sites using the legacy proxy/DNS will stop working by May 31st**. If you are using custom domains, upgrade now to avoid any performance issues, and have your site continue to work after May 31st.
+This new DNS configuration **will deprecate the previous one, and custom domains using the legacy proxy/DNS will stop working by May 31st**. If your site is using a DNS custom domain, update its settings now to avoid any performance issues, and have your site continue to work after May 31st.
 
-### Migrating Your DNS
+### Migrating Your DNS Configuration
 
-[Log into your Fleek account](http://app.fleek.co/), and do this for every site that uses a custom DNS domain. Once you're logged in, **visit the hosting tab, and click on a site on the list** to get started.
+[Log into your Fleek account](http://app.fleek.co/), and do this for every site that uses a custom DNS domain. **Visit the hosting tab, and click on a site on the list** to get started.
 
 Once inside a site's detail view, **visit the SETTINGS** tab and there, look for the **Domain Management** tab on the vertical sub-menu.
 
