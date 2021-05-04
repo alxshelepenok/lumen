@@ -55,6 +55,8 @@ In a nutshell, you will need to **update your records** **on your DNS domain.** 
 
 Root domain names (like space.storage) **will ask for an ANAME record**, whereas any subdomain or www. domain (like www.space.storage) **will use CNAME**.
 
+**What about DNSLink domains?** Those will continue to point to your Fleek-assigned subdomain using a CNAME record, so keep them that way for now.
+
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/aname1.png)
 
 Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.** In some providers like Cloudflare, ANAME records are set as CNAME, so do check first with your provider's documentation.
