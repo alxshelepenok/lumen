@@ -25,7 +25,7 @@ We’re upgrading our custom DNS domain infrastructure to move away from HAProxy
 
 The most important perks this change brings is adding a powerful and scalable anti-DDOS for all of our Fleek users, **no matter their site’s size or plan**, protecting their sites and apps automatically from all DDOS variants, without compromising their uptime or deliverability.
 
-But, there's more perks other than security. Bunny expands our CDN perks with a redundant **perma-cache** layer that ensures, even in the worst scenarios, your site will be up and their files served in the most optimized way possible, **re-routing requests** **in real-time** to avoid downtimes or inefficient requests. 
+But, there's more perks other than security. Bunny expands our CDN perks with a redundant **perma-cache** layer that ensures, even in the worst scenarios, your site will be up and their files served in the most optimized way possible, **re-routing requests** **in real-time** to avoid downtimes or inefficient requests.
 
 Expect faster, and meaner sites on Fleek, since every single one of them will be enhnanced with these CDN perks⚡
 
@@ -36,6 +36,8 @@ Expect faster, and meaner sites on Fleek, since every single one of them will be
 If you **already have a site on Fleek**, you need to **migrate it from the dashboard to the new DNS configuration** to take advantage of these new features. It only takes a minute!
 
 If you are hosting **a new site or app on Fleek,** you don’t have to do anything but configure your DNS domain when you create it, since this new infrastructure **is now the default setup for all newly created sites**.
+
+This new DNS configuration **will deprecate the previous one, and all sites using the legacy proxy/DNS will stop working by May 31st**. If you are using custom domains, upgrade now to avoid any performance issues, and have your site continue to work after May 31st.
 
 ### Migrating Your DNS
 
@@ -49,7 +51,9 @@ There, you will see the **Custom Domains** section, showing the **Custom DNS Dom
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/dns-space.png)
 
-In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**. 
+In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/cname.png)
 
 Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.**
 
