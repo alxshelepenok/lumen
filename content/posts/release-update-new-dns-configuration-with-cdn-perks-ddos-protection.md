@@ -53,7 +53,9 @@ There, you will see the **Custom Domains** section, showing the **Custom DNS Dom
 
 In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/aname.png)
+Root domain names (like space.storage) **will ask for an ANAME record**, whereas any subdomain or www. domain (like www.space.storage) **will use CNAME**.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/aname1.png)
 
 Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.** In some providers like Cloudflare, ANAME records are set as CNAME, so do check first with your provider's documentation.
 
