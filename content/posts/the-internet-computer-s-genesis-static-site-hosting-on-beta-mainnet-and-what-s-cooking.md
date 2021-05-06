@@ -67,7 +67,9 @@ We don’t want to spoil it yet, but soon. Very soon. Like, _a couple weeks max.
 
 We have dropped a couple hints here and there, and **Open Internet Services** is definitely the main keyword to follow. We did share in [past articles](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting#next-steps-building-canister-based-services) about where our goals were initially aimed, building and exploring the Internet Computer, and we can say that yeah, we’re following track, **but there’s also a lot more that you still don’t know about.**
 
-How much more? **It’s four different things to start:** two Open Internet Services, a new IC specific developer platform for canister & cycle management, and an Internet Computer Provider. These are not just things we’re talking about, we’ve been building them quietly behind the scenes for months and they are almost ready for launch!
+How much more? **It’s four different things to start:** two Open Internet Services, a new IC specific developer platform for canister & cycle management, and an Internet Computer Provider. 
+
+These are not just things we’re talking about, we’ve been building them quietly behind the scenes for months and they are almost ready for launch!
 
 That’s enough spoilers already.
 
