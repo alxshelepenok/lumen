@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Troubleshooting Custom DNS Domains & DNS Configuration Upgrades
 slug: troubleshooting-dns-domains-record-update-fleek
 date: 2021-05-06T04:00:00Z
