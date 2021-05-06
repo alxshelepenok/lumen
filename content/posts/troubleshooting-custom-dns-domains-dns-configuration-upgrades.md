@@ -18,17 +18,6 @@ tags:
 
 Whether you are adding your custom DNS domain for the first time, or upgrading your previous configuration to Fleek's [recent BunnyCDN upgrade](), here are the **most common questions/issues you might encounter** and the answers to them:
 
-**TL;DR:**
-
-1. I have a site with a custom DNS domain and it is not working.
-2. What type of records will I need to set on my DNS provider?
-3. Can I set up a custom domain using an IP address?
-4. Can I use an A record instead of ANAME/ALIAS?
-5. What can I do if my provider doesn't support ANAME/ALIAS?
-6. How do I change my domain's nameserver and use Cloudflare to set up my records?
-7. I set up my DNS records on Cloudflare, but it Fails verification?
-8. Still need help?
-
 ## I have a site with a custom DNS domain, and it is not working!
 
 The first thing you can check is if your site is visible on the **"Verify on IPFS"** link on your Fleek dashboard. Visit your Fleek dashboard (the hosting tab) and select your affected site to find this button. See the gif below for a reference.
