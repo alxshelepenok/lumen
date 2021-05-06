@@ -16,23 +16,26 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/troubleshoot.png)
 
-We have recently releases a [new DNS configuration](https://blog.fleek.co/posts/new-dns-configuration-ddos-cdn), an upgrade to our infrastructure that gives sites DDOS protection, and extra CDN perks powered by BunnyCDN. This has changed how custom DNS domains are added a little bit.
+Whether you are adding your custom DNS domain for the first time, or upgrading your previous configuration to Fleek's [recent BunnyCDN upgrade](), here are the **most common questions/issues you might encounter** and the answers to them:
 
-Users adding new sites and new domains, **won't see much difference,** other than we have changed the DNS record types.
+**TL;DR:**
 
-Users with existing sites **will have to update their settings** to ensure the best performance, and avoid any site issues on May 31st when the previous configuration will be deprecated.
+1. I have a site with a custom DNS domain and it is not working.
+2. What type of records will I need to set on my DNS provider?
+3. Can I set up a custom domain using an IP address?
+4. Can I use an A record instead of ANAME/ALIAS?
+5. What can I do if my provider doesn't support ANAME/ALIAS?
+6. How do I change my domain's nameserver and use Cloudflare to set up my records?
+7. I set up my DNS records on Cloudflare, but it Fails verification?
+8. Still need help?
 
-Whether you are adding your custom DNS domain for the first time, or upgrading your previous configuration, here are the **most common questions/issues you might encounter** and the answers to them!
-
-## Most Frequent Issues & Solutions
-
-### I had a site with a custom DNS domain, and it is not working now?
+## I have a site with a custom DNS domain, and it is not working!
 
 The first thing you can check is if your site is visible on the **"Verify on IPFS"** link on your Fleek dashboard. Visit your Fleek dashboard (the hosting tab) and select your affected site to find this button. See the gif below for a reference.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/verify-ipfs.gif)
 
-Can you access your site via the IPFS link? Then the most possible scenario is **you're using our old DNS configuration and need to upgrade**. Follow the steps [on this documentation](https://docs.fleek.co/hosting/domain-management/#upgrading-to-new-dns-configuration) to update your domain records. 
+Can you access your site via the IPFS link? Then the most possible scenario is **you're using our old DNS configuration and need to upgrade**. Follow the steps [on this documentation](https://docs.fleek.co/hosting/domain-management/#upgrading-to-new-dns-configuration) to update your domain records.
 
 Another quick way for verifying if this is the problem is visiting the **domain management tab** on your site and seeing if the "Upgrade DNS Configuration" message is present.
 
@@ -42,23 +45,23 @@ If that is the case, you will need to set new ANAME/ALIAS records for your main 
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/dns-space.png)
 
-### What type of records will I need to set on my DNS provider to use a custom domain?
+## What type of records will I need to set on my DNS provider to use a custom domain?
 
 You will need to set an ANAME/ALIAS record for the root domain, and CNAME records for your subdomains (www or other subdomains). If you have DNSLINK activated, it will also ask you to configure a CNAME record.
 
 ANAME and ALIAS are interchangeable terms, and you might see one platform name the record either way. In both cases, it would work.
 
-### Can I set a custom domain using an IP address?
+## Can I set a custom domain using an IP address?
 
 No, we no longer support configuring custom domains using IP addresses. We only work with ANAME/ALIAS and CNAME records.
 
-### Can I use an A record instead of ANAME/ALIAS?
+## Can I use an A record instead of ANAME/ALIAS?
 
 No. A records are not the same as ANAME/ALIAS, and trying to configure your DNS domain with one will fail the verification process in Fleek.
 
-### What can I do if my provider doesn’t support ANAME/ALIAS records?
+## What can I do if my provider doesn’t support ANAME/ALIAS records?
 
-Some providers, like **Google Domains and GoDaddy** don't support ANAME/ALIAS records. You have two options to resolve this. 
+Some providers, like **Google Domains and GoDaddy** don't support ANAME/ALIAS records. You have two options to resolve this.
 
 #### 1) Transfer your domain to a compatible provider.
 
@@ -72,7 +75,7 @@ Cloudflare supports ANAME/ALIAS records. They need to be set as CNAME in Cloudfl
 
 This **doesn't require you to transfer** your domain, it is quicker, and free.
 
-### How do I change my domain's nameserver and use Cloudflare to set up my Fleek DNS records?
+## How do I change my domain's nameserver and use Cloudflare to set up my Fleek DNS records?
 
 First things first. You need to sign up for a [free Cloudflare account](https://www.cloudflare.com/).
 
@@ -91,11 +94,11 @@ It is important that you **disable the Orange Cloud** in all of the DNS records 
 
 This is because when the orange cloud is ON, Cloudflare proxies your site through their CDN. Fleek already uses BunnyCDN to handle custom domains, and provide DDOS protection and CDN benefits in speed, caching, and routing. So they are not compatible, but you won't miss the benefits!
 
-**Remember to go back to Fleek** after setting your DNS records on Cloudflare, and click on the "Verify DNS configuration button" for each of the domains you configured to complete the process. It might take a couple minutes for your site to reflect the change. 
+**Remember to go back to Fleek** after setting your DNS records on Cloudflare, and click on the "Verify DNS configuration button" for each of the domains you configured to complete the process. It might take a couple minutes for your site to reflect the change.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205832.png)
 
-### I set up my DNS records on Cloudflare, but it Fails verification?
+## I set up my DNS records on Cloudflare, but it Fails verification?
 
 Review the last step from the question above. It is important that you disable the **orange cloud** feature in Cloudflare's DNS app **for all your Fleek DNS records.** Fleek can't verify your domain if Cloudflare is proxying your domain to their CDN.
 
