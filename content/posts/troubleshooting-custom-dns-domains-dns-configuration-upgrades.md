@@ -42,7 +42,7 @@ ANAME and ALIAS are interchangeable terms, and you might see one platform name t
 
 ## Can I set a custom domain using an IP address?
 
-No, we no longer support configuring custom domains using IP addresses. We only work with ANAME/ALIAS and CNAME records.
+No, we no longer support configuring custom domains using IP addresses. We only work with ANAME/ALIAS and CNAME records. If you use Google Domains, there is an exception mentioned below.
 
 ## Can I use an A record instead of ANAME/ALIAS?
 
@@ -90,6 +90,14 @@ This is because when the orange cloud is ON, Cloudflare proxies your site throug
 ## I set up my DNS records on Cloudflare, but it Fails verification?
 
 Review the last step from the question above. It is important that you disable the **orange cloud** feature in Cloudflare's DNS app **for all your Fleek DNS records.** Fleek can't verify your domain if Cloudflare is proxying your domain to their CDN.
+
+## I use Google Domains, and don't want to have to use Cloudflare.
+
+There is a workaround for people using Google Domains that don't want to use Cloudflare. This trick could apply to other providers that offer domain forwarding to sub domain from apex domain.
+
+Here is a a [detailed guide on how to do so](https://support.getshifter.io/en/articles/3080501-domain-forwarding-on-google-domains-zone-apex-naked-domain-to-www-prefixed-domain). The idea is that Google Domains doesn't support ANAME/ALIAS records for apex domains (domain.com). But what **you can do** on Google Domains is forward that apex domain to a sub domain (www.domain.com).
+
+In Fleek, subdomains use CNAME records, therefore you could verify it doing this trick, making www. your main point of entry for your website.
 
 ## Still need help? ☎️
 
