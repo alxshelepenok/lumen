@@ -3,7 +3,7 @@ template: post
 draft: false
 title: A Guide to ENS Domains + IPFS (Ethereum Name Service)
 slug: guide-ens-domains-ipfs-ethereum-name-service
-date: 2020-12-17T03:00:00Z
+date: 2020-12-17T03:00:00.000+00:00
 socialImage: https://fleek-team-bucket.storage.fleek.co/thumbnails-blog/ENS - Introduction
   Guide.jpg
 canonical: ''
@@ -145,7 +145,7 @@ Now that you know how to get an ENS domain name, let’s see how you can host a 
 
 We’re using Fleek as our go-to example because, as of today, managing ENS domains is a pretty manual process, where you need to update the content hash and pay an ETH gas fee every time you make a new deployment to your website. Fleek automates that process, auto-updating the IPFS content identifier hash (CID) with each new deployment on your Github, also covering the cost of each transaction’s gas for you at our expense.
 
-Alternatively you can see this [IPFS guide](https://docs.ipfs.io/how-to/websites-on-ipfs/link-a-domain/#domain-name-service-dns) to link your ENS domain manually to an IPFS-hosted site via the main ENS application, but remember that updating the content hash will be your responsibility upon each new content change on IPFS.
+Alternatively you can see this [IPFS guide](https://docs.fleek.co/domain-management/ens-domains/#set-fleek-as-controller-manually) to link your ENS domain manually to an IPFS-hosted site via the main ENS application, but remember that updating the content hash will be your responsibility upon each new content change on IPFS.
 
 ### 1. Host Your Site on IPFS Using Fleek + Github
 
