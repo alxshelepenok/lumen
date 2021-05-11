@@ -79,7 +79,7 @@ Ready to add your new Fleek DNS records in Cloudflare? **There are two important
 
 It is important that you **disable the Orange Cloud** in all of the DNS records you set on Cloudflare for your Fleek sites/apps. If not, your custom domain will **fail verification** on Fleek. To turn it OFF, edit the record and click the orange cloud.
 
-![](https://docs.fleek.co/internet-computer-hosting/imgs/orange.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/dns-only.png)
 
 This is because when the orange cloud is ON, Cloudflare proxies your site through their CDN. Fleek already uses BunnyCDN to handle custom domains, and provide DDOS protection and CDN benefits in speed, caching, and routing. So they are not compatible, but you won't miss the benefits!
 
