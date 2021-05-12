@@ -6,8 +6,8 @@ slug: internet-computer-genesis-static-site-hosting-beta-mainnet
 date: 2021-05-07T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png
 canonical: ''
-description: Together with the Internet Computer’s Mercury Genesis Launch Event, we
-  are migrating our Internet Computer Static Hosting feature onto Beta Mainnet!
+description: The Internet Computer’s Mercury Genesis Launch is here, and we are migrating
+  our Internet Computer Static Hosting feature onto Beta Mainnet!
 category: Announcement
 tags:
 - Beta Mainnet
@@ -17,11 +17,11 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png)
 
-Today, at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)” the DFINITY Foundation is celebrating the final step towards the release of the Internet Computer’s public Beta Mainnet network.
+If you missed it (where were you!?), last week the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Beta Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
 
-Genesis is here. Which means the Internet Computer (IC) is soon going to be unleashed to the public! Hear us out: this is the start of a wild ride for the blockchain community and the future of the Open Web 🔥
+Genesis is here. Which means the Internet Computer (IC) is being unleashed to the public! Hear us out: this is the start of a wild ride for the blockchain community and the future of the Open Web 🔥
 
-Get ready, because not only are we are hooking up our Internet Computer hosting to Beta Mainnet, but you’re also gonna get to see a lot of amazing tech unveiled during today’s DFINITY event. Plus **we’ve also got some new IC products cooking up** that we will release later this month that are extremely dope. We can’t wait to share more details!
+Get ready, because not only are we are hooking up our Internet Computer hosting to Beta Mainnet, and a lot of dope tech and deep dives were revealed on DFINITY’s event, **but** **we’ve also got some new IC products cooking up** that we will release later this month that are extremely dope.
 
 **TL;DR Agenda**
 
@@ -53,9 +53,9 @@ Basically, the benefits we’ve seen, for example, in Decentralized Finance (DeF
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/rocket.webp)
 
-As of today, after a brief break in which the experimental Alpha Mainnet was disconnected as the DFINITY Foundation prepared for Genesis, all Internet Computer features in Fleek are **back online, and connected to the Internet computer’s Beta Mainnet .**
+As of today, after a brief break in which the experimental Alpha Mainnet was disconnected as the DFINITY Foundation prepared for Genesis, all Internet Computer features in Fleek are **back online, and connected to the Internet computer’s Beta Mainnet.**
 
-You can now celebrate Genesis by **hosting a static site through Fleek** on the Internet Computer’s Beta Mainnet, day 1! If you already had a site up on the Internet Computer with Fleek, hosted on the experimental **Alpha Mainnet,** you can **retrigger its last deploy** and it will be automatically pushed to Beta Mainnet!.
+You can now celebrate Genesis by **hosting a static site through Fleek** on the Internet Computer’s Beta Mainnet! If you already had a site up on the Internet Computer with Fleek, hosted on the experimental **Alpha Mainnet,** you can **retrigger its last deployment** and it will be automatically pushed to Beta Mainnet.
 
 If you haven’t already, you can [catch up with our documentation](https://docs.fleek.co/internet-computer-hosting/overview/) to learn how to. It takes 3 steps to hook up your repository with GitHub, set up your build settings, and get an unstoppable site up and running, which you can connect to a DNS or Handshake (HNS) domain. As easy as it gets.
 
@@ -67,7 +67,7 @@ We don’t want to spoil it yet, but soon. Very soon. Like, _a couple weeks max.
 
 We have dropped a couple hints here and there, and **Open Internet Services** is definitely the main keyword to follow. We did share in [past articles](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting#next-steps-building-canister-based-services) about where our goals were initially aimed, building and exploring the Internet Computer, and we can say that yeah, we’re following track, **but there’s also a lot more that you still don’t know about.**
 
-How much more? **It’s four different things to start:** two Open Internet Services, a new IC specific developer platform for canister & cycle management, and an Internet Computer Provider. 
+How much more? **It’s four different things to start:** two Open Internet Services, a new IC specific developer platform for canister & cycle management, and an Internet Computer Provider.
 
 These are not just things we’re talking about, we’ve been building them quietly behind the scenes for months and they are almost ready for launch!
 
