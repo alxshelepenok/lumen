@@ -69,7 +69,7 @@ Some providers, like **Google Domains and GoDaddy** don’t support ANAME/ALIAS 
 
 This doesn't mean you're transfering your domain, you are only managing your DNS settings through Cloudflare, since it supports ANAME/ALIAS records. They need to be set as CNAME in Cloudflare, but they are auto-detected, and work just as fine.
 
-Want an **in-depth guide on how to do this?** [Check this article out!](https://blog.fleek.co/posts/troubleshooting-dns-domains-record-update-fleek#how-do-i-change-my-domains-nameserver-and-use-cloudflare-to-set-up-my-fleek-dns-records) In short, you need to:
+**Need an in-depth guide on how to do this?** [Check this article out!](https://blog.fleek.co/posts/troubleshooting-dns-domains-record-update-fleek#how-do-i-change-my-domains-nameserver-and-use-cloudflare-to-set-up-my-fleek-dns-records) In short, you need to:
 
 1. Create a Cloudflare account.
 2. Configure your Domain in your **old** DNS provider to point to Cloudflare's nameserver.
