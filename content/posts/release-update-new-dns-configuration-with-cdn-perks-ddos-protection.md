@@ -63,6 +63,23 @@ Remember that to utilize this, it is required that your DNS provider supports **
 
 Once you have updated your record on your DNS provider, come back to Fleek to **Verify the DNS Configuration**. That is all! Your site will be updated to our new faster, and safer, DNS configuration.
 
+## What if my provider doesn’t support ANAME/ALIAS records?
+
+Some providers, like **Google Domains and GoDaddy** don’t support ANAME/ALIAS records. To resolve this, the quickest option is to change your domain’s nameserver to point to Cloudflare and manage your DNS settings in Cloudflare.
+
+This doesn't mean you're transfering your domain, you are only managing your DNS settings through Cloudflare, since it supports ANAME/ALIAS records. They need to be set as CNAME in Cloudflare, but they are auto-detected, and work just as fine.
+
+Want an **in-depth guide on how to do this?** [Check this article out!](https://blog.fleek.co/posts/troubleshooting-dns-domains-record-update-fleek#how-do-i-change-my-domains-nameserver-and-use-cloudflare-to-set-up-my-fleek-dns-records) In short, you need to:
+
+1. Create a Cloudflare account.
+2. Configure your Domain in your **old** DNS provider to point to Cloudflare's nameserver.
+3. Use Cloudflare's DNS app to add your [Fleek site's DNS records](https://support.cloudflare.com/hc/en-us/articles/360019093151-Managing-DNS-records-in-Cloudflare), as shown above.
+4. Disable the Orange Cloud setting (HTTP proxy) on all records on Cloudflare.
+
+That's all, go back to Fleek's domain management setting and verify your domain. **Don't forget to disable the Orange Cloud setting on Cloudflare.** Else, your domain on Fleek will fail verification. This is how your DNS records should look like on Cloudflare. To disable the cloud, edit the record and click on the Orange Cloud on each record.
+
+![](https://storageapi.fleek.co/fleek-team-bucket/dns-only-cloudflare.png)
+
 ## Wrapping it Up 🗞️
 
 That is all for today! This week we are taking extra care on strengthening and scaling our hosting features to give maximum reliability to all the amazing users coming into the platform. Expect more news on this soon!
