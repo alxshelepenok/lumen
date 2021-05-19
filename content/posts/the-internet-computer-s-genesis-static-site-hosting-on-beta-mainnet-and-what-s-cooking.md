@@ -17,7 +17,7 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png)
 
-If you missed it (where were you!?), last week the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Beta Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
+If you missed it (where were you!?), the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Beta Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
 
 Genesis is here. Which means the Internet Computer (IC) is being unleashed to the public! Hear us out: this is the start of a wild ride for the blockchain community and the future of the Open Web 🔥
 
