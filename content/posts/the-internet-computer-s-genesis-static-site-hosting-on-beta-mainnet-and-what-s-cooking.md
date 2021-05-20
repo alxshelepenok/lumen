@@ -1,39 +1,38 @@
 ---
 template: post
 draft: true
-title: Internet Computer Hosting - Now on Beta Mainnet in Conjunction with Genesis!
+title: Internet Computer Hosting - Now on Mainnet, Following the Network's Genesis!
 slug: internet-computer-genesis-static-site-hosting-beta-mainnet
 date: 2021-05-07T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png
 canonical: ''
-description: The Internet Computer’s Mercury Genesis Launch is here, and we are migrating
-  our Internet Computer Static Hosting feature onto Beta Mainnet!
+description: The Internet Computer’s Mainnet is live, and we are migrating our Internet
+  Computer Static Hosting feature to it!
 category: Announcement
 tags:
-- Beta Mainnet
 - Genesis
 - Internet Computer
 
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png)
 
-If you missed it (where were you!?), the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Beta Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
+If you missed it (where were you!?), the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
 
 Genesis is here. Which means the Internet Computer (IC) is being unleashed to the public! Hear us out: this is the start of a wild ride for the blockchain community and the future of the Open Web 🔥
 
-Get ready, because not only are we are hooking up our Internet Computer hosting to Beta Mainnet, and a lot of dope tech and deep dives were revealed on DFINITY’s event, **but** **we’ve also got some new IC products cooking up** that we will release later this month that are extremely dope.
+Get ready, because not only are we are hooking up our Internet Computer hosting to Mainnet, and a lot of dope tech and deep dives were revealed on DFINITY’s event, **but** **we’ve also got some new IC products cooking up** that we will release later this month that are extremely dope.
 
 **TL;DR Agenda**
 
 1. [A Quick Throwback + the Internet Computer’s Potential 🌀](#a-quick-throwback--the-internet-computers-potential-)
-2. [Fleek’s Internet Computer Hosting, Now on Beta Mainnet 🚀](#fleeks-internet-computer-hosting-now-on-beta-mainnet-)
+2. [Fleek’s Internet Computer Hosting, Now on Mainnet 🚀](#fleeks-internet-computer-hosting-now-on-mainnet-)
 3. [What’s cooking behind curtains? 🥘](#whats-cooking-behind-curtains-🥘)
 
 ## A quick throwback + the Internet Computer’s Potential **🌀**
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
 
-A little over a month ago, [we announced that we were going to Dfinity & Beyond!](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting) Joining the Internet Computer ecosystem with a bomb triple release (IC Static Site Hosting, Internet Computer Gateway, and Canister Proxying).
+A little over two month ago, [we announced that we were going to Dfinity & Beyond!](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting) Joining the Internet Computer ecosystem with a bomb triple release (IC Static Site Hosting, Internet Computer Gateway, and Canister Proxying).
 
 We announced this in the [“Exploring Entrepreneurship in the Open Internet Boom”](https://dfinity.org/techcrunch/) event, hosted by the DFINITY foundation (good place to start if you want to catch up with the Internet Computer!).
 
@@ -49,13 +48,13 @@ This means we can finally conceive **open internet services.** Imagine any servi
 
 Basically, the benefits we’ve seen, for example, in Decentralized Finance (DeFi) & protocols like Uniswap on Ethereum, applied to the entire internet and its services, from back to front, and not limited to application logic only. Trustless logic, powering decentralized applications, surfaced in unstoppable frontends.
 
-## Fleek’s Internet Computer Hosting, Now on Beta Mainnet 🚀
+## Fleek’s Internet Computer Hosting, Now on Mainnet 🚀
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/rocket.webp)
 
-As of today, after a brief break in which the experimental Alpha Mainnet was disconnected as the DFINITY Foundation prepared for Genesis, all Internet Computer features in Fleek are **back online, and connected to the Internet computer’s Beta Mainnet.**
+As of today, after a brief break in which the experimental Alpha Mainnet was disconnected as the DFINITY Foundation prepared for Genesis, all Internet Computer features in Fleek are **back online, and connected to the Internet computer’s Mainnet.**
 
-You can now celebrate Genesis by **hosting a static site through Fleek** on the Internet Computer’s Beta Mainnet! If you already had a site up on the Internet Computer with Fleek, hosted on the experimental **Alpha Mainnet,** you can **retrigger its last deployment** and it will be automatically pushed to Beta Mainnet.
+You can now celebrate Genesis by **hosting a static site through Fleek** on the Internet Computer’s Mainnet! If you already had a site up on the Internet Computer with Fleek, hosted on the experimental **Alpha Mainnet,** you can **retrigger its last deployment** and it will be automatically pushed to Mainnet.
 
 If you haven’t already, you can [catch up with our documentation](https://docs.fleek.co/internet-computer-hosting/overview/) to learn how to. It takes 3 steps to hook up your repository with GitHub, set up your build settings, and get an unstoppable site up and running, which you can connect to a DNS or Handshake (HNS) domain. As easy as it gets.
 
