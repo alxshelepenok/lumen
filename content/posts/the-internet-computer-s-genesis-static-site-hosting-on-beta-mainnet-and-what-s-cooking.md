@@ -1,15 +1,17 @@
 ---
 template: post
-draft: true
+draft: false
 title: Internet Computer Hosting - Now on Mainnet, Following the Network's Genesis!
 slug: internet-computer-genesis-static-site-hosting-beta-mainnet
-date: 2021-05-07T04:00:00Z
+date: 2021-05-21T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png
 canonical: ''
 description: The Internet Computer’s Mainnet is live, and we are migrating our Internet
   Computer Static Hosting feature to it!
 category: Announcement
 tags:
+- Hosting
+- Mainnet
 - Genesis
 - Internet Computer
 
