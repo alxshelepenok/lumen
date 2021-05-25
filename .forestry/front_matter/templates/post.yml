@@ -63,6 +63,7 @@ pages:
 - content/posts/ic-action-an-open-source-github-action-to-deploy-canisters-to-the-internet-computer.md
 - content/posts/introducing-space.md
 - content/posts/introducing-the-fleek-api-cli-two-powerful-interfaces.md
+- content/posts/release-update-fleek-hosting-now-uses-ipns-for-updating-ens-domains.md
 - content/posts/release-update-new-dns-configuration-with-cdn-perks-ddos-protection.md
 - content/posts/release-update-site-previews-cancel-retry-deploys-storage-improvement.md
 - content/posts/release-update.md
