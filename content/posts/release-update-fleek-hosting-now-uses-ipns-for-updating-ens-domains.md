@@ -24,9 +24,9 @@ Hosting a site or app on [IPFS](https://ipfs.io/) with Fleek, and decentralizing
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/blog/ENS-APP.png)
 
-One of the first features we added to Fleek with IPFS hosting was [using Ethereum Name Service (ENS)](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service) domain names through our platform. It’s just a dope combo. Distributed storage on one end, and decentralized naming on Ethereum on the other!
+One of the first features we added to Fleek with IPFS hosting was [using Ethereum Name Service (ENS)](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service) domain names through our platform. It’s just a dope combo. **Distributed storage on one end, and decentralized naming** on Ethereum on the other!
 
-As a tl;dr of how they work in Fleek, when you deploy an IPFS site a content hash is created representing your site. This hash changes each time you make a new deployment, since it represents unique content.
+As a tl;dr of how they work in Fleek, when you deploy an IPFS site a content hash is created representing your site. **This hash changes each time you make a new deployment**, since it represents unique content.
 
 How do we pair up your site with ENS? Each ENS domain name has a set of records you update referencing content. One of them is an contentHash, for IPFS/IPNS! Which you can use to point to specific data, or in our case, your site.
 
@@ -40,7 +40,7 @@ Each transaction requires a gas fee. Users only handle the first transaction (gi
 
 We always **double down on abstracting complicated** steps to give dope Web3 experiences, and handling ENS transactions in the background is part of that motto. However, we can’t ignore the fact that both Fleek, and Ethereum, are scaling rapidly.
 
-There were two main issues we needed to tackle. First, gas prices fluctuate constantly, and we’ve seen them go up and down dramatically. So, long term, we had to think about how to handle transactions seamlessly, at scale, without offloading it to the user, but also not becoming the living form of the “this is fine” meme.
+There were two main issues we needed to tackle. First, gas prices fluctuate constantly, and we’ve seen them go up and down dramatically. So, long term, we had to think about **how to handle transactions seamlessly, at scale, without offloading it to the user**, but also not becoming the living form of the “this is fine” meme.
 
 Secondly, sometimes the time it takes for a transaction to go through can be variable, depending on the Ethereum network or fluctuating gas. We know how important for any web/app a push to prod can be, so keeping those times stable was also on our mind.
 
@@ -48,15 +48,15 @@ Secondly, sometimes the time it takes for a transaction to go through can be var
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/blog/ipns-ens-fleek.png)
 
-The core issue with ENS updates and transactions is the fact IPFS content hashes change on each deployment, therefore you need to switch that hash every time on your domain.
+The core issue with ENS updates and transactions is the fact IPFS content hashes change on each deployment, therefore **you need to switch that hash every time on your domain**.
 
 But, what if you had a different type of record on ENS, that doesn’t change on each deployment, but does reference a changing IPFS hash that you can update every time without having to trigger transactions on the Ethereum network?
 
 That’s what IPNS essentially does for you on Fleek now! IPNS is the InterPlanetary Name System, by the awesome team at IPFS, which uses content-based addressing to create a static address that references a hash record that can be updated.
 
-It is, in a nutshell, a public-private key pair. The name (IPNS address) is the public key, and it contains a record with a hash that is updated by signing and publishing the information with the private key. IPNS addresses are mapped in [IPFS’ distributed hash tables](https://docs.ipfs.io/concepts/dht/) (distributed system for mapping keys to values).
+**It is, in a nutshell, a public-private key pair.** The name (IPNS address) is the public key, and it contains a record with a hash that is updated by signing and publishing the information with the private key. IPNS addresses are mapped in [IPFS’ distributed hash tables](https://docs.ipfs.io/concepts/dht/) (distributed system for mapping keys to values).
 
-Instead of changing your IPFS hash on your ENS name, we can now set a static IPNS address, and make your IPFS hash updates in a layer 2-ish style.
+Instead of changing your IPFS hash on your ENS name, **we can now set a static IPNS address, and make your IPFS hash updates in a layer 2-ish style.**
 
 This way we can reduce ENS transactions to just 1, without losing the distributed/decentralized perks of both IPFS & ENS. When a user adds an ENS domain, a transaction will be made to change the content hash of the ENS domain to the new IPNS address.
 
