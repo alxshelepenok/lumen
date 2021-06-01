@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - Fleek Hosting Now Uses IPNS for Updating ENS Domains!
 slug: ens-now-on-ipns-hash-updates
-date: 2021-05-25T04:00:00Z
+date: 2021-06-01T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/blog/ipns-ens.png
 canonical: ''
 description: Now on Fleek, ENS joins forces with IPNS to make IPFS hash record updates
