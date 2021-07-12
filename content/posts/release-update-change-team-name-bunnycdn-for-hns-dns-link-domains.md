@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: Release Update - Change Team Name, BunnyCDN for HNS, DNS Link, & Domains
 slug: release-team-name-hns-cdn
 date: 2021-07-07T16:00:00Z
@@ -18,7 +18,7 @@ tags:
 - DNS
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png)
 
 It’s time for another quick release ⚡ This week we’re bringing some changes to the Fleek.co platform, a little bit of adding here, some subtracting over there. As always, feel free to submit any requests or ideas to the team! 🔥
 
