@@ -12,6 +12,9 @@
 </p>
 
 ## Table of contents
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/799dd97f20c1494687b603704169bac2)](https://app.codacy.com/gh/alxshelepenok/gatsby-starter-lumen?utm_source=github.com&utm_medium=referral&utm_content=alxshelepenok/gatsby-starter-lumen&utm_campaign=Badge_Grade_Settings)
+
 + [Features](http://github.com/alxshelepenok/gatsby-starter-lumen#features)
 + [Web Performance Tests](http://github.com/alxshelepenok/gatsby-starter-lumen#web-performance-tests)
 + [Quick Start](http://github.com/alxshelepenok/gatsby-starter-lumen#quick-start)
