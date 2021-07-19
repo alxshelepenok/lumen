@@ -32,15 +32,15 @@ What do we have in store this week?
 
 # New Features
 
-**First off, the ability to change your team name!** This has been a much requested feature by the community and it’s finally seeing the light of day.
+**First off, the ability to change your team name!** This has been a much-requested feature by the community and it’s finally seeing the light of day.
 
-**Next up, we added BunnyCDN for HNS Domains** to get us hoppin’ up to speed with our new content delivery platform for all Handshake domains. Lightning fast performance at scale with no sacrifice in decentralization? Yessir. You can learn more about these [CDN perks here](mailto:support@fleek.co).
+![](https://storageapi.fleek.co/fleek-team-bucket/Change-TEAM-Name%20GIF%20V2.gif)**Next up, we added BunnyCDN for HNS Domains** to get us hoppin’ up to speed with our new content delivery platform for all Handshake domains. Lightning-fast performance at scale with no sacrifice in decentralization? Yessir. You can learn more about these [CDN perks here](mailto:support@fleek.co).
 
 # Removed
 
 **We removed the DNS link setting for Internet Computer sites**, because -as we said earlier- it is unnecessary. Setting up a DNS link would allow you to map a DNS name to an IPFS hash, and access the latest version of your site through IPFS. It’s an IPFS only thing and it’s not necessary on the Internet Computer.
 
-**We also removed the ability to buy domains through Fleek.** In the end, it is a matter of Fleek not being a full-on DNS management suite that can provide a solid user experience without added overhead. We believe it’s better if users buy domains from other services that have a great set of domain management tools already, and then point it to Fleek like most users do anyways.
+**We also removed the ability to buy domains through Fleek.** In the end, it is a matter of Fleek not being a full-on DNS management suite that can provide a solid user experience without added overhead. We believe it’s better if users buy domains from other services that have a great set of domain management tools already, and then point it to Fleek as most users do anyways.
 
 This opens up the question of what does this mean for legacy users that bought domains through Fleek? 🤔
 
