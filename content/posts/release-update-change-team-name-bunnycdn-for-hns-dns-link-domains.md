@@ -1,10 +1,10 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - Change Team Name, BunnyCDN for HNS, DNS Link, & Domains
 slug: release-team-name-hns-cdn
 date: 2021-07-07T16:00:00Z
-socialImage: ''
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png
 canonical: ''
 description: HNS domains now benefit from our CDN, and we removed the ability to purchase
   domains through Fleek, read to learn about what this means for legacy users.
@@ -50,9 +50,9 @@ Legacy users! You can still use your Fleek-purchased domains, and if it’s been
 
 # UX/UI Improvements & Bug Fixes
 
-* Removed “stop auto publish button” for IC sites.
+* Removed “stop auto-publish button” for IC sites.
 * Removed PR previews settings for IC sites.
-* Removed SDK button on navigation menu.
+* Removed SDK button on the navigation menu.
 * Updated the default docker images on the site creator.
 * Updated the Handshake DNS settings in the Handshake modals.
 * Fixed bug - Ethereum transaction being sent by Fleek controller to write IPNS hash for users with ENS domains from before the IPNS update.
