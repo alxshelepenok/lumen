@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Release Update - BunnyCDN for HNS, DNS Link, & Domains
 slug: release-team-name-hns-cdn
 date: 2021-07-07T16:00:00Z
