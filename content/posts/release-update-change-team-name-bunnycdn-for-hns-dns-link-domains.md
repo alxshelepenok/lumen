@@ -1,7 +1,7 @@
 ---
 template: post
 draft: false
-title: Release Update - Change Team Name, BunnyCDN for HNS, DNS Link, & Domains
+title: Release Update - BunnyCDN for HNS, DNS Link, & Domains
 slug: release-team-name-hns-cdn
 date: 2021-07-07T16:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png
@@ -11,7 +11,6 @@ description: HNS domains now benefit from our CDN, and we removed the ability to
 category: Announcement
 tags:
 - Release
-- Change Team Name
 - Domains
 - BunnyCDN
 - HNS
@@ -24,7 +23,6 @@ It’s time for another quick release ⚡ This week we’re bringing some change
 
 What do we have in store this week?
 
-* Added Changing Team Names (much requested, thank you guys!)
 * Added BunnyCDN for HNS (we’re just hopping along aren’t we 🐰)
 * Removed DNS Link for Internet Computer sites (no need for that!)
 * Removed the ability to buy Domains on Fleek (more on this below 👇 )
@@ -32,9 +30,7 @@ What do we have in store this week?
 
 # New Features
 
-**First off, the ability to change your team name!** This has been a much-requested feature by the community and it’s finally seeing the light of day.
-
-![](https://storageapi.fleek.co/fleek-team-bucket/Change-TEAM-Name%20GIF%20V2.gif)**Next up, we added BunnyCDN for HNS Domains** to get us hoppin’ up to speed with our new content delivery platform for all Handshake domains. Lightning-fast performance at scale with no sacrifice in decentralization? Yessir. You can learn more about these [CDN perks here](mailto:support@fleek.co).
+**First up, we added BunnyCDN for HNS Domains** to get us hoppin’ up to speed with our new content delivery platform for all Handshake domains. Lightning-fast performance at scale with no sacrifice in decentralization? Yessir. You can learn more about these [CDN perks here](mailto:support@fleek.co).
 
 # Removed
 
