@@ -44,7 +44,7 @@ What do we have in store this week?
 
 This opens up the question of what does this mean for legacy users that bought domains through Fleek? 🤔
 
-## What happens to Fleek-bought domains?
+# What happens to Fleek-bought domains?
 
 Legacy users! You can still use your Fleek-purchased domains, and if it’s been more than 60 days since you purchased it we can transfer the domain to a DNS provider of your choice. Just contact us through our support email (support@fleek.co) or Intercom in the app!
 
