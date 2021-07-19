@@ -47,6 +47,15 @@ This opens up the question of what does this mean for legacy users that bought d
 
 Legacy users! You can still use your Fleek-purchased domains, and if it’s been more than 60 days since you purchased it we can transfer the domain to a DNS provider of your choice. Just contact us through our support email (support@fleek.co) or Intercom in the app!
 
+# UX/UI Improvements & Bug Fixes
+
+* Removed “stop auto publish button” for IC sites.
+* Removed PR previews settings for IC sites.
+* Removed SDK button on navigation menu.
+* Updated the default docker images on the site creator.
+* Updated the Handshake DNS settings in the Handshake modals.
+* Fixed bug - Ethereum transaction being sent by Fleek controller to write IPNS hash for users with ENS domains from before the IPNS update.
+
 # Wrapping it Up
 
 That is all for today’s release notes! Stay tuned for more updates and improvements! As always, you can hit us up in Twitter or Discord to let us know the features, improvements, or bugs you’d like to see tackled next 😎
