@@ -28,6 +28,7 @@ What do we have in store this week?
 * Added BunnyCDN for HNS (we’re just hopping along aren’t we 🐰)
 * Removed DNS Link for Internet Computer sites (no need for that!)
 * Removed the ability to buy Domains on Fleek (more on this below 👇 )
+* Minor Improvements & Bug Fixes 🐞
 
 # New Features
 
