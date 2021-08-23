@@ -6,7 +6,8 @@ slug: release-update-cloudflare-cdn-change-repository
 date: 2021-08-24T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/Cloudflare-NewRepo.png
 canonical: ''
-description: ''
+description: 'We''ve added the ability to use Cloudflare as your CDN option. You can
+  now also change the base repository for any of your hosted sites.  '
 category: Announcement
 tags:
 - Release
