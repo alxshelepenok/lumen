@@ -32,7 +32,7 @@ So what’s new this week?
 
 First on the docket, we’ve added the ability to use **Cloudflare for CDN/Cache/DNS** features instead of the default Fleek CDN/Cache layer. Don’t worry, you’ll still benefit from Fleek’s CI/CD pipeline for deploying to IPFS. For information on how to make this change to your site visit our Fleek Docs: [Setting Up CloudFlare](https://docs.fleek.co/domain-management/custom-dns-domains/#setting-up-cloudflare).
 
-## Update Existing Site's with a New Repo
+## Update Existing Site with a New Repo
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/NewRepo.gif)
 
