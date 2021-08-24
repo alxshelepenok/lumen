@@ -20,7 +20,7 @@ tags:
 
 We just made some exciting enhancements to our Fleek.co platform that we wanted to share ⚡️ As always, user’s input drives the features we release. Keep on requesting so that we can keep on building 🚀
 
-So what’s new this week?
+So what’s new this week on Fleek?
 
 * New Cloudflare CDN Option
 * Change an Existing Site’s Repository
