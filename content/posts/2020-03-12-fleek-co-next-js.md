@@ -52,11 +52,6 @@ Create a `next.config.js` file in the root directory
 
     module.exports = {
       exportTrailingSlash: true,
-      exportPathMap: function() {
-        return {
-          '/': { page: '/' }
-        };
-      }
     };
 
 ![](./media/nextjs/createNextConfigJS.png)
