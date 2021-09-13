@@ -29,7 +29,7 @@ It's an easy way to let Web2 users visit your app/dapp. But as always, centraliz
 
 Anyone who’s building on the decentralized web probably knows of ENS (Ethereum Naming Service), a decentralized alternative to centralized DNS options. ENS leverages **smart contracts on the Ethereum blockchain to builds its naming service**.
 
-Pointing your ENS domain to an IPFS (InterPlanetary File System) content hash that’s hosted on Fleek gets you about **really far on the way to running a truly decentralized static website**. Distributed files, decentralized name ✅
+Pointing your ENS domain to an IPFS (InterPlanetary File System) content hash that’s hosted on Fleek gets you **really far on the way to running a truly decentralized static website**. Distributed files, decentralized name ✅
 
 But, Web3 is still nascent, and as a result, most browsers aren’t able to resolve .eth domains. Users can use 3rd party extensions like MetaMask to resolve .eth domains, but this is an extra step that can be a pain point for some users.
 
@@ -39,13 +39,13 @@ In response to this problem, the platform Cloudflare created eth.link, a gateway
 
 Yay, everything is solved! Not so fast 🙅‍♀️
 
-Cloudflare’s .eth.link gateway has some issues of its own: it’s still centralized, unreliable at times, and caching refreshes/content retrieval is not consistent and sometimes takes its time. 
+Cloudflare’s .eth.link gateway has some issues of its own: it’s still centralized, unreliable at times, and caching refreshes/content retrieval is not consistent and sometimes takes its time.
 
 Whether its performance is improved or not, one fact remains: **Optionality is also an important part of decentralization.** So, having alternatives (with the decentralization perk) is always good.
 
 ### A New Player in Town: Eth.Limo
 
-[Eth.limo](http://eth.limo/) is a decentralized alternative to eth.link and represents another big step towards a true dWeb 🥳 
+[Eth.limo](http://eth.limo/) is a decentralized alternative to eth.link and represents another big step towards a true dWeb 🥳
 
 Limo operates by hosting its own set Ethereum nodes in order to automatically resolve the IPFS hash of all requests sent to ENS domains. Limo returns the static content back to the client over the HTTPS protocol, allowing any browser to resolve .eth domains by using the eth.limo gateway.
 
@@ -53,9 +53,9 @@ Most importantly, Limo has been [reporting high uptimes](https://twitter.com/eth
 
 ### How do I Setup eth.limo?
 
-You don't have to do _anything_ to use eth.limo to resolve your ENS domains, that's the best thing. 
+You don't have to do _anything_ to use eth.limo to resolve your ENS domains, that's the best thing.
 
-Visit https://<your-ens-domain>.eth.limo and see for yourself! For example... https://fleekhq.eth.limo. If you were using 
+Visit https://<your-ens-domain>.eth.limo and see for yourself! For example... https://fleekhq.eth.limo. 
 
 ### Wrapping it up
 
