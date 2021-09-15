@@ -7,7 +7,7 @@ date: 2021-09-15T05:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
 canonical: ''
 description: ''
-category: ''
+category: Tutorial
 tags: []
 
 ---
