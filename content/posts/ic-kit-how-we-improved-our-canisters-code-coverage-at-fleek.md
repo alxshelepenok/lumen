@@ -8,7 +8,12 @@ socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%
 canonical: ''
 description: ''
 category: Tutorial
-tags: []
+tags:
+- Testing
+- Canisters
+- Rust
+- Internet Computer
+- ICKit
 
 ---
 The Internet Computer makes it possible to deploy any WASM binary to your canister as long as it meets the runtime standards, so in theory, you could use any programming language that can be compiled to WASM to build canisters. Currently, the two most popular languages to write canisters are Rust and Motoko.
