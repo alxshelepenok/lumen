@@ -3,7 +3,7 @@ template: post
 draft: true
 title: 'IC Kit: How we improved our canisters code coverage at Fleek'
 slug: ickit-rust-canister-testing
-date: 2021-09-15T05:00:00Z
+date: 2021-09-20T05:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
 canonical: ''
 description: ''
