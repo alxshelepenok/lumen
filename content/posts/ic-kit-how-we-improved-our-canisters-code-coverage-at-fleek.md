@@ -6,7 +6,8 @@ slug: ickit-rust-canister-testing
 date: 2021-09-20T05:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
 canonical: ''
-description: ''
+description: 'ICKit is a Rust library to assist with Rust canister testing on the
+  Internet Computer. '
 category: Tutorial
 tags:
 - Testing
