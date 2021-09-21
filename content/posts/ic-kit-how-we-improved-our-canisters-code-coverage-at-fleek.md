@@ -1,9 +1,9 @@
 ---
 template: post
 draft: true
-title: 'IC Kit: How we improved our canisters code coverage at Fleek'
+title: 'IC Kit: Rust Canister Testing Kit we Used to Improve Code Coverage at Fleek'
 slug: ickit-rust-canister-testing
-date: 2021-09-20T05:00:00Z
+date: 2021-09-21T05:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
 canonical: ''
 description: 'ICKit is a Rust library to assist with Rust canister testing on the
@@ -17,6 +17,8 @@ tags:
 - ICKit
 
 ---
+![](https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png)
+
 The Internet Computer makes it possible to deploy any WASM binary to your canister as long as it meets the runtime standards, so in theory, you could use any programming language that can be compiled to WASM to build canisters. Currently, the two most popular languages to write canisters are Rust and Motoko.
 
 To make it possible to write canisters using Rust, the foundation has published the ic-cdk crate which makes it seamless for developers to make use of APIs provided by the IC runtime, but it has one drawback, you can’t run these methods outside of the runtime. And it makes sense, but what if you want to test your canister’s logic?
