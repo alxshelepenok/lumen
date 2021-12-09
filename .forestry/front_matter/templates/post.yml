@@ -60,6 +60,7 @@ pages:
 - content/posts/hackfs-showcasing-fleek-prize-winners.md
 - content/posts/handshake-domains-now-supported-and-managed-on-fleek.md
 - content/posts/hosting-static-webflow-sites-on-fleek-no-cms.md
+- content/posts/how-to-setup-2-factor-authentication-in-your-fleek-account.md
 - content/posts/ic-action-an-open-source-github-action-to-deploy-canisters-to-the-internet-computer.md
 - content/posts/ic-kit-how-we-improved-our-canisters-code-coverage-at-fleek.md
 - content/posts/introducing-space.md
