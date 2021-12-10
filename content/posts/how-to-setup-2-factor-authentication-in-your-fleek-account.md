@@ -19,11 +19,11 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/blog-2fa/Cloudflare-RepoSwitch.png)
 
-Today we’re going to take a look at Fleek’s **2-factor authentication** setting, that will help you protect your account with a secondary layer of verification by associating a **phone number to your Account.**
+Today we’re going to take a look at Fleek’s **2-factor authentication** setting, which will help you protect your account with a secondary layer of verification by associating a **phone number to your Account.**
 
 Each time you log in, you will receive a **confirmation code to that associated phone number** that you’ll need to enter during your login, aside from your password.
 
-**Alternatively, if you use GitHub to log in,** you should activate 2FA in your GitHub account, and you'll get the same level of protection over your Fleek account when using GitHub as your authenticator.
+**Alternatively, if you use GitHub to log in (which is the case for most users!),** you should activate 2FA in your **GitHub account itself**, and you'll get the same level of protection over your Fleek account when using GitHub as your authenticator.
 
 ## Setting up 2-factor authentication in Fleek
 
