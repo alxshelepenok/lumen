@@ -75,13 +75,13 @@ Once you have **updated your domain's nameserver on your old provider to Cloudfl
 Ready to add your new Fleek DNS records in Cloudflare? **There are two important details you need to follow:**
 
 1. ANAME/ALIAS records are set as CNAME on Cloudflare (Cloudflare will detect them)
-2. When you set up a record on Cloudflare, disable the orange cloud (HTTP proxy).
+2. When you set up a record on Cloudflare, disable the **Proxied feature** (HTTP proxy).
 
-It is important that you **disable the Orange Cloud** in all of the DNS records you set on Cloudflare for your Fleek sites/apps. If not, your custom domain will **fail verification** on Fleek. To turn it OFF, edit the record and click the orange cloud.
+It is important that you **disable the Proxy (or orange cloud)** in all of the DNS records you set on Cloudflare for your Fleek sites/apps. If not, your custom domain will **fail verification** on Fleek. To turn it OFF, edit the record and click the toggle next to the cloud.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/dns-only.png)
 
-This is because when the orange cloud is ON, Cloudflare proxies your site through their CDN. Fleek already uses BunnyCDN to handle custom domains, and provide DDOS protection and CDN benefits in speed, caching, and routing. So they are not compatible, but you won't miss the benefits!
+This is because when the Proxy is ON, Cloudflare proxies your site through their CDN. Fleek already uses BunnyCDN to handle custom domains, and provide DDOS protection and CDN benefits in speed, caching, and routing. So they are not compatible, but you won't miss the benefits!
 
 **Remember to go back to Fleek** after setting your DNS records on Cloudflare, and click on the "Verify DNS configuration button" for each of the domains you configured to complete the process. It might take a couple minutes for your site to reflect the change.
 
@@ -89,7 +89,7 @@ This is because when the orange cloud is ON, Cloudflare proxies your site throug
 
 ## I set up my DNS records on Cloudflare, but it Fails verification?
 
-Review the last step from the question above. It is important that you disable the **orange cloud** feature in Cloudflare's DNS app **for all your Fleek DNS records.** Fleek can't verify your domain if Cloudflare is proxying your domain to their CDN.
+Review the last step from the question above. It is important that you disable the proxy feature in Cloudflare's DNS app **for all your Fleek DNS records.** Fleek can't verify your domain if Cloudflare is proxying your domain to their CDN.
 
 ## I use Google Domains, and don't want to have to use Cloudflare.
 
