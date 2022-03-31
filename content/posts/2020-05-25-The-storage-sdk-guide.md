@@ -70,7 +70,7 @@ We will now set up an S3 client using our credentials. This client will be used 
         apiVersion: '2006-03-01',
         accessKeyId: '[[apiKey]]',
         secretAccessKey: '[[apiSecret]]',
-        endpoint: 'https://storageapi.fleek.co',
+        endpoint: 'https://storageapi2.fleek.co',
         region: 'us-east-1',
         s3ForcePathStyle: true
      });

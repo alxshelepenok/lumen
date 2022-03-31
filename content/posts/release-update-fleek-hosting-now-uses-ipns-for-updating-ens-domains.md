@@ -4,7 +4,7 @@ draft: false
 title: Release Update - Fleek Hosting Now Uses IPNS for Updating ENS Domains!
 slug: ens-now-on-ipns-hash-updates
 date: 2021-06-01T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/blog/ipns-ens.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog/ipns-ens.png
 canonical: ''
 description: Now on Fleek, ENS joins forces with IPNS to make IPFS hash record updates
   scalable and inexpensive to all users, using static IPNS addresses per site, updated
@@ -16,13 +16,13 @@ tags:
 - ENS
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/ipns-ens.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/ipns-ens.png)
 
 Hosting a site or app on [IPFS](https://ipfs.io/) with Fleek, and decentralizing its naming with an [Ethereum Name Service (ENS) domain](http://ens.domains/)? Then this upgrade is for you. Now on Fleek, [IPNS ](https://docs.ipfs.io/concepts/ipns/#example-ipns-setup-with-cli)+ ENS combine forces to make ENS IPFS hash record updates scalable, fast, and inexpensive on Fleek.
 
 ## ENS Domains on Fleek
 
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/ENS-APP.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/ENS-APP.png)
 
 One of the first features we added to Fleek with IPFS hosting was [using Ethereum Name Service (ENS)](https://blog.fleek.co/posts/guide-ens-domains-ipfs-ethereum-name-service) domain names through our platform. It’s just a dope combo. **Distributed storage on one end, and decentralized naming** on Ethereum on the other!
 
@@ -36,7 +36,7 @@ Each transaction requires a gas fee. Users only handle the first transaction (gi
 
 ## The Scalability & Gas Problem
 
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/gas-fine.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/gas-fine.png)
 
 We always **double down on abstracting complicated** steps to give dope Web3 experiences, and handling ENS transactions in the background is part of that motto. However, we can’t ignore the fact that both Fleek, and Ethereum, are scaling rapidly.
 
@@ -46,7 +46,7 @@ Secondly, sometimes the time it takes for a transaction to go through can be var
 
 ## The Solution: IPNS + ENS
 
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/ipns-ens-fleek.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/ipns-ens-fleek.png)
 
 The core issue with ENS updates and transactions is the fact IPFS content hashes change on each deployment, therefore **you need to switch that hash every time on your domain**.
 

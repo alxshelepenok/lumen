@@ -4,7 +4,7 @@ draft: false
 title: Release Update - Site Previews, Cancel & Retry Deploys, Table Improvements
 slug: fleek-site-preview-cancel-retry-deploys
 date: 2021-04-29T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png
 canonical: ''
 description: New features, incoming! Welcome the long-time expected cancel & retry
   buttons for deployments, site preview images for your sites, and performance enhancements
@@ -13,7 +13,7 @@ category: Announcement
 tags: []
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/preview.png)
 
 It's fixes and enhancements time ⚡ This week we're bringing another batch of updates that are focused on making your life a little better on Fleek. Most of these are user requests, so keep em' coming our way 🔥
 
@@ -27,7 +27,7 @@ What do we have in store this week?
 
 ### Site Previews
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/preview-wide.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/preview-wide.png)
 
 First off, site previews have landed on our Hosting product. You've probably seen that when you navigate your site list and their settings, there is a small image box that was previously empty. Well now, upon each new deployment, Fleek will **take a snapshot** of your site and display it on that box as a **site preview!**
 
@@ -35,7 +35,7 @@ This way you can easily differentiate your sites/apps on the Hosting list, and h
 
 ### Cancel & Retry Deployments
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/cancel.gif)Because things can go wrong, and time shouldn't be wasted, we added **cancel and retry buttons** for your deployments on Fleek. If your deployment is stuck, queued in a series of other unnecessary ones, or simply anything went wrong with it, you can **stop or retry it** and start over. No more waiting for a timeout.
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/cancel.gif)Because things can go wrong, and time shouldn't be wasted, we added **cancel and retry buttons** for your deployments on Fleek. If your deployment is stuck, queued in a series of other unnecessary ones, or simply anything went wrong with it, you can **stop or retry it** and start over. No more waiting for a timeout.
 
 This was probably our most user-requested feature of all time! Better late than never right?
 

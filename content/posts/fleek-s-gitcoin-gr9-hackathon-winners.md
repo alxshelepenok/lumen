@@ -4,7 +4,7 @@ draft: false
 title: Fleek's Gitcoin GR9 Hackathon Prize Winners!
 slug: gitcoin-gr9-hackathon-fleek-winners
 date: 2021-04-08T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png
 canonical: ''
 description: We challenged developers to build their hacks using the Space SDK and
   Fleek Storage JS! Let's review this year's winning projects for Fleek's GR9 Hackathon
@@ -17,7 +17,7 @@ tags:
 - GR9
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/GR9.png)
 
 Last week Gitcoin's Grant Round 9 Hackathon came to an end, with an immense folder of dope projects and groups participating in another jampacked hackathon. The event wrapped with over 1.2 million raised by the community, and over $300k in hackathon prizes!
 

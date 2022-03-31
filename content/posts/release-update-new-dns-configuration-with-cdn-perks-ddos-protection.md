@@ -4,7 +4,7 @@ draft: false
 title: Release Update - New DNS Configuration with CDN Perks & DDOS Protection
 slug: new-dns-configuration-ddos-cdn
 date: 2021-05-03T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/dns-1.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/dns-1.png
 canonical: ''
 description: We're upgrading our infrastructure to offer a faster, safer, and resilient
   DNS configuration with extra CDN benefits and DDOs protection! You can migrate your
@@ -15,7 +15,7 @@ tags:
 - hosting
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/dns-1.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/dns-1.png)
 
 New upgrade coming for everyone hosting sites/apps on Fleek using custom DNS domains! You can now upgrade your site to our new DNS configuration to unlock extra CDN benefits, DDOS protection, and faster routing. Courtesy of Bunny CDN 😎
 
@@ -45,11 +45,11 @@ This new DNS configuration **will deprecate the previous one, and custom domains
 
 Once inside a site's detail view, **visit the SETTINGS** tab and there, look for the **Domain Management** tab on the vertical sub-menu.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/dns.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/dns.gif)
 
 There, you will see the **Custom Domains** section, showing the **Custom DNS Domain** name you previously set up and connected to your Fleek site/app. **Click on the "Upgrade DNS Configuration" button** to re-configure your site.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/dns-space.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/dns-space.png)
 
 In a nutshell, you will need to **update your records** **on your DNS domain.** This is because your custom domains needs to point to **Fleek's new upgraded infrastructure**.
 
@@ -57,7 +57,7 @@ Root domain names (like space.storage) **will ask for an ANAME record**, whereas
 
 **What about DNSLink domains?** Those will continue to point to your Fleek-assigned subdomain using a CNAME record, so keep them that way for now.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/aname1.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/aname1.png)
 
 Remember that to utilize this, it is required that your DNS provider supports **ANAME** records. **Check this** **before starting the upgrade.** In some providers like Cloudflare, ANAME records are set as CNAME, so do check first with your provider's documentation.
 
@@ -78,7 +78,7 @@ This doesn't mean you're transfering your domain, you are only managing your DNS
 
 That's all, go back to Fleek's domain management setting and verify your domain. **Don't forget to disable the Orange Cloud setting on Cloudflare.** Else, your domain on Fleek will fail verification. This is how your DNS records should look like on Cloudflare. To disable the cloud, edit the record and click on the Orange Cloud on each record.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/dns-only-cloudflare.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/dns-only-cloudflare.png)
 
 ## Wrapping it Up 🗞️
 

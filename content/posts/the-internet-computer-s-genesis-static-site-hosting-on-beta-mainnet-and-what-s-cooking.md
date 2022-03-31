@@ -4,7 +4,7 @@ draft: false
 title: Internet Computer Hosting - Now on Mainnet, Following the Network's Genesis!
 slug: internet-computer-genesis-static-site-hosting-beta-mainnet
 date: 2021-05-21T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png
 canonical: ''
 description: The Internet Computer’s Mainnet is live, and we are migrating our Internet
   Computer Static Hosting feature to it!
@@ -16,7 +16,7 @@ tags:
 - Internet Computer
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/mainnet-hosting.png)
 
 If you missed it (where were you!?), the DFINITY Foundation celebrated the final step towards the release of the Internet Computer’s public Mainnet network at the “[Mercury Genesis Launch Event](https://dfinity.org/mercury/)”.
 
@@ -32,7 +32,7 @@ Get ready, because not only are we are hooking up our Internet Computer hosting 
 
 ## A quick throwback + the Internet Computer’s Potential **🌀**
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
 
 A little over two month ago, [we announced that we were going to Dfinity & Beyond!](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting) Joining the Internet Computer ecosystem with a bomb triple release (IC Static Site Hosting, Internet Computer Gateway, and Canister Proxying).
 
@@ -42,7 +42,7 @@ What does the Internet Computer mean for Fleek? It’s the missing link to mater
 
 The Web2 is a wild array of corporate owned web services users don’t own or control. Its core infrastructure services like hosting, storage, and well, most web services, are centralized. In turn, everything built on the actual web is affected by centralized points of risks, gatekeepers, and general abuse by controllers.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/web2.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/web2.gif)
 
 Thanks to canisters, the Internet Computer’s equivalent to Smart Contracts (evolved to hold both state and program), anything can be built on an open, trustless, and decentralized internet infrastructure, governed by the [Nervous Network System](https://dfinity.org/faq/network-nervous-system-(nns)) autonomous protocol. And when we say anything, **we mean anything**. Frontends, backends, databases, assets, infrastructure, Dapps, DeFi... All of them, living in an unstoppable infrastructure.
 
@@ -52,7 +52,7 @@ Basically, the benefits we’ve seen, for example, in Decentralized Finance (DeF
 
 ## Fleek’s Internet Computer Hosting, Now on Mainnet 🚀
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/rocket.webp)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/rocket.webp)
 
 As of today, after a brief break in which the experimental Alpha Mainnet was disconnected as the DFINITY Foundation prepared for Genesis, all Internet Computer features in Fleek are **back online, and connected to the Internet computer’s Mainnet.**
 
@@ -62,7 +62,7 @@ If you haven’t already, you can [catch up with our documentation](https://docs
 
 ## What’s cooking behind curtains? 🥘
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/no-idea.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/no-idea.gif)
 
 We don’t want to spoil it yet, but soon. Very soon. Like, _a couple weeks max._
 

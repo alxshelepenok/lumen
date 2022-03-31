@@ -4,7 +4,7 @@ draft: false
 title: Using Eth.Limo as an Alternative to Eth.Link in Fleek
 slug: eth-limo-alternative-eth-link
 date: 2021-09-10T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/blog/Eth.limo-background.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog/Eth.limo-background.png
 canonical: ''
 description: Explore using Eth.Limo as a decentralized alternative to Cloudflare's
   Eth.Link gateway.
@@ -17,7 +17,7 @@ tags:
 - Eth.Limo
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/Eth.limo-background.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/Eth.limo-background.png)
 
 Over the last few weeks, we have been getting a lot of support requests regarding IPFS websites using ENS being unable to resolve under .eth.link urls. In the end, we discovered that .ETH.LINK (a resolver/gateway to ENS names provided by Cloudflare) had been having **very inconsistent performances**.
 

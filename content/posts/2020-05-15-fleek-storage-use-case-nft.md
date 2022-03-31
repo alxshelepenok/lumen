@@ -111,7 +111,7 @@ Let's see how it work programmatically in the Crypto Museum dapp.
         apiVersion: '2006-03-01',
         accessKeyId: <access-key-id>,
         secretAccessKey: <secret-access-key>,
-        endpoint: 'https://storageapi.fleek.co',
+        endpoint: 'https://storageapi2.fleek.co',
         region: 'us-east-1',
         s3ForcePathStyle: true
       });

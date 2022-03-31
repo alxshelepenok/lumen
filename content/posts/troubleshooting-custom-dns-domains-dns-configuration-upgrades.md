@@ -4,7 +4,7 @@ draft: false
 title: Troubleshooting Custom DNS Domains & DNS Configuration Upgrades
 slug: troubleshooting-dns-domains-record-update-fleek
 date: 2021-05-06T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/troubleshoot.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/troubleshoot.png
 canonical: ''
 description: Are you having issues when updating your DNS configuration, or setting
   up your DNS records for your sites on Fleek? Here are some tips.
@@ -14,7 +14,7 @@ tags:
 - DNS
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/troubleshoot.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/troubleshoot.png)
 
 Whether you are adding your custom DNS domain for the first time, or upgrading your previous configuration to Fleek's [recent BunnyCDN upgrade](), here are the **most common questions/issues you might encounter** and the answers to them:
 
@@ -22,17 +22,17 @@ Whether you are adding your custom DNS domain for the first time, or upgrading y
 
 The first thing you can check is if your site is visible on the **"Verify on IPFS"** link on your Fleek dashboard. Visit your Fleek dashboard (the hosting tab) and select your affected site to find this button. See the gif below for a reference.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/verify-ipfs.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/verify-ipfs.gif)
 
 Can you access your site via the IPFS link? Then the most possible scenario is **you're using our old DNS configuration and need to upgrade**. Follow the steps [on this documentation](https://docs.fleek.co/domain-management/custom-dns-domains/#upgrading-to-new-dns-configuration) to update your domain records.
 
 Another quick way for verifying if this is the problem is visiting the **domain management tab** on your site and seeing if the "Upgrade DNS Configuration" message is present.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/verify.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/verify.png)
 
 If that is the case, you will need to set new ANAME/ALIAS records for your main root domain, and CNAME record for your subdomains. **If you have DNSLINK** **activated**, you will also need to update those records as well to the new configuration.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/dns-space.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/dns-space.png)
 
 ## What type of records will I need to set on my DNS provider to use a custom domain?
 
@@ -79,13 +79,13 @@ Ready to add your new Fleek DNS records in Cloudflare? **There are two important
 
 It is important that you **disable the Proxy (or orange cloud)** in all of the DNS records you set on Cloudflare for your Fleek sites/apps. If not, your custom domain will **fail verification** on Fleek. To turn it OFF, edit the record and click the toggle next to the cloud.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/dns-only.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/dns-only.png)
 
 This is because when the Proxy is ON, Cloudflare proxies your site through their CDN. Fleek already uses BunnyCDN to handle custom domains, and provide DDOS protection and CDN benefits in speed, caching, and routing. So they are not compatible, but you won't miss the benefits!
 
 **Remember to go back to Fleek** after setting your DNS records on Cloudflare, and click on the "Verify DNS configuration button" for each of the domains you configured to complete the process. It might take a couple minutes for your site to reflect the change.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205832.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205832.png)
 
 ## I set up my DNS records on Cloudflare, but it Fails verification?
 

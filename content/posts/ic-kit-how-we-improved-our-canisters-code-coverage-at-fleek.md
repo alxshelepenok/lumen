@@ -4,7 +4,7 @@ draft: false
 title: 'IC Kit: Rust Canister Testing Kit we Used to Improve Code Coverage at Fleek'
 slug: ickit-rust-canister-testing
 date: 2021-09-21T05:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png
 canonical: ''
 description: 'ICKit is a Rust library to assist with Rust canister testing on the
   Internet Computer. '
@@ -17,7 +17,7 @@ tags:
 - ICKit
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/ICKit%20Fleek%20Blog%20Header%20Image.png)
 
 The Internet Computer makes it possible to deploy any WASM binary to your canister as long as it meets the runtime standards. So in theory, you could use any programming language that can be compiled to WASM to build canisters. 
 

@@ -4,7 +4,7 @@ draft: false
 title: Release Updates - Fleek Hosting CLI & API, and Github Actions
 slug: release-update-fleek-cli-github-actions
 date: 2021-03-19T03:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/cli-api.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/cli-api.png
 canonical: ''
 description: A new hosting CLI & GraphQL API to manage and control your hosting suite
   on Fleek. Deploy from local machine, use custom GitHub Actions, and more!
@@ -15,11 +15,11 @@ tags:
 - API
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/cli-api.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/cli-api.png)
 
 Thought we'd take a break from news for a while after announcing trustless [Static Frontend Hosting, a new Gateway, and Canister Proxying on the Internet Computer](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting)? Well, _not today._
 
-![](https://storageapi.fleek.co/fleek-team-bucket/no.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/no.gif)
 
 We keep updates coming 🔥 Today's release gives **developers a lot more control over their experience in Fleek**, especially over our Hosting suite of tools for building sites on the Open Web, and for integrating Fleek to other experiences:
 
@@ -36,7 +36,7 @@ We gave our CLI a power up, and now it includes our hosting pipeline! You can no
 
 Everything is abstracted into just a couple of commands. Install, login, initialize, deploy, and you're done. Can't get any simpler. **Want to get started with it? Here's all you need:** [CLI Documentation/Overview](https://docs.fleek.co/fleek-cli/overview/).
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/5bfd08e4-c403-4481-b53c-c110806e1870_text.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/5bfd08e4-c403-4481-b53c-c110806e1870_text.gif)
 
 Unlike using our web app, when you deploy through the CLI, **Fleek doesn't handle the build process**, which simplifies the need of configuring build settings through the CLI itself. The workflow when using the CLI looks a little something like this:
 
@@ -81,7 +81,7 @@ You have your local built site, it is initialized and has its .fleek.json file. 
 
     fleek site:deploy
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/launch.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/launch.gif)
 
 And this would package the content in your local machine, and push it to the new site (or existing one) you selected from your Fleek account in the previous step
 
@@ -122,7 +122,7 @@ So instead, you pass the API as an environment variable, and that way you can ex
 
 And if that wasn't enough, behind our CLI, and now also available as its very own thing, we have a new **GraphQL Fleek API** for our hosting suite of products! With all these tools, your hosting control room will be getting quite the upgrade 😎
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/138828.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/138828.gif)
 
 This new simple GraphQL API is accessible via [https://api.fleek.co/graphql](https://api.fleek.co/graphql "https://api.fleek.co/graphql")
 
@@ -134,11 +134,11 @@ You can see and navigate the entire API's schema to [learn all queries and mutat
 
 **First things first, you need a Hosting API Key.** To get it, visit your account's settings...
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/settingsapi.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/settingsapi.gif)
 
 And generate a new key in the Hosting API Key module, you can do several if you want to separate them for different purposes.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/apikey.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/apikey.gif)
 
 And you're good to go! **Authenticating** is just passing the key in the `Authorization` heather request to auth your requests, for example authenticating a curl request...
 
