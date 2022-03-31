@@ -5,7 +5,7 @@ title: IC Action - An Open Source GitHub Action to Deploy Canisters to the Inter
   Computer!
 slug: ic-action-deploy-canisters-internet-computer
 date: 2021-03-25T03:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png
 canonical: ''
 description: For any current (and future) devs building on DFINITY's IC (Internet
   Computer) and looking for GitHub CI/CD deployments for canisters, we got your back.
@@ -17,7 +17,7 @@ tags:
 - open source
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Group%205815.png)
 
 We're back with a surprise open source release for developers working on DFINITY's Internet Computer! The team just made public the [**IC Action**](https://github.com/FleekHQ/IC-Deploy-Action)**,** a GitHub Action anyone can use to deploy **any type of canisters** seamlessly to DFINITY's Internet Computer through GitHub's CI/CD pipeline.
 
@@ -25,7 +25,7 @@ This IC deploy action wraps commands from [DFINITY's DFX](https://github.com/dfi
 
 ## The Internet Computer & Fleek 🌀
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Dfinity+Fleek.png)
 
 If nothing rings a bell, well, _you've missed a big one_. A couple weeks ago we announced that Fleek was joining the [Internet Computer's ecosystem](https://blog.fleek.co/posts/to-dfinity-and-beyond-dfinity-frontend-hosting) in full force, releasing a stack of Internet Computer focused  features to Fleek:
 
@@ -37,7 +37,7 @@ In Fleek, DFINITY's Internet Computer comes as an alternative to hosting on IPFS
 
 But, if you look outside of Fleek, it is much more.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/illshowyou.webp)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/illshowyou.webp)
 
 The Internet Computer itself is a new approach at rebuilding the web through a unified protocol capable of running **the entire base layer of the web** (hosting / storage / services/ etc..) as well as the apps and experiences of it in that open and decentralized computing blockchain network.
 
@@ -51,7 +51,7 @@ If this is the first time you're hearing about it you might need to step back, t
 
 ## Fleek's IC Deploy Action for Deploying Canisters via GitHub ⚡
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/Group 5818.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/Group 5818.png)
 
 Feel a little less lost? Then back to the news! There are **many ways to deploy your projects and code to canisters on the Internet Computer**. 
 

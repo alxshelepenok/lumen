@@ -4,7 +4,7 @@ draft: false
 title: Release Update - Cloudflare CDN, & Change an Existing Site’s Repository
 slug: release-update-cloudflare-cdn-change-repository
 date: 2021-08-24T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/Cloudflare-NewRepo.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/Cloudflare-NewRepo.png
 canonical: ''
 description: 'We''ve added the ability to use Cloudflare as your CDN option. You can
   now also change the base repository for any of your hosted sites.  '
@@ -16,7 +16,7 @@ tags:
 - Cloudflare
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/Cloudflare-NewRepo.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/Cloudflare-NewRepo.png)
 
 We just made some exciting enhancements to our Fleek.co platform that we wanted to share ⚡️ As always, user’s input drives the features we release. Keep on requesting so that we can keep on building 🚀
 
@@ -29,7 +29,7 @@ So what’s new this week on Fleek?
 
 ## Cloudflare CDN Option
 
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/cloudflare2.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/cloudflare2.png)
 
 First on the docket, we’ve added the ability to use **Cloudflare for CDN/Cache/DNS** features instead of the default Fleek CDN/Cache layer on BunnyCDN. We wanted to provide users with an alternative they can select based on their needs.
 
@@ -41,7 +41,7 @@ Same easy IPFS hosting as before, but with another sturdy CDN alternative provid
 
 ## Update Existing Site with a New Repo
 
-![](https://storageapi.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/NewRepo.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog/Cloudflare-UpdateRepo/NewRepo.gif)
 
 Migrating your **already deployed site** **to a new Github repo**? With this new feature update, gone are the days of having to create an entirely new site through Fleek in order to do this. From your already deployed site, find your way to **Setting > Build & Deploy > Continuous Deployment > Edit Settings**.
 

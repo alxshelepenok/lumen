@@ -4,7 +4,7 @@ draft: false
 title: Release Update - BunnyCDN for HNS, DNS Link, & Domains
 slug: release-team-name-hns-cdn
 date: 2021-07-07T16:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png
 canonical: ''
 description: HNS domains now benefit from our CDN, and we removed the ability to purchase
   domains through Fleek, read to learn about what this means for legacy users.
@@ -17,7 +17,7 @@ tags:
 - DNS
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Release-notes-hns-cdn-team-name-v2.png)
 
 It’s time for another quick release ⚡ This week we’re bringing some changes to the Fleek.co platform, a little bit of adding here, some subtracting over there. As always, feel free to submit any requests or ideas to the team! 🔥
 

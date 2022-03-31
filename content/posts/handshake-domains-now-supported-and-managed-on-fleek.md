@@ -4,7 +4,7 @@ draft: false
 title: Release Update - Handshake Domains, Now Supported on Fleek!
 slug: handshake-domains-support-release
 date: 2021-03-29T03:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png
 canonical: https://blog.fleek.co/posts/handshake-domains-support-release
 description: Link HNS domains to your IPFS or Interet Computer sites on Fleek! Mix
   the power of decentralized blockchain domains with distributed sites on the Open
@@ -16,7 +16,7 @@ tags:
 - HNS
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/Handshake.png)
 
 Fleek's protocol ranks grow again! Make room for [**Handshake**](https://handshake.org/), the peer-to-peer root naming system blockchain. Add **custom HNS domains for both IPFS & Internet Computer hosted sites and apps**, seamlessly, and as quick as it is to set up DNS or ENS.
 
@@ -28,7 +28,7 @@ Plus, let's be honest. Owning top level domains is just cool and we can't wait t
 
 ## Handshake & Namebase 🤝
 
-![](https://storageapi.fleek.co/fleek-team-bucket/hnsnmbs.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/hnsnmbs.png)
 
 A blockchain-based naming protocol / certificate authority, and a fire registry to compliment it. Name a better duo. If you haven't had the chance yet to know Handshake, it's time to catch up.
 
@@ -38,7 +38,7 @@ In a nutshell, it acts like a **decentralized extension of DNS' root zone file**
 
 But with the added perk that it is done through a decentralized blockchain system that's permissionless and uncensorable. **No middlemen or controllers**. Domain buyers own the top level domains, and no entity (ICANN) could snatch it away or avoid the registration of weird & creative TLDs (.mars, .moonmoon, .whatever).
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/comp.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/comp.png)
 
 It's as if the current DNS registrar role was rethinked, and TLD **owners in HNS would retake that role for themselves**, each being the registrar of their own TLDs and doing with them as they see fit (commercialize domains, sell, transfer, etc), validated and backed by a blockchain network.
 
@@ -52,20 +52,20 @@ You could operate and interact with [Handshake directly](https://hsd-dev.org/) v
 
 ## Using HNS Domains in Fleek ⚡
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/handshake.webp)  
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/handshake.webp)  
 Recap aside, let's jump into HNS & Fleek! This will be short and quick, because adding HNS domains to your site on Fleek is **as easy as it is to add ENS or DNS** domains to any site. No surprises, and it is supported for both sites/apps hosted on IPFS or DFINITY's Internet Computer.
 
 Once you have a site or app hosted on Fleek, you just need to visit the **Domain Management Tab** inside your site's settings to find HNS.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/hns.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/hns.gif)
 
 There, click Add HNS, and a modal will pop up where you'll be able to specify an HNS domain, and verify if it is owned already or available for purchase. If it's already owned, you just click Add Domain and you move on to the verification step.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/hnstest%20(1).png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/hnstest%20(1).png)
 
 How do you verify an HNS domain and link it to your site? Same way you do with DNS. Set up a custom record to point it to your Fleek site. If you use **Namebase** to get your HNS TLD/domain, you can quickly update your records through there, or use your own Handshake Nameserver as an alternative.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/records%20(1).png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/records%20(1).png)
 
 Hit verify HNS Configuration, and you're done 🚀 You've paired up Open Web hosting with a blockchain-based domain name.
 

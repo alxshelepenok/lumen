@@ -1,4 +1,4 @@
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/blog.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/blog.png)
 
 # The Fleek Blog
 [![Fleek](https://img.shields.io/badge/Made%20by-Fleek-blue)](https://fleek.co/)

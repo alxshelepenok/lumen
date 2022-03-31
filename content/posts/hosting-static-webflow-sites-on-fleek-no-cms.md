@@ -4,7 +4,7 @@ draft: false
 title: Hosting Static Webflow Sites on Fleek (No CMS)
 slug: hosting-static-webflow-sites-on-fleek
 date: 2021-03-17T03:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/WEBFLOW.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/WEBFLOW.png
 canonical: ''
 description: Learn on this guide how to export your sites from Webflow and, with a
   little Python magic, take them live to the Open Web with Fleek.
@@ -14,7 +14,7 @@ tags:
 - Webflow
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/WEBFLOW.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/WEBFLOW.png)
 
 [Webflow’s](https://webflow.com/) site builder is an amazing tool for quickly setting up a new site, both at a no-code beginner level and at an advanced hands-on one. But what if you want to build your site from scratch with this tool, and then **host it on the Open Web** on IPFS or the Internet Computer with Fleek?
 
@@ -22,7 +22,7 @@ You can! **This guide is focused on static-sites only,** meaning sites that don�
 
 But, as for static sites, nothing that we can’t solve with a GitHub repo and a little Python magic.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/magic.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/magic.gif)
 
 ## Understanding Webflow's Export
 
@@ -30,7 +30,7 @@ Webflow is its very own proprietary framework and is -without a doubt- built to 
 
 What we mean by this is that **many of Webflow’s native features** (forms, CMS, etc.) are built-in to the framework and powered by Webflow itself, so when you try to export those to a different platform, they just won’t work.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/export.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/export.png)
 
 Ok it might not actually be that tragic. But there are a couple hurdles to jump here. First off, **Webflow’s CMS content** is not exactly supported as a static export. When you export a site from Webflow [(here’s how to do it)](https://university.webflow.com/lesson/code-export) you will receive a payload with your site’s HTML, JS, CSS, and assets.
 
@@ -48,7 +48,7 @@ You can then follow your traditional guide on how to deploy [Wordpress on Fleek]
 
 ## Hosting a Static Webflow Site on Fleek
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/webflow.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/webflow.png)
 
 Let’s get started. What will we be doing, in a nutshell? You will export your site from Webflow, create/fork a GitHub repository with a Python script that will transform your site on build to be Fleek-ready, and connect that repository to Fleek to push it live!
 
@@ -58,11 +58,11 @@ First things first, you must have a [Webflow ](https://webflow.com/)website/proj
 
 Hop into your site’s editor, **and click on the Export Code button** on the top right of the editor. A window will begin to prepare your zip with your static site’s HTML, CSS, JS, and assets for downloading.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/export.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/export.gif)
 
 Once downloaded, extract the package in a folder to keep things tidy and orderly, and you will now have an exported set of assets that looks a little something like this:
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/folder.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/folder.png)
 
 Here you have **a CSS folder** containing Webflow’s exported CSS styles, an **images folder** with all assets used when building the site, a **JS folder** with all the JavaScript you used in Webflow, and **individual static HTMLs** for all the pages of your sites, as well as an index for the homepage.
 
@@ -87,7 +87,7 @@ That way you just need to fork, replace the sample site with yours, and configur
 
 The **SRC** folder is the directory where you will place your site’s exported files after extracting the ZIP. They go **as is** no modification needed. See the current Space files in the folder as a reference.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/repo.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/repo.png)
 
 ### Fourth, Configure the Python Script for Your Site
 
@@ -177,17 +177,17 @@ Once your config.json file is set, you can go back to [Fleek ](http://fleek.co/)
 3. Enter build Settings
 4. Deploy!
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/host.gif)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/host.gif)
 
 **What build settings do you need?**
 
 For this custom deployment we’re making with Webflow we need to input a **docker image** with the valid Python version used for the script (currently python:3.8-alpine), the **build command** that executes the Python script during build (python build.py) and the **publish directory** we set (dist).
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog%20Inline/build%20settings.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog%20Inline/build%20settings.png)
 
 Hit deploy, and the script you configured in your repo will work its magic on the Webflow export in the src folder. You can see in the logs as each page is transformed (and see if you missed configuring any of them).
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blog Inline/logs.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/Blog Inline/logs.png)
 
 Once completed, you’ll be live with your static Webflow site on Fleek! 🎉
 
