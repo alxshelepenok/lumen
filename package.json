@@ -38,7 +38,7 @@
     "disqus"
   ],
   "dependencies": {
-    "@sentry/gatsby": "^6.11.0",
+    "@sentry/gatsby": "^6.19.6",
     "@sentry/tracing": "^6.11.0",
     "bluebird": "^3.7.2",
     "classnames": "^2.3.1",
