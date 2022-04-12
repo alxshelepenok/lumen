@@ -4,7 +4,7 @@ draft: true
 title: 'Deploying Your First Website With Fleek! '
 slug: deploy-your-first-website-with-fleek
 date: 2022-04-12T04:00:00Z
-socialImage: ''
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png
 canonical: ''
 description: 'It doesn''t matter what your preferred framework is, deploying a website
   on the open web has never been easier with Fleek! '
@@ -14,6 +14,8 @@ tags:
 - Fleek
 
 ---
+![](https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png)
+
 Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favorite framework!
 
 Learn how to deploy a Blog, Portfolio, or Personal Site on Fleek. Whether you’re hosting on IPFS or the Internet Computer, It’ll take you just a few clicks to get started.
