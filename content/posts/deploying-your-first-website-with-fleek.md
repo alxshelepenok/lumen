@@ -14,12 +14,11 @@ tags:
 - Fleek
 
 ---
-Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favourite framework!
+Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favorite framework!
 
-Learn how to deploy a Blog, Portfolio or Personal Site on Fleek. Whether you’re hosting on IPFS or the Internet Computer, It’ll take you just a few clicks to get started!
+Learn how to deploy a Blog, Portfolio, or Personal Site on Fleek. Whether you’re hosting on IPFS or the Internet Computer, It’ll take you just a few clicks to get started.
 
-####   
-Deploying Your Site to IPFS With Fleek
+## Deploying Your Site to IPFS With Fleek
 
 ![](https://storageapi2.fleek.co/f125a21f-ef9d-41cf-bc2c-0ce7af7f515f-bucket/Blog/deploy-settings.png)  
 The first step to take to deploy a site is to understand what you’ll be working with. Are you using plain html, or a framework like React? Is that framework hands-on, or no code? Depending on your pick, you’ll have a different approach to building your site.
@@ -47,13 +46,13 @@ That’s all! Fleek will run your build and will create a preview URL of your si
 
 ***
 
-### Next Steps- Customizing a DNS, ENS or HNS Domain
+## Next Steps- Customizing a DNS, ENS or HNS Domain
 
 After deploying your site on Fleek, a random domain name will be generated for the site. These domain names will look different depending on if you’re hosting on the IC or IPFS.
 
 While they are useful as a preview, you’ll probably want to customize your site/app with your own domain! That can be done in a **few simple steps**.
 
-#### For DNS Domains
+### For DNS Domains
 
 1. Go to your site's page and select “Add or register domain”
 2. Enter the Custom Domains tab.
@@ -68,7 +67,7 @@ Follow the instructions to add the domain, click “**Verify DNS configuration**
 ![](https://storageapi2.fleek.co/f125a21f-ef9d-41cf-bc2c-0ce7af7f515f-bucket/Blog/finished-add-domain.png)  
 Though the original random domain names differ, the process for adding a custom DNS domain is the same for both IPFS & Internet Computer sites/apps. For an in-depth guide on customizing your DNS domains, or a guide on how to use Cloudflare as the CDN, click [here](https://docs.fleek.co/domain-management/custom-dns-domains/)!
 
-#### For Handshake (HNS) Domains
+### For Handshake (HNS) Domains
 
 Adding a Handshake domain is a similar process and just as easy as adding a DNS address! With Handshake, instead of buying domains themselves, users buy Top Level Domains like .domain or .fleek. After buying your HNS domain from Namebase, deploy your site with Fleek and navigate to “**Domain Management**”. Verify the domain via Namebase or via your own Nameserver.
 
@@ -76,7 +75,7 @@ Adding a Handshake domain is a similar process and just as easy as adding a DNS 
 
 Redeploy your site, and you will now have HNS domains pointing to your IPFS hosted project! For an in-depth guide on connecting HNS domains to your site, click [here](https://docs.fleek.co/domain-management/hns-domains/).
 
-#### For Ethereum Name Service (ENS) Domains
+### For Ethereum Name Service (ENS) Domains
 
 Having your site point to your ENS address brings your site a step further into Web3. Though just called a name and considered a decentralized domain, ENS names are much more than that. ENS gives the ability to directly integrate **payment processing**, **identity records and more** under the **same address**. A decentralized name, with distributed files through IPFS, puts you well on your way to owning a truly decentralized website.
 
@@ -89,15 +88,19 @@ An ENS domain can encompass the entirety of an online entity or company, all wit
 
 ***
 
-**Why Deploy Through Fleek and Host to IPFS?**
+## Why Deploy Through Fleek & Host on the Open Web?
 
-Aside from how easy it is to deploy a website through Fleek, hosting to IPFS has distinct Web3 perks! Instead of hosting files and data at large centralized centers, IPFS distributes the data across nodes run by anyone in the world.
+Aside from how easy it is to deploy a website through Fleek, hosting on IPFS or the IC has distinct Web3 perks!
 
-Since IPFS stores data peer-to-peer, this not only creates a **safer** system but also a **censorship-resistant** one. Additionally, since IPFS distributes data across nodes and points to specific data, addresses can make sure resources are coming from the closest source. This creates a **faster**, more **reliable** experience!
+Instead of hosting files and data at large centralized centers, IPFS distributes the data across nodes run by anyone in the world. Since IPFS stores data peer-to-peer, this not only creates a **safer** system but also a **censorship-resistant** one.
+
+Additionally, since IPFS distributes data across nodes and points to specific data, addresses can make sure resources are coming from the closest source. This creates a **faster**, more **reliable** experience!
+
+In the case of Internet Computer hosting, you can rely on a decentralized and blockchain-run infrastructure that can store your content directly onto a smart contract (canister).
 
 ***
 
-That’s all for today’s quick guide! As always you can find us on Twitter, our Discord community (the Psychedelic Discord server), if you need further assistance or have questions regarding your Fleek account.
+That’s all for today’s quick guide! As always you can find us on Twitter, our Discord community (the Psychedelic Discord server), if you need further assistance or have questions regarding your experience at Fleek.
 
 * [Sign up](https://app.fleek.co/) to try Fleek
 * Join us on the [Psychedelic Discord Community](https://slack.fleek.co/)
