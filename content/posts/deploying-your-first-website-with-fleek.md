@@ -16,7 +16,7 @@ tags:
 ---
 ![](https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png)
 
-Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favourite framework!
+Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favorite framework!
 
 Learn how to deploy a Blog, Portfolio, or Personal Site on Fleek. Whether you’re hosting on IPFS or the Internet Computer, It’ll take you just a few clicks to get started.
 
