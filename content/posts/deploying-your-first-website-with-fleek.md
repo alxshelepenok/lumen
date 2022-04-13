@@ -3,8 +3,8 @@ template: post
 draft: false
 title: 'Deploying Your First Website With Fleek! '
 slug: deploy-your-first-website-with-fleek
-date: 2022-04-13T04:00:00Z
-socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png
+date: 2022-04-13T04:00:00.000+00:00
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog/fleek-guide.png
 canonical: ''
 description: 'It doesn''t matter what your preferred framework is, deploying a website
   on the open web has never been easier with Fleek! '
