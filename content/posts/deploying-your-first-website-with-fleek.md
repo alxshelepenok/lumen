@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Deploying Your First Website With Fleek! '
 slug: deploy-your-first-website-with-fleek
 date: 2022-04-13T04:00:00Z
