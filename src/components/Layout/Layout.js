@@ -38,7 +38,7 @@ const Layout = ({
         <meta name="description" content={description} />
         <meta property="og:site_name" content={title} />
         <meta property="og:image" content={socialImage || absolutePathToSocialImage} />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={socialImage || absolutePathToSocialImage} />
