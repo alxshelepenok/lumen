@@ -3,7 +3,7 @@ template: post
 draft: true
 title: 'Deploying Your First Website With Fleek! '
 slug: deploy-your-first-website-with-fleek
-date: 2022-04-12T04:00:00Z
+date: 2022-04-13T04:00:00Z
 socialImage: https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png
 canonical: ''
 description: 'It doesn''t matter what your preferred framework is, deploying a website
