@@ -16,7 +16,7 @@ tags:
 ---
 ![](https://storageapi2.fleek.co/fleek-team-bucket/blog-images/deploy-fleek.png)
 
-Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favorite framework!
+Just getting started on Fleek? In this quick guide, you’ll find resources to kick start your journey with your favourite framework!
 
 Learn how to deploy a Blog, Portfolio, or Personal Site on Fleek. Whether you’re hosting on IPFS or the Internet Computer, It’ll take you just a few clicks to get started.
 
@@ -42,7 +42,7 @@ Whatever your choice is, **step two happens in the same place for everyone: a Gi
 
 Connect your GitHub account to Fleek, select your site’s repo and branch, and watch as it detects the framework and build settings for you. If you’re using a custom framework, you can input them manually. Click deploy to start the process and soon enough your site will be ready on IPFS or the IC!
 
-![](https://storageapi2.fleek.co/f125a21f-ef9d-41cf-bc2c-0ce7af7f515f-bucket/Blog/Git_to_Fleek_-_HD_720p_AdobeCreativeCloudExpress.gif)
+![](https://storageapi2.fleek.co/f125a21f-ef9d-41cf-bc2c-0ce7af7f515f-bucket/Blog/Git to fleek gidf.gif)
 
 That’s all! Fleek will run your build and will create a preview URL of your site under a Fleek-powered subdomain. You’ll also be able to verify the content on IPFS (or the IC) via a separate and direct url.
 
