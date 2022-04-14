@@ -4,7 +4,7 @@ draft: false
 title: Sign-up & Login Page Overhaul in Preparations for Web3 Logins, Plus UI/UX Enhancements✨
 slug: login-revamp-uiux-enhancements
 date: 2022-04-14T04:00:00Z
-socialImage: https://storageapi2.fleek.co/fleek-team-bucket/fleek-login.png
+socialImage: https://storageapi2.fleek.co/fleek-team-bucket/signup.png
 canonical: ''
 description: Fleek's authentication page is receiving an upgrade in looks, in preparation
   to integrate Web3 wallet logins next on the next release.
@@ -15,7 +15,7 @@ tags:
 - Release
 
 ---
-![](https://storageapi2.fleek.co/fleek-team-bucket/fleek-login.png)
+![](https://storageapi2.fleek.co/fleek-team-bucket/signup.png)
 
 News are coming to Fleek! In today's release, we've redesigned the app's authentication page. Get ready, because we're working hard to **rebuild the Fleek experience and create a Web3 native app for everyone**.
 
