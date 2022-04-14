@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: Sign-up & Login Page Overhaul in Preparations for Web3 Logins, Plus UI/UX Enhancements✨
 slug: login-revamp-uiux-enhancements
 date: 2022-04-14T04:00:00Z
