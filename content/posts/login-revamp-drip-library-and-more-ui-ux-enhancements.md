@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Sign-up & Login Page Overhaul in Preparations for Web3 Logins, Plus UI/UX Enhancements✨
 slug: login-revamp-uiux-enhancements
-date: 2022-04-14T04:00:00.000+00:00
+date: 2022-04-14T04:00:00Z
 socialImage: https://storageapi2.fleek.co/fleek-team-bucket/fleek-login.png
 canonical: ''
 description: Fleek's authentication page is receiving an upgrade in looks, in preparation
