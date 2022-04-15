@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Sign-up & Login Page Overhaul in Preparations for Web3 Logins, Plus UI/UX Enhancements✨
 slug: login-revamp-uiux-enhancements
-date: 2022-04-14T04:00:00Z
+date: 2022-04-15T04:00:00Z
 socialImage: https://storageapi2.fleek.co/fleek-team-bucket/signup.png
 canonical: ''
 description: Fleek's authentication page is receiving an upgrade in looks, in preparation
@@ -32,6 +32,8 @@ Fleek's receiving a freshen-up, and we're starting with the authentication page.
 The revamped authentication page uses the Drip library built on Radix and Stitches (we will open-source it soon!), and has an improved flow for email verification and GitHub account linking.
 
 Not only does this page provide a **cleaner and up to 30% faster experience**, but it'll be the stepping stone upon which we add **a lot more Web3 native login options to Fleek.**
+
+We've also enabled the **email verification check** on all accounts to reduce spam account creation. Any existing unverified account will be prompted to do so during their login.
 
 ### A Segway Into Web3 Auth Options
 
