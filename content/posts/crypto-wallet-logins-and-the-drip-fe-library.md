@@ -4,7 +4,7 @@ draft: true
 title: "Ethereum Wallet Logins⚡ And the Drip FE Library \U0001F4A7"
 slug: crypto-wallet-logins-drip
 date: 2022-05-03T04:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin.png
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png
 canonical: ''
 description: 'Use MetaMask, Rainbow, Gnosis, or any Ethereum wallet to sign up & sign
   in to your Fleek account! Plus, we’re releasing the open source Web3 frontend library
@@ -17,8 +17,7 @@ tags:
 - IPFS
 
 ---
-
-![](https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png)
 
 The day has come! As of today, you can sign up or sign in to Fleek with **an Ethereum wallet. Powered by Sign in With Ethereum, and built using the Drip component library for Web3 apps that we’re also open-sourcing today!**
 
