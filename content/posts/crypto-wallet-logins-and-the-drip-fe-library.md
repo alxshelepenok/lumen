@@ -1,7 +1,7 @@
 ---
 template: post
 draft: true
-title: "Crypto Wallet Logins⚡ And the Drip FE Library \U0001F4A7"
+title: "Ethereum Wallet Logins⚡ And the Drip FE Library \U0001F4A7"
 slug: crypto-wallet-logins-drip
 date: 
 socialImage: ''
@@ -27,7 +27,7 @@ This is the first of many steps towards a Web3 rehaul to Fleek, bringing you wal
 
 ***
 
-## Crypto Wallet Authentication in Fleek ⚡
+## Ethereum Authentication on Fleek ⚡
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/image%2035.png)
 
