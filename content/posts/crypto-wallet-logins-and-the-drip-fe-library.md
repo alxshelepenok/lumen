@@ -1,7 +1,7 @@
 ---
 template: post
 draft: true
-title: "Ethereum Wallet Logins⚡ And the Drip FE Library \U0001F4A7"
+title: "Ethereum Wallet Logins⚡ are Arriving to Fleek \U0001F98A"
 slug: crypto-wallet-logins-drip
 date: 2022-05-03T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png
@@ -63,19 +63,11 @@ Users can create **new wallet-only accounts; or use the flow shown below to link
 
 ***
 
-## The Drip Library 💧
-
-![](https://storageapi.fleek.co/fleek-team-bucket/drip.png)
-
-To prepare for the rebuild of the Fleek UI into a friendlier Web3 experience, we created the **open-source Drip library and design system. Drip is built on React with core styling libraries under the hood (Radix/Stitches)** that ensure the best UI/UX and accessibility possible.
-
-From our end, we want to be efficient and speedy about our new dApp's development. From the community's perspective? We want to share components, layouts, and resources useful for **any developer building Web3 dApps.**
-
-It begins with a set of components that we’ve used in rebuilding Fleek (e.g. the Web3 authentication layout), and it will evolve to a **shopify-esque type of library where developers can find resources for creating any type of dApp.** We will use it to power the UIs of different Fleek / Psychedelic projects going forward, growing the library with different repurposable layouts.
-
-* [View the repository here.](https://github.com/FleekHQ/react-drip)
-* [Check out the storybook!](https://drip.fleek.co/?path=/story/alert--customizable)
-
-***
-
 That’s a wrap for today! Hit our Discord or Twitter if you have any feedback regarding the release, and let us know what you’d like to see next come to Fleek. We’ve got a ton of news in store.
+
+* [Sign up](https://app.fleek.co/) to try Fleek
+* Join us on the [Psychedelic Discord Community](https://slack.fleek.co/)
+* Follow us on [Twitter](https://twitter.com/FleekHQ)
+* Subscribe to our [Youtube channel](https://www.youtube.com/channel/UCBzlwYM0JjZpjDZ52-SLUmw)
+* Check out our [Tech Docs](https://docs.fleek.co/)
+* Contact us at support@fleek.co
