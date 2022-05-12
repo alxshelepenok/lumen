@@ -6,9 +6,8 @@ slug: crypto-wallet-logins-drip
 date: 2022-05-03T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png
 canonical: ''
-description: 'Use MetaMask, Rainbow, Gnosis, or any Ethereum wallet to sign up & sign
-  in to your Fleek account! Plus, we’re releasing the open source Web3 frontend library
-  that we used to build it: Drip.'
+description: Use MetaMask, Rainbow, or any Ethereum wallet to sign up & sign in to
+  your Fleek account!
 category: Announcement
 tags:
 - Rainbow
@@ -19,7 +18,7 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png)
 
-The day has come! As of today, you can sign up or sign in to Fleek with **an Ethereum wallet. Powered by Sign in With Ethereum, and built using the Drip component library for Web3 apps that we’re also open-sourcing today!**
+The day has come! As of today, you can sign up or sign in to Fleek with **an Ethereum wallet. Powered by Sign in With Ethereum and WalletConnect!**
 
 We hinted at this release last week, with the authentication page overhaul, and today we’re not only releasing one option but four different Ethereum wallet authentication providers.  
 It’s time to **welcome blockchain & crypto users into Fleek, the dApp way.**
