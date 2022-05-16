@@ -3,7 +3,7 @@ template: post
 draft: true
 title: "Ethereum Wallet Logins⚡ are Arriving to Fleek \U0001F98A"
 slug: crypto-wallet-logins-drip
-date: 2022-05-03T04:00:00Z
+date: 2022-05-17T04:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-ethereumlogin%20(1)%201%20(1).png
 canonical: ''
 description: Use MetaMask, Rainbow, or any Ethereum wallet to sign up & sign in to
@@ -38,7 +38,8 @@ For this new authentication option, we brought in **four main Ethereum provider 
 * MetaMask 🦊
 * Rainbow 🌈
 * Wallet Connect 🤝
-* Gnosis Multi-Sig 🔒
+
+Coming next? Gnosis Multi-Sig 🔒 too! We disabled this option momentarily as Gnosis handles signatures differently and a gas fee payment would be involved upon sign in. We're working on a different implementation to integrate it!
 
 From any Web3 enthusiast or solo developer to DAOs or multi-sig that want decentralized control of their Fleek account and projects. We’re getting ready to welcome them all!
 
@@ -48,7 +49,7 @@ With MetaMask, it takes a couple of clicks to use your extension wallet to authe
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/fleek-logins/meta.webp)
 
-### Using Rainbow, Gnosis, or Wallet Connect 🌈
+### Using Rainbow, or Wallet Connect 🌈
 
 For these three wallets, all it takes is a QR scan to get started!
 
