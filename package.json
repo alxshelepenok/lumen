@@ -86,7 +86,7 @@
     "@jest/globals": "^27.5.1",
     "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@swc/core": "^1.2.205",
+    "@swc/core": "^1.2.207",
     "@swc/jest": "^0.2.21",
     "@types/gatsby-transformer-remark": "^2.9.1",
     "@types/jest": "^27.5.2",
