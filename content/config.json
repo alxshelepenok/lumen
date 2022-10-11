@@ -1,7 +1,7 @@
 {
-  "title": "Blog by John Doe",
-  "url": "https://lumen.alxshelepenok.com",
-  "subtitle": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+  "title": "Blog by Alyssa Feola",
+  "url": "https://its-a-lisa.com",
+  "subtitle": "A place for my semi-strong opinions, general musings and many, many questions.",
   "copyright": "© All rights reserved.",
   "googleAnalyticsId": "UA-73379983-2",
   "disqusShortname": "",
@@ -9,7 +9,7 @@
   "pathPrefix": "/",
   "menu": [
     {
-      "label": "Articles",
+      "label": "Writings",
       "path": "/"
     },
     {
@@ -24,23 +24,14 @@
   "author": {
     "name": "John Doe",
     "photo": "/photo.jpg",
-    "bio": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    "bio": "A place for my semi-strong opinions, general musings and many, many questions.",
     "contacts": {
-      "rss": "",
-      "email": "",
-      "github": "#",
-      "facebook": "#",
-      "telegram": "#",
-      "twitter": "#",
-      "linkedin": "#",
-      "instagram": "#",
-      "line": "",
-      "weibo": "",
-      "gitlab": "",
-      "medium": "",
-      "youtube": "",
-      "codepen": "",
-      "soundcloud": ""
+      "email": "alyssa@seventeensierra.com",
+      "github": "its-a-lisa",
+      "twitter": "its_a_lisa",
+      "linkedin": "alyssafeola",
+      "instagram": "it.a.lisa",
+
     }
   }
 }
