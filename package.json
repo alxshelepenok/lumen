@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@sentry/gatsby": "^7.12.1",
-    "@sentry/tracing": "^7.12.1",
+    "@sentry/tracing": "^7.15.0",
     "classnames": "^2.3.2",
     "disqus-react": "^1.1.4",
     "gatsby": "^4.23.1",
