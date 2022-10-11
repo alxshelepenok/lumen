@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-lumen",
-  "version": "1.1.425",
+  "version": "1.1.426",
   "description": "A constantly evolving and thoughtful architecture for creating static blogs with Gatsby",
   "keywords": [
     "gatsby",
@@ -80,7 +80,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@alxshelepenok/eslint-config": "^1.0.106",
+    "@alxshelepenok/eslint-config": "^1.0.107",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@jest/globals": "^29.1.2",
