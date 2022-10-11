@@ -5,31 +5,31 @@ exports[`Feed renders correctly 1`] = `
   <div>
     <div>
       <time
-        dateTime="September 1, 2016"
+        dateTime="January 1, 22021"
       >
-        September 2016
+        January 22021
       </time>
       <span />
       <span>
         <a
-          href="/typography"
+          href="/data-management"
         >
-          typography
+          Data Management
         </a>
       </span>
     </div>
     <h2>
       <a
-        href="/posts/perfecting-the-art-of-perfection"
+        href="/posts/operation-inbox-zero"
       >
-        Perfecting the Art of Perfection
+        Starting 2021 with a new start and no mail
       </a>
     </h2>
     <p>
-      An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.
+      My journey to start 2021 with a fresh (virtual) start. 
     </p>
     <a
-      href="/posts/perfecting-the-art-of-perfection"
+      href="/posts/operation-inbox-zero"
     >
       Read
     </a>
@@ -37,31 +37,31 @@ exports[`Feed renders correctly 1`] = `
   <div>
     <div>
       <time
-        dateTime="September 1, 2016"
+        dateTime="January 1, 2021"
       >
-        September 2016
+        January 2021
       </time>
       <span />
       <span>
         <a
-          href="/design-inspiration"
+          href="/web-development"
         >
-          design inspiration
+          Web Development
         </a>
       </span>
     </div>
     <h2>
       <a
-        href="/posts/the-birth-of-movable-type"
+        href="/posts/normal-commit-rate"
       >
-        Johannes Gutenberg: The Birth of Movable Type
+        How many commits is normal?
       </a>
     </h2>
     <p>
-      German inventor Johannes Gutenberg developed a method of movable type and used it to create one of the western world’s first major printed books, the “Forty–Two–Line” Bible.
+      I noticed that the way that I've set up my website produces a lot of commits, I'm not sure if this is normal or not.
     </p>
     <a
-      href="/posts/the-birth-of-movable-type"
+      href="/posts/normal-commit-rate"
     >
       Read
     </a>

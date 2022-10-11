@@ -5,16 +5,9 @@ exports[`Tags renders correctly 1`] = `
   <ul>
     <li>
       <a
-        href="/handwriting"
+        href="/newyear"
       >
-        Handwriting
-      </a>
-    </li>
-    <li>
-      <a
-        href="/helvetica"
-      >
-        Helvetica
+        New Year
       </a>
     </li>
   </ul>

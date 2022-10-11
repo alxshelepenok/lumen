@@ -10,12 +10,12 @@ exports[`Post renders correctly 1`] = `
   <div>
     <div>
       <h1>
-        Perfecting the Art of Perfection
+        Starting 2021 with a new start and no mail
       </h1>
       <div
         dangerouslySetInnerHTML={
           {
-            "__html": "<p>An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.</p>",
+            "__html": "<p>A scenario happened to me that is all too familiar -- I tried to find an email and realized that my inbox was too clunky and it was a futile attempt. This was not the first time or a new thing to happen, but the timing did happen to be at the end of an already frustrating year. ",
           }
         }
       />
@@ -26,19 +26,19 @@ exports[`Post renders correctly 1`] = `
       <p>
         Published
          
-        Sep 1, 2016
+        Dec 31, 2020
       </p>
     </div>
     <div>
       <p>
-        Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+        A place for my semi-strong opinions, general musings and many, many questions.
         <a
-          href="https://www.twitter.com/#"
+          href="https://www.twitter.com/its_a_lisa"
           rel="noopener noreferrer"
           target="_blank"
         >
           <strong>
-            John Doe
+            Alyssa Feola
           </strong>
            on Twitter
         </a>

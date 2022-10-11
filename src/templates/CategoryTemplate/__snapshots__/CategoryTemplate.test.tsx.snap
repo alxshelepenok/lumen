@@ -12,11 +12,11 @@ exports[`CategoryTemplate renders correctly 1`] = `
           <a
             href="/"
           >
-            John Doe
+            Alyssa Feola
           </a>
         </h2>
         <p>
-          Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+          A place for my semi-strong opinions, general musings and many, many questions.
         </p>
       </div>
       <nav>
@@ -48,25 +48,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
         <ul>
           <li>
             <a
-              href="#"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <svg
-                viewBox="0 0 22 28"
-              >
-                <title>
-                  rss
-                </title>
-                <path
-                  d="M6 21c0 1.656-1.344 3-3 3s-3-1.344-3-3 1.344-3 3-3 3 1.344 3 3zM14 22.922c0.016 0.281-0.078 0.547-0.266 0.75-0.187 0.219-0.453 0.328-0.734 0.328h-2.109c-0.516 0-0.938-0.391-0.984-0.906-0.453-4.766-4.234-8.547-9-9-0.516-0.047-0.906-0.469-0.906-0.984v-2.109c0-0.281 0.109-0.547 0.328-0.734 0.172-0.172 0.422-0.266 0.672-0.266h0.078c3.328 0.266 6.469 1.719 8.828 4.094 2.375 2.359 3.828 5.5 4.094 8.828zM22 22.953c0.016 0.266-0.078 0.531-0.281 0.734-0.187 0.203-0.438 0.313-0.719 0.313h-2.234c-0.531 0-0.969-0.406-1-0.938-0.516-9.078-7.75-16.312-16.828-16.844-0.531-0.031-0.938-0.469-0.938-0.984v-2.234c0-0.281 0.109-0.531 0.313-0.719 0.187-0.187 0.438-0.281 0.688-0.281h0.047c5.469 0.281 10.609 2.578 14.484 6.469 3.891 3.875 6.188 9.016 6.469 14.484z"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href="mailto:#"
+              href="mailto:alyssa@seventeensierra.com"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -84,7 +66,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
           </li>
           <li>
             <a
-              href="https://github.com/#"
+              href="https://github.com/its-a-lisa"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -102,7 +84,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
           </li>
           <li>
             <a
-              href="https://www.twitter.com/#"
+              href="https://www.twitter.com/its_a_lisa"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -120,18 +102,36 @@ exports[`CategoryTemplate renders correctly 1`] = `
           </li>
           <li>
             <a
-              href="https://t.me/#"
+              href="https://www.linkedin.com/in/alyssafeola"
               rel="noopener noreferrer"
               target="_blank"
             >
               <svg
-                viewBox="0 0 28 28"
+                viewBox="0 0 24 24"
               >
                 <title>
-                  telegram
+                  linkedin
                 </title>
                 <path
-                  d="M27.563 0.172c0.328 0.234 0.484 0.609 0.422 1l-4 24c-0.047 0.297-0.234 0.547-0.5 0.703-0.141 0.078-0.313 0.125-0.484 0.125-0.125 0-0.25-0.031-0.375-0.078l-7.078-2.891-3.781 4.609c-0.187 0.234-0.469 0.359-0.766 0.359-0.109 0-0.234-0.016-0.344-0.063-0.391-0.141-0.656-0.516-0.656-0.938v-5.453l13.5-16.547-16.703 14.453-6.172-2.531c-0.359-0.141-0.594-0.469-0.625-0.859-0.016-0.375 0.172-0.734 0.5-0.922l26-15c0.156-0.094 0.328-0.141 0.5-0.141 0.203 0 0.406 0.063 0.562 0.172z"
+                  d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/it.a.lisa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+              >
+                <title>
+                  instagram
+                </title>
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                 />
               </svg>
             </a>
@@ -139,7 +139,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
         </ul>
       </div>
       <div>
-        All rights reserved.
+        © All rights reserved.
       </div>
     </div>
   </div>
@@ -153,31 +153,31 @@ exports[`CategoryTemplate renders correctly 1`] = `
           <div>
             <div>
               <time
-                dateTime="September 1, 2016"
+                dateTime="January 1, 22021"
               >
-                September 2016
+                January 22021
               </time>
               <span />
               <span>
                 <a
-                  href="/typography"
+                  href="/data-management"
                 >
-                  typography
+                  Data Management
                 </a>
               </span>
             </div>
             <h2>
               <a
-                href="/posts/perfecting-the-art-of-perfection"
+                href="/posts/operation-inbox-zero"
               >
-                Perfecting the Art of Perfection
+                Starting 2021 with a new start and no mail
               </a>
             </h2>
             <p>
-              An Essay on Typography by Eric Gill takes the reader back to the year 1930. The year when a conflict between two worlds came to its term. The machines of the industrial world finally took over the handicrafts.
+              My journey to start 2021 with a fresh (virtual) start. 
             </p>
             <a
-              href="/posts/perfecting-the-art-of-perfection"
+              href="/posts/operation-inbox-zero"
             >
               Read
             </a>
@@ -185,31 +185,31 @@ exports[`CategoryTemplate renders correctly 1`] = `
           <div>
             <div>
               <time
-                dateTime="September 1, 2016"
+                dateTime="January 1, 2021"
               >
-                September 2016
+                January 2021
               </time>
               <span />
               <span>
                 <a
-                  href="/design-inspiration"
+                  href="/web-development"
                 >
-                  design inspiration
+                  Web Development
                 </a>
               </span>
             </div>
             <h2>
               <a
-                href="/posts/the-birth-of-movable-type"
+                href="/posts/normal-commit-rate"
               >
-                Johannes Gutenberg: The Birth of Movable Type
+                How many commits is normal?
               </a>
             </h2>
             <p>
-              German inventor Johannes Gutenberg developed a method of movable type and used it to create one of the western world’s first major printed books, the “Forty–Two–Line” Bible.
+              I noticed that the way that I've set up my website produces a lot of commits, I'm not sure if this is normal or not.
             </p>
             <a
-              href="/posts/the-birth-of-movable-type"
+              href="/posts/normal-commit-rate"
             >
               Read
             </a>

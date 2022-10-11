@@ -2,6 +2,6 @@
 
 exports[`Copyright renders correctly 1`] = `
 <div>
-  All rights reserved.
+  © All rights reserved.
 </div>
 `;

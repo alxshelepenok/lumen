@@ -5,7 +5,7 @@ exports[`Meta renders correctly 1`] = `
   <p>
     Published
      
-    Sep 1, 2016
+    Dec 31, 2020
   </p>
 </div>
 `;

@@ -3,14 +3,14 @@
 exports[`Author renders correctly 1`] = `
 <div>
   <p>
-    Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+    A place for my semi-strong opinions, general musings and many, many questions.
     <a
-      href="https://www.twitter.com/#"
+      href="https://www.twitter.com/its_a_lisa"
       rel="noopener noreferrer"
       target="_blank"
     >
       <strong>
-        John Doe
+        Alyssa Feola
       </strong>
        on Twitter
     </a>
