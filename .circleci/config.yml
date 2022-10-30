@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: cimg/node:18.11.0
+    - image: cimg/node:19.0.0
   resource_class: large
   working_directory: ~/gatsby-starter-lumen
 
