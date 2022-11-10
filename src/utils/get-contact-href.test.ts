@@ -3,7 +3,6 @@ import getContactHref from "./get-contact-href";
 describe("getContactHref", () => {
   test("successful return contact href", () => {
     expect(getContactHref("rss", "#")).toBe("#");
-    expect(getContactHref("email", "#")).toBe("mailto:#");
     expect(getContactHref("line", "#")).toBe("line://ti/p/#");
     expect(getContactHref("telegram", "#")).toBe("https://t.me/#");
     expect(getContactHref("vkontakte", "#")).toBe("https://vk.com/#");

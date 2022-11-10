@@ -1,6 +1,6 @@
 const getContactHref = (name: string, contact: string) => {
   const hrefs: { [key: string]: string } = {
-    email: `mailto:${contact}`,
+    email: btoa(contact),
     line: `line://ti/p/${contact}`,
     telegram: `https://t.me/${contact}`,
     vkontakte: `https://vk.com/${contact}`,
