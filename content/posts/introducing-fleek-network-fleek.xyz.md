@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Introducing Fleek Network & Fleek.xyz ⚡️
 slug: introducing-fleek-network-and-fleek-xyz
-date: 2022-11-30T08:00:00Z
+date: 2022-11-30T17:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/xyz-ntwrk-release-image.png
 canonical: ''
 description: We just closed a $25M Series A to build Fleek Network, a decentralized
