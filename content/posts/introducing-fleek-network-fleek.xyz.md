@@ -29,7 +29,7 @@ Before we dive in and examine all three in detail, here's an action list for the
 * Sign up for updates on [Fleek.xyz](https://fleek.xyz).
 * Sign up for updates on [Fleek Network](https://fleek.network).
 * Join [the Fleek Discord](https://discord.gg/fleekxyz).
-* Read the [Fleek Network whitepaper](https://storageapi.fleek.co/botchm-team-bucket/Fleek_Network_v0_9.pdf).
+* Read the [Fleek Network whitepaper.](https://fleek.network/fleek-network.pdf?202212011428)
 * [Test out running a node](https://blog.fleek.co/posts/fleek-network-getting-started-guide) for Fleek Network.
 
 Without further ado, let’s dive in! ⚡️
