@@ -20,15 +20,18 @@ tags:
 
 We’re closing out 2022 with not one, not two, but three big announcements:
 
-* **We’ve just completed a $25M Series A led by Polychain and key backers in the decentralized storage ecosystem.**
-* **We’re announcing Fleek Network to patch a missing piece of the web3 infra stack - content delivery.**
-* **We’re announcing a brand new Fleek platform to be THE development platform for web3 - protocol agnostic, non-custodial, and open-source.**
+1. **We’ve just completed a $25M Series A led by Polychain and key backers in the decentralized storage ecosystem.**
+2. **We’re announcing Fleek Network to patch a missing piece of the web3 infra stack - content delivery.**
+3. **We’re announcing a brand new Fleek platform to be THE development platform for web3 - protocol agnostic, non-custodial, and open-source.**
 
-Before we dive in, here's an action list for the eager: 
+Before we dive in and examine all three in detail, here's an action list for the eager:
 
-* Stay updated and follow the progress of [Fleek.xyz](https://fleek.xyz).
-* Stay updated and follow the progress of [Fleek Network](https://fleek.network).
+* Sign up for updates on [Fleek.xyz](https://fleek.xyz).
+* Sign up for updates on [Fleek Network](https://fleek.network).
 * Join [the Fleek Discord](https://discord.gg/fleekxyz).
+* Read the Fleek Network whitepaper.
+* [Test out running a node](https://blog.fleek.co/posts/fleek-network-getting-started-guide) for Fleek Network.
+* Read our $25M Series A Raise Announcement.
 
 Without further ado, let’s dive in! ⚡️
 
@@ -50,9 +53,9 @@ We’re incredibly proud of the technical architecture of Fleek Network, and **a
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/FN-soldier-meme.jpeg)
 
-Fleek Network is a huge missing piece of a true web3 future. 
+Fleek Network is a huge missing piece of a true web3 future.
 
-Currently, the majority of popular web3 apps and use cases (and storage protocols/service providers) use Cloudflare for accelerating their app and content. That’s because above all else, **users will not tolerate slow loading apps/content.** 
+Currently, the majority of popular web3 apps and use cases (and storage protocols/service providers) use Cloudflare for accelerating their app and content. That’s because above all else, **users will not tolerate slow loading apps/content.**
 
 However, the **problem is that web3 protocols don’t incentivize performant delivery of content** directly from their networks, so everyone is forced to stick to a performant cache layer (ex. Cloudflare) in between all these protocols and their apps.
 
@@ -138,5 +141,5 @@ P.s. All communications with our community will now also come from our new fleek
 * Visit the [Fleek.xyz Website](https://fleek.xyz).
 * Join [our Discord](https://discord.gg/fleekxyz).
 * Follow [Fleek.xyz on Twitter](https://twitter.com/fleekxyz).
-* Follow [Fleek Network on Twitter](https://twitter.com/fleekntwrk).
+* Follow [Fleek Network on Twitter](https://twitter.com/fleek_net).
 * Subscribe to [our Youtube](https://www.youtube.com/@FleekHQ).
