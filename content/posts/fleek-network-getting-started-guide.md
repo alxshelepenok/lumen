@@ -30,7 +30,7 @@ For those seeking advanced knowledge:
 * [A Quick TL;DR on Fleek Network](https://blog.fleek.co/posts/fleek-network-getting-started-guide#need-a-quick-fleek-network-tl-dr)
 * [Why is Fleek Network Needed?](https://blog.fleek.co/posts/fleek-network-getting-started-guide#why-is-fleek-network-needed)
 * [How Does Fleek Network work?](https://blog.fleek.co/posts/fleek-network-getting-started-guide#how-does-fleek-network-work)
-* [Running a Node](https://blog.fleek.co/posts/fleek-network-getting-started-guide#runninga-node)
+* [Running a Node](https://blog.fleek.co/posts/fleek-network-getting-started-guide#running-a-node)
 
 ***
 
