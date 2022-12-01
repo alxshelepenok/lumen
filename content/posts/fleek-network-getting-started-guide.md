@@ -39,9 +39,9 @@ The demand for content delivery is skyrocketing, and due to the rise of video, g
 
 On the other hand, content delivery services depend on costly infrastructure that requires a significant number of resources. Traditionally these are dispersed geographically but more commonly located in convenient regions for the business; that is, a resolver might only find a content delivery node close to you sometimes.
 
-Most Web 3 services have their client-facing interfaces hosted and delivered through centralized host providers and traditional content delivery networks, breaking the trust upfront and causing immense disappointment to the end user.
+Most web3 services have their client-facing interfaces hosted and delivered through centralized host providers and traditional content delivery networks, breaking the trust upfront and causing immense disappointment to the end user.
 
-Since decentralized storage is a reality, a decentralized content delivery network can help achieve the goal of providing a fully decentralized Web 3 application.
+Since decentralized storage is a reality, a decentralized content delivery network can help achieve the goal of providing a fully decentralized web3 application.
 
 ***
 
@@ -51,9 +51,9 @@ Fleek Network is built on FileCoin and IPFS for long-term and peer-to-peer stora
 
 Content is replicated across nodes and delivered through peer-to-peer mechanisms while maintaining the user experience of traditional content delivery services we are accustomed to. Peer-to-peer technology is also helpful in providing content as quickly as possible. Fleek Network, at its basics, is a caching and delivery layer on top of FileCoin and IPFS, inheriting the benefits of years of research and the highest advancements in blockchain and internet data transmission technology.
 
-Offers an alternative route to access content without censorship that is more performant and cheaper! Promotes a decentralized economy by caching and serving content while incentivizing participants. It features caching, load balancing, reduced round trips (RTT), and in-memory caching for more demanded content for quicker trip time for first-byte (TTFB). In counterpart, content is cleared based on access popularity.
+Fleek Network is offering an alternative route to access content without censorship that is cheaper and more performant! The network promotes a decentralized economy by caching and serving content while incentivizing participants. It features caching, load balancing, reduced round trips (RTT), and in-memory caching for more demanded content for quicker trip time for first-byte (TTFB). In counterpart, content is cleared based on access popularity.
 
-Fleek Network relies on blockchain technology to handle governance and rewards. Adopting a shared economy model allows anyone to participate with bandwidth and computation in exchange for FLK, the native protocol token. All participants are bound to a consensus algorithm for transparency and verifiable metrics for a fairer and open community.
+Fleek Network also relies on blockchain technology to handle governance and rewards. Adopting a shared economy model allows anyone to participate with bandwidth and computation in exchange for FLK, the native protocol token. All participants are bound to a consensus algorithm for transparency and verifiable metrics for a fairer and open community.
 
 Clients operate with the Fleek Network independently but interact with the network via Gateway nodes. The Gateway Nodes connect users to the closest Cache Nodes that are responsible for caching, replicating, and delivery of content through client-facing HTTPS GET and PUT methods.
 
@@ -65,7 +65,7 @@ The Gateway Nodes act like a reverse proxy for the entire network, handling clie
 
 ## Running a Node
 
-A Fleek Network node can be built and run on your local machine. It’s an open-source project and is open for contributions.
+A Fleek Network node can be built and run on your local machine. It’s an [open-source project](https://github.com/fleek-network/ursa) and is open for contributions.
 
 The project is built with Rust, a general-purpose programming language, be sure to have it installed on your local machine in advance to be able to follow the guide.
 
@@ -109,9 +109,9 @@ Here’s the output of the listener's host and port numbers:
 
 We can interact with the network via the CLI, the HTTP endpoint "/", or the JSON-RPC API endpoint "/rcp/v0". Both HTTP and JSON-RPC are listening on port "4069”.
 
-For today’s example, we're going to “put” a [file](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) and then after retrieving it.
+For today’s example, we're going to “put” a [file](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) and then after, retrieve it.
 
-The CLI can be called without flags or options to start a new node with the default settings. It should output details about the listeners’ hosts and the port numbers.
+Make sure you've started a node already, as described in the previous section.
 
 At the current development stage, there’s only support for IPLD car file format (content addressable aRchive). If curious, learn more about “IPLD car” in the [official specs](https://ipld.io/specs/transport/car/).
 
@@ -185,7 +185,7 @@ Following up on the “put” example, we have a valid CID that was returned in 
         get bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei \
         ./output
 
-💡 Note that we have used a backslash `\` in our command example to break into several lines merely - you can ignore and write all in a single line!
+> 💡 Note that we have used a backslash `\` in our command example to break into several lines merely - you can ignore and write all in a single line!
 
 If successful, the output will be similar to the following:
 
@@ -195,7 +195,7 @@ At this point, we are interested in the file in the “output” directory. The 
 
     bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
-The content is a string binary that only an interpreter can understand. Still, you can assert the file size by executing a simple list command to check the files in the “output” directory, as follows:
+The content is a string binary that only an interpreter can understand. Still, you can assert the file size by executing a simple list command to check the files in the `output` directory, as follows:
 
     ls -hl ./output
 
@@ -204,15 +204,15 @@ The output in our machines shows the following:
     -rw-r--r-- 1 fleek staff 26K 29 Nov 17:23 
     bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
-Notice that it's the same file size, as the original [basic.car](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) we’ve put into the network. You can verify by using the \`cmp\` command, you'll get no output because there's no difference:
+Notice that it's the same file size, as the original [basic.car](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) we’ve put into the network. You can verify by using the `cmp` command, you'll get no output because there's no difference:
 
     cmp basic.car bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
-We’ve now been successful in retrieving the original car file content we “put” into the network earlier!
+**We’ve now been successful in retrieving the original car file content we “put” into the network earlier!** 
 
 ***
 
-## Final thoughts
+## Final Thoughts
 
 Content delivery services have a significant position in our web experience on access to information; If not considered, it might limit access to or manipulate the information we consume.
 
