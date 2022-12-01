@@ -22,7 +22,7 @@ In this guide, we’ll have a simple look into how Fleek Network works in its cu
 
 For those seeking advanced knowledge:
 
-* Read our whitepaper.
+* Read our [whitepaper](https://storageapi.fleek.co/botchm-team-bucket/Fleek_Network_v0_9.pdf).
 * Checkout [our open source code](https://github.com/fleek-network/ursa).
 
 ### Table of Contents
@@ -133,7 +133,7 @@ We can check the available CLI commands to determine how to perform our desired 
 After we checked our base `help`, we'll find that RPC is available as a subcommand.
 
     ursa rpc --help
-
+    
     run rpc commands from cli
     
     USAGE:
@@ -150,7 +150,7 @@ After we checked our base `help`, we'll find that RPC is available as a subcomma
 Very simple to find help by simply passing the help flat after the desired subcommand.
 
     ursa rpc put --help
-
+    
     put the file on the node
     
     USAGE:
@@ -215,7 +215,7 @@ Notice that it's the same file size, as the original [basic.car](https://ipfs.fl
 
     cmp basic.car bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
-**We’ve now been successful in retrieving the original car file content we “put” into the network earlier!** 
+**We’ve now been successful in retrieving the original car file content we “put” into the network earlier!**
 
 ***
 
