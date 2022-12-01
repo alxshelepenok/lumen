@@ -127,15 +127,45 @@ After we checked our base `help`, we'll find that RPC is available as a subcomma
 
     ursa rpc --help
 
+    run rpc commands from cli
+    
+    USAGE:
+        ursa rpc <SUBCOMMAND>
+    
+    FLAGS:
+        -h, --help       Prints help information
+        -V, --version    Prints version information
+    
+    SUBCOMMANDS:
+        help    Prints this message or the help of the given subcommand(s)
+        put     put the file on the node
+
 Very simple to find help by simply passing the help flat after the desired subcommand.
 
     ursa rpc put --help
 
+    put the file on the node
+    
+    USAGE:
+        ursa rpc put <path>
+    
+    FLAGS:
+        -h, --help       Prints help information
+        -V, --version    Prints version information
+    
+    ARGS:
+        <path>
+
 Finally, we can put our `basic.car` file into our node.
+
+    ursa rpc put basic.car
 
 On success, you’ll get a hash representing the data of its content; it uses a format called CID (**C**ontent **ID**entifier).
 
-Put car file done: "bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei"
+    2022-11-23T20:23:09.440690Z  INFO ursa_rpc_client: Using JSON-RPC v2 HTTP URL: <http://0.0.0.0:4069/rpc/v0>
+    2022-11-23T20:23:09.441011Z  INFO surf::middleware::logger::native: sending request
+    2022-11-23T20:23:09.451132Z  INFO surf::middleware::logger::native: request completed
+    2022-11-23T20:23:09.451216Z  INFO ursa::ursa::rpc_commands: Put car file done: "bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei"
 
 ### Retrieve Data Via the CLI
 
@@ -151,7 +181,11 @@ As previously explained, we can always use the flag `help` to find out more abou
 
 Following up on the “put” example, we have a valid CID that was returned in response to our request in our network.
 
-    ursa rpc get bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei ./output
+    ursa rpc \
+        get bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei \
+        ./output
+
+💡 Note that we have used a backslash `\` in our command example to break into several lines merely - you can ignore and write all in a single line!
 
 If successful, the output will be similar to the following:
 
@@ -167,7 +201,8 @@ The content is a string binary that only an interpreter can understand. Still, y
 
 The output in our machines shows the following:
 
-\-rw-r--r-- 1 fleek staff 26K 29 Nov 17:23 bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
+    -rw-r--r-- 1 fleek staff 26K 29 Nov 17:23 
+    bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
 Notice that it's the same file size, as the original [basic.car](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) we’ve put into the network. You can verify by using the \`cmp\` command, you'll get no output because there's no difference:
 
