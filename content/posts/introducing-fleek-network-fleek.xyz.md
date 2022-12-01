@@ -31,7 +31,6 @@ Before we dive in and examine all three in detail, here's an action list for the
 * Join [the Fleek Discord](https://discord.gg/fleekxyz).
 * Read the Fleek Network whitepaper.
 * [Test out running a node](https://blog.fleek.co/posts/fleek-network-getting-started-guide) for Fleek Network.
-* Read our $25M Series A Raise Announcement.
 
 Without further ado, let’s dive in! ⚡️
 
