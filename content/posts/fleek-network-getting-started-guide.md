@@ -11,25 +11,25 @@ category: ''
 tags: []
 
 ---
-In this guide, we’ll have a simple look into how the network works in the current development phase and briefly share some of the concepts.
+In this guide, we’ll have a simple look into how Fleek Network works in its current development phase and briefly share some of the core concepts like spinning up a node and putting + retrieving .car files from the network.
 
 For those seeking advanced knowledge:
 
 * Read our whitepaper.
-* Checkout our open source code.
+* Checkout [our open source code](https://github.com/fleek-network/ursa).
 
-**Need a quick Fleek Network TL;DR?** 
-
-Fleek Network is a decentralized content and application layer built on established decentralized storage protocols combined with high-speed caching and an effective delivery layer. An alternative to traditional content delivery networks without a central authority that is reliable and censorship-resistant. Fleek Network relies on blockchain technology at its core, allowing governance and token rewards as incentives for participation in serving the network.
-
-***
-
-Table of Contents
+### Table of Contents
 
 * A Quick TL;DR on Fleek Network
 * Why is Fleek Network Needed?
 * How Does Fleek Network work?
 * Running a Node
+
+***
+
+## Need a quick Fleek Network TL;DR?
+
+Fleek Network is a decentralized content and application layer built on established decentralized storage protocols combined with high-speed caching and an effective delivery layer. An alternative to traditional content delivery networks without a central authority that is reliable and censorship-resistant. Fleek Network relies on blockchain technology at its core, allowing governance and token rewards as incentives for participation in serving the network.
 
 ***
 
@@ -185,4 +185,4 @@ We have learned a bit about the importance of decentralized content delivery net
 
 Finally, we introduced an open-source solution named Fleek Network, appealed for collaboration, and gave a brief example of how simple it is to run a node on anyone’s computer!
 
-Discover more about the project by watching/contributing on Github, following us on Twitter, and joining our community Discord channel for all the best updates!
+Discover more about the project by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleekxyz) for all the best updates!
