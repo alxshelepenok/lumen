@@ -22,7 +22,7 @@ In this guide, we’ll have a simple look into how Fleek Network works in its cu
 
 For those seeking advanced knowledge:
 
-* Read our [whitepaper](https://storageapi.fleek.co/botchm-team-bucket/Fleek_Network_v0_9.pdf).
+* Read our [whitepaper](https://fleek.network/fleek-network.pdf?202212011428).
 * Checkout [our open source code](https://github.com/fleek-network/ursa).
 
 ### Table of Contents
