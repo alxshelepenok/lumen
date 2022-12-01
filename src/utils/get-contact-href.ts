@@ -1,6 +1,7 @@
 const getContactHref = (name: string, contact: string) => {
+  const isBrowser = () => typeof window !== "undefined";
   const hrefs: { [key: string]: string } = {
-    email: window.btoa(contact),
+    email: isBrowser() ? window.btoa(contact) : "",
     line: `line://ti/p/${contact}`,
     telegram: `https://t.me/${contact}`,
     vkontakte: `https://vk.com/${contact}`,
