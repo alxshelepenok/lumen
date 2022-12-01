@@ -6,7 +6,8 @@ slug: fleek-network-getting-started-guide
 date: 2022-11-30T23:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-network-getting-started.png
 canonical: ''
-description: ''
+description: A first look at what Fleek Network is, why it's important, and a simple
+  tutorial of running and interacting with a node on your local machine!
 category: Tutorial
 tags:
 - CDN
@@ -26,10 +27,10 @@ For those seeking advanced knowledge:
 
 ### Table of Contents
 
-* A Quick TL;DR on Fleek Network
-* Why is Fleek Network Needed?
-* How Does Fleek Network work?
-* Running a Node
+* [A Quick TL;DR on Fleek Network](https://blog.fleek.co/posts/fleek-network-getting-started-guide#need-a-quick-fleek-network-tl-dr)
+* [Why is Fleek Network Needed?](https://blog.fleek.co/posts/fleek-network-getting-started-guide#why-is-fleek-network-needed)
+* [How Does Fleek Network work?](https://blog.fleek.co/posts/fleek-network-getting-started-guide#how-does-fleek-network-work)
+* [Running a Node](https://blog.fleek.co/posts/fleek-network-getting-started-guide#runninga-node)
 
 ***
 
@@ -224,6 +225,6 @@ Content delivery services have a significant position in our web experience on a
 
 We have learned a bit about the importance of decentralized content delivery networks to mitigate the conflicting interest we otherwise face when trusting traditional content delivery providers for a complete web three experience: reasoning and fundamentals.
 
-Finally, we introduced an open-source solution named Fleek Network, appealed for collaboration, and gave a brief example of how simple it is to run a node on anyone’s computer!
+Finally, we introduced an open-source solution called Fleek Network, appealed for collaboration, and gave a brief example of how simple it is to run a node on anyone’s computer!
 
 Discover more about the project by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleekxyz) for all the best updates!
