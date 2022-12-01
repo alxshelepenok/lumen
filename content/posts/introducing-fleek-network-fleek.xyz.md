@@ -78,7 +78,7 @@ Secondly, **we’re also announcing** [**Fleek.xyz**](https://fleek.xyz)**, a ne
 
 At its core, Fleek.xyz will be an **open source, blockchain agnostic, extensible web3 development platform** that provides familiar products, features and developer experiences that leverage different web3 protocols and primitives.
 
-With Fleek.xyz developers can pick and choose individual services that best suit their needs – discard the rest! Utilize our microservices independently through our CLI, SDK, and open API or keep it simple and use our official UI.
+With Fleek.xyz developers can pick and choose individual services that best suit their needs – discard the rest! Utilize our services independently through our CLI, SDK, and open API or keep it simple and use our official UI.
 
 While this is still the early days for Fleek.xyz, we’ve put a lot of thought into some of the project’s core pillars that we’re excited about.
 
