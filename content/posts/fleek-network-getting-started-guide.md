@@ -116,7 +116,7 @@ Here’s the output of the listener's host and port numbers:
 
 We can interact with the network via the CLI, the HTTP endpoint "/", or the JSON-RPC API endpoint "/rcp/v0". Both HTTP and JSON-RPC are listening on port "4069”.
 
-For today’s example, we're going to “put” a [file](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) and then after, retrieve it.
+For today’s example, we're going to “put” a [file](https://ipfs.io/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) and then after, retrieve it.
 
 Make sure you've started a node already, as described in the previous section.
 
@@ -124,11 +124,12 @@ At the current development stage, there’s only support for IPLD car file forma
 
 As we’re keeping things simple, we’ll download an existing “car” demo file to our local machine to use later for our example.
 
-    curl https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi -o basic.car
+    curl https://ipfs.io/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi -o basic.car
+
 
 If successful, we should have a `basic.car`.
 
-We can check the available CLI commands to determine how to perform our desired goal and put the [car file](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) into our network.
+We can check the available CLI commands to determine how to perform our desired goal and put the [car file](https://ipfs.io/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) into our network.
 
 After we checked our base `help`, we'll find that RPC is available as a subcommand.
 
@@ -211,7 +212,7 @@ The output in our machines shows the following:
     -rw-r--r-- 1 fleek staff 26K 29 Nov 17:23 
     bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
-Notice that it's the same file size, as the original [basic.car](https://ipfs.fleek.co/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) we’ve put into the network. You can verify by using the `cmp` command, you'll get no output because there's no difference:
+Notice that it's the same file size, as the original [basic.car](https://ipfs.io/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi) we’ve put into the network. You can verify by using the `cmp` command, you'll get no output because there's no difference:
 
     cmp basic.car bafybeifyjj2bjhtxmp235vlfeeiy7sz6rzyx3lervfk3ap2nyn4rggqgei.car
 
