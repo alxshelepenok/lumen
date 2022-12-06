@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: An Overview of Fleek.xyz’s Architecture
 slug: fleek-xyz-architecture-overview
 date: 2022-12-05T16:00:00Z
