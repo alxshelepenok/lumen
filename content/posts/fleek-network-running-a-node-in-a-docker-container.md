@@ -360,7 +360,7 @@ SUBCOMMANDS:
 💡 At time of writing the Docker build places the ursa binary in the pathname `/`, thus we executed `/ursa --help`, if you wonder where the forward slash is used for. You can add the the directory to the system PATH but we should tweak the Docker file shortly and `ursa` available globally in the container.
 
 
-Executing the bash shell in the container is not mandatory and what we shared here is to demonstrate how to interact with the `ursa` process for the users that don't have it on their local machines and/or interested in checking subcommands, learning, following tutorials, etc in the same way someone who have it installed in their operating system has access to.
+Executing the bash shell in the container is not mandatory and what we shared here is to demonstrate how to interact with the `ursa` process for the users that don't have it on their local machines and/or interested in checking subcommands, learning, following tutorials, etc in the same way someone who have it installed in their operating system would.
 
 ## Running a stack with Docker compose
 
