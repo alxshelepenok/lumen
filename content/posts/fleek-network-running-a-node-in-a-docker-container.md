@@ -364,9 +364,9 @@ Executing the bash shell in the container is not mandatory and what we shared he
 
 ## Running a stack with Docker compose
 
-We have defined a Stack 🕸 that can be useful for running and monitoring and at time of writing, this is declared in a docker-compose file located [here](https://github.com/fleek-network/ursa/blob/cfbbe6208dc6a33d28b43c6e6820ab76c2905353/infra/ursa/docker-compose.yml).
+We have defined a Stack 🕸 that can be useful for running and monitoring; At time of writing, this is declared in a docker-compose file located [here](https://github.com/fleek-network/ursa/blob/cfbbe6208dc6a33d28b43c6e6820ab76c2905353/infra/ursa/docker-compose.yml).
 
-There you'll find specified all the configuration options, such as the one's we've discussed in the previous topics about the host, port bindings, etc, You don't have to constantly verify if specified all the correct options when running the Docker containers. Plus, we have these setup for you [grafana](https://grafana.com/), [prometheus](https://prometheus.io/docs/introduction/overview/), [certbot](https://certbot.eff.org/) and [nginx](https://www.nginx.com/). Also, the docker compose file can be customised to your preference and Docker will detect any changes and re-creates the container when/if necessary.
+There you'll find specified all the configuration options, such as the one's we've discussed in the previous topics about the host, port bindings, etc. You don't have to constantly verify if specified all the correct options when running the Docker containers. Plus, we have these setup for you [grafana](https://grafana.com/), [prometheus](https://prometheus.io/docs/introduction/overview/), [certbot](https://certbot.eff.org/) and [nginx](https://www.nginx.com/). Also, the docker compose file can be customised to your preference, Docker will detect any changes recreating the the container if and when necessary.
 
 For the purpose of this guide 📒, we'll look into how to start and stop the stack only!
 
@@ -382,13 +382,13 @@ For our use-case, here's how it'll look like:
 docker-compose -f infra/ursa/docker-compose.yml up
 ```
 
-Where for stopping `down`, you'd:
+Where for stopping, you have option `down`:
 
 ```sh
 docker-compose -f infra/ursa/docker-compose.yml down
 ```
 
-Here, we have an opinionated stack that you can use as base for your system, or as a reference for your own research and learning. This means that you are not obligated to use Grafana or Prometheus and Ursa works without any dependency.
+Here, we have an opinionated stack that you can use as base for your system, or as a reference, for your own research and learning. This means you aren't obligated to use Grafana or Prometheus.Ursa works without any dependency!
 
 💡 Learn more about [docker compose](https://docs.docker.com/compose/) by checking the documentation [here](https://docs.docker.com/compose/).
 
@@ -409,7 +409,7 @@ Containers are a way to have a self-contained environment that includes all nece
 
 Fleek Network's Ursa is developed with [Rust](https://www.rust-lang.org/), a general-purpose programming language, that requires a number of dependencies and libraries to compile the project. Some of these libraries are not installed by default 🤖 and require some troubleshooting to the end-user. [Docker](https://www.docker.com/) provide us with containers, self-containing all the required libraries for the purpose of running Ursa, our application.
 
-We guided you through the initial installation steps, how to build a [Docker](https://www.docker.com/) image, which then's used to Docker run a container. Plus, provided the lower-level commands, we offer as simple utility methods to help you understand other present or advanced use-cases.
+We guided you through the initial installation steps, how to build a [Docker](https://www.docker.com/) image, which then's used to Docker run a container. Plus, provided the lower-level commands, to help you understand other present or advanced use-cases, and also at higher level, oferring simple utility methods.
 
 While we do our best to provide the most clear instructions, there's always space for improvement, therefore feel free to make any contributions by messaging us on our [Discord](https://discord.gg/fleekxyz) or by opening a [PR](https://github.com/fleek-network) in any of our repositories 🙏.
 
