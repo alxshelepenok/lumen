@@ -1,11 +1,11 @@
 ---
 template: post
 draft: false
-title: 'Fleek Network: Running Ursa in a Docker container'
-slug: fleek-network-running-ursa-in-a-docker-container
+title: 'Fleek Network: Running a node in a Docker container'
+slug: fleek-network-running-a-node-in-a-docker-container
 date: 2022-12-05T23:00:00Z
 canonical: ''
-description: A guide on how to run Fleek Network's Ursa in a docker container
+description: A guide on how to run Fleek Network's node in a docker container
 category: Tutorial
 tags:
 - DCDN
@@ -16,7 +16,7 @@ tags:
 
 ---
 
-# Fleek Network: Running Ursa in a Docker container
+# Fleek Network: Running a node in a Docker container
 
 ## Introduction
 
@@ -25,7 +25,7 @@ Our [Docker](https://www.docker.com/) [image](https://docs.docker.com/engine/ref
 If you need a deep dive into Docker, check the oficial getting started [here](https://docs.docker.com/get-started/).
 
 
-## Content summary
+## Topics
   - [Install Docker desktop](#install-docker-desktop)
   - [Build the Docker image](#build-the-docker-image)
   - [Run the Docker container](#run-the-docker-container)
