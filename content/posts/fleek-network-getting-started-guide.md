@@ -76,6 +76,8 @@ A Fleek Network node can be built and run on your local machine. It’s an [open
 
 The project is built with Rust, a general-purpose programming language, be sure to have it installed on your local machine in advance to be able to follow the guide.
 
+> Installing and configuring Rust, packages and library dependencies can be tricky! If you haven't already, check the guides [How to install Rust and the dependencies for Ursa CLI](fleek-network-how-to-install-rust-and-the-dependencies-for-ursa-cli.md) or [Running in a Docker container](fleek-network-running-in-a-docker-container.md) for help.
+
 We’ll clone the repository locally, build it and interact with the node through the binary or the HTTP JSON-RPC API with a client like cURL, but you can use a GUI (Postman, Insomnia, etc.) if your preference.
 
 Start by cloning the repository located at [https://github.com/fleek-network/ursa](https://github.com/fleek-network/ursa "https://github.com/fleek-network/ursa")
@@ -84,7 +86,7 @@ Start by cloning the repository located at [https://github.com/fleek-network/urs
 
 You’ll notice that we try our best to document the project as we go, so it should be easy to follow if interested. Of course, don’t shy away from contributing with any amends or your wording poetry!
 
-Once the git clone completes, you’ll have the latest HEAD version at the time of cloning. You should use git to fetch or pull the latest versions consequently.
+Once the git clone completes, you’ll have the latest version at the time of cloning. You should use git to fetch or pull the latest versions consequently.
 
 Execute the install command to build and install the Fleek Network CLI.
 
@@ -93,6 +95,9 @@ Execute the install command to build and install the Fleek Network CLI.
 The install command uses the Rust compiler to build; depending on how fast your machine is, it might take a while.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-network-rust-compiler.png)
+
+
+⚠️ If you encounter errors in the install process, is very likely that you're missing dependencies, packages, libraries for Rust to compile the Ursa CLI 😅. Save yourself time and energy, read the guide [How to install Rust and the dependencies for Ursa CLI](fleek-network-how-to-install-rust-and-the-dependencies-for-ursa-cli.md) or [Running in a Docker container](fleek-network-running-in-a-docker-container.md) for help!
 
 Once the Rust compiler completes generating the binary, it’ll include it in the cargo’s bin directory. On macOS and Linux this is located at `$HOME/.cargo/bin` and on Windows `%USERPROFILE%\\.cargo\\bin`. These should be in your `$PATH` environment variable. If you have customized these, check the [installation guide](https://rust-lang.github.io/rustup/installation/index.html) for any questions.
 
