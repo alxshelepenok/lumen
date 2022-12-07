@@ -208,7 +208,7 @@ Bash on Ubuntu on Windows
 
 Alternatively, try [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-gb&gl=gb) and open a WSL Ubuntu terminal window.
 
-Generally, users report issues with commands not found. 🧐 To avoid frustration verify that your system PATH environment variable is setup correctly and includes all the necessary paths (e.g. the [Cargo binary directory](https://doc.rust-lang.org/cargo/commands/cargo-install.html)). Use the [Install Rust with Rustup tool](#install-rust-with-rustup-tool), if too difficult for you at this time, you might want to use our [Docker solution](fleek-network-running-ursa-in-a-docker-container.md), which is simpler.
+Generally, users report issues with commands not found. 🧐 To avoid frustration verify that your system PATH environment variable is setup correctly and includes all the necessary paths (e.g. the [Cargo binary directory](https://doc.rust-lang.org/cargo/commands/cargo-install.html)). Use the [Install Rust with Rustup tool](#install-rust-with-rustup-tool), if too difficult for you at this time, you might want to use our [Docker solution](fleek-network-running-a-node-in-a-docker-container.md), which is simpler.
 
 ## Installing Ursa CLI
 
