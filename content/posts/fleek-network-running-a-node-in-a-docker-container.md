@@ -296,10 +296,10 @@ When we delete a container, it's no longer available and thus we'd have to [Dock
 ## Execute Ursa CLI commands in the container
 
 ```sh
-docker exec -it ursa-cli <FILEPATH> <ARGS>
+docker exec -it <CONTAINER-NAME> <FILEPATH> <ARGS>
 ```
 
-For example, we'll execute `ursa` which is located in the root `/`, with the flag `version` to get the version number of the `ursa cli` we are running.
+For example, we'll interact with the container named `ursa-cli` and execute `ursa` which is located in the root `/`, with the flag `version` to get the version number of the `ursa cli` we are running.
 
 ```sh
 docker exec -it ursa-cli /ursa --version
