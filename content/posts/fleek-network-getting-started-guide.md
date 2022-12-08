@@ -4,7 +4,7 @@ draft: false
 title: 'Fleek Network: Getting Started Guide'
 slug: fleek-network-getting-started-guide
 date: 2022-11-30T23:00:00.000+00:00
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-gsg.png
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-getting-started.png
 canonical: ''
 description: A first look at what Fleek Network is, why it's important, and a simple
   tutorial of running and interacting with a node on your local machine!
@@ -16,7 +16,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-gsg.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-getting-started.png)
 
 In this guide, we’ll have a simple look into how Fleek Network works in its current development phase and briefly share some of the core concepts like spinning up a node and putting + retrieving .car files from the network.
 
