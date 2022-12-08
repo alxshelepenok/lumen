@@ -173,6 +173,13 @@ Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
+You will also need to install the [Protobufer Compiler](https://grpc.io/docs/protoc-installation/) using `Homebrew`.
+
+```sh
+brew install protobuf
+protoc --version  # Ensure compiler version is 3+
+```
+
 ## Linux Ubuntu dependencies
 
 On Linux Ubuntu (our choice as the linux distro example), start by updating the package information in the source list and then upgrade all the installed packages with the latest versions (⚠️ do the equivalent for your Linux distro), as follows:
@@ -196,6 +203,13 @@ Followed by the required tools required to compile the application ([cmake](http
 sudo apt-get install cmake clang pkg-config libssl-dev
 ```
 
+Now install the [Protobufer Compiler](https://grpc.io/docs/protoc-installation/).
+
+```sh
+sudo apt-get install -y protobuf-compiler
+protoc --version  # Ensure compiler version is 3+
+```
+
 ## Windows subsystem linux
 
 The instructions in [Linux Ubuntu dependencies for building Ursa](#linux-ubuntu-dependencies-for-building-ursa) apply to WSL users. Check them out!
@@ -209,6 +223,8 @@ Bash on Ubuntu on Windows
 Alternatively, try [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-gb&gl=gb) and open a WSL Ubuntu terminal window.
 
 Generally, users report issues with commands not found. 🧐 To avoid frustration verify that your system PATH environment variable is setup correctly and includes all the necessary paths (e.g. the [Cargo binary directory](https://doc.rust-lang.org/cargo/commands/cargo-install.html)). Use the [Install Rust with Rustup tool](#install-rust-with-rustup-tool), if too difficult for you at this time, you might want to use our [Docker solution](fleek-network-running-a-node-in-a-docker-container), which is simpler.
+
+Please use [these](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md#c-protobuf---windows) instructions to install the Protobuf compiler. 
 
 ## Installing Ursa CLI
 
