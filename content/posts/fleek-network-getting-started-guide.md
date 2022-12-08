@@ -3,8 +3,8 @@ template: post
 draft: false
 title: 'Fleek Network: Getting Started Guide'
 slug: fleek-network-getting-started-guide
-date: 2022-11-30T23:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-network-getting-started.png
+date: 2022-11-30T23:00:00.000+00:00
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-gsg.png
 canonical: ''
 description: A first look at what Fleek Network is, why it's important, and a simple
   tutorial of running and interacting with a node on your local machine!
@@ -16,7 +16,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-network-getting-started.png)
+![](https://storageapi.fleek.co/fleek-team-bucket/thumbnails/fleek-net-gsg.png)
 
 In this guide, we’ll have a simple look into how Fleek Network works in its current development phase and briefly share some of the core concepts like spinning up a node and putting + retrieving .car files from the network.
 
@@ -96,7 +96,6 @@ The install command uses the Rust compiler to build; depending on how fast your 
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-network-rust-compiler.png)
 
-
 ⚠️ If you encounter errors in the install process, is very likely that you're missing dependencies, packages, libraries for Rust to compile the Ursa CLI 😅. Save yourself time and energy, read the guide [How to install Rust and the dependencies for Ursa CLI](fleek-network-how-to-install-rust-and-the-dependencies-for-ursa-cli) or [Running a node in a Docker container](fleek-network-running-a-node-in-a-docker-container) for help!
 
 Once the Rust compiler completes generating the binary, it’ll include it in the cargo’s bin directory. On macOS and Linux this is located at `$HOME/.cargo/bin` and on Windows `%USERPROFILE%\\.cargo\\bin`. These should be in your `$PATH` environment variable. If you have customized these, check the [installation guide](https://rust-lang.github.io/rustup/installation/index.html) for any questions.
@@ -130,7 +129,6 @@ At the current development stage, there’s only support for IPLD car file forma
 As we’re keeping things simple, we’ll download an existing “car” demo file to our local machine to use later for our example.
 
     curl https://ipfs.io/ipfs/bafybeidqdywrzg7c3b4dmm332m4b7uiakgitplz2pep2zntederxpj3odi -o basic.car
-
 
 If successful, we should have a `basic.car`.
 
