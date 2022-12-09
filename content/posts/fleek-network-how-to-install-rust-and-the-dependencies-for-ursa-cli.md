@@ -173,11 +173,16 @@ Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
-You will also need to install the [Protobufer Compiler](https://grpc.io/docs/protoc-installation/) using `Homebrew`.
+Install the [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/), here's an example that uses [homebrew package manager](https://brew.sh/), if you don't have homebrew learn about it [here](https://brew.sh/). Alternatively, visit the [Protocol Buffer Compiler](https://grpc.io/docs/protoc-installation/) for other installation options.
 
 ```sh
 brew install protobuf
-protoc --version  # Ensure compiler version is 3+
+```
+
+Ensure the compiler version is 3+
+
+```sh
+protoc --version
 ```
 
 ## Linux Ubuntu dependencies
@@ -206,8 +211,13 @@ sudo apt-get install cmake clang pkg-config libssl-dev
 Now install the [Protobufer Compiler](https://grpc.io/docs/protoc-installation/).
 
 ```sh
-sudo apt-get install -y protobuf-compiler
-protoc --version  # Ensure compiler version is 3+
+sudo apt-get install protobuf-compiler
+```
+
+Ensure the compiler version is 3+
+
+```sh
+protoc --version
 ```
 
 ## Windows subsystem linux
@@ -223,8 +233,6 @@ Bash on Ubuntu on Windows
 Alternatively, try [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-gb&gl=gb) and open a WSL Ubuntu terminal window.
 
 Generally, users report issues with commands not found. 🧐 To avoid frustration verify that your system PATH environment variable is setup correctly and includes all the necessary paths (e.g. the [Cargo binary directory](https://doc.rust-lang.org/cargo/commands/cargo-install.html)). Use the [Install Rust with Rustup tool](#install-rust-with-rustup-tool), if too difficult for you at this time, you might want to use our [Docker solution](fleek-network-running-a-node-in-a-docker-container), which is simpler.
-
-Please use [these](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md#c-protobuf---windows) instructions to install the Protobuf compiler. 
 
 ## Installing Ursa CLI
 
