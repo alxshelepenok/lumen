@@ -4,7 +4,7 @@ draft: true
 title: 'Fleek Network Edge: Censorship Resistance'
 slug: Fleek-Network-Edge-Censorship-Resistance
 date: 2022-12-09T06:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/FN-soldier-meme.jpeg
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image.jpg
 canonical: ''
 description: 'Our new series of blogs explores the unique features of Fleek Network,
   a decentralized content and application delivery network that is not only censorship-resistant
@@ -21,6 +21,8 @@ tags:
 
 ---
 ### With no central authority, Fleek Network is not only reliable but also censorship-resistant!
+
+![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image.jpg)
 
 Fast, performant, and most importantly, no intermediary ⚡
 
