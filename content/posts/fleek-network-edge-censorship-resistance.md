@@ -14,8 +14,6 @@ category: ''
 tags: []
 
 ---
-### No Central Authority = No Censorship of Content
-
 With no central authority, Fleek Network is not only reliable but also censorship-resistant!
 
 Fast, performant, and most importantly, no intermediary ⚡
