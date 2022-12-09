@@ -20,7 +20,7 @@ tags:
 - CDN
 
 ---
-With no central authority, Fleek Network is not only reliable but also censorship-resistant!
+#### With no central authority, Fleek Network is not only reliable but also censorship-resistant!
 
 Fast, performant, and most importantly, no intermediary ⚡
 
