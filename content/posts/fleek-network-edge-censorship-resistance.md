@@ -6,10 +6,10 @@ slug: Fleek-Network-Edge-Censorship-Resistance
 date: 2022-12-09T06:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/FN-soldier-meme.jpeg
 canonical: ''
-description: 'The first blog in our new series explores the unique features of Fleek
-  Network, a decentralized content delivery network that is not only fast and performant,
-  but also reliable and censorship-resistant. Read on for more info on how it remains
-  censor-ship resistant:'
+description: 'Our new series of blogs explores the unique features of Fleek Network,
+  a decentralized content and application delivery network that is not only censorship-resistant
+  and performant, but also fast and reliable. Read on to learn how Fleek Network remains
+  censorship-resistant:'
 category: ''
 tags: []
 
