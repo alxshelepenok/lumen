@@ -10,7 +10,7 @@ description: 'Our new series of blogs explores the unique features of Fleek Netw
   a decentralized content and application delivery network that is not only censorship-resistant
   and performant, but also fast and reliable. Read on to learn how Fleek Network remains
   censorship-resistant:'
-category: ''
+category: General
 tags:
 - 'censorship resistance '
 - decentralized content delivery
@@ -20,7 +20,7 @@ tags:
 - CDN
 
 ---
-#### With no central authority, Fleek Network is not only reliable but also censorship-resistant!
+### With no central authority, Fleek Network is not only reliable but also censorship-resistant!
 
 Fast, performant, and most importantly, no intermediary ⚡
 
