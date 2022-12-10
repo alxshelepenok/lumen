@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Fleek Network Edge: Censorship Resistance'
 slug: Fleek-Network-Edge-Censorship-Resistance
 date: 2022-12-09T06:00:00Z
