@@ -21,7 +21,7 @@ tags:
 
 Today, we’re taking some of the initial actions towards our end goal of removing Fleek domains as a potential point of failure by starting to deprecate some of the current domains used on the Fleek.co platform. The areas being affected are Fleek’s public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co "https://ipfs.fleek.co")) and our storage API domain ([https://storageapi.fleek.co](https://storageapi.fleek.co "https://storageapi.fleek.co")).
 
-For users of both of those services, **breaking changes are coming and your actions will be required before December 30th, 2022**. Please read on if this applies to you.
+For users of both of those services, this means that **breaking changes are coming and your actions will be required before December 30th, 2022**. Please read on if this applies to you.
 
 Why the deprecations? The quick and short of it is we’re building a new Fleek platform in which one of our goals is to increase decentralization and censorship resistance by removing our own domains as central points of failures. Read through this post, **take action on any changes we’re making**, and at the end we’ll drop some knowledge so you can get caught up on our vision for the Fleek of the future.
 
