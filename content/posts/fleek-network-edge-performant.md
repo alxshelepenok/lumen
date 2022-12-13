@@ -10,7 +10,12 @@ canonical: ''
 description: In the second instalment of the Fleek Network Edge series, we take a
   look at the unique features that allows the network itself to grow
 category: General
-tags: []
+tags:
+- Node
+- CDN
+- Fleek Network
+- Performant
+- Decentralized CDN
 
 ---
 ## Fleek Network is going against the grain of the traditional CDN model in a handful of ways. 
