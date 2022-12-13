@@ -56,6 +56,7 @@ pages:
 - content/posts/an-overview-of-fleek.xyz-s-architecture.md
 - content/posts/crypto-wallet-logins-and-the-drip-fe-library.md
 - content/posts/deploying-your-first-website-with-fleek.md
+- content/posts/deprecation-of-ipfs-gateway-and-storage-api-url-on-fleek.co.md
 - content/posts/filecoin-archiving-comes-to-fleek-sites-and-storage.md
 - content/posts/fleek-in-2020-looking-back-to-our-first-year.md
 - content/posts/fleek-network-edge-censorship-resistance.md
