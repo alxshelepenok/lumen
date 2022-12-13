@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Fleek Network Edge: Performant'
 slug: Fleek-Network-Edge-Performant
 date: 2022-12-13T06:00:00Z
