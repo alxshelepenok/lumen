@@ -4,8 +4,7 @@ draft: false
 title: 'Fleek Network Edge: Performant'
 slug: Fleek-Network-Edge-Performant
 date: 2022-12-13T06:00:00Z
-socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image
-  (1).jpg
+socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/performant.jpg
 canonical: ''
 description: In the second instalment of the Fleek Network Edge series, we take a
   look at the unique features that allows the network itself to grow
@@ -20,7 +19,9 @@ tags:
 ---
 ### Fleek Network is going against the grain of the traditional CDN model in a handful of ways.
 
-![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image (1).jpg)We touched on one of those ways in our first article in this series – [Censorship Resistance](https://blog.fleek.co/posts/Fleek-Network-Edge-Censorship-Resistance).
+![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/performant.jpg)
+
+We touched on one of those ways in our first article in this series – [Censorship Resistance](https://blog.fleek.co/posts/Fleek-Network-Edge-Censorship-Resistance).
 
 Fleek Network, the decentralized CDN, also differs from traditional CDNs in another pivotal way: the network only grows with demand.
 
