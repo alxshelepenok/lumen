@@ -18,7 +18,7 @@ tags:
 - Decentralized CDN
 
 ---
-## Fleek Network is going against the grain of the traditional CDN model in a handful of ways. 
+### Fleek Network is going against the grain of the traditional CDN model in a handful of ways.
 
 ![](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image (1).jpg)We touched on one of those ways in our first article in this series – [Censorship Resistance](https://blog.fleek.co/posts/Fleek-Network-Edge-Censorship-Resistance).
 
