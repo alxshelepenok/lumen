@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Deprecation of IPFS Gateway and Storage API URL on Fleek.co
 slug: fleek-co-gateway-storage-url-deprecation
 date: 2022-12-01T18:00:00Z
