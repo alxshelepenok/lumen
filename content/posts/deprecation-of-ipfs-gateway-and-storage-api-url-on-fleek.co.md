@@ -1,13 +1,13 @@
 ---
 template: post
-draft: false
+draft: true
 title: Deprecation of IPFS Gateway and Storage API URL on Fleek.co
 slug: fleek-co-gateway-storage-url-deprecation
-date: 2022-12-14T14:00:00Z
+date: 2022-12-01T18:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/fleek-xyz-dep-old-doms.png
 canonical: ''
-description: on Fleek.co We’re starting to take actions to deprecate the legacy Fleek
-  platform (Fleek.co), starting with our IPFS Gateway + Storage API domains.
+description: We’re starting to take actions to deprecate the legacy Fleek platform
+  (Fleek.co), starting with our IPFS Gateway + Storage API domains.
 category: Announcement
 tags:
 - Fleek.co
