@@ -107,7 +107,7 @@ Fleek Network only works with car files ([CARv1](https://ipld.io/specs/transport
 
 # Using CAR files
 
-As shared above in our discussion about the supported codec [DAB-PB](https://ipld.io/docs/codecs/known/dag-pb/) for [Content Adressable aRchive (CAR)](#content-addressable-archive-car), inside these object graphs, we find a [UnixFS](https://github.com/ipfs/specs/blob/main/UNIXFS.md) object describing files, directories and symlinks. So, let's have a brief look at it.
+As shared above in our discussion about the supported codecs, such as [DAB-PB](https://ipld.io/docs/codecs/known/dag-pb/) for [Content Adressable aRchive (CAR)](#content-addressable-archive-car), inside these object graphs, we find a [UnixFS](https://github.com/ipfs/specs/blob/main/UNIXFS.md) object describing files, directories and symlinks. So, let's have a brief look at it.
 
 To get us started, we'll take a look into some command line tools to help us create and interact with CAR files. In the future, we'll look into how to integrate these in your projects by looking at libraries, SDK's, etc.
 
