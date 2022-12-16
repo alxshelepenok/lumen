@@ -299,10 +299,10 @@ When we delete a container, it's no longer available and thus we'd have to [Dock
 docker exec -it <CONTAINER-NAME> <FILEPATH> <ARGS>
 ```
 
-For example, we'll interact with the container named `ursa-cli` and execute `ursa` which is located in the root `/`, with the flag `version` to get the version number of the `ursa cli` we are running.
+For example, we'll interact with the container named `ursa-cli` and execute `ursa` which is located in the `/usr/local/bin`, with the flag `version` to get the version number of the `ursa cli` we are running.
 
 ```sh
-docker exec -it ursa-cli /ursa --version
+docker exec -it ursa-cli ursa --version
 ```
 
 If successfull, you'll get the version number (beware that version might differ from time of writing, as Ursa is in constant development).
@@ -330,7 +330,7 @@ docker exec -it ursa-cli bash
 For example, we could then check the `help` flag.
 
 ```sh
-/ursa --help
+ursa --help
 ```
 
 ```sh
@@ -357,8 +357,7 @@ SUBCOMMANDS:
     rpc     run rpc commands from cli
 ```
 
-💡 At time of writing the Docker build places the ursa binary in the pathname `/`, thus we executed `/ursa --help`, if you wonder where the forward slash is used for. You can add the the directory to the system PATH but we should tweak the Docker file shortly and `ursa` available globally in the container.
-
+💡 At time of writing the Docker build places the ursa binary in the pathname `/usr/local/bin`, making `ursa` globally executable. On previous Dockerfile versions it was located in `/`, we had to execute it with the absolute path `/ursa --help`. Pull the latest from the repository and build if you are finding you have to use the deprecated method. In any case, either running on Docker or a Host machine, make sure the directory location where the `ursa` binary is stored is declared in the system's PATH environment variable.
 
 Executing the bash shell in the container is not mandatory and what we shared here is to demonstrate how to interact with the `ursa` process for the users that don't have it on their local machines and/or interested in checking subcommands, learning, following tutorials, etc in the same way someone who have it installed in their operating system would.
 
