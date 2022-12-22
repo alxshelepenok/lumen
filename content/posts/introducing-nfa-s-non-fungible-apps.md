@@ -26,9 +26,9 @@ tags:
 
 # What are NFAs?
 
-![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-extra-steps.jpeg)Well Rick, you’re actually right! [**NFAs**](https://github.com/fleekxyz/non-fungible-apps) **are an implementation on top of the ERC721 NFT standard that holds the on-chain metadata for _everything_ about your app**. Name, domain, build history, infra endpoints, etc. And unlike most NFT’s, NFA’s will probably update frequently (ex. everytime you push a new production build).
+![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-extra-steps.jpeg)Well Rick, you’re actually right! [**NFAs**](https://github.com/fleekxyz/non-fungible-apps) **are an implementation on top of the ERC721 NFT standard that holds the on-chain metadata for _everything_ about your app**. Name, domain, build history, infra endpoints, etc. And unlike most NFT’s, NFA’s will probably update frequently (ex. every time you push a new production build).
 
-But that’s not all, in the endgame we’ve got in mind, **NFAs will handle everything related to keeping your app alive** like owning and updating the content hash that your ENS address points to and paying for your apps decentralized hosting, storage, delivery, databases, RPC endpoints, and much more!
+But that’s not all, in the endgame we’ve got in mind, **NFAs will handle everything related to keeping your app alive** like owning and updating the content hash that your ENS name (or other domain) points to and paying for your apps decentralized hosting, storage, delivery, databases, RPC endpoints, and much more!
 
 Similar to ENS, NFAs are not as much about the new primitive as much as they are about the supporting ecosystem that brings novelty and usefulness to the new primitive.
 
@@ -42,7 +42,7 @@ While the recent announcement of [Fleek Network](https://fleek.network) is a ver
 
 Web3 apps of today still suffer from a lack of decentralization. For the most part, every web3 app is still using centralized solutions for hosting, content delivery, storage, DNS, RPC endpoints, etc. Besides this leaving web3 frontends vulnerable to censorship and hacks, it has also created financial and even criminal liability for web3 projects and their founders. Combine that with the increasingly uncertain regulatory environment around web3, it’s now becoming way too risky for web3 projects to be the sole centralized frontend operators of their apps.
 
-NFAs will help to solve this issue by allowing **smart contracts to trustlessly own and control all of the infrastructure and assets that encompass your web3 app**. For example, NFA’s will be able to automatically update your ENS based on the IPFS CID of your most recent build, pay for your decentralized hosting, storage, or other infra such as usage of an RPC endpoint (ex. POKT Network). **Anything you’d usually do/own/pay for as a founder can now be automated and abstracted to the NFA**.
+NFAs will help to solve this issue by allowing **smart contracts to trustlessly own and control all of the infrastructure and assets that encompass your web3 app**. For example, NFA’s will be able to automatically update your ENS (or other domain) based on the IPFS CID of your most recent build, pay for your decentralized hosting, storage, or other infra such as usage of an RPC endpoint (ex. POKT Network). **Anything you’d usually do/own/pay for as a founder can now be automated and abstracted to the NFA**.
 
 Here’s where things also get kinda cool. Minting your app as an NFA means that **transferring the NFA actually means transferring the app**. So in the future you could see all the same cool stuff people are doing with NFT’s, and now do it with NFA’s. Buy/sell them, DAO/community own them, take out loans against the app (or its cash flow), etc. Imagine something like Flippa which already allows buying/selling of Shopify stores and Amazon businesses, but way cooler, transparent, and trustless.
 
