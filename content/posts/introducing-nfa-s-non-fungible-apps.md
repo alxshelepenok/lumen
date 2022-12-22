@@ -26,7 +26,7 @@ tags:
 
 # What are NFAs?
 
-![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-extra-steps.jpeg)Well Rick, you’re actually right! **NFAs are an implementation on top of the ERC721 NFT standard that holds the on-chain metadata for _everything_ about your app**. Name, domain, build history, infra endpoints, etc. And unlike most NFT’s, NFA’s will probably update frequently (ex. everytime you push a new production build).
+![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-extra-steps.jpeg)Well Rick, you’re actually right! [**NFAs**](https://github.com/fleekxyz/non-fungible-apps) **are an implementation on top of the ERC721 NFT standard that holds the on-chain metadata for _everything_ about your app**. Name, domain, build history, infra endpoints, etc. And unlike most NFT’s, NFA’s will probably update frequently (ex. everytime you push a new production build).
 
 But that’s not all, in the endgame we’ve got in mind, **NFAs will handle everything related to keeping your app alive** like owning and updating the content hash that your ENS address points to and paying for your apps decentralized hosting, storage, delivery, databases, RPC endpoints, and much more!
 
