@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: 'Introducing NFA’s: Non-Fungible Apps'
 slug: introducing-nfas-non-fungible-apps
 date: 2022-12-22T13:00:00Z
