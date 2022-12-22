@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Introducing NFA’s: Non-Fungible Apps'
 slug: introducing-nfas-non-fungible-apps
 date: 2022-12-22T13:00:00Z
@@ -52,17 +52,17 @@ Here’s where things also get kinda cool. Minting your app as an NFA means that
 
 One of the least addressed centralized points of failure for web3 applications is their reliance on browsers and DNS. Most attempts at censorship happen at this level. **To solve this reliance we need to (1) increase the amount of access points (2) decentralize the way we access apps.**
 
-Cool projects like [Dappnet](http://twitter.com/dappnetbby), [Backpack](https://www.backpack.app/), and others are already trying several different approaches at solving this issue and we are big fans of those efforts. We think NFA’s could be super useful to those and many other projects. For example, crypto wallets or other interfaces who embrace **NFA’s could serve as new access points for web3 apps** that don’t rely on DNS or HTTP, and given they already surface NFT’s the work to support NFA’s would be trivial.
+Cool projects like [Dappnet](http://twitter.com/dappnetbby), [Backpack](https://www.backpack.app/), and others are already trying several different approaches at solving this issue and we are big fans of those efforts. We think NFA’s could be super useful to those and many other projects. For example, crypto wallets or other interfaces that embrace **NFA’s could serve as new access points for web3 apps** that don’t rely on DNS or HTTP, and given they already surface NFT’s the work to support NFA’s would be trivial.
 
-For web3 apps that want to hand over operation of their frontend to their community, NFAs could keep a tamperproof record of approved domains to access the app (almost like IPFS gateways but on an app specific level). And the NFA could help guarantee that all those approved domains are always running the correct version of the app by checking the CID (and the correct version of the app could be updated/decided by the core team or the DAO, etc.). Another benefit of this is we think this could greatly reduce phishing attacks on web3 apps.
+For web3 apps that want to hand over operation of their frontend to their community, NFAs could keep a tamperproof record of approved domains to access the app (almost like IPFS gateways but on an app-specific level). And the NFA could help guarantee that all those approved domains are always running the correct version of the app by checking the CID (and the correct version of the app could be updated/decided by the core team or the DAO, etc.). Another benefit of this is we think this could greatly reduce phishing attacks on web3 apps.
 
-You can think of NFA’s as allowing any web3 project to do something kinda like what Liquity has done for front end decentralization (we love what they did and took inspiration from them), **but with the flexibility to set it up however you want** (ex. choose if/how you want to incentivize people to run frontends, choose how many different domains you want to host your app, if you want different approved versions of the frontend or all domains point to the same one, etc). And we will add features to the Fleek.xyz platform to make it super easy to mint your site/app as an NFA, manage/update it, and for others to participate/run frontends for your app/NFA.
+You can think of NFA’s as allowing any web3 project to do something kinda like what Liquity has done for front-end decentralization (we love what they did and took inspiration from them), **but with the flexibility to set it up however you want** (ex. choose if/how you want to incentivize people to run frontends, choose how many different domains you want to host your app, if you want different approved versions of the frontend or all domains point to the same one, etc). And we will add features to the Fleek.xyz platform to make it super easy to mint your site/app as an NFA, manage/update it, and for others to participate/run frontends for your app/NFA.
 
 ## Web3 Apps Should Be Controlled by DAO’s/Communities (not Founders/Companies)
 
 Besides the security and liability issues mentioned above, that company/founder-operated frontends are vulnerable to, from a web3 principals perspective it also just seems odd for certain backend infra (ex. smart contracts) to be owned/controlled by a DAO/token holders (and for value accrued from them to go to the DAO), but not any of the other infra/assets or value capture relating to the project.
 
-To be fair, up until recently it has been quite hard for a DAO/smart contract to own and control infrastructure besides the smart contracts that live on that same chain. But with the recent explosion in decentralized infrastructure covering almost all parts of the stack, in addition to advancements in crosschain/omnichain/threshold cryptography, plus now with the introduction of NFA’s, we finally see a path forward.
+To be fair, up until recently it has been quite hard for a DAO/smart contract to own and control infrastructure besides the smart contracts that live on that same chain. But with the recent explosion in decentralized infrastructure covering almost all parts of the stack, in addition to advancements in cross-chain/omnichain/threshold cryptography, plus now with the introduction of NFA’s, we finally see a path forward.
 
 **DAO’s, multisigs, and communities can own/control/operate their frontends with NFA’s.** DAOs that own their app through an NFA would be able to use governance or delegating permissions for updating the app, paying for infra, managing the records of infra and access points, have full control over transferring the app in its entirety, and build with less worry of hacks or liability.
 
@@ -86,7 +86,7 @@ That future vision gets us about as close to true decentralized hosting (and Fle
 
 To make our first steps down this road, **today we’re presenting** [**our initial implementation of the NFAs contract**](https://github.com/fleekxyz/non-fungible-apps)**.**
 
-Feedback from the web3 community is critical at this early stage. While we understand the problems NFAs solve, the semantics of how to implement them are still up in the air and we want the community’s input before we harden anything. **Please feel free to reach out if you are interested in jamming on these ideas or interested in using NFA’s for decentralizing your web3 app frontend**.
+Feedback from the web3 community is critical at this early stage. While we understand the problems NFAs solve, the semantics of how to implement them is still up in the air and we want the community’s input before we harden anything. **Please feel free to reach out if you are interested in jamming on these ideas or interested in using NFA’s for decentralizing your web3 app frontend**.
 
 Going beyond V0, we also touched on some key features of NFAs in this blog that we will continue to develop and share with the community, including:
 
@@ -98,7 +98,7 @@ For more information about the NFAs implementation’s roadmap, also check out [
 
 ***
 
-As you can tell, we’re super stoked on NFAs! Today we first presented what NFAs are and why they’re a game changer for decentralization, censorship resistance, and community ownership of web3 apps.
+As you can tell, we’re super stoked about NFAs! Today we first presented what NFAs are and why they’re a game changer for decentralization, censorship resistance, and community ownership of web3 apps.
 
 If you’re passionate about decentralizing apps, please checkout our initial [NFAs implementation repo](https://github.com/fleekxyz/non-fungible-apps). PRs, issues, and discussions are all welcome and appreciated!
 
