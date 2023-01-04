@@ -1,9 +1,9 @@
 ---
 template: post
-draft: true
+draft: false
 title: Fleek.co Update - How To Add Custom Storage Domains
 slug: fleek-co-how-to-add-custom-storage-domains
-date: 2023-01-03T14:00:00Z
+date: 2023-01-03T14:00:00.000+00:00
 socialImage: https://storageapi.fleek.one/fleek-team-bucket/thumbnails/fleek-co-custom-storage-domain.png
 canonical: ''
 description: Today, we’re enabling existing Fleek.co users to add custom domains to
