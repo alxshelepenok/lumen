@@ -58,7 +58,7 @@ In the example above, we’ve successfully added `storage.mergeit.xyz` as the cu
 
 > All storage buckets will stay accessible from `storageapi.fleek.one/`_`bucket-id`_, even when a custom domain has been added.
 
-For any further help, reference the ["Custom DNS Domains" section of our docs](https://docs.fleek.co/domain-management/custom-dns-domains/). Even though this section is for adding custom domains to sites, the process is very similar.
+For any further help, reference the ["Custom Storage Domains" section of our docs](https://docs.fleek.co/storage/custom-storage-domains/).
 
 ## Consuming Your New Endpoint Via  Fleek.co SDK
 
@@ -78,7 +78,7 @@ Whether you use the Fleek SDK or not, please update your SDKs and application co
 
 # Custom Domains In Fleek.xyz
 
-**Moving away from our services having reliance on our own domains is a trend that we plan to continue** as we roll out Fleek.xyz services in 2023. 
+**Moving away from our services having reliance on our own domains is a trend that we plan to continue** as we roll out Fleek.xyz services in 2023.
 
 In the past, Fleek’s domains have been a target for censorship due to phishing sites being spam hosted through Fleek. This has been a major motivation for us adding custom domain features. **We see making the move to a system that puts ownership over the access to a user’s infrastructure provided by Fleek (be it hosting, storage, delivery, compute, etc) in the hands of the actual user as a big win-win for all.** It decentralizes access to our infra services, removes our domains as a big central point of failure, and also forces out bad actors by putting their own domains at risk.
 
@@ -88,5 +88,4 @@ All Fleek.xyz services where endpoints are relevant will give users the option t
 
 And with that, we wrap 2022! In Q1 2023 we’ll be continuing the Fleek.co sunsetting process, will start to release the first of the Fleek.xyz betas (IPNS as a Service and CLI site deployments), and continue to share updates as Fleek Network gets closer to a testnet.
 
-  
 Needless to say, **we’re psyched for 2023** and are happy to have you Freaks along for the ride. To keep up with everything we’ve got going on, follow us on [Twitter](https://twitter.com/fleekxyz) or hop into [our Discord](https://discord.gg/fleekxyz) to jam with our team. ⚡
