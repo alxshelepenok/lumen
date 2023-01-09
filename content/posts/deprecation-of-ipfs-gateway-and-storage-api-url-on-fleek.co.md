@@ -19,9 +19,11 @@ tags:
 ---
 ![](https://storageapi.fleek.co/fleek-team-bucket/fleek-xyz-dep-old-doms.png)
 
-Today, we’re taking some of the initial actions towards our end goal of removing Fleek domains as a potential point of failure by starting to deprecate some of the current domains used on the Fleek.co platform. The areas being affected are Fleek’s public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co "https://ipfs.fleek.co")) and our storage API domain ([https://storageapi.fleek.co](https://storageapi.fleek.co "https://storageapi.fleek.co")).
+**_\[Updated as of January the 9th:\]_** _We set the date back to allow more users to migrate to custom domains, and will roll out new rules on the 16th of January to prevent .html, .css, .js files from being served by the storage API. Sites hosted normally will remain unaffected. Read more below._
 
-For users of both of those services, this means that **breaking changes are coming and your actions will be required before December 30th, 2022**. Please read on if this applies to you.
+We’re taking some of the initial actions towards our end goal of removing Fleek domains as a potential point of failure by starting to deprecate some of the current domains used on the Fleek.co platform. The areas being affected are Fleek’s public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co "https://ipfs.fleek.co")) and our storage API domains ([https://storageapi.fleek.co](https://storageapi.fleek.co "https://storageapi.fleek.co") and [https://storageapi.fleek.](https://storageapi.fleek. "https://storageapi.fleek.")one).
+
+For users of both of those services, **breaking changes are coming** and your actions will be **required during January, 2023**, for the IPFS gateway and our Storage APIs (we set back the date to allow users time to migrate). Please read on if this applies to you.
 
 Why the deprecations? The quick and short of it is we’re building a new Fleek platform in which one of our goals is to increase decentralization and censorship resistance by removing our own domains as central points of failures. Read through this post, **take action on any changes we’re making**, and at the end we’ll drop some knowledge so you can get caught up on our vision for the Fleek of the future.
 
@@ -29,33 +31,39 @@ Why the deprecations? The quick and short of it is we’re building a new Fleek 
 
 # Moving to IPFS Gateways as a Service
 
-Fleek currently runs a free public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co "https://ipfs.fleek.co")) for speedy resolution of CIDs available on the IPFS network. **We will be shutting down our services for this gateway on Dec 30th 2022**.
+Fleek currently runs a free public IPFS gateway ([https://ipfs.fleek.co](https://ipfs.fleek.co "https://ipfs.fleek.co")) for speedy resolution of CIDs available on the IPFS network. **We will redirect our gateway traffic from Dec 19th 2022, and aim to deprecate the gateway entirely by Q1 2023**.
 
-To ensure that we don’t break any current integrations that leverage our gateway, starting Monday, the 19th of December, 2022, all traffic to our gateway will still be resolved via a redirect to [https://dweb.link](https://dweb.link "https://dweb.link"), a gateway managed by the IPFS team. **This redirect is only temporary, anyone still using our gateway by Dec 30th 2022 will not have their content resolved.**
+To ensure that we don’t break any current integrations that leverage our gateway, starting Monday, the 19th of December, 2022, all traffic to our gateway will still be resolved via a redirect to [https://dweb.link](https://dweb.link "https://dweb.link"), a gateway managed by the IPFS team. **This redirect is only temporary, anyone still using our gateway post deprecation will not have their content resolved.**
 
 Here’s a mini-timeline to make things crystal clear:
 
 * Today - Fleek IPFS Gateway runs as normal.
-* Monday - Fleek IPFS Gateway redirects to dweb.link
-* Dec 30th 2022 - Gateway shut down.
+* Dec 19th - Fleek IPFS Gateway redirects to dweb.link
+* Q1 2023 - Gateway shut down with a 2 week notice.
 
-That said, we are not totally separating ourselves from the gateways game. Our goal is to **pivot to offering gateways as a service** for any clients who might need their own dedicated gateways. Supercharged by [Fleek Network](https://fleek.network), of course 😉
+That said, we are not totally separating ourselves from the gateways game. Our goal is to **pivot to offering gateways as a service** for any clients who might need their own dedicated gateways. Supercharged by [Fleek Network](https://fleek.network/), of course 😉
 
 As we flesh out the details for offering this as a true service, feel free to [reach out to us directly](https://discord.gg/fleekxyz) if you’re interested and we’ll happily spin up dedicated gateways.
 
 ***
 
-# A New Storage API Appears
+# **Custom Domains for Storage APIs**
 
-Also before the new year, we will be **transitioning away from our current storage API domain**. If you use Fleek Storage please read, actions will be required.
+Also in this new year, we will be **transitioning away from our current storage API domain**. If you use Fleek Storage please read, actions will be required.
 
-Basically, storageapi.fleek.co will eventually be replaced by storageapi.fleek.one. Both domains are currently available and point to the same content (try [this link](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-ahb.jpeg), then [this one](https://storageapi.fleek.one/fleek-team-bucket/Blogs/fleek-ahb.jpeg)). **We will keep it this way until the 30th of December 2022 at which time you'll have switch any storage domains you have or your application will break.**
+Basically, storageapi.fleek.co and storageapi.fleek.one will be sunset to **favor custom, per-user API domains**. Both domains are currently available and point to the same content (try [this link](https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-ahb.jpeg), then [this one](https://storageapi.fleek.one/fleek-team-bucket/Blogs/fleek-ahb.jpeg)).
 
-Here’s another mini-timeline:
+We have decided to sunset both domains gradually, beginning with the application of content-restricting rules. Users can now set their own [custom domains](https://blog.fleek.co/posts/fleek-co-how-to-add-custom-storage-domains) to their storage buckets in Fleek, which will provide higher availability and performance right off the bat, as well as allow for a non-shared API endpoint for each user.
 
-* Today - Migration starts, both storage API links are available and point to the same content.
-* Next week - Fleek.co platform adopts the use of new storageapi.fleek.one API route in the storage tab.
-* Dec 30th 2022 - Deprecation of storageapi.fleek.co.
+During January, we will begin downgrading the capabilities of content-serving for our API endpoints, as we progress with the user migration. **We will continue to post updates to our timelines here and on our email communications.**
+
+Here’s the current timeline:
+
+* Today - Users can begin migrating to custom domains.
+* Jan 16th 2023 - The first content-restricting rule is introduced. Limiting the serving of .html, .css, and .js files.
+* End of Q1 2023 - API shutdown with a 2 week notice.
+
+**The first content restriction rule on this public APIs will come on January the 16th**, by limiting the serving of .html, .css, and .js files on storageapi.fleek.co / storageapi.fleek.one. After the 16th, these files won’t resolve on our public APIs. This won’t affect sites hosted normally via Fleek’s hosting app - and we suggest users “hosting” any sites on their storage bucket directly (not recommended) to migrate to the hosting app. This change also will greatly prevent the hosting of any malicious/phishing .html files on public storage gateways.
 
 Why the switch? Two main reasons.
 
