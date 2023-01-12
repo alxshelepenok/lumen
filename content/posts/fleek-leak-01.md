@@ -32,7 +32,7 @@ But that’s not really why you’re here, you’re here for the juice, the alph
 Let’s agree to skip all of the fluff and get straight to the point, alright? Building an entirely new web3 development platform from the ground requires a lot of initial lifting. The most important things that we are actively working on and preparing for release in Q1 are:
 
 - **Lots of services (IPFS Pinning, IPNS, Sites Deployments, etc)**
-- **Shipping the CLI beat (coming v soon!)**
+- **Shipping the CLI beta (coming soon!)**
 - **Adding a new category to Fleek 🤫**
 - **More NFAs stuff**
 
@@ -45,16 +45,14 @@ Let’s agree to skip all of the fluff and get straight to the point, alright? B
 Fleek.xyz is built with a modular, independent service structure in mind (as mentioned [here](https://blog.fleek.co/posts/fleek-xyz-architecture-overview)) to unlock maximum composability, freedom, and extensibility for web3 developers. Internally, this means the ability to work on multiple services in parallel! 
 
 We are currently focused on four main services:
-- IPFS Pinning Service [ **Jan 18th** ]
-- IPNS Management Service [ **Jan 18th** ]
-- Sites Deployment Service [ **Jan 23rd** ]
-- Custom Domains Service [ **Jan 23rd** ]
+- IPFS Pinning [ **Jan 18th** ]
+- IPNS Management [ **Jan 18th** ]
+- Sites Deployment [ **Jan 23rd** ]
+- Custom Domains [ **Jan 23rd** ]
 
-The cool thing about the new Fleek.xyz architecture is that you’ll be able to use any of these services independent of each other or pick and choose the ones you want. This will enable developers to create their own stack, with brand new interactions between different web3 protocols that haven’t been seen or thought of before.
+The cool thing about the new Fleek.xyz architecture is that **you’ll be able to use any of these services independent of each other or pick and choose the ones you want**. This will enable developers to create their own stack, with brand new interactions between different web3 protocols that haven’t been seen or thought of before.
 
-The latter is sort of what we’re doing for our custodied services in our UI - We’re simply telling the story that we want to tell, in order to make use-case driven flows.
-
-For example, deploying a site to an ENS name, and automatically back up all of your asset files to the storage provider of your choice. We’ll be creating all of this by **consuming the exact same Fleek SDK that you’ll have access to**.
+The latter is sort of what we’re doing for our custodied services in our UI - We’re simply telling the story that we want to tell, in order to make use-case driven flows. For example, deploying a site to an ENS name, and automatically back up all of your asset files to the storage provider of your choice. We’ll be creating all of this by **consuming the exact same Fleek SDK that you’ll have access to**.
 
 In addition to these four services, **we’re working on two cross-service services** (say that five times fast): Authentication & Event Passing. 
 
@@ -68,11 +66,11 @@ On **January 18th** (mark your calendars, it's coming up soon 🗓) we’ll be d
 
 <!-- gif of pinning beta -->
 
-The first service we’re debuting is our IPFS pinning beta. Most of you probably already know the drill - upload any file to IPFS and we’ll ensure it stays pinned through our global network of nodes for everyone to retrieve. 
+The **first service we’re debuting is our IPFS pinning beta**. Most of you probably already know the drill - upload any file to IPFS and we’ll ensure it stays pinned through our global network of nodes for everyone to retrieve. 
 
 <!-- gif of ipns beta -->
 
-Here’s one you haven’t seen before 👀 Independently manage an IPNS tied to your Fleek account and map any IPFS hash to it. Previously this was offered as part of the ENS flow, now access it independently and soon build with it through our SDK.
+Here’s one you haven’t seen before 👀 **Manage an IPNS** tied to your Fleek account and map any IPFS hash to it. Previously this was offered as part of the ENS flow, now access it independently and soon build with it through our SDK.
 
 
 ---
@@ -81,9 +79,9 @@ Here’s one you haven’t seen before 👀 Independently manage an IPNS tied to
 
 <!-- gif -->
 
-The title says it all 😎 we’re in the process of adding compute options to Fleek! 
+The title says it all 😎 we’re in the process of **adding compute options to Fleek**! 
 
-Static sites can take you a long way, but these days more and more of the web is relying on servers to power web apps. But we don’t need to tell you guys this, you’ve asked for this feature a lot. The only thing holding us back was making sure that (1) the compute protocols that we integrate were hardened and reliable (2) that we could provide a solid value add versus other alternatives. We finally feel like we’re there. 
+Static sites can take you a long way, but these days more and more of the web is relying on servers to power web apps. But we don’t need to tell you guys this, **you’ve asked for this feature a lot**. The only thing holding us back was making sure that (1) the compute protocols that we integrate were hardened and reliable (2) that we could provide a solid value add versus other alternatives. We finally feel like we’re there. 
 
 <!-- akash preview -->
 
@@ -102,11 +100,11 @@ Before the end of 2022, we [dropped some alpha](https://blog.fleek.co/posts/intr
 
 Since this initial release it’s been full steam ahead 🚂 We’ve been gathering feedback from some big players and trying to reconcile on some primary implementations that we could use for a first use case of NFAs. Ultimately, thanks to some valuable feedback from the [dYdX](https://dydx.exchange/) team among others, we’ve landed on **community hosting**.
 
-In a nutshell, community hosting through NFAs will unlock the ability for web3 app owners to **allow members of their community to run frontends for them**. Similar to what [Liquity](https://www.liquity.org/) has pioneered, this expands the amount of access points to an app, further decentralizing its most vulnerable attack vector
+In a nutshell, community hosting through NFAs will unlock the ability for web3 app owners to **allow members of their community to run frontends for them**. Similar to what [Liquity](https://www.liquity.org/) has pioneered, this expands the amount of access points to an app, further decentralizing its most vulnerable attack vector.
 
 ![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/nfa-roadmap.png)
 
-In addition to the community hosting MVP, we’ve got an EIP submission in the works to fully standardize the usage, management, and consumption of NFAs.
+In addition to the community hosting MVP, we’ve got a lot more in our backlog such as an EIP submission to fully standardize the usage, management, and consumption of NFAs.
 
 Interested? NFAs are open source and we’ve got a working branch up and running for this MVP. You can view the code [here](https://github.com/fleekxyz/non-fungible-apps/tree/feat/app-mirrors).
 
