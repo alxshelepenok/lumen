@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Fleek Network Update: 2023 Kickoff'
 slug: fleek-network-2023-kickoff
 date: 2023-01-13T06:00:00Z
@@ -10,7 +10,10 @@ canonical: ''
 description: Progress report on building the foundation for our decentralized content
   and application delivery network.
 category: ''
-tags: []
+tags:
+- Decentralized CDN
+- CDN
+- Fleek Network
 
 ---
 ![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/Twitter post - 49 (1).jpg)As we look back on the end of 2022 we wanted to give an update on the progress of Fleek Network. It’s our goal to be as open and transparent as possible in our development process – we will continue to provide these updates on a bi-weekly basis! We will start sharing more of our research with the world.
