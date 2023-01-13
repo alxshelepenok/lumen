@@ -72,7 +72,7 @@ We’ve taken steps in **creating a global gateway to act as a relay for cache n
 
 On the governance side, the team has been **putting together the contracts that will make governance possible**, including node registry, staking, and token contracts. We’ve begun to define the structure of the DAO and the structure of how it will operate pre and post-launch of the network. We've also started working on BLS contracts to verify signatures and are experimenting with **zk-snarks** **to verify claims by nodes**. Finally, we’re actively working on designing an interaction between Fleek Network consensus layer and its own internal application layer, illustrated by this graphic:
 
-![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/graph-app-narwhal (1).jpeg)
+![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/graph-app-narwhal%20(1).jpeg)
 
 In terms of consensus, we’ve been defining the transaction types that will be used to interact with the Fleek Network blockchain itself. In order to determine each block's metadata we’ve been creating the block structure, along with header types, a list of messages, and a signature. These blocks will enable state transitions. We are in the process of determining how we reach consensus and transition to a quorum state, given the set of messages in each block. As a first and foremost open-source project, we’re open to any and all contributions to problems we’re tackling in our [Github](https://github.com/fleek-network)!
 
