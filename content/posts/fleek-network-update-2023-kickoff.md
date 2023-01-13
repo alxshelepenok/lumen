@@ -1,6 +1,6 @@
 ---
 template: post
-draft: false
+draft: true
 title: 'Fleek Network Update: 2023 Kickoff'
 slug: fleek-network-2023-kickoff
 date: 2023-01-13T06:00:00Z
