@@ -51,7 +51,7 @@ When it comes to look-up time, we managed to cut it down back to milliseconds, w
 
 We’re currently **finalizing the initial economic paper**, defining the initial token distribution, and introducing a sustainability factor to help the long-term fitness and longevity of the network token.
 
-Finally, we **deployed our metrics dashboard internally**. The dashboard tracks all of our nodes & the “power” of the network and follows along our development theme of transparency. 
+Finally, we **deployed our metrics dashboard internally**. The dashboard tracks all of our nodes & the “power” of the network and follows along our development theme of transparency.
 
 ![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/9yHQiad.jpg)
 
@@ -65,7 +65,7 @@ The Fleek Network development team has been busy pushing forward on several key 
 
 We’ve taken steps in **creating a global gateway to act as a relay for cache nodes and handle HTTP resolution**. Gateway sessions will allow for streaming content directly from cache nodes to clients. To add, we’re testing the use of graphsync for the incremental verification of content on the client side. We’re also **exploring the use of request-response alternatives, like graphsync, to speed up data transfer protocols**.
 
-On the governance side, the team has been **putting together the contracts that will make governance possible**, including node registry, staking, and token contracts. We’ve begun to define the structure of the DAO and the structure of how it will operate pre and post-launch of the network. We've also started working on BLS contracts to verify signatures and are experimenting with **zk-snarks** **to verify claims by nodes**. Finally, we’re actively working on designing an interaction between Fleek Network and L2, illustrated by this graphic:
+On the governance side, the team has been **putting together the contracts that will make governance possible**, including node registry, staking, and token contracts. We’ve begun to define the structure of the DAO and the structure of how it will operate pre and post-launch of the network. We've also started working on BLS contracts to verify signatures and are experimenting with **zk-snarks** **to verify claims by nodes**. Finally, we’re actively working on designing an interaction between Fleek Network consensus layer and its own internal application layer, illustrated by this graphic:
 
 ![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/MacBook Pro 14_ - 18.jpg)
 
@@ -86,4 +86,4 @@ We’ve made progress on several key areas, including setting up a devnet, makin
 
 While the team has made some major strides, we’re still putting a lot of effort into finalizing some key areas such as caching algorithms for content, consensus, governance, and our economics paper in the coming weeks. We plan to continue to share the development process transparently by releasing updates regularly so stay tuned.
 
-If you have any questions about Fleek Network and its development, reach out to the team in our [Discord server](https://discord.gg/fleekxyz)! 
+If you have any questions about Fleek Network and its development, reach out to the team in our [Discord server](https://discord.gg/fleekxyz)!
