@@ -7,7 +7,8 @@ date: 2023-01-13T06:00:00Z
 socialImage: https://storageapi.fleek.one/fleek-team-bucket/Blogs/Twitter post - 49
   (1).jpg
 canonical: ''
-description: ''
+description: Progress report on building the foundation for our decentralized content
+  and application delivery network.
 category: ''
 tags: []
 
