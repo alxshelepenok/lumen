@@ -16,7 +16,9 @@ tags:
 - Fleek Network
 
 ---
-![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/Twitter%20post%20-%2049%20(1).jpg)As we look back on the end of 2022 we wanted to give an update on the progress of Fleek Network. It’s our goal to be as open and transparent as possible in our development process – we will continue to provide these updates on a bi-weekly basis! We will start sharing more of our research with the world.
+![](https://storageapi.fleek.one/fleek-team-bucket/Blogs/Twitter%20post%20-%2049%20(1).jpg)
+
+As we look back on the end of 2022 we wanted to give an update on the progress of Fleek Network. It’s our goal to be as open and transparent as possible in our development process – we will continue to provide these updates on a bi-weekly basis! We will start sharing more of our research with the world.
 
 ## Fleek Network Progress Report
 
