@@ -27,7 +27,7 @@ Join us as we go over what’s included in this first release. ⚡️
 
 # **Fleek’s Command-line Interface**
 
-![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fleek-cli.png)
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-1.png)
 
 Today we present the first of Fleek’s building blocks and interface: the Fleek CLI. Together with the Fleek SDK, Fleek API, and Fleek app UI, this command-line-interface will be one of the options for developers to use and integrate Fleek’s services.
 
@@ -45,7 +45,7 @@ The CLI will grow as more services are added to the platform (Sites Deployments 
 
 # **IPFS Pinning on Fleek**
 
-![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ipfs-code.png)
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/pinning-1.png)
 
 Fleek’s bread and butter, web3 storage management and IPFS file pinning. IPFS will be the first service in the storage category, which will be followed by other protocol’s services in the future, such as Filecoin and Arweave, built by us and the community. Given each will be built as independent services, anyone can contribute their own to Fleek.
 
@@ -60,7 +60,7 @@ You can see [the file in any public IPFS gateway](https://ipfs.io/ipfs/Qmanou5uh
 
 # **IPNS Record Management**
 
-![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ipns-code.png)
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/ipns-1.png)
 
 The second service in this beta is one of IPFS’ other features, IPNS (the InterPlanetary Name System). IPFS hashes are immutable, which means they are static. If the file changes, the IPFS hash changes as well.
 
