@@ -43,10 +43,12 @@ The CLI will grow as more services are added to the platform (Sites Deployments 
 
 # **IPFS Pinning on Fleek**
 
-![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fleek-pinning.png)Fleek’s bread and butter, web3 storage management and IPFS file pinning. IPFS will be the first service in the storage category, which will be followed by other protocol’s services in the future, such as Filecoin and Arweave, built by us and the community. Given each will be built as independent services, anyone can contribute their own to Fleek.
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fleek-pinning.png)
+
+Fleek’s bread and butter, web3 storage management and IPFS file pinning. IPFS will be the first service in the storage category, which will be followed by other protocol’s services in the future, such as Filecoin and Arweave, built by us and the community. Given each will be built as independent services, anyone can contribute their own to Fleek.
 
      > fleek ipfs add hello.txt
-     > IPFS Hash: Qmanou5uhcGhyW7noyB7LNFJBZkKcuUZnmpHeQSaidJ367
+     > ⚡ IPFS Hash: Qmanou5uhcGhyW7noyB7LNFJBZkKcuUZnmpHeQSaidJ367
 
 All it takes to pin a file with the CLI is a three-word command, and a file. Fleek will handle the upload to an IPFS node, and will report back the file’s hash as proof of the success of the operation.
 
@@ -61,8 +63,8 @@ You can see [the file in any public IPFS gateway](https://ipfs.io/ipfs/Qmanou5uh
 The second service in this beta is one of IPFS’ other features, IPNS (the InterPlanetary Name System). IPFS hashes are immutable, which means they are static. If the file changes, the IPFS hash changes as well.
 
      > fleek ipns create
-     > Success! IPNS record created.
-     > k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2thy
+     > ✅ Success! IPNS record created.
+     > 📓 k51qzi5uqu5didozh8jmvbnowwj2d545yacagcply19yvjz8rhn0i1hrbw2thy
 
 IPNS records allow developers to create a static hash that maps to a dynamic record. This way, for example, you could map an IPNS hash to a website’s .html IPFS hash. Each time you make a deployment and the content changes (hence changing the IPFS hash of the file), your main address remains the same for the user (IPNS), but you update the IPFS hash resolved by the IPNS name via the CLI.
 
