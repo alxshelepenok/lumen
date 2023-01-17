@@ -43,7 +43,7 @@ The CLI will grow as more services are added to the platform (Sites Deployments 
 
 # **IPFS Pinning on Fleek**
 
-Fleek’s bread and butter, web3 storage management and IPFS file pinning. IPFS will be the first service in the storage category, which will be followed by other protocol’s services in the future, such as Filecoin and Arweave, built by us and the community. Given each will be built as independent services, anyone can contribute their own to Fleek.
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fleek-pinning.png)Fleek’s bread and butter, web3 storage management and IPFS file pinning. IPFS will be the first service in the storage category, which will be followed by other protocol’s services in the future, such as Filecoin and Arweave, built by us and the community. Given each will be built as independent services, anyone can contribute their own to Fleek.
 
      > fleek ipfs add hello.txt
      > IPFS Hash: Qmanou5uhcGhyW7noyB7LNFJBZkKcuUZnmpHeQSaidJ367
@@ -55,6 +55,8 @@ You can see [the file in any public IPFS gateway](https://ipfs.io/ipfs/Qmanou5uh
 ***
 
 # **IPNS Record Management**
+
+![](https://storageapi.fleek.one/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fleek-pinning.png)
 
 The second service in this beta is one of IPFS’ other features, IPNS (the InterPlanetary Name System). IPFS hashes are immutable, which means they are static. If the file changes, the IPFS hash changes as well.
 
