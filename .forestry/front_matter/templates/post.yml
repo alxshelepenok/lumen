@@ -62,6 +62,7 @@ pages:
 - content/posts/fleek-network-edge-censorship-resistance.md
 - content/posts/fleek-network-edge-performant.md
 - content/posts/fleek-network-getting-started-guide.md
+- content/posts/fleek-network-update-2023-kickoff.md
 - content/posts/fleek-s-gitcoin-gr9-hackathon-winners.md
 - content/posts/fleek-storage-is-out-of-beta-new-architecture-performance-boost.md
 - content/posts/fleek.co-update-how-to-add-custom-storage-domains.md
@@ -75,6 +76,7 @@ pages:
 - content/posts/introducing-nfa-s-non-fungible-apps.md
 - content/posts/introducing-space.md
 - content/posts/introducing-the-fleek-api-cli-two-powerful-interfaces.md
+- content/posts/ipfs-pinning-and-ipns-beta-on-fleek.xyz.md
 - content/posts/login-revamp-drip-library-and-more-ui-ux-enhancements.md
 - content/posts/release-update-change-team-name-bunnycdn-for-hns-dns-link-domains.md
 - content/posts/release-update-cloudflare-cdn-change-an-existing-site-s-repository.md
