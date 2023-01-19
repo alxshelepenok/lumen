@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: The CLI Beta is Live, with IPFS Pinning & IPNS.
 slug: release-ipfs-pinning-ipns-beta-fleek-xyz
 date: 2023-01-18T03:00:00Z
@@ -33,7 +33,7 @@ Today we present the first of Fleek’s building blocks and interface: the Fleek
 
     npm install -g @fleekxyz/cli
     $ fleek login
-    🔗 Opening browser on https://rough-truth-3196.on.fleek.co/login.html?verificationSession=... 
+    🔗 Opening browser on https://app.fleek.xyz/login.html?verificationSession=... 
     🧑‍💻 Please login to continue
     ✅ Successfully logged in.
 
