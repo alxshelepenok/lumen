@@ -32,9 +32,9 @@ A month ago we dropped an announcement that we were working on a new web3 primit
 Today, we’re back to announce that we’re working on the MVP for NFAs (to be released in April) that will have a large focus on **decentralizing one of the most vulnerable yet most used parts of web3 apps – their frontend**. In tandem with the Fleek.xyz platform, community hosted NFAs will enable founders, DAOs, and developers alike to empower their community to run verifiable frontends for them. 
 
 We’ll touch on a few different topics in this blog, jump ahead using the links below:
-- What are NFA Access Points and why should I care?
-- What progress has been made on NFAs and what is left?
-- How does Fleek tie into all of this?
+- [What are NFA Access Points and why should I care?](#decentralizing-web3-app-access-points)
+- [What progress has been made on NFAs and what is left?](#mvp-development-progress)
+- [How does Fleek tie into all of this?](#so-how-does-fleekxyz-fit-into-the-picture)
 
 Prefer to dig into code instead of reading? You’re in luck, NFAs have been open source from day one and we’ve got [an MVP working branch](https://github.com/fleekxyz/non-fungible-apps/tree/develop) in development for you to check out. 
 
