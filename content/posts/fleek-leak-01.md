@@ -45,10 +45,10 @@ Let’s agree to skip all of the fluff and get straight to the point, alright? B
 Fleek.xyz is built with a modular, independent service structure in mind (as mentioned [here](https://blog.fleek.co/posts/fleek-xyz-architecture-overview)) to unlock maximum composability, freedom, and extensibility for web3 developers. Internally, this means the ability to work on multiple services in parallel! 
 
 We are currently focused on four main services:
-- IPFS Pinning [ **Jan 18th** ]
-- IPNS Management [ **Jan 18th** ]
-- Sites Deployment [ **Jan 23rd** ]
-- Custom Domains [ **Jan 23rd** ]
+- IPFS Pinning
+- IPNS Management 
+- Sites Deployment 
+- Custom Domains 
 
 The cool thing about the new Fleek.xyz architecture is that **you’ll be able to use any of these services independent of each other or pick and choose the ones you want**. This will enable developers to create their own stack, with brand new interactions between different web3 protocols that haven’t been seen or thought of before.
 
