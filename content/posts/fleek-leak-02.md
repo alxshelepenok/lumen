@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Fleek Leak 02
 slug: fleek-leak-02
 date: 2023-01-26T03:00:00Z
