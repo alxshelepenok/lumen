@@ -86,6 +86,7 @@ pages:
 - content/posts/release-update-new-dns-configuration-with-cdn-perks-ddos-protection.md
 - content/posts/release-update-site-previews-cancel-retry-deploys-storage-improvement.md
 - content/posts/release-update.md
+- content/posts/sites-deployment-and-domain-management-on-the-cli.md
 - content/posts/space-sdk-release.md
 - content/posts/the-dweb-protocols-behind-space.md
 - content/posts/the-internet-computer-s-genesis-static-site-hosting-on-beta-mainnet-and-what-s-cooking.md
