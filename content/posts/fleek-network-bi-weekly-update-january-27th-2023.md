@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Fleek Network Bi-Weekly Update: January 27th, 2023'
 slug: Fleek-Network-Bi-Weekly-Update-Jan-27
 date: 2023-01-26T06:00:00Z
