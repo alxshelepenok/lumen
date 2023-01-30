@@ -54,6 +54,7 @@ fields:
 pages:
 - content/posts/a-guide-to-ens-domains-ipfs-ethereum-name-service.md
 - content/posts/an-overview-of-fleek.xyz-s-architecture.md
+- content/posts/building-and-deploying-a-nextra-blog-with-fleek.md
 - content/posts/crypto-wallet-logins-and-the-drip-fe-library.md
 - content/posts/deploy-a-react-vite-boilerplate-with-fleek.md
 - content/posts/deploying-your-first-website-with-fleek.md
