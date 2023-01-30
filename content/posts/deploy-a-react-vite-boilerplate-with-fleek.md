@@ -117,7 +117,7 @@ What's the best way to do it? Here's the TL;DR.
 2. Configure your ENS domain with your IPNS name.
 3. Done!
 
-**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ipns/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
+**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ens/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
 
 Instead, you use a static IPNS name that on the background represents a dynamic IPFS hash that you can update any time.
 
