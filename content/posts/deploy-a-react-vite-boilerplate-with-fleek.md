@@ -91,7 +91,7 @@ If we try to run again the fleek sites init command then we will be greeted with
     Error: Configuration file found already.
     > Site already exists in this folder.
 
-Now that we have our site configured and our deploy all set up we can proceed to **deploy it using the fleek sites deploy command**. This will start by checking the existance of the fleek.json file and start the build and upload process.
+Now that we have our site configured and our deploy all set up we can proceed to **deploy it using the fleek sites deploy command**. This will start by checking the existence of the fleek.json file and start the build and upload process.
 
     > fleek sites deploy
     WARN! Fleek CLI is in beta phase, use it under your own responsibility
