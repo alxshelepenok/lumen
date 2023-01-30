@@ -66,14 +66,14 @@ While initializing you will define:
 * Confirm you want to specify a build command: npm run build.
 * And done! Your site's configuration will be set.
 
-    > fleek sites init
-    WARN! Fleek CLI is in beta phase, use it under your own responsibility
-    ✔ Choose one of the existing sites or create a new one. › Create a new site
-    ✔ Type name of you new site. … react-vite-template
-    ✔ Specify the dist directory from where the site will be uploaded from … dist
-    ✔ Do you want to include the optional "build" command? … yes
-    ✔ Specify `build` command … npm run build
-    > Success! Fleek config file has been saved.
+  > fleek sites init
+  > WARN! Fleek CLI is in beta phase, use it under your own responsibility
+  > ✔ Choose one of the existing sites or create a new one. › Create a new site
+  > ✔ Type name of you new site. … react-vite-template
+  > ✔ Specify the dist directory from where the site will be uploaded from … dist
+  > ✔ Do you want to include the optional "build" command? … yes
+  > ✔ Specify `build` command … npm run build
+  > Success! Fleek config file has been saved.
 
 Now we can see that a fleek.json file has been created with the configuration for our deploy, this files looks a little something like:
 
@@ -99,11 +99,11 @@ Now that we have our site configured and our deploy all set up we can proceed to
     > build
     > vite build
 
-Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway, **like this one.**
+Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway!
 
     Export successful. Files written to fleek-demos-blog/out
      
-    > Success! Deployed! IPFS CID: Qmb2psuVMkGfSdH3egfLEHc2di5VKtDVdTqtB8wqFNbK2h
+    > Success! Deployed! IPFS CID: QmX1BRLkZrZHNYkpWdcviSHMeJWRxk7QbaNPu8YemryBdz
 
 ***
 
@@ -117,7 +117,7 @@ What's the best way to do it? Here's the TL;DR.
 2. Configure your ENS domain with your IPNS name.
 3. Done!
 
-**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ipns/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum. 
+**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ipns/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
 
 Instead, you use a static IPNS name that on the background represents a dynamic IPFS hash that you can update any time.
 
