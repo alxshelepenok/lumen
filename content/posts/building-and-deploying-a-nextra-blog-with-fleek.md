@@ -2,9 +2,9 @@
 template: post
 draft: true
 title: Building and Deploying a Nextra Blog with Fleek
-slug: guide-deploy-react-vite-on-fleek
+slug: guide-deploy-nextra-blog-on-fleek
 date: 2023-02-02T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/215173844-c43adf85-963a-4f5f-9645-812df067ce9f.png
+socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
 canonical: ''
 description: Learn how to deploy a React App + Vite boilerplate using the Fleek Sites
   Deployment service on the CLI Beta!
@@ -14,13 +14,11 @@ tags:
 - IPFS
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/215173844-c43adf85-963a-4f5f-9645-812df067ce9f.png)
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png)
 
-Fleek Fam! [Abril here](https://twitter.com/abruzuc), from the DevRel team, bringing a new guide on how to deploy a React App + [Vite](https://vitejs.dev/) boilerplate using the [Fleek Sites CLI Beta](https://docs.fleek.xyz/). One of the first examples we are building and adding to our public [Templates repository](https://github.com/fleekxyz/templates).
+Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://docs.fleek.xyz/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates)!
 
-**What's this template?** A boilerplate! A quick blank-canvas you can rapidly deploy and iterate on with Fleek.
-
-Why React on Vite? This frontend development environment has some extra features like typed APIs, fast hot module replacement, and instant server start that have made it an ideal choice for popular FE frameworks such as react.
+**What's this template?** A ready to go static blog, which you can use as the home for your articles, and guides!
 
 ***
 
@@ -36,7 +34,7 @@ You can find the repo with the example [here](https://github.com/fleekxyz/templa
 
 ### Add, Dev, Build
 
-In your terminal, start by adding the template to your directory, and move to that directory.
+In your terminal, add the template to your directory, and move to that directory.
 
       yarn add react-vite-template
       cd react-vite-template
@@ -66,14 +64,14 @@ While initializing you will define:
 * Confirm you want to specify a build command: npm run build.
 * And done! Your site's configuration will be set.
 
-    > fleek sites init
-    WARN! Fleek CLI is in beta phase, use it under your own responsibility
-    ✔ Choose one of the existing sites or create a new one. › Create a new site
-    ✔ Type name of you new site. … react-vite-template
-    ✔ Specify the dist directory from where the site will be uploaded from … dist
-    ✔ Do you want to include the optional "build" command? … yes
-    ✔ Specify `build` command … npm run build
-    > Success! Fleek config file has been saved.
+  > fleek sites init
+  > WARN! Fleek CLI is in beta phase, use it under your own responsibility
+  > ✔ Choose one of the existing sites or create a new one. › Create a new site
+  > ✔ Type name of you new site. … react-vite-template
+  > ✔ Specify the dist directory from where the site will be uploaded from … dist
+  > ✔ Do you want to include the optional "build" command? … yes
+  > ✔ Specify `build` command … npm run build
+  > Success! Fleek config file has been saved.
 
 Now we can see that a fleek.json file has been created with the configuration for our deploy, this files looks a little something like:
 
@@ -91,7 +89,7 @@ If we try to run again the fleek sites init command then we will be greeted with
     Error: Configuration file found already.
     > Site already exists in this folder.
 
-Now that we have our site configured and our deploy all set up we can proceed to **deploy it using the fleek sites deploy command**. This will start by checking the existance of the fleek.json file and start the build and upload process.
+Now that we have our site configured and our deploy all set up we can proceed to **deploy it using the fleek sites deploy command**. This will start by checking the existence of the fleek.json file and start the build and upload process.
 
     > fleek sites deploy
     WARN! Fleek CLI is in beta phase, use it under your own responsibility
@@ -99,11 +97,13 @@ Now that we have our site configured and our deploy all set up we can proceed to
     > build
     > vite build
 
-Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway, **like this one.**
+Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway.
 
     Export successful. Files written to fleek-demos-blog/out
      
-    > Success! Deployed! IPFS CID: Qmb2psuVMkGfSdH3egfLEHc2di5VKtDVdTqtB8wqFNbK2h
+    > Success! Deployed! IPFS CID: QmavADhLe6ixJhXMgRbftw6iywGLFUMBZ4AejPyy8m9hdS
+
+Given some public IPFS gateways don't properly resolve stylings for Next sites, the best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here's an example.](https://nicoggi.eth.limo/)
 
 ***
 
@@ -117,7 +117,7 @@ What's the best way to do it? Here's the TL;DR.
 2. Configure your ENS domain with your IPNS name.
 3. Done!
 
-**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ipns/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum. 
+**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ens/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
 
 Instead, you use a static IPNS name that on the background represents a dynamic IPFS hash that you can update any time.
 
