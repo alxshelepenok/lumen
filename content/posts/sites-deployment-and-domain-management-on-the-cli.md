@@ -45,7 +45,7 @@ As an example, we re-deployed our [a quick blog page with the CLI](https://mntis
 
 With this release, given you can now make site deployments, we are introducing [**Fleek's templates repository. **](https://github.com/fleekxyz/templates)An open-source Github repository, courtesy of the DevRel crew at Fleek, with quick-to-deploy boilerplates and app examples. Starting with a simple React boilerplate and a Nextra blog!
 
-Being open-source, **anyone is open to contribute or suggest in the repository** the templates they want or need. The DevRel team will expand it continuously with simple framework examples, protocol-specific templates, as well as more use-case oriented ones (e.g. a Lens app example). So let us know what you want to see next.
+Being open-source, **anyone is open to contribute or suggest in the repository** the templates they want or need. The DevRel team will expand it as well, so let us know what you want to see next.
 
 These templates will set a foundation that in the future, the Fleek's UI and CLI can pick-up and integrate to provide them as options, inside the development experience itself.
 
