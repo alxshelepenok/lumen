@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Building and Deploying a Nextra Blog with Fleek
 slug: guide-deploy-nextra-blog-on-fleek
-date: 2023-02-02T03:00:00Z
+date: 2023-02-03T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
 canonical: ''
 description: Learn how to deploy a React App + Vite boilerplate using the Fleek Sites

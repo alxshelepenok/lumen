@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Deploy a React + Vite Boilerplate with Fleek
 slug: guide-deploy-react-vite-on-fleek
-date: 2023-02-02T03:00:00Z
+date: 2023-02-03T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/215173844-c43adf85-963a-4f5f-9645-812df067ce9f.png
 canonical: ''
 description: Learn how to deploy a React App + Vite boilerplate using the Fleek Sites
