@@ -16,28 +16,22 @@ tags:
 ---
 ![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png)
 
-Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://docs.fleek.xyz/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates)!
+Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://docs.fleek.xyz/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates).
 
-**What's this template?** A ready to go static blog, which you can use as the home for your articles, and guides!
+**What's this template?** A ready to go static blog, which you can use as the home for your articles, and guides. Here's the [repository](https://github.com/fleekxyz/fleek-demos-blog/tree/e801af0673254a10fd9f04d2e8a75db4f259e7d4) for it.
 
 ***
 
-## Getting Started: Dependencies
+### Set up Your Local Environment
 
-You can find the repo with the example [here](https://github.com/fleekxyz/templates/tree/main/boilerplates/react-vite-template). Let's do a quick run of what you need to get started. First, make sure your dependencies are covered:
+Make sure to clone the repository to get started. In your terminal, add the template to your directory, and move to that directory.
 
-* [React](https://reactjs.org/)
-* [Vite](https://vitejs.dev/)
-* [Javascript](https://www.javascript.com/)
-* [eslint](https://www.npmjs.com/package/eslint)
-* [prettier](https://prettier.io/)
+      yarn add fleek-demos-blog
+      cd fleek-demos-blog
 
-### Add, Dev, Build
+Make sure to run yarn to install all needed dependencies
 
-In your terminal, add the template to your directory, and move to that directory.
-
-      yarn add react-vite-template
-      cd react-vite-template
+    yarn
 
 You can then use yarn run dev to initialize the development of this particular package.
 
@@ -55,49 +49,28 @@ The first step to deploy a site using Fleek.xyz CLI is to stand in the project d
 
       > fleek sites init
 
-During this process, the CLI checks if a fleek.json file exists, in the case it does not it starts a step by step process to set up the site. The .json defines the configurations of your site.
+This will prompt you to define the following:
 
-While initializing you will define:
+* Site name: You can go ahead and create a new site name.
+* Specify dist directory: Use `out` which contains the site exported by next
+* Build command: You can specify the build command so fleek cli can build & deploy the site for you, you can use `npm run build`
 
-* The name of your new site.
-* The directory from where your site will be uploaded: dist.
-* Confirm you want to specify a build command: npm run build.
-* And done! Your site's configuration will be set.
-
-  > fleek sites init
-  > WARN! Fleek CLI is in beta phase, use it under your own responsibility
-  > ✔ Choose one of the existing sites or create a new one. › Create a new site
-  > ✔ Type name of you new site. … react-vite-template
-  > ✔ Specify the dist directory from where the site will be uploaded from … dist
-  > ✔ Do you want to include the optional "build" command? … yes
-  > ✔ Specify `build` command … npm run build
-  > Success! Fleek config file has been saved.
-
-Now we can see that a fleek.json file has been created with the configuration for our deploy, this files looks a little something like:
+The initialization will create fleek.json file on your project, that hold the configuration for this particular site:
 
       {
-      "id": "cldda19st0000kz081v8v9esj",
-      "name": "react-vite-template",
-      "distDir": "dist",
+      "id": "c22dda11st0000kz04441gg9esj",
+      "name": "fleek-demos-blog",
+      "distDir": "out",
       "buildCommand": "npm run build"
     }
 
-If we try to run again the fleek sites init command then we will be greeted with the following message, because your site is already initialized:
+You only need to intialize your site once, but you can always modify the settings on your fleek.json file.
 
-    > fleek sites init
-    WARN! Fleek CLI is in beta phase, use it under your own responsibility
-    Error: Configuration file found already.
-    > Site already exists in this folder.
-
-Now that we have our site configured and our deploy all set up we can proceed to **deploy it using the fleek sites deploy command**. This will start by checking the existence of the fleek.json file and start the build and upload process.
+With your deployment configured, **use the CLI to trigger the** push to IPFS. Fleek will follow the json configuration to build and deploy the site.
 
     > fleek sites deploy
-    WARN! Fleek CLI is in beta phase, use it under your own responsibility
-     
-    > build
-    > vite build
 
-Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway.
+The output? Fleek will share the IPFS CID that represents you site.
 
     Export successful. Files written to fleek-demos-blog/out
      
