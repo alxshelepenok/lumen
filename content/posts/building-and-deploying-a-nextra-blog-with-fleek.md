@@ -22,12 +22,11 @@ Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presen
 
 ***
 
-### Set up Your Local Environment
+### Getting Started: Clone & Customize
 
-Make sure to clone the repository to get started. In your terminal, add the template to your directory, and move to that directory.
+Make sure to [clone the repository](https://github.com/fleekxyz/fleek-demos-blog/tree/e801af0673254a10fd9f04d2e8a75db4f259e7d4) to get started. Now, if you want to customize this boilerplate a little bit, these are the commands you need to run on that directory.
 
-      yarn add fleek-demos-blog
-      cd fleek-demos-blog
+You can also skip this if you simply want to deploy this template quickly with its base content and settings!
 
 Make sure to run yarn to install all needed dependencies
 
