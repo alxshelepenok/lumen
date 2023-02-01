@@ -3,7 +3,7 @@ template: post
 draft: true
 title: Sites Deployments Release on the CLI Beta.
 slug: release-sites-deployment-beta-cli
-date: 2023-02-01T03:00:00.000+00:00
+date: 2023-02-02T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png
 canonical: ''
 description: New features are coming to the CLI! Today we are releasing the Sites
