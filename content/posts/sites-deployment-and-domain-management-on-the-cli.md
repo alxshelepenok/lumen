@@ -6,7 +6,8 @@ slug: release-sites-deployment-beta-cli
 date: 2023-02-01T03:00:00.000+00:00
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png
 canonical: ''
-description: ''
+description: New features are coming to the CLI! Today we are releasing the Sites
+  Deployments service to the CLI for developers to start testing.
 category: Blog
 tags:
 - Domains
