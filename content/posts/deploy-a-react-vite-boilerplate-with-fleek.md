@@ -24,15 +24,17 @@ Why React on Vite? This frontend development environment has some extra features
 
 ***
 
-## Getting Started: Dependencies
+## Getting Started: Clone & Customize
 
-You can find the repo with the example [here](https://github.com/fleekxyz/templates/tree/main/boilerplates/react-vite-template). Let's do a quick run of what you need to get started. First, make sure your dependencies are covered:
+You can find the repo with the example [here](https://github.com/fleekxyz/templates/tree/main/boilerplates/react-vite-template). **Clone it,** and here we'll do a quick run of what you need to **customize and develop on it locally.**  First, make sure your dependencies are covered:
 
 * [React](https://reactjs.org/)
 * [Vite](https://vitejs.dev/)
 * [Javascript](https://www.javascript.com/)
 * [eslint](https://www.npmjs.com/package/eslint)
 * [prettier](https://prettier.io/)
+
+You can also **skip this part** if you want to simply deploy this boilerplate with Fleek and develop/iterate on it after.
 
 ### Add, Dev, Build
 
@@ -99,7 +101,7 @@ Now that we have our site configured and our deploy all set up we can proceed to
     > build
     > vite build
 
-Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway!
+Once the process is finished you will have an IPFS CID that represents you site. You can see your newly deployed Vite site via a public IPFS gateway. Let's use Brave's public gateway to resolve this one: 
 
     Export successful. Files written to fleek-demos-blog/out
      
@@ -117,7 +119,7 @@ What's the best way to do it? Here's the TL;DR.
 2. Configure your ENS domain with your IPNS name.
 3. Done!
 
-**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ens/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
+**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/guides/ens/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
 
 Instead, you use a static IPNS name that on the background represents a dynamic IPFS hash that you can update any time.
 
