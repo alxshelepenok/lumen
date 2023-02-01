@@ -103,27 +103,9 @@ Once the process is finished you will have an IPFS CID that represents you site.
      
     > Success! Deployed! IPFS CID: QmavADhLe6ixJhXMgRbftw6iywGLFUMBZ4AejPyy8m9hdS
 
-Given some public IPFS gateways don't properly resolve stylings for Next sites, the best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here's an example.](https://nicoggi.eth.limo/)
+Here's the site, via [Brave's IPFS gateway](https://bafybeif24hdo3zv3azf2wme7nzkpdjui5dbhwwciq6lkexz744uihvlnie.ipfs.dweb.link/). Some public IPFS gateways don't properly resolve stylings for Next sites. 
 
-***
-
-## Using an ENS Name With This Site
-
-Now that your site has deployed to IPFS, and you have a hash, how about we add a decentralized domain to it - an [Ethereum Name Service](https://ens.domains/) (ENS) domain! ENS names are decentralized domains built on top of Ethereum, and an alternative to DNS.
-
-What's the best way to do it? Here's the TL;DR.
-
-1. Map your site's IPFS hash site to an IPNS name.
-2. Configure your ENS domain with your IPNS name.
-3. Done!
-
-**First**, map your IPFS hash to an IPNS name using the Fleek CLI. You can find the step-by-step instructions for this in our [documentation](https://docs.fleek.xyz/services/ens/). Why? Because IPFS hashes change each time your content changes, meaning you would have to set your IPFS hash each time on ENS, and pay the gas for the transaction on Ethereum.
-
-Instead, you use a static IPNS name that on the background represents a dynamic IPFS hash that you can update any time.
-
-**Secondly, you need to** **configure an ENS domain** and add this IPNS hash to the content field of your ENS name. Here's another quick-guide on our documentation!
-
-Once completed - you will be able to visit your site on any public ENS resolver, such as ETH Limo, (domain.eth.limo), or by using any browser or browser extension that allows for the resolving of ENS names (e.g. Metamask).
+The best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here is a guide on how to use ENS with your Fleek site](https://docs.fleek.xyz/guides/ens/).
 
 ***
 
