@@ -28,6 +28,8 @@ Make sure to [clone the repository](https://github.com/fleekxyz/fleek-demos-blog
 
 You can also skip this if you simply want to deploy this template quickly with its base content and settings!
 
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/DESKTOP.png)
+
 Make sure to run yarn to install all needed dependencies
 
     yarn
