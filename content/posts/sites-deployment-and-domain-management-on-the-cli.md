@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Sites Deployments Release on the CLI Beta.
 slug: release-sites-deployment-beta-cli
 date: 2023-02-02T03:00:00Z
