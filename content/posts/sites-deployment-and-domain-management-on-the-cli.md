@@ -43,7 +43,7 @@ As an example, we re-deployed our [a quick blog page with the CLI](https://mntis
 
 ## The Templates Repository.
 
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/JWvhCfrIhTo?controls=0](https://www.youtube.com/embed/JWvhCfrIhTo?controls=0 "https://www.youtube.com/embed/JWvhCfrIhTo?controls=0")" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JWvhCfrIhTo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 With this release, given you can now make site deployments, we are introducing [Fleek's templates repository.](https://github.com/fleekxyz/templates) An open-source Github repository, courtesy of the DevRel crew at Fleek, with quick-to-deploy boilerplates and app examples. Starting with a simple React boilerplate and a Nextra blog!
 
