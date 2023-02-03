@@ -6,7 +6,7 @@ slug: guide-deploy-nextra-blog-on-fleek-xyz
 date: 2023-02-03T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
 canonical: ''
-description: Learn how to deploy a Nextra blog app using the Fleek Sites Deployment
+description: Learn how to deploy a Nextra blog app using the Fleek.xyz Sites Deployment
   service on the CLI Beta!
 category: Guide
 tags:
