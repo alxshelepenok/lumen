@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Building and Deploying a Nextra Blog with Fleek
 slug: guide-deploy-nextra-blog-on-fleek-xyz
 date: 2023-02-03T03:00:00Z
