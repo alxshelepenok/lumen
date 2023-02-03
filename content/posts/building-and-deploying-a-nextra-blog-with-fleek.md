@@ -2,14 +2,15 @@
 template: post
 draft: true
 title: Building and Deploying a Nextra Blog with Fleek
-slug: guide-deploy-nextra-blog-on-fleek
+slug: guide-deploy-nextra-blog-on-fleek-xyz
 date: 2023-02-03T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
 canonical: ''
-description: Learn how to deploy a React App + Vite boilerplate using the Fleek Sites
-  Deployment service on the CLI Beta!
+description: Learn how to deploy a Nextra blog app using the Fleek Sites Deployment
+  service on the CLI Beta!
 category: Guide
 tags:
+- Nextra
 - Sites
 - IPFS
 
@@ -77,7 +78,7 @@ The output? Fleek will share the IPFS CID that represents you site.
      
     > Success! Deployed! IPFS CID: QmavADhLe6ixJhXMgRbftw6iywGLFUMBZ4AejPyy8m9hdS
 
-Here's the site, via [Brave's IPFS gateway](https://bafybeif24hdo3zv3azf2wme7nzkpdjui5dbhwwciq6lkexz744uihvlnie.ipfs.dweb.link/). Some public IPFS gateways don't properly resolve stylings for Next sites. 
+Here's the site, via [Brave's IPFS gateway](https://bafybeif24hdo3zv3azf2wme7nzkpdjui5dbhwwciq6lkexz744uihvlnie.ipfs.dweb.link/). Some public IPFS gateways don't properly resolve stylings for Next sites.
 
 The best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here is a guide on how to use ENS with your Fleek site](https://docs.fleek.xyz/guides/ens/).
 
