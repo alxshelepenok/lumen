@@ -80,6 +80,8 @@ The output? Fleek will share the IPFS CID that represents you site.
 
 Here's the site, via [Brave's IPFS gateway](https://bafybeif24hdo3zv3azf2wme7nzkpdjui5dbhwwciq6lkexz744uihvlnie.ipfs.dweb.link/). Some public IPFS gateways don't properly resolve stylings for Next sites.
 
+### Add an ENS Domain to Your Site
+
 The best way to see your site in fully glory is to map your new site to an ENS or DNS domain! [Here is a guide on how to use ENS with your Fleek site](https://docs.fleek.xyz/guides/ens/).
 
 ***
