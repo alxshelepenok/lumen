@@ -7,8 +7,13 @@ date: 2023-02-11T03:00:00Z
 socialImage: ''
 canonical: ''
 description: Maximizing flexibility and freedom in NFA data retrieval with The Graph.
-category: ''
-tags: []
+category: Guides
+tags:
+- Subgraphs
+- Guides
+- Non-fungible Applications
+- NFAs
+- The Graph
 
 ---
 In an effort to supercharge our Non-Fungible Apps (NFAs), we’ve begun to integrate different web3 native protocols into the stack – **starting with subgraphs (open APIs) on** [**The Graph**](https://thegraph.com/). This is our first implementation of The Graph, and while we’re still very much in the early phase, we wanted to share our experience & implementation, as well as provide the web3 community with an up-to-date guide on using The Graph in 2023.
