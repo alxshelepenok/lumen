@@ -3,7 +3,7 @@ template: post
 draft: true
 title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 slug: thegraph-and-nfas-deploying-subgraphs
-date: 2023-02-11T03:00:00Z
+date: 2023-02-13T03:00:00Z
 socialImage: ''
 canonical: ''
 description: Maximizing flexibility and freedom in NFA data retrieval with The Graph.
