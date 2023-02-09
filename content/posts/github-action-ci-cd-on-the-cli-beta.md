@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Github Actions CI/CD Support on the CLI Beta
 slug: release-github-ci-beta-cli
 date: 2023-02-09T03:00:00Z
@@ -49,9 +49,9 @@ We’ve also squashed quite a few bugs and packaged more improvements that we fo
 
 Some rapid-fire additions and fixes on this release:
 
-* New cli command to list sites <code> flee sites list <code>
+* New cli command to list sites `fleek sites list`
 * Automatic browser opening removed ([Fixes]( https://github.com/fleekxyz/fleekxyz-support/issues/8))
-* Catch CTRL+C on site init and escape gracefully
+* Catch SIGKILL on site init and escape gracefully
 * Improve sites deploy success message
 * Fix an infinite loading in login
 * Add ipfs gateway url to success message of sites deploy
