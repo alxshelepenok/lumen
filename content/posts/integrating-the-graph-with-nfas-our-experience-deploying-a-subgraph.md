@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 slug: thegraph-and-nfas-deploying-subgraphs
 date: 2023-02-13T03:00:00Z
