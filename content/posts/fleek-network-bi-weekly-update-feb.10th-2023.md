@@ -78,6 +78,6 @@ Since our last Fleek Network Bi-Weekly Update, we’ve released a few new guides
 
 —
 
-That’s all for this update! For live updates and access to the team, be sure to check out our GitHub, or join our Discord server.
+That’s all for this update! For live updates and access to the team, be sure to check out our [GitHub](https://github.com/fleek-network), join our [Discord server](https://discord.gg/fleekxyz), and subscribe to updates on [Fleek.Network](https://fleek.network/)! 
 
-We'll be back with another update in \~2 weeks' time– see you all then ⚡
+We'll be back with another progress report in \~2 weeks' time– see you all then ⚡
