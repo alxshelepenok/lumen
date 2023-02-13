@@ -4,7 +4,7 @@ draft: true
 title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 slug: thegraph-and-nfas-deploying-subgraphs
 date: 2023-02-13T03:00:00Z
-socialImage: ''
+socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png
 canonical: ''
 description: Maximizing flexibility and freedom in NFA data retrieval with The Graph.
 category: Guides
@@ -16,6 +16,8 @@ tags:
 - The Graph
 
 ---
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png)
+
 In an effort to supercharge our Non-Fungible Apps (NFAs), we’ve begun to integrate different web3 native protocols into the stack – **starting with subgraphs (open APIs) on** [**The Graph**](https://thegraph.com/). This is our first implementation of The Graph, and while we’re still very much in the early phase, we wanted to share our experience & implementation, as well as provide the web3 community with an up-to-date guide on using The Graph in 2023.
 
 In terms of our specific implementation, the integration of The Graph into our NFA stack will enable ultimate flexibility in a user's **ability to fetch data from the NFA contract**. Developers will be able to query and filter information from our NFA contract.
