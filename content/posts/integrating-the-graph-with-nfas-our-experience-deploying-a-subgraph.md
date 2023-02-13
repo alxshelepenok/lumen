@@ -44,7 +44,7 @@ We are building Fleek.xyz as an **open-source, extensible, and protocol-agnostic
 
 We’ve configured our subgraph to **detect when specific events happen with our NFA smart contracts**. Indexers on The Graph Network pick up these events and pass them to our handlers that we’ve deployed through our subgraph. At this point, we can use our subgraph to query specific data.
 
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/nfa-infra-graph.jpg)
+![](https://storage.fleek.zone/fleek-team-bucket/Blogs/nfainfra.jpg)
 
 This could be information like specific token holders, blocks, transactions, or whatever else is needed to supercharge your applications.
 
