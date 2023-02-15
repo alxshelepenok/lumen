@@ -4,7 +4,7 @@ draft: true
 title: Fleek Network’s Roadmap Is Public
 slug: fleek-network-public-roadmap-stages
 date: 2023-02-15T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn.png
+socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/end-to-end.png
 canonical: ''
 description: Take a high level look at what features & objectives our team has been
   working on – from Devnet all the way to Mainnet!
@@ -14,7 +14,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn.png)
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/end-to-end.png)
 
 Since announcing [Fleek Network back in November](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz) (and starting to build it a lot earlier than that), we’ve been heads down and focused.
 
@@ -38,7 +38,7 @@ At the time of writing, we are still finishing out some of the core aspects of D
 
 During the development of the Devnet, the team has been working on laying the foundational components needed to build a decentralized edge network. This includes, but is not limited to, features like:
 
-* 🗺️ The network actors 
+* 🗺️ The network actors
   * Cache & Gateway Nodes
     * Full chain nodes, validators, and light nodes
       * Full Chain nodes: maintain history but are not necceseraily validators in the network.
@@ -62,9 +62,9 @@ This has meant open sourcing, deploying test nodes into multiple regions, wallet
 
 ![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/testnet.png)
 
-Soon, we will move to the testnet(s) phase. There will be **multiple stages to our testnet**, each stage will have a specific testing purpose (e.g. to test consensus, performance, incentives, etc.).
+Soon, we will move to the Testnet(s) phase. There will be **multiple stages to our testnet**, each stage will have a specific testing purpose (e.g. to test consensus, performance, incentives, etc.).
 
-The main difference between testnet and Devnet is that testnet is incentivized. This is done to attract operators with higher grade equipment to maximize the geographical distribution of the edge network, lowering our time to first byte (TTFB), and maximizing the testing in a realistic scenario. **Developers can use Fleek Network**, which will be crucial to test its features.
+The main difference between Testnet and Devnet is that the Testnet is incentivized. This is done to attract operators with higher grade equipment to maximize the geographical distribution of the edge network, lowering our time to first byte (TTFB), and maximizing the testing in a realistic scenario. **Developers can use Fleek Network**, which will be crucial to test its features.
 
 Additionally, in this phase, we will expand our direct integrations to **both IPFS & Filecoin**. Fleek Network can fetch content directly from IPFS & Filecoin nodes. While Fleek Network can reach any origin via its gateways through HTTP, we plan to expand our direct integrations to all major web3 storage providers.
 
@@ -72,7 +72,7 @@ Additionally, in this phase, we will expand our direct integrations to **both IP
 
 **The release and transition to Fleek Network’s mainnet** should mark the success of our Testnets. To reach that stage, we expect to stress-test the network’s components fully to validate their implementation and performance at scale.
 
-Once we hit a high confidence level, mainnet will go live, and Fleek Network will provide production-ready and decentralized caching and content acceleration to all users.
+Once we hit a high confidence level, Mainnet will go live, and Fleek Network will provide production-ready and decentralized caching and content acceleration to all users.
 
 ***
 
