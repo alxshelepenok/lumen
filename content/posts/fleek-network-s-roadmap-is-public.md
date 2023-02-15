@@ -4,7 +4,7 @@ draft: false
 title: Fleek Network’s Roadmap Is Public
 slug: fleek-network-public-roadmap-stages
 date: 2023-02-15T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/end-to-end.png
+socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fnroadmap.png
 canonical: ''
 description: Take a high level look at what features & objectives our team has been
   working on – from Devnet all the way to Mainnet!
