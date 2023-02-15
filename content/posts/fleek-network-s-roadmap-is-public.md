@@ -24,7 +24,9 @@ Today, we are taking the opportunity to come up for air and share **publicly a h
 
 ## Devnet, Testnet(s), & Mainnet
 
-![Fleek Network Roadmap - ](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn-feb.png)_You can view the_ [_full-size roadmap_](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn-feb.png) _here._
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-int.png)
+
+_You can view the_ [_full-size roadmap_](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn-feb.png) _here._
 
 This roadmap represents a high level breakdown of the two main stages leading up to Fleek Network mainnet: Devnet & Testnet.
 
@@ -34,7 +36,7 @@ At the time of writing, we are still finishing out some of the core aspects of D
 
 ## Devnet: Building the Core.
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/devnet.png)
+![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-testnet.png)
 
 During the development of the Devnet, the team has been working on laying the foundational components needed to build a decentralized edge network. This includes, but is not limited to, features like:
 
@@ -66,7 +68,7 @@ Soon, we will move to the Testnet(s) phase. There will be **multiple stages to o
 
 The main difference between Testnet and Devnet is that the Testnet is incentivized. This is done to attract operators with higher grade equipment to maximize the geographical distribution of the edge network, lowering our time to first byte (TTFB), and maximizing the testing in a realistic scenario. **Developers can use Fleek Network**, which will be crucial to test its features.
 
-Additionally, in this phase, we will expand our direct **integrations to** **both IPFS & Filecoin**. Fleek Network can fetch content directly from IPFS & Filecoin nodes. While Fleek Network can reach any origin via its gateways through HTTP, we plan to expand our direct integrations to all major web3 storage providers.
+Additionally, in this phase, we will expand our direct **integrations to** **both IPFS & Filecoin, Arweave** and other storage protocols. Fleek Network can fetch content directly from IPFS & Filecoin nodes. While Fleek Network can reach any origin via its gateways through HTTP, we plan to expand our direct integrations to all major web3 storage providers.
 
 ### Getting to Mainnet
 
