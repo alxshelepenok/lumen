@@ -78,4 +78,4 @@ Once we hit a high confidence level, Mainnet will go live, and Fleek Network wil
 
 That’s all for today! If you haven’t joined in the testing already, you can do so by spinning up your [own Devnet Fleek Network node](https://docs.fleek.network/guides/Network%20nodes/fleek-network-getting-started-guide), helping us to develop and move Fleek Network across each of these phases. Get setup, and let us know what you think ahead of the Testnet!
 
-For any other resources, checkout [our linktree](https://linktr.ee/fleek).
+For any other resources, checkout [our linktree](https://linktr.ee/fleek) or visit our website to [subscribe to our updates.](https://fleek.network/)
