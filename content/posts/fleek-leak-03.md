@@ -24,7 +24,7 @@ A few weeks later we’re counting **sites deployed with Fleek in the hundreds**
 
 ## So, What Are We Building? ⚡️
 
-The motto we keep repeating internally? Build and ship in parallel. So while the first beta was coming up, these things were being set up and are now on the final stretch towards completion:
+This weeks we focused on expanding our current services with added logic (Deployments), and setting the stage for our next releases:
 
 * Yet another services (Custom Domains)
 * Deploy System and Enhancements
@@ -48,7 +48,7 @@ This unlocks dozens of possibilities when it comes to deployment management. Kno
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzBjZWY5ZGJkOTQwZDFjMDJkODk3M2VjODI2MzI3MjM5NGI3YTc3MCZjdD1n/KvD3fWqBEiZwyLjKu8/giphy.gif)
 
-The work we are doing with Custom Domains has been defined by a fundamental thing: building our services to be **event-based**. Meaning for any action that occurs, there will be a record of the action**!**
+The work we are doing with Custom Domains has been defined by a fundamental thing: **building our services to be event-based**. Meaning for any action that occurs, there will be a record of the action!
 
 Yes, at a glance, the Custom Domains feature will enable you to **map a site’s latest deployment to a CDN pull-zone**, which then you can use to use any DNS domain with your site on IPFS. In a nutshell, your sites will go from [https://ipfs.io/ipfs/QmPMo](https://ipfs.io/ipfs/QmPMo "https://ipfs.io/ipfs/QmPMo")[…](https://ipfs.io/ipfs/QmPMo%E2%80%A6). To _anycustomdomainyouwant_.com.
 
@@ -60,7 +60,7 @@ But, aside from the file/CID mapping to CDN zone that Fleek handles in the backg
 
 These weeks we’ve been working on many SDK-related pieces. These two are the pieces we are finalizing to **prepare the SDK for browser support**.
 
-The first, is the update of the SDK’s structure to allow for **other methods of authentication (**like api keys or full-access tokens) in the future. Today, the SDK supports the authentication flow we use for our CLI environment (personal access token), but to allow users to safely utilize and integrate it anywhere we need to expand the available options.
+The first, is the update of the SDK’s structure to **allow for other methods of authentication** (like api keys or full-access tokens) in the future. Today, the SDK supports the authentication flow we use for our CLI environment (personal access token), but to allow users to safely utilize and integrate it anywhere we need to expand the available options.
 
 The second is **the decoupling of certain** packages utilized on the SDK that were not compatible with a browser environment. We isolated said packages (mostly node-js oriented), refactored our IPFS service so that on browsers we don’t rely on incomplete packages, and bundled browser-compatible versions where needed.
 
