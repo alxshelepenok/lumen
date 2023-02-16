@@ -50,7 +50,7 @@ This unlocks dozens of possibilities when it comes to deployment management. Kno
 
 The work we are doing with Custom Domains has been defined by a fundamental thing: building our services to be **event-based**. Meaning for any action that occurs, there will be a record of the action!
 
-Yes, at a glance, the Custom Domains feature will enable you to **map a site’s latest deployment to a CDN pull-zone**, which then you can use to use any DNS domain with your site on IPFS. In a nutshell, your sites will go from https://ipfs.io/ipfs/QmPMo…. To _anycustomdomainyouwant_.com.
+Yes, at a glance, the Custom Domains feature will enable you to **map a site’s latest deployment to a CDN pull-zone**, which then you can use to use any DNS domain with your site on IPFS. In a nutshell, your sites will go from `https://ipfs.io/ipfs/QmPMo`…. To _anycustomdomainyouwant_.com.
 
 But, aside from the file/CID mapping to CDN zone that Fleek handles in the background, **events shine in how your custom domains continue to work.** Upon each new deployment for a given site, the custom domains service will **detect that your site received an update and will automatically update the CDN pullzone** to represent the latest version of your site!
 
