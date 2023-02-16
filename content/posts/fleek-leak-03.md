@@ -2,7 +2,7 @@
 template: post
 draft: true
 title: Fleek Leak 03
-slug: fleek-leak-02
+slug: fleek-leak-03
 date: 2023-02-16T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fl16fb.png
 canonical: ''
