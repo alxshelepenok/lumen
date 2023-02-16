@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Fleek Leak 03
 slug: fleek-leak-03
 date: 2023-02-16T03:00:00Z
@@ -20,7 +20,7 @@ tags:
 
 Issue number three of the Fleek Leak is landing ⚡, coming back after back-to-back release weeks!
 
-A few weeks later we’re counting **sites deployed with Fleek in the hundreds**, and we are preparing ourselves for our next big releases: **custom domains, and the SDK!** Let’s do a recap of what’s next, and some alpha on our SDK.
+A few weeks later we’re counting **sites deployed with Fleek in the hundreds**, and we are preparing for some of our releases: **custom domains, and the SDK!** Let’s do a recap of what’s next, and some alpha on our SDK.
 
 ## So, What Are We Building? ⚡️
 
@@ -48,11 +48,11 @@ This unlocks dozens of possibilities when it comes to deployment management. Kno
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzBjZWY5ZGJkOTQwZDFjMDJkODk3M2VjODI2MzI3MjM5NGI3YTc3MCZjdD1n/KvD3fWqBEiZwyLjKu8/giphy.gif)
 
-The work we are doing with Custom Domains has been defined by a fundamental thing: **building our services to be event-based**. Meaning for any action that occurs, there will be a record of the action!
+The work we are doing with Custom Domains has been defined by a fundamental thing: building our services to be **event-based**. Meaning for any action that occurs, there will be a record of the action!
 
-Yes, at a glance, the Custom Domains feature will enable you to **map a site’s latest deployment to a CDN pull-zone**, which then you can use to use any DNS domain with your site on IPFS. In a nutshell, your sites will go from [https://ipfs.io/ipfs/QmPMo](https://ipfs.io/ipfs/QmPMo "https://ipfs.io/ipfs/QmPMo")[…](https://ipfs.io/ipfs/QmPMo%E2%80%A6). To _anycustomdomainyouwant_.com.
+Yes, at a glance, the Custom Domains feature will enable you to **map a site’s latest deployment to a CDN pull-zone**, which then you can use to use any DNS domain with your site on IPFS. In a nutshell, your sites will go from https://ipfs.io/ipfs/QmPMo…. To _anycustomdomainyouwant_.com.
 
-But, aside from the file/CID mapping to CDN zone that Fleek handles in the background, **events shine in how your custom domains continue to work.** Upon each new deployment for a given site, the custom domains service will **detect that your site received an update and will automatically update your CDN pullzone** to represent the latest version of your site!
+But, aside from the file/CID mapping to CDN zone that Fleek handles in the background, **events shine in how your custom domains continue to work.** Upon each new deployment for a given site, the custom domains service will **detect that your site received an update and will automatically update the CDN pullzone** to represent the latest version of your site!
 
 ***
 
@@ -60,7 +60,7 @@ But, aside from the file/CID mapping to CDN zone that Fleek handles in the backg
 
 These weeks we’ve been working on many SDK-related pieces. These two are the pieces we are finalizing to **prepare the SDK for browser support**.
 
-The first, is the update of the SDK’s structure to **allow for other methods of authentication** (like api keys or full-access tokens) in the future. Today, the SDK supports the authentication flow we use for our CLI environment (personal access token), but to allow users to safely utilize and integrate it anywhere we need to expand the available options.
+The first, is the update of the SDK’s structure to allow for **other methods of authentication** (i.e. api keys) in the future. Today, the SDK supports the authentication flow we use for our CLI environment (personal access token), but to allow users to safely utilize and integrate it anywhere we need to expand the available options.
 
 The second is **the decoupling of certain** packages utilized on the SDK that were not compatible with a browser environment. We isolated said packages (mostly node-js oriented), refactored our IPFS service so that on browsers we don’t rely on incomplete packages, and bundled browser-compatible versions where needed.
 
@@ -70,7 +70,7 @@ With those two pieces above, and many more in the back, **we can allow developer
 
 ***
 
-We continue to see our bet on Fleek’s new architecture flourish! We work and move in layers: First, building with our services (sites, storage, IPFS, custom domains, etc.), then creating GraphQL APIs to interact with them, which we integrate and expose through the SDK THAT is leveraged currently by the CLI, to finally use them to build and power… Our App’s UI! **Fleek’s circle of life ⚡.**
+We continue to see our bet on Fleek’s new architecture flourish! We work and move in layers: First, building with our services (sites, storage, IPFS, custom domains, etc..), then creating GraphQL APIs to interact with them, which we integrate and expose through the SDK which is leveraged currently by the CLI, to finally use them to build and power… Our App’s UI. Fleek’s circle of life ⚡.
 
 Stay tuned for the Custom Domains release and all else we are preparing! We’re also rounding the corner to **ETHDenver,** so keep an ear out because news are coming soon on where you’ll be able to find the team, and catch our workshops.
 
