@@ -64,11 +64,11 @@ Let’s break down some applied examples using Arweave’s features to fully und
 
 **Databases - Store a database of actions in your dApp, and query it! (e.g:** [**weaveDB**](https://weavedb.dev/)**)**
 
-Arweave’s retrieval capabilities, and GraphQL support, make it an ideal solution for this use case. WeaveDB has used Arweaves storage/contract capabilities to build a NoSQL database powered by Arweave Warp Contracts.
+Arweave’s retrieval capabilities and GraphQL support, make it a great option for this use-case. For example, WeaveDB has used Arweaves storage/contract capabilities to build a NoSQL database powered by Arweave Warp Contracts.
 
 **Contracts: Build complex data-driven multi-contract dApps . (e.g:** [**Warp**](https://warp.cc/)**)**
 
-Arweave's unique contract execution capabilities and environment open up the door for new smart contract development implementations. Warp stresses Arweave’s lazy-contract-state update benefits with its own custom transaction lifecycle, and several contract abstractions (such as cross-contract calls). By separating state from execution, performance is optimized and the network is kept light.
+Arweave's unique contract execution capabilities and environment open up the door for new smart contract development implementations. Warp makes the best of Arweave’s lazy-contract-state update perk with its own custom transaction lifecycle, and several contract abstractions (such as cross-contract calls). By separating state from execution, performance is optimized and the network can be kept light.
 
 **Storage - On-chain decentralized storage layer for a content app - (e.g:** [**Mirror**](https://mirror.xyz)**)**
 
