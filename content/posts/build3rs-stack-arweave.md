@@ -21,7 +21,7 @@ tags:
 
 **Welcome to the Build3rs Stack**! In this content series we cover the most important parts of the web3 infrastructure stack for builders, and go over their applied use-cases.
 
-**Today we will cover:** [**Arweave**](https://www.arweave.org/). Arweave is a permanent and decentralized web platform built on an open ledger. It's main service? A permanent storage protocol, with a particular mechanism: you only pay for storage once, and store data permanently on a decentralized network.
+**Today we will cover:** [**Arweave**](https://www.arweave.org/): a permanent and decentralized web platform built on an open ledger. It's main service? A permanent storage protocol, with a particular mechanism: you only pay for storage once, and store data permanently on a decentralized network.
 
 ***
 
