@@ -78,9 +78,9 @@ By leveraging Arweave, Mirror can create a platform that ensures posts made on t
 
 ## Getting Started with Arweave
 
-Arweave has a suite of tools available for many different uses such as decentralized databases, web3 profiles, and permanent storage.
+Arweave has a suite of tools available for all the uses we mentioned above (decentralized databases, web3 profiles, and permanent storage).
 
-**Your first step?** Visit Arweave’s [development documentation](https://docs.arweave.org/developers) to get acquainted with the basics, and then you can find an end-to-end guide (from storage to contracts), in the [ArWiki!](https://arwiki.wiki/#/en/main)
+**Your first step?** **Visit Arweave’s** [**development documentation**](https://docs.arweave.org/developers) to get acquainted with the basics, and then you can find an end-to-end guide (from storage to contracts), in the [ArWiki!](https://arwiki.wiki/#/en/main)
 
 Here are some of other useful resources and platform you can use to get started:
 
