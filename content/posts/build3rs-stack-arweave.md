@@ -43,18 +43,18 @@ For users, unlike traditional centralized systems, Arweave's blockweave only req
 
 ## Arweave in Features: Permanent Storage & Contracts
 
-As a permanent data storage network, Arweave can be the home to several components of your dApp's or project's stack. From files and databases, to smart contracts, you can build, store, and run a decentralized application end-to-end in Arweave.
+As a permanent data storage network, Arweave can be the home to several components of your project's stack. **From files and databases, to smart contracts**, you can build, store, and run a decentralized application end-to-end in Arweave.
 
 In short, the main features Arweave can provide to you as a builder are:
 
 * Permanent file storage.
 * Permanent frontend/site hosting.
-* Building databases on the Permaweb.
-* Launching smart contracts
+* Queryable databases on the Permaweb.
+* Smart contracts
 
 Smart contracts in particular are powered by [SmartWeave](https://arwiki.wiki/#/en/smartweave). SmartWeave is a smart contracting system built on top of Arweave that allows users to build and run the logic of their programs through this network.
 
-One particular perk of using Arweave for contracts is that contract state is computed on the user’s machine locally, not the network, removing that burden from the network itself. This allows contracts to be built in multiple languages (e.g. JS), and to have more complex operations without added network compute fees.
+One particular perk of using Arweave for contracts is that **contract state is computed on the user’s machine**, not the network, removing that burden from the network itself. This allows contracts to have more complex operations without causing added network compute fees, and to be built in multiple friendlier languages (e.g. JS).
 
 ***
 
