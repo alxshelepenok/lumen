@@ -87,6 +87,7 @@ Here are some of other useful resources and platform you can use to get started:
 * [ArDrive](https://ardrive.io/) - GUI for uploading data to Arweave
 * [PermaPages](https://permapages.arweave.dev) - Permanent web3 profiles and permaweb pages
 * [WeaveDB](https://weavedb.dev) - NoSQL database as a smart contract on Arweave. Similar to Firestore
+* [Bundlr Network](https://bundlr.network/) - Main tool and provider for using and building on Arweave storage.
 * [ArweaveJS](https://github.com/ArweaveTeam/arweave-js) - Arweave JavaScript SDK for interacting with the network
 * [ArConnect](https://arconnect.io) - Arweave web wallet
 * [Permaweb Cookbook](https://cookbook.arweave.dev) - 0 to 1 guides and concepts for building on the permaweb
