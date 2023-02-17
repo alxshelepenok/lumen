@@ -72,7 +72,7 @@ Arweave's unique contract execution capabilities and environment open up the doo
 
 **Storage - On-chain decentralized storage layer for a content app - (e.g:** [**Mirror**](https://mirror.xyz)**)**
 
-By leveraging Arweave, Mirror can create a platform that ensures posts made on the platform are preserved indefinitely. Because Arweave's decentralized storage is designed to be resistant to censorship, posts stored on Arweave are guaranteed to be accessible and unchanged for as long as the network continues to operate.
+By leveraging Arweave, Mirror can create a platform that ensures posts made on the platform are preserved indefinitely. Because Arweave's decentralized storage is designed to be resistant to censorship, posts stored on Arweave are guaranteed to be accessible and unchanged for as long as the network continues to operate. Providers like [**Bundlr Network**](https://bundlr.network/) are an easy way to start doing uploads on Arweave in an abstracted and simple way.
 
 ***
 
