@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: 'Build3rs Stack: Arweave'
 slug: builders-stack-arweave
 date: 2023-02-17T03:00:00Z
