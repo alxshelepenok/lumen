@@ -1,14 +1,22 @@
 ---
 template: post
-draft: true
+draft: false
 title: Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS.
 slug: ethereum-boilerplate-ipfs-nextjs
 date: 2023-02-18T03:00:00Z
 socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/os-ethereum.png
 canonical: ''
-description: ''
-category: ''
-tags: []
+description: Build an Ethereum dApp end-to-end with a fully open-source boilerplate
+  with no binding dependencies, and a next.js frontend.
+category: Guides
+tags:
+- wagmi
+- Rainbowkit
+- Hardhat
+- next.js
+- IPFS
+- Boilerplate
+- Ethereum
 
 ---
 ![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/os-ethereum.png)
