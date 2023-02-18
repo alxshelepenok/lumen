@@ -29,13 +29,13 @@ That's why I created the [ethereum-boilerplate](https://github.com/fleekxyz/ethe
 
 ### **Index** ⚡
 
-1. [Getting Started](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#getting-started-with-the-ethereum-boilerplate)
-2. [The Tech Stack](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#the-tech-stack)
-3. [The Smart Contract](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#the-smart-contract)
-4. [The Next.js Frontend](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#the-next-js-frontend)
-5. [Customizing the Boilerplate](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#customizing-the-boilerplate)
-6. [Moving into Production](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#moving-into-production)
-7. [Deploying to Fleek!](https://blog.fleek.co/posts/ethereum-boilerplate-ipfs-nextjs#deploying-the-frontend-to-fleek)
+1. [Getting Started](#getting-started-with-the-ethereum-boilerplate)
+2. [The Tech Stack](#the-tech-stack)
+3. [The Smart Contract](#the-smart-contract)
+4. [The Next.js Frontend](#the-next-js-frontend)
+5. [Customizing the Boilerplate](#customizing-the-boilerplate)
+6. [Moving into Production](#moving-into-production)
+7. [Deploying to Fleek!](#deploying-the-frontend-to-fleek)
 
 ***
 
