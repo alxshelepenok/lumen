@@ -1,6 +1,6 @@
 ---
 template: post
-draft: true
+draft: false
 title: Build a dApp with Fleek’s Ethereum Boilerplate, and Host it on IPFS.
 slug: ethereum-boilerplate-ipfs-nextjs
 date: 2023-02-18T03:00:00Z
