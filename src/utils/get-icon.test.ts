@@ -19,5 +19,6 @@ describe("getIcon", () => {
     expect(getIcon("instagram")).toEqual(ICONS.instagram);
     expect(getIcon("soundcloud")).toEqual(ICONS.soundcloud);
     expect(getIcon("mastodon")).toEqual(ICONS.mastodon);
+    expect(getIcon("twitch")).toEqual(ICONS.twitch);
   });
 });

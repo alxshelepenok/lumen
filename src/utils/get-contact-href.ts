@@ -18,6 +18,7 @@ const getContactHref = (name: string, contact: string) => {
     linkedin: `https://www.linkedin.com/in/${contact}`,
     youtube: `https://www.youtube.com/channel/${contact}`,
     mastodon: `${contact}`,
+    twitch: `https://www.twitch.tv/${contact}`,
   };
 
   return hrefs[name] ?? contact;

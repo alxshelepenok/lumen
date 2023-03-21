@@ -27,6 +27,7 @@ const useSiteMetadata = () => {
                 instagram
                 soundcloud
                 mastodon
+                twitch
               }
             }
             menu {
