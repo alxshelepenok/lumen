@@ -131,7 +131,7 @@
     "lost": "9.0.1",
     "postcss": "^8.4.21",
     "postcss-scss": "^4.0.6",
-    "prettier": "^2.8.6",
+    "prettier": "^2.8.7",
     "prettier-plugin-packagejson": "^2.4.3",
     "react-test-renderer": "^18.2.0",
     "rimraf": "4.4.1",
