@@ -4,7 +4,7 @@ draft: false
 title: 'Build3rs Stack: Pocket Network'
 slug: builders-stack-pocket-network
 date: 2023-02-10T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/builders.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/builders.png
 canonical: ''
 description: 'The builder''s guide to getting started with Pocket: where it fits in
   the decentralized Web3 infra-stack, and what you can build with it.'
@@ -15,7 +15,7 @@ tags:
 - Infrastructure
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/builders.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/builders.png)
 
 Welcome to the Build3rs Stack! A new content series we’re starting at Fleek highlighting all Web3 infrastructure protocols from a developer and app-building perspective.
 
@@ -27,7 +27,7 @@ The first one we will cover today? [Pocket Network](http://pokt.network) (Pocket
 
 ## TL;DR: What is Pocket and how does it work?
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/Pocket-feature-image.png)Pocket Network is a decentralized protocol that provides a network of remote procedure call (RPC) nodes to relay blockchain data/calls from any supported blockchain to DApps and end-users. Which makes it a great chain-agnostic provider for those uses!
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/Pocket-feature-image.png)Pocket Network is a decentralized protocol that provides a network of remote procedure call (RPC) nodes to relay blockchain data/calls from any supported blockchain to DApps and end-users. Which makes it a great chain-agnostic provider for those uses!
 
 Today, most RPC providers are centralized (like [Infura](https://www.infura.io/)), or developers need to spin up their own infrastructure for an independent resource. Pocket eliminates that need with a **decentralized infrastructure network.** No need to rely on a centralized provider (at risk of data alteration and privacy concerns, censorship, or outages), or to run your own infrastructure.
 

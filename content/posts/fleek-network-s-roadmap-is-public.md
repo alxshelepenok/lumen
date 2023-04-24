@@ -4,7 +4,7 @@ draft: false
 title: Fleek Network’s Roadmap Is Public
 slug: fleek-network-public-roadmap-stages
 date: 2023-02-15T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fnroadmap.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fnroadmap.png
 canonical: ''
 description: Take a high level look at what features & objectives our team has been
   working on – from Devnet all the way to Mainnet!
@@ -14,7 +14,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/end-to-end.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/end-to-end.png)
 
 Since announcing [Fleek Network back in November](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz) (and starting to build it a lot earlier than that), we’ve been heads down and focused.
 
@@ -24,9 +24,9 @@ Today, we are taking the opportunity to come up for air and share **publicly a h
 
 ## Devnet, Testnet(s), & Mainnet
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-int.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-int.png)
 
-_You can view the_ [_full-size roadmap_](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn-feb.png) _here._
+_You can view the_ [_full-size roadmap_](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-fn-feb.png) _here._
 
 This roadmap represents a high level breakdown of the two main stages leading up to Fleek Network mainnet: Devnet & Testnet.
 
@@ -36,7 +36,7 @@ At the time of writing, we are still finishing out some of the core aspects of D
 
 ## Devnet: Building the Core.
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-testnet.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/roadmap-testnet.png)
 
 During the development of the Devnet, the team has been working on laying the foundational components needed to build a decentralized edge network. This includes, but is not limited to, features like:
 
@@ -62,7 +62,7 @@ So far this has meant open sourcing, deploying test nodes into multiple regions,
 
 ## Testnet: Expanding and Testing.
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/testnet.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/testnet.png)
 
 Soon, we will move to the Testnet(s) phase. There will be **multiple stages to our Testnet**, each stage will have a specific testing purpose (e.g. to test consensus, performance, incentives, etc.).
 

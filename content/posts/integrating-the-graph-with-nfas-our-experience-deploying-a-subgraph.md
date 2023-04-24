@@ -4,7 +4,7 @@ draft: false
 title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 slug: thegraph-and-nfas-deploying-subgraphs
 date: 2023-02-13T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png
 canonical: ''
 description: Maximizing flexibility and freedom in NFA data retrieval with The Graph.
 category: Guides
@@ -16,7 +16,7 @@ tags:
 - The Graph
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png)
 
 In an effort to supercharge our Non-Fungible Apps (NFAs), we’ve begun to integrate different web3 native protocols into the stack – **starting with subgraphs (open APIs) on** [**The Graph**](https://thegraph.com/). This is our first implementation of The Graph, and while we’re still very much in the early phase, we wanted to share our experience & implementation, as well as provide the web3 community with an up-to-date guide on using The Graph in 2023.
 
@@ -44,7 +44,7 @@ We are building Fleek.xyz as an **open-source, extensible, and protocol-agnostic
 
 We’ve configured our subgraph to **detect when specific events happen with our NFA smart contracts**. Indexers on The Graph Network pick up these events and pass them to our handlers that we’ve deployed through our subgraph. At this point, we can use our subgraph to query specific data.
 
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/nfainfra.jpg)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/nfa-infra.jpeg)
 
 This could be information like specific token holders, blocks, transactions, or whatever else is needed to supercharge your applications.
 

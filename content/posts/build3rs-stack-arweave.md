@@ -4,7 +4,7 @@ draft: false
 title: 'Build3rs Stack: Arweave'
 slug: builders-stack-arweave
 date: 2023-02-17T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-builderstack.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-builderstack.png
 canonical: ''
 description: 'The builder''s guide to Arweave: where it fits in your project''s Web3
   infra-stack, and what you can achieve with it..'
@@ -17,7 +17,7 @@ tags:
 - Arweave
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-builderstack.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-builderstack.png)
 
 **Welcome to the Build3rs Stack**! In this content series we cover the most important parts of the web3 infrastructure stack for builders, and go over their applied use-cases.
 
@@ -27,7 +27,7 @@ tags:
 
 ## TL;DR: What is Arweave?
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-main.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-main.png)
 
 While storing contract data might be efficient and possible in blockchains like Ethereum, doing so for larger sized files or bulks of databases, it’s not. Arweave, a permanent and decentralized web platform aims to solve these issues with a **data-preservation network** that decouples many storage needs from other networks (as well as other features like computation, DBs).
 

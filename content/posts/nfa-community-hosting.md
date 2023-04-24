@@ -5,7 +5,7 @@ title: 'Non-Fungible Apps (NFAs): Community Hosting'
 slug: nfa-community-hosting
 date: 2023-01-21T04:00:00Z
 canonical: ''
-socialImage: https://storage.fleek.zone/fleek-team-bucket/thumbnails/community-hosting-thumb.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/community-hosting-thumb1.png
 description: Update incoming! We’re working on an initial implementation of Non-Fungible Applications (NFAs) that focuses on decentralizing the access points to community owned web3 apps.
 category: Blog
 tags:
@@ -17,7 +17,7 @@ tags:
 
 ---
 
-![](https://storage.fleek.zone/fleek-team-bucket/thumbnails/community-hosting-thumb.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/community-hosting-thumb1.png)
 
 **TL;DR** 
 - The NFAs project now has a dedicated team & roadmap!
@@ -42,7 +42,7 @@ Prefer to dig into code instead of reading? You’re in luck, NFAs have been ope
 
 # Decentralizing Web3 App Access Points
 
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/nfa-blog-infographic-3.jpeg)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/nfa-blog-infographic-3.jpeg)
 
 Community hosting will enable NFA owners to **store a verifiable on-chain list of approved frontends for their web3 app**. Community members who wish to extend the censorship resistance of their favorite web3 app’s frontend will be able to mint their own mirror of the NFA that we’re calling **Access Points**. 
 
@@ -62,7 +62,7 @@ It’s official, **the NFA project now has a small team inside Fleek** dedicated
 
 First item on the team’s list: figure out what needs to be done to have an NFA MVP done for April, package those stories & features up in a roadmap, and start executing. 
 
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/nfas-mvp-waterfall.jpeg)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/nfas-mvp-waterfall.jpeg)
 
 The road to NFAs MVP mainnet consists of three main components that are actively being developed in parallel. 
 

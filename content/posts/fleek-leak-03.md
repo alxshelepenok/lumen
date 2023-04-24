@@ -4,7 +4,7 @@ draft: false
 title: Fleek Leak 03
 slug: fleek-leak-03
 date: 2023-02-16T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fl16fb.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fl16fb.png
 canonical: ''
 description: Issue number three of the Fleek Leak is landing ⚡, with updates on custom
   domains and our SDK.
@@ -16,7 +16,7 @@ tags:
 - Custom Domains
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fl16fb.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/fl16fb.png)
 
 Issue number three of the Fleek Leak is landing ⚡, coming back after back-to-back release weeks!
 
@@ -34,7 +34,7 @@ This weeks we focused on expanding our current services with added logic (Deploy
 
 ## Deploy System: Making Our Deploy Flow Smarter
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/image 1.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/image 1.png)
 
 But, don’t we have deployments already? Yes! What we are doing right now is expanding the foundations of our system deployment service to offer in-depth deploy management.
 
@@ -64,7 +64,7 @@ The first, is the update of the SDK’s structure to allow for **other methods o
 
 The second is **the decoupling of certain** packages utilized on the SDK that were not compatible with a browser environment. We isolated said packages (mostly node-js oriented), refactored our IPFS service so that on browsers we don’t rely on incomplete packages, and bundled browser-compatible versions where needed.
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/gif-sdk-test.gif)_With the SDK you can build things like.. An IPFS storage web app! (the above is a PoC)._
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/gif-sdk-test.gif)_With the SDK you can build things like.. An IPFS storage web app! (the above is a PoC)._
 
 With those two pieces above, and many more in the back, **we can allow developers to safely integrate the SDK and use it in browser-based environments.** Want to build an NFT marketplace that mints and stores the file on IPFS? Or a web3 chat and host shared files on IPFS? You got it. **See the gif above for an alpha storage app we built during testing.**
 

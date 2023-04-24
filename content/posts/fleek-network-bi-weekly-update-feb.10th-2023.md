@@ -4,7 +4,7 @@ draft: false
 title: 'Fleek Network Bi-Weekly Update: Feb. 10th, 2023'
 slug: Fleek-network-update-feb-10
 date: 2023-02-10T06:00:00Z
-socialImage: https://storage.fleek.zone/fleek-team-bucket/Blogs/fleek-network-update-feb-10.jpeg
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fn-update-10.jpeg
 canonical: ''
 description: 'Get caught up on the progress of our SDK, KPIs, Devnet, Reputation System,
   and more with the latest Bi-Weekly Update:'
@@ -17,7 +17,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/fleek-network-update-feb-10.jpeg)We are back with another Fleek Network Bi-Weekly Update, giving the community the inside scoop on the development progress of Fleek Network. Our goal is to build with transparency and ensure our community is always in the loop!
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fn-update-10.jpeg)We are back with another Fleek Network Bi-Weekly Update, giving the community the inside scoop on the development progress of Fleek Network. Our goal is to build with transparency and ensure our community is always in the loop!
 
 This week, we cover updates and progress on:
 

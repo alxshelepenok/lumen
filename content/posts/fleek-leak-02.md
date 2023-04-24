@@ -4,7 +4,7 @@ draft: false
 title: Fleek Leak 02
 slug: fleek-leak-02
 date: 2023-01-26T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/leak2.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/leak2.png
 canonical: ''
 description: Time for a development update ⚡️ Over the last few weeks we’ve been jamming
   on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive
@@ -16,7 +16,7 @@ tags:
 - Fleek Leak
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/leak2.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/leak2.png)
 
 Issue number two of the Fleek Leak is here fam! ⚡ We’re keeping the bi-weekly pace up: a release one week, and a development update on the other.
 
@@ -56,7 +56,7 @@ While Sites & Domains are landing on the CLI soon for Beta testing, we are prepa
 
 The team is working on a simple drag and drop interface for the app’s ui, **to allow users to pin files onto IPFS via a simple drag and drop interface**.
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/meme.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/meme.png)
 
 For that, we are using an early version of the Fleek SDK, which is now powering the CLI. We are working on a node version of the SDK and starting to integrate it into the UI and browsers overall. This work will set the foundation to prepare the SDK for public use, as we remove dependencies to enable client-use and add a user permissioning layer.
 

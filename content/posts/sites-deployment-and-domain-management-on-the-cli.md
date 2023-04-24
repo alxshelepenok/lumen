@@ -4,7 +4,7 @@ draft: false
 title: Sites Deployments Release on the CLI Beta.
 slug: release-sites-deployment-beta-cli
 date: 2023-02-02T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png
 canonical: ''
 description: New features are coming to the CLI! Today we are releasing the Sites
   Deployments service to the CLI for developers to start testing.
@@ -17,7 +17,7 @@ tags:
 - Release
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/cli-sites.png)
 
 The beta’s growing, and with new testers, new features are coming to the CLI! Today we are releasing the **Sites Deployments service** to the CLI for developers to start testing and [share their feedback](https://github.com/fleekxyz/fleekxyz-support) on.
 
@@ -27,7 +27,7 @@ Step aside, it’s time to host some sites on IPFS! If you want a quick-start, v
 
 ## Static Sites Deployments on the CLI
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/site-demo.png)
 
 The Sites services on Fleek will allow anyone to upload and easily maintain static sites, stored and served by Web3 protocols, starting with IPFS. Visit the [Sites documentation](https://docs.fleek.xyz/services/sites/) to learn how to get your first project live.
 

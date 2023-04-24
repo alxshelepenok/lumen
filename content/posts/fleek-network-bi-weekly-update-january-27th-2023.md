@@ -4,7 +4,7 @@ draft: false
 title: 'Fleek Network Bi-Weekly Update: January 27th, 2023'
 slug: Fleek-Network-Bi-Weekly-Update-Jan-27
 date: 2023-01-26T06:00:00Z
-socialImage: 'https://storage.fleek.zone/fleek-team-bucket/Blogs/FN-Update-Jan-27.jpg'
+socialImage: 'https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/FN-Update-Jan-27-1.jpeg'
 canonical: ''
 description: 'We’re making progress across a range of milestones, including our Governance
   Framework, Narwhal Integration, and more! Read on to get caught up  '
@@ -15,7 +15,7 @@ tags:
 - Fleek Network
 
 ---
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/FN-Update-Jan-27.jpg)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/FN-Update-Jan-27-1.jpeg)
 
 We’re back with another Fleek Network Bi-Weekly Update, giving you a look at everything we’ve been working on since our last check-in! Our [last update](https://blog.fleek.co/posts/fleek-network-2023-kickoff) was focused on all the developments since our initial announcement at the beginning of December.
 
@@ -38,7 +38,7 @@ We’ve also created some tests to benchmark this content routing system between
 
 Previously, we internally tracked node metrics globally when measuring network latency benchmarks and milestones. In the past two weeks, we’ve expanded this dashboard to now include [gateway metrics](https://github.com/fleek-network/ursa/pull/299) as well.
 
-![](https://storage.fleek.zone/fleek-team-bucket/Blogs/gateway-metrics.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/gatew-metrics.png)
 
 This isn’t all we’ve completed– we’ve also finished initiatives and features like node-to-client direct streaming for gateways, IPFS origin fetching on cache misses, and more! We’re an open-source project, take a look through our [GitHub](https://github.com/fleek-network) for real-time updates on in-progress developments.
 

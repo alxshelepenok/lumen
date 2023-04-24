@@ -4,7 +4,7 @@ draft: false
 title: Building and Deploying a Nextra Blog with Fleek
 slug: guide-deploy-nextra-blog-on-fleek-xyz
 date: 2023-02-03T03:00:00Z
-socialImage: https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
+socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png
 canonical: ''
 description: Learn how to deploy a Nextra blog app using the Fleek.xyz Sites Deployment
   service on the CLI Beta!
@@ -15,7 +15,7 @@ tags:
 - IPFS
 
 ---
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/nextra-blog.png)
 
 Hi everyone! [Juan](https://twitter.com/juanbeencoding) from DevRel here, presenting one of our example apps for deploying onto Fleek with its [CLI Beta](https://docs.fleek.xyz/). I'll be showcasing a blog template built on Nextra, which you can also find on our public [Templates repository](https://github.com/fleekxyz/templates).
 
@@ -29,7 +29,7 @@ Make sure to [clone the repository](https://github.com/fleekxyz/fleek-demos-blog
 
 You can also skip this if you simply want to deploy this template quickly with its base content and settings!
 
-![](https://storage.fleek.zone/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/DESKTOP.png)
+![](https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/DESKTOP.png)
 
 Make sure to run yarn to install all needed dependencies
 
