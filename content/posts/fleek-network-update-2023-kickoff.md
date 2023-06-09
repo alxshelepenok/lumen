@@ -6,7 +6,7 @@ slug: fleek-network-2023-kickoff
 date: 2023-01-13T06:00:00Z
 socialImage: https://storageapi.fleek.one/fleek-team-bucket/Blogs/Twitter post - 49
   (1).jpg
-canonical: ''
+canonical:  https://blog.fleek.network/post/fleek-network-2023-kickoff/ 
 description: Today we're debuting our first progress report on building the foundation
   for our decentralized content and application delivery network.
 category: ''

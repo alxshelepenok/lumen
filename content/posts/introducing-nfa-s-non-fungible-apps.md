@@ -5,7 +5,7 @@ title: 'Introducing NFA’s: Non-Fungible Apps'
 slug: introducing-nfas-non-fungible-apps
 date: 2022-12-22T14:00:00Z
 socialImage: https://storageapi.fleek.one/fleek-team-bucket/thumbnails/fleekxyz-nfa-thumb.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/introducing-nfas-non-fungible-apps/
 description: Today, we’re proposing Non-Fungible Apps (NFAs) -  A new approach for
   on-chain tokenization of apps that will help unlock better decentralization, censorship
   resistance, and community ownership for Web3 frontends.

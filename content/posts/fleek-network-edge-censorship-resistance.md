@@ -5,7 +5,7 @@ title: 'Fleek Network Edge: Censorship Resistance'
 slug: Fleek-Network-Edge-Censorship-Resistance
 date: 2022-12-09T06:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/fleek-xyz-typeform-image.jpg
-canonical: ''
+canonical:  https://blog.fleek.network/post/fleek-network-edge-censorship-resistance/ 
 description: 'Our new series of blogs explores the unique features of Fleek Network,
   a decentralized content and application delivery network that is not only censorship-resistant
   and performant, but also fast and reliable. Read on to learn how Fleek Network remains

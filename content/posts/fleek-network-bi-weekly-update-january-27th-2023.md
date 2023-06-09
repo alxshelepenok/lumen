@@ -5,7 +5,7 @@ title: 'Fleek Network Bi-Weekly Update: January 27th, 2023'
 slug: Fleek-Network-Bi-Weekly-Update-Jan-27
 date: 2023-01-26T06:00:00Z
 socialImage: 'https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/FN-Update-Jan-27-1.jpeg'
-canonical: ''
+canonical:  https://blog.fleek.network/post/Fleek-Network-Bi-Weekly-Update-Jan-27/ 
 description: 'We’re making progress across a range of milestones, including our Governance
   Framework, Narwhal Integration, and more! Read on to get caught up  '
 category: 'blog'

@@ -5,7 +5,7 @@ title: 'Build3rs Stack: Arweave'
 slug: builders-stack-arweave
 date: 2023-02-17T03:00:00Z
 socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/arweave-builderstack.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/builders-stack-arweave/
 description: 'The builder''s guide to Arweave: where it fits in your project''s Web3
   infra-stack, and what you can achieve with it..'
 category: Guides

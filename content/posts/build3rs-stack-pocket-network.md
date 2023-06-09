@@ -5,7 +5,7 @@ title: 'Build3rs Stack: Pocket Network'
 slug: builders-stack-pocket-network
 date: 2023-02-10T03:00:00Z
 socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/builders.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/builders-stack-pocket-network/
 description: 'The builder''s guide to getting started with Pocket: where it fits in
   the decentralized Web3 infra-stack, and what you can build with it.'
 category: Guides

@@ -5,7 +5,7 @@ title: 'Integrating The Graph with NFAs: Our Experience Deploying a Subgraph.'
 slug: thegraph-and-nfas-deploying-subgraphs
 date: 2023-02-13T03:00:00Z
 socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/xyz-ntwrk-release-image.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/thegraph-and-nfas-deploying-subgraphs/
 description: Maximizing flexibility and freedom in NFA data retrieval with The Graph.
 category: Guides
 tags:

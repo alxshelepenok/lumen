@@ -5,7 +5,7 @@ title: An Overview of Fleek.xyz’s Architecture
 slug: fleek-xyz-architecture-overview
 date: 2022-12-05T16:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/thumbnails/Fleek-XYZ-Architecture.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/fleek-xyz-architecture-overview/
 description: New architecture who dis? Here’s a high level overview of how our new
   platform was designed & why it unlocks total freedom, flexibility, and extensibility
   for web3 developers.

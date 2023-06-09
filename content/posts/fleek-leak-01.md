@@ -4,7 +4,7 @@ draft: false
 title: 'Fleek Leak 01'
 slug: fleek-leak-01
 date: 2023-01-12T07:00:00Z
-canonical: ''
+canonical: https://blog.fleek.xyz/post/fleek-leak-01/
 socialImage: https://storageapi.fleek.one/fleek-team-bucket/thumbnails/fleek-leak-01.png
 description: Progress update incoming ⚡️ Over the last few weeks we’ve been jamming on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive into why & what you can expect!
 category: Blog

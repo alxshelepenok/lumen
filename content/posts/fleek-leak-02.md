@@ -5,7 +5,7 @@ title: Fleek Leak 02
 slug: fleek-leak-02
 date: 2023-01-26T03:00:00Z
 socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/imgs/leak2.png
-canonical: ''
+canonical: https://blog.fleek.xyz/post/fleek-leak-02/
 description: Time for a development update ⚡️ Over the last few weeks we’ve been jamming
   on our CLI beta (Jan 18th), adding compute to Fleek, and an NFAs MVP. Let’s dive
   into why & what you can expect!

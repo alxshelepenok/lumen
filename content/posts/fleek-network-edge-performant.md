@@ -5,7 +5,7 @@ title: 'Fleek Network Edge: Performant'
 slug: Fleek-Network-Edge-Performant
 date: 2022-12-13T06:00:00Z
 socialImage: https://storageapi.fleek.co/fleek-team-bucket/Blogs/performant.jpg
-canonical: ''
+canonical: https://blog.fleek.network/post/fleek-network-edge-performant/
 description: In the second installment of the Fleek Network Edge series, we take a
   look at the unique features that allows the network to grow
 category: General

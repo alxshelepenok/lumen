@@ -5,7 +5,7 @@ title: 'Fleek Network Bi-Weekly Update: Feb. 10th, 2023'
 slug: Fleek-network-update-feb-10
 date: 2023-02-10T06:00:00Z
 socialImage: https://storage.fleek.ooo/27a60cdd-37d3-480c-ae88-3ad4ca886b13-bucket/fn-update-10.jpeg
-canonical: ''
+canonical:  https://blog.fleek.network/post/fleek-network-update-feb-10/
 description: 'Get caught up on the progress of our SDK, KPIs, Devnet, Reputation System,
   and more with the latest Bi-Weekly Update:'
 category: ''
