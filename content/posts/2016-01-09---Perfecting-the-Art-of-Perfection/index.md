@@ -8,7 +8,7 @@ category: "Data Management"
 tags:
   - "newyear"
 description: "My journey to start 2021 with a fresh (virtual) start. "
-socialImage: "/media/003-firewall.png"
+socialImage: "./media/003-firewall.png"
 
 ---
 A scenario happened to me that is all too familiar -- I tried to find an email and realized that my inbox was too clunky and it was a futile attempt. This was not the first time or a new thing to happen, but the timing did happen to be at the end of an already frustrating year. Therefore, it led me to declare publically that I was going to Do Something About It. 
