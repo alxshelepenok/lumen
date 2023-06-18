@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: cimg/node:18.14.1
+    - image: cimg/node:18.16.0
   resource_class: large
   working_directory: ~/gatsby-starter-lumen
 
@@ -51,6 +51,15 @@ jobs:
           paths:
             - coverage
 
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package-lock.json" }}
+      - run: npm run build
+
   codecov:
     <<: *defaults
     steps:
@@ -80,3 +89,6 @@ workflows:
       - codecov:
           requires:
             - coverage
+      - build:
+          requires:
+            - install
