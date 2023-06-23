@@ -78,15 +78,13 @@ img {
 }
 
 hr {
-  background-image: linear-gradient(
-    to bottom,
-    transparent 1px,
-    transparent 11px,
-    $color-dark 11px,
-    $color-dark 15px,
-    transparent 15px,
-    transparent 26px
-  );
+  background-image: linear-gradient(to bottom,
+      transparent 1px,
+      transparent 11px,
+      $color-dark 11px,
+      $color-dark 15px,
+      transparent 15px,
+      transparent 26px);
   background-size: 100% 26px;
   border: 0;
   color: var(--color-typographic-base-font);
@@ -149,7 +147,22 @@ figcaption {
   text-align: center;
 }
 
+table {
+  border-collapse: collapse;
+
+  & th,
+  & td {
+    border: 1px solid $color-gray;  // suggession for color is needed
+    padding: 5px 10px;
+  }
+
+  & th {
+    background-color: $color-blue;  // suggession for color is needed
+  }
+}
+
 @include breakpoint-sm {
+
   figure.float-left,
   figure.float-right {
     max-width: 310px;
