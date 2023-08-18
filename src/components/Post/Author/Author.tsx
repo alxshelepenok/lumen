@@ -14,11 +14,11 @@ const Author = () => {
         {author.bio}
         <a
           className={styles.twitter}
-          href={getContactHref("twitter", author.contacts.twitter)}
+          href="https://www.lesswrong.com/users/elijah-bodden"
           rel="noopener noreferrer"
           target="_blank"
         >
-          <strong>{author.name}</strong> on Twitter
+          Read on Lesswrong
         </a>
       </p>
     </div>
