@@ -2,7 +2,7 @@
 
 .sidebar {
   width: 100%;
-
+  position: absoulte;
   .inner {
     @include padding(1, 0.75, 0);
     position: relative;
