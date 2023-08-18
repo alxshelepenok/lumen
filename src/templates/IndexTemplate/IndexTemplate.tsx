@@ -40,14 +40,6 @@ const IndexTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
   );
 };
 
-componentDidMount () {
-    const script = document.createElement("script");
-
-    script.src = "../../../js/index.js";
-
-    document.body.appendChild(script);
-}
-
 export const query = graphql`
   query IndexTemplate($limit: Int!, $offset: Int!) {
     allMarkdownRemark(
@@ -82,6 +74,14 @@ export const Head: React.FC<Props> = ({ pageContext }) => {
   } = pageContext;
   const pageTitle = page > 0 ? `Posts - Page ${page} - ${title}` : title;
 
+  componentDidMount () {
+    const script = document.createElement("script");
+
+    script.src = "../../../js/index.js";
+
+    document.body.appendChild(script);
+  }
+  
   return <Meta title={pageTitle} description={subtitle} />;
 };
 
