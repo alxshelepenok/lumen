@@ -10,7 +10,7 @@ const NotFoundTemplate: React.FC = () => (
   <Layout>
     <Sidebar />
     <Page title="NOT FOUND">
-      <p>You just hit a route that doesn't exist... the sadness.</p>
+      <p>Dang! Looks like the paperclip maximizer made it here before you did📎</p>
     </Page>
   </Layout>
 );
