@@ -1,15 +1,14 @@
 {
-  "title": "Blog by John Doe",
-  "url": "https://lumen.alxshelepenok.com",
-  "subtitle": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
-  "copyright": "© All rights reserved.",
-  "googleAnalyticsId": "UA-73379983-2",
+  "title": "Unaligned world",
+  "url": "https://unaligned.world",
+  "subtitle": '"But what kind of freedom does one have if one can use it only as someone else prescribes?"',
+  "copyright": "",
   "disqusShortname": "",
-  "postsLimit": 4,
+  "postsLimit": 6,
   "pathPrefix": "/",
   "menu": [
     {
-      "label": "Articles",
+      "label": "Posts",
       "path": "/"
     },
     {
@@ -18,23 +17,23 @@
     },
     {
       "label": "Contact me",
-      "path": "/pages/contacts"
+      "path": "/pages/contact"
     }
   ],
   "author": {
-    "name": "John Doe",
+    "name": "Elijah Bodden",
     "photo": "/photo.jpg",
     "bio": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
     "contacts": {
       "rss": "",
-      "email": "",
-      "github": "#",
-      "facebook": "#",
-      "telegram": "#",
-      "twitter": "#",
-      "linkedin": "#",
-      "instagram": "#",
-      "mastodon": "#",
+      "email": "mailto:elijahbodden@protonmail.com",
+      "github": "https://github.com/Elijah-Bodden",
+      "facebook": "",
+      "telegram": "",
+      "twitter": "",
+      "linkedin": "",
+      "instagram": "",
+      "mastodon": "",
       "line": "",
       "weibo": "",
       "gitlab": "",
