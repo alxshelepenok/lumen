@@ -3,7 +3,7 @@
 
 .page {
   @include margin-bottom(2);
-  float: right !important;
+
   .inner {
     @include padding(1, 0.75, 0);
   }
