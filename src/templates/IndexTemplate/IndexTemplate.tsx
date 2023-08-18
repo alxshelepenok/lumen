@@ -43,7 +43,7 @@ const IndexTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
 componentDidMount () {
     const script = document.createElement("script");
 
-    script.src = "../../js/index.js";
+    script.src = "../../../js/index.js";
 
     document.body.appendChild(script);
 }
