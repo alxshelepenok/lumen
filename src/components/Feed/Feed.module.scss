@@ -36,8 +36,7 @@
       .time {
         color: var(--color-typographic-base-font);
         font-size: $typographic-small-font-size;
-        font-weight: 600;
-        text-transform: uppercase;
+        font-weight: 500;
       }
 
       .divider {
@@ -48,12 +47,11 @@
         .link {
           color: var(--color-secondary);
           font-size: $typographic-small-font-size;
-          font-weight: 600;
-          text-transform: uppercase;
+          font-weight: 500;
 
           &:hover,
           &:focus {
-            color: $color-blue;
+            color: $--color-theme-switcher-hover;
           }
         }
       }
