@@ -129,7 +129,7 @@
     "lint-staged": "^14.0.0",
     "lost": "9.0.1",
     "postcss": "^8.4.28",
-    "postcss-scss": "^4.0.6",
+    "postcss-scss": "^4.0.7",
     "prettier": "^3.0.1",
     "prettier-plugin-packagejson": "^2.4.5",
     "react-test-renderer": "^18.2.0",
