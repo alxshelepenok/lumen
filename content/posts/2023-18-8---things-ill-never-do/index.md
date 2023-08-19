@@ -8,7 +8,7 @@ category: "Archive"
 tags:
   - "Archived"
   - "Humor?"
-description: "A dumb <s>busywork</s> creative writing exercise I was forced to do in normal school and have too little dignity to not post."
+description: "A dumb <s>busywork</s> creative writing exercise I was forced to do in normal school and have too little dignity to not post <s>(and which I think is very funny)</s>."
 socialImage: ""
 ---
 
