@@ -42,7 +42,7 @@ const Feed: React.FC<Props> = ({ edges }: Props) => (
             {edge.node.frontmatter.title}
           </Link>
         </h2>
-        <p className={styles.description} dangerouslySetInnerHTML={edge.node.frontmatter.description}>
+        <p className={styles.description} dangerouslySetInnerHTML={__html: edge.node.frontmatter.description}>
         </p>
         <Link
           className={styles.more}
