@@ -104,7 +104,7 @@
     "autoprefixer": "^10.4.15",
     "browserslist": "^4.21.10",
     "codecov": "^3.8.3",
-    "concurrently": "^8.2.0",
+    "concurrently": "^8.2.1",
     "conventional-changelog-conventionalcommits": "6.1.0",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
