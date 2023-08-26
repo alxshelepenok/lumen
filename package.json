@@ -95,7 +95,7 @@
     "@types/gatsby-transformer-remark": "^2.9.1",
     "@types/jest": "^29.5.4",
     "@types/node": "^18.17.6",
-    "@types/react": "^18.2.20",
+    "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/react-test-renderer": "^18.0.0",
     "@types/sass": "^1.43.1",
