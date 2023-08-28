@@ -126,7 +126,7 @@
     "jest-cli": "^29.6.3",
     "jest-environment-jsdom": "^29.6.4",
     "jest-svg-transformer": "^1.0.0",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^14.0.1",
     "lost": "9.0.1",
     "postcss": "^8.4.28",
     "postcss-scss": "^4.0.7",
