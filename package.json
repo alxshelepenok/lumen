@@ -128,7 +128,7 @@
     "jest-svg-transformer": "^1.0.0",
     "lint-staged": "^14.0.1",
     "lost": "9.0.2",
-    "postcss": "^8.4.28",
+    "postcss": "^8.4.29",
     "postcss-scss": "^4.0.7",
     "prettier": "^3.0.2",
     "prettier-plugin-packagejson": "^2.4.5",
