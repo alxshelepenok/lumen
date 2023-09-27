@@ -133,7 +133,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.5",
     "react-test-renderer": "^18.2.0",
-    "rimraf": "5.0.1",
+    "rimraf": "5.0.5",
     "sass": "^1.65.1",
     "semantic-release": "^21.0.9",
     "source-map-support": "^0.5.21",
