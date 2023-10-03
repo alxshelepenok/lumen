@@ -131,7 +131,7 @@
     "postcss": "^8.4.31",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.0.3",
-    "prettier-plugin-packagejson": "^2.4.5",
+    "prettier-plugin-packagejson": "^2.4.6",
     "react-test-renderer": "^18.2.0",
     "rimraf": "5.0.5",
     "sass": "^1.65.1",
