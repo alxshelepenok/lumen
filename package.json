@@ -92,7 +92,7 @@
     "@testing-library/dom": "^8.20.1",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^13.4.0",
-    "@types/gatsby-transformer-remark": "^2.9.2",
+    "@types/gatsby-transformer-remark": "^2.9.3",
     "@types/jest": "^29.5.5",
     "@types/node": "^18.18.5",
     "@types/react": "^18.2.28",
