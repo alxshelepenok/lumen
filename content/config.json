@@ -16,6 +16,9 @@
       "path": "/pages/about"
     },
     {
+      "label": "Resources",
+      "path": "/pages/resources"
+    {
       "label": "Contact me",
       "path": "/pages/contacts"
     }
