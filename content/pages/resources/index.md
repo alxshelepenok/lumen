@@ -1,5 +1,5 @@
 ---
-title: "Contact me"
+title: "Resources"
 template: "page"
 socialImage: "none.jpg"
 ---
