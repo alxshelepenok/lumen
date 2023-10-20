@@ -1,7 +1,7 @@
 ---
 title: "Contact me"
 template: "page"
-socialImage: "photo.jpg"
+socialImage: "none.jpg"
 ---
-## Schedule a virtual meeting
-Come chat with me about anything [here](https://book.morgen.so/elijahbodden25/chat).
+## Resources
+### The ever-useful [Rice Bucketlist](https://tinyurl.com/ricebucketlist)
