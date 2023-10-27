@@ -31,7 +31,7 @@ jobs:
             npm-${{ runner.os }}-
 
       - name: Install modules
-        # if: steps.npm-modules-cache.outputs.cache-hit != 'true' NOTE: COMMENTED B/C GATSBY IS OUTDATED
+        if: steps.npm-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Cache modules
