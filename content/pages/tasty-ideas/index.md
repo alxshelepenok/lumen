@@ -1,7 +1,7 @@
 ---
 title: "Nom nom yummi ideas nom"
 template: "page"
-socialImage: "photo.jpg"
+socialImage: "none.jpg"
 ---
 Here's are some cool random idea fragments I've collected to savor/write a blog post about in the future. It's mainly for my own convenience, but by all means jump on anything that catches your interest. Every idea in the list is amazingly fun to think about!  
 <br>
