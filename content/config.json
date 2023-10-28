@@ -22,6 +22,10 @@
     {
       "label": "Contact me",
       "path": "/pages/contacts"
+    },
+    {
+      "label": "Random Ideas",
+      "path": "/pages/ideas"
     }
   ],
   "author": {
