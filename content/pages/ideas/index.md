@@ -3,8 +3,6 @@ title: "Nom nom yummi ideas nom"
 template: "page"
 socialImage: "none.jpg"
 ---
-Here are some cool random pieces of information I've collected to savor/write blog posts about in the future. They're mainly for my own convenience, but by all means jump on anything that catches your interest. Every idea in the list is amazingly fun to think about!  
-<br>
 1. Corvids are [very](https://www.youtube.com/watch?v=QmJ3xuJrUcM), [*very*](https://www.youtube.com/watch?v=ZerUbHmuY04) [intelligent](https://whyevolutionistrue.com/2011/02/02/corvid-savants/). Plus they can use human language. And breed fast. Could we make them superintelligent?  
 4. You can get [*really* high by just breathing.](https://www.youtube.com/watch?v=0BNejY1e9ik) Be warned, it [probably works by depriving your brain of oxygen and acidifying your blood](https://www.reddit.com/r/breathwork/comments/zskjfe/dangers_of_starving_brain_of_oxygen_during/), so maybe don't make a habit of it, but I definitely recommend trying it at least once.  
 2. DMT is a pretty good psychedelic. It's fairly (?) unaddictive, doesn't seem to affect brain structure or chemistry long-term, strongly enhances creativity, and maybe gives direct access to the subconscious mind through hyper-intelligent "DMT entity" hallucinations. \[Not super confident on this one, but I do really want to see dmt decriminalized.\]  
