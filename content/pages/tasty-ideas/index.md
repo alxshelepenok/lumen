@@ -1,5 +1,7 @@
 ---
-title: "Nom nom yummi ideas nom"
+title: "Contact me"
 template: "page"
-socialImage: "none.jpg"
+socialImage: "photo.jpg"
 ---
+## Schedule a virtual meeting
+Come chat with me about anything [here](https://book.morgen.so/elijahbodden25/chat).
