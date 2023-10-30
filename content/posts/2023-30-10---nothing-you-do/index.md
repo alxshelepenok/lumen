@@ -10,7 +10,7 @@ tags:
 description: "A semi-coherent rant about why the Void will never love you back"
 socialImage: "image.jpg"
 ---
-![A photo of the death of the sun, courtesy bing image creator](image.png)
+![A photo of the death of the sun, courtesy bing image creator](image.jpg)  
 *Note: while this post sounds very depressed and angsty, my mental health's actually pretty great. I'm doing perfectly fine.*
   Why do we even do this shit? We’re just gene machines tottering around, trying to reproduce. That’s absurd but not an argument for absurdism. We’re stuck here on a big terrestrial meatball called earth and just expected to figure out what to do. That’s pretty darn existential, but existentialism does jack shit to fix it.  
   So we're all just Really Big Abstractions in a goop of particles. Forged by some deaf process of memetic selection. Weird cascades of structure reducible to the fundamental constants dreamt up the goofy fever of existence. We're just passengers along for the ride. Meaninglessness is intrinsic to the universe. Any explanation we make just numbs out the mind-boggling deadness of it all.  
