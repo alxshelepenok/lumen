@@ -29,8 +29,8 @@ const IndexTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
     <Layout>
       <Sidebar isIndex />
       <Page>
-        <likebtn />
         <Feed edges={edges} />
+        <likebtn />
         <Pagination
           prevPagePath={prevPagePath}
           nextPagePath={nextPagePath}
