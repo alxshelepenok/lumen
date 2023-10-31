@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 
 const likebtn = () => {
-console.log("TEST")
+  useEffect(() => {console.log("TEST")}, []);
+
+  return null;
 };
 
 export default likebtn;
