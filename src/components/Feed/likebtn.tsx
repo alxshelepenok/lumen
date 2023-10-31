@@ -9,6 +9,8 @@ const likebtn = () => {
       a.async = 1;
       a.id = "likebtn_wjs";
       a.src = "//w.likebtn.com/js/w/widget.js";
+      console.log("HOLY FUCKING SHIT!!!!")
+      print()
       m.parentNode.insertBefore(a, m);
     });
   }, []);
