@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const LikeBtnScript = () => {
+const likebtn = () => {
   useEffect(() => {
     if (document.getElementById("likebtn_wjs")) return;
     const a = document.createElement("script");
@@ -14,4 +14,4 @@ const LikeBtnScript = () => {
   return null;
 };
 
-export default LikeBtnScript;
+export default likebtn;
