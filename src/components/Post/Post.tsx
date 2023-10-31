@@ -20,12 +20,28 @@ const Post: React.FC<Props> = ({ post }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date } = post.frontmatter;
+  const [data, setData] = useState(''); // State to store the XHR data
 
+  useEffect(() => {
+    // Make an XHR request on page load
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.countapi.xyz/get/unaligned.world/:PATHNAME:', true);
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        // Parse the response data (assuming it's JSON)
+        const responseData = JSON.parse(xhr.responseText);
+        setData(responseData.value); // Update the state with the data
+      }
+    };
+    xhr.send();
+  }, []);
+  
   return (
     <div className={styles.post}>
       <div className={styles.buttons}>
         <Button className={styles.buttonArticles} title="All Articles" to="/" />
         <ThemeSwitcher />
+        <p>{data}</p> {/* Display the XHR data here */}
       </div>
 
       <div className={styles.content}>
