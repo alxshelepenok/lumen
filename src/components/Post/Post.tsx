@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import type { Node } from "@/types";
 
-import { LikeButton } from "./Likebutton/LikeButton"
+import { LikeButton } from "./LikeButton"
 import { Author } from "./Author";
 import { Comments } from "./Comments";
 import { Content } from "./Content";
