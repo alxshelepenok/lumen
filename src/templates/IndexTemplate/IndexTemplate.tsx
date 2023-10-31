@@ -2,7 +2,6 @@ import React from "react";
 
 import { graphql } from "gatsby";
 
-import likebtn from "./likebtn";
 import { Feed } from "@/components/Feed";
 import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
@@ -30,7 +29,6 @@ const IndexTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
       <Sidebar isIndex />
       <Page>
         <Feed edges={edges} />
-        <likebtn />
         <Pagination
           prevPagePath={prevPagePath}
           nextPagePath={nextPagePath}
