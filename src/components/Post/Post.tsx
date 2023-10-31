@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button } from "@/components/Button";
+import { LikeButton } from "@/components/LikeButton"
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import type { Node } from "@/types";
 
@@ -26,6 +27,7 @@ const Post: React.FC<Props> = ({ post }: Props) => {
       <div className={styles.buttons}>
         <Button className={styles.buttonArticles} title="All Articles" to="/" />
         <ThemeSwitcher />
+        <LikeButton />
       </div>
 
       <div className={styles.content}>
