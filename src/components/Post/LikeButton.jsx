@@ -1,6 +1,32 @@
 import React, { Component } from 'react';
 
-export class LikeButton extends Component {
+// Define a function for JSONP requests
+function jsonPRequest(url, callbackName) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+
+    // Define a global callback function to handle the JSONP response
+    window[callbackName] = (response) => {
+      resolve(response);
+      // Clean up by removing the script tag and global callback function
+      document.body.removeChild(script);
+      delete window[callbackName];
+    };
+
+    script.onerror = (error) => {
+      reject(error);
+      // Clean up by removing the script tag and global callback function
+      document.body.removeChild(script);
+      delete window[callbackName];
+    };
+
+    document.body.appendChild(script);
+  });
+}
+
+class LikeButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +39,7 @@ export class LikeButton extends Component {
     // Check local storage to see if the user has liked this post before
     const liked = localStorage.getItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1]) === 'true';
     this.setState({ liked });
-    this.fetchCount()
+    this.fetchCount();
   }
 
   handleButtonClick = () => {
@@ -30,30 +56,19 @@ export class LikeButton extends Component {
   };
 
   updateCount(change) {
-    // Make an XHR request to the CountAPI to increment or decrement the count
-    const url = `https://api.countapi.xyz/update/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}?amount=${change}`;
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.send();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        this.setState({ count: response.value });
-      }
-    };
+    const apiUrl = `https://api.countapi.xyz/update/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}?amount=${change}`;
+    jsonPRequest(apiUrl, 'updateCountCallback').then(response => {
+      // Update the count in the component state
+      this.setState({ count: this.state.count + change });
+    });
   }
 
   fetchCount() {
-    const url = `https://api.countapi.xyz/get/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}`;
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.send();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        this.setState({ count: response.value });
-      }
-    };
+    const apiUrl = `https://api.countapi.xyz/get/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}`;
+    jsonPRequest(apiUrl, 'fetchCountCallback').then(response => {
+      // Update the count in the component state
+      this.setState({ count: response.value });
+    });
   }
 
   render() {
@@ -71,3 +86,5 @@ export class LikeButton extends Component {
     );
   }
 }
+
+export default LikeButton;
