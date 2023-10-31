@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LikeButton extends Component {
+export class LikeButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,5 +71,3 @@ class LikeButton extends Component {
     );
   }
 }
-
-export default LikeButton;
