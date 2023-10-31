@@ -26,7 +26,7 @@ function jsonPRequest(url, callbackName) {
   });
 }
 
-class LikeButton extends Component {
+export class LikeButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
