@@ -38,6 +38,7 @@ export class LikeButton extends Component {
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
+        print(response.value)
         this.setState({ count:  change == "increment" ? this.state.count + 1 : change == "decrement" ? this.state.count - 1 : parseInt(response.value) });
       }
     };
