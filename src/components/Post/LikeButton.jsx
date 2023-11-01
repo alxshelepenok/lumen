@@ -5,8 +5,7 @@ export class LikeButton extends Component {
     super(props);
     this.state = {
       liked: false, // Initially not liked
-      count: 0,
-      toggle: 0
+      count: 0
     };
   }
 
@@ -20,13 +19,11 @@ export class LikeButton extends Component {
   handleButtonClick = () => {
     if (this.state.liked) {
       // If already liked, unlike
-      this.setState({ toggle: this.state.toggle - 1 });
       this.setState({ liked: !this.state.liked });
       this.updateCount("decrement");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'false');
     } else {
       // If not liked, like
-      this.setState({ toggle: this.state.toggle + 1 });
       this.setState({ liked: !this.state.liked });
       this.updateCount("increment");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'true');
@@ -39,14 +36,17 @@ export class LikeButton extends Component {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
-    if (change == "increment" || change == "decrement") {
-      this.setState({ count:  this.state.count + this.state.toggle });
+    if (change == "increment") {
+      this.setState({ count:  this.state.count + 1});
+      return;
+    } else if (change == "decrement") {
+      this.setState({ count:  this.state.count + -1});
       return;
     }
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        this.setState({ count: parseInt(response) + this.state.toggle });
+        this.setState({ count: parseInt(response) + this.state.count });
       }
     };
   }
