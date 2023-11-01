@@ -20,12 +20,12 @@ export class LikeButton extends Component {
   handleButtonClick = () => {
     if (this.state.liked) {
       // If already liked, unlike
-      this.setState({ liked: this.state.toggle - 1 });
+      this.setState({ toggle: this.state.toggle - 1 });
       this.updateCount("decrement");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'false');
     } else {
       // If not liked, like
-      this.setState({ liked: this.state.toggle + 1 });
+      this.setState({ toggle: this.state.toggle + 1 });
       this.updateCount("increment");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'true');
     }
