@@ -13,7 +13,7 @@ export class LikeButton extends Component {
     // Check local storage to see if the user has liked this post before
     const liked = localStorage.getItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1]) === 'true';
     this.setState({ liked });
-    this.fetchCount("none")
+    this.updateCount("none")
   }
 
   handleButtonClick = () => {
