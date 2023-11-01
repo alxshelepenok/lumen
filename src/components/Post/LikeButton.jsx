@@ -6,6 +6,7 @@ export class LikeButton extends Component {
     this.state = {
       liked: false, // Initially not liked
       count: 0,
+      toggle: 0
     };
   }
 
@@ -19,10 +20,12 @@ export class LikeButton extends Component {
   handleButtonClick = () => {
     if (this.state.liked) {
       // If already liked, unlike
+      this.setState({ liked: this.state.toggle - 1 });
       this.updateCount("decrement");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'false');
     } else {
       // If not liked, like
+      this.setState({ liked: this.state.toggle + 1 });
       this.updateCount("increment");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'true');
     }
@@ -36,13 +39,13 @@ export class LikeButton extends Component {
     xhr.open('GET', url, true);
     xhr.send();
     if (change == "increment" || change == "decrement") {
-      this.setState({ count:  change == "increment" ? this.state.count + 1 : this.state.count - 1 });
+      this.setState({ count:  this.state.count + this.state.toggle });
       return;
     }
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        this.setState({ count: parseInt(response) });
+        this.setState({ count: parseInt(response) + this.state.toggle });
       }
     };
   }
