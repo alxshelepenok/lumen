@@ -35,10 +35,14 @@ export class LikeButton extends Component {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
+    if (change == "increment" || change == "decrement") {
+      this.setState({ count:  change == "increment" ? this.state.count + 1 : this.state.count - 1 });
+      return;
+    }
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        this.setState({ count:  change == "increment" ? this.state.count + 1 : change == "decrement" ? this.state.count - 1 : parseInt(response) });
+        this.setState({ count: parseInt(response) });
       }
     };
   }
