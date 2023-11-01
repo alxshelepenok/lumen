@@ -15,7 +15,7 @@ function readingTime(text) {
 const Content: React.FC<Props> = ({ body, title }: Props) => (
   <div className={styles.content}>
     <h1 className={styles.title}>{title}</h1>
-    <i style={{display: block, text-align: center}}>{readingTime(body) + " minute reading time"}</i>
+    <i style={{display: block, text-align: center}}>{readingTime(body) + " minute read"}</i>
     <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
   </div>
 );
