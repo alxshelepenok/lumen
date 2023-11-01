@@ -64,7 +64,7 @@ export class LikeButton extends Component {
     const svgNotPressed = (
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        height='1em'
+        height='19px'
         viewBox='-24 -24 560 560'
       >
         <path
@@ -79,7 +79,7 @@ export class LikeButton extends Component {
     const svgPressed = (
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        height='1em'
+        height='19px'
         viewBox='-24 -24 560 560'
       >
         <path
@@ -93,9 +93,9 @@ export class LikeButton extends Component {
 
     return (
       <div>
-        <div onClick={this.handleButtonClick}>
+        <div onClick={this.handleButtonClick} style={{alignItems: "center", display: "flex", paddingLeft: 11}}>
           {this.state.liked ? svgPressed : svgNotPressed}
-          <span>{this.state.count > 0 ? this.state.count : ''}</span>
+          <span style={{paddingLeft: 3}}>{this.state.count > 0 ? this.state.count : ''}</span>
         </div>
       </div>
     );
