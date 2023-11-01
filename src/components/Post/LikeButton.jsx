@@ -31,7 +31,7 @@ export class LikeButton extends Component {
 
   updateCount(change) {
     // Make an XHR request to the CountAPI to increment or decrement the count
-    const url = `https://script.google.com/macros/s/AKfycbx0JirEyCRDrJ_lLIjg_dsVbvDj5PjZV9hJBGhP13Eft--Ymal8YzqvFX82sVjJEJ475g/exec?POST_NAME=${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}&ACTION=${change}`;
+    const url = `https://script.google.com/macros/s/AKfycbysSMMR75dSSryX9nW2VFvXYnd09JEC6vuEt-uTQXVcqWGOy0AwmSECEawVOpLQdTqkfw/exec?POST_NAME=${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}&ACTION=${change}`;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
