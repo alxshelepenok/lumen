@@ -11,22 +11,31 @@ export class LikeButton extends Component {
 
   componentDidMount() {
     // Check local storage to see if the user has liked this post before
-    const liked = localStorage.getItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1]) === 'true';
+    const liked =
+      localStorage.getItem(
+        window.location.pathname.split('/')[window.location.pathname.split('/').length - 1]
+      ) === 'true';
     this.setState({ liked });
-    this.updateCount("none");
+    this.updateCount('none');
   }
 
   handleButtonClick = () => {
     if (this.state.liked) {
       // If already liked, unlike
       this.setState({ liked: !this.state.liked });
-      this.updateCount("decrement");
-      localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'false');
+      this.updateCount('decrement');
+      localStorage.setItem(
+        window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
+        'false'
+      );
     } else {
       // If not liked, like
       this.setState({ liked: !this.state.liked });
-      this.updateCount("increment");
-      localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'true');
+      this.updateCount('increment');
+      localStorage.setItem(
+        window.location.pathname.split('/')[window.location.pathname.split('/').length - 1],
+        'true'
+      );
     }
   };
 
@@ -36,11 +45,11 @@ export class LikeButton extends Component {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
-    if (change === "increment") {
+    if (change === 'increment') {
       this.setState({ count: this.state.count + 1 });
       return;
-    } else if (change === "decrement") {
-      this.setState({ count: this.state.count - 1 });
+    } else if (change === 'decrement') {
+      this.setState({ count: this.state.count + -1 });
       return;
     }
     xhr.onreadystatechange = () => {
@@ -52,15 +61,50 @@ export class LikeButton extends Component {
   }
 
   render() {
-    const svgNotPressed = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' height=\'1em\' viewBox=\'-24 -24 560 560\'%3E ...'; // Add the SVG data for not pressed state
-    const svgPressed = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' height=\'1em\' viewBox=\'-24 -24 560 560\'%3E ...'; // Add the SVG data for pressed state
+    const svgNotPressed = (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        height='1em'
+        viewBox='-24 -24 560 560'
+      >
+        <!-- SVG path for not pressed -->
+        <path
+          d='M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5'
+          fill='#ffffff'
+          stroke='#FF3399'
+          stroke-width='40'
+        />
+      </svg>
+    );
 
-    const svgData = this.state.liked ? svgPressed : svgNotPressed;
+    const svgPressed = (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        height='1em'
+        viewBox='-24 -24 560 560'
+      >
+        <!-- SVG path for pressed -->
+        <path
+          d='M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5'
+          fill='#FF99CC'
+          stroke='#FF3399'
+          stroke-width='40'
+        />
+      </svg>
+    );
+
+    const buttonStyle = {
+      width: '40px',
+      height: '40px',
+      backgroundColor: this.state.liked ? 'blue' : 'white',
+    };
 
     return (
       <div>
-        <svg onClick={this.handleButtonClick} style={{ width: '40px', height: '40px' }} xmlns="http://www.w3.org/2000/svg" viewBox="-24 -24 560 560" dangerouslySetInnerHTML={{ __html: svgData }}></svg>
-        <span>{this.state.count > 0 ? this.state.count : ""}</span>
+        <div onClick={this.handleButtonClick} style={buttonStyle}>
+          {this.state.liked ? svgPressed : svgNotPressed}
+        </div>
+        <span>{this.state.count > 0 ? this.state.count : ''}</span>
       </div>
     );
   }
