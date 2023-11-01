@@ -91,18 +91,12 @@ export class LikeButton extends Component {
       </svg>
     );
 
-    const buttonStyle = {
-      width: '40px',
-      height: '40px',
-      backgroundColor: this.state.liked ? 'blue' : 'white',
-    };
-
     return (
       <div>
-        <div onClick={this.handleButtonClick} style={buttonStyle}>
+        <div onClick={this.handleButtonClick}>
           {this.state.liked ? svgPressed : svgNotPressed}
+          <span>{this.state.count > 0 ? this.state.count : ''}</span>
         </div>
-        <span>{this.state.count > 0 ? this.state.count : ''}</span>
       </div>
     );
   }
