@@ -13,17 +13,17 @@ export class LikeButton extends Component {
     // Check local storage to see if the user has liked this post before
     const liked = localStorage.getItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1]) === 'true';
     this.setState({ liked });
-    this.fetchCount()
+    this.fetchCount("none")
   }
 
   handleButtonClick = () => {
     if (this.state.liked) {
       // If already liked, unlike
-      this.updateCount(-1);
+      this.updateCount("decrement");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'false');
     } else {
       // If not liked, like
-      this.updateCount(1);
+      this.updateCount("increment");
       localStorage.setItem(window.location.pathname.split("/")[window.location.pathname.split("/").length-1], 'true');
     }
     this.setState({ liked: !this.state.liked });
@@ -31,31 +31,18 @@ export class LikeButton extends Component {
 
   updateCount(change) {
     // Make an XHR request to the CountAPI to increment or decrement the count
-    const url = `https://api.countapi.xyz/update/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}?amount=${change}`;
+    const url = `https://script.google.com/macros/s/AKfycbwj7s-E6cnNTc2NeNkzVGD0dSTx4pwbOXJTAeZBEx9KqVVsBbW8llvPuHNUE5R9hZK9jg/exec?POST_NAME={window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}&ACTION={change}`;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.send();
     xhr.onreadystatechange = () => {
       if (xhr.readyState === 4 && xhr.status === 200) {
         const response = JSON.parse(xhr.responseText);
-        this.setState({ count: response.value });
+        this.setState({ count:  change == "increment" ? this.state.count + 1 : change == "decrement" ? this.state.count - 1 : response.value });
       }
     };
   }
-
-  fetchCount() {
-    const url = `https://api.countapi.xyz/get/unaligned.world/${window.location.pathname.split("/")[window.location.pathname.split("/").length-1]}`;
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.send();
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const response = JSON.parse(xhr.responseText);
-        this.setState({ count: response.value });
-      }
-    };
-  }
-
+  
   render() {
     const buttonStyle = {
       width: '40px',
