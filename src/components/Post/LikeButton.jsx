@@ -61,7 +61,7 @@ export class LikeButton extends Component {
     return (
       <div>
         <button onClick={this.handleButtonClick} style={buttonStyle}></button>
-        <span>{this.state.count}</span>
+        <span>{this.state.count > 0 ? this.state.count : ""}</span>
       </div>
     );
   }
