@@ -1,6 +1,6 @@
 ---
 title: My Kilobyte
-date: "2023-11-21T1:31:04.521Z"
+date: "2023-21-11T1:31:04.521Z"
 template: "post"
 draft: false
 slug: "/posts/archive/my-kilobyte"
