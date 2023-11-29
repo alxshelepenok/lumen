@@ -28,7 +28,7 @@ Before we dive in and examine all three in detail, here's an action list for the
 
 * Sign up for updates on [Fleek.xyz](https://fleek.xyz).
 * Sign up for updates on [Fleek Network](https://fleek.network).
-* Join [the Fleek Discord](https://discord.gg/fleekxyz).
+* Join [the Fleek Discord](https://discord.gg/fleek).
 * Read the [Fleek Network whitepaper.](https://fleek.network/fleek-network.pdf?202212011428)
 * [Test out running a node](https://blog.fleek.co/posts/fleek-network-getting-started-guide) for Fleek Network.
 
@@ -138,7 +138,7 @@ P.s. All communications with our community will now also come from our new fleek
 
 * Visit the [Fleek Network Website](https://fleek.network).
 * Visit the [Fleek.xyz Website](https://fleek.xyz).
-* Join [our Discord](https://discord.gg/fleekxyz).
+* Join [our Discord](https://discord.gg/fleek).
 * Follow [Fleek.xyz on Twitter](https://twitter.com/fleekxyz).
 * Follow [Fleek Network on Twitter](https://twitter.com/fleek_net).
 * Subscribe to [our Youtube](https://www.youtube.com/@FleekHQ).
