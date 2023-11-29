@@ -52,7 +52,7 @@ On a higher level, the team is gradually making progress on our initial Narwhal/
 
 We’re also making some serious headway on our tokenomics paper– expect to see a public release on this in the near future!
 
-Finally, the team has been defining the KPIs that will be used to track the performance of Fleek Network. Time to First Byte (TTFB) is a metric we plan to track, but we plan to expand this soon. If you have ideas on KPIs you think should be tracked, hop in our [Discord server](https://discord.gg/fleekxyz) and let the team know! We’re an open-source project and are happily open to contributions from our community.
+Finally, the team has been defining the KPIs that will be used to track the performance of Fleek Network. Time to First Byte (TTFB) is a metric we plan to track, but we plan to expand this soon. If you have ideas on KPIs you think should be tracked, hop in our [Discord server](https://discord.gg/fleek) and let the team know! We’re an open-source project and are happily open to contributions from our community.
 
 ## In Case You Missed It
 
