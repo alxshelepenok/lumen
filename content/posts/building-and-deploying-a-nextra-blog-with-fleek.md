@@ -86,6 +86,6 @@ The best way to see your site in fully glory is to map your new site to an ENS o
 
 ***
 
-That is all for this guide! Feel free to suggest new templates to use in the [templates repository](https://github.com/fleekxyz/templates/), or come visit us on [Discord](https://discord.gg/fleekxyz) to chat with us and the team to jam on ideas.
+That is all for this guide! Feel free to suggest new templates to use in the [templates repository](https://github.com/fleekxyz/templates/), or come visit us on [Discord](https://discord.gg/fleek) to chat with us and the team to jam on ideas.
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).
