@@ -55,6 +55,6 @@ These templates will set a foundation that in the future, the Fleek's UI and CLI
 
 The CLI’s growing Fleek fam! We’re on the road to matching the legacy platform’s features, and then breaking further into new services and features for web3 developers.
 
-We want to see **what sites you’re hosting and trying on the beta!** Ping us on [Twitter](https://twitter.com/fleekxyz) or [Discord](https://discord.gg/fleekxyz) with them.
+We want to see **what sites you’re hosting and trying on the beta!** Ping us on [Twitter](https://twitter.com/fleekxyz) or [Discord](https://discord.gg/fleek) with them.
 
 For more resources visit our [LinkTree](https://linktr.ee/fleek).
