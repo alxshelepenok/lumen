@@ -43,7 +43,7 @@ The new Fleek.xyz platform is all about having the freedom and flexibility to cr
 
 Each building block gives you access to all of the Fleek services, just in different ways. For those who want a more uniform, directed experience, access our platform and services through our UI. For those looking to compose new services leveraging any of our underlying services/protocols, our CLI, SDK, and API will be your friend.
 
-When new services/protocols become available (maybe Akash or Arweave 👀), they will bubble up from CLI, to SDK and API, then finally landing on the UI. Along the way, each new feature will go through a public beta where some of [our power users](https://discord.gg/fleekxyz) will get the chance to provide valuable feedback.
+When new services/protocols become available (maybe Akash or Arweave 👀), they will bubble up from CLI, to SDK and API, then finally landing on the UI. Along the way, each new feature will go through a public beta where some of [our power users](https://discord.gg/fleek) will get the chance to provide valuable feedback.
 
 ***
 
@@ -67,7 +67,7 @@ From day one, this means you’ll be able to pick and choose how you want to int
 
 Later on, this means giving **developers and protocols themselves the freedom to extend the Fleek platform how they see fit**. Don't see service that you or your community would find extremely valuable? Build it yourself. Our main goal is to provide friendly low-level tools for others to experiment and add cool new features that we would never have thought of!
 
-Lastly, this update means that we’ll be able to ship to you faster. Expect supercharged development cycles in public. There will be plenty of room for beta testers to get involved and help to shape how our tools look. If this sounds like you, [let us know](https://discord.gg/fleekxyz)!
+Lastly, this update means that we’ll be able to ship to you faster. Expect supercharged development cycles in public. There will be plenty of room for beta testers to get involved and help to shape how our tools look. If this sounds like you, [let us know](https://discord.gg/fleek)!
 
 ***
 
@@ -75,7 +75,7 @@ That’s all we’ve got for you today. Building in public ftw!
 
 Part two of this series on the _how_ of Fleek.xyz development is coming soon, including how we structure teams around services and _how_ new services are created.
 
-In the meantime, join [our discord](https://discord.gg/fleekxyz), follow [our twitter](https://twitter.com/fleekxyz), and sign up for [our beta waitlist](https://fleek.xyz)!
+In the meantime, join [our discord](https://discord.gg/fleek), follow [our twitter](https://twitter.com/fleekxyz), and sign up for [our beta waitlist](https://fleek.xyz)!
 
 **.. oh, and we’re building a decentralized content & application delivery network called** [**Fleek Network**](https://fleek.network)**. Go check it out, it will play a key role in Fleek’s story in 2023 and beyond.**
 
