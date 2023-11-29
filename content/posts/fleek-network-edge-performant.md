@@ -31,4 +31,4 @@ Designed to be scalable, highly available, and fault-tolerant, Fleek Network is 
 
 For more information on Fleek Network, and an in-depth look at how Fleek Network is constructed, check out our whitepaper on [Fleek.Network](https://fleek.network/).
 
-Discover more about the project by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleekxyz) for all the best updates!
+Discover more about the project by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleek) for all the best updates!
