@@ -102,6 +102,6 @@ As you can tell, we’re super stoked about NFAs! Today we first presented what 
 
 If you’re passionate about decentralizing apps, please checkout our initial [NFAs implementation repo](https://github.com/fleekxyz/non-fungible-apps). PRs, issues, and discussions are all welcome and appreciated!
 
-Lastly, if you’ve got any questions, ideas, or just want to jam with our team, hop into [our Discord](https://discord.gg/fleekxyz). ⚡️
+Lastly, if you’ve got any questions, ideas, or just want to jam with our team, hop into [our Discord](https://discord.gg/fleek). ⚡️
 
 * For more resources visit [our LinkTree](https://linktr.ee/fleek).
