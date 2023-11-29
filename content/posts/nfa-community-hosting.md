@@ -99,7 +99,7 @@ In the future, **NFAs will be fully integrated into the Fleek.xyz platform**. Fo
 
 ---
 
-That’s a wrap! If you’ve got any questions, want to start playing around with NFAs early, or want to contribute some code (we’re open source, ya know) hop over to [our Github](https://github.com/fleekxyz/non-fungible-apps0) or [our Discord](https://discord.gg/fleekxyz)! 
+That’s a wrap! If you’ve got any questions, want to start playing around with NFAs early, or want to contribute some code (we’re open source, ya know) hop over to [our Github](https://github.com/fleekxyz/non-fungible-apps0) or [our Discord](https://discord.gg/fleek)! 
 
 Enjoyed brushing up on NFAs? You’ll love our other recent blogs:
 - [Introducing NFA’s: Non-Fungible Apps](https://blog.fleek.co/posts/introducing-nfas-non-fungible-apps)
