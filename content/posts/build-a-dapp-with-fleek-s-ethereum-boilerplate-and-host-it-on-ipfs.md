@@ -209,7 +209,7 @@ If you are interested in other features like **continuous integration**, you can
 
 ***
 
-Done! With this boilerplate, you can develop a dApp fully and deploy its frontend onto IPFS, all from a single unified repository. We’ll continue to iterate through this boilerplate to add options in the future, so feel free to hop into our [Discord](https://discord.gg/fleekxyz) for requests or open an [issue/PR](https://github.com/fleekxyz/ethereum-boilerplate) on the repo itself!
+Done! With this boilerplate, you can develop a dApp fully and deploy its frontend onto IPFS, all from a single unified repository. We’ll continue to iterate through this boilerplate to add options in the future, so feel free to hop into our [Discord](https://discord.gg/fleek) for requests or open an [issue/PR](https://github.com/fleekxyz/ethereum-boilerplate) on the repo itself!
 
 This boilerplate is next.js based, but there are many amazing alternatives in other frameworks - such as Alchemy University’s [Create Web3 App](https://github.com/alchemyplatform/create-web3-dapp) in React.
 
