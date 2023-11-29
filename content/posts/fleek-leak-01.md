@@ -112,6 +112,6 @@ Interested? NFAs are open source and we’ve got a working branch up and running
 
 As a last note we’re also working on some housekeeping items like **setting up a dedicated Fleek.xyz blog** (as we deprecate blog.fleek.co and migrate that content), **designing a new landing page**, and completely **open sourcing the Fleek roadmap** including a project backlog so users can keep up with everything we do.
 
-Reminders to keep your eyes peeled on January 18th for our first beta release. If you haven’t already, sign up for the [beta waitlist](https://fleek.xyz)! Or ask nicely in our [Discord](https://discord.gg/fleekxyz) and maybe we’ll let you hop the line 😉
+Reminders to keep your eyes peeled on January 18th for our first beta release. If you haven’t already, sign up for the [beta waitlist](https://fleek.xyz)! Or ask nicely in our [Discord](https://discord.gg/fleek) and maybe we’ll let you hop the line 😉
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).
