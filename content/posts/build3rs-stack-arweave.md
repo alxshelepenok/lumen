@@ -100,6 +100,6 @@ Here are some of other useful resources and platform you can use to get started:
 
 We hope to help you start your road on Arweave with this overview of applied use-cases and tools! Give Arweave a follow on [Twitter](https://twitter.com/ArweaveEco) for more information on its stack.
 
-Keep an eye out for our next issue of the Build3rs Stack, and pay the team a visit on [Discord](https://discord.gg/fleekxyz), we want to hear which protocol you want to learn next!
+Keep an eye out for our next issue of the Build3rs Stack, and pay the team a visit on [Discord](https://discord.gg/fleek), we want to hear which protocol you want to learn next!
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).
