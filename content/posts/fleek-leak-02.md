@@ -64,6 +64,6 @@ For that, we are using an early version of the Fleek SDK, which is now powering 
 
 That wraps up this edition of Fleek Leak! Set your reminders for next week as we prepare to release these new features into the wild. You can also simply [sign up on our website](https://fleek.xyz/) to get a ping when that happens too 📯. While you wait, [pay our docs](https://docs.fleek.xyz/) a visit and give the beta a try!
 
-A final leak: Now that Sites are around the corner, expect our **DevRel team** to start sharing examples, templates, and build ideas around! We’re preparing an open templates repository for Fleek where we’ll add boilerplates and projects you can quickly deploy through Fleek (e.g. a blog, or a [Lens app](https://www.lens.xyz/)). Got any ideas? Swing by our [Discord](https://discord.gg/fleekxyz) and let us know 😉.
+A final leak: Now that Sites are around the corner, expect our **DevRel team** to start sharing examples, templates, and build ideas around! We’re preparing an open templates repository for Fleek where we’ll add boilerplates and projects you can quickly deploy through Fleek (e.g. a blog, or a [Lens app](https://www.lens.xyz/)). Got any ideas? Swing by our [Discord](https://discord.gg/fleek) and let us know 😉.
 
 For more resources visit [our LinkTree](https://linktr.ee/fleek).
