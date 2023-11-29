@@ -43,7 +43,7 @@ Here’s a mini-timeline to make things crystal clear:
 
 That said, we are not totally separating ourselves from the gateways game. Our goal is to **pivot to offering gateways as a service** for any clients who might need their own dedicated gateways. Supercharged by [Fleek Network](https://fleek.network/), of course 😉
 
-As we flesh out the details for offering this as a true service, feel free to [reach out to us directly](https://discord.gg/fleekxyz) if you’re interested and we’ll happily spin up dedicated gateways.
+As we flesh out the details for offering this as a true service, feel free to [reach out to us directly](https://discord.gg/fleek) if you’re interested and we’ll happily spin up dedicated gateways.
 
 ***
 
@@ -74,7 +74,7 @@ Why the switch? Two main reasons.
 
 # What About Fleek.co As a Whole?
 
-As we mentioned in the intro, unless you’ve been living under a rock you’ve probably heard that we [raised $25M to build Fleek.xyz + Fleek Network](https://blog.fleek.co/posts/introducing-fleek-network-and-fleek-xyz). Part of the move to this new platform is sunsetting the Fleek.co platform and domain in favor of Fleek.xyz.
+As we mentioned in the intro, unless you’ve been living under a rock you’ve probably heard that we [raised $25M to build Fleek.xyz + Fleek Network](https://blog.fleek.xyz/post/introducing-fleek-network-and-fleek-xyz). Part of the move to this new platform is sunsetting the Fleek.co platform and domain in favor of Fleek.xyz.
 
 While we don’t have specifics on the move yet, you can expect us to move pretty much everything to the new .xyz domain. You’ll access our UI from something like app.fleek.xyz and our APIs from something akin to api.fleek.xyz.
 
@@ -84,6 +84,6 @@ Expect more updates to come in Q1 2023 as we begin the Fleek.co sunsetting proce
 
 ***
 
-If you’ve got any questions, concerns, or need any assistance surrounding this migration, hop into [our Discord](https://discord.gg/fleekxyz)! Our team will be happy to jam, help, or answer any of your queries. ⚡️
+If you’ve got any questions, concerns, or need any assistance surrounding this migration, hop into [our Discord](https://discord.gg/fleek)! Our team will be happy to jam, help, or answer any of your queries. ⚡️
 
 * For more resources visit [our LinkTree](https://linktr.ee/fleek).
