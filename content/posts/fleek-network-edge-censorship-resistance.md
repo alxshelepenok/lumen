@@ -38,4 +38,4 @@ Fleek Network’s main objective is to create a decentralized content delivery n
 
 For more information on Fleek Network, and an in-depth look at how we're tackling censorship resistance, check out our whitepaper on [Fleek.Network](https://fleek.network/#run-a-node_node)!
 
-Discover more about Fleek Network by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleekxyz) for all the best updates!
+Discover more about Fleek Network by [watching/contributing on Github](https://github.com/fleek-network/ursa), following us on [Twitter](https://twitter.com/fleek_net), and joining [our community Discord](https://discord.gg/fleek) for all the best updates!
