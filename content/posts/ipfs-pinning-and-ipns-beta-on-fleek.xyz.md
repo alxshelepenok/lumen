@@ -76,7 +76,7 @@ How do you do it in the CLI? With the command above. In this beta, you can creat
 
 Now that the CLI is out on beta, expect updates to its features and services on a regular basis. The team’s working in parallel in more services and in fact, as you read this, we are cooking up Sites Deployments and Custom Domains 😉.
 
-We can’t be more excited to start getting Fleek’s new tools into the hands of the community, so thanks from the team for helping us test! Come say hi on our [Discord](https://discord.gg/fleekxyz), and bring any feature ideas over.
+We can’t be more excited to start getting Fleek’s new tools into the hands of the community, so thanks from the team for helping us test! Come say hi on our [Discord](https://discord.gg/fleek), and bring any feature ideas over.
 
 **What’s next on the table?** We’ll be working on improvements to storage, and how users can resolve/access their files, as well as growing the App UI for manual file upload, and Sites Deployments via CLI.
 
