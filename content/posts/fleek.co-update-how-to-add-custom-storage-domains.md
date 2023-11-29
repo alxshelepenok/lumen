@@ -20,7 +20,7 @@ tags:
 
 Today, we’re increasing the uptime & accessibility of storage buckets on our (soon to be legacy) Fleek.co platform by removing reliance on our own domains for accessing storage buckets, and instead **allowing users to use their own custom domains to access their Fleek Storage buckets**.
 
-_This feature is being added for existing Fleek.co Storage users only._ If you’re hearing about Fleek for the first time, you’ll be able to use this feature, and many more, in our upcoming new platform - Fleek.xyz. For the interested, join [the waitlist](https://fleek.xyz) or hop into [our Discord](https://discord.gg/fleekxyz) for early access to the web3 development platform of the future.
+_This feature is being added for existing Fleek.co Storage users only._ If you’re hearing about Fleek for the first time, you’ll be able to use this feature, and many more, in our upcoming new platform - Fleek.xyz. For the interested, join [the waitlist](https://fleek.xyz) or hop into [our Discord](https://discord.gg/fleek) for early access to the web3 development platform of the future.
 
 ***
 
@@ -88,4 +88,4 @@ All Fleek.xyz services where endpoints are relevant will give users the option t
 
 And with that, we wrap 2022! In Q1 2023 we’ll be continuing the Fleek.co sunsetting process, will start to release the first of the Fleek.xyz betas (IPNS as a Service and CLI site deployments), and continue to share updates as Fleek Network gets closer to a testnet.
 
-Needless to say, **we’re psyched for 2023** and are happy to have you Freaks along for the ride. To keep up with everything we’ve got going on, follow us on [Twitter](https://twitter.com/fleekxyz) or hop into [our Discord](https://discord.gg/fleekxyz) to jam with our team. ⚡
+Needless to say, **we’re psyched for 2023** and are happy to have you Freaks along for the ride. To keep up with everything we’ve got going on, follow us on [Twitter](https://twitter.com/fleekxyz) or hop into [our Discord](https://discord.gg/fleek) to jam with our team. ⚡
