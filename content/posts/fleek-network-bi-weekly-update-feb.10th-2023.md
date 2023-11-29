@@ -39,7 +39,7 @@ As a follow-up to an in-progress item mentioned in the [last bi-weekly update](h
 * Throughput (Request/second per node)
 * Latency
 
-Expect to see this list of metrics expand with the release of our global & local metrics dashboards. If you have metrics we missed that you think should be tracked, let us know in our [Discord server](https://discord.gg/fleekxyz)!
+Expect to see this list of metrics expand with the release of our global & local metrics dashboards. If you have metrics we missed that you think should be tracked, let us know in our [Discord server](https://discord.gg/fleek)!
 
 We have also debugged bootstrap failures by implementing random KAD walks to keep the routing table fresh, as well as added a cache to our rust proxy implementation. Check out the [PRs here](https://github.com/fleek-network/ursa).
 
@@ -78,6 +78,6 @@ Since our last Fleek Network Bi-Weekly Update, we’ve released a few new guides
 
 —
 
-That’s all for this update! For live updates and access to the team, be sure to check out our [GitHub](https://github.com/fleek-network), join our [Discord server](https://discord.gg/fleekxyz), and subscribe to updates on [Fleek.Network](https://fleek.network/)! 
+That’s all for this update! For live updates and access to the team, be sure to check out our [GitHub](https://github.com/fleek-network), join our [Discord server](https://discord.gg/fleek), and subscribe to updates on [Fleek.Network](https://fleek.network/)! 
 
 We'll be back with another progress report in \~2 weeks' time– see you all then ⚡
