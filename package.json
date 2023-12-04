@@ -102,7 +102,7 @@
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "autoprefixer": "^10.4.16",
-    "browserslist": "^4.22.1",
+    "browserslist": "^4.22.2",
     "codecov": "^3.8.3",
     "concurrently": "^8.2.2",
     "conventional-changelog-conventionalcommits": "6.1.0",
