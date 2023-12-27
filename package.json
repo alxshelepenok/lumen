@@ -52,7 +52,7 @@
     "@sentry/gatsby": "^7.61.1",
     "@sentry/tracing": "^7.80.1",
     "abab": "^2.0.6",
-    "classnames": "^2.3.2",
+    "classnames": "^2.3.3",
     "disqus-react": "^1.1.5",
     "gatsby": "^4.25.8",
     "gatsby-link": "^4.25.0",
