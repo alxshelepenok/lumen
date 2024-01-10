@@ -3,7 +3,7 @@ title: Things I'll never do
 date: "2023-08-18T22:20:32.169Z"
 template: "post"
 draft: false
-slug: "/posts/archive/things-ill-never-do"
+slug: "/p/things-ill-never-do"
 category: "Archive"
 tags:
   - "Archived"
