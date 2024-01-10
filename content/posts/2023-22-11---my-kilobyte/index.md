@@ -3,7 +3,7 @@ title: My Kilobyte
 date: "2023-11-21T23:55:32.169Z"
 template: "post"
 draft: false
-slug: "/posts/archive/my-kilobyte"
+slug: "/p/my-kilobyte"
 category: "Philosophy"
 tags:
   - "Philosophy"
