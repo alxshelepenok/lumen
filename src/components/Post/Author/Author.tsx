@@ -14,7 +14,7 @@ const Author = () => {
         {author.bio}
         <a
           className={styles.twitter}
-          href="https://www.lesswrong.com/users/elijah-bodden"
+          href="https://www.lesswrong.com/users/defective-altruism"
           rel="noopener noreferrer"
           target="_blank"
         >
