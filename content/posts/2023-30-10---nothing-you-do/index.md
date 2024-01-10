@@ -3,7 +3,7 @@ title: Nothing you do will ever matter
 date: "2023-10-30T15:38:00.000Z"
 template: "post"
 draft: false
-slug: "/posts/archive/nothing-you-do"
+slug: "/p/nothing-you-do"
 category: "Philosophy"
 tags:
   - "Philosophy"
