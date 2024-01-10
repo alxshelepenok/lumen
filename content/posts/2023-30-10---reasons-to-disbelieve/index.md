@@ -3,7 +3,7 @@ title: Reasons to Disbelieve
 date: "2023-10-30T14:00:31.521Z"
 template: "post"
 draft: false
-slug: "/posts/archive/reasons-to-disbelieve"
+slug: "/p/reasons-to-disbelieve"
 category: "Epistemics"
 tags:
   - "Religion"
