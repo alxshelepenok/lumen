@@ -3,7 +3,7 @@ title: Saving the world sucks
 date: "2024-01-09T13:50:00.000Z"
 template: "post"
 draft: false
-slug: "/posts/archive/saving-the-world-sucks"
+slug: "/p/saving-the-world-sucks"
 category: "Philosophy"
 tags:
   - "Philosophy"
