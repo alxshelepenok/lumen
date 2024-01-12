@@ -30,7 +30,7 @@ const Post: React.FC<Props> = ({ post }: Props) => {
         <LikeButton />
       </div>
 
-      <div className={styles.content}>
+      <div style={{textAlign: "justify", textJustify: "inter-word"}} className={styles.content}>
         <Content body={html} title={title} />
       </div>
 
