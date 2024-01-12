@@ -11,7 +11,8 @@ pre[class*="language-"] {
   -o-tab-size: 4;
   -moz-tab-size: 4;
   tab-size: 4;
-  text-align: left;
+  text-align: justify;
+  text-justify: inter-word;
   white-space: pre;
   word-break: normal;
   word-spacing: normal;
