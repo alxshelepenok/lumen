@@ -81,7 +81,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@alxshelepenok/eslint-config": "^1.0.392",
+    "@alxshelepenok/eslint-config": "^1.0.399",
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@jest/globals": "^29.6.4",
