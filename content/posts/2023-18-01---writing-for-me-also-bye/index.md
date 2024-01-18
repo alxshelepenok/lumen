@@ -1,5 +1,5 @@
 ---
-title: "Writing for me (Also: bye!)"
+title: "Writing for me (also: bye!)"
 date: "2024-01-18T17:29:00.000Z"
 template: "post"
 draft: false
