@@ -1,7 +1,7 @@
 ---
 title: "About me"
 template: "page"
-socialImage: ""
+socialImage: "./notebook.jpg"
 ---
 
 Serverless Architect | Independent Consultant.
