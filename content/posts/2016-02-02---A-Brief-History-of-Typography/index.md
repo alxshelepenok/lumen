@@ -9,7 +9,7 @@ tags:
   - "Linotype"
   - "Helvetica"
   - "History of typography"
-description: "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat."
+description: "senectus et netus et malesuada fames "
 socialImage: "./media/cherry.jpg"
 ---
 

@@ -38,19 +38,19 @@ describe("CategoryTemplate", () => {
 
     expect(testUtils.getMeta("twitter:card")).toEqual("summary_large_image");
     expect(testUtils.getMeta("og:title")).toEqual(
-      "Typography - Page 2 - Blog by John Doe",
+      "Typography - Page 2 - Murali Allada",
     );
     expect(testUtils.getMeta("twitter:title")).toEqual(
-      "Typography - Page 2 - Blog by John Doe",
+      "Typography - Page 2 - Murali Allada",
     );
     expect(testUtils.getMeta("twitter:description")).toEqual(
-      "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+      "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
     );
     expect(testUtils.getMeta("description")).toEqual(
-      "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+      "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
     );
     expect(testUtils.getMeta("og:description")).toEqual(
-      "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+      "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
     );
   });
 });

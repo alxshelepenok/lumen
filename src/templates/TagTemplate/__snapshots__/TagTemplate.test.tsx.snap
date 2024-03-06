@@ -13,12 +13,12 @@ exports[`TagTemplate renders correctly 1`] = `
             <a
               href="/"
             >
-              John Doe
+              Murali Allada
             </a>
           </h2>
         </div>
         <p>
-          Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+          I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.
         </p>
       </div>
       <nav>
@@ -61,9 +61,9 @@ exports[`TagTemplate renders correctly 1`] = `
           <div>
             <div>
               <time
-                dateTime="September 1, 2016"
+                dateTime="August 31, 2016"
               >
-                September 2016
+                August 2016
               </time>
               <span />
               <span>
@@ -93,9 +93,9 @@ exports[`TagTemplate renders correctly 1`] = `
           <div>
             <div>
               <time
-                dateTime="September 1, 2016"
+                dateTime="August 31, 2016"
               >
-                September 2016
+                August 2016
               </time>
               <span />
               <span>
@@ -125,9 +125,9 @@ exports[`TagTemplate renders correctly 1`] = `
           <div>
             <div>
               <time
-                dateTime="September 1, 2017"
+                dateTime="August 31, 2017"
               >
-                September 2017
+                August 2017
               </time>
               <span />
               <span>

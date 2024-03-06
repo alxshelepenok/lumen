@@ -13,12 +13,12 @@ exports[`PageTemplate renders correctly 1`] = `
             <a
               href="/"
             >
-              John Doe
+              Murali Allada
             </a>
           </h2>
         </div>
         <p>
-          Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+          I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.
         </p>
       </div>
       <nav>

@@ -3,14 +3,14 @@
 exports[`Author renders correctly 1`] = `
 <div>
   <p>
-    Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+    I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.
     <a
       href="https://www.twitter.com/#"
       rel="noopener noreferrer"
       target="_blank"
     >
       <strong>
-        John Doe
+        Murali Allada
       </strong>
        on Twitter
     </a>

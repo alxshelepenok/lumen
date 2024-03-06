@@ -5,9 +5,9 @@ export default {
   site: {
     siteMetadata: {
       url: "https://www.lumen.local",
-      title: "Blog by John Doe",
+      title: "Murali Allada",
       subtitle:
-        "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+        "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
       copyright: "All rights reserved.",
       postsPerPage: 4,
       author,

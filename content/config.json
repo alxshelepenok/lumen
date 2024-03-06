@@ -1,9 +1,9 @@
 {
-  "title": "Blog by John Doe",
-  "url": "https://lumen.alxshelepenok.com",
-  "subtitle": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
-  "copyright": "© All rights reserved.",
-  "googleAnalyticsId": "UA-73379983-2",
+  "title": "Murali Allada",
+  "url": "https://www.muraliallada.com/",
+  "subtitle": "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
+  "copyright": "",
+  "googleAnalyticsId": "",
   "disqusShortname": "",
   "postsLimit": 4,
   "pathPrefix": "/",
@@ -17,28 +17,28 @@
       "path": "/pages/about"
     },
     {
-      "label": "Contact me",
-      "path": "/pages/contacts"
+      "label": "Now",
+      "path": "/pages/now"
     }
   ],
   "author": {
-    "name": "John Doe",
-    "photo": "/photo.jpg",
-    "bio": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    "name": "Murali Allada",
+    "photo": "/avatar.png",
+    "bio": "I help companies build reliable cloud infrastructure. Previously, I built platforms/products at @microsoft, @rackspace and @verizon.",
     "contacts": {
       "rss": "",
-      "email": "",
-      "github": "alxshelepenok/gatsby-starter-lumen",
+      "email": "amuralis@hotmail.com",
+      "github": "murali44",
       "facebook": "#",
       "telegram": "#",
-      "twitter": "#",
-      "linkedin": "#",
+      "twitter": "amuralis",
+      "linkedin": "muraliallada",
       "instagram": "#",
       "mastodon": "#",
       "line": "",
       "weibo": "",
       "gitlab": "",
-      "medium": "",
+      "medium": "@muralia",
       "youtube": "",
       "codepen": "",
       "soundcloud": "",
