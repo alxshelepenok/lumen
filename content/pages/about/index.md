@@ -3,7 +3,6 @@ title: "About"
 template: "page"
 socialImage: "photo.jpg"
 ---
-![A sad guy on a pier that I've somehow become associated with](image.png)  
 *Previous versions: [v1 (June 2023)](/pages/about-v1/), [v2 (November 2023)](pages/about-v2/)*  
 Hi👋! I'm Elijah. I think about things. I almost never write about them, but I'm changing that. I'm self-studying right now and kind of fascinated by everything. AI is cool but *darn, curse the gods* that the AI that ends the world looks *way cooler* than the one that saves it.  
 Alignment is cool too though. I'm currently puttering around trying to find out how to get into it and so far it's been really fun. Other areas I'm studying include physics (the Feynman lectures ❤️), linear algebra, topos theory and paleogenetics.
