@@ -101,7 +101,7 @@
     "@types/sass": "^1.43.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "autoprefixer": "^10.4.18",
+    "autoprefixer": "^10.4.19",
     "browserslist": "^4.23.0",
     "codecov": "^3.8.3",
     "concurrently": "^8.2.2",
