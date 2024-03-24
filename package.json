@@ -98,7 +98,7 @@
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
     "@types/react-test-renderer": "^18.0.7",
-    "@types/sass": "^1.43.1",
+    "@types/sass": "^1.45.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.19",
