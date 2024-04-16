@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "@alxshelepenok/eslint-config": "^1.0.443",
-    "@commitlint/cli": "^19.2.1",
+    "@commitlint/cli": "^19.2.2",
     "@commitlint/config-conventional": "^19.1.0",
     "@jest/globals": "^29.6.4",
     "@semantic-release/exec": "6.0.3",
