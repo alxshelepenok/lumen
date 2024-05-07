@@ -24,6 +24,10 @@
       "path": "/pages/contacts"
     },
     {
+      "label": "Scrapbook",
+      "path": "https://scrapbook.hackclub.com/Elijah-U06PZAFB5RS"
+    },
+    {
       "label": "Random Ideas",
       "path": "/pages/ideas"
     }
