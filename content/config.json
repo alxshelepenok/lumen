@@ -28,6 +28,10 @@
       "path": "https://scrapbook.hackclub.com/elijah"
     },
     {
+      "label": "EliGPT",
+      "path": "https://huggingface.co/spaces/Elijahbodden/llama.cpp"
+    },
+    {
       "label": "Random Ideas",
       "path": "/pages/ideas"
     }
