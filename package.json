@@ -89,7 +89,7 @@
     "@semantic-release/git": "10.0.1",
     "@swc/core": "^1.7.3",
     "@swc/jest": "^0.2.36",
-    "@testing-library/dom": "^10.3.2",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@types/gatsby-transformer-remark": "^2.9.4",
