@@ -90,7 +90,7 @@
     "@swc/core": "^1.7.22",
     "@swc/jest": "^0.2.36",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@types/gatsby-transformer-remark": "^2.9.4",
     "@types/jest": "^29.5.12",
