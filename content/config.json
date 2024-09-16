@@ -1,9 +1,9 @@
 {
-  "title": "Blog by John Doe",
+  "title": "Double Dot Development",
   "url": "https://lumen.alxshelepenok.com",
-  "subtitle": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+  "subtitle": "A software company founded in 2024 by Michael Baldock.",
   "copyright": "© All rights reserved.",
-  "googleAnalyticsId": "UA-73379983-2",
+  "googleAnalyticsId": "MB-123456",
   "disqusShortname": "",
   "postsLimit": 4,
   "pathPrefix": "/",
@@ -13,26 +13,22 @@
       "path": "/"
     },
     {
-      "label": "About me",
+      "label": "About",
       "path": "/pages/about"
-    },
-    {
-      "label": "Contact me",
-      "path": "/pages/contacts"
     }
   ],
   "author": {
-    "name": "John Doe",
+    "name": "Double Dot Development",
     "photo": "/photo.jpg",
-    "bio": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    "bio": "A software company founded in 2024 by Michael Baldock",
     "contacts": {
       "rss": "",
       "email": "",
-      "github": "alxshelepenok/gatsby-starter-lumen",
+      "github": "#",
       "facebook": "#",
       "telegram": "#",
       "twitter": "#",
-      "linkedin": "#",
+      "linkedin": "michael-baldock-29aab922/",
       "instagram": "#",
       "mastodon": "#",
       "line": "",
