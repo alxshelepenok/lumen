@@ -36,14 +36,14 @@ exports[`Post renders correctly 1`] = `
       <p>
         Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
         <a
-          href="https://www.twitter.com/#"
+          href="https://www.linkedin.com/in/undefined"
           rel="noopener noreferrer"
           target="_blank"
         >
           <strong>
             John Doe
           </strong>
-           on Twitter
+           on Linked In
         </a>
       </p>
     </div>
