@@ -18,13 +18,28 @@
     @include margin-bottom(0);
   }
 
+  table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: $color-dark-cloud;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
   .body {
     figure {
       @include margin-bottom(1);
 
       blockquote {
         font-style: italic;
-        text-align: center;
+        text-align: left;
         @include margin-top(0);
         @include padding(1, 0);
 
