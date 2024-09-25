@@ -6,8 +6,8 @@ draft: true
 slug: "/posts/swiftui_architectures_compared_notes"
 category: "Software Development Practice"
 tags:
-  * "Software"
-  * "AI"
+  - "Software"
+  - "AI"
 description: "SwiftUI Architectures Compared Notes"
 ---
 

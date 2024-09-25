@@ -1,14 +1,14 @@
 ---
-title: SwiftUI Architectures Compared For AI Supported Development
-date: "2024-09-13"
+title: Architectures Compared for AI Driven Development
+date: "2024-09-19"
 template: "post"
 draft: false
 slug: "/posts/swiftui_architectures_compared_for_AI_development"
 category: "Software Development Practice"
 tags:
-  * "Software"
-  * "AI"
-description: "SwiftUI Architectures Compared For AI Supported Development"
+  - "Software"
+  - "AI"
+description: "SwiftUI Architectures TCA and MV are compared for ease of use when coding with AI Driven Development using Cursor IDE"
 ---
 
 # About
