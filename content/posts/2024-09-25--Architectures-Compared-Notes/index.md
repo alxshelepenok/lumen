@@ -19,6 +19,19 @@ description: "SwiftUI Architectures Compared Notes"
 
 # Architectures
 
+## TCA
+
+### For and Against TCA
+
+These are not my opinions from experience, but they do make sense with my current understanding of TCA.
+
+* For
+  * Highly opinionated architecture leading to more consistent overall approach to implementations over time
+* Against
+  * Steep learning curve and on-going complexity
+  * Reliance on SPM still has issues when building apps
+  * Overhead due to maintenance of a 3rd party library
+
 ## MVVM+Router (iOS 16+)
 
 Constraints:
