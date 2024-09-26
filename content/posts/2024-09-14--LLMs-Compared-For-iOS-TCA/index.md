@@ -17,9 +17,9 @@ A comparison between [Chat GPT - Swift Copliot GPT](https://chatgpt.com/g/g-L9Nb
 ## Purpose
 
  * To understand the difference in output quality of the AI tools being compared
- * Insights into best practice for iOS development with AI tooling support
+ * Insights into best practices for iOS development with AI tooling support
  * Understand common traits of the tools
- * Provide a data point to compare the quality of AI development tools for Swift UI Application development
+ * Provide a data point to compare the quality of AI development tools for Swift UI application development
 
 # Summary of Findings
 
@@ -38,8 +38,8 @@ A comparison between [Chat GPT - Swift Copliot GPT](https://chatgpt.com/g/g-L9Nb
 
 # Key Learnings
 
- * Do some research 1st. Having a clear idea of how you want your code to be structure before starting to code with AI tools gives better results.
- * Be prepared to refine. A single prompt can provide a good working solution if the prompt gives detailed and clear instructions about the expected output, but being prepared to refine the output towards the desired result more often leads to a better solution.
+ * Do some research first. Having a clear idea of how you want your code to be structured *before* starting to code with AI tools gives better results.
+ * Be prepared to refine. A single prompt can provide a good working solution if the prompt gives detailed and clear instructions about the expected output, but by being prepared to refine the output towards the desired result more often leads to a better solution.
  * [Cursor](https://www.cursor.com) improved considerably after 'teaching' it about latest syntax and fixing bugs in the first attempt. 
  * Using an architecture (TCA) where the syntax has changed considerably between latest and previous versions degraded the results considerably (a future post is coming about architecture!).
  * Decision making between a 'working' approach, and a 'good' approach is the most time-consuming *human* part, and time should be taken to build a clear picture of the desired structure of your solution before, or during the workflow.
@@ -55,7 +55,7 @@ A comparison between [Chat GPT - Swift Copliot GPT](https://chatgpt.com/g/g-L9Nb
 | A TextField where the user can input a topic.<br>A Button that, when tapped, triggers an action to load questions related to the entered topic.<br>A List that displays all the questions fetched from a mock API based on the topic.<br>A Loading Spinner (ActivityIndicator) that appears while the questions are being fetched.<br>If no questions are found, the list should appear empty. | ![Example](./media/topic_questions_feature.png)     |
 
 ### Prompts
-The prompts have remained fairly similar, however I have made some variations due to the context in which they are given. Eg I have not used "As a Principle iOS Engineer" when prompting within a development IDE. Also, the initial prompt to Chat GPT was less strict in the requirements, however experience showed that better results could be obtained by being more detailed and specific in the language in the prompts
+The prompts have remained fairly similar throughout the tests, I have made some variations due to the context in which they are given. Eg I have not used "As a Principle iOS Engineer" when prompting within a development IDE. Also, the initial prompt to Chat GPT was less strict in the requirements, however experience showed that better results could be obtained by being more detailed and specific in the language in the prompts
 
 ## Cursor
 
@@ -197,7 +197,7 @@ I need you to write Swift code for a SwiftUI feature using TCA that includes:
 
 Use The Composable Architecture (TCA) structure, ensuring that the code is:
 * Modular, clean, and testable.
-* Has a Swift UI View called 'TopicInputView' that has one text field to enter a topic, and one button to load questions using the text entered by the user.
+* Has a SwiftUI View called 'TopicInputView' that has one text field to enter a topic, and one button to load questions using the text entered by the user.
 * The State of the view should be maintained by a TopicInputFeature Reducer, which is a struct that contains the reducer logic, handles how actions modify the state, including setting loading state, handling results, and updating the view accordingly.
   * Within the TopicInputFeature struct
      * State: Holds the user's topic input, the loading state, the fetched questions, and a flag for handling empty results.
