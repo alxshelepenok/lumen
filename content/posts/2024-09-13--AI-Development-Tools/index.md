@@ -15,7 +15,7 @@ description: "AI Dev Tools"
 
 ## Cursor
 - [Cursor](https://www.cursor.com) TODO
-- [Blog about Cursore](https://www.vipshek.com/blog/cursor)
+- [Blog about Cursor](https://www.vipshek.com/blog/cursor)
 
 ## TO Read...
 https://medium.com/contino-engineering/dirty-coding-a-brief-overview-of-coding-with-llms-7ee937e5863d
