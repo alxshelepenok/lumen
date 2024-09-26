@@ -59,6 +59,16 @@ The prompts have remained fairly similar, however I have made some variations du
 
 ## Cursor
 
+💰 Pricing (ATOW): Free, Pro - $20 p/m, Business - $40 p/m
+
+Cursor looks and feels like coding in VSCode, which is unsurprising as it's a fork of VSCode, there is even an [official migration guide](https://docs.cursor.com/get-started/migrate-from-vscode). What is really useful about Cursor is the way you can ask for code like any other LLM, but it then works out how to automatically integrate the results with your existing codebase.
+
+For iOS development, we still generally want to use XCode to build and run the code, so the workflow I have been using is to have both Cursor and XCode open, writing in Cursor, saving and then 'Cmd-Tab' to swap to XCode to Build and Run.
+
+### Demo
+
+![Showing Cursor in Action](./media/Cursor_AIAC_Swift_TCA.gif)
+
 ### 1st Attempt - New Project
 
 #### Prompt
@@ -98,7 +108,11 @@ same as 1st attempt - see above
 ### Results
 Compiled immediately ✅, highest scoring result 🏆
 
+[See Cursor Generated Code Here](https://github.com/MBaldo83/AI-Compared-TCA-Development/tree/main/AI%20Assisted%20Coding%20Results/tca-apiRequest-6-CursorIDE)
+
 ## Chat GPT Swift Copilot GPT
+
+💰 Pricing (ATOW): Free, Plus - $20 p/m
 
 ### 5 Prompt Attempt
 
@@ -130,6 +144,8 @@ Now please provide the code in a single file containing the QuestionView, the Qu
 
 ### Results
 Compiled immediately ✅
+
+[See Chat GPT Generated Code Here](https://github.com/MBaldo83/AI-Compared-TCA-Development/tree/main/AI%20Assisted%20Coding%20Results/tca-apiRequest-4-chatGPT-SwiftCopilot)
 
 ### 1 Prompt Attempt
 
@@ -203,6 +219,8 @@ Can you modify the code to put the reducer functionality inside a struct called 
 
 ### Results
 Did not compile ❌, could not change to compile ❌
+
+[See MS Copilot Generated Code Here](https://github.com/MBaldo83/AI-Compared-TCA-Development/tree/main/AI%20Assisted%20Coding%20Results/tca-apiRequest-5-MSCopilot)
 
 ## Scoring Criteria
 

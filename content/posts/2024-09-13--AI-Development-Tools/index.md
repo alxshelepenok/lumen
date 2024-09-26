@@ -4,7 +4,7 @@ date: "2024-09-13"
 template: "post"
 draft: true
 slug: "/posts/ai-dev-tools"
-category: "Sofware Development Practice"
+category: "Software Development Practice"
 tags:
   - "Software"
   - "AI"

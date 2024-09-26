@@ -5,19 +5,19 @@ template: "page"
 
 Double Dot Development was founded in 2024 by Michael Baldock. We provide high quality software solutions specialising in mobile app development.
 
-Please message me on Linked In if you'd like more information
+Please message me on [Linked In](https://www.linkedin.com/in/michael-baldock-29aab922/) if you'd like to catch up about a new project.
 
 ## About the Founder: Michael Baldock 
 #### Recent Permanent Role: Senior Software Engineer at Skyscanner 2019 - 2024
-- As a Senior Software Engineer Michael lead the design and project management for a number of deliveries including passwordless identity, secure anonymous identities and building a Hotels search funnel
+- As a Senior Software Engineer Michael lead the design and project management for a number of deliveries including password-less identity, secure anonymous identities and building a Hotels search funnel
 - Public Speaking:
   - iOS Dev UK (Aberystwyth) and Swift Heroes (Turin)
 - Michael was the mobile community expert for traveller identity, providing expertise on how to securely transfer our traveller’s personal information to areas of our product where this information is needed to improve the product experience
-- A passwordless sign-up feature Michael developed earned Skyscanner an award at the European Identity and Awards Ceremony
+- A password-less sign-up feature Michael developed earned Skyscanner an award at the European Identity and Awards Ceremony
 - Michael has been officially responsible as a Mentor for supporting and developing the expertise of junior members of the team
 
 ### Professional Training
-- The Complete Prompt Engineering for AI Bootcamp (2024)
+- The Complete Prompt Engineering for AI Boot-camp (2024)
 - New Relic: 2 day training course in how to provide high quality operational monitoring for mobile apps
 - Databricks Lakehouse Fundamentals: Accredited course in data engineering using the Databricks platform
 - Security Engineering at Skyscanner
