@@ -9,6 +9,7 @@ tags:
   - "Software"
   - "AI"
 description: "Chat GPT, Cursor and Copilot are compared for writing a SwiftUI app using The Composable Architecture (TCA) pattern"
+socialImage: "./media/LLMS_Compared_image.png"
 ---
 
 # About
