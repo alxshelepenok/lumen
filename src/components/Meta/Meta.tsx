@@ -20,7 +20,7 @@ const Meta: React.FC<Props> = ({ description, title, image }: Props) => (
     {image ? (
       <>
         <meta name="image" content={image} />
-        <meta name="og:image" content={image} />
+        <meta name="og:image" content={image} itemprop="image" />
         <meta name="twitter:image" content={image} />
       </>
     ) : null}
