@@ -1,5 +1,5 @@
 ---
-title: Architectures Compared for AI Assisted Coding (AI hACk-ing 🤨)
+title: Architectures Compared for AI-Assisted Coding (AI hACk-ing 🤨)
 date: "2024-09-19"
 template: "post"
 draft: false
@@ -8,12 +8,12 @@ category: "Software Development Practice"
 tags:
   - "Software"
   - "AI"
-description: "SwiftUI Architectures TCA and MV are compared for ease of use when coding with AI Assisted Coding using Cursor IDE"
+description: "SwiftUI Architectures TCA and MV are compared for ease of use when coding with AI-Assisted Coding using Cursor IDE"
 ---
 
 # About
 
-A comparison between the super simple [Model View (MV)](https://azamsharp.com/2023/02/28/building-large-scale-apps-swiftui.html) architecture and the more complex and opinionated [The Composable Architecture (TCA)](https://pointfreeco.github.io/swift-composable-architecture/main/documentation/composablearchitecture) when performing AI Assisted Coding to build a small SwiftUI iOS App.
+A comparison between the super simple [Model View (MV)](https://azamsharp.com/2023/02/28/building-large-scale-apps-swiftui.html) architecture and the more complex and opinionated [The Composable Architecture (TCA)](https://pointfreeco.github.io/swift-composable-architecture/main/documentation/composablearchitecture) when performing AI-Assisted Coding to build a small SwiftUI iOS App.
 
 # Summary of Findings
 
@@ -21,7 +21,7 @@ A comparison between the super simple [Model View (MV)](https://azamsharp.com/20
 | ------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Summary             | ![View Model Integration](./media/arch_mv.jpg)                                                          | ![View Reducer State](./media/arch_tca.jpg)                                                                         |
 | Time taken          | 40                                                             | 80                                                                            |
-| Errors While Coding | 1                                                              | 3                                                                             |
+| Errors while coding | 1                                                              | 3                                                                             |
 | Errors fixed by AI  | 1                                                              | 3                                                                             |
 | Navigation          | ⚠️ Used NavigationView instead of NavigationStack (old syntax) | ⚠️ Needed prompting to use NavigationStack instead of a List                  |
 | State Management    | ✅ as expected                                                  | ⚠️ Did not used Shared State, but the solution developed was still functional |
