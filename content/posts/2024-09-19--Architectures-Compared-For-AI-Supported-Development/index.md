@@ -8,6 +8,8 @@ category: "Software Development Practice"
 tags:
   - "Software"
   - "AI"
+  - "SwiftUI"
+  - "iOS"
 description: "SwiftUI Architectures TCA and MV are compared for ease of use when coding with AI-Assisted Coding using Cursor IDE"
 socialImage: "./media/architecture_diagram_screenshot.png"
 ---
