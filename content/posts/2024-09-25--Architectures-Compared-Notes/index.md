@@ -8,6 +8,8 @@ category: "Software Development Practice"
 tags:
   - "Software"
   - "AI"
+  - "SwiftUI"
+  - "iOS"
 description: "SwiftUI Architectures Compared Notes"
 ---
 
