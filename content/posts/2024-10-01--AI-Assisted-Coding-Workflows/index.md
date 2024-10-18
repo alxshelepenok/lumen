@@ -2,7 +2,7 @@
 title: Development Workflows for Coding with AI
 date: "2024-10-10"
 template: "post"
-draft: true
+draft: false
 slug: "/posts/development_workflows_coding_with_ai"
 category: "Software Development Practice"
 tags:
@@ -11,7 +11,7 @@ tags:
   - "SwiftUI"
   - "iOS"
 description: "Exploring Translating Images to iOS Code, and prompt size considerations"
-socialImage: "./media/tmp_social.png"
+socialImage: "./media/Swot-It-Design120.png"
 ---
 
 # About
