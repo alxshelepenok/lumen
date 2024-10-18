@@ -10,8 +10,8 @@ Please message me on [Linked In](https://www.linkedin.com/in/michael-baldock-29a
 ## About the Founder: Michael Baldock 
 
 ### Director, Founder: Double Dot Development (Accra) 2024
-- As the Director of the company I’m responsible for all aspects of running the company; procurement, accounting, resourcing, sales and business operational management.
-- As a growing company my position also includes an active role developing software, with my primary expertise in mobile application development specialising in SwiftUI (iOS), Kotlin (Android) and Flutter for cross platform development.
+- As the Director of the company Michael is responsible for all aspects of running the company; procurement, accounting, resourcing, sales and business operational management.
+- As a growing company Michael's position also includes an active role developing software, with a primary expertise in mobile application development specialising in SwiftUI (iOS), Kotlin (Android) and Flutter for cross platform development.
 
 ### Recent Permanent Role: Senior Software Engineer at Skyscanner 2019 - 2024
 
