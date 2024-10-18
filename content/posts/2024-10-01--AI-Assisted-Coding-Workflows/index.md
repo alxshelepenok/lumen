@@ -1,6 +1,6 @@
 ---
 title: Development Workflows for Coding with AI
-date: "2024-10-01"
+date: "2024-10-10"
 template: "post"
 draft: true
 slug: "/posts/development_workflows_coding_with_ai"
