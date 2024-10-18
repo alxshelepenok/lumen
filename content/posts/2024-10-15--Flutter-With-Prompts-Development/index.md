@@ -2,7 +2,7 @@
 title: Flutter App Built With AI
 date: "2024-10-15"
 template: "post"
-draft: false
+draft: true
 slug: "/posts/development_workflows_coding_with_ai"
 category: "Software Development Practice"
 tags:
