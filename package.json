@@ -82,8 +82,8 @@
   },
   "devDependencies": {
     "@alxshelepenok/eslint-config": "^1.0.508",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@jest/globals": "^29.6.4",
     "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
