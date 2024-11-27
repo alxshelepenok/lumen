@@ -10,7 +10,7 @@ tags:
   - "AI"
   - "iOS"
 description: ""
-socialImage: "./media/AI_Tools_and_Flutter.png"
+socialImage: "./media/AI_Tools_Including_Aider.png"
 ---
 
 # About
