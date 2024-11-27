@@ -228,6 +228,8 @@ enum DecksAPI: Endpoint {
     var urlComponents: [String: String] { // etc }
 ```
 
+Feel free to explore the finished code [here](https://github.com/MBaldo83/public-swot-it-iOS-app/tree/1bde96937ed21e6e14b6c26e76df4c8575cd525e/Swot%20It/Swot%20It/Networking).
+
 The point of going through this is not to talk about Network Layer architecture, but to understand if an AI assistant can help with these sort of tasks. Overall I found for this task that aider-chat was a really useful assistant, I was clear about the task I wanted to achieve, and the tool really helped me to speed up the process of making these changes. I timed myself making these changes and it was under 30mins, I think by hand, I would have taken at least 1 hour to make these changes.
 
 Total time taken: ~ 30 mins. Cost: $0.33
