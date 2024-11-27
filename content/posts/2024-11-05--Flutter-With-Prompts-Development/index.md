@@ -47,8 +47,9 @@ For example, these structural issues were introduced when running through the pr
 
 ### Future Speculation!
 
-Teams could benefit from exploring coding with prompts and design patterns, which are then used with AI tools to generate code. This could reduce the importance of the underlying language and deployment target. This shift could lead to more efficient cross-functional development for iOS and Android, with a large portion of the 'work' focused on prompt creation and design structure, making actual code writing a smaller part of the process. Consequently, cross-platform frameworks like Flutter may become less useful, as the effort required to produce multiple native builds diminishes when most effort is spent on prompts and design consistency.
+Cross functional teams could definitely benefit from exploring coding with prompts and design patterns, which would then be used with AI tools to generate code. Over time I think this could reduce the importance of the underlying language and deployment target. This shift could lead to more efficient cross-functional development for iOS and Android, with a large portion of the 'work' focused on prompt creation and design structure, making actual code writing a less significant part of the process.
 
+In this new workflow where the engineer works primarily on the level of converting requirements into software 'designs' through detailed prompts, cross-platform frameworks like Flutter become less useful. The effort required to produce multiple native builds diminishes when most of the effort is spent on prompts and design consistency.
 
 # Building the App using Prompts
 
@@ -100,7 +101,7 @@ The card should have a subtle drop shadow
 
 #### Analysis
 Again, the code is *functional*, however here we see more hard-coded values spread through the UI, and also some structural decisions have been made about the flexibility of the code. Look at the following code for BuilderView
-```
+```dart
 class _BuilderViewState extends State<BuilderView> {
   //...
 
@@ -141,7 +142,7 @@ This time I needed to make some changes for the code to even compile, but these 
 
 Here we are asking for a hard-coded mocked behaviour, and that's exactly what we got! The implementation even included a simulated delay which is quite useful when building loading states:
 
-```
+```dart
 Future<List<CardModel>> generateCards(String topic, int numberOfCards) async {
     // Simulate a delay for asynchronous operation
     await Future.delayed(const Duration(seconds: 1));
@@ -168,7 +169,7 @@ This should start empty, and should be populated by the async call to generate c
 
 A fundamental issue here is that the *construction* of the SwotItModel() is done inside the `onPressed` code block.
 
-```
+```dart
 class _BuilderViewState extends State<BuilderView> {
   //...
 
