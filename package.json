@@ -65,7 +65,7 @@
     "@types/sass": "^1.45.0",
     "autoprefixer": "^10.4.20",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.49",
     "postcss-scss": "^4.0.9",
     "react-test-renderer": "^18.3.1",
     "rimraf": "6.0.1",
