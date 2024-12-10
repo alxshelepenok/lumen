@@ -1,8 +1,8 @@
 ---
-title: Blasting through Unit Tests with Aider
-date: "2024-12-05"
+title: Semi-Automated Unit Test Writing with Aider Chat
+date: "2024-12-08"
 template: "post"
-draft: true
+draft: false
 slug: "/posts/aider_automated_unit_test_creation"
 category: "Software Development Practice"
 tags:
@@ -10,158 +10,154 @@ tags:
   - "AI"
   - "iOS"
 description: ""
-socialImage: "./media/AI_Tools_and_Flutter.png"
+socialImage: "./media/AI_Tools_Including_Aider.png"
 ---
 
-# NOTES
+# About  
+Testing is a critical part of software development, ensuring functionality, reliability, and maintainability. With AI tools like [Aider Chat](https://aider.chat), automating the creation of unit tests becomes faster and less repetitive. In this post, I explore using Aider Chat to 'semi-automate' the writing of unit tests for an iOS project, highlighting its strengths, pitfalls, and strategies for success.
 
-## Setup for success when working through testing cases
+# Key Findings
 
-### Aider Installation 
+- Key Strategies working with AI Assistant: 
+  - Using an AI_CONVENTIONS (markdown) file significantly enhanced consistency and quality
+  - Breaking the task into first writing the mocks, followed by the tests improved consistency in the output
+- Best Performance: GPT-4o model produced the most reliable results
+- Free Alternative: Gemini-1.5-pro-latest showed surprisingly good capabilities
+- Success Rate: Most tests required manual adjustments but saved significant time on boilerplate code
 
-Installation instructions on website
+# Getting Setup with Aider
 
-### Use a standardised dependency replacement pattern 
+## 1. Setting Up Aider  
+Installation is straightforward through the official [Aider documentation](https://aider.chat/docs/install.html). Before diving in, set up [conventions](https://aider.chat/docs/usage/conventions.html) to guide Aider's behavior, such as an `AI_CONVENTIONS.md` file. This file can define consistent patterns, naming conventions, and dependency strategies to improve the quality of generated tests.
 
-In the code I'm testing I use a simple dependency injection pattern through the constructor of the class
+After writing ~ 6 tests, this is what my conventions file looked like, I expect this to grow over time
 
-The dependency's interface is defined as a protocol, which makes it easy for me to mock this functionality and test that the system under test functions as expected
+### Example AI_CONVENTIONS.md
+```markdown
+- Unit tests
+  - When a mock already exists for a protocol in another file prefer to use that Mock instead of create a new one.
+  - All new Mocks should go in a file '$(direrctory_name)Mocks' so we have a single file for each group of tests
+  - When Asserting against enums that don't conform to Equatable prefer to use a pattern like  'guard case '.case(.subcase)' = .result else { fail } instead of making the enum implement Equatable
+  - When testing URLComponents, there is no guaranteed order for the URL Query params, test for the existence of the parameter and the value, not asserting against the whole string
+  - Each unit test should instantiate an instance of the entity being tested, and name this variable `sut`
+  ```
 
-### Define Conventions
+Conventions can sometimes be specific to a certain domain or general across all tests. Aider has the facility to specify multiple conventions files allowing the flexibility to have a set of 'common' conventions, and then more specific conventions can be loaded for example when testing networking patterns, or local persistence.
 
-- Aider allows you to provide a conventions file in markdown that allows you to define requirements for the code that you are asking the LLM to write
+## 2. Code Preparation: Dependency Management
 
-- read more about that here: 
-- After writing ~ 6 tests, this is what my conventions file looked like, I expect this to grow over time
-```
-```
+A consistent dependency injection (DI) pattern is essential. In these tests I have used one of the most common and simple DI patterns which is to inject dependencies through the constructor, using protocols to abstract their interface from their implementation.
 
-### Consider your expectations
+Here's an example of Dependency injection where I wrap a NetworkLayer (protocol) within a class to decorate the functionality creating a JSONDecodingNetworkLayer.
 
-It is tempting to imagine a future where your AI assistant happily churns through all of your unit tests and you can trust that it's writing maintainable code that does exactly what you want. We're not there yet! A common theme with every AI coding assistant I've explored in this series is that to get the best out of it, your role as the human is to:
+```swift
+class JSONDecodingNetworkLayer: DecodingNetworkLayer {
+    private let wrapped: NetworkLayer
 
-1. Define clear expectations
-2. Breakdown the goal into small tasks 
-3. Refine the solution against your expectations
-
-This is true for writing unit tests just as much as writing new software. Watch out for tests that *look* like they're testing what you want, but are  actually testing something else entirely.
-
-Example: using o1-preview:
-
-function being tested:
-
-expectation:
-
-Testing approach from o1-preview
-
-HeadersModifierTest didn't instantiate an instance of HeadersModifier, so didn't really test the SUT (system under test)
-Overcomplicated the solution, which 'passed', but didn't really test anything
-
-What was missing...
-
-5. Split the implementation into multiple parts, eg. writing a mock for the injected dependency, using the mock to write the tests. In more complex cases you could split the writing of the tests into each function you want tested.
-
-6. Use a free model 1st then once you have a good setup, move to a paid model like 'gpt-4o'
-
-
-Details of Test Runs Using Model: gemini/gemini-1.5-pro-latest
-
-1. 1st run generating test:
-* covered the cases
-* didn't compile 
-* wasn't able to fix through the chat
-* manually updated the tests to pass
-* (comment): still saved time on boilerplate
-
-2 Testing HeadersModifier
-* used the 1st test as an example in the prompt
-* covered the test cases
-* compiled successfully
-* Duplicated the Mock of my NetworkLayer, so I ended up with 2 Mocks of the same protocol (unnecessary within the) same module
-
-3 Testing IdentityModifier
-* used the 1st test as an example in the prompt
-* covered the test cases
-* did not compile 
-* wasn't able to fix through the chat
-* manually updated the tests to pass
-* (comment): still saved time on boilerplate
-
-4 Testing IdentityModifier again, after adding AI_CONVENTIONS.md file
-* used the 1st test as an example in the prompt
-* used AI_CONVENTIONS.md
-* covered the test cases
-* Made some unexpected changes to an Identity.swift. I think this was because it expected the Identity protocol to be defined here and it wasn't. So it added the file to the chat and then modified it.
-* (comment): Changes made to actually run the tests were good and they respected the conventions defined in the AI_CONVENTIONS file.
-
-5 Testing RequestBuilder
-* used the 1st test as an example in the prompt
-* used AI_CONVENTIONS.md
-* covered the test cases
-* Made some unexpected changes to RequestBuilderTests, adding half completed nonsense at the end of the file
-* Made 1 test that failed 50% of the time: 
-  * `XCTAssertEqual(request?.url?.absoluteString, "https://example.com/test/path?param1=value1&param2=value2")`
-    * there is no guarantee of the URL parameter order, we should be testing for the existence of 'param1=value' and 'param2=value2'
-    * after asking to rewrite this line, it generated a very thorough test of the URLRequest returned testing each part of the URL and the request components
-
-6 Testing RequestBuilderDecodingEndpointNetwork
-* used the 1st test as an example in the prompt
-* used AI_CONVENTIONS.md
-* covered most test cases
-* Struggled with comparing enum cases
-
-Doesn't compile
-```
-guard case .requestError(let returnedError) = error, returnedError == networkError else { // Fail }
+    init(wrapping networkLayer: NetworkLayer) {
+        self.wrapped = networkLayer
+    }
+    // rest of functionality omitted for brevity
+}
 ```
 
-Fix - Use enum pattern matching properly
+There are many of other valid and standardised patterns for dealing with dependencies for our code, the key thing is that there should be consistency across your project and that you are able to define your strategy concisely. This will significantly help your AI produce sensible output when writing tests.
+
+## 3. Defining Expectations
+
+While AI tools promise to streamline testing, they are not infallible. Your role as a developer includes:
+
+- **Setting clear expectations:** Be clear in defining the behavior you want tested when reviewing the generated output.
+- **Breaking tasks into smaller steps:** Split complex tests into manageable parts.
+- **Reviewing output thoroughly:** Validate that tests accurately reflect your requirements.
+
+
+# Workflow when Using Aider to Automate Unit Tests  
+
+## Breaking Down the Process  
+
+To get the best results with Aider, I followed a structured workflow:  
+
+1. **Generate Mocks:** Start with the dependencies required to test the system under test (SUT).  
+2. **Write Tests:** Use the mocks to create test cases.  
+3. **Refine Iteratively:** Break down large goals into smaller subtasks and refine the output incrementally.
+
+## Review the output against expectations
+
+### Errors to Watch Out For
+
+* **Superficial Tests:** Some generated tests looked correct but didn’t actually validate the SUT. Always review carefully.
+* **Overcomplicated Solutions:** Early attempts sometimes produced convoluted tests. Simplify prompts and outputs for better results.
+* **Enums and Dependencies:** Handling complex cases like enum matching required manual refinement.
+
+### Example of Incorrect Testing Solution
+
+Using o1-preview, the most advanced reasoning model from Open AI I asked it to create unit tests for the struct: HeadersModifier.
+
+#### Struct being tested:
+
+```swift
+struct HeadersModifier: NetworkingModifier {
+    
+    private var headers: [String: String]
+
+    init(headers: [String: String]) {
+        self.headers = headers
+    }
+    
+    func send<T: Decodable>(request: URLRequest, upstream: some DecodingNetworkLayer, decodeTo type: T.Type) async -> Result<T, NetworkIntegrationError> {
+        var modifiedRequest = request
+        for (key, value) in headers {
+            modifiedRequest.setValue(value, forHTTPHeaderField: key)
+        }
+        return await upstream.send(modifiedRequest, decodeTo: type)
+    }
+}
 ```
-guard case .requestError(.unexpectedResponse) = error else { // Fail }
+
+#### Expectation:
+- I Expect an instance of `HeadersModifier` to be instantiated injecting a range of possible constructor arguments for each test
+- I expect every scenario in the method to be covered
+- I expect the scope of the test to be limited to exactly the functionality within HeadersModifier
+
+#### Testing approach from o1-preview:
+
+```swift
+// Within Setup
+mockUpstream = MockDecodingNetworkLayer()
+networkLayer = mockUpstream.addHeaders(["Authorization": "Bearer token"])
+
+// Within test...
+// When
+let result: Result<SampleData, NetworkIntegrationError> = await networkLayer.send(originalRequest, decodeTo: SampleData.self)
 ```
 
-Test Runs Using Model: gemini/gemini-1.5-pro-latest
+The entity being tested with `networkLayer.send()` is actually of type `MockDecodingNetworkLayer`, which doesn't test the functionality of `HeadersModifier` at all!
 
-7 Testing HeadersModifier Using o1-preview
-Main model: o1-preview with architect edit format
-Editor model: gpt-4o with editor-diff edit format
-Weak model: gpt-4o-mini
-* Headers Modifier test crashed
-* HeadersModifierTest didn't instantiate an instance of HeadersModifier, so didn't really test the SUT (system under test) at all
-* Cost $0.15 for 1 run adding tests that I couldn't use 
+`HeadersModifierTest` didn't instantiate an instance of `HeadersModifier`, so didn't clearly test the functionality of our System Under Test (SUT)
 
-Test Runs Using Model: gpt-4o
+#### What was missing:
 
-8 Testing HeadersModifier Using gpt-4o 
-* Again made unusable test that didn't compile and was over complicated
+The biggest improvement to the process to solve issues like this was to break down the code writing process into 'baby steps'. In this case, these steps were:
+1. Write whatever mocks were needed 1st
+2. Then use these mocks to write the test
 
-9, 10, 11, 12 Testing HeadersModifier, IdentityModifier, RequestBuilder, RequestBuilderDecodingEndpointNetwork Using gpt-4o 
-* improved example test to use SUT, 
-* split the testing instruction into 2 parts: Firstly to write the mock, secondly to use the mock to write the test
-* reduced the list of files being added
-* covered the test cases
-* compiled successfully 1st time
-* some minor improvements edited manually with syntax for `guard case let test cases`
+## Experiment for Free - Deliver with Paid
 
-Exploring Scripting with Aider
-Functionality exists with Aider to run aider commands through a script: https://aider.chat/docs/scripting.html
-I spent some time trying to get this running to automate the testing of a collection of files, however, on this attempt the results were unsatisfactory since the aider 'chat' exits after each command. This restricts even simple refinements such as adding a new set of files.
-I will be looking into a way around this in a future post.
+I found that a lot of the understanding of 'how to setup to test' was developed using a free model such as "gemini/gemini-1.5-pro-latest". Once I felt more confident in the setup, I moved to a paid model like 'gpt-4o' to improve the quality of the code completions.
 
-General Comments:
-* The results were improved by adding an AI_CONVENTIONS.md file providing a place to guide consistency across the tests such as how to handle non-equatable enum models
-* The results were also improved by breaking down the testing task into 2 parts; firstly writing the requiried mocks and then writing the tests.
-* As with other sessions using AI assisted coding, as a workflow it's advised to 1st consider what you the expect the outcome of the code you're writing to be *before* running the code generation. Expect to take time checking that your expectations have been met before moving on.
-* The best results in these sessions was produced with the gpt-4o model. However, the free model 'gemini-1.5-pro-latest' was surprisingly good, and provides a good free alternative.
+# Testing Runs raw data and notes
 
-# About
+For the end result in code, here is the [Pull Request](https://github.com/MBaldo83/public-swot-it-iOS-app/pull/1/files) I merged with the tests generated using Aider Chat.
 
-# Summary of Findings
-
-## Key Takeaways
-
-### What works well
-
-### What to watch out for
-
-### Future Speculation!
+| Model                                | System Under Test                                                                        | Result                                                  | Conventions Used                              | Comments                                                                             | Other Notes                                                    |
+| ------------------------------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| gemini/gemini-1.5-pro-latest         | JSONDecodingNetworkLayer                                                                 | Didn’t compile; manually fixed                          | None                                          | Covered test cases but required manual fixes.                                        | Saved time on boilerplate.                                     |
+|                                      | HeadersModifier                                                                          | Compiled successfully                                   | None                                          | Duplicated the Mock of NetworkLayer, creating redundancy.                            | First test used as a prompt example.                           |
+|                                      | IdentityModifier                                                                         | Didn’t compile; manually fixed                          | None                                          | Covered test cases; boilerplate time saved.                                          |                                                                |
+|                                      | IdentityModifier                                                                         | Compiled successfully                                   | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | Unexpected changes made to Identity.swift; changes respected conventions.            | Added conventions file to improve consistency.                 |
+|                                      | RequestBuilder                                                                           | Compiled partially; 1 test failed                       | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | Issue with URL parameter order; revised test improved thoroughness.                  | Added incomplete code to RequestBuilderTests.                  |
+|                                      | RequestBuilderDecodingEndpointNetwork                                                    | Didn’t compile; manually fixed enums                    | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | Struggled with comparing enum cases; manual fixes required using pattern matching.   |                                                                |
+| o1-preview                           | HeadersModifier                                                                          | Crashed                                                 | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | HeadersModifier test didn’t instantiate the SUT, so the generated test was unusable. | Cost $0.15.                                                    |
+| gpt-4o                               | HeadersModifier                                                                          | 1st pass didn’t compile; overcomplicated                | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | HeadersModifier test unusable due to complexity and compilation issues.              |                                                                |
+| gpt-4o split between mocks and tests | HeadersModifier, IdentityModifier, RequestBuilder, RequestBuilderDecodingEndpointNetwork | 🏆<br>All test cases compiled successfully on first try | [AI_CONVENTIONS.md](#example-ai_conventionsmd) | Tests improved by splitting instructions into mock generation and testing.           | Reduced added files; minor manual syntax edits for guard case. |
