@@ -48,7 +48,7 @@ Conventions can sometimes be specific to a certain domain or general across all 
 
 A consistent dependency injection (DI) pattern is essential. In these tests I have used one of the most common and simple DI patterns which is to inject dependencies through the constructor, using protocols to abstract their interface from their implementation.
 
-Here's an example of Dependency injection where I wrap a NetworkLayer (protocol) within a class to decorate the functionality creating a JSONDecodingNetworkLayer.
+Here's an example of using dependency injection to wrap a NetworkLayer (protocol) within a class, decorating the functionality to create a JSONDecodingNetworkLayer:
 
 ```swift
 class JSONDecodingNetworkLayer: DecodingNetworkLayer {
@@ -116,9 +116,9 @@ struct HeadersModifier: NetworkingModifier {
 ```
 
 #### Expectation:
-- I Expect an instance of `HeadersModifier` to be instantiated injecting a range of possible constructor arguments for each test
-- I expect every scenario in the method to be covered
-- I expect the scope of the test to be limited to exactly the functionality within HeadersModifier
+1. I **expect** an instance of `HeadersModifier` to be instantiated injecting a range of constructor arguments for each test
+2. I **expect** every scenario in the method to be covered
+3. I **expect** the scope of the test to be limited to exactly the functionality within HeadersModifier
 
 #### Testing approach from o1-preview:
 
@@ -134,7 +134,7 @@ let result: Result<SampleData, NetworkIntegrationError> = await networkLayer.sen
 
 The entity being tested with `networkLayer.send()` is actually of type `MockDecodingNetworkLayer`, which doesn't test the functionality of `HeadersModifier` at all!
 
-`HeadersModifierTest` didn't instantiate an instance of `HeadersModifier`, so didn't clearly test the functionality of our System Under Test (SUT)
+`HeadersModifierTest` didn't instantiate an instance of `HeadersModifier`, so didn't clearly test the functionality of our System Under Test (SUT). Expectations 1 and 3 are not being met.
 
 #### What was missing:
 
