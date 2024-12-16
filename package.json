@@ -64,7 +64,7 @@
     "@testing-library/react": "^16.1.0",
     "@types/bun": "^1.1.14",
     "@types/gatsby-transformer-remark": "^2.9.4",
-    "@types/react": "^18.3.16",
+    "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.5",
     "@types/react-test-renderer": "^19.0.0",
     "@types/sass": "^1.45.0",
