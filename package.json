@@ -74,7 +74,7 @@
     "postcss-scss": "^4.0.9",
     "react-test-renderer": "^18.3.1",
     "rimraf": "6.0.1",
-    "sass": "1.75.0",
+    "sass": "1.83.1",
     "semantic-release": "^24.2.1",
     "source-map-support": "^0.5.21",
     "typescript": "^5.7.2"
