@@ -68,7 +68,7 @@
     "@types/react-dom": "^18.3.5",
     "@types/react-test-renderer": "^19.0.0",
     "@types/sass": "^1.45.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "conventional-changelog-conventionalcommits": "8.0.0",
     "postcss": "^8.4.49",
     "postcss-scss": "^4.0.9",
