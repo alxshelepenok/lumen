@@ -65,7 +65,7 @@
     "@types/bun": "^1.1.18",
     "@types/gatsby-transformer-remark": "^2.9.4",
     "@types/react": "^18.3.20",
-    "@types/react-dom": "^18.3.6",
+    "@types/react-dom": "^18.3.7",
     "@types/react-test-renderer": "^19.0.0",
     "@types/sass": "^1.45.0",
     "autoprefixer": "^10.4.21",
