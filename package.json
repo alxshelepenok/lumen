@@ -17,7 +17,7 @@
   "scripts": {
     "serve": "gatsby serve",
     "release": "semantic-release",
-    "clean": "rimraf .cache public",
+    "clean": "npx gatsby clean",
     "build": "npm run clean && gatsby build",
     "start": "npm run clean && gatsby develop",
     "version": "node ./internal/scripts/up-version.mjs"
