@@ -1,5 +1,6 @@
 import React, { type FC } from "react";
 import {MathJaxContext} from "better-react-mathjax";
+import {MathJax} from "better-react-mathjax";
 
 import type { Node } from "@/types/node";
 import { Button } from "@/components/button";
@@ -22,20 +23,22 @@ const Post: FC<PostProps> = ({ post }) => {
 
   return (
     <div className={styles.post}>
+      <MathJaxContext>
       <div className={styles.buttons}>
         <Button className={styles.buttonArticles} title="All Articles" to="/" />
         <ThemeSwitcher />
       </div>
       <div className={styles.content}>
-        <MathJaxContext>
-          <PostContent body={html} title={title} />
-        </MathJaxContext>
+          <MathJax>
+            <PostContent body={html} title={title} />
+          </MathJax>
       </div>
       <div className={styles.footer}>
         <PostFooter date={date} />
         {tags && tagSlugs && <PostTags tags={tags} tagSlugs={tagSlugs} />}
         <PostAuthor />
       </div>
+      </MathJaxContext>
     </div>
   );
 };
