@@ -54,7 +54,7 @@ jobs:
         run: npm rebuild @parcel/watcher
 
       - name: Clean Gatsby cache
-        run: gatsby clean
+        run: npx gatsby clean
 
       - name: Build with Gatsby
         env:
