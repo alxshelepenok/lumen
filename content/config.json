@@ -1,7 +1,7 @@
 {
-  "title": "Blog by John Doe",
+  "title": "Brown Math Journal",
   "url": "https://lumen.alxshelepenok.com",
-  "description": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+  "subtitle": "Site to house Brown Math DUG Articles",
   "copyright": "© All rights reserved.",
   "googleAnalyticsId": "G-MSQGQG14PK",
   "pathPrefix": "/",
@@ -12,26 +12,22 @@
       "url": "/"
     },
     {
-      "title": "About me",
-      "url": "/pages/about"
+      "title": "Tags",
+      "url": "/tags"
     },
     {
-      "title": "Contact me",
-      "url": "/pages/contacts"
+      "title": "About",
+      "url": "/pages/about"
     }
   ],
   "author": {
-    "title": "John Doe",
+    "title": "Brown Math DUG Journal",
     "photo": "/logo.png",
-    "description": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    "description": "This site is meant to house articles written by Math DUG members at Brown",
     "contacts": [
       {
         "name": "github",
-        "contact": "alxshelepenok"
-      },
-      {
-        "name": "linkedin",
-        "contact": "alxshelepenok"
+        "contact": "Geoc2022/Brown-Math-DUG-Journal"
       }
     ]
   }

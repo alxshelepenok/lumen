@@ -1,13 +1,20 @@
 ---
-title: "About me"
+title: "About"
 template: "page"
-socialImage: "./image.jpg"
 ---
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+Welcome to the Brown Math DUG Journal! We are an online platform that showcases research by members of the Math Department Undergraduate Group (DUG) at Brown University.
 
-![Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.](./image.jpg)
+We aim to provide a platform for undergraduate mathematicians to develop their research skills, engage in intellectual discourse, and contribute to mathematical knowledge.
 
-_Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi._
+## Creating a Post
+If you're interested in contributing to the Brown Math DUG Journal, we encourage you to create a post! Here are some resources to help you get started:
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+- [Step-by-step Guide to Start Writing on Here](https://mathdugresearch.netlify.app/posts/step-by-step-guide-to-start-writing-on-here): This guide provides a detailed step-by-step process for creating a post.
+- [Creating a Post using a LaTeX File](https://mathdugresearch.netlify.app/posts/creating-a-post-using-a-latex-file): If you've already written a paper in LaTeX, this guide will help you convert your LaTeX file into a post format suitable for our journal.
+- [Example Paper](https://mathdugresearch.netlify.app/posts/example-paper): Take a look at this example paper to get an idea of the functions available in the posts.
+
+
+Visit the [Brown Math DUG website](https://www.brown.edu/academics/math/math-dug) to learn more about the Math Department Undergraduate Group at Brown University.
+
+Thank you for visiting the Brown Math DUG Journal!
