@@ -1,4 +1,5 @@
 import React, { type FC } from "react";
+import {MathJaxContext} from "better-react-mathjax";
 
 import type { Node } from "@/types/node";
 import { Button } from "@/components/button";
@@ -26,7 +27,9 @@ const Post: FC<PostProps> = ({ post }) => {
         <ThemeSwitcher />
       </div>
       <div className={styles.content}>
-        <PostContent body={html} title={title} />
+        <MathJaxContext>
+          <PostContent body={html} title={title} />
+        </MathJaxContext>
       </div>
       <div className={styles.footer}>
         <PostFooter date={date} />
