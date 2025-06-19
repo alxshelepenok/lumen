@@ -41,5 +41,5 @@ node_modules
 
 # only apps should have lockfiles
 npm-shrinkwrap.json
-# package-lock.json
+package-lock.json
 yarn.lock

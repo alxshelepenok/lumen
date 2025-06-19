@@ -20,7 +20,8 @@
     "clean": "npx gatsby clean",
     "build": "npm run clean && gatsby build",
     "start": "npm run clean && gatsby develop",
-    "version": "node ./internal/scripts/up-version.mjs"
+    "version": "node ./internal/scripts/up-version.mjs",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@alxshelepenok/diesel": "1.0.1365",
@@ -63,7 +64,6 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "@types/bun": "^1.1.18",
     "@types/gatsby-transformer-remark": "^2.9.4",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
@@ -71,6 +71,7 @@
     "@types/sass": "^1.45.0",
     "autoprefixer": "^10.4.21",
     "conventional-changelog-conventionalcommits": "9.0.0",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.49",
     "postcss-scss": "^4.0.9",
     "react-test-renderer": "^18.3.1",
