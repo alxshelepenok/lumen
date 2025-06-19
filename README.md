@@ -1,6 +1,6 @@
 ---
 
-# [Brown Math DUG Journal](https://mathdugresearch.netlify.app/)
+# [Brown Math DUG Journal](https://brown-math-dug-journal.netlify.app/)
 
 Welcome to the **Brown Math DUG Journal**, featuring research by undergraduates in the Math Department at Brown University. Our goal is to provide a space where students can share their work, develop their writing skills, and contribute to the broader mathematical conversation.
 
