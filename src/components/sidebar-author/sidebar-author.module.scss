@@ -1,20 +1,19 @@
 @use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
-$photo-size: 75px;
+$photo-size: 50px;
 
 .sidebar-author {
   .photo {
     border: 0px solid hsl(var(--color-muted));
     background-clip: padding-box;
     display: inline-block;
-    border-radius: 50%;
-    height: $photo-size;
+    height: auto;
     width: $photo-size;
     @include mixins.margin-bottom(0);
 
     img {
-      border-radius: 50%;
+      border-radius: 0%;
     }
   }
 
