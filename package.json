@@ -30,7 +30,7 @@
     "@sentry/tracing": "^7.114.0",
     "better-react-mathjax": "^2.3.0",
     "classnames": "^2.5.1",
-    "gatsby": "^5.14.1",
+    "gatsby": "^5.14.4",
     "gatsby-link": "^5.14.1",
     "gatsby-plugin-catch-links": "^5.14.0",
     "gatsby-plugin-feed": "^5.14.0",
