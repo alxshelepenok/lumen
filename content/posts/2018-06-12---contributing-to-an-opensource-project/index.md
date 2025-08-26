@@ -4,7 +4,7 @@ date: "2018-06-12T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/contributing-to-an-opensource-project"
-category: "development"
+category: "programming"
 tags:
   - "sharepoint"
   - "development"

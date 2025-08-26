@@ -4,7 +4,7 @@ date: "2013-02-11T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/load-and-execute-for-the-sharepoint-20102013-client-object-model"
-category: "development"
+category: "programming"
 tags:
   - "sharepoint"
   - "csom"

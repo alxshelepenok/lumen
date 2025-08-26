@@ -4,7 +4,7 @@ date: "2017-03-11T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "autofac-and-automapper-a-perfect-match"
-category: "development"
+category: "programming"
 tags:
   - "development"
 description: "With hexagonal and onion architectures, clean code, domain-driven-design, command query responsibility segragation Dependency Injection or Inversion of Control"
