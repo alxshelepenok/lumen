@@ -931,7 +931,7 @@ exports[`YearTemplate renders feed and pagination components 1`] = `
                                 {
                                   "$$typeof": Symbol(react.test.json),
                                   "children": [
-                                    "light",
+                                    "dark",
                                   ],
                                   "props": {},
                                   "type": "title",
@@ -1083,7 +1083,7 @@ exports[`YearTemplate renders feed and pagination components 1`] = `
                         },
                       ],
                       "props": {
-                        "className": "",
+                        "className": "undefined",
                       },
                       "type": "div",
                     },
@@ -2831,7 +2831,7 @@ exports[`YearTemplate pagination is passed correctly to Pagination component 1`]
                                 {
                                   "$$typeof": Symbol(react.test.json),
                                   "children": [
-                                    "light",
+                                    "dark",
                                   ],
                                   "props": {},
                                   "type": "title",
@@ -2983,7 +2983,7 @@ exports[`YearTemplate pagination is passed correctly to Pagination component 1`]
                         },
                       ],
                       "props": {
-                        "className": "",
+                        "className": "undefined",
                       },
                       "type": "div",
                     },

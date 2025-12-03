@@ -622,7 +622,7 @@ exports[`YearsTemplate renders with empty years list 1`] = `
                                 {
                                   "$$typeof": Symbol(react.test.json),
                                   "children": [
-                                    "light",
+                                    "dark",
                                   ],
                                   "props": {},
                                   "type": "title",
@@ -774,7 +774,7 @@ exports[`YearsTemplate renders with empty years list 1`] = `
                         },
                       ],
                       "props": {
-                        "className": "",
+                        "className": "undefined",
                       },
                       "type": "div",
                     },
