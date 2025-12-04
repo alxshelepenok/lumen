@@ -27,11 +27,6 @@ jest.mock("./queries/posts-query", () => ({
   postsQuery: jest.fn(),
 }));
 
-// Mock utility functions
-jest.mock("../../src/utils/to-kebab-case", () => ({
-  toKebabCase: jest.fn((str) => str.toLowerCase().replace(/\s+/g, "-")),
-}));
-
 jest.mock("../../src/utils/concat", () => ({
   concat: jest.fn((...args) => args.join("")),
 }));
