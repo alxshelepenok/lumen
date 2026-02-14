@@ -3,7 +3,7 @@ title: Autofac and Automapper - A perfect match
 date: "2017-03-11T22:40:32.169Z"
 template: "post"
 draft: false
-slug: "autofac-and-automapper-a-perfect-match"
+slug: "/posts/autofac-and-automapper-a-perfect-match"
 category: "programming"
 tags:
   - "development"

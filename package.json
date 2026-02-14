@@ -28,6 +28,7 @@
     "@alxshelepenok/diesel-extensions": "1.0.1241",
     "@sentry/gatsby": "^8.45.1",
     "@sentry/tracing": "^7.114.0",
+    "caniuse-lite": "^1.0.30001737",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.6",
     "gatsby-link": "^5.14.1",
@@ -53,7 +54,8 @@
     "gatsby-transformer-sharp": "^5.14.0",
     "prismjs": "^1.29.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "sharp": "^0.34.4"
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^18.0.1",

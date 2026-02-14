@@ -20,7 +20,6 @@ const SidebarAuthor: FC<SidebarAuthorProps> = ({ author, isHome }) => (
     <Link to="/">
       <Image alt={author.title} path={author.photo} className={styles.photo} />
     </Link>
-
     <div className={styles.titleContainer}>
       {isHome ? (
         <h1 className={styles.title}>
@@ -38,6 +37,16 @@ const SidebarAuthor: FC<SidebarAuthorProps> = ({ author, isHome }) => (
       <ThemeSwitcher />
     </div>
     <p className={styles.description}>{author.description}</p>
+    <p className={styles.description}>
+      Headshot by{" "}
+      <a
+        href="https://www.philipbrand.ch/portraits"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        @philipbrand
+      </a>
+    </p>
   </div>
 );
 

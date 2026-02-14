@@ -69,6 +69,29 @@ exports[`TagTemplate renders correctly 1`] = `
                   },
                   "type": "p",
                 },
+                {
+                  "$$typeof": Symbol(react.test.json),
+                  "children": [
+                    "Headshot by",
+                    " ",
+                    {
+                      "$$typeof": Symbol(react.test.json),
+                      "children": [
+                        "@philipbrand",
+                      ],
+                      "props": {
+                        "href": "https://www.philipbrand.ch/portraits",
+                        "rel": "noopener noreferrer",
+                        "target": "_blank",
+                      },
+                      "type": "a",
+                    },
+                  ],
+                  "props": {
+                    "className": undefined,
+                  },
+                  "type": "p",
+                },
               ],
               "props": {
                 "className": undefined,
