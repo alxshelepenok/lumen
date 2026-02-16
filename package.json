@@ -26,7 +26,7 @@
   "dependencies": {
     "@alxshelepenok/diesel": "1.0.1365",
     "@alxshelepenok/diesel-extensions": "1.0.1241",
-    "@sentry/gatsby": "^8.45.1",
+    "@sentry/gatsby": "^10.39.0",
     "@sentry/tracing": "^7.114.0",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.6",
