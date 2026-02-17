@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@happy-dom/global-registrator": "^18.0.1",
-    "@semantic-release/exec": "6.0.3",
+    "@semantic-release/exec": "7.1.0",
     "@semantic-release/git": "10.0.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
@@ -75,7 +75,7 @@
     "react-test-renderer": "^18.3.1",
     "rimraf": "6.0.1",
     "sass": "1.75.0",
-    "semantic-release": "^24.2.9",
+    "semantic-release": "^25.0.3",
     "source-map-support": "^0.5.21",
     "typescript": "^5.7.3"
   }
