@@ -1,10 +1,12 @@
 const routes = Object.freeze({
+  indexRoute: "/",
+  notFoundRoute: "/404",
   categoriesListRoute: "/categories",
   categoryRoute: "/category",
   tagsListRoute: "/tags",
-  notFoundRoute: "/404",
   tagRoute: "/tag",
-  indexRoute: "/",
+  yearsListRoute: "/years",
+  yearRoute: "/year",
 });
 
 export { routes };
