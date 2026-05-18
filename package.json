@@ -27,7 +27,7 @@
     "@alxshelepenok/diesel": "1.0.1365",
     "@alxshelepenok/diesel-extensions": "1.0.1241",
     "@sentry/gatsby": "^8.45.1",
-    "@sentry/tracing": "^7.114.0",
+    "@sentry/tracing": "^7.120.4",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.6",
     "gatsby-link": "^5.14.1",
