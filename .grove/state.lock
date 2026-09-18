@@ -1,15 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:e71abcb9a3f1ce81a454f45abc1389e6f99be8c51a0651b9c57aa76559e0058e
+# checksum: sha256:f1eb400a0a779d1fdb7b6beea55b40dbd1276dd5aa09b4e6c6a88b37ba19831d
 g G-06 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:45:12Z "Toolchain conventions follow the review refinements"
   area: A-05
   fitness_target: 2
   fitness_current: 2
 
-g G-07 status=partial fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:45:47Z "Icon delivery and code styles follow the review refinements"
+g G-07 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:46:39Z "Icon delivery and code styles follow the review refinements"
   area: A-03
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-08 status=unverified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:42:28Z "Taxonomy grouping is unified"
   area: A-01
@@ -82,7 +82,7 @@ w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_
   evidence:
     | _prism.scss renamed to _code.scss carrying only shiki era rules: shared code typography, the astro-code container with the theme-aware muted background override and inline code styling; zero token selectors remain and the build stays green.
 
-w W-17 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:42:47Z "Serve icons through an svg sprite"
+w W-17 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:46:39Z "Serve icons through an svg sprite"
   goals: G-07
   theme: T-02
   fitness: G-07=+1
@@ -93,6 +93,9 @@ w W-17 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T21
     | The get-icon util and its test retire with no references left.
   evidence_strategy:
     | Built html shows the sprite and use references; greps confirm the retired util.
+  evidence:
+    | One hidden sprite island (islands/icon-sprite.astro) inlines 17 symbols from the icons constant and base-layout includes it once at body start; islands/icon.astro emits a title plus a use reference by name and sidebar contacts passes only the name.
+    | The get-icon util and its test retired; built html shows the sprite once with display none and two use references on the index page; build green, 19 tests green.
 
 w W-18 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:42:48Z t_updated=2026-09-18T21:42:48Z "Unify taxonomy grouping behind one helper"
   goals: G-08

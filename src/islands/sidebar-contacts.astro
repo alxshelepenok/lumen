@@ -5,7 +5,6 @@ import Icon from "./icon.astro";
 
 import { icons } from "@/constants/icons";
 import { getContactHref } from "@/utils/get-contact-href";
-import { getIcon } from "@/utils/get-icon";
 
 interface Props {
   contacts: {
@@ -28,7 +27,7 @@ const { contacts } = Astro.props;
                 class={styles.link}
                 data-email-contact={getContactHref(name, contact)}
               >
-                <Icon name={name} icon={getIcon(name)} />
+                <Icon name={name} />
               </span>
             ) : (
               <a
@@ -37,7 +36,7 @@ const { contacts } = Astro.props;
                 href={getContactHref(name, contact)}
                 rel={`noopener noreferrer${name === "mastodon" ? " me" : ""}`}
               >
-                <Icon name={name} icon={getIcon(name)} />
+                <Icon name={name} />
               </a>
             )}
           </li>

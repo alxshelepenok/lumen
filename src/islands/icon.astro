@@ -3,16 +3,12 @@ import styles from "@/assets/styles/modules/icon.module.scss";
 
 interface Props {
   name: string;
-  icon: {
-    path?: string;
-    viewBox?: string;
-  };
 }
 
-const { name, icon } = Astro.props;
+const { name } = Astro.props;
 ---
 
-<svg class={styles.icon} viewBox={icon.viewBox}>
+<svg class={styles.icon}>
   <title>{name}</title>
-  <path d={icon.path} />
+  <use href={`#icon-${name}`} />
 </svg>

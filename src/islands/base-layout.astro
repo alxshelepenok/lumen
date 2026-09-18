@@ -2,6 +2,7 @@
 import "../assets/styles/main.scss";
 
 import Gtag from "./gtag.astro";
+import IconSprite from "./icon-sprite.astro";
 import Meta from "./meta.astro";
 
 import { themeStorageKey } from "@/utils/theme";
@@ -68,6 +69,7 @@ const themeScript = `
     <script is:inline set:html={themeScript} />
   </head>
   <body>
+    <IconSprite />
     <slot />
   </body>
 </html>
