@@ -1,0 +1,50 @@
+---
+import "../assets/styles/main.scss";
+
+import { themeStorageKey } from "@/utils/theme";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "" } = Astro.props;
+
+const themeScript = `
+  void function() {
+    var cachedMode;
+
+    try {
+      var preferredTheme = JSON.parse(localStorage.getItem("${themeStorageKey}"));
+
+      if (preferredTheme && preferredTheme.mode) {
+        cachedMode = preferredTheme.mode;
+      }
+    } catch (err) { }
+
+    function setTheme(newTheme) {
+      document.documentElement.className = newTheme;
+    }
+
+    var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    setTheme(cachedMode || (darkQuery.matches ? "dark" : "light"));
+  }()
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {
+      description ? <meta name="description" content={description} /> : null
+    }
+    <script is:inline set:html={themeScript} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

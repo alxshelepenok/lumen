@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:2c21c659fb2260858037e1bbf3f94d3760330e3e81c101e268c8bc24f343c000
+# checksum: sha256:e92c3dc5bd724d6397bc73d8d78b83e1bb7880a0330c50aaa71085ceacede324
 g G-01 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -10,9 +10,10 @@ g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_upd
   area: A-02
   fitness_target: 2
 
-g G-03 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Interface and theming match the current site on Astro"
+g G-03 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:58:09Z "Interface and theming match the current site on Astro"
   area: A-03
   fitness_target: 2
+  fitness_current: 1
 
 g G-04 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
   area: A-04
@@ -61,10 +62,10 @@ w W-02 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:25:
   evidence_strategy:
     | Build log showing both collections loaded; a failing-build transcript with bad frontmatter; unit checks on slug derivation.
 
-w W-03 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T19:50:37Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
+w W-03 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T19:58:09Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
   goals: G-03
   fitness: G-03=+1
-  surface: src/assets/styles, internal/gatsby/on-render-body.ts, src/hooks/use-theme.ts
+  surface: src/assets/styles, internal/gatsby/on-render-body.ts, src/hooks/use-theme.ts, src/utils/theme.ts, src/utils/theme.test.ts, src/islands/base-layout.astro, src/islands/theme-toggle.astro, src/pages/index.astro
   ac:
     | main.scss with all partials compiles under the Vite sass pipeline and the emitted CSS custom properties match the Gatsby build.
     | An inline pre-body script sets the html class from localStorage or the media query before first paint.
@@ -73,8 +74,15 @@ w W-03 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
     | The theme system is pure CSS variables plus one class on html, so it ports with import-path fixes only.
   evidence_strategy:
     | CSS variable diff between builds; toggle and reload check; screenshots in both modes.
+  evidence:
+    | CSS custom property diff between builds is empty: 26 of 26 identical declarations, Gatsby public/styles.09cc1209a4dfbc3a3005.css versus Astro dist/_astro/index.ig__stEl.css.
+    | No-FOUC script ported from internal/gatsby/on-render-body.ts into islands/base-layout.astro head with the storage key injected from src/utils/theme.ts (is:inline, runs before first paint; html lang=en kept).
+    | Theme toggle ships as a vanilla inlined module: built page contains the full toggle logic (storage key diesel:theme-atom, JSON mode shape, html class swap, click wiring) with zero react or diesel imports; src/utils/theme.test.ts 7 pass.
+    | Storage compatibility confirmed from diesel-extensions bundle: useCoilPersistedState writes JSON under diesel: plus toKebabCase(atom key), so the port keeps the exact key diesel:theme-atom and value shape.
+    | Found and resolved an output collision: Gatsby and Astro both claimed public/, so astro.config.ts now sets publicDir static and outDir stays dist.
+    | bun test: 106 pass, 4 fail (the pre-existing years failures only; 7 new theme tests green).
 
-w W-04 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T19:40:27Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
+w W-04 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T19:58:09Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
   goals: G-03
   fitness: G-03=+1
   surface: src/islands
@@ -167,7 +175,7 @@ w W-10 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:45Z
   evidence_strategy:
     | Built HTML contains the expected snippets; a Sentry test event from the preview build.
 
-w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:34:57Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
+w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:53:20Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
   goals: G-05
   fitness: G-05=+1
   surface: internal/testing, src/utils
@@ -179,8 +187,10 @@ w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
     | bun test keeps covering pure logic while the W-12 parity gate covers the .astro layer, so dropping the component suite loses no real coverage.
   evidence_strategy:
     | Test runner output green locally and in CI.
+  plan:
+    | The 4 pre-existing failures on main around the years templates stay out of scope per user direction (2026-09-18); they disappear together with the React suite.
 
-w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T19:28:17Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
+w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T19:58:09Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
   goals: G-05
   fitness: G-05=+1
   surface: internal/scripts
@@ -192,6 +202,8 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
     | Automated route and visual diffs catch migration regressions earlier than review.
   evidence_strategy:
     | Script outputs and screenshot artifacts attached to the work item.
+  plan:
+    | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
 w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T19:34:58Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05

@@ -1,14 +1,11 @@
 ---
+import BaseLayout from "../islands/base-layout.astro";
+import ThemeToggle from "../islands/theme-toggle.astro";
+
 const title = "lumen on astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-  </body>
-</html>
+<BaseLayout title={title}>
+  <h1>{title}</h1>
+  <ThemeToggle />
+</BaseLayout>
