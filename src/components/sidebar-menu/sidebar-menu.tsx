@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 
 import { Link } from "gatsby";
 
-import * as styles from "./sidebar-menu.module.scss";
+import * as styles from "@/assets/styles/modules/sidebar-menu.module.scss";
 
 type SidebarMenuProps = {
   menu: Array<{

@@ -7,7 +7,7 @@ import { SidebarAuthor } from "@/components/sidebar-author";
 import { SidebarContacts } from "@/components/sidebar-contacts";
 import { SidebarCopyright } from "@/components/sidebar-copyright";
 
-import * as styles from "./sidebar.module.scss";
+import * as styles from "@/assets/styles/modules/sidebar.module.scss";
 
 type SidebarProps = {
   isHome?: boolean;

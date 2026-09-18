@@ -1,0 +1,18 @@
+---
+import styles from "@/assets/styles/modules/icon.module.scss";
+
+interface Props {
+  name: string;
+  icon: {
+    path?: string;
+    viewBox?: string;
+  };
+}
+
+const { name, icon } = Astro.props;
+---
+
+<svg class={styles.icon} viewBox={icon.viewBox}>
+  <title>{name}</title>
+  <path d={icon.path} />
+</svg>

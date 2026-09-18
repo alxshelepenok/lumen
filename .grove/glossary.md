@@ -12,3 +12,5 @@
 | Shiki | The syntax highlighter bundled with Astro that replaces PrismJS in the markdown pipeline. | D-04 |
 | Canonical URL | The absolute preferred page URL emitted as a link rel canonical tag, always ending with a trailing slash. | D-06 |
 | Islands directory | The flat src/islands directory holding every kebab-case .astro partial; a house layout name, not framework islands. | D-10 |
+| css-modules | Scoped stylesheet files whose class map is imported by components; exports differ between bundlers. | B-04 |
+| vite | The bundler and dev server underneath Astro, replacing webpack. | D-08 |

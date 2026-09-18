@@ -1,14 +1,17 @@
 ---
 import "../assets/styles/main.scss";
 
+import Meta from "./meta.astro";
+
 import { themeStorageKey } from "@/utils/theme";
 
 interface Props {
-  title: string;
   description?: string;
+  image?: string;
+  title: string;
 }
 
-const { title, description = "" } = Astro.props;
+const { description = "", image, title } = Astro.props;
 
 const themeScript = `
   void function() {
@@ -38,10 +41,7 @@ const themeScript = `
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    {
-      description ? <meta name="description" content={description} /> : null
-    }
+    <Meta title={title} description={description} image={image} />
     <script is:inline set:html={themeScript} />
   </head>
   <body>

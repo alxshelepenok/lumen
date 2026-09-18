@@ -2,7 +2,7 @@ import React, { type FC, type ReactNode, useEffect } from "react";
 
 import { useTheme } from "@/hooks/use-theme";
 
-import * as styles from "./layout.module.scss";
+import * as styles from "@/assets/styles/modules/layout.module.scss";
 
 interface LayoutProps {
   children: ReactNode;

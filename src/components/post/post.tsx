@@ -8,7 +8,7 @@ import { PostFooter } from "@/components/post-footer";
 import { PostContent } from "@/components/post-content";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
-import * as styles from "./post.module.scss";
+import * as styles from "@/assets/styles/modules/post.module.scss";
 
 interface PostProps {
   post: Node;

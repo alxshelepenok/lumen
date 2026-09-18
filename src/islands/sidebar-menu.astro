@@ -1,0 +1,39 @@
+---
+import styles from "@/assets/styles/modules/sidebar-menu.module.scss";
+
+interface Props {
+  menu: {
+    title: string;
+    url: string;
+  }[];
+}
+
+const { menu } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const isActive = (url: string): boolean =>
+  url === "/" ? currentPath === "/" : currentPath.startsWith(url);
+---
+
+<nav class={styles.sidebarMenu}>
+  <ul class={styles.list}>
+    {
+      menu.map((item) => (
+        <li class={styles.item}>
+          <a
+            href={item.url}
+            class={[
+              styles.link,
+              isActive(item.url) ? styles.active : null,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            aria-current={isActive(item.url) ? "page" : undefined}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

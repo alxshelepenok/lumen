@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 
-import * as styles from "./post-footer.module.scss";
+import * as styles from "@/assets/styles/modules/post-footer.module.scss";
 
 interface PostFooterProps {
   date: string;

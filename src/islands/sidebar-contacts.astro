@@ -1,0 +1,62 @@
+---
+import styles from "@/assets/styles/modules/sidebar-contacts.module.scss";
+
+import Icon from "./icon.astro";
+
+import { icons } from "@/constants/icons";
+import { getContactHref } from "@/utils/get-contact-href";
+import { getIcon } from "@/utils/get-icon";
+
+interface Props {
+  contacts: {
+    name: keyof typeof icons;
+    contact: string;
+  }[];
+}
+
+const { contacts } = Astro.props;
+---
+
+{
+  contacts.length > 0 && (
+    <div class={styles.sidebarContacts}>
+      <ul class={styles.list}>
+        {contacts.map(({ name, contact }) => (
+          <li class={styles.item}>
+            {name === "email" ? (
+              <span
+                class={styles.link}
+                data-email-contact={getContactHref(name, contact)}
+              >
+                <Icon name={name} icon={getIcon(name)} />
+              </span>
+            ) : (
+              <a
+                target="_blank"
+                class={styles.link}
+                href={getContactHref(name, contact)}
+                rel={`noopener noreferrer${name === "mastodon" ? " me" : ""}`}
+              >
+                <Icon name={name} icon={getIcon(name)} />
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-email-contact]")
+    .forEach((element) => {
+      element.addEventListener("click", () => {
+        const encoded = element.dataset.emailContact;
+
+        if (encoded) {
+          window.location.href = `mailto:${atob(encoded)}`;
+        }
+      });
+    });
+</script>

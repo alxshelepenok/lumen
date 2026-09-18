@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 
-import * as styles from "./sidebar-copyright.module.scss";
+import * as styles from "@/assets/styles/modules/sidebar-copyright.module.scss";
 
 type SidebarCopyrightProps = {
   copyright: string;

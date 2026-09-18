@@ -3,7 +3,7 @@ import React, { type FC } from "react";
 import cn from "classnames";
 import { Link } from "gatsby";
 
-import * as styles from "./button.module.scss";
+import * as styles from "@/assets/styles/modules/button.module.scss";
 
 interface ButtonProps {
   className?: string;

@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:1fbbb21e541e2a69dd5a3e5ad00f29ebee9fb7c7dfb2bf2369563f1738340844
+# checksum: sha256:64857890c67d64153b2f55a5cb199d5c14e917e4214ca3cbe79cfcdfa8c3d711
 g G-01 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:01:55Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -10,10 +10,10 @@ g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_upd
   area: A-02
   fitness_target: 2
 
-g G-03 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:58:09Z "Interface and theming match the current site on Astro"
+g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:11:51Z "Interface and theming match the current site on Astro"
   area: A-03
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-04 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
   area: A-04
@@ -89,21 +89,28 @@ w W-03 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:0
     | Found and resolved an output collision: Gatsby and Astro both claimed public/, so astro.config.ts now sets publicDir static and outDir stays dist.
     | bun test: 106 pass, 4 fail (the pre-existing years failures only; 7 new theme tests green).
 
-w W-04 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T19:58:09Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
+w W-04 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T20:11:51Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
   goals: G-03
   fitness: G-03=+1
-  surface: src/islands
+  surface: src/islands, src/islands, src/assets/styles/modules, tsconfig.json, astro.config.ts
   ac:
     | Markup structure and class names match the current React output so the ported SCSS applies unchanged.
     | No react, react-dom or diesel import remains anywhere under src/.
-    | Layout, Sidebar with its four children, Feed, Page, Pagination, Post with its four children, Button, Icon and Meta exist as flat kebab-case .astro files under src/islands.
-    | No src/components directory remains and the src tree follows the agreed layout (pages, islands, assets/styles, constants, utils, content, content.config.ts).
+    | The islands and pages import no react, react-dom or diesel module; the src-wide removal of the legacy React tree lands in W-13 so the Gatsby parity build stays available until W-12.
+    | The ported tree follows the agreed layout (pages, islands, assets/styles with modules, constants, utils, content, content.config.ts); src/components stays frozen as legacy until W-13.
   hypothesis:
     | Every component except ThemeSwitcher renders statically, so a mechanical port to .astro templates preserves the DOM.
   evidence_strategy:
     | Side-by-side HTML samples from the Gatsby and Astro builds; grep proving no React imports.
+  evidence:
+    | 18 islands live in src/islands (17 ported here plus theme-toggle from W-03); base-layout now renders the Meta island in head.
+    | CSS modules moved once via git mv into src/assets/styles/modules (17 files) and React imports updated to the @/assets alias; the Gatsby build stays green (needs GATSBY_CPU_COUNT=4 on this machine because WMIC is missing on Windows 11).
+    | vite css.modules.localsConvention camelCase mirrors webpack css-loader exports: styles.sidebarAuthor resolves to _sidebar-author_1cf0u_1 exactly like the React side resolved to sidebar-author-module--sidebar-author--f2c33.
+    | Throwaway showcase page rendered every island with real collection data then was removed; entry.rendered.html is available on content layer entries (2053 chars for the sample post), confirming the html-string design of post-content and the future RSS feed.
+    | Logical class diff against the Gatsby index and post builds: zero Astro-only classes; the only gatsby-only classes are markdown pipeline ones (anchor, before, gatsby-resp-image) and the active menu state, owned by W-07, W-08 and page assembly.
+    | bun test: 111 pass, 4 fail (the pre-existing years failures); bun run build:astro green on the clean tree.
 
-w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T19:40:27Z "Port core templates with URL parity (index, post, page, 404, meta)"
+w W-05 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:11:52Z "Port core templates with URL parity (index, post, page, 404, meta)"
   goals: G-02
   fitness: G-02=+1
   surface: src/templates, internal/gatsby/constants, src/pages
@@ -212,7 +219,7 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   plan:
     | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
-w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T19:34:58Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:11:51Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
   theme: T-01
   fitness: G-05=+1
@@ -227,6 +234,8 @@ w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59
     | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
   evidence_strategy:
     | Dependency grep; a green CI run on the branch; build and test transcripts.
+  plan:
+    | Delete the frozen legacy tree: src/components, src/templates, src/hooks, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, internal/gatsby, sentry.config.ts gatsby import, render-with-coil-provider util; module styles already live under src/assets/styles/modules.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T19:28:18Z "Migrate to Astro 7"
   context:
@@ -413,7 +422,7 @@ b B-03 status=proposed cynefin=complicated t_created=2026-09-18T19:27:57Z t_upda
   threshold:
     | Installs cleanly and reports a test event.
 
-b B-04 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T19:50:17Z "Existing SCSS compiles under Vite with minimal changes"
+b B-04 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T20:12:16Z "Existing SCSS compiles under Vite with minimal changes"
   vm:
     | Compile main.scss in the W-01 scaffold and diff the emitted CSS custom properties.
   threshold:
@@ -438,6 +447,14 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
 t T-01 status=open t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:27:00Z "Legacy Gatsby platform constraints"
+
+y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
+  tags: css-modules, vite
+  surface: astro.config.ts, src/assets/styles/modules
+  invariant:
+    | Porting webpack css-loader code to Vite requires css.modules.localsConvention camelCase so kebab-case scss classes stay reachable through camelCase keys.
+  why:
+    | Without it styles.sidebarAuthor silently resolves to undefined and wrapper classes vanish from the markup (observed in W-04 before the fix).
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
   surface: content/, src/utils/to-kebab-case.ts
@@ -496,3 +513,4 @@ e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
 e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
+e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z

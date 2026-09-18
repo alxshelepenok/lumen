@@ -1,0 +1,18 @@
+---
+import styles from "@/assets/styles/modules/page.module.scss";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class={styles.page}>
+  <div class={styles.inner}>
+    {title ? <h1 class={styles.title}>{title}</h1> : null}
+    <div class={styles.body}>
+      <slot />
+    </div>
+  </div>
+</div>

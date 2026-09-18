@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 
 import { Button } from "@/components/button";
 
-import * as styles from "./post-tags.module.scss";
+import * as styles from "@/assets/styles/modules/post-tags.module.scss";
 
 interface PostTagsProps {
   tags: string[];

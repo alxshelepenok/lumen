@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 
 import { icons } from "@/constants/icons";
 
-import * as styles from "./icon.module.scss";
+import * as styles from "@/assets/styles/modules/icon.module.scss";
 
 interface IconProps {
   name: keyof typeof icons;

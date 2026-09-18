@@ -1,0 +1,41 @@
+---
+import styles from "@/assets/styles/modules/post.module.scss";
+
+import Button from "./button.astro";
+import PostAuthor from "./post-author.astro";
+import PostContent from "./post-content.astro";
+import PostFooter from "./post-footer.astro";
+import PostTags from "./post-tags.astro";
+import ThemeToggle from "./theme-toggle.astro";
+
+interface Props {
+  post: {
+    date: Date;
+    html: string;
+    tagSlugs?: string[];
+    tags?: string[];
+    title: string;
+  };
+}
+
+const { post } = Astro.props;
+---
+
+<div class={styles.post}>
+  <div class={styles.buttons}>
+    <Button className={styles.buttonArticles} title="All Articles" to="/" />
+    <ThemeToggle />
+  </div>
+  <div class={styles.content}>
+    <PostContent body={post.html} title={post.title} />
+  </div>
+  <div class={styles.footer}>
+    <PostFooter date={post.date} />
+    {
+      post.tags && post.tagSlugs ? (
+        <PostTags tags={post.tags} tagSlugs={post.tagSlugs} />
+      ) : null
+    }
+    <PostAuthor />
+  </div>
+</div>

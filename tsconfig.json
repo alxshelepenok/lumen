@@ -7,6 +7,7 @@
     "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
     "paths": {
+      "@/assets/*": ["./src/assets/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"],

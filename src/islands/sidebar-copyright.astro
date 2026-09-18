@@ -1,0 +1,11 @@
+---
+import styles from "@/assets/styles/modules/sidebar-copyright.module.scss";
+
+interface Props {
+  copyright: string;
+}
+
+const { copyright } = Astro.props;
+---
+
+<div class={styles.sidebarCopyright}>{copyright}</div>

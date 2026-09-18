@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 
-import * as styles from "./post-content.module.scss";
+import * as styles from "@/assets/styles/modules/post-content.module.scss";
 
 interface PostContentProps {
   title: string;

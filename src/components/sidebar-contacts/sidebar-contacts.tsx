@@ -5,7 +5,7 @@ import { icons } from "@/constants/icons";
 import { getIcon } from "@/utils/get-icon";
 import { getContactHref } from "@/utils/get-contact-href";
 
-import * as styles from "./sidebar-contacts.module.scss";
+import * as styles from "@/assets/styles/modules/sidebar-contacts.module.scss";
 
 type SidebarContactsProps = {
   contacts: {

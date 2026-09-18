@@ -1,6 +1,6 @@
 import React, { type FC, type ReactNode } from "react";
 
-import * as styles from "./page.module.scss";
+import * as styles from "@/assets/styles/modules/page.module.scss";
 
 interface PageProps {
   title?: string;

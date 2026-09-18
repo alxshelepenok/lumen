@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 
 import { type Edge } from "@/types/edge";
 
-import * as styles from "./feed.module.scss";
+import * as styles from "@/assets/styles/modules/feed.module.scss";
 
 type FeedProps = {
   edges: Array<Edge>;

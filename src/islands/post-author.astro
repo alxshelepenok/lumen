@@ -1,0 +1,27 @@
+---
+import styles from "@/assets/styles/modules/post-author.module.scss";
+
+import { getContactHref } from "@/utils/get-contact-href";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+const { author } = getSiteMetadata();
+const x = author.contacts.find(({ name }) => name === "x");
+---
+
+<div class={styles.postAuthor}>
+  <p class={styles.description}>
+    {author.description}
+    {
+      x ? (
+        <a
+          class={styles.x}
+          href={getContactHref(x.name, x.contact)}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <strong>{author.title}</strong> on X
+        </a>
+      ) : null
+    }
+  </p>
+</div>

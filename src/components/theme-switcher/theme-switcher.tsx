@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { useTheme } from "@/hooks/use-theme";
 
-import * as styles from "./theme-switcher.module.scss";
+import * as styles from "@/assets/styles/modules/theme-switcher.module.scss";
 
 const ThemeSwitcher: FC = () => {
   const [{ mode }, toggleTheme] = useTheme();

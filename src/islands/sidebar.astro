@@ -1,0 +1,26 @@
+---
+import styles from "@/assets/styles/modules/sidebar.module.scss";
+
+import SidebarAuthor from "./sidebar-author.astro";
+import SidebarContacts from "./sidebar-contacts.astro";
+import SidebarCopyright from "./sidebar-copyright.astro";
+import SidebarMenu from "./sidebar-menu.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+interface Props {
+  isHome?: boolean;
+}
+
+const { isHome } = Astro.props;
+const { author, copyright, menu } = getSiteMetadata();
+---
+
+<div class={styles.sidebar}>
+  <div class={styles.inner}>
+    <SidebarAuthor author={author} isHome={isHome} />
+    <SidebarMenu menu={menu} />
+    <SidebarContacts contacts={author.contacts} />
+    <SidebarCopyright copyright={copyright} />
+  </div>
+</div>

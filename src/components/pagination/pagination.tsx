@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 import { pagination } from "@/constants/pagination";
 
-import * as styles from "./pagination.module.scss";
+import * as styles from "@/assets/styles/modules/pagination.module.scss";
 
 type Props = {
   prevPagePath: string;

@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { getContactHref } from "@/utils/get-contact-href";
 import { useSiteMetadata } from "@/hooks/use-site-metadata";
 
-import * as styles from "./post-author.module.scss";
+import * as styles from "@/assets/styles/modules/post-author.module.scss";
 
 const PostAuthor = () => {
   const { author } = useSiteMetadata();

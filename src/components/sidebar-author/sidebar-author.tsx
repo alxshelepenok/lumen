@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import { Image } from "@/components/image";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
-import * as styles from "./sidebar-author.module.scss";
+import * as styles from "@/assets/styles/modules/sidebar-author.module.scss";
 
 type SidebarAuthorProps = {
   author: {
