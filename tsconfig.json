@@ -1,43 +1,35 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
-    "paths": {
-      "@/assets/*": [
-        "./src/assets/*"
-      ],
-      "@/islands/*": [
-        "./src/islands/*"
-      ],
-      "@/utils/*": [
-        "./src/utils/*"
-      ],
-      "@/internal/*": [
-        "./internal/*"
-      ],
-      "@/constants/*": [
-        "./src/constants/*"
-      ],
-      "@/mocks": [
-        "./internal/testing/mocks"
-      ]
-    },
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
+    "jsx": "react",
+    "strict": true,
+    "types": ["bun"],
     "allowJs": false,
+    "skipLibCheck": true,
     "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
+    "verbatimModuleSyntax": true,
     "noFallthroughCasesInSwitch": true,
-    "types": [
-      "bun"
-    ]
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "target",
+    "paths": {
+      "@/utils/*": ["./src/utils/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/islands/*": ["./src/islands/*"],
+      "@/internal/*": ["./internal/*"],
+      "@/mocks": ["./internal/testing/mocks"]
+    }
   },
-  "exclude": [
-    "node_modules",
-    "target",
-    "public"
-  ]
+  "exclude": ["node_modules", "target"],
+  "include": [".astro/types.d.ts", "**/*"]
 }
