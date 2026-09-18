@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:0366ed9d2598ecc917c4a265a5644e14a0d456b1d4716db0c5b692bfb7b190a7
+# checksum: sha256:21026adbfb7448e7f5292a5a72002db84122df9e394a62f22200386496838882
 g G-09 status=partial fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Toolchain hardening follows the second review round"
   area: A-05
   fitness_target: 3
@@ -11,9 +11,10 @@ g G-10 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updat
   fitness_target: 1
   fitness_current: 1
 
-g G-11 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Theme storage key drops the diesel prefix"
+g G-11 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:03:35Z "Theme storage key drops the diesel prefix"
   area: A-03
   fitness_target: 1
+  fitness_current: 1
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -79,7 +80,7 @@ w W-21 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:52Z t_
     | All six listing pages now call one getGroups generic with named key extractors (categoryOf, tagsOf, yearOf) and orderings (alphabetical default, newestFirst for years); the per-kind wrapper functions are deleted from get-taxonomy.ts.
     | Listing output identical after the rewiring: categories alphabetical (creative-process through technology-trends), 12 tags, years descending; build, tests (19 pass) and astro check all green.
 
-w W-22 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T21:56:53Z "Rename the theme storage key off the diesel prefix"
+w W-22 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T22:03:35Z "Rename the theme storage key off the diesel prefix"
   goals: G-11
   theme: T-02
   fitness: G-11=+1
@@ -88,6 +89,8 @@ w W-22 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:53
     | The storage key becomes lumen:theme with the value shape unchanged and the theme test asserting the new key.
   evidence_strategy:
     | Green theme tests and the built inline script carrying the new key.
+  evidence:
+    | Storage key renamed from diesel:theme-atom to lumen:theme with the value shape unchanged; the built inline guard carries the new key and the theme suite (7 tests) is green.
 
 w W-23 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:54Z t_updated=2026-09-18T21:56:54Z "Strip code comments"
   goals: G-09

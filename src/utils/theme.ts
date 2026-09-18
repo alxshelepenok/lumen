@@ -6,7 +6,7 @@ interface Theme {
   mode: ThemeMode;
 }
 
-const themeStorageKey = "diesel:theme-atom";
+const themeStorageKey = "lumen:theme";
 
 const isThemeMode = (value: unknown): value is ThemeMode =>
   value === "dark" || value === "light";

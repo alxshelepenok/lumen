@@ -13,8 +13,8 @@ describe("theme", () => {
     window.localStorage.clear();
   });
 
-  it("uses the diesel storage key", () => {
-    expect(themeStorageKey).toBe("diesel:theme-atom");
+  it("uses the lumen storage key", () => {
+    expect(themeStorageKey).toBe("lumen:theme");
   });
 
   it("returns null when nothing is stored", () => {
