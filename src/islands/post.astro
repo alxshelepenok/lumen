@@ -3,12 +3,12 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 import styles from "@/assets/styles/modules/post.module.scss";
 
-import Button from "./button.astro";
-import PostAuthor from "./post-author.astro";
-import PostContent from "./post-content.astro";
-import PostFooter from "./post-footer.astro";
-import PostTags from "./post-tags.astro";
-import ThemeToggle from "./theme-toggle.astro";
+import Button from "@/islands/button.astro";
+import PostAuthor from "@/islands/post-author.astro";
+import PostContent from "@/islands/post-content.astro";
+import PostFooter from "@/islands/post-footer.astro";
+import PostTags from "@/islands/post-tags.astro";
+import ThemeToggle from "@/islands/theme-toggle.astro";
 
 interface Props {
   post: {

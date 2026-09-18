@@ -6,6 +6,7 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/assets/*": ["./src/assets/*"],
+      "@/islands/*": ["./src/islands/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/internal/*": ["./internal/*"],
       "@/constants/*": ["./src/constants/*"],

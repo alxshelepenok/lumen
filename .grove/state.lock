@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:6a240a74c719c490af3c2c0e3ae1de107024967eba30b52cc4fefb8bebc65a0b
+# checksum: sha256:956e4c850bbc5c4df92068c53df8534d6723b8336282b245e22b741747bbfeae
 g G-14 status=partial fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:11:51Z "Toolchain hygiene follows the fourth review round"
   area: A-05
   fitness_target: 3
-  fitness_current: 1
+  fitness_current: 2
 
 g G-15 status=unverified fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:10:59Z "Content images render with the right aspect"
   area: A-03
@@ -57,7 +57,7 @@ w W-28 type=refactor status=done cynefin=clear t_created=2026-09-18T23:11:00Z t_
   plan:
     | see surfaces
 
-w W-29 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:11:21Z "Adopt island aliases and fix editor module resolution"
+w W-29 type=refactor status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:14:34Z "Adopt island aliases and fix editor module resolution"
   goals: G-14
   theme: T-02
   fitness: G-14=+1
@@ -67,6 +67,9 @@ w W-29 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23
     | A standalone tsc run resolves every alias and the repo recommends the Astro editor tooling for script sections.
   evidence_strategy:
     | tsc noEmit clean, grep for relative island imports empty, extensions recommendation in place.
+  evidence:
+    | All island and page imports go through @ aliases with the new @/islands mapping; no relative imports remain under src and the internal mjs plugins now carry unified Plugin declarations.
+    | Standalone tsc noEmit is clean, the build and astro check are green, and .vscode/extensions.json recommends the Astro extension so script sections resolve the same aliases in the editor.
 
 w W-30 type=bug status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:12:56Z "Fix stretched content images"
   goals: G-16

@@ -10,7 +10,8 @@ pids
 
 # editors
 .idea
-.vscode
+.vscode/*
+!.vscode/extensions.json
 
 # build
 
