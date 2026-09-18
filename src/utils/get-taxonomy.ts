@@ -5,9 +5,12 @@ interface Group {
   totalCount: number;
 }
 
-const countGroups = (
+type KeyOf = (entry: CollectionEntry<"posts">) => string[] | undefined;
+
+const getGroups = (
   posts: CollectionEntry<"posts">[],
-  keyOf: (entry: CollectionEntry<"posts">) => string[] | undefined
+  keyOf: KeyOf,
+  compare: (a: Group, b: Group) => number
 ): Group[] => {
   const counts = new Map<string, number>();
 
@@ -20,27 +23,31 @@ const countGroups = (
   return Array.from(counts, ([fieldValue, totalCount]) => ({
     fieldValue,
     totalCount,
-  }));
+  })).sort(compare);
 };
 
-const byFieldAlphabetical = (a: Group, b: Group): number =>
+const alphabetical = (a: Group, b: Group): number =>
   a.fieldValue.localeCompare(b.fieldValue);
 
-const byYearDescending = (a: Group, b: Group): number =>
+const newestFirst = (a: Group, b: Group): number =>
   Number.parseInt(b.fieldValue) - Number.parseInt(a.fieldValue);
 
 const getCategories = (posts: CollectionEntry<"posts">[]): Group[] =>
-  countGroups(posts, (entry) =>
-    entry.data.category ? [entry.data.category] : undefined
-  ).sort(byFieldAlphabetical);
+  getGroups(
+    posts,
+    (entry) => (entry.data.category ? [entry.data.category] : undefined),
+    alphabetical
+  );
 
 const getTags = (posts: CollectionEntry<"posts">[]): Group[] =>
-  countGroups(posts, (entry) => entry.data.tags).sort(byFieldAlphabetical);
+  getGroups(posts, (entry) => entry.data.tags, alphabetical);
 
 const getYears = (posts: CollectionEntry<"posts">[]): Group[] =>
-  countGroups(posts, (entry) => [
-    entry.data.date.getFullYear().toString(),
-  ]).sort(byYearDescending);
+  getGroups(
+    posts,
+    (entry) => [entry.data.date.getFullYear().toString()],
+    newestFirst
+  );
 
-export { getCategories, getTags, getYears };
+export { getGroups, getTags, getCategories, getYears };
 export type { Group };

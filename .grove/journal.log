@@ -587,3 +587,12 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:46:38Z","inv":{"id":"W-17","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:46:38Z","inv":{"id":"W-17","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:46:39Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-17","op":"set_w_status_with_goals","goal_statuses":{"G-07":"partial"},"old_session_at":"2026-09-18T21:45:48Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:46:39Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-18","op":"set_w_status_with_goals","goal_statuses":{"G-08":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:47:06Z","inv":{"id":"W-18","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:47:06Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-18","op":"set_w_status_with_goals","goal_statuses":{"G-08":"unverified"},"old_session_at":"2026-09-18T21:46:39Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T21:47:06Z","inv":{"goal":"G-06","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T21:47:06Z","inv":{"ids":["G-06","W-14","W-15"],"id":"G-06","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T21:47:06Z","inv":{"goal":"G-07","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T21:47:06Z","inv":{"ids":["G-07","W-16","W-17"],"id":"G-07","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T21:47:07Z","inv":{"goal":"G-08","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T21:47:07Z","inv":{"ids":["G-08","W-18"],"id":"G-08","op":"archive"}}

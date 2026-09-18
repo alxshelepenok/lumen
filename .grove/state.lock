@@ -1,20 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f1eb400a0a779d1fdb7b6beea55b40dbd1276dd5aa09b4e6c6a88b37ba19831d
-g G-06 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:45:12Z "Toolchain conventions follow the review refinements"
-  area: A-05
-  fitness_target: 2
-  fitness_current: 2
-
-g G-07 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:46:39Z "Icon delivery and code styles follow the review refinements"
-  area: A-03
-  fitness_target: 2
-  fitness_current: 2
-
-g G-08 status=unverified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:42:28Z "Taxonomy grouping is unified"
-  area: A-01
-  fitness_target: 1
-
+# checksum: sha256:c1a6ede6673d92e7cb9e784221379821e869958b8fcbd89741e32328e284ed4f
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -38,75 +24,6 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
-
-w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_updated=2026-09-18T21:43:17Z "Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"
-  goals: G-06
-  theme: T-02
-  fitness: G-06=+1
-  surface: astro.config.ts, package.json, tsconfig.json, .gitignore, .github, public
-  ac:
-    | astro builds into target and serves static files from public at the repo root.
-    | Every icon asset follows the icon-NxN.png naming at the public root with no favicon name and no icons directory left.
-    | The lockfile is the text bun.lock and CI cache keys hash it.
-    | No .postcssrc remains; autoprefixer runs from astro.config only.
-    | tsconfig carries no baseUrl entry and path aliases still resolve.
-  evidence_strategy:
-    | Build output listing, greps for the retired names and a green bun test run.
-  evidence:
-    | astro.config sets outDir target and relies on the default public static dir; bun run build emits 31 pages into target with icon assets, manifest and logo at its root.
-    | Icons unified: public carries icon-32x32 through icon-512x512 at the root, manifest.webmanifest references them and no favicon name or icons directory remains.
-    | Lockfile switched to the text bun.lock format with CI cache keys in analyze.yml and release.yml hashing bun.lock; postcssrc deleted with autoprefixer living in astro.config only; tsconfig has no baseUrl and aliases resolve (build and tests green: 31 pages, 20 tests, 0 fail).
-
-w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:45:12Z "Prefer arrow functions across pages and scripts"
-  goals: G-06
-  theme: T-02
-  fitness: G-06=+1
-  surface: src/pages, src/islands/base-layout.astro, src/islands/gtag.astro
-  ac:
-    | No function declaration remains under src; getStaticPaths, the rss endpoint and the inline scripts use arrow functions.
-  evidence_strategy:
-    | Grep for function declarations returns nothing on src and the build stays green.
-  evidence:
-    | All function declarations replaced: six getStaticPaths exports and the rss GET endpoint became async arrows and both inline scripts (the no-FOUC theme guard and the gtag config) use arrow functions with rest args; grep for declarations under src returns nothing.
-    | bun run build green and bun test green (20 tests, 0 fail) after the conversion.
-
-w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:45:47Z "Replace prism styles with shiki oriented code styles"
-  goals: G-07
-  theme: T-02
-  fitness: G-07=+1
-  surface: src/assets/styles/base
-  ac:
-    | The prism stylesheet is renamed to code styles carrying only shiki era rules: the astro-code container, inline code and shared typography; no token rules remain.
-  evidence_strategy:
-    | Stylesheet review plus a green build with the code block probe styling intact.
-  evidence:
-    | _prism.scss renamed to _code.scss carrying only shiki era rules: shared code typography, the astro-code container with the theme-aware muted background override and inline code styling; zero token selectors remain and the build stays green.
-
-w W-17 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:46:39Z "Serve icons through an svg sprite"
-  goals: G-07
-  theme: T-02
-  fitness: G-07=+1
-  surface: src/islands, src/constants/icons.ts, src/utils/get-icon.ts
-  ac:
-    | A single hidden sprite island inlines one symbol per icon and base-layout includes it once.
-    | The icon island emits a use reference by name only and sidebar contacts passes the name without the icon payload.
-    | The get-icon util and its test retire with no references left.
-  evidence_strategy:
-    | Built html shows the sprite and use references; greps confirm the retired util.
-  evidence:
-    | One hidden sprite island (islands/icon-sprite.astro) inlines 17 symbols from the icons constant and base-layout includes it once at body start; islands/icon.astro emits a title plus a use reference by name and sidebar contacts passes only the name.
-    | The get-icon util and its test retired; built html shows the sprite once with display none and two use references on the index page; build green, 19 tests green.
-
-w W-18 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:42:48Z t_updated=2026-09-18T21:42:48Z "Unify taxonomy grouping behind one helper"
-  goals: G-08
-  theme: T-02
-  fitness: G-08=+1
-  surface: src/utils/get-taxonomy.ts
-  ac:
-    | getCategories, getTags and getYears build on one shared getGroups helper with per-kind key extraction and ordering only.
-    | Grouping behaviour and ordering stay identical with the suite green.
-  evidence_strategy:
-    | Util review plus green tests and an unchanged listing render.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -179,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:42:48Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:07Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -326,6 +243,21 @@ g G-05 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
   area: A-05
   fitness_target: 3
   fitness_current: 3
+
+g G-06 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:06Z "Toolchain conventions follow the review refinements"
+  area: A-05
+  fitness_target: 2
+  fitness_current: 2
+
+g G-07 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:06Z "Icon delivery and code styles follow the review refinements"
+  area: A-03
+  fitness_target: 2
+  fitness_current: 2
+
+g G-08 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:07Z "Taxonomy grouping is unified"
+  area: A-01
+  fitness_target: 1
+  fitness_current: 1
 
 w W-02 type=feature status=done cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T21:22:51Z "Port content to Astro content collections (posts, pages, site config)"
   goals: G-01
@@ -562,6 +494,77 @@ w W-13 type=refactor status=done cynefin=clear t_created=2026-09-18T19:26:59Z t_
     | CI analyze.yml runs bun run build and bun test which now execute the Astro commands unchanged; release.yml and .releaserc untouched per D-09; README reflects Astro with a no-framework-runtime feature line.
   plan:
     | Delete the frozen legacy tree: src/components, src/templates, src/hooks, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, internal/gatsby, sentry.config.ts gatsby import, render-with-coil-provider util; module styles already live under src/assets/styles/modules.
+
+w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_updated=2026-09-18T21:47:06Z "Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"
+  goals: G-06
+  theme: T-02
+  fitness: G-06=+1
+  surface: astro.config.ts, package.json, tsconfig.json, .gitignore, .github, public
+  ac:
+    | astro builds into target and serves static files from public at the repo root.
+    | Every icon asset follows the icon-NxN.png naming at the public root with no favicon name and no icons directory left.
+    | The lockfile is the text bun.lock and CI cache keys hash it.
+    | No .postcssrc remains; autoprefixer runs from astro.config only.
+    | tsconfig carries no baseUrl entry and path aliases still resolve.
+  evidence_strategy:
+    | Build output listing, greps for the retired names and a green bun test run.
+  evidence:
+    | astro.config sets outDir target and relies on the default public static dir; bun run build emits 31 pages into target with icon assets, manifest and logo at its root.
+    | Icons unified: public carries icon-32x32 through icon-512x512 at the root, manifest.webmanifest references them and no favicon name or icons directory remains.
+    | Lockfile switched to the text bun.lock format with CI cache keys in analyze.yml and release.yml hashing bun.lock; postcssrc deleted with autoprefixer living in astro.config only; tsconfig has no baseUrl and aliases resolve (build and tests green: 31 pages, 20 tests, 0 fail).
+
+w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:47:06Z "Prefer arrow functions across pages and scripts"
+  goals: G-06
+  theme: T-02
+  fitness: G-06=+1
+  surface: src/pages, src/islands/base-layout.astro, src/islands/gtag.astro
+  ac:
+    | No function declaration remains under src; getStaticPaths, the rss endpoint and the inline scripts use arrow functions.
+  evidence_strategy:
+    | Grep for function declarations returns nothing on src and the build stays green.
+  evidence:
+    | All function declarations replaced: six getStaticPaths exports and the rss GET endpoint became async arrows and both inline scripts (the no-FOUC theme guard and the gtag config) use arrow functions with rest args; grep for declarations under src returns nothing.
+    | bun run build green and bun test green (20 tests, 0 fail) after the conversion.
+
+w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:47:06Z "Replace prism styles with shiki oriented code styles"
+  goals: G-07
+  theme: T-02
+  fitness: G-07=+1
+  surface: src/assets/styles/base
+  ac:
+    | The prism stylesheet is renamed to code styles carrying only shiki era rules: the astro-code container, inline code and shared typography; no token rules remain.
+  evidence_strategy:
+    | Stylesheet review plus a green build with the code block probe styling intact.
+  evidence:
+    | _prism.scss renamed to _code.scss carrying only shiki era rules: shared code typography, the astro-code container with the theme-aware muted background override and inline code styling; zero token selectors remain and the build stays green.
+
+w W-17 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:47:06Z "Serve icons through an svg sprite"
+  goals: G-07
+  theme: T-02
+  fitness: G-07=+1
+  surface: src/islands, src/constants/icons.ts, src/utils/get-icon.ts
+  ac:
+    | A single hidden sprite island inlines one symbol per icon and base-layout includes it once.
+    | The icon island emits a use reference by name only and sidebar contacts passes the name without the icon payload.
+    | The get-icon util and its test retire with no references left.
+  evidence_strategy:
+    | Built html shows the sprite and use references; greps confirm the retired util.
+  evidence:
+    | One hidden sprite island (islands/icon-sprite.astro) inlines 17 symbols from the icons constant and base-layout includes it once at body start; islands/icon.astro emits a title plus a use reference by name and sidebar contacts passes only the name.
+    | The get-icon util and its test retired; built html shows the sprite once with display none and two use references on the index page; build green, 19 tests green.
+
+w W-18 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:48Z t_updated=2026-09-18T21:47:07Z "Unify taxonomy grouping behind one helper"
+  goals: G-08
+  theme: T-02
+  fitness: G-08=+1
+  surface: src/utils/get-taxonomy.ts
+  ac:
+    | getCategories, getTags and getYears build on one shared getGroups helper with per-kind key extraction and ordering only.
+    | Grouping behaviour and ordering stay identical with the suite green.
+  evidence_strategy:
+    | Util review plus green tests and an unchanged listing render.
+  evidence:
+    | getCategories, getTags and getYears are one-line calls over a single getGroups helper taking key extraction and ordering; category and tag listings stay alphabetical, years stay descending and the suite stays green (19 tests, 0 fail).
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
