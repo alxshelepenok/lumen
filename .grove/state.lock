@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:6e66088a15f706517e9f07dc58ecffdc39eaaf0edd8493b7d5434a3274dd3d48
+# checksum: sha256:18be594b04c9eacd02034811b9f922f08f9a6d925990454b004abaefad016487
 w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -96,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:43:41Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:45:01Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -198,6 +198,7 @@ e T-02 causes W-36 t_created=2026-09-18T23:28:15Z
 e T-02 causes W-37 t_created=2026-09-18T23:33:43Z
 e T-02 causes W-38 t_created=2026-09-18T23:42:34Z
 e T-02 causes W-39 t_created=2026-09-18T23:43:31Z
+e T-02 causes W-40 t_created=2026-09-18T23:44:30Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -342,6 +343,11 @@ g G-20 status=verified fitness_kind=count t_created=2026-09-18T23:42:33Z t_updat
 
 g G-21 status=verified fitness_kind=count t_created=2026-09-18T23:43:30Z t_updated=2026-09-18T23:43:41Z "Release configuration is valid json"
   area: A-05
+  fitness_target: 1
+  fitness_current: 1
+
+g G-22 status=verified fitness_kind=count t_created=2026-09-18T23:44:29Z t_updated=2026-09-18T23:45:01Z "The icon sprite mounts after the content"
+  area: A-03
   fitness_target: 1
   fitness_current: 1
 
@@ -943,6 +949,20 @@ w W-39 type=bug status=done cynefin=clear t_created=2026-09-18T23:43:30Z t_updat
     | node JSON.parse passes and a git diff shows only the comma.
   evidence:
     | Trailing comma after the prepareCmd line removed; node JSON.parse now passes and the git diff shows the single comma as the only change, so the semantic-release pipeline stays semantically identical per D-09.
+
+w W-40 type=bug status=done cynefin=clear t_created=2026-09-18T23:44:30Z t_updated=2026-09-18T23:45:01Z "Move the icon sprite to the end of body"
+  goals: G-22
+  theme: T-02
+  fitness: G-22=+1
+  surface: src/islands/base-layout.astro
+  ac:
+    | The sprite svg renders after the page content as the last body child.
+  repro:
+    | IconSprite rendered as the first body child ahead of the page content while the house convention mounts it after the slot as the last body child.
+  evidence_strategy:
+    | Built html shows the sprite after the layout content.
+  evidence:
+    | IconSprite moved after the slot and renders as the last body child matching the house convention; built html confirms the sprite svg follows the page content; build, tests and astro check green.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
