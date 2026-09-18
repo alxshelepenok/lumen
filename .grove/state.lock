@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:d6eaf8346fbca07cab36e1de31c6daa21597f4ac7ec248f3320d7d5aa8ea859d
+# checksum: sha256:faa9f31b32345a7b63fd382b9f8767056eb778b658d24d188632ba48e516109e
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -145,20 +145,20 @@ y Y-06 status=active t_created=2026-09-18T21:22:50Z t_updated=2026-09-18T23:08:5
   why:
     | The W-12 gate caught only expected differences (tie order, empty description quirks) across 34 routes and both themes, giving the confidence to delete the Gatsby tree in W-13.
 
-a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
-  surface: content/, src/utils/to-kebab-case.ts
+a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
+  surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
 
-a A-02 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Pages and routing"
-  surface: src/templates, internal/gatsby/create-pages.ts, internal/gatsby/constants
+a A-02 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:34Z "Pages and routing"
+  surface: src/pages, src/utils/routes.ts, src/utils/get-pagination.ts, src/utils/get-feed-items.ts
 
-a A-03 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Interface and theming"
-  surface: src/components, src/assets/styles, src/hooks
+a A-03 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:35Z "Interface and theming"
+  surface: src/islands, src/assets/styles, src/constants
 
-a A-04 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Site services"
-  surface: gatsby-config.ts, sentry.config.ts, content/config.json
+a A-04 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:36Z "Site services"
+  surface: src/pages/atom.xml.ts, src/islands/gtag.astro, src/sentry.client.config.ts, public/manifest.webmanifest
 
-a A-05 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Toolchain and delivery"
-  surface: package.json, .github, internal/scripts, internal/testing
+a A-05 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:37Z "Toolchain and delivery"
+  surface: package.json, astro.config.ts, .github, internal
 
 e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
 e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
