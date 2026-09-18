@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:e92c3dc5bd724d6397bc73d8d78b83e1bb7880a0330c50aaa71085ceacede324
-g G-01 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Content pipeline runs on Astro with rendering parity"
+# checksum: sha256:1fbbb21e541e2a69dd5a3e5ad00f29ebee9fb7c7dfb2bf2369563f1738340844
+g G-01 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:01:55Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
-  fitness_current: 0
+  fitness_current: 1
 
 g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "All public routes keep their Gatsby URL shapes on Astro"
   area: A-02
@@ -48,10 +48,10 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
 
-w W-02 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T19:50:37Z "Port content to Astro content collections (posts, pages, site config)"
+w W-02 type=feature status=done cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T20:02:22Z "Port content to Astro content collections (posts, pages, site config)"
   goals: G-01
   fitness: G-01=+1
-  surface: content/, src/content.config.ts, internal/gatsby/on-create-node.ts
+  surface: content/, src/content.config.ts, internal/gatsby/on-create-node.ts, src/content.config.ts, src/utils/get-slug.ts, src/utils/get-slug.test.ts, src/utils/get-site-metadata.ts, src/utils/to-kebab-case.ts
   ac:
     | A content config defines posts and pages collections with a glob loader over content/ and a zod schema covering every frontmatter field.
     | Slug resolution matches Gatsby: the frontmatter slug wins, otherwise the directory-based path applies.
@@ -61,6 +61,13 @@ w W-02 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:25:
     | The content layer glob loader plus zod covers the lumen frontmatter shape, so sourcing moves off GraphQL without editing any content file.
   evidence_strategy:
     | Build log showing both collections loaded; a failing-build transcript with bad frontmatter; unit checks on slug derivation.
+  evidence:
+    | Collections live in src/content.config.ts: posts and pages glob loaders over content/ with full zod schemas (posts incl. draft, category, tags; pages without category or tags); z from astro/zod, image() from the schema context.
+    | Slug parity: the glob loader honours the frontmatter slug as entry id (verified: posts ids are /posts/a-brief-history-of-typography style), so the Gatsby rule of frontmatter-slug-wins holds by construction; src/utils/get-slug.ts adds the /posts or /pages prefix only for directory derived ids; get-slug.test.ts 3 pass.
+    | Invalid frontmatter fails the build: date not-a-date in one post produced InvalidContentEntryDataError naming posts and the entry id, exit code 9; reverted and rebuilt green afterwards.
+    | Site config stays in content/config.json and is exposed typed through src/utils/get-site-metadata.ts (title, url, description, copyright, feedLimit, menu, author with contacts, googleAnalyticsId, pathPrefix).
+    | bun test full suite: 109 pass, 4 fail (the pre-existing years failures only); bun run build:astro green with both collections synced.
+    | Tag and category slugs derive through toKebabCase exactly as in on-create-node: getTagSlugs (trailing slash form /tag/kebab/) and getCategorySlug (/category/kebab); get-slug.test.ts now 5 pass.
 
 w W-03 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T19:58:09Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
   goals: G-03
@@ -110,7 +117,7 @@ w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | HTML comparison against the Gatsby build over the sample content.
 
-w W-06 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T19:50:15Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
+w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T20:01:55Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
   goals: G-02
   fitness: G-02=+1
   surface: src/templates, internal/gatsby/create-pages.ts
@@ -123,7 +130,7 @@ w W-06 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | Route list diff against the Gatsby build; snapshot checks on listing pages.
 
-w W-07 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T19:28:18Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
+w W-07 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:01:56Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
   goals: G-01
   fitness: G-01=+1
   surface: gatsby-config.ts, content/posts
@@ -136,7 +143,7 @@ w W-07 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | HTML diffs per sample post; visual check of a code-heavy and a media-heavy post.
 
-w W-08 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T19:28:16Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
+w W-08 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:01:56Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
   goals: G-01
   fitness: G-01=+1
   surface: src/components/image, content
@@ -149,7 +156,7 @@ w W-08 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | Build artifacts listing generated formats and sizes; img markup comparison.
 
-w W-09 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T19:28:16Z "Restore site services (rss.xml, sitemap, manifest)"
+w W-09 type=feature status=ready cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T20:01:56Z "Restore site services (rss.xml, sitemap, manifest)"
   goals: G-04
   fitness: G-04=+1
   surface: gatsby-config.ts, src/pages

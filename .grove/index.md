@@ -7,13 +7,13 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 16 | validated B 4 · answered Q 3 · accepted D 9 |
-| V (uncertainty) | 13 | open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 11 |
+| V (uncertainty) | 12 | open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 10 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 6 | 3 | C: validated B 3 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| A-01 | Content pipeline | 6 | 2 | C: validated B 3 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 | A-02 | Pages and routing | 4 | 2 | C: validated B 1 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 | A-03 | Interface and theming | 4 | 1 | C: validated B 1 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-04 | Site services | 1 | 4 | C: validated B 0 · answered Q 1 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
@@ -25,7 +25,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-01 | Content pipeline runs on Astro with rendering parity | count; current=0 target=3 | unverified |
+| G-01 | Content pipeline runs on Astro with rendering parity | count; current=1 target=3 | partial |
 | G-02 | All public routes keep their Gatsby URL shapes on Astro | count; current= target=2 | unverified |
 | G-03 | Interface and theming match the current site on Astro | count; current=1 target=2 | partial |
 | G-04 | Site services are restored (feed, sitemap, manifest, analytics, error tracking) | count; current= target=2 | unverified |
@@ -36,14 +36,14 @@
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
-| W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊤ | ready | ★ |
+| W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊤ | done |  |
 | W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊤ | done |  |
-| W-04 | feature | Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | ready |  |
+| W-04 | feature | Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | ready | ★ |
 | W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊤ | proposed | ★ |
-| W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊤ | proposed |  |
-| W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | proposed | ★ |
-| W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | proposed |  |
-| W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | proposed |  |
+| W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊤ | ready |  |
+| W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | ready |  |
+| W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | ready |  |
+| W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | ready |  |
 | W-10 | feature | Restore analytics and error tracking (gtag, Sentry) | G-04 | clear | ⊥ | proposed |  |
 | W-11 | feature | Reduce the test suite to logic tests on bun test (drop React snapshots) | G-05 | complicated | ⊤ | proposed | ★ |
 | W-12 | feature | Verify parity against the Gatsby build (routes, HTML, screenshots) | G-05 | complicated | ⊤ | proposed |  |
@@ -99,14 +99,14 @@ graph TD
   G_04["G-04: Site services are restored (feed, sitemap, manifest, analytics, error tracking)"]:::goal
   G_05["G-05: Delivery pipeline runs on Astro (tests, parity verification, cleanup)"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
-  W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::ready,critical
+  W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::done
   W_03["W-03: Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"]:::done
-  W_04["W-04: Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"]:::ready
+  W_04["W-04: Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"]:::ready,critical
   W_05["W-05: Port core templates with URL parity (index, post, page, 404, meta)"]:::feature,critical
-  W_06["W-06: Port taxonomy listings with pagination (categories, tags, years, /page/N)"]:::feature
-  W_07["W-07: Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"]:::feature,critical
-  W_08["W-08: Port the image pipeline to astro:assets (webp, responsive sizes, social images)"]:::feature
-  W_09["W-09: Restore site services (rss.xml, sitemap, manifest)"]:::feature
+  W_06["W-06: Port taxonomy listings with pagination (categories, tags, years, /page/N)"]:::ready
+  W_07["W-07: Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"]:::ready
+  W_08["W-08: Port the image pipeline to astro:assets (webp, responsive sizes, social images)"]:::ready
+  W_09["W-09: Restore site services (rss.xml, sitemap, manifest)"]:::ready
   W_10["W-10: Restore analytics and error tracking (gtag, Sentry)"]:::feature
   W_11["W-11: Reduce the test suite to logic tests on bun test (drop React snapshots)"]:::feature,critical
   W_12["W-12: Verify parity against the Gatsby build (routes, HTML, screenshots)"]:::feature
@@ -178,7 +178,7 @@ graph TD
   W_11 ==>|blocks| W_13
   W_12 ==>|blocks| W_13
   W_13 -->|implements| D_01
-  class W_02,W_05,W_07,W_11,W_13 critical
+  class W_04,W_05,W_11,W_13 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
