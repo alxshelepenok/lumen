@@ -7,13 +7,13 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| V (uncertainty) | 2 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 0 | 1 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 1 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -26,7 +26,7 @@
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
 | G-09 | Toolchain hardening follows the second review round | count; current=2 target=3 | partial |
-| G-10 | Category and tag grouping share one call path | count; current= target=1 | unverified |
+| G-10 | Category and tag grouping share one call path | count; current=1 target=1 | verified |
 | G-11 | Theme storage key drops the diesel prefix | count; current= target=1 | unverified |
 
 ## Work items
@@ -36,8 +36,8 @@
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
 | W-19 | refactor | Drop the redundant clean script and rimraf | G-09 | clear | ⊤ | done |  |
 | W-20 | refactor | Type check the whole project and fix findings | G-09 | complicated | ⊤ | done |  |
-| W-21 | refactor | Unify category and tag grouping through shared extractors | G-10 | clear | ⊤ | proposed | ★ |
-| W-22 | refactor | Rename the theme storage key off the diesel prefix | G-11 | clear | ⊤ | proposed |  |
+| W-21 | refactor | Unify category and tag grouping through shared extractors | G-10 | clear | ⊤ | done |  |
+| W-22 | refactor | Rename the theme storage key off the diesel prefix | G-11 | clear | ⊤ | proposed | ★ |
 | W-23 | refactor | Strip code comments | G-09 | clear | ⊤ | proposed |  |
 
 ## Decisions
@@ -83,8 +83,8 @@ graph TD
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
   W_19["W-19: Drop the redundant clean script and rimraf"]:::done
   W_20["W-20: Type check the whole project and fix findings"]:::done
-  W_21["W-21: Unify category and tag grouping through shared extractors"]:::feature,critical
-  W_22["W-22: Rename the theme storage key off the diesel prefix"]:::feature
+  W_21["W-21: Unify category and tag grouping through shared extractors"]:::done
+  W_22["W-22: Rename the theme storage key off the diesel prefix"]:::feature,critical
   W_23["W-23: Strip code comments"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
@@ -165,7 +165,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
-  class W_21 critical
+  class W_22 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

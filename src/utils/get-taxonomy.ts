@@ -5,17 +5,23 @@ interface Group {
   totalCount: number;
 }
 
-type KeyOf = (entry: CollectionEntry<"posts">) => string[] | undefined;
+type Post = CollectionEntry<"posts">;
+
+const alphabetical = (a: Group, b: Group): number =>
+  a.fieldValue.localeCompare(b.fieldValue);
+
+const newestFirst = (a: Group, b: Group): number =>
+  Number.parseInt(b.fieldValue) - Number.parseInt(a.fieldValue);
 
 const getGroups = (
-  posts: CollectionEntry<"posts">[],
-  keyOf: KeyOf,
-  compare: (a: Group, b: Group) => number
+  posts: Post[],
+  keyOf: (entry: Post) => string[],
+  compare = alphabetical
 ): Group[] => {
   const counts = new Map<string, number>();
 
   for (const entry of posts) {
-    for (const key of keyOf(entry) ?? []) {
+    for (const key of keyOf(entry)) {
       counts.set(key, (counts.get(key) ?? 0) + 1);
     }
   }
@@ -26,28 +32,14 @@ const getGroups = (
   })).sort(compare);
 };
 
-const alphabetical = (a: Group, b: Group): number =>
-  a.fieldValue.localeCompare(b.fieldValue);
+const categoryOf = (entry: Post): string[] =>
+  entry.data.category ? [entry.data.category] : [];
 
-const newestFirst = (a: Group, b: Group): number =>
-  Number.parseInt(b.fieldValue) - Number.parseInt(a.fieldValue);
+const tagsOf = (entry: Post): string[] => entry.data.tags ?? [];
 
-const getCategories = (posts: CollectionEntry<"posts">[]): Group[] =>
-  getGroups(
-    posts,
-    (entry) => (entry.data.category ? [entry.data.category] : undefined),
-    alphabetical
-  );
+const yearOf = (entry: Post): string[] => [
+  entry.data.date.getFullYear().toString(),
+];
 
-const getTags = (posts: CollectionEntry<"posts">[]): Group[] =>
-  getGroups(posts, (entry) => entry.data.tags, alphabetical);
-
-const getYears = (posts: CollectionEntry<"posts">[]): Group[] =>
-  getGroups(
-    posts,
-    (entry) => [entry.data.date.getFullYear().toString()],
-    newestFirst
-  );
-
-export { getGroups, getTags, getCategories, getYears };
+export { alphabetical, categoryOf, getGroups, newestFirst, tagsOf, yearOf };
 export type { Group };

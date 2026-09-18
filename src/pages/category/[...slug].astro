@@ -11,7 +11,7 @@ import Sidebar from "../../islands/sidebar.astro";
 import { getFeedItems } from "@/utils/get-feed-items";
 import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { getCategories } from "@/utils/get-taxonomy";
+import { categoryOf, getGroups } from "@/utils/get-taxonomy";
 import { toKebabCase } from "@/utils/to-kebab-case";
 
 export const getStaticPaths = async () => {
@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
   );
 
-  return getCategories(posts).flatMap((category) => {
+  return getGroups(posts, categoryOf).flatMap((category) => {
     const kebab = toKebabCase(category.fieldValue);
     const basePath = `/category/${kebab}`;
     const inCategory = posts.filter(

@@ -1,14 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:9684ed69dd0f1cd4b3bdd9211f1f8ceac7cb56fa17de10bbff25ecba786b73b9
+# checksum: sha256:0366ed9d2598ecc917c4a265a5644e14a0d456b1d4716db0c5b692bfb7b190a7
 g G-09 status=partial fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Toolchain hardening follows the second review round"
   area: A-05
   fitness_target: 3
   fitness_current: 2
 
-g G-10 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Category and tag grouping share one call path"
+g G-10 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:03:08Z "Category and tag grouping share one call path"
   area: A-01
   fitness_target: 1
+  fitness_current: 1
 
 g G-11 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Theme storage key drops the diesel prefix"
   area: A-03
@@ -64,7 +65,7 @@ w W-20 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:56:
     | Fixed findings: rss endpoint params typed through CollectionEntry posts, and the markdown pipeline migrated to the Astro 7 processor API (markdown.processor unified options) which removed the smartypants plugin type clash and retired the remark-smartypants dependency since smartypants is built in.
     | Build green with anchors and webp images intact; bun test 19 pass 0 fail.
 
-w W-21 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T21:56:53Z "Unify category and tag grouping through shared extractors"
+w W-21 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T22:03:08Z "Unify category and tag grouping through shared extractors"
   goals: G-10
   theme: T-02
   fitness: G-10=+1
@@ -74,6 +75,9 @@ w W-21 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:52
     | Listing output stays identical across categories, tags and years.
   evidence_strategy:
     | Util review, green tests and unchanged listing markup.
+  evidence:
+    | All six listing pages now call one getGroups generic with named key extractors (categoryOf, tagsOf, yearOf) and orderings (alphabetical default, newestFirst for years); the per-kind wrapper functions are deleted from get-taxonomy.ts.
+    | Listing output identical after the rewiring: categories alphabetical (creative-process through technology-trends), 12 tags, years descending; build, tests (19 pass) and astro check all green.
 
 w W-22 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T21:56:53Z "Rename the theme storage key off the diesel prefix"
   goals: G-11

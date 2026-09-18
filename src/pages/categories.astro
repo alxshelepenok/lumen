@@ -6,13 +6,13 @@ import Layout from "../islands/layout.astro";
 import Page from "../islands/page.astro";
 import Sidebar from "../islands/sidebar.astro";
 
-import { getCategories } from "@/utils/get-taxonomy";
+import { categoryOf, getGroups } from "@/utils/get-taxonomy";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { toKebabCase } from "@/utils/to-kebab-case";
 
 const { title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
-const categories = getCategories(posts);
+const categories = getGroups(posts, categoryOf);
 ---
 
 <BaseLayout title={`Categories - ${title}`} description={description}>

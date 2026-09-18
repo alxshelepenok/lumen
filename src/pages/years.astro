@@ -7,11 +7,11 @@ import Page from "../islands/page.astro";
 import Sidebar from "../islands/sidebar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { getYears } from "@/utils/get-taxonomy";
+import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
 
 const { title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
-const years = getYears(posts);
+const years = getGroups(posts, yearOf, newestFirst);
 ---
 
 <BaseLayout title={`Years - ${title}`} description={description}>
