@@ -21,6 +21,9 @@
     "clean": "rimraf .cache public",
     "build": "bun run clean && gatsby build",
     "start": "bun run clean && gatsby develop",
+    "dev:astro": "astro dev",
+    "build:astro": "astro build",
+    "preview:astro": "astro preview",
     "version": "bun ./internal/scripts/up-version.mjs"
   },
   "dependencies": {
@@ -28,6 +31,7 @@
     "@alxshelepenok/diesel-extensions": "1.0.1241",
     "@sentry/gatsby": "^8.45.1",
     "@sentry/tracing": "^7.114.0",
+    "astro": "^7",
     "classnames": "^2.5.1",
     "gatsby": "^5.14.6",
     "gatsby-link": "^5.14.1",

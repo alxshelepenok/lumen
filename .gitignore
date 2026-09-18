@@ -47,3 +47,7 @@ yarn.lock
 # grove
 .grove/locks/
 !.grove/journal.log
+
+# astro
+dist/
+.astro/

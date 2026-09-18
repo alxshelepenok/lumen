@@ -6,18 +6,18 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 9 | validated B 0 · answered Q 3 · accepted D 6 |
-| V (uncertainty) | 22 | open Q 0 · pending B 5 · W below DoR 4 · uncovered surface 13 |
+| C (content) | 16 | validated B 4 · answered Q 3 · accepted D 9 |
+| V (uncertainty) | 14 | open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 12 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 0 | 7 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 2 · W below DoR 1 · uncovered surface 4 |
-| A-02 | Pages and routing | 3 | 4 | C: validated B 0 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-03 | Interface and theming | 3 | 4 | C: validated B 0 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-01 | Content pipeline | 6 | 3 | C: validated B 3 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| A-02 | Pages and routing | 4 | 2 | C: validated B 1 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
+| A-03 | Interface and theming | 4 | 2 | C: validated B 1 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 | A-04 | Site services | 1 | 4 | C: validated B 0 · answered Q 1 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-05 | Toolchain and delivery | 2 | 5 | C: validated B 0 · answered Q 1 · accepted D 1; V: open Q 0 · pending B 1 · W below DoR 0 · uncovered surface 4 |
+| A-05 | Toolchain and delivery | 6 | 3 | C: validated B 2 · answered Q 1 · accepted D 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -25,22 +25,22 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-01 | Content pipeline runs on Astro with rendering parity | count; current= target=3 | unverified |
+| G-01 | Content pipeline runs on Astro with rendering parity | count; current=0 target=3 | unverified |
 | G-02 | All public routes keep their Gatsby URL shapes on Astro | count; current= target=2 | unverified |
 | G-03 | Interface and theming match the current site on Astro | count; current= target=2 | unverified |
 | G-04 | Site services are restored (feed, sitemap, manifest, analytics, error tracking) | count; current= target=2 | unverified |
-| G-05 | Delivery pipeline runs on Astro (tests, parity verification, cleanup) | count; current= target=3 | unverified |
+| G-05 | Delivery pipeline runs on Astro (tests, parity verification, cleanup) | count; current=0 target=3 | unverified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | ready | ★ |
-| W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊥ | proposed |  |
-| W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊥ | proposed | ★ |
+| W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
+| W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊤ | ready |  |
+| W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊤ | ready | ★ |
 | W-04 | feature | Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | proposed | ★ |
 | W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊤ | proposed | ★ |
-| W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊥ | proposed |  |
+| W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊤ | proposed |  |
 | W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | proposed |  |
 | W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | proposed |  |
 | W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | proposed |  |
@@ -57,10 +57,10 @@
 | D-02 | Native Astro components without React runtime | accepted |  |
 | D-03 | Vanilla theme state replaces diesel | accepted |  |
 | D-04 | Shiki replaces PrismJS for code highlighting | proposed |  |
-| D-05 | Content collections replace GraphQL sourcing | proposed |  |
+| D-05 | Content collections replace GraphQL sourcing | accepted |  |
 | D-06 | URL parity including page pagination paths | accepted |  |
-| D-07 | Static output only | proposed |  |
-| D-08 | Bun stays the package manager and script runner | proposed |  |
+| D-07 | Static output only | accepted |  |
+| D-08 | Bun stays the package manager and script runner | accepted |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 | D-10 | Flat islands directory replaces the components tree | accepted |  |
 
@@ -76,11 +76,12 @@
 
 | ID | Assumption | Tests | Targets | Status |
 | --- | --- | --- | --- | --- |
-| B-01 | Astro 7 content collections cover the lumen frontmatter |  | W-02 | proposed |
-| B-02 | Bun drives the Astro 7 toolchain |  | W-01 | proposed |
+| B-01 | Astro 7 content collections cover the lumen frontmatter |  | W-02 | validated |
+| B-02 | Bun drives the Astro 7 toolchain |  | W-01 | validated |
 | B-03 | The Sentry Astro SDK supports Astro 7 |  | W-10 | proposed |
-| B-04 | Existing SCSS compiles under Vite with minimal changes |  | W-03 | proposed |
-| B-05 | paginate() supports the Gatsby /page/N path shape |  | W-06 | proposed |
+| B-04 | Existing SCSS compiles under Vite with minimal changes |  | W-03 | validated |
+| B-05 | paginate() supports the Gatsby /page/N path shape |  | W-06 | invalidated_acceptable |
+| B-06 | Manual getStaticPaths emits the bare-first-plus-page-N URL set |  | W-06 | validated |
 
 ## Themes
 
@@ -97,9 +98,9 @@ graph TD
   G_03["G-03: Interface and theming match the current site on Astro"]:::goal
   G_04["G-04: Site services are restored (feed, sitemap, manifest, analytics, error tracking)"]:::goal
   G_05["G-05: Delivery pipeline runs on Astro (tests, parity verification, cleanup)"]:::goal
-  W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike,critical
-  W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::feature
-  W_03["W-03: Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"]:::feature,critical
+  W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
+  W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::ready
+  W_03["W-03: Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"]:::ready,critical
   W_04["W-04: Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"]:::feature,critical
   W_05["W-05: Port core templates with URL parity (index, post, page, 404, meta)"]:::feature,critical
   W_06["W-06: Port taxonomy listings with pagination (categories, tags, years, /page/N)"]:::feature
@@ -128,6 +129,7 @@ graph TD
   B_03["B-03: The Sentry Astro SDK supports Astro 7"]:::assumption
   B_04["B-04: Existing SCSS compiles under Vite with minimal changes"]:::assumption
   B_05["B-05: paginate() supports the Gatsby /page/N path shape"]:::assumption
+  B_06["B-06: Manual getStaticPaths emits the bare-first-plus-page-N URL set"]:::assumption
   T_01["T-01: Legacy Gatsby platform constraints"]:::theme
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
@@ -139,6 +141,7 @@ graph TD
   B_03 -.->|targets| W_10
   B_04 -.->|targets| W_03
   B_05 -.->|targets| W_06
+  B_06 -.->|targets| W_06
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
   Q_02 -->|asks| W_11
@@ -148,6 +151,7 @@ graph TD
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
   W_01 -->|implements| D_08
+  W_01 -->|produces| B_06
   W_02 ==>|blocks| W_05
   W_02 ==>|blocks| W_06
   W_02 ==>|blocks| W_07
@@ -174,7 +178,7 @@ graph TD
   W_11 ==>|blocks| W_13
   W_12 ==>|blocks| W_13
   W_13 -->|implements| D_01
-  class W_01,W_03,W_04,W_05,W_11,W_13 critical
+  class W_03,W_04,W_05,W_11,W_13 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
