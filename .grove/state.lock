@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:4417a6bbb45699c10b609755b772a37a2306a5b9609cb87ba7bd4753a63d5453
+# checksum: sha256:92ccc661015df32f251ce6175520b5562f760797ee4b0e50786f8047ad0fa909
 w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -96,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:52:50Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:54:13Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -202,6 +202,7 @@ e T-02 causes W-40 t_created=2026-09-18T23:44:30Z
 e T-02 causes W-41 t_created=2026-09-18T23:45:48Z
 e T-02 causes W-42 t_created=2026-09-18T23:48:05Z
 e T-02 causes W-43 t_created=2026-09-18T23:49:24Z
+e T-02 causes W-44 t_created=2026-09-18T23:53:40Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -365,6 +366,11 @@ g G-24 status=verified fitness_kind=count t_created=2026-09-18T23:48:04Z t_updat
   fitness_current: 1
 
 g G-25 status=verified fitness_kind=count t_created=2026-09-18T23:49:23Z t_updated=2026-09-18T23:52:50Z "Tsconfig mirrors the house reference"
+  area: A-05
+  fitness_target: 1
+  fitness_current: 1
+
+g G-26 status=verified fitness_kind=count t_created=2026-09-18T23:53:39Z t_updated=2026-09-18T23:54:13Z "The site config imports through an alias"
   area: A-05
   fitness_target: 1
   fitness_current: 1
@@ -1024,6 +1030,19 @@ w W-43 type=refactor status=done cynefin=clear t_created=2026-09-18T23:49:23Z t_
   evidence:
     | tsconfig now mirrors the house reference compilerOptions verbatim (target, module, moduleResolution, lib, jsx, the full strict flag set, outDir target) with only the path aliases adapted to lumen plus two working additions: types bun and the include of .astro/types.d.ts.
     | One deliberate deviation from the literal reference include: **/*.astro plus **/*.ts drops the generated content declaration from the astro check program (implicit any on every getCollection callback, reproduced and measured), so include stays .astro/types.d.ts plus **/* which keeps tsc, astro check, build and tests green simultaneously.
+
+w W-44 type=refactor status=done cynefin=clear t_created=2026-09-18T23:53:39Z t_updated=2026-09-18T23:54:13Z "Alias the content config import"
+  goals: G-26
+  theme: T-02
+  fitness: G-26=+1
+  surface: tsconfig.json, src/utils/get-site-metadata.ts, astro.config.ts
+  ac:
+    | The site metadata util imports content/config.json through the @/content alias and no ../../ escapes remain in src.
+  evidence_strategy:
+    | Grep for relative escapes plus green tsc, check, build and tests.
+  evidence:
+    | tsconfig gains the @/content alias mapped to ./content and both importers use it: src/utils/get-site-metadata.ts and astro.config.ts itself (the astro config loader resolves tsconfig paths, build green); no ../../ escapes remain under src.
+    | tsc clean, astro check clean, build green, suite green.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:

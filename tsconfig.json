@@ -4,10 +4,15 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "jsx": "react",
     "strict": true,
-    "types": ["bun"],
+    "types": [
+      "bun"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "noUnusedLocals": true,
@@ -22,14 +27,35 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "target",
     "paths": {
-      "@/utils/*": ["./src/utils/*"],
-      "@/assets/*": ["./src/assets/*"],
-      "@/constants/*": ["./src/constants/*"],
-      "@/islands/*": ["./src/islands/*"],
-      "@/internal/*": ["./internal/*"],
-      "@/mocks": ["./internal/testing/mocks"]
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/constants/*": [
+        "./src/constants/*"
+      ],
+      "@/content/*": [
+        "./content/*"
+      ],
+      "@/internal/*": [
+        "./internal/*"
+      ],
+      "@/islands/*": [
+        "./src/islands/*"
+      ],
+      "@/mocks": [
+        "./internal/testing/mocks"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ]
     }
   },
-  "exclude": ["node_modules", "target"],
-  "include": [".astro/types.d.ts", "**/*"]
+  "exclude": [
+    "node_modules",
+    "target"
+  ],
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ]
 }

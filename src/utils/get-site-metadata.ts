@@ -1,6 +1,6 @@
 import { icons } from "@/constants/icons";
 
-import config from "../../content/config.json";
+import config from "@/content/config.json";
 
 type SiteMetadataAuthor = {
   title: string;

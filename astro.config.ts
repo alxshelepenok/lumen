@@ -8,7 +8,7 @@ import autoprefixer from "autoprefixer";
 import { rehypeHtml } from "./internal/rehype-html.mjs";
 import { remarkResolveContentImages } from "./internal/resolve-content-images.mjs";
 
-import config from "./content/config.json";
+import config from "@/content/config.json";
 
 export default defineConfig({
   output: "static",
