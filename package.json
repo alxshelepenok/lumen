@@ -14,11 +14,11 @@
   "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
   "scripts": {
     "test": "bun test",
+    "check": "astro check",
     "serve": "astro preview",
     "release": "semantic-release",
-    "clean": "rimraf .astro target",
-    "build": "bun run clean && astro build",
-    "start": "bun run clean && astro dev",
+    "build": "astro build",
+    "start": "astro dev",
     "version": "bun ./internal/scripts/up-version.mjs"
   },
   "dependencies": {
@@ -42,7 +42,6 @@
     "autoprefixer": "^10.4.21",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "postcss": "^8.4.49",
-    "rimraf": "6.0.1",
     "sass": "1.75.0",
     "semantic-release": "^24.2.9",
     "typescript": "^5.7.3"

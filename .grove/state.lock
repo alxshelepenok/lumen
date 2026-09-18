@@ -1,6 +1,19 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:c1a6ede6673d92e7cb9e784221379821e869958b8fcbd89741e32328e284ed4f
+# checksum: sha256:a9df626784ee318cf3bc01d03701fc0dd3d5c2afc0f855a8be39fb38e3b4135b
+g G-09 status=partial fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Toolchain hardening follows the second review round"
+  area: A-05
+  fitness_target: 3
+  fitness_current: 1
+
+g G-10 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Category and tag grouping share one call path"
+  area: A-01
+  fitness_target: 1
+
+g G-11 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Theme storage key drops the diesel prefix"
+  area: A-03
+  fitness_target: 1
+
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -24,6 +37,59 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
+
+w W-19 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Drop the redundant clean script and rimraf"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: package.json
+  ac:
+    | The clean script and the rimraf dependency are gone and build plus start run plain astro commands.
+  evidence_strategy:
+    | package.json review plus a green rebuild proving astro empties target itself.
+  evidence:
+    | Astro empties the outDir itself on every build, so the clean script and the rimraf dependency are gone; build and start run plain astro commands and a from-scratch rebuild is green with 31 pages in target.
+
+w W-20 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T21:56:51Z t_updated=2026-09-18T21:56:52Z "Type check the whole project and fix findings"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: src, astro.config.ts, package.json
+  ac:
+    | astro check runs across the project through a check script and reports no errors.
+  evidence_strategy:
+    | astro check output clean plus a green build.
+
+w W-21 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T21:56:53Z "Unify category and tag grouping through shared extractors"
+  goals: G-10
+  theme: T-02
+  fitness: G-10=+1
+  surface: src/utils/get-taxonomy.ts, src/pages
+  ac:
+    | Category and tag pages call one getGroups generic with named key extractors; no per-kind wrapper functions remain.
+    | Listing output stays identical across categories, tags and years.
+  evidence_strategy:
+    | Util review, green tests and unchanged listing markup.
+
+w W-22 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T21:56:53Z "Rename the theme storage key off the diesel prefix"
+  goals: G-11
+  theme: T-02
+  fitness: G-11=+1
+  surface: src/utils/theme.ts, src/utils/theme.test.ts
+  ac:
+    | The storage key becomes lumen:theme with the value shape unchanged and the theme test asserting the new key.
+  evidence_strategy:
+    | Green theme tests and the built inline script carrying the new key.
+
+w W-23 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:54Z t_updated=2026-09-18T21:56:54Z "Strip code comments"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: src, internal, astro.config.ts
+  ac:
+    | No line comments or block comments remain in source files; the typescript reference directive in env.d.ts stays as tooling syntax.
+  evidence_strategy:
+    | Grep for comment markers returns only tooling directives.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -96,7 +162,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:07Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:56:54Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -178,6 +244,11 @@ e T-02 causes W-15 t_created=2026-09-18T21:42:45Z
 e T-02 causes W-16 t_created=2026-09-18T21:42:46Z
 e T-02 causes W-17 t_created=2026-09-18T21:42:47Z
 e T-02 causes W-18 t_created=2026-09-18T21:42:48Z
+e T-02 causes W-19 t_created=2026-09-18T21:56:51Z
+e T-02 causes W-20 t_created=2026-09-18T21:56:52Z
+e T-02 causes W-21 t_created=2026-09-18T21:56:53Z
+e T-02 causes W-22 t_created=2026-09-18T21:56:53Z
+e T-02 causes W-23 t_created=2026-09-18T21:56:54Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
