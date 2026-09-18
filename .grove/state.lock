@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:a9df626784ee318cf3bc01d03701fc0dd3d5c2afc0f855a8be39fb38e3b4135b
+# checksum: sha256:9684ed69dd0f1cd4b3bdd9211f1f8ceac7cb56fa17de10bbff25ecba786b73b9
 g G-09 status=partial fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Toolchain hardening follows the second review round"
   area: A-05
   fitness_target: 3
-  fitness_current: 1
+  fitness_current: 2
 
 g G-10 status=unverified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:56:50Z "Category and tag grouping share one call path"
   area: A-01
@@ -50,7 +50,7 @@ w W-19 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:50Z t_
   evidence:
     | Astro empties the outDir itself on every build, so the clean script and the rimraf dependency are gone; build and start run plain astro commands and a from-scratch rebuild is green with 31 pages in target.
 
-w W-20 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T21:56:51Z t_updated=2026-09-18T21:56:52Z "Type check the whole project and fix findings"
+w W-20 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:56:51Z t_updated=2026-09-18T22:02:13Z "Type check the whole project and fix findings"
   goals: G-09
   theme: T-02
   fitness: G-09=+1
@@ -59,6 +59,10 @@ w W-20 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T21
     | astro check runs across the project through a check script and reports no errors.
   evidence_strategy:
     | astro check output clean plus a green build.
+  evidence:
+    | bun run check (astro check via the new check script and @astrojs/check) reports 0 errors, 0 warnings and 0 hints across 26 files.
+    | Fixed findings: rss endpoint params typed through CollectionEntry posts, and the markdown pipeline migrated to the Astro 7 processor API (markdown.processor unified options) which removed the smartypants plugin type clash and retired the remark-smartypants dependency since smartypants is built in.
+    | Build green with anchors and webp images intact; bun test 19 pass 0 fail.
 
 w W-21 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T21:56:53Z "Unify category and tag grouping through shared extractors"
   goals: G-10

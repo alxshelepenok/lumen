@@ -1,22 +1,25 @@
 import rss from "@astrojs/rss";
 import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import type { APIContext } from "astro";
 
 import { getSlug } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
+type Post = CollectionEntry<"posts">;
+
 export const GET = async (context: APIContext) => {
   const { title, description } = getSiteMetadata();
 
-  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-  );
+  const posts = (
+    await getCollection("posts", ({ data }: Post) => !data.draft)
+  ).sort((a: Post, b: Post) => b.data.date.valueOf() - a.data.date.valueOf());
 
   const container = await AstroContainer.create();
 
   const items = await Promise.all(
-    posts.map(async (post) => {
+    posts.map(async (post: Post) => {
       const { Content } = await render(post);
       const content = await container.renderToString(Content);
       const link = context.site
@@ -39,4 +42,4 @@ export const GET = async (context: APIContext) => {
     site: context.site ?? "/",
     title,
   });
-}
+};

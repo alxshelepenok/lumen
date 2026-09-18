@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import { unified } from "@astrojs/markdown-remark";
 
 import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
@@ -8,12 +9,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
-import remarkSmartypants from "remark-smartypants";
 
 import { rehypeResponsiveIframe } from "./internal/astro/rehype/responsive-iframe.mjs";
 import { remarkResolveContentImages } from "./internal/astro/remark/resolve-content-images.mjs";
 
 import config from "./content/config.json";
+
 
 const anchorIcon = {
   type: "element",
@@ -57,28 +58,30 @@ export default defineConfig({
     responsiveStyles: true,
   },
   markdown: {
-    remarkPlugins: [remarkResolveContentImages, remarkSmartypants],
-    rehypePlugins: [
-      rehypeRaw,
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "prepend",
-          headingProperties: { style: "position: relative;" },
-          properties: (element: { properties: { id?: unknown } }) => ({
-            className: ["anchor", "before"],
-            ariaLabel: `${String(element.properties.id ?? "").replace(/-/g, " ")} permalink`,
-          }),
-          content: anchorIcon,
-        },
-      ],
-      [rehypeExternalLinks, { target: "_blank", rel: "noopener" }],
-      rehypeResponsiveIframe,
-    ],
     shikiConfig: {
       theme: "solarized-light",
     },
+    processor: unified({
+      remarkPlugins: [remarkResolveContentImages],
+      rehypePlugins: [
+        rehypeRaw,
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "prepend",
+            headingProperties: { style: "position: relative;" },
+            properties: (element: { properties: { id?: unknown } }) => ({
+              className: ["anchor", "before"],
+              ariaLabel: `${String(element.properties.id ?? "").replace(/-/g, " ")} permalink`,
+            }),
+            content: anchorIcon,
+          },
+        ],
+        [rehypeExternalLinks, { target: "_blank", rel: "noopener" }],
+        rehypeResponsiveIframe,
+      ],
+    }),
   },
   vite: {
     css: {
