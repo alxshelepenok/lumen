@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| V (uncertainty) | 2 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 ## Areas
 
@@ -17,7 +17,7 @@
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
-| A-05 | Toolchain and delivery | 2 | 2 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
+| A-05 | Toolchain and delivery | 2 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -25,7 +25,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-12 | Repository layout and test environment follow the third review round | count; current=1 target=3 | partial |
+| G-12 | Repository layout and test environment follow the third review round | count; current=2 target=3 | partial |
 | G-13 | The feed is served as atom | count; current= target=1 | unverified |
 
 ## Work items
@@ -34,8 +34,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
 | W-24 | refactor | Flatten the internal directory (plugins and the dependency sorter at the root) | G-12 | clear | ⊤ | done |  |
-| W-25 | refactor | Drop happy-dom from the test environment | G-12 | complicated | ⊤ | proposed | ★ |
-| W-26 | refactor | Purge the one-shot parity artifacts from git history | G-12 | complicated | ⊤ | proposed |  |
+| W-25 | refactor | Drop happy-dom from the test environment | G-12 | complicated | ⊤ | done |  |
+| W-26 | refactor | Purge the one-shot parity artifacts from git history | G-12 | complicated | ⊤ | proposed | ★ |
 | W-27 | feature | Serve the feed as atom.xml | G-13 | clear | ⊤ | proposed |  |
 
 ## Decisions
@@ -79,8 +79,8 @@ graph TD
   G_13["G-13: The feed is served as atom"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
   W_24["W-24: Flatten the internal directory (plugins and the dependency sorter at the root)"]:::done
-  W_25["W-25: Drop happy-dom from the test environment"]:::feature,critical
-  W_26["W-26: Purge the one-shot parity artifacts from git history"]:::feature
+  W_25["W-25: Drop happy-dom from the test environment"]:::done
+  W_26["W-26: Purge the one-shot parity artifacts from git history"]:::feature,critical
   W_27["W-27: Serve the feed as atom.xml"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
@@ -165,7 +165,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
-  class W_25 critical
+  class W_26 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

@@ -13,7 +13,7 @@ const isThemeMode = (value: unknown): value is ThemeMode =>
 
 const readStoredTheme = (): Theme | null => {
   try {
-    const stored = window.localStorage.getItem(themeStorageKey);
+    const stored = globalThis.localStorage?.getItem(themeStorageKey);
 
     if (!stored) {
       return null;
@@ -37,8 +37,9 @@ const readStoredTheme = (): Theme | null => {
 
 const writeStoredTheme = (theme: Theme): void => {
   try {
-    window.localStorage.setItem(themeStorageKey, JSON.stringify(theme));
+    globalThis.localStorage?.setItem(themeStorageKey, JSON.stringify(theme));
   } catch {
+    return;
   }
 };
 
@@ -46,6 +47,10 @@ const getTheme = (): Theme =>
   readStoredTheme() ?? { mode: getDefaultColorMode() };
 
 const applyTheme = (theme: Theme): void => {
+  if (typeof document === "undefined") {
+    return;
+  }
+
   document.documentElement.className = theme.mode;
 };
 

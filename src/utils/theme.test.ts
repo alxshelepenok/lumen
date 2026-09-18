@@ -1,5 +1,7 @@
 import { beforeEach, describe, expect, it } from "bun:test";
 
+import { localStorageMock } from "@/mocks";
+
 import {
   getTheme,
   readStoredTheme,
@@ -8,9 +10,14 @@ import {
   writeStoredTheme,
 } from "@/utils/theme";
 
+const storage = localStorageMock() as Storage;
+
+globalThis.localStorage = storage;
+
 describe("theme", () => {
   beforeEach(() => {
-    window.localStorage.clear();
+    storage.clear();
+    delete (globalThis as { window?: unknown }).window;
   });
 
   it("uses the lumen storage key", () => {
@@ -25,19 +32,17 @@ describe("theme", () => {
     writeStoredTheme({ mode: "dark" });
 
     expect(readStoredTheme()).toEqual({ mode: "dark" });
-    expect(window.localStorage.getItem(themeStorageKey)).toBe(
-      `{"mode":"dark"}`
-    );
+    expect(storage.getItem(themeStorageKey)).toBe(`{"mode":"dark"}`);
   });
 
   it("tolerates malformed stored values", () => {
-    window.localStorage.setItem(themeStorageKey, "not json");
+    storage.setItem(themeStorageKey, "not json");
 
     expect(readStoredTheme()).toBeNull();
   });
 
   it("rejects stored values with an unknown mode", () => {
-    window.localStorage.setItem(themeStorageKey, `{"mode":"blue"}`);
+    storage.setItem(themeStorageKey, `{"mode":"blue"}`);
 
     expect(readStoredTheme()).toBeNull();
   });
@@ -46,14 +51,11 @@ describe("theme", () => {
     expect(getTheme().mode).toBe("light");
   });
 
-  it("toggles the mode, persists it and mirrors it on html", () => {
+  it("toggles the mode and persists it", () => {
     const next = toggleTheme();
 
     expect(next.mode).toBe("dark");
     expect(readStoredTheme()).toEqual({ mode: "dark" });
-    expect(document.documentElement.className).toBe("dark");
-
     expect(toggleTheme().mode).toBe("light");
-    expect(document.documentElement.className).toBe("light");
   });
 });

@@ -1,30 +1,38 @@
-import { describe, expect, test, spyOn } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
 import { getDefaultColorMode } from "./get-default-color-mode";
 
+const withWindow = (matches: boolean): void => {
+  (globalThis as { window?: unknown }).window = {
+    matchMedia: () => ({ matches }),
+  };
+};
+
+const withoutWindow = (): void => {
+  delete (globalThis as { window?: unknown }).window;
+};
+
 describe("getDefaultColorMode", () => {
   test("successful return color mode", () => {
+    withoutWindow();
     expect(getDefaultColorMode()).toBe("light");
-    const matchMediaSpy = spyOn(window, "matchMedia");
-    matchMediaSpy.mockReturnValue({ matches: true } as MediaQueryList);
+
+    withWindow(true);
     expect(getDefaultColorMode()).toBe("dark");
-    matchMediaSpy.mockReturnValue({} as MediaQueryList);
+
+    withWindow(false);
     expect(getDefaultColorMode()).toBe("light");
-    matchMediaSpy.mockRestore();
+
+    withoutWindow();
   });
 
   test("successful return default color mode on ssr", () => {
-    const matchMediaSpy = spyOn(window, "matchMedia");
-    matchMediaSpy.mockReturnValue({ matches: true } as MediaQueryList);
-
-    const windowSpy: ReturnType<typeof spyOn> = spyOn(global, "window");
-    windowSpy.mockReturnValue(undefined);
-    expect(window).toBeUndefined();
-
+    withoutWindow();
     expect(getDefaultColorMode()).toBe("light");
-    windowSpy.mockRestore();
 
+    withWindow(true);
     expect(getDefaultColorMode()).toBe("dark");
-    matchMediaSpy.mockRestore();
+
+    withoutWindow();
   });
 });

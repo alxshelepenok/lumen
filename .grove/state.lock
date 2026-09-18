@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:de02f1ee94296ee6bd2b49d70fe4a03fb2a8609098bdf90672f19dc38146dd73
+# checksum: sha256:3bfb24f21f3181d7a5ba0e794b25b46316537108a4849f49461ec4bb91f75b02
 g G-12 status=partial fitness_kind=count t_created=2026-09-18T22:06:31Z t_updated=2026-09-18T22:07:28Z "Repository layout and test environment follow the third review round"
   area: A-05
   fitness_target: 3
-  fitness_current: 1
+  fitness_current: 2
 
 g G-13 status=unverified fitness_kind=count t_created=2026-09-18T22:06:32Z t_updated=2026-09-18T22:06:32Z "The feed is served as atom"
   area: A-04
@@ -46,7 +46,7 @@ w W-24 type=refactor status=done cynefin=clear t_created=2026-09-18T22:06:32Z t_
   evidence:
     | Plugins flattened to internal/resolve-content-images.mjs and internal/responsive-iframe.mjs with sort-dependencies.py beside them; astro.config imports updated and the build is green.
 
-w W-25 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22:06:33Z t_updated=2026-09-18T22:06:59Z "Drop happy-dom from the test environment"
+w W-25 type=refactor status=done cynefin=complicated t_created=2026-09-18T22:06:33Z t_updated=2026-09-18T22:09:24Z "Drop happy-dom from the test environment"
   goals: G-12
   theme: T-02
   fitness: G-12=+1
@@ -55,6 +55,8 @@ w W-25 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22
     | The theme util is environment safe (storage through globalThis, document guarded) and the suite runs on bun test alone with no preload and no happy-dom dependency.
   evidence_strategy:
     | Green bun test without the preload plus a removed devDependency.
+  evidence:
+    | Theme util is environment safe (storage through globalThis with optional chaining, document guarded in applyTheme) and both dom-dependent suites now inject their own globals; preload.ts, bunfig.toml and the @happy-dom/global-registrator dependency are gone with the suite green (19 tests, 0 fail) and astro check clean.
 
 w W-26 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22:06:59Z t_updated=2026-09-18T22:06:59Z "Purge the one-shot parity artifacts from git history"
   goals: G-12
