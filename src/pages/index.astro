@@ -1,11 +1,47 @@
 ---
-import BaseLayout from "../islands/base-layout.astro";
-import ThemeToggle from "../islands/theme-toggle.astro";
+import { getCollection } from "astro:content";
 
-const title = "lumen on astro";
+import BaseLayout from "../islands/base-layout.astro";
+import Feed from "../islands/feed.astro";
+import Layout from "../islands/layout.astro";
+import Page from "../islands/page.astro";
+import Pagination from "../islands/pagination.astro";
+import Sidebar from "../islands/sidebar.astro";
+
+import { getCategorySlug, getSlug } from "@/utils/get-slug";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+const { title, description, feedLimit } = getSiteMetadata();
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const totalPages = Math.ceil(posts.length / feedLimit);
+
+const items = posts.slice(0, feedLimit).map((entry) => ({
+  category: entry.data.category,
+  categorySlug: entry.data.category
+    ? getCategorySlug(entry.data.category)
+    : undefined,
+  date: entry.data.date,
+  description: entry.data.description,
+  slug: getSlug(entry.id, "posts"),
+  title: entry.data.title,
+}));
 ---
 
-<BaseLayout title={title}>
-  <h1>{title}</h1>
-  <ThemeToggle />
+<BaseLayout title={title} description={description}>
+  <Layout>
+    <Sidebar isHome />
+    <Page>
+      <Feed items={items} />
+      <Pagination
+        prevPagePath="/"
+        nextPagePath="/page/2"
+        hasPrevPage={false}
+        hasNextPage={totalPages > 1}
+      />
+    </Page>
+  </Layout>
 </BaseLayout>

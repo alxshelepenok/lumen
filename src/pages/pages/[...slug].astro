@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "../../islands/base-layout.astro";
+import Layout from "../../islands/layout.astro";
+import Page from "../../islands/page.astro";
+import Sidebar from "../../islands/sidebar.astro";
+
+import { getSlug } from "@/utils/get-slug";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages", ({ data }) => !data.draft);
+
+  return pages.map((entry) => ({
+    params: {
+      slug: getSlug(entry.id, "pages")
+        .replace(/^\/pages\/?/, "")
+        .replace(/\/$/, ""),
+    },
+    props: { page: entry },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const { title, description } = getSiteMetadata();
+const socialImage = page.data.socialImage;
+const image =
+  socialImage?.src && Astro.site
+    ? new URL(socialImage.src, Astro.site).href
+    : undefined;
+---
+
+<BaseLayout
+  title={`${page.data.title} - ${title}`}
+  description={page.data.description || description}
+  image={image}
+>
+  <Layout>
+    <Sidebar />
+    <Page title={page.data.title}>
+      <div>
+        <Content />
+      </div>
+    </Page>
+  </Layout>
+</BaseLayout>

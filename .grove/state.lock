@@ -1,14 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:7f8778481128fbe42963cd5ad384598e0d762ffdfbbb58e789a2f23274efb638
+# checksum: sha256:e160e8d93f832edc2a62078724e6eab387bf64fe8bdddc1dea2d88bd65aa2f4c
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
   fitness_current: 3
 
-g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "All public routes keep their Gatsby URL shapes on Astro"
+g G-02 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:50:49Z "All public routes keep their Gatsby URL shapes on Astro"
   area: A-02
   fitness_target: 2
+  fitness_current: 1
 
 g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:11:51Z "Interface and theming match the current site on Astro"
   area: A-03
@@ -110,10 +111,10 @@ w W-04 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:1
     | Logical class diff against the Gatsby index and post builds: zero Astro-only classes; the only gatsby-only classes are markdown pipeline ones (anchor, before, gatsby-resp-image) and the active menu state, owned by W-07, W-08 and page assembly.
     | bun test: 111 pass, 4 fail (the pre-existing years failures); bun run build:astro green on the clean tree.
 
-w W-05 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:46:41Z "Port core templates with URL parity (index, post, page, 404, meta)"
+w W-05 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:50:49Z "Port core templates with URL parity (index, post, page, 404, meta)"
   goals: G-02
   fitness: G-02=+1
-  surface: src/templates, internal/gatsby/constants, src/pages
+  surface: src/templates, internal/gatsby/constants, src/pages, src/pages, src/islands/base-layout.astro
   ac:
     | Routes /, post slugs, page slugs and /404 render from .astro pages backed by collection data.
     | Per-template meta tags match the current Head output (title, description, twitter and og fields, social image).
@@ -123,6 +124,11 @@ w W-05 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
     | Gatsby templates map one-to-one onto .astro pages with frontmatter-derived routes.
   evidence_strategy:
     | HTML comparison against the Gatsby build over the sample content.
+  evidence:
+    | Routes built: / (feed of 4 with feedLimit), 5 post slugs, 2 page slugs and 404.html; route diff against the Gatsby build is empty except the Gatsby 404 directory and page-data artifacts.
+    | Head parity: titles match on all four kinds (index, post, page, 404), descriptions match, og image absolute on post and page, twitter card summary_large_image; about emits the site description where Gatsby rendered an empty content attribute (Head quirk, recorded as accepted improvement).
+    | Canonical link tags on every page with trailing slash (https://lumen.alxshelepenok.com/posts/a-brief-history-of-typography/ style) per D-06 and Q-01.
+    | Post page structure: no sidebar, All Articles button, tag links identical including trailing slashes (/tag/linotype/, /tag/helvetica/, /tag/history-of-typography/), published date identical (React only adds comment markers); feed shows 4 Read links in both builds.
 
 w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T20:01:55Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
   goals: G-02

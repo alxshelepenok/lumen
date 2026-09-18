@@ -13,6 +13,14 @@ interface Props {
 
 const { description = "", image, title } = Astro.props;
 
+const canonicalPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+
+const canonical = Astro.site
+  ? new URL(canonicalPath, Astro.site).href
+  : canonicalPath;
+
 const themeScript = `
   void function() {
     var cachedMode;
@@ -42,6 +50,7 @@ const themeScript = `
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Meta title={title} description={description} image={image} />
+    <link rel="canonical" href={canonical} />
     <script is:inline set:html={themeScript} />
   </head>
   <body>

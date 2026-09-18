@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from "astro:content";
+
+import BaseLayout from "../../islands/base-layout.astro";
+import Layout from "../../islands/layout.astro";
+import Post from "../../islands/post.astro";
+
+import { getSlug, getTagSlugs } from "@/utils/get-slug";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+
+  return posts.map((entry) => ({
+    params: {
+      slug: getSlug(entry.id, "posts")
+        .replace(/^\/posts\/?/, "")
+        .replace(/\/$/, ""),
+    },
+    props: { post: entry },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const { title, description } = getSiteMetadata();
+const socialImage = post.data.socialImage;
+const image =
+  socialImage?.src && Astro.site
+    ? new URL(socialImage.src, Astro.site).href
+    : undefined;
+---
+
+<BaseLayout
+  title={`${post.data.title} - ${title}`}
+  description={post.data.description || description}
+  image={image}
+>
+  <Layout>
+    <Post
+      post={{
+        Content,
+        date: post.data.date,
+        tagSlugs: post.data.tags ? getTagSlugs(post.data.tags) : undefined,
+        tags: post.data.tags,
+        title: post.data.title,
+      }}
+    />
+  </Layout>
+</BaseLayout>
