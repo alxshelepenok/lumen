@@ -1,4 +1,4 @@
-import { toKebabCase } from "@/utils/to-kebab-case";
+import { routes } from "@/utils/routes";
 
 type ContentPrefix = "posts" | "pages";
 
@@ -6,10 +6,10 @@ const getSlug = (id: string, prefix: ContentPrefix): string =>
   id.startsWith("/") ? id : `/${prefix}/${id}`;
 
 const getTagSlugs = (tags: string[]): string[] =>
-  tags.map((tag) => `/tag/${toKebabCase(tag)}/`);
+  tags.map((tag) => routes.tag(tag).href());
 
 const getCategorySlug = (category: string): string =>
-  `/category/${toKebabCase(category)}`;
+  routes.category(category).href();
 
 export { getCategorySlug, getSlug, getTagSlugs };
 export type { ContentPrefix };

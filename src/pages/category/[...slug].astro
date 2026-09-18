@@ -12,7 +12,7 @@ import { getFeedItems } from "@/utils/get-feed-items";
 import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
-import { toKebabCase } from "@/utils/to-kebab-case";
+import { routes, toKebabCase } from "@/utils/routes";
 
 export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 
   return getGroups(posts, categoryOf).flatMap((category) => {
     const kebab = toKebabCase(category.fieldValue);
-    const basePath = `/category/${kebab}`;
+    const basePath = routes.category(category.fieldValue).path;
     const inCategory = posts.filter(
       (post) => post.data.category === category.fieldValue
     );

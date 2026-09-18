@@ -2,7 +2,6 @@
 import styles from "@/assets/styles/modules/feed.module.scss";
 
 import type { FeedItem } from "@/utils/get-feed-items";
-import { withTrailingSlash } from "@/utils/with-trailing-slash";
 
 interface Props {
   items: FeedItem[];
@@ -32,19 +31,19 @@ const formatDateTime = (date: Date): string =>
           <span class={styles.divider} />
           <span class={styles.category}>
             {item.category && item.categorySlug ? (
-              <a href={withTrailingSlash(item.categorySlug)} class={styles.link}>
+              <a href={item.categorySlug} class={styles.link}>
                 {item.category}
               </a>
             ) : null}
           </span>
         </div>
         <h2 class={styles.title}>
-          <a class={styles.link} href={withTrailingSlash(item.slug)}>
+          <a class={styles.link} href={item.slug}>
             {item.title}
           </a>
         </h2>
         <p class={styles.description}>{item.description}</p>
-        <a class={styles.more} href={withTrailingSlash(item.slug)}>
+        <a class={styles.more} href={item.slug}>
           Read
         </a>
       </div>

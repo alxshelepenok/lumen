@@ -8,6 +8,7 @@ import Sidebar from "@/islands/sidebar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
+import { routes } from "@/utils/routes";
 
 const { title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -22,7 +23,7 @@ const years = getGroups(posts, yearOf, newestFirst);
         {
           years.map((year) => (
             <li>
-              <a href={`/year/${year.fieldValue}/`}>
+              <a href={routes.year(year.fieldValue).href()}>
                 {year.fieldValue} ({year.totalCount})
               </a>
             </li>

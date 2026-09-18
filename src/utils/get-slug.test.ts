@@ -30,7 +30,7 @@ describe("getTagSlugs", () => {
 describe("getCategorySlug", () => {
   it("derives the kebab case category slug", () => {
     expect(getCategorySlug("Design Inspiration")).toBe(
-      "/category/design-inspiration"
+      "/category/design-inspiration/"
     );
   });
 });

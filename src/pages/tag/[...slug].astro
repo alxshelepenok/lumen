@@ -12,7 +12,7 @@ import { getFeedItems } from "@/utils/get-feed-items";
 import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, tagsOf } from "@/utils/get-taxonomy";
-import { toKebabCase } from "@/utils/to-kebab-case";
+import { routes, toKebabCase } from "@/utils/routes";
 
 export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
 
   return getGroups(posts, tagsOf).flatMap((tag) => {
     const kebab = toKebabCase(tag.fieldValue);
-    const basePath = `/tag/${kebab}`;
+    const basePath = routes.tag(tag.fieldValue).path;
     const inTag = posts.filter((post) => post.data.tags?.includes(tag.fieldValue));
     const total = Math.ceil(tag.totalCount / feedLimit);
 

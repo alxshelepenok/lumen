@@ -12,6 +12,7 @@ import { getFeedItems } from "@/utils/get-feed-items";
 import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
+import { routes } from "@/utils/routes";
 
 export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
@@ -21,7 +22,7 @@ export const getStaticPaths = async () => {
   );
 
   return getGroups(posts, yearOf, newestFirst).flatMap((year) => {
-    const basePath = `/year/${year.fieldValue}`;
+    const basePath = routes.year(year.fieldValue).path;
     const inYear = posts.filter(
       (post) => post.data.date.getFullYear().toString() === year.fieldValue
     );

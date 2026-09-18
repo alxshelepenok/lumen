@@ -5,6 +5,7 @@ import Gtag from "@/islands/gtag.astro";
 import IconSprite from "@/islands/icon-sprite.astro";
 import Meta from "@/islands/meta.astro";
 
+import { Route } from "@/utils/routes";
 import { themeStorageKey } from "@/utils/theme";
 
 interface Props {
@@ -15,13 +16,9 @@ interface Props {
 
 const { description = "", image, title } = Astro.props;
 
-const canonicalPath = Astro.url.pathname.endsWith("/")
-  ? Astro.url.pathname
-  : `${Astro.url.pathname}/`;
-
-const canonical = Astro.site
-  ? new URL(canonicalPath, Astro.site).href
-  : canonicalPath;
+const canonical = new Route(Astro.url.pathname).canonical(
+  Astro.site?.href ?? ""
+);
 
 const themeScript = `
   (() => {

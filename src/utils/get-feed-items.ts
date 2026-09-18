@@ -1,6 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 
 import { getCategorySlug, getSlug } from "@/utils/get-slug";
+import { Route } from "@/utils/routes";
 
 interface FeedItem {
   category?: string;
@@ -19,7 +20,7 @@ const getFeedItems = (posts: CollectionEntry<"posts">[]): FeedItem[] =>
       : undefined,
     date: entry.data.date,
     description: entry.data.description,
-    slug: getSlug(entry.id, "posts"),
+    slug: new Route(getSlug(entry.id, "posts")).href(),
     title: entry.data.title,
   }));
 

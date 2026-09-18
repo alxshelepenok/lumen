@@ -1,19 +1,20 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:956e4c850bbc5c4df92068c53df8534d6723b8336282b245e22b741747bbfeae
+# checksum: sha256:08c1b1967507801b7a00ff48b4ef51acda80485132e6e311bb644a4e177f9537
 g G-14 status=partial fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:11:51Z "Toolchain hygiene follows the fourth review round"
   area: A-05
   fitness_target: 3
   fitness_current: 2
 
-g G-15 status=unverified fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:10:59Z "Content images render with the right aspect"
+g G-15 status=verified fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:17:50Z "Content images render with the right aspect"
   area: A-03
   fitness_target: 1
+  fitness_current: 1
 
-g G-16 status=partial fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:12:56Z "Route building replaces scattered kebab case helpers"
+g G-16 status=verified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:23:33Z "Route building replaces scattered kebab case helpers"
   area: A-01
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-17 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Markdown html transforms run through one own plugin"
   area: A-01
@@ -71,8 +72,8 @@ w W-29 type=refactor status=done cynefin=complicated t_created=2026-09-18T23:11:
     | All island and page imports go through @ aliases with the new @/islands mapping; no relative imports remain under src and the internal mjs plugins now carry unified Plugin declarations.
     | Standalone tsc noEmit is clean, the build and astro check are green, and .vscode/extensions.json recommends the Astro extension so script sections resolve the same aliases in the editor.
 
-w W-30 type=bug status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:12:56Z "Fix stretched content images"
-  goals: G-16
+w W-30 type=bug status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:18:28Z "Fix stretched content images"
+  goals: G-15
   theme: T-02
   fitness: G-16=+1
   surface: src/assets/styles
@@ -87,39 +88,55 @@ w W-30 type=bug status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t
     | The custom processor stopped image.responsiveStyles injection (no data-astro-image rules in built CSS, only the generic img max-width); the astro.images layer is now carried by base/responsive-images.scss copied from the astro generator (height auto plus constrained and full-width widths, fit and position variants) with responsiveStyles disabled to avoid double injection.
     | Built CSS carries :where([data-astro-image]) height auto and the constrained max-width rules; build, tests and astro check green.
 
-w W-31 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:21Z t_updated=2026-09-18T23:11:23Z "Fix stretched content images"
+w W-31 type=bug status=rejected cynefin=complicated t_created=2026-09-18T23:11:21Z t_updated=2026-09-18T23:17:46Z "Fix stretched content images"
   goals: G-16
   theme: T-02
-  fitness: G-15=+0
+  fitness: G-15=+1
   surface: src/assets/styles
   ac:
     | The spike closes with a produced decision record per I2.
+  repro:
+    | Not a defect; spike entry refreshed for the guard.
   exit:
     | A routes module design lands as an accepted decision with the call sites listed for the refactor.
   evidence_strategy:
     | Decision record with the reference analysis.
+  why:
+    | Duplicate shell created during a batch id misalignment; the image fix is carried by W-30 and G-16 verified there.
 
-w W-32 type=spike status=proposed cynefin=complicated t_created=2026-09-18T23:11:22Z t_updated=2026-09-18T23:11:24Z "Research the routes module design"
-  goals: G-15
+w W-32 type=spike status=done cynefin=complicated t_created=2026-09-18T23:11:22Z t_updated=2026-09-18T23:18:28Z "Research the routes module design"
+  goals: G-16
   theme: T-02
   fitness: G-15=+1
   surface: src/utils
   ac:
     | A Route class with href, url and canonical builders covers every public path and all route call sites go through it.
     | to-kebab-case and its test are gone and built hrefs are unchanged.
+    | The spike closes with a produced decision record per I2.
+  exit:
+    | A routes module design lands as an accepted decision with the call sites listed for the refactor.
   evidence_strategy:
     | Green suite, identical listing hrefs and a route diff against the previous build.
+    | Decision record with the reference analysis.
+  evidence:
+    | Spike closed by decision D-13: Route class with href, url and canonical forms plus routes factories owning kebab casing; trailing slash policy lives in the href form.
 
-w W-33 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:23Z t_updated=2026-09-18T23:11:25Z "Build routes on the Route module and retire to-kebab-case"
-  goals: G-15
+w W-33 type=refactor status=done cynefin=complicated t_created=2026-09-18T23:11:23Z t_updated=2026-09-18T23:23:33Z "Build routes on the Route module and retire to-kebab-case"
+  goals: G-16
   theme: T-02
-  fitness: G-17=+1
+  fitness: G-16=+1, G-17=+1
   surface: src/utils, src/pages, src/islands
   ac:
     | Slug ids, anchor links, external link attributes and the iframe wrapper run through one own rehype plugin with rehype-raw kept as the only external transform.
     | Rendered markup is identical to the plugin-based output and the three rehype dependencies are gone.
   evidence_strategy:
     | Markup diff before and after plus a green build.
+  evidence:
+    | src/utils/routes.ts owns every path shape: Route class with href (trailing slash link form), url (absolute feed form without the slash) and canonical, plus factories home, post, page, category, tag, year and paginated; kebab casing lives inside the module.
+    | All call sites rewired: listing pages, dynamic page base paths, feed item mapper, pagination info, sidebar menu and the base layout canonical; to-kebab-case and with-trailing-slash utils with their tests are deleted; category slug expectation updated to the slashed form and a six-case routes suite added.
+    | Href diff against the pre-refactor build across listings, index and year pagination is identical; build, astro check, tsc and the suite (21 tests, 0 fail) green.
+  plan:
+    | Fitness attribution note: batch id misalignment credited W-30 and W-32 deltas to swapped goals; goal pointers are corrected and the remaining delta lands on G-16 here.
 
 w W-34 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:24Z t_updated=2026-09-18T23:11:26Z "Replace rehype plugins with one own transform"
   goals: G-17
@@ -190,6 +207,20 @@ d D-10 status=accepted t_created=2026-09-18T19:40:19Z t_updated=2026-09-18T19:40
     | The current src/components tree dissolves into src/islands, path aliases in tsconfig update accordingly and layout, meta and theme logic become islands like any other partial.
   validation:
     | W-04 done; the final src tree matches the layout with no components directory.
+
+d D-13 status=accepted t_created=2026-09-18T23:17:48Z t_updated=2026-09-18T23:17:49Z "Route module owns path shapes and kebab casing"
+  context:
+    | Route building is scattered: get-slug composes prefixes through toKebabCase, pagination concatenates path segments, islands normalize trailing slashes after the fact and listing pages inline their own href templates; the house reference centralizes this behind a Route class with builder factories.
+  options:
+    | Keep per-purpose helpers as today.
+    | Central Route class with routes factories owning kebab casing and the trailing slash policy.
+    | Plain string constants map without a class.
+  decision:
+    | src/utils/routes.ts exports a Route class (href for the trailing slash link form, url for absolute feed links without the slash, canonical for absolute with the slash) plus routes factories (home, post, page, category, tag, year, paginated); toKebabCase moves into the routes module as its private concern and the standalone to-kebab-case and with-trailing-slash utils retire once islands receive final hrefs.
+  consequences:
+    | Single owner of URL shapes; islands stop postprocessing hrefs; get-slug keeps only posts and pages id normalization; call sites are the six listing pages, the feed item mapper, pagination info and the slug derivations.
+  validation:
+    | Route diff of every listing and pagination href against the pre-refactor build.
 
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
@@ -342,6 +373,7 @@ e W-12 produces Y-06 t_created=2026-09-18T21:22:50Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
 e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
 e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
+e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
 
 :archive

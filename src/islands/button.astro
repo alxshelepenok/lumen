@@ -1,7 +1,6 @@
 ---
 import styles from "@/assets/styles/modules/button.module.scss";
 
-import { withTrailingSlash } from "@/utils/with-trailing-slash";
 
 interface Props {
   className?: string;
@@ -12,6 +11,6 @@ interface Props {
 const { className, title, to } = Astro.props;
 ---
 
-<a class={[styles.button, className].filter(Boolean).join(" ")} href={withTrailingSlash(to)}>
+<a class={[styles.button, className].filter(Boolean).join(" ")} href={to}>
   {title}
 </a>

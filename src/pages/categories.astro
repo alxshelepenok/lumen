@@ -8,7 +8,7 @@ import Sidebar from "@/islands/sidebar.astro";
 
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { toKebabCase } from "@/utils/to-kebab-case";
+import { routes } from "@/utils/routes";
 
 const { title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -23,7 +23,7 @@ const categories = getGroups(posts, categoryOf);
         {
           categories.map((category) => (
             <li>
-              <a href={`/category/${toKebabCase(category.fieldValue)}/`}>
+              <a href={routes.category(category.fieldValue).href()}>
                 {category.fieldValue} ({category.totalCount})
               </a>
             </li>
