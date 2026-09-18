@@ -21,12 +21,6 @@
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
-## Work items
-
-| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | archived |  |
-
 ## Decisions
 
 | ID | Title | Status | Supersedes |
@@ -64,7 +58,6 @@
 
 ```mermaid
 graph TD
-  W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision

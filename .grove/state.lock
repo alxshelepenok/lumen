@@ -1,30 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:06668ffcf392f4ca21bb99e852b9abdd91cba99e719fe02cc200abbcfa6609c3
-w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
-  goals: G-01, G-05
-  fitness: G-01=+0, G-05=+0
-  surface: astro.config.ts, package.json, src/env.d.ts, src/pages/index.astro, .gitignore, bun.lockb
-  ac:
-    | Scaffold exists on the branch: astro.config.ts, package.json pinned to astro 7.x and a placeholder src/pages/index.astro.
-    | bun install, astro dev and astro build all complete with output static.
-  exit:
-    | A glob content collection with the lumen frontmatter schema loads the existing content directory, informing B-01.
-    | sass compiles main.scss and Shiki renders a code block, informing B-04 and D-04.
-    | paginate() with a custom path emits /page/N routes, informing B-05.
-    | The spike closes with at least one produced D, Q or B record per I2.
-  evidence_strategy:
-    | Command transcripts of bun install, astro dev and astro build; astro --version output; links to the produced records.
-  evidence:
-    | bun add astro@^7: installed astro 7.3.3 with 1875 packages in 65.54s; bunx astro --version: v7.3.3.
-    | Content probe: 5 posts and 2 pages loaded with the full zod schema; image() arrives through the schema context function and z imports from astro/zod because the astro:content z export is deprecated for removal in Astro 8.
-    | Markdown and styles probe: code fence rendered by Shiki (astro-code github-dark); main.scss compiled with emitted CSS carrying both palettes.
-    | Pagination probe: paginate() emitted /page/, /page/2/, /page/3/; manual getStaticPaths emitted /category/sample/, /category/sample/page/2/, /category/sample/page/3/ (see B-05 and B-06).
-    | astro dev on port 4321 returned HTTP 200 on /, /probe/ and /page/2/ with collections live; server stopped after the check.
-    | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
-    | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
-    | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
-
+# checksum: sha256:2d4400d8b9f32f693963090c84c474291e5d03d9118542ca737863a12a06fc33
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -249,7 +225,7 @@ e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
-  fitness_current: 3
+  fitness_current: 0
 
 g G-02 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "All public routes keep their Gatsby URL shapes on Astro"
   area: A-02
@@ -269,7 +245,7 @@ g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
 g G-05 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
   area: A-05
   fitness_target: 3
-  fitness_current: 3
+  fitness_current: 0
 
 g G-06 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:06Z "Toolchain conventions follow the review refinements"
   area: A-05
@@ -380,6 +356,30 @@ g G-27 status=verified fitness_kind=count t_created=2026-09-18T23:57:33Z t_updat
   area: A-05
   fitness_target: 1
   fitness_current: 1
+
+w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
+  goals: G-01, G-05
+  fitness: G-01=+0, G-05=+0
+  surface: astro.config.ts, package.json, src/env.d.ts, src/pages/index.astro, .gitignore, bun.lockb
+  ac:
+    | Scaffold exists on the branch: astro.config.ts, package.json pinned to astro 7.x and a placeholder src/pages/index.astro.
+    | bun install, astro dev and astro build all complete with output static.
+  exit:
+    | A glob content collection with the lumen frontmatter schema loads the existing content directory, informing B-01.
+    | sass compiles main.scss and Shiki renders a code block, informing B-04 and D-04.
+    | paginate() with a custom path emits /page/N routes, informing B-05.
+    | The spike closes with at least one produced D, Q or B record per I2.
+  evidence_strategy:
+    | Command transcripts of bun install, astro dev and astro build; astro --version output; links to the produced records.
+  evidence:
+    | bun add astro@^7: installed astro 7.3.3 with 1875 packages in 65.54s; bunx astro --version: v7.3.3.
+    | Content probe: 5 posts and 2 pages loaded with the full zod schema; image() arrives through the schema context function and z imports from astro/zod because the astro:content z export is deprecated for removal in Astro 8.
+    | Markdown and styles probe: code fence rendered by Shiki (astro-code github-dark); main.scss compiled with emitted CSS carrying both palettes.
+    | Pagination probe: paginate() emitted /page/, /page/2/, /page/3/; manual getStaticPaths emitted /category/sample/, /category/sample/page/2/, /category/sample/page/3/ (see B-05 and B-06).
+    | astro dev on port 4321 returned HTTP 200 on /, /probe/ and /page/2/ with collections live; server stopped after the check.
+    | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
+    | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
+    | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
 
 w W-02 type=feature status=done cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T21:22:51Z "Port content to Astro content collections (posts, pages, site config)"
   goals: G-01
