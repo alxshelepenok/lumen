@@ -1,20 +1,43 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
     "paths": {
-      "@/assets/*": ["./src/assets/*"],
-      "@/islands/*": ["./src/islands/*"],
-      "@/utils/*": ["./src/utils/*"],
-      "@/internal/*": ["./internal/*"],
-      "@/constants/*": ["./src/constants/*"],
-      "@/mocks": ["./internal/testing/mocks"]
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/islands/*": [
+        "./src/islands/*"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ],
+      "@/internal/*": [
+        "./internal/*"
+      ],
+      "@/constants/*": [
+        "./src/constants/*"
+      ],
+      "@/mocks": [
+        "./internal/testing/mocks"
+      ]
     },
     "allowJs": false,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": [
+      "bun"
+    ]
   },
-  "exclude": ["node_modules", "target", "public"]
+  "exclude": [
+    "node_modules",
+    "target",
+    "public"
+  ]
 }
