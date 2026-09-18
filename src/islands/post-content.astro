@@ -1,15 +1,19 @@
 ---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
 import styles from "@/assets/styles/modules/post-content.module.scss";
 
 interface Props {
-  body: string;
+  Content: AstroComponentFactory;
   title: string;
 }
 
-const { body, title } = Astro.props;
+const { Content, title } = Astro.props;
 ---
 
 <div class={styles.postContent}>
   <h1 class={styles.title}>{title}</h1>
-  <div class={styles.body} set:html={body} />
+  <div class={styles.body}>
+    <Content />
+  </div>
 </div>

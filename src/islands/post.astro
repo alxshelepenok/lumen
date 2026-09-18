@@ -1,4 +1,6 @@
 ---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
 import styles from "@/assets/styles/modules/post.module.scss";
 
 import Button from "./button.astro";
@@ -10,8 +12,8 @@ import ThemeToggle from "./theme-toggle.astro";
 
 interface Props {
   post: {
+    Content: AstroComponentFactory;
     date: Date;
-    html: string;
     tagSlugs?: string[];
     tags?: string[];
     title: string;
@@ -27,7 +29,7 @@ const { post } = Astro.props;
     <ThemeToggle />
   </div>
   <div class={styles.content}>
-    <PostContent body={post.html} title={post.title} />
+    <PostContent Content={post.Content} title={post.title} />
   </div>
   <div class={styles.footer}>
     <PostFooter date={post.date} />
