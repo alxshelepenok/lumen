@@ -2,11 +2,12 @@ import { type GatsbyNode } from "gatsby";
 
 import { routes } from "./constants/routes";
 import { templates } from "./constants/templates";
-import { tagsQuery } from "./queries/tags-query";
 import { pagesQuery } from "./queries/pages-query";
-import { postsQuery } from "./queries/posts-query";
 import { metadataQuery } from "./queries/metadata-query";
 import { categoriesQuery } from "./queries/categories-query";
+import { tagsQuery } from "./queries/tags-query";
+import { yearsQuery } from "./queries/years-query";
+import { postsQuery } from "./queries/posts-query";
 import { toKebabCase } from "../../src/utils/to-kebab-case";
 import { concat } from "../../src/utils/concat";
 
@@ -17,6 +18,8 @@ type CreateWithPagination = (parameters: {
   total: number;
   page: number;
   path: string;
+  yearStart?: string;
+  yearEnd?: string;
 }) => void;
 
 const getPaginationPath = (basePath: string, page: number): string =>
@@ -32,20 +35,26 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   });
 
   createPage({
+    path: routes.categoriesListRoute,
+    component: templates.categoriesTemplate,
+    context: {},
+  });
+
+  createPage({
     path: routes.tagsListRoute,
     component: templates.tagsTemplate,
     context: {},
   });
 
   createPage({
-    path: routes.categoriesListRoute,
-    component: templates.categoriesTemplate,
+    path: routes.yearsListRoute,
+    component: templates.yearsTemplate,
     context: {},
   });
 
   const pages = await pagesQuery(graphql);
 
-  pages.forEach((edge) => {
+  for (const edge of pages) {
     const { node } = edge;
 
     if (node?.frontmatter?.template === "page" && node?.fields?.slug) {
@@ -61,7 +70,7 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
         context: { slug: node.fields.slug },
       });
     }
-  });
+  }
 
   const createWithPagination: CreateWithPagination = ({
     group,
@@ -70,6 +79,8 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
     path,
     total,
     limit,
+    yearStart,
+    yearEnd,
   }) => {
     createPage({
       component: template,
@@ -78,6 +89,7 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
         group,
         limit,
         offset: page * limit,
+        ...(yearStart && yearEnd && { yearStart, yearEnd }),
         pagination: {
           currentPage: page,
           prevPagePath: page <= 1 ? path : getPaginationPath(path, page - 1),
@@ -89,13 +101,17 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
     });
   };
 
-  const categories = await categoriesQuery(graphql);
   const metadata = await metadataQuery(graphql);
   const postsLimit = metadata?.feedLimit ?? 1;
+  const categories = await categoriesQuery(graphql);
 
-  categories.forEach((category) => {
+  for (const category of categories) {
+    const path = concat(
+      routes.categoryRoute,
+      "/",
+      toKebabCase(category.fieldValue)
+    );
     const total = Math.ceil(category.totalCount / postsLimit);
-    const path = concat(routes.categoryRoute, "/", toKebabCase(category.fieldValue));
 
     for (let page = 0; page < total; page += 1) {
       createWithPagination({
@@ -107,11 +123,11 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
         path,
       });
     }
-  });
+  }
 
   const tags = await tagsQuery(graphql);
 
-  tags.forEach((tag) => {
+  for (const tag of tags) {
     const path = concat(routes.tagRoute, "/", toKebabCase(tag.fieldValue));
     const total = Math.ceil(tag.totalCount / postsLimit);
 
@@ -125,7 +141,28 @@ const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
         path,
       });
     }
-  });
+  }
+
+  const years = await yearsQuery(graphql);
+
+  for (const year of years) {
+    const path = concat(routes.yearRoute, "/", year.fieldValue);
+    const total = Math.ceil(year.totalCount / postsLimit);
+
+    for (let page = 0; page < total; page += 1) {
+      const yearValue = Number.parseInt(year.fieldValue);
+      createWithPagination({
+        limit: postsLimit,
+        group: year.fieldValue,
+        template: templates.yearTemplate,
+        total,
+        page,
+        path,
+        yearStart: `${yearValue}-01-01`,
+        yearEnd: `${yearValue + 1}-01-01`,
+      });
+    }
+  }
 
   const path = routes.indexRoute;
   const template = templates.indexTemplate;
