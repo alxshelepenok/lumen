@@ -7,25 +7,42 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
+| V (uncertainty) | 12 | open Q 0 · pending B 0 · W below DoR 5 · uncovered surface 7 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 2 | 5 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 3 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 0 | 4 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 2 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-05 | Toolchain and delivery | 2 | 3 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 1 · uncovered surface 2 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-14 | Toolchain hygiene follows the fourth review round | count; current=1 target=3 | partial |
+| G-15 | Content images render with the right aspect | count; current= target=1 | unverified |
+| G-16 | Route building replaces scattered kebab case helpers | count; current= target=2 | unverified |
+| G-17 | Markdown html transforms run through one own plugin | count; current= target=1 | unverified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
+| W-28 | refactor | Pin exact dependency versions | G-14 | clear | ⊤ | done |  |
+| W-29 | refactor | Adopt island aliases and fix editor module resolution | G-14 | complicated | ⊤ | proposed | ★ |
+| W-30 | bug | Fix stretched content images | G-16 | complicated | ⊤ | proposed |  |
+| W-31 | bug | Fix stretched content images | G-16 | complicated | ⊥ | proposed |  |
+| W-32 | spike | Research the routes module design | G-15 | complicated | ⊥ | proposed |  |
+| W-33 | refactor | Build routes on the Route module and retire to-kebab-case | G-15 | complicated | ⊥ | proposed |  |
+| W-34 | refactor | Replace rehype plugins with one own transform | G-17 | complicated | ⊥ | proposed |  |
+| W-35 | refactor | Unify import ordering | G-14 | clear | ⊥ | proposed |  |
 
 ## Decisions
 
@@ -47,7 +64,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27 | – |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34 | W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35 |
 
 ## Discoveries
 
@@ -64,7 +81,19 @@
 
 ```mermaid
 graph TD
+  G_14["G-14: Toolchain hygiene follows the fourth review round"]:::goal
+  G_15["G-15: Content images render with the right aspect"]:::goal
+  G_16["G-16: Route building replaces scattered kebab case helpers"]:::goal
+  G_17["G-17: Markdown html transforms run through one own plugin"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
+  W_28["W-28: Pin exact dependency versions"]:::done
+  W_29["W-29: Adopt island aliases and fix editor module resolution"]:::feature,critical
+  W_30["W-30: Fix stretched content images"]:::feature
+  W_31["W-31: Fix stretched content images"]:::feature
+  W_32["W-32: Research the routes module design"]:::spike
+  W_33["W-33: Build routes on the Route module and retire to-kebab-case"]:::feature
+  W_34["W-34: Replace rehype plugins with one own transform"]:::feature
+  W_35["W-35: Unify import ordering"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -109,6 +138,13 @@ graph TD
   T_02 -->|causes| W_25
   T_02 -->|causes| W_26
   T_02 -->|causes| W_27
+  T_02 -->|causes| W_28
+  T_02 -->|causes| W_29
+  T_02 -->|causes| W_30
+  T_02 -->|causes| W_31
+  T_02 -->|causes| W_32
+  T_02 -->|causes| W_33
+  T_02 -->|causes| W_34
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
@@ -148,6 +184,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
+  class W_29 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

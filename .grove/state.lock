@@ -1,6 +1,23 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:212409379e9b87cc2b350a5e7ddf493e47963bac4962ef258f62cc20365d1b8c
+# checksum: sha256:65a692d986534543630274067ae51261da11e364921db168c7904af7bab60e84
+g G-14 status=partial fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:11:51Z "Toolchain hygiene follows the fourth review round"
+  area: A-05
+  fitness_target: 3
+  fitness_current: 1
+
+g G-15 status=unverified fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:10:59Z "Content images render with the right aspect"
+  area: A-03
+  fitness_target: 1
+
+g G-16 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Route building replaces scattered kebab case helpers"
+  area: A-01
+  fitness_target: 2
+
+g G-17 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Markdown html transforms run through one own plugin"
+  area: A-01
+  fitness_target: 1
+
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -24,6 +41,93 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
+
+w W-28 type=refactor status=done cynefin=clear t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:51Z "Pin exact dependency versions"
+  goals: G-14
+  theme: T-02
+  fitness: G-14=+1
+  surface: package.json
+  ac:
+    | package.json declares caret-free exact versions for every dependency and devDependency.
+  evidence_strategy:
+    | Installed version listing matches package.json and a frozen install is green.
+  evidence:
+    | Every dependency and devDependency pinned to its exact installed version with sections sorted; frozen install and build green.
+  plan:
+    | see surfaces
+
+w W-29 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:11:21Z "Adopt island aliases and fix editor module resolution"
+  goals: G-14
+  theme: T-02
+  fitness: G-14=+1
+  surface: tsconfig.json, src, .vscode
+  ac:
+    | All islands and pages import through @ aliases with a defined @/islands mapping and no relative island imports remain.
+    | A standalone tsc run resolves every alias and the repo recommends the Astro editor tooling for script sections.
+  evidence_strategy:
+    | tsc noEmit clean, grep for relative island imports empty, extensions recommendation in place.
+
+w W-30 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:11:22Z "Fix stretched content images"
+  goals: G-16
+  theme: T-02
+  fitness: G-16=+1
+  surface: src/assets/styles
+  ac:
+    | Content images render with a preserved aspect ratio and constrained width.
+    | The responsive style rules exist in the built CSS matching the astro reference styles.
+  repro:
+    | The custom processor unified options stopped the automatic injection of image.responsiveStyles, so markdown images keep natural width and height attributes with no height auto rule and stretch in the live layout.
+  evidence_strategy:
+    | Built CSS contains the constrained rules and the rendered page keeps the aspect.
+
+w W-31 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:21Z t_updated=2026-09-18T23:11:23Z "Fix stretched content images"
+  goals: G-16
+  theme: T-02
+  fitness: G-15=+0
+  surface: src/assets/styles
+  ac:
+    | The spike closes with a produced decision record per I2.
+  exit:
+    | A routes module design lands as an accepted decision with the call sites listed for the refactor.
+  evidence_strategy:
+    | Decision record with the reference analysis.
+
+w W-32 type=spike status=proposed cynefin=complicated t_created=2026-09-18T23:11:22Z t_updated=2026-09-18T23:11:24Z "Research the routes module design"
+  goals: G-15
+  theme: T-02
+  fitness: G-15=+1
+  surface: src/utils
+  ac:
+    | A Route class with href, url and canonical builders covers every public path and all route call sites go through it.
+    | to-kebab-case and its test are gone and built hrefs are unchanged.
+  evidence_strategy:
+    | Green suite, identical listing hrefs and a route diff against the previous build.
+
+w W-33 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:23Z t_updated=2026-09-18T23:11:25Z "Build routes on the Route module and retire to-kebab-case"
+  goals: G-15
+  theme: T-02
+  fitness: G-17=+1
+  surface: src/utils, src/pages, src/islands
+  ac:
+    | Slug ids, anchor links, external link attributes and the iframe wrapper run through one own rehype plugin with rehype-raw kept as the only external transform.
+    | Rendered markup is identical to the plugin-based output and the three rehype dependencies are gone.
+  evidence_strategy:
+    | Markup diff before and after plus a green build.
+
+w W-34 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:24Z t_updated=2026-09-18T23:11:26Z "Replace rehype plugins with one own transform"
+  goals: G-17
+  theme: T-02
+  fitness: G-14=+1
+  surface: internal, astro.config.ts, package.json
+  ac:
+    | Every module orders imports the same way: external packages first, then @ aliases, then relative paths, alphabetically inside each block.
+  evidence_strategy:
+    | Review pass plus a green astro check.
+
+w W-35 type=refactor status=proposed cynefin=clear t_created=2026-09-18T23:11:25Z t_updated=2026-09-18T23:11:25Z "Unify import ordering"
+  goals: G-14
+  theme: T-02
+  surface: src, internal, astro.config.ts
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -96,7 +200,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:08:56Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:11:26Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -186,6 +290,13 @@ e T-02 causes W-24 t_created=2026-09-18T22:06:32Z
 e T-02 causes W-25 t_created=2026-09-18T22:06:58Z
 e T-02 causes W-26 t_created=2026-09-18T22:06:59Z
 e T-02 causes W-27 t_created=2026-09-18T22:07:00Z
+e T-02 causes W-28 t_created=2026-09-18T23:11:00Z
+e T-02 causes W-29 t_created=2026-09-18T23:11:21Z
+e T-02 causes W-30 t_created=2026-09-18T23:11:22Z
+e T-02 causes W-31 t_created=2026-09-18T23:11:23Z
+e T-02 causes W-32 t_created=2026-09-18T23:11:24Z
+e T-02 causes W-33 t_created=2026-09-18T23:11:25Z
+e T-02 causes W-34 t_created=2026-09-18T23:11:26Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
