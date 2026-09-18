@@ -7,13 +7,13 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 13 | validated B 2 · answered Q 0 · accepted D 5 · active Discovery 6 |
-| V (uncertainty) | 4 | open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 2 |
+| V (uncertainty) | 2 | open Q 0 · pending B 0 · W below DoR 1 · uncovered surface 1 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 3 | 2 | C: validated B 0 · answered Q 0 · accepted D 1 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 1 · uncovered surface 1 |
+| A-01 | Content pipeline | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 1 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -28,7 +28,7 @@
 | G-14 | Toolchain hygiene follows the fourth review round | count; current=2 target=3 | partial |
 | G-15 | Content images render with the right aspect | count; current=1 target=1 | verified |
 | G-16 | Route building replaces scattered kebab case helpers | count; current=2 target=2 | verified |
-| G-17 | Markdown html transforms run through one own plugin | count; current= target=1 | unverified |
+| G-17 | Markdown html transforms run through one own plugin | count; current=2 target=1 | verified |
 
 ## Work items
 
@@ -41,8 +41,8 @@
 | W-31 | bug | Fix stretched content images | G-16 | complicated | ⊥ | rejected |  |
 | W-32 | spike | Research the routes module design | G-16 | complicated | ⊥ | done |  |
 | W-33 | refactor | Build routes on the Route module and retire to-kebab-case | G-16 | complicated | ⊤ | done |  |
-| W-34 | refactor | Replace rehype plugins with one own transform | G-17 | complicated | ⊥ | proposed | ★ |
-| W-35 | refactor | Unify import ordering | G-14 | clear | ⊥ | proposed |  |
+| W-34 | refactor | Replace rehype plugins with one own transform | G-17 | complicated | ⊤ | done |  |
+| W-35 | refactor | Unify import ordering | G-14 | clear | ⊥ | proposed | ★ |
 
 ## Decisions
 
@@ -93,8 +93,8 @@ graph TD
   W_31["W-31: Fix stretched content images"]:::rejected
   W_32["W-32: Research the routes module design"]:::spike
   W_33["W-33: Build routes on the Route module and retire to-kebab-case"]:::done
-  W_34["W-34: Replace rehype plugins with one own transform"]:::feature,critical
-  W_35["W-35: Unify import ordering"]:::feature
+  W_34["W-34: Replace rehype plugins with one own transform"]:::done
+  W_35["W-35: Unify import ordering"]:::feature,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -187,7 +187,7 @@ graph TD
   W_13 -->|implements| D_12
   W_32 -->|produces| D_13
   Y_01 -->|distills| B_04
-  class W_34 critical
+  class W_35 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

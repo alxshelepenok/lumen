@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:08c1b1967507801b7a00ff48b4ef51acda80485132e6e311bb644a4e177f9537
+# checksum: sha256:0fb37e2710c81c17c794669c4d685e00b4603c94b7999cbc8ab212633b46050d
 g G-14 status=partial fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:11:51Z "Toolchain hygiene follows the fourth review round"
   area: A-05
   fitness_target: 3
@@ -16,9 +16,10 @@ g G-16 status=verified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updat
   fitness_target: 2
   fitness_current: 2
 
-g G-17 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Markdown html transforms run through one own plugin"
+g G-17 status=verified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:25:49Z "Markdown html transforms run through one own plugin"
   area: A-01
   fitness_target: 1
+  fitness_current: 2
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -138,15 +139,18 @@ w W-33 type=refactor status=done cynefin=complicated t_created=2026-09-18T23:11:
   plan:
     | Fitness attribution note: batch id misalignment credited W-30 and W-32 deltas to swapped goals; goal pointers are corrected and the remaining delta lands on G-16 here.
 
-w W-34 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23:11:24Z t_updated=2026-09-18T23:11:26Z "Replace rehype plugins with one own transform"
+w W-34 type=refactor status=done cynefin=complicated t_created=2026-09-18T23:11:24Z t_updated=2026-09-18T23:25:49Z "Replace rehype plugins with one own transform"
   goals: G-17
   theme: T-02
-  fitness: G-14=+1
+  fitness: G-14=+0, G-17=+1
   surface: internal, astro.config.ts, package.json
   ac:
     | Every module orders imports the same way: external packages first, then @ aliases, then relative paths, alphabetically inside each block.
   evidence_strategy:
     | Review pass plus a green astro check.
+  evidence:
+    | One own transform internal/rehype-html.mjs now covers slug ids, the octicon anchor injection with the same aria and style attributes, external link target and rel and the iframe wrapper; rehype-raw stays as the only external html transform.
+    | Heading markup diff against the plugin-based build is identical (ids, inline style, anchor class, svg, aria labels); the rehype-slug, rehype-autolink-headings and rehype-external-links dependencies are removed and build, check, tsc and tests stay green.
 
 w W-35 type=refactor status=proposed cynefin=clear t_created=2026-09-18T23:11:25Z t_updated=2026-09-18T23:11:25Z "Unify import ordering"
   goals: G-14
