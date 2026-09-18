@@ -6,18 +6,18 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 1 | validated B 0 · answered Q 0 · accepted D 1 |
-| V (uncertainty) | 27 | open Q 3 · pending B 5 · W below DoR 6 · uncovered surface 13 |
+| C (content) | 7 | validated B 0 · answered Q 2 · accepted D 5 |
+| V (uncertainty) | 23 | open Q 1 · pending B 5 · W below DoR 4 · uncovered surface 13 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
 | A-01 | Content pipeline | 0 | 7 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 2 · W below DoR 1 · uncovered surface 4 |
-| A-02 | Pages and routing | 0 | 6 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 1 · pending B 1 · W below DoR 2 · uncovered surface 2 |
-| A-03 | Interface and theming | 0 | 4 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-02 | Pages and routing | 2 | 4 | C: validated B 0 · answered Q 1 · accepted D 1; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-03 | Interface and theming | 2 | 4 | C: validated B 0 · answered Q 0 · accepted D 2; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
 | A-04 | Site services | 0 | 5 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 1 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-05 | Toolchain and delivery | 1 | 7 | C: validated B 0 · answered Q 0 · accepted D 1; V: open Q 1 · pending B 1 · W below DoR 1 · uncovered surface 4 |
+| A-05 | Toolchain and delivery | 2 | 5 | C: validated B 0 · answered Q 1 · accepted D 1; V: open Q 0 · pending B 1 · W below DoR 0 · uncovered surface 4 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -39,13 +39,13 @@
 | W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊥ | proposed |  |
 | W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊥ | proposed | ★ |
 | W-04 | feature | Port UI components to native Astro (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | proposed | ★ |
-| W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊥ | proposed | ★ |
+| W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊤ | proposed | ★ |
 | W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊥ | proposed |  |
 | W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | proposed |  |
 | W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | proposed |  |
 | W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | proposed |  |
 | W-10 | feature | Restore analytics and error tracking (gtag, Sentry) | G-04 | clear | ⊥ | proposed |  |
-| W-11 | feature | Port the test suite to the Astro stack | G-05 | complicated | ⊥ | proposed | ★ |
+| W-11 | feature | Reduce the test suite to logic tests on bun test (drop React snapshots) | G-05 | complicated | ⊤ | proposed | ★ |
 | W-12 | feature | Verify parity against the Gatsby build (routes, HTML, screenshots) | G-05 | complicated | ⊤ | proposed |  |
 | W-13 | refactor | Remove Gatsby and close out tooling (deps, scripts, CI, docs) | G-05 | clear | ⊤ | proposed | ★ |
 
@@ -54,20 +54,21 @@
 | ID | Title | Status | Supersedes |
 | --- | --- | --- | --- |
 | D-01 | Migrate to Astro 7 | accepted |  |
-| D-02 | Native Astro components without React runtime | proposed |  |
-| D-03 | Vanilla theme state replaces diesel | proposed |  |
+| D-02 | Native Astro components without React runtime | accepted |  |
+| D-03 | Vanilla theme state replaces diesel | accepted |  |
 | D-04 | Shiki replaces PrismJS for code highlighting | proposed |  |
 | D-05 | Content collections replace GraphQL sourcing | proposed |  |
-| D-06 | URL parity including page pagination paths | proposed |  |
+| D-06 | URL parity including page pagination paths | accepted |  |
 | D-07 | Static output only | proposed |  |
 | D-08 | Bun stays the package manager and script runner | proposed |  |
+| D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 
 ## Open questions
 
 | ID | Question | Cynefin | Targets | Status |
 | --- | --- | --- | --- | --- |
-| Q-01 | How strict must URL parity be? | complicated | W-05, W-06 | open |
-| Q-02 | Which test strategy replaces the React component tests? | complicated | W-11 | open |
+| Q-01 | How strict must URL parity be? | complicated | W-05, W-06 | answered |
+| Q-02 | Which test strategy replaces the React component tests? | complicated | W-11 | answered |
 | Q-03 | Which third-party services stay (Google Analytics, Sentry)? | clear | W-10 | open |
 
 ## Assumptions
@@ -105,7 +106,7 @@ graph TD
   W_08["W-08: Port the image pipeline to astro:assets (webp, responsive sizes, social images)"]:::feature
   W_09["W-09: Restore site services (rss.xml, sitemap, manifest)"]:::feature
   W_10["W-10: Restore analytics and error tracking (gtag, Sentry)"]:::feature
-  W_11["W-11: Port the test suite to the Astro stack"]:::feature,critical
+  W_11["W-11: Reduce the test suite to logic tests on bun test (drop React snapshots)"]:::feature,critical
   W_12["W-12: Verify parity against the Gatsby build (routes, HTML, screenshots)"]:::feature
   W_13["W-13: Remove Gatsby and close out tooling (deps, scripts, CI, docs)"]:::feature,critical
   D_01["D-01: Migrate to Astro 7"]:::decision
@@ -116,6 +117,7 @@ graph TD
   D_06["D-06: URL parity including page pagination paths"]:::decision
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
+  D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   Q_01["Q-01: How strict must URL parity be?"]:::question
   Q_02["Q-02: Which test strategy replaces the React component tests?"]:::question
   Q_03["Q-03: Which third-party services stay (Google Analytics, Sentry)?"]:::question

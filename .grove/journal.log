@@ -222,3 +222,32 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T19:28:18Z","inv":{"label":"implements","to":"D-04","op":"unlink_edge","from":"W-07"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T19:28:18Z","inv":{"label":"implements","to":"D-01","op":"unlink_edge","from":"W-13"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:29:01Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-01","op":"set_w_status_with_goals","goal_statuses":{"G-05":"unverified","G-01":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:39Z","inv":{"id":"D-06","field":"decision","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:40Z","inv":{"old_status":"proposed","id":"D-06","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:40Z","inv":{"old_status":"proposed","id":"D-02","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:40Z","inv":{"old_status":"proposed","id":"D-03","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-18T19:34:40Z","inv":{"id":"D-09","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:40Z","inv":{"id":"D-09","field":"context","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:40Z","inv":{"id":"D-09","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:41Z","inv":{"id":"D-09","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:41Z","inv":{"id":"D-09","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:41Z","inv":{"id":"D-09","field":"decision","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:41Z","inv":{"id":"D-09","field":"consequences","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:41Z","inv":{"id":"D-09","field":"validation","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:41Z","inv":{"old_status":"proposed","id":"D-09","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:48Z","inv":{"id":"Q-01","field":"outcome","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:48Z","inv":{"old_status":"open","id":"Q-01","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:48Z","inv":{"id":"Q-02","field":"outcome","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:48Z","inv":{"old_status":"open","id":"Q-02","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:56Z","inv":{"id":"W-05","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:34:56Z","inv":{"id":"W-11","old":"Port the test suite to the Astro stack","op":"set_title"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:56Z","inv":{"line":"The strategy chosen in Q-02 is implemented and documented in the repository.","id":"W-11","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:56Z","inv":{"line":"Logic tests for utils and slug and taxonomy derivation run green on the chosen runner.","id":"W-11","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:56Z","inv":{"line":"Component or page tests per Q-02 cover the ported UI and run in CI.","id":"W-11","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"id":"W-11","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"id":"W-11","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"id":"W-11","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"line":"bun test keeps covering pure logic while the Q-02 choice covers the .astro layer.","id":"W-11","field":"hypothesis","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"id":"W-11","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:58Z","inv":{"id":"W-13","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:58Z","inv":{"id":"W-13","field":"ac","op":"field_pop_last"}}

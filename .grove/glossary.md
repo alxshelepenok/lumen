@@ -10,3 +10,4 @@
 | Feed limit | The feedLimit value in content/config.json that sets posts per page for every listing. | W-06 |
 | Slug resolution | Rule that prefers the frontmatter slug and falls back to the directory-based path. | W-02 |
 | Shiki | The syntax highlighter bundled with Astro that replaces PrismJS in the markdown pipeline. | D-04 |
+| Canonical URL | The absolute preferred page URL emitted as a link rel canonical tag, always ending with a trailing slash. | D-06 |

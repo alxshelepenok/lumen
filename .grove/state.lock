@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:96ad83b0fce4be7618ee0c12275bb0a194e25885a9058112014014762402c36b
+# checksum: sha256:cc5110ddcd188a1413dba1e0faa4948411192d6ac550bfc79a55935340894f12
 g G-01 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -76,7 +76,7 @@ w W-04 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | Side-by-side HTML samples from the Gatsby and Astro builds; grep proving no React imports.
 
-w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T19:28:16Z "Port core templates with URL parity (index, post, page, 404, meta)"
+w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T19:34:56Z "Port core templates with URL parity (index, post, page, 404, meta)"
   goals: G-02
   fitness: G-02=+1
   surface: src/templates, internal/gatsby/constants
@@ -84,6 +84,7 @@ w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
     | Routes /, post slugs, page slugs and /404 render from .astro pages backed by collection data.
     | Per-template meta tags match the current Head output (title, description, twitter and og fields, social image).
     | URL shapes follow the parity level confirmed in Q-01 and D-06.
+    | Every page emits a canonical link tag with the absolute page URL ending in a trailing slash.
   hypothesis:
     | Gatsby templates map one-to-one onto .astro pages with frontmatter-derived routes.
   evidence_strategy:
@@ -153,16 +154,16 @@ w W-10 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:45Z
   evidence_strategy:
     | Built HTML contains the expected snippets; a Sentry test event from the preview build.
 
-w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:28:17Z "Port the test suite to the Astro stack"
+w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:34:57Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
   goals: G-05
   fitness: G-05=+1
   surface: internal/testing, src/utils
   ac:
-    | The strategy chosen in Q-02 is implemented and documented in the repository.
-    | Logic tests for utils and slug and taxonomy derivation run green on the chosen runner.
-    | Component or page tests per Q-02 cover the ported UI and run in CI.
+    | All React component tests, snapshot files and their dev dependencies are removed.
+    | Logic tests for utils and slug and taxonomy derivation run green on bun test.
+    | CI runs bun test plus the W-12 parity gate and no snapshot files remain in the tree.
   hypothesis:
-    | bun test keeps covering pure logic while the Q-02 choice covers the .astro layer.
+    | bun test keeps covering pure logic while the W-12 parity gate covers the .astro layer, so dropping the component suite loses no real coverage.
   evidence_strategy:
     | Test runner output green locally and in CI.
 
@@ -179,7 +180,7 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   evidence_strategy:
     | Script outputs and screenshot artifacts attached to the work item.
 
-w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T19:28:18Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T19:34:58Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
   theme: T-01
   fitness: G-05=+1
@@ -188,6 +189,8 @@ w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59
     | No gatsby-scoped dependency remains and package.json holds only Astro-stack packages.
     | Scripts, tsconfig path aliases and CI workflows run the Astro commands and pass.
     | README quick start and description reflect Astro.
+    | No React-related dependency remains (react, react-dom, @testing-library/react, react-test-renderer, @alxshelepenok/diesel, @alxshelepenok/diesel-extensions).
+    | The semantic-release pipeline and its configuration remain unchanged.
   hypothesis:
     | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
   evidence_strategy:
@@ -207,7 +210,7 @@ d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T19:28
   validation:
     | G-01 through G-05 verified; W-12 parity report empty of differences.
 
-d D-02 status=proposed t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T19:28:18Z "Native Astro components without React runtime"
+d D-02 status=accepted t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T19:34:40Z "Native Astro components without React runtime"
   context:
     | Only ThemeSwitcher is interactive; every other component renders statically, so React 18 plus the diesel state layer would ship as island overhead.
   options:
@@ -221,7 +224,7 @@ d D-02 status=proposed t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T19:28
   validation:
     | W-04 done; the client bundle contains no framework runtime.
 
-d D-03 status=proposed t_created=2026-09-18T19:24:07Z t_updated=2026-09-18T19:28:18Z "Vanilla theme state replaces diesel"
+d D-03 status=accepted t_created=2026-09-18T19:24:07Z t_updated=2026-09-18T19:34:40Z "Vanilla theme state replaces diesel"
   context:
     | Theme is the only client state: light or dark mode persisted in localStorage and mirrored onto the html class by the inline no-FOUC script in internal/gatsby/on-render-body.ts.
   options:
@@ -262,7 +265,7 @@ d D-05 status=proposed t_created=2026-09-18T19:24:19Z t_updated=2026-09-18T19:28
   validation:
     | W-02 done; the schema rejects invalid frontmatter at build time.
 
-d D-06 status=proposed t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T19:28:18Z "URL parity including page pagination paths"
+d D-06 status=accepted t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T19:34:40Z "URL parity including page pagination paths"
   context:
     | Gatsby emits /page/2 style pagination paths from createPages while Astro paginate() defaults to /2 unless paths are customised.
   options:
@@ -271,6 +274,7 @@ d D-06 status=proposed t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T19:28
     | New shapes plus redirect rules.
   decision:
     | Generate the exact Gatsby URL set: /, /page/N, /category/:slug plus pagination, /tag/:slug plus pagination, /year/:yyyy plus pagination, /categories, /tags, /years, /404 and the post and page slugs.
+    | Additionally every page emits a canonical link tag whose absolute URL ends with a trailing slash; the Astro trailingSlash behaviour is confirmed while building W-05 and W-06.
   consequences:
     | paginate() receives custom path functions; the strictness level is confirmed under Q-01 before W-05 and W-06 start.
   validation:
@@ -304,17 +308,35 @@ d D-08 status=proposed t_created=2026-09-18T19:24:34Z t_updated=2026-09-18T19:28
   validation:
     | W-01 evidence: clean bun install, astro dev, astro build and bun test on the scaffold.
 
-q Q-01 status=open cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:27:13Z "How strict must URL parity be?"
+d D-09 status=accepted t_created=2026-09-18T19:34:40Z t_updated=2026-09-18T19:34:41Z "Semantic versioning pipeline stays unchanged"
+  context:
+    | The repository releases through semantic-release with conventional commits on merge to main; the Astro migration is a breaking change for starter consumers.
+  options:
+    | Keep semantic-release untouched.
+    | Move to manual versioning.
+    | Switch release tooling.
+  decision:
+    | Keep semantic-release and the conventional commit conventions exactly as they are; merging major/astro into main cuts the next major version through the usual breaking-change commit.
+  consequences:
+    | The release workflow stays untouched; commit messages on the branch must keep following the conventional commits preset.
+  validation:
+    | release.yml unchanged after W-13; the next release from main is a major bump.
+
+q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:34:48Z "How strict must URL parity be?"
   why:
     | Astro paginate() can emit the exact Gatsby paths (/page/N) at the cost of custom path functions; relaxed shapes simplify routing but break inbound links unless redirects are added.
   exit:
     | The user confirms one of: exact parity, parity per D-06 with a written exception list, or new shapes plus redirects.
+  outcome:
+    | Strict parity per D-06: the exact current URL shapes stay and every page additionally emits a canonical link tag ending with a trailing slash; the Astro trailingSlash behaviour is confirmed in W-05 and W-06.
 
-q Q-02 status=open cynefin=complicated t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:27:13Z "Which test strategy replaces the React component tests?"
+q Q-02 status=answered cynefin=complicated t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:34:48Z "Which test strategy replaces the React component tests?"
   why:
     | D-02 removes React, so @testing-library/react, react-test-renderer and the snapshot suite lose their subject; Astro offers an experimental container API usually paired with vitest, while pure logic can stay on bun test.
   exit:
     | The user picks one of: container API tests for .astro components, logic tests only plus the W-12 parity gate, or both.
+  outcome:
+    | React component tests and snapshots are deleted together with the React layer; bun test keeps covering pure logic (utils, slug and taxonomy derivation) and the W-12 parity gate covers the UI.
 
 q Q-03 status=open cynefin=clear t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:27:14Z "Which third-party services stay (Google Analytics, Sentry)?"
   why:
