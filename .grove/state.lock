@@ -1,0 +1,409 @@
+@grove 1
+# AUTO-GENERATED. Do not edit. Use `grove` CLI.
+# checksum: sha256:96ad83b0fce4be7618ee0c12275bb0a194e25885a9058112014014762402c36b
+g G-01 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Content pipeline runs on Astro with rendering parity"
+  area: A-01
+  fitness_target: 3
+
+g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "All public routes keep their Gatsby URL shapes on Astro"
+  area: A-02
+  fitness_target: 2
+
+g G-03 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Interface and theming match the current site on Astro"
+  area: A-03
+  fitness_target: 2
+
+g G-04 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
+  area: A-04
+  fitness_target: 2
+
+g G-05 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
+  area: A-05
+  fitness_target: 3
+
+w W-01 type=spike status=ready cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:29:01Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
+  goals: G-01, G-05
+  fitness: G-01=+0, G-05=+0
+  surface: astro.config.ts, package.json
+  ac:
+    | Scaffold exists on the branch: astro.config.ts, package.json pinned to astro 7.x and a placeholder src/pages/index.astro.
+    | bun install, astro dev and astro build all complete with output static.
+  exit:
+    | A glob content collection with the lumen frontmatter schema loads the existing content directory, informing B-01.
+    | sass compiles main.scss and Shiki renders a code block, informing B-04 and D-04.
+    | paginate() with a custom path emits /page/N routes, informing B-05.
+    | The spike closes with at least one produced D, Q or B record per I2.
+  evidence_strategy:
+    | Command transcripts of bun install, astro dev and astro build; astro --version output; links to the produced records.
+
+w W-02 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T19:28:17Z "Port content to Astro content collections (posts, pages, site config)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: content/, src/content.config.ts, internal/gatsby/on-create-node.ts
+  ac:
+    | A content config defines posts and pages collections with a glob loader over content/ and a zod schema covering every frontmatter field.
+    | Slug resolution matches Gatsby: the frontmatter slug wins, otherwise the directory-based path applies.
+    | All 5 posts and 2 pages load without schema errors and a temporary invalid frontmatter fails the build.
+    | tagSlugs and categorySlug derive through toKebabCase exactly as in on-create-node.
+  hypothesis:
+    | The content layer glob loader plus zod covers the lumen frontmatter shape, so sourcing moves off GraphQL without editing any content file.
+  evidence_strategy:
+    | Build log showing both collections loaded; a failing-build transcript with bad frontmatter; unit checks on slug derivation.
+
+w W-03 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T19:28:18Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
+  goals: G-03
+  fitness: G-03=+1
+  surface: src/assets/styles, internal/gatsby/on-render-body.ts, src/hooks/use-theme.ts
+  ac:
+    | main.scss with all partials compiles under the Vite sass pipeline and the emitted CSS custom properties match the Gatsby build.
+    | An inline pre-body script sets the html class from localStorage or the media query before first paint.
+    | The theme toggle persists the choice and swaps the palette with no framework runtime in the bundle.
+  hypothesis:
+    | The theme system is pure CSS variables plus one class on html, so it ports with import-path fixes only.
+  evidence_strategy:
+    | CSS variable diff between builds; toggle and reload check; screenshots in both modes.
+
+w W-04 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T19:28:18Z "Port UI components to native Astro (sidebar, feed, post, pagination, icons)"
+  goals: G-03
+  fitness: G-03=+1
+  surface: src/components
+  ac:
+    | Layout, Sidebar with its four children, Feed, Page, Pagination, Post with its four children, Button, Icon and Meta exist as .astro components.
+    | Markup structure and class names match the current React output so the ported SCSS applies unchanged.
+    | No react, react-dom or diesel import remains anywhere under src/.
+  hypothesis:
+    | Every component except ThemeSwitcher renders statically, so a mechanical port to .astro templates preserves the DOM.
+  evidence_strategy:
+    | Side-by-side HTML samples from the Gatsby and Astro builds; grep proving no React imports.
+
+w W-05 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T19:28:16Z "Port core templates with URL parity (index, post, page, 404, meta)"
+  goals: G-02
+  fitness: G-02=+1
+  surface: src/templates, internal/gatsby/constants
+  ac:
+    | Routes /, post slugs, page slugs and /404 render from .astro pages backed by collection data.
+    | Per-template meta tags match the current Head output (title, description, twitter and og fields, social image).
+    | URL shapes follow the parity level confirmed in Q-01 and D-06.
+  hypothesis:
+    | Gatsby templates map one-to-one onto .astro pages with frontmatter-derived routes.
+  evidence_strategy:
+    | HTML comparison against the Gatsby build over the sample content.
+
+w W-06 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T19:28:18Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
+  goals: G-02
+  fitness: G-02=+1
+  surface: src/templates, internal/gatsby/create-pages.ts
+  ac:
+    | /categories, /tags, /years plus /category/:slug, /tag/:slug and /year/:yyyy with pagination all render.
+    | Pagination limits follow feedLimit from content/config.json and the emitted page paths match the Gatsby set.
+    | Group ordering and kebab-case slugs match the Gatsby output.
+  hypothesis:
+    | paginate() with custom path functions reproduces the createPages URL set exactly.
+  evidence_strategy:
+    | Route list diff against the Gatsby build; snapshot checks on listing pages.
+
+w W-07 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T19:28:18Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: gatsby-config.ts, content/posts
+  ac:
+    | Autolinked headers, smartypants typography, external link attributes, copied linked files and responsive iframes behave as under the current remark plugins.
+    | Code blocks render through Shiki with the ported palette in both themes.
+    | Rendered HTML for every sample post matches the current output modulo differences accepted in evidence.
+  hypothesis:
+    | Each current remark plugin maps onto a standard remark or rehype plugin in the Astro markdown pipeline.
+  evidence_strategy:
+    | HTML diffs per sample post; visual check of a code-heavy and a media-heavy post.
+
+w W-08 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T19:28:16Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: src/components/image, content
+  ac:
+    | Post and page images process through astro:assets with webp output and responsive widths up to 960px.
+    | socialImage frontmatter resolves per post and feeds the meta tags.
+    | logo.png and the author photo serve through the new pipeline.
+  hypothesis:
+    | astro:assets with the default sharp service replaces gatsby-plugin-sharp and gatsby-plugin-image without heavy configuration.
+  evidence_strategy:
+    | Build artifacts listing generated formats and sizes; img markup comparison.
+
+w W-09 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T19:28:16Z "Restore site services (rss.xml, sitemap, manifest)"
+  goals: G-04
+  fitness: G-04=+1
+  surface: gatsby-config.ts, src/pages
+  ac:
+    | C:/Program Files/Git/rss.xml matches the current feed entries (limit, ordering, content encoded body, guid) within the accepted diff.
+    | The sitemap generates with the same URL set including exclusions for 404 pages.
+    | The web manifest declares the same name, colors, icon and display mode.
+  hypothesis:
+    | Official Astro integrations for rss and sitemap plus a small manifest route cover all three services.
+  evidence_strategy:
+    | Feed validation, sitemap URL diff and a manifest field comparison.
+
+w W-10 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:45Z t_updated=2026-09-18T19:28:17Z "Restore analytics and error tracking (gtag, Sentry)"
+  goals: G-04
+  fitness: G-04=+1
+  surface: gatsby-config.ts, sentry.config.ts
+  ac:
+    | Kept services per Q-03 load with the same ids and sampling as now (gtag in head, Sentry browser tracking).
+    | Dropped services leave no trace in the bundle.
+  hypothesis:
+    | A plain script tag for gtag and the Sentry Astro SDK reproduce the current wiring on a static build.
+  evidence_strategy:
+    | Built HTML contains the expected snippets; a Sentry test event from the preview build.
+
+w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:28:17Z "Port the test suite to the Astro stack"
+  goals: G-05
+  fitness: G-05=+1
+  surface: internal/testing, src/utils
+  ac:
+    | The strategy chosen in Q-02 is implemented and documented in the repository.
+    | Logic tests for utils and slug and taxonomy derivation run green on the chosen runner.
+    | Component or page tests per Q-02 cover the ported UI and run in CI.
+  hypothesis:
+    | bun test keeps covering pure logic while the Q-02 choice covers the .astro layer.
+  evidence_strategy:
+    | Test runner output green locally and in CI.
+
+w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T19:28:17Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
+  goals: G-05
+  fitness: G-05=+1
+  surface: internal/scripts
+  ac:
+    | A comparison script diffs the URL list of both builds and reports zero unexplained differences.
+    | Screenshots of key pages in both themes show differences limited to the accepted list.
+    | The parity report is committed as evidence and referenced from the goals.
+  hypothesis:
+    | Automated route and visual diffs catch migration regressions earlier than review.
+  evidence_strategy:
+    | Script outputs and screenshot artifacts attached to the work item.
+
+w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T19:28:18Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+  goals: G-05
+  theme: T-01
+  fitness: G-05=+1
+  surface: package.json, .github, README.md, internal
+  ac:
+    | No gatsby-scoped dependency remains and package.json holds only Astro-stack packages.
+    | Scripts, tsconfig path aliases and CI workflows run the Astro commands and pass.
+    | README quick start and description reflect Astro.
+  hypothesis:
+    | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
+  evidence_strategy:
+    | Dependency grep; a green CI run on the branch; build and test transcripts.
+
+d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T19:28:18Z "Migrate to Astro 7"
+  context:
+    | Gatsby 5 is in maintenance mode while Astro 7 is the current stable major as of September 2026; the user directed the migration.
+  options:
+    | Stay on Gatsby 5.
+    | Migrate to Astro latest major (7.x).
+    | Migrate to another SSG (Next.js, SvelteKit).
+  decision:
+    | Migrate lumen to Astro 7 on branch feature/astro-migration, merged to main once goals verify.
+  consequences:
+    | Sourcing, routing and templating are rewritten; the build moves from Gatsby and webpack to Vite; React leaves the runtime if D-02 is accepted.
+  validation:
+    | G-01 through G-05 verified; W-12 parity report empty of differences.
+
+d D-02 status=proposed t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T19:28:18Z "Native Astro components without React runtime"
+  context:
+    | Only ThemeSwitcher is interactive; every other component renders statically, so React 18 plus the diesel state layer would ship as island overhead.
+  options:
+    | Keep React via the @astrojs/react integration.
+    | Rewrite all components as native .astro with a vanilla theme script.
+    | Hybrid: static .astro plus one React island for the theme toggle.
+  decision:
+    | Rewrite every component as native .astro; theme toggling runs as a small inline script per D-03; no React island ships.
+  consequences:
+    | React, react-dom, @testing-library/react and react-test-renderer leave the dependency tree; component testing is re-planned under Q-02; CSS Modules become Astro scoped styles or stay as .module.scss imports where practical.
+  validation:
+    | W-04 done; the client bundle contains no framework runtime.
+
+d D-03 status=proposed t_created=2026-09-18T19:24:07Z t_updated=2026-09-18T19:28:18Z "Vanilla theme state replaces diesel"
+  context:
+    | Theme is the only client state: light or dark mode persisted in localStorage and mirrored onto the html class by the inline no-FOUC script in internal/gatsby/on-render-body.ts.
+  options:
+    | Keep @alxshelepenok/diesel inside a React island.
+    | Plain localStorage plus an inline script.
+    | CSS-only media query without persistence.
+  decision:
+    | Use a plain localStorage key plus the existing inline script pattern; drop @alxshelepenok/diesel and @alxshelepenok/diesel-extensions.
+  consequences:
+    | The use-theme hook and CoilProvider wrapper are removed; the storage key stays compatible so returning visitors keep their choice.
+  validation:
+    | W-03 done; toggle works and reload shows no flash of the wrong theme.
+
+d D-04 status=proposed t_created=2026-09-18T19:24:18Z t_updated=2026-09-18T19:28:18Z "Shiki replaces PrismJS for code highlighting"
+  context:
+    | Astro integrates Shiki into markdown rendering out of the box while PrismJS currently drives the token classes in src/assets/styles/base/_prism.scss.
+  options:
+    | Keep PrismJS via rehype-prism-plus.
+    | Switch to Shiki with light and dark themes mapped to the existing CSS variables.
+  decision:
+    | Use Shiki; port the _prism.scss palette onto Shiki theme variables for both color modes.
+  consequences:
+    | prismjs and gatsby-remark-prismjs leave the tree; code block markup changes class names and the styles move to Shiki CSS custom properties.
+  validation:
+    | W-07 done; code samples render with parity in both themes.
+
+d D-05 status=proposed t_created=2026-09-18T19:24:19Z t_updated=2026-09-18T19:28:17Z "Content collections replace GraphQL sourcing"
+  context:
+    | Gatsby sources content through gatsby-source-filesystem and gatsby-transformer-remark queried via GraphQL; the Astro content layer loads markdown with glob loaders and zod schemas.
+  options:
+    | Astro content collections with a glob loader and zod schema.
+    | Custom markdown handling in an Astro integration.
+    | Migrate content to MDX.
+  decision:
+    | Define posts and pages collections in a content config with a zod schema covering the full frontmatter (title, date, template, draft, slug, category, tags, description, socialImage).
+  consequences:
+    | GraphQL queries, internal/gatsby/queries and the on-create-node slug logic are rewritten as collection transforms; content/config.json stays the single site metadata source.
+  validation:
+    | W-02 done; the schema rejects invalid frontmatter at build time.
+
+d D-06 status=proposed t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T19:28:18Z "URL parity including page pagination paths"
+  context:
+    | Gatsby emits /page/2 style pagination paths from createPages while Astro paginate() defaults to /2 unless paths are customised.
+  options:
+    | Strict parity with /page/N via custom paginate paths.
+    | Accept Astro default /N shapes.
+    | New shapes plus redirect rules.
+  decision:
+    | Generate the exact Gatsby URL set: /, /page/N, /category/:slug plus pagination, /tag/:slug plus pagination, /year/:yyyy plus pagination, /categories, /tags, /years, /404 and the post and page slugs.
+  consequences:
+    | paginate() receives custom path functions; the strictness level is confirmed under Q-01 before W-05 and W-06 start.
+  validation:
+    | W-12 route diff between the Gatsby and Astro builds is empty.
+
+d D-07 status=proposed t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:28:17Z "Static output only"
+  context:
+    | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
+  options:
+    | output static.
+    | output server with an adapter.
+    | Hybrid prerender.
+  decision:
+    | astro.config sets output static with no adapter; every page prerenders.
+  consequences:
+    | No server runtime in deployment; interactive behaviour is limited to inline scripts.
+  validation:
+    | W-01 scaffold builds fully static; dist contains only static assets.
+
+d D-08 status=proposed t_created=2026-09-18T19:24:34Z t_updated=2026-09-18T19:28:17Z "Bun stays the package manager and script runner"
+  context:
+    | The repository uses Bun for install, scripts and bun test; the Astro Vite toolchain is package-manager agnostic.
+  options:
+    | Keep Bun.
+    | Move to pnpm plus vitest.
+    | Move to npm.
+  decision:
+    | Keep Bun for install, run and test; compatibility with Astro 7 is proven by the W-01 spike under assumption B-02.
+  consequences:
+    | bun.lockb stays; scripts rename from gatsby develop and gatsby build to astro dev and astro build; test runner continuity depends on Q-02.
+  validation:
+    | W-01 evidence: clean bun install, astro dev, astro build and bun test on the scaffold.
+
+q Q-01 status=open cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:27:13Z "How strict must URL parity be?"
+  why:
+    | Astro paginate() can emit the exact Gatsby paths (/page/N) at the cost of custom path functions; relaxed shapes simplify routing but break inbound links unless redirects are added.
+  exit:
+    | The user confirms one of: exact parity, parity per D-06 with a written exception list, or new shapes plus redirects.
+
+q Q-02 status=open cynefin=complicated t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:27:13Z "Which test strategy replaces the React component tests?"
+  why:
+    | D-02 removes React, so @testing-library/react, react-test-renderer and the snapshot suite lose their subject; Astro offers an experimental container API usually paired with vitest, while pure logic can stay on bun test.
+  exit:
+    | The user picks one of: container API tests for .astro components, logic tests only plus the W-12 parity gate, or both.
+
+q Q-03 status=open cynefin=clear t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:27:14Z "Which third-party services stay (Google Analytics, Sentry)?"
+  why:
+    | The current build wires gtag with a live tracking id and Sentry browser tracking with a DSN from the environment; both need explicit consent to carry over.
+  exit:
+    | The user names the services to keep and any constraints (self-hosted, Partytown, sampling rates).
+
+b B-01 status=proposed cynefin=complicated t_created=2026-09-18T19:27:23Z t_updated=2026-09-18T19:27:56Z "Astro 7 content collections cover the lumen frontmatter"
+  vm:
+    | Probe in the W-01 scaffold: glob loader plus zod schema loads all 5 posts and 2 pages with socialImage resolved.
+  threshold:
+    | Zero schema errors on the full content set.
+
+b B-02 status=proposed cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:27:56Z "Bun drives the Astro 7 toolchain"
+  vm:
+    | Run bun install, astro dev, astro build and bun test on the scaffold.
+  threshold:
+    | All four commands complete with no workarounds.
+
+b B-03 status=proposed cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T19:27:57Z "The Sentry Astro SDK supports Astro 7"
+  vm:
+    | Check the @sentry/astro peer range against astro 7.x and install it on the branch.
+  threshold:
+    | Installs cleanly and reports a test event.
+
+b B-04 status=proposed cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T19:27:57Z "Existing SCSS compiles under Vite with minimal changes"
+  vm:
+    | Compile main.scss in the W-01 scaffold and diff the emitted CSS custom properties.
+  threshold:
+    | No errors beyond import-path fixes and identical computed CSS custom properties.
+
+b B-05 status=proposed cynefin=complicated t_created=2026-09-18T19:27:58Z t_updated=2026-09-18T19:27:58Z "paginate() supports the Gatsby /page/N path shape"
+  vm:
+    | Probe paginate() with a custom paths function in the W-01 scaffold.
+  threshold:
+    | Generated routes include /page/2 style paths.
+
+t T-01 status=open t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:27:00Z "Legacy Gatsby platform constraints"
+
+a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
+  surface: content/, src/utils/to-kebab-case.ts
+
+a A-02 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Pages and routing"
+  surface: src/templates, internal/gatsby/create-pages.ts, internal/gatsby/constants
+
+a A-03 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Interface and theming"
+  surface: src/components, src/assets/styles, src/hooks
+
+a A-04 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Site services"
+  surface: gatsby-config.ts, sentry.config.ts, content/config.json
+
+a A-05 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Toolchain and delivery"
+  surface: package.json, .github, internal/scripts, internal/testing
+
+e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
+e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
+e B-03 targets W-10 t_created=2026-09-18T19:27:57Z
+e B-04 targets W-03 t_created=2026-09-18T19:27:57Z
+e B-05 targets W-06 t_created=2026-09-18T19:27:58Z
+e Q-01 asks W-05 t_created=2026-09-18T19:27:12Z
+e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
+e Q-02 asks W-11 t_created=2026-09-18T19:27:13Z
+e Q-03 asks W-10 t_created=2026-09-18T19:27:13Z
+e T-01 causes W-13 t_created=2026-09-18T19:27:00Z
+e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
+e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
+e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
+e W-01 implements D-08 t_created=2026-09-18T19:28:17Z
+e W-02 blocks W-05 t_created=2026-09-18T19:28:14Z
+e W-02 blocks W-06 t_created=2026-09-18T19:28:14Z
+e W-02 blocks W-07 t_created=2026-09-18T19:28:14Z
+e W-02 blocks W-08 t_created=2026-09-18T19:28:15Z
+e W-02 blocks W-09 t_created=2026-09-18T19:28:15Z
+e W-02 implements D-05 t_created=2026-09-18T19:28:17Z
+e W-03 blocks W-04 t_created=2026-09-18T19:28:15Z
+e W-03 blocks W-05 t_created=2026-09-18T19:28:15Z
+e W-03 implements D-03 t_created=2026-09-18T19:28:18Z
+e W-04 blocks W-05 t_created=2026-09-18T19:28:15Z
+e W-04 blocks W-11 t_created=2026-09-18T19:28:15Z
+e W-04 implements D-02 t_created=2026-09-18T19:28:18Z
+e W-05 blocks W-11 t_created=2026-09-18T19:28:16Z
+e W-05 blocks W-12 t_created=2026-09-18T19:28:16Z
+e W-06 blocks W-12 t_created=2026-09-18T19:28:16Z
+e W-06 implements D-06 t_created=2026-09-18T19:28:18Z
+e W-07 blocks W-05 t_created=2026-09-18T19:28:16Z
+e W-07 implements D-04 t_created=2026-09-18T19:28:18Z
+e W-08 blocks W-05 t_created=2026-09-18T19:28:16Z
+e W-09 blocks W-12 t_created=2026-09-18T19:28:16Z
+e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
+e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
+e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z
+e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
