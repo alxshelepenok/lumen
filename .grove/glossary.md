@@ -14,3 +14,5 @@
 | Islands directory | The flat src/islands directory holding every kebab-case .astro partial; a house layout name, not framework islands. | D-10 |
 | css-modules | Scoped stylesheet files whose class map is imported by components; exports differ between bundlers. | B-04 |
 | vite | The bundler and dev server underneath Astro, replacing webpack. | D-08 |
+| sätteri | The default markdown processor in Astro 7, replacing the unified pipeline. | W-07 |
+| content-layer | The Astro data layer behind content collections, including rendered html with image placeholders. | W-08 |

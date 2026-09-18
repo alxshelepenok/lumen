@@ -6,18 +6,18 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 18 | validated B 4 · answered Q 3 · accepted D 10 · active Discovery 1 |
+| C (content) | 20 | validated B 4 · answered Q 3 · accepted D 10 · active Discovery 3 |
 | V (uncertainty) | 9 | open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 7 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 7 | 0 | C: validated B 3 · answered Q 0 · accepted D 3 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 9 | 0 | C: validated B 3 · answered Q 0 · accepted D 3 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 4 | 2 | C: validated B 1 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
-| A-03 | Interface and theming | 5 | 0 | C: validated B 1 · answered Q 0 · accepted D 3 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 6 | 0 | C: validated B 1 · answered Q 0 · accepted D 3 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 4 | C: validated B 0 · answered Q 1 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-05 | Toolchain and delivery | 8 | 3 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| A-05 | Toolchain and delivery | 9 | 3 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -96,6 +96,8 @@
 | ID | Title | Tags | Status |
 | --- | --- | --- | --- |
 | Y-01 | Vite CSS modules must mirror webpack camelCase exports | css-modules, vite | active |
+| Y-02 | Astro 7 needs explicit unified markdown setup | sätteri | active |
+| Y-03 | Content layer images optimize only through render | content-layer | active |
 
 ## Dependency graph
 
@@ -142,6 +144,8 @@ graph TD
   B_06["B-06: Manual getStaticPaths emits the bare-first-plus-page-N URL set"]:::assumption
   T_01["T-01: Legacy Gatsby platform constraints"]:::theme
   Y_01["Y-01: Vite CSS modules must mirror webpack camelCase exports"]:::discovery
+  Y_02["Y-02: Astro 7 needs explicit unified markdown setup"]:::discovery
+  Y_03["Y-03: Content layer images optimize only through render"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -184,7 +188,9 @@ graph TD
   W_06 -->|implements| D_06
   W_07 ==>|blocks| W_05
   W_07 -->|implements| D_04
+  W_07 -->|produces| Y_02
   W_08 ==>|blocks| W_05
+  W_08 -->|produces| Y_03
   W_09 ==>|blocks| W_12
   W_10 ==>|blocks| W_12
   W_11 ==>|blocks| W_13

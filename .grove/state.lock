@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:549157a42fccb8b93bc70eac353280043cd1e7fc186508de2fa95a9fb1fa71af
+# checksum: sha256:7f8778481128fbe42963cd5ad384598e0d762ffdfbbb58e789a2f23274efb638
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -110,7 +110,7 @@ w W-04 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:1
     | Logical class diff against the Gatsby index and post builds: zero Astro-only classes; the only gatsby-only classes are markdown pipeline ones (anchor, before, gatsby-resp-image) and the active menu state, owned by W-07, W-08 and page assembly.
     | bun test: 111 pass, 4 fail (the pre-existing years failures); bun run build:astro green on the clean tree.
 
-w W-05 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:11:52Z "Port core templates with URL parity (index, post, page, 404, meta)"
+w W-05 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:46:41Z "Port core templates with URL parity (index, post, page, 404, meta)"
   goals: G-02
   fitness: G-02=+1
   surface: src/templates, internal/gatsby/constants, src/pages
@@ -137,7 +137,7 @@ w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
   evidence_strategy:
     | Route list diff against the Gatsby build; snapshot checks on listing pages.
 
-w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:43:17Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
+w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:46:39Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
   goals: G-01
   fitness: G-01=+1
   surface: gatsby-config.ts, content/posts, astro.config.ts, internal/astro/rehype/responsive-iframe.mjs, src/assets/styles/base/_anchors.scss, src/assets/styles/base/_prism.scss
@@ -156,7 +156,7 @@ w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:2
     | Astro 7 finding: Sätteri is the default markdown processor and the unified plugin pipeline needs an explicit @astrojs/markdown-remark dependency (installed, 7.3.1).
     | Accepted differences: the gatsby autolink scroll script is left to native browser hash behaviour (offsetY 0), and markdown body images stay as /image.jpg passthrough until the W-08 asset pipeline.
 
-w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:46:15Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
+w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:46:40Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
   goals: G-01
   fitness: G-01=+1
   surface: src/components/image, content, internal/astro/remark/resolve-content-images.mjs, src/islands/post-content.astro, src/islands/post.astro, static
@@ -495,6 +495,22 @@ y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:1
   why:
     | Without it styles.sidebarAuthor silently resolves to undefined and wrapper classes vanish from the markup (observed in W-04 before the fix).
 
+y Y-02 status=active t_created=2026-09-18T20:46:39Z t_updated=2026-09-18T20:46:40Z "Astro 7 needs explicit unified markdown setup"
+  tags: sätteri
+  surface: astro.config.ts, package.json
+  invariant:
+    | Astro 7 defaults to the Sätteri markdown processor; unified remark and rehype plugins require an explicit @astrojs/markdown-remark dependency and rehype-raw must run for raw HTML in markdown.
+  why:
+    | Without the dependency plugin configs fail validation, and without rehype-raw raw HTML like iframes silently disappears from the output (observed in W-07).
+
+y Y-03 status=active t_created=2026-09-18T20:46:40Z t_updated=2026-09-18T20:46:40Z "Content layer images optimize only through render"
+  tags: content-layer
+  surface: src/islands/post-content.astro
+  invariant:
+    | entry.rendered.html carries __ASTRO_IMAGE_ placeholders; responsive image markup materializes only when the Content component returned by render(entry) renders.
+  why:
+    | Reading rendered.html directly leaks placeholder attributes and loses webp srcset optimization (observed in W-08).
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
   surface: content/, src/utils/to-kebab-case.ts
 
@@ -547,7 +563,9 @@ e W-06 blocks W-12 t_created=2026-09-18T19:28:16Z
 e W-06 implements D-06 t_created=2026-09-18T19:28:18Z
 e W-07 blocks W-05 t_created=2026-09-18T19:28:16Z
 e W-07 implements D-04 t_created=2026-09-18T19:28:18Z
+e W-07 produces Y-02 t_created=2026-09-18T20:46:39Z
 e W-08 blocks W-05 t_created=2026-09-18T19:28:16Z
+e W-08 produces Y-03 t_created=2026-09-18T20:46:40Z
 e W-09 blocks W-12 t_created=2026-09-18T19:28:16Z
 e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
 e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
