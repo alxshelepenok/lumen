@@ -5,8 +5,8 @@ import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
 import Post from "@/islands/post.astro";
 
-import { getSlug, getTagSlugs } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getSlug, getTagSlugs } from "@/utils/get-slug";
 
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts", ({ data }) => !data.draft);

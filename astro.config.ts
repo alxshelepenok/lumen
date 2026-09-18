@@ -1,10 +1,10 @@
-import { defineConfig } from "astro/config";
 import { unified } from "@astrojs/markdown-remark";
+import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
-import rehypeRaw from "rehype-raw";
 import autoprefixer from "autoprefixer";
+import rehypeRaw from "rehype-raw";
 
 import { rehypeHtml } from "./internal/rehype-html.mjs";
 import { remarkResolveContentImages } from "./internal/resolve-content-images.mjs";

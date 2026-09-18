@@ -1,10 +1,10 @@
+import type { APIContext } from "astro";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import type { APIContext } from "astro";
 
-import { getSlug } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getSlug } from "@/utils/get-slug";
 
 type Post = CollectionEntry<"posts">;
 

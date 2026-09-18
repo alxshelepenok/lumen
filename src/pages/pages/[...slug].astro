@@ -6,8 +6,8 @@ import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
 import Sidebar from "@/islands/sidebar.astro";
 
-import { getSlug } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getSlug } from "@/utils/get-slug";
 
 export const getStaticPaths = async () => {
   const pages = await getCollection("pages", ({ data }) => !data.draft);

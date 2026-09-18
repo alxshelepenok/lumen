@@ -1,5 +1,5 @@
-import path from "node:path";
 import fs from "node:fs";
+import path from "node:path";
 
 const isImage = (node) =>
   Boolean(node) && node.type === "image" && typeof node.url === "string";
