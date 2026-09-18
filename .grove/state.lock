@@ -1,14 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:3bfb24f21f3181d7a5ba0e794b25b46316537108a4849f49461ec4bb91f75b02
+# checksum: sha256:412bd4a423a370f47ebe5c9f9a3044a7bc63401f425203015e9ff41a956c558e
 g G-12 status=partial fitness_kind=count t_created=2026-09-18T22:06:31Z t_updated=2026-09-18T22:07:28Z "Repository layout and test environment follow the third review round"
   area: A-05
   fitness_target: 3
   fitness_current: 2
 
-g G-13 status=unverified fitness_kind=count t_created=2026-09-18T22:06:32Z t_updated=2026-09-18T22:06:32Z "The feed is served as atom"
+g G-13 status=verified fitness_kind=count t_created=2026-09-18T22:06:32Z t_updated=2026-09-18T22:10:08Z "The feed is served as atom"
   area: A-04
   fitness_target: 1
+  fitness_current: 1
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -68,7 +69,7 @@ w W-26 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22
   evidence_strategy:
     | git log over the purged paths returns nothing and the tree is clean.
 
-w W-27 type=feature status=proposed cynefin=clear t_created=2026-09-18T22:07:00Z t_updated=2026-09-18T22:07:00Z "Serve the feed as atom.xml"
+w W-27 type=feature status=done cynefin=clear t_created=2026-09-18T22:07:00Z t_updated=2026-09-18T22:10:08Z "Serve the feed as atom.xml"
   goals: G-13
   theme: T-02
   fitness: G-13=+1
@@ -79,6 +80,9 @@ w W-27 type=feature status=proposed cynefin=clear t_created=2026-09-18T22:07:00Z
     | A small hand-rolled Atom endpoint keeps the feed dependency-free while reusing the container-rendered content.
   evidence_strategy:
     | Feed output inspection of the entry set and a green build.
+  evidence:
+    | atom.xml serves a valid Atom feed: five entries with title, alternate link, id, updated, summary and escaped html content rendered through the container; self and alternate feed links plus deterministic latest-post updated; the rss endpoint and the @astrojs/rss dependency are gone.
+    | Build green with /atom.xml emitted, astro check clean and the suite green (19 tests).
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
