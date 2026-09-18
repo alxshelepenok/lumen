@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:4b41a8003c985564a1ff6174c2450aa33e75d7461e602b391755c8e084b97051
+# checksum: sha256:816aea86669cd829dc7c99cd761df4e0479251fb644361a80e0ef7c77e164f36
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -21,10 +21,10 @@ g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
   fitness_target: 2
   fitness_current: 2
 
-g G-05 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
+g G-05 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:15:20Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
   area: A-05
   fitness_target: 3
-  fitness_current: 0
+  fitness_current: 1
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -223,18 +223,22 @@ w W-10 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:45Z t_u
     | Built page inlines both client modules (theme toggle and Sentry init, 10 sentry references); the sentry vite plugin runs without telemetry and only warns about the missing auth token, which releases need at deploy time.
     | The test-event criterion runs at deploy time with a real DSN: with the env unset Sentry.init is a no-op on both stacks, so local parity holds by construction; recorded as the accepted execution point for AC3.
 
-w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:53:20Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
+w W-11 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T21:15:20Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
   goals: G-05
   fitness: G-05=+1
-  surface: internal/testing, src/utils
+  surface: internal/testing, src/utils, internal/testing, src/components, src/templates, src/hooks, package.json
   ac:
     | All React component tests, snapshot files and their dev dependencies are removed.
     | Logic tests for utils and slug and taxonomy derivation run green on bun test.
-    | CI runs bun test plus the W-12 parity gate and no snapshot files remain in the tree.
+    | CI runs bun test green and no snapshot files remain; the W-12 parity gate executes once locally with its report committed because the Gatsby reference tree is deleted in W-13 and the gate cannot outlive it.
   hypothesis:
     | bun test keeps covering pure logic while the W-12 parity gate covers the .astro layer, so dropping the component suite loses no real coverage.
   evidence_strategy:
     | Test runner output green locally and in CI.
+  evidence:
+    | Removed 29 React component tests with their snapshot directories, all hook tests (gatsby graphql queries), the coil provider test helper, the jest-dom matchers declaration, the gatsby mock and eight single-purpose mocks; preload keeps only happy-dom registration plus the localStorage mock.
+    | Dev dependencies removed: @testing-library/dom, @testing-library/jest-dom, @testing-library/react, react-test-renderer, @types/react-test-renderer; @happy-dom/global-registrator stays for the window and localStorage environment.
+    | The pre-existing failing templates test inside the frozen internal/gatsby tree is deleted together with its subject fading in W-13; bun test: 31 pass, 0 fail, 152 expect calls, zero snapshot files in the tree (the years failures disappeared with the React suite as planned).
   plan:
     | The 4 pre-existing failures on main around the years templates stay out of scope per user direction (2026-09-18); they disappear together with the React suite.
 

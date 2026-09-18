@@ -480,3 +480,16 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:09:27Z","inv":{"id":"Y-05","field":"invariant","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:09:27Z","inv":{"id":"Y-05","field":"why","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:09:27Z","inv":{"old_status":"proposed","id":"Y-05","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:13:58Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-11","op":"set_w_status_with_goals","goal_statuses":{"G-05":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:18Z","inv":{"line":"CI runs bun test plus the W-12 parity gate and no snapshot files remain in the tree.","id":"W-11","field":"ac","op":"field_insert_line","index":3}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:18Z","inv":{"id":"W-11","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:18Z","inv":{"id":"W-11","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:18Z","inv":{"id":"W-11","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:18Z","inv":{"id":"W-11","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:19Z","inv":{"id":"W-11","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:19Z","inv":{"id":"W-11","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:19Z","inv":{"id":"W-11","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:19Z","inv":{"id":"W-11","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:15:19Z","inv":{"id":"W-11","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-18T21:15:19Z","inv":{"had_key":true,"wid":"W-11","gid":"G-05","previous":1,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:15:20Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-11","op":"set_w_status_with_goals","goal_statuses":{"G-05":"unverified"},"old_session_at":"2026-09-18T21:13:58Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}

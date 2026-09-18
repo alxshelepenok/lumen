@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 23 | validated B 5 · answered Q 3 · accepted D 10 · active Discovery 5 |
-| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| V (uncertainty) | 2 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 ## Areas
 
@@ -17,7 +17,7 @@
 | A-02 | Pages and routing | 5 | 0 | C: validated B 1 · answered Q 1 · accepted D 2 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 6 | 0 | C: validated B 1 · answered Q 0 · accepted D 3 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 3 | 0 | C: validated B 1 · answered Q 1 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 9 | 3 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| A-05 | Toolchain and delivery | 9 | 2 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -29,7 +29,7 @@
 | G-02 | All public routes keep their Gatsby URL shapes on Astro | count; current=2 target=2 | verified |
 | G-03 | Interface and theming match the current site on Astro | count; current=2 target=2 | verified |
 | G-04 | Site services are restored (feed, sitemap, manifest, analytics, error tracking) | count; current=2 target=2 | verified |
-| G-05 | Delivery pipeline runs on Astro (tests, parity verification, cleanup) | count; current=0 target=3 | unverified |
+| G-05 | Delivery pipeline runs on Astro (tests, parity verification, cleanup) | count; current=1 target=3 | partial |
 
 ## Work items
 
@@ -45,8 +45,8 @@
 | W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | done |  |
 | W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | done |  |
 | W-10 | feature | Restore analytics and error tracking (gtag, Sentry) | G-04 | clear | ⊤ | done |  |
-| W-11 | feature | Reduce the test suite to logic tests on bun test (drop React snapshots) | G-05 | complicated | ⊤ | proposed | ★ |
-| W-12 | feature | Verify parity against the Gatsby build (routes, HTML, screenshots) | G-05 | complicated | ⊤ | proposed |  |
+| W-11 | feature | Reduce the test suite to logic tests on bun test (drop React snapshots) | G-05 | complicated | ⊤ | done |  |
+| W-12 | feature | Verify parity against the Gatsby build (routes, HTML, screenshots) | G-05 | complicated | ⊤ | proposed | ★ |
 | W-13 | refactor | Remove Gatsby and close out tooling (deps, scripts, CI, docs) | G-05 | clear | ⊤ | proposed | ★ |
 
 ## Decisions
@@ -120,8 +120,8 @@ graph TD
   W_08["W-08: Port the image pipeline to astro:assets (webp, responsive sizes, social images)"]:::done
   W_09["W-09: Restore site services (rss.xml, sitemap, manifest)"]:::done
   W_10["W-10: Restore analytics and error tracking (gtag, Sentry)"]:::done
-  W_11["W-11: Reduce the test suite to logic tests on bun test (drop React snapshots)"]:::feature,critical
-  W_12["W-12: Verify parity against the Gatsby build (routes, HTML, screenshots)"]:::feature
+  W_11["W-11: Reduce the test suite to logic tests on bun test (drop React snapshots)"]:::done
+  W_12["W-12: Verify parity against the Gatsby build (routes, HTML, screenshots)"]:::feature,critical
   W_13["W-13: Remove Gatsby and close out tooling (deps, scripts, CI, docs)"]:::feature,critical
   D_01["D-01: Migrate to Astro 7"]:::decision
   D_02["D-02: Native Astro components without React runtime"]:::decision
@@ -205,7 +205,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
-  class W_11,W_13 critical
+  class W_12,W_13 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
