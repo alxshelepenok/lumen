@@ -1,5 +1,7 @@
 import { defineConfig } from "astro/config";
 
+import sitemap from "@astrojs/sitemap";
+
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
@@ -39,6 +41,13 @@ export default defineConfig({
   output: "static",
   publicDir: "static",
   site: config.url,
+  integrations: [
+    sitemap({
+      changefreq: "daily",
+      priority: 0.7,
+      filter: (page) => !page.includes("/404"),
+    }),
+  ],
   image: {
     layout: "constrained",
     breakpoints: [320, 480, 640, 750, 828, 960],

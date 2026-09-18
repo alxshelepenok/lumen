@@ -30,6 +30,8 @@
     "@alxshelepenok/diesel": "1.0.1365",
     "@alxshelepenok/diesel-extensions": "1.0.1241",
     "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
     "@sentry/gatsby": "^8.45.1",
     "@sentry/tracing": "^7.114.0",
     "astro": "^7",
