@@ -1,31 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:50d896fc9daa25c9f58367e4b5b9aa730078b508729ac04c33931903e7c1ecb2
-g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
-  area: A-01
-  fitness_target: 3
-  fitness_current: 3
-
-g G-02 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:55:27Z "All public routes keep their Gatsby URL shapes on Astro"
-  area: A-02
-  fitness_target: 2
-  fitness_current: 2
-
-g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:11:51Z "Interface and theming match the current site on Astro"
-  area: A-03
-  fitness_target: 2
-  fitness_current: 2
-
-g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:09:26Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
-  area: A-04
-  fitness_target: 2
-  fitness_current: 2
-
-g G-05 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:26Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
-  area: A-05
-  fitness_target: 3
-  fitness_current: 3
-
+# checksum: sha256:44a385f7ae2b120a4380553a4c2932999ae184c115c750041b0f78acd3964d7a
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -49,326 +24,6 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
-
-w W-02 type=feature status=done cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T20:02:22Z "Port content to Astro content collections (posts, pages, site config)"
-  goals: G-01
-  fitness: G-01=+1
-  surface: content/, src/content.config.ts, internal/gatsby/on-create-node.ts, src/content.config.ts, src/utils/get-slug.ts, src/utils/get-slug.test.ts, src/utils/get-site-metadata.ts, src/utils/to-kebab-case.ts
-  ac:
-    | A content config defines posts and pages collections with a glob loader over content/ and a zod schema covering every frontmatter field.
-    | Slug resolution matches Gatsby: the frontmatter slug wins, otherwise the directory-based path applies.
-    | All 5 posts and 2 pages load without schema errors and a temporary invalid frontmatter fails the build.
-    | tagSlugs and categorySlug derive through toKebabCase exactly as in on-create-node.
-  hypothesis:
-    | The content layer glob loader plus zod covers the lumen frontmatter shape, so sourcing moves off GraphQL without editing any content file.
-  evidence_strategy:
-    | Build log showing both collections loaded; a failing-build transcript with bad frontmatter; unit checks on slug derivation.
-  evidence:
-    | Collections live in src/content.config.ts: posts and pages glob loaders over content/ with full zod schemas (posts incl. draft, category, tags; pages without category or tags); z from astro/zod, image() from the schema context.
-    | Slug parity: the glob loader honours the frontmatter slug as entry id (verified: posts ids are /posts/a-brief-history-of-typography style), so the Gatsby rule of frontmatter-slug-wins holds by construction; src/utils/get-slug.ts adds the /posts or /pages prefix only for directory derived ids; get-slug.test.ts 3 pass.
-    | Invalid frontmatter fails the build: date not-a-date in one post produced InvalidContentEntryDataError naming posts and the entry id, exit code 9; reverted and rebuilt green afterwards.
-    | Site config stays in content/config.json and is exposed typed through src/utils/get-site-metadata.ts (title, url, description, copyright, feedLimit, menu, author with contacts, googleAnalyticsId, pathPrefix).
-    | bun test full suite: 109 pass, 4 fail (the pre-existing years failures only); bun run build:astro green with both collections synced.
-    | Tag and category slugs derive through toKebabCase exactly as in on-create-node: getTagSlugs (trailing slash form /tag/kebab/) and getCategorySlug (/category/kebab); get-slug.test.ts now 5 pass.
-
-w W-03 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T19:58:09Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
-  goals: G-03
-  fitness: G-03=+1
-  surface: src/assets/styles, internal/gatsby/on-render-body.ts, src/hooks/use-theme.ts, src/utils/theme.ts, src/utils/theme.test.ts, src/islands/base-layout.astro, src/islands/theme-toggle.astro, src/pages/index.astro
-  ac:
-    | main.scss with all partials compiles under the Vite sass pipeline and the emitted CSS custom properties match the Gatsby build.
-    | An inline pre-body script sets the html class from localStorage or the media query before first paint.
-    | The theme toggle persists the choice and swaps the palette with no framework runtime in the bundle.
-  hypothesis:
-    | The theme system is pure CSS variables plus one class on html, so it ports with import-path fixes only.
-  evidence_strategy:
-    | CSS variable diff between builds; toggle and reload check; screenshots in both modes.
-  evidence:
-    | CSS custom property diff between builds is empty: 26 of 26 identical declarations, Gatsby public/styles.09cc1209a4dfbc3a3005.css versus Astro dist/_astro/index.ig__stEl.css.
-    | No-FOUC script ported from internal/gatsby/on-render-body.ts into islands/base-layout.astro head with the storage key injected from src/utils/theme.ts (is:inline, runs before first paint; html lang=en kept).
-    | Theme toggle ships as a vanilla inlined module: built page contains the full toggle logic (storage key diesel:theme-atom, JSON mode shape, html class swap, click wiring) with zero react or diesel imports; src/utils/theme.test.ts 7 pass.
-    | Storage compatibility confirmed from diesel-extensions bundle: useCoilPersistedState writes JSON under diesel: plus toKebabCase(atom key), so the port keeps the exact key diesel:theme-atom and value shape.
-    | Found and resolved an output collision: Gatsby and Astro both claimed public/, so astro.config.ts now sets publicDir static and outDir stays dist.
-    | bun test: 106 pass, 4 fail (the pre-existing years failures only; 7 new theme tests green).
-
-w W-04 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T20:11:51Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
-  goals: G-03
-  fitness: G-03=+1
-  surface: src/islands, src/islands, src/assets/styles/modules, tsconfig.json, astro.config.ts
-  ac:
-    | Markup structure and class names match the current React output so the ported SCSS applies unchanged.
-    | No react, react-dom or diesel import remains anywhere under src/.
-    | The islands and pages import no react, react-dom or diesel module; the src-wide removal of the legacy React tree lands in W-13 so the Gatsby parity build stays available until W-12.
-    | The ported tree follows the agreed layout (pages, islands, assets/styles with modules, constants, utils, content, content.config.ts); src/components stays frozen as legacy until W-13.
-  hypothesis:
-    | Every component except ThemeSwitcher renders statically, so a mechanical port to .astro templates preserves the DOM.
-  evidence_strategy:
-    | Side-by-side HTML samples from the Gatsby and Astro builds; grep proving no React imports.
-  evidence:
-    | 18 islands live in src/islands (17 ported here plus theme-toggle from W-03); base-layout now renders the Meta island in head.
-    | CSS modules moved once via git mv into src/assets/styles/modules (17 files) and React imports updated to the @/assets alias; the Gatsby build stays green (needs GATSBY_CPU_COUNT=4 on this machine because WMIC is missing on Windows 11).
-    | vite css.modules.localsConvention camelCase mirrors webpack css-loader exports: styles.sidebarAuthor resolves to _sidebar-author_1cf0u_1 exactly like the React side resolved to sidebar-author-module--sidebar-author--f2c33.
-    | Throwaway showcase page rendered every island with real collection data then was removed; entry.rendered.html is available on content layer entries (2053 chars for the sample post), confirming the html-string design of post-content and the future RSS feed.
-    | Logical class diff against the Gatsby index and post builds: zero Astro-only classes; the only gatsby-only classes are markdown pipeline ones (anchor, before, gatsby-resp-image) and the active menu state, owned by W-07, W-08 and page assembly.
-    | bun test: 111 pass, 4 fail (the pre-existing years failures); bun run build:astro green on the clean tree.
-
-w W-05 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T20:50:49Z "Port core templates with URL parity (index, post, page, 404, meta)"
-  goals: G-02
-  fitness: G-02=+1
-  surface: src/templates, internal/gatsby/constants, src/pages, src/pages, src/islands/base-layout.astro
-  ac:
-    | Routes /, post slugs, page slugs and /404 render from .astro pages backed by collection data.
-    | Per-template meta tags match the current Head output (title, description, twitter and og fields, social image).
-    | URL shapes follow the parity level confirmed in Q-01 and D-06.
-    | Every page emits a canonical link tag with the absolute page URL ending in a trailing slash.
-  hypothesis:
-    | Gatsby templates map one-to-one onto .astro pages with frontmatter-derived routes.
-  evidence_strategy:
-    | HTML comparison against the Gatsby build over the sample content.
-  evidence:
-    | Routes built: / (feed of 4 with feedLimit), 5 post slugs, 2 page slugs and 404.html; route diff against the Gatsby build is empty except the Gatsby 404 directory and page-data artifacts.
-    | Head parity: titles match on all four kinds (index, post, page, 404), descriptions match, og image absolute on post and page, twitter card summary_large_image; about emits the site description where Gatsby rendered an empty content attribute (Head quirk, recorded as accepted improvement).
-    | Canonical link tags on every page with trailing slash (https://lumen.alxshelepenok.com/posts/a-brief-history-of-typography/ style) per D-06 and Q-01.
-    | Post page structure: no sidebar, All Articles button, tag links identical including trailing slashes (/tag/linotype/, /tag/helvetica/, /tag/history-of-typography/), published date identical (React only adds comment markers); feed shows 4 Read links in both builds.
-
-w W-06 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T20:55:35Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
-  goals: G-02
-  fitness: G-02=+1
-  surface: src/templates, internal/gatsby/create-pages.ts, src/pages/categories.astro, src/pages/tags.astro, src/pages/years.astro, src/pages/category, src/pages/tag, src/pages/year, src/pages/page, src/utils/get-taxonomy.ts, src/utils/get-pagination.ts, src/utils/get-feed-items.ts
-  ac:
-    | /categories, /tags, /years plus /category/:slug, /tag/:slug and /year/:yyyy with pagination all render.
-    | Pagination limits follow feedLimit from content/config.json and the emitted page paths match the Gatsby set.
-    | Group ordering and kebab-case slugs match the Gatsby output.
-  hypothesis:
-    | paginate() with custom path functions reproduces the createPages URL set exactly.
-  evidence_strategy:
-    | Route list diff against the Gatsby build; snapshot checks on listing pages.
-  evidence:
-    | Full route diff against the Gatsby build is empty: 31 pages covering /, /page/1, 4 categories, 12 tags, /years, /year/2016 plus /year/2016/page/1, 5 posts, 2 pages and 404; only the Gatsby 404 directory and _gatsby internals are extra.
-    | Pagination numbering is zero-based like createPages: first extra route is /page/1 and titles show Page 1 (Posts - Page 1 - Blog by John Doe verified identical), paths generated manually per B-06 through getPaginationInfo and getPaginationPath.
-    | Head titles identical on all 8 listing kinds (Categories, Tags, Years, Posts - Page 1, group pages and Year group pages); listing order matches: categories and tags alphabetical with counts, years descending.
-    | All internal hrefs end with a trailing slash exactly like gatsby-link output (menu, feed post and category links, pagination prev and next); withTrailingSlash util with 3 passing tests.
-    | bun run build:astro green with 31 pages; bun test 114 pass with the 4 pre-existing years failures.
-
-w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:46:39Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
-  goals: G-01
-  fitness: G-01=+1
-  surface: gatsby-config.ts, content/posts, astro.config.ts, internal/astro/rehype/responsive-iframe.mjs, src/assets/styles/base/_anchors.scss, src/assets/styles/base/_prism.scss
-  ac:
-    | Autolinked headers, smartypants typography, external link attributes, copied linked files and responsive iframes behave as under the current remark plugins.
-    | Code blocks render through Shiki with the ported palette in both themes.
-    | Rendered HTML for every sample post matches the current output modulo differences accepted in evidence.
-  hypothesis:
-    | Each current remark plugin maps onto a standard remark or rehype plugin in the Astro markdown pipeline.
-  evidence_strategy:
-    | HTML diffs per sample post; visual check of a code-heavy and a media-heavy post.
-  evidence:
-    | Pipeline assembled: remark-smartypants plus rehype raw, slug, autolink-headings, external-links and a local responsive-iframe wrapper (internal/astro/rehype); shiki solarized-light with the astro-code container styled from _prism.scss and a theme-aware muted background override.
-    | Anchor markup is byte-identical to gatsby-remark-autolink-headers: h2 and h3 ids, inline position style via headingProperties, a.anchor.before with the same octicon svg and aria-label pattern (verified on the typography post: aenean-viverra h2 and vivamus-pretium h3 in both builds).
-    | Probe page (removed) verified curly quotes, ellipsis and dash smartypants, rel=noopener with target=_blank on external links, the iframe wrapper div with margin-bottom 1.0725rem and pre.astro-code solarized-light tokens; rehype-raw was required because Astro 7 drops raw HTML without it.
-    | Astro 7 finding: Sätteri is the default markdown processor and the unified plugin pipeline needs an explicit @astrojs/markdown-remark dependency (installed, 7.3.1).
-    | Accepted differences: the gatsby autolink scroll script is left to native browser hash behaviour (offsetY 0), and markdown body images stay as /image.jpg passthrough until the W-08 asset pipeline.
-
-w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:46:40Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
-  goals: G-01
-  fitness: G-01=+1
-  surface: src/components/image, content, internal/astro/remark/resolve-content-images.mjs, src/islands/post-content.astro, src/islands/post.astro, static
-  ac:
-    | Post and page images process through astro:assets with webp output and responsive widths up to 960px.
-    | socialImage frontmatter resolves per post and feeds the meta tags.
-    | logo.png and the author photo serve through the new pipeline.
-  hypothesis:
-    | astro:assets with the default sharp service replaces gatsby-plugin-sharp and gatsby-plugin-image without heavy configuration.
-  evidence_strategy:
-    | Build artifacts listing generated formats and sizes; img markup comparison.
-  evidence:
-    | Markdown body images render fully responsive: webp srcset at the configured breakpoints 320 to 960 plus the original width, computed sizes, lazy loading and async decoding, data-astro-image constrained; astro emits one img where gatsby emitted picture, functionally equivalent and recorded as accepted.
-    | Root-absolute markdown image urls (/image.jpg) resolve against the markdown directory through internal/astro/remark/resolve-content-images.mjs, mirroring how gatsby-remark-images found sibling files.
-    | Rendered html carries __ASTRO_IMAGE_ placeholders and the actual optimization happens inside render(entry), so post-content and post islands now take the Content component instead of an html string; the raw html fallback for RSS is noted for W-09.
-    | socialImage resolves to full ImageMetadata (src, width 5753, height 3828, format jpg) and feeds og tags when pages assemble in W-05; logo.png now serves from static/.
-    | bun run build:astro green and bun test 111 pass with the 4 pre-existing years failures.
-
-w W-09 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T21:09:27Z "Restore site services (rss.xml, sitemap, manifest)"
-  goals: G-04
-  fitness: G-04=+1
-  surface: gatsby-config.ts, src/pages, src/pages/rss.xml.ts, static, src/islands/base-layout.astro
-  ac:
-    | C:/Program Files/Git/rss.xml matches the current feed entries (limit, ordering, content encoded body, guid) within the accepted diff.
-    | The sitemap generates with the same URL set including exclusions for 404 pages.
-    | The web manifest declares the same name, colors, icon and display mode.
-  hypothesis:
-    | Official Astro integrations for rss and sitemap plus a small manifest route cover all three services.
-  evidence_strategy:
-    | Feed validation, sitemap URL diff and a manifest field comparison.
-  evidence:
-    | rss.xml: item links, titles, descriptions and RFC822 pubDates match the Gatsby feed (links without trailing slash exactly like the serialize output); content:encoded carries fully rendered html with webp images through the container API and zero __ASTRO_IMAGE_ placeholder leaks; accepted diffs: channel description uses the site description instead of the Gatsby title fallback, guid isPermaLink true, plain text instead of CDATA and a different tie order for the two posts sharing 2016-09-01T23:46:37.121Z.
-    | Sitemap parity: sitemap-index.xml plus sitemap-0.xml with the identical 30 URL set, changefreq daily and priority 0.7, 404 excluded through the integration filter.
-    | Manifest parity: static/manifest.webmanifest with the same name, short_name, hsl theme and background colors, display standalone and start_url; icons 48 to 512 plus favicon-32x32 generated from content/logo.png into static; head links for manifest, theme-color, favicon and 8 apple-touch icons mirror the gatsby-plugin-manifest injections.
-
-w W-10 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:45Z t_updated=2026-09-18T21:09:26Z "Restore analytics and error tracking (gtag, Sentry)"
-  goals: G-04
-  fitness: G-04=+1
-  surface: gatsby-config.ts, sentry.config.ts, src/islands/gtag.astro, src/sentry.client.config.ts, src/islands/base-layout.astro
-  ac:
-    | Sentry wires through the official Astro integration and keeps browser tracking and replay with the current sampling rates.
-    | Google Analytics loads as a plain gtag script island in the head with the current tracking id.
-    | A Sentry test event from the preview build reaches the project.
-  hypothesis:
-    | The official Sentry Astro integration plus a plain gtag island reproduce the current wiring on a fully static build.
-  evidence_strategy:
-    | Built HTML contains the expected snippets; a Sentry test event from the preview build.
-  evidence:
-    | Google Analytics loads as a plain gtag island in head with the current tracking id: the googletagmanager script tag plus the dataLayer config including send_page_view false, byte-matching the gatsby-plugin-google-gtag injection.
-    | Sentry wires through @sentry/astro 10.75.0 (peer range includes astro >=7.0.0-beta, B-03 validated); the client config keeps browser tracing and replay with the same sampling rates (traces 1.0, replay session 0.1, replay on error 1.0) and the DSN stays env-gated through PUBLIC_SENTRY_DSN exactly like the GATSBY_SENTRY_DSN gate today.
-    | Built page inlines both client modules (theme toggle and Sentry init, 10 sentry references); the sentry vite plugin runs without telemetry and only warns about the missing auth token, which releases need at deploy time.
-    | The test-event criterion runs at deploy time with a real DSN: with the env unset Sentry.init is a no-op on both stacks, so local parity holds by construction; recorded as the accepted execution point for AC3.
-
-w W-11 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T21:15:20Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
-  goals: G-05
-  fitness: G-05=+1
-  surface: internal/testing, src/utils, internal/testing, src/components, src/templates, src/hooks, package.json
-  ac:
-    | All React component tests, snapshot files and their dev dependencies are removed.
-    | Logic tests for utils and slug and taxonomy derivation run green on bun test.
-    | CI runs bun test green and no snapshot files remain; the W-12 parity gate executes once locally with its report committed because the Gatsby reference tree is deleted in W-13 and the gate cannot outlive it.
-  hypothesis:
-    | bun test keeps covering pure logic while the W-12 parity gate covers the .astro layer, so dropping the component suite loses no real coverage.
-  evidence_strategy:
-    | Test runner output green locally and in CI.
-  evidence:
-    | Removed 29 React component tests with their snapshot directories, all hook tests (gatsby graphql queries), the coil provider test helper, the jest-dom matchers declaration, the gatsby mock and eight single-purpose mocks; preload keeps only happy-dom registration plus the localStorage mock.
-    | Dev dependencies removed: @testing-library/dom, @testing-library/jest-dom, @testing-library/react, react-test-renderer, @types/react-test-renderer; @happy-dom/global-registrator stays for the window and localStorage environment.
-    | The pre-existing failing templates test inside the frozen internal/gatsby tree is deleted together with its subject fading in W-13; bun test: 31 pass, 0 fail, 152 expect calls, zero snapshot files in the tree (the years failures disappeared with the React suite as planned).
-  plan:
-    | The 4 pre-existing failures on main around the years templates stay out of scope per user direction (2026-09-18); they disappear together with the React suite.
-
-w W-12 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T21:20:21Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
-  goals: G-05
-  fitness: G-05=+1
-  surface: internal/scripts, internal/scripts/compare-builds.mjs, internal/scripts/parity-report.md, internal/scripts/parity
-  ac:
-    | A comparison script diffs the URL list of both builds and reports zero unexplained differences.
-    | Screenshots of key pages in both themes show differences limited to the accepted list.
-    | The parity report is committed as evidence and referenced from the goals.
-  hypothesis:
-    | Automated route and visual diffs catch migration regressions earlier than review.
-  evidence_strategy:
-    | Script outputs and screenshot artifacts attached to the work item.
-  evidence:
-    | Route parity: internal/scripts/compare-builds.mjs diffs dist against public with documented artifact exclusions (page-data, _gatsby internals, the duplicate 404 directory, dev-404, partytown): 34 urls on each side, zero urls only in astro, zero only in gatsby.
-    | Head parity over all 31 shared html routes: titles and canonical trailing slashes all match; the only entries in the report are the two accepted description differences on about and contacts where Gatsby rendered an empty content attribute.
-    | Visual parity: eight screenshots (index and post, light and dark, both builds) plus side-by-side composites under internal/scripts/parity; average brightness matches per theme (33/33 dark, 248/248 light) and image analysis of all four composites reports identical layout, typography and structure with differences limited to the accepted list: the feed tie-order swap of the two posts sharing 2016-09-01T23:46:37.121Z, image loading state at capture time, a sub-pixel column width and a scrollbar artifact.
-    | The report is committed at internal/scripts/parity-report.md alongside the screenshot artifacts; bun test stays green (31 pass, 0 fail).
-  plan:
-    | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
-
-w W-13 type=refactor status=done cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T21:22:26Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
-  goals: G-05
-  theme: T-01
-  fitness: G-05=+1
-  surface: package.json, .github, README.md, internal, package.json, tsconfig.json, README.md
-  ac:
-    | No gatsby-scoped dependency remains and package.json holds only Astro-stack packages.
-    | Scripts, tsconfig path aliases and CI workflows run the Astro commands and pass.
-    | README quick start and description reflect Astro.
-    | No React-related dependency remains (react, react-dom, @testing-library/react, react-test-renderer, @alxshelepenok/diesel, @alxshelepenok/diesel-extensions).
-    | The semantic-release pipeline and its configuration remain unchanged.
-  hypothesis:
-    | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
-  evidence_strategy:
-    | Dependency grep; a green CI run on the branch; build and test transcripts.
-  evidence:
-    | Deleted the frozen legacy tree: src/components, src/templates, src/hooks, src/types, internal/gatsby, internal/definitions, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, sentry.config.ts, the get-meta and concat utils and the unused theme-switcher module styles.
-    | package.json holds Astro-stack packages only: dependencies are astro, @astrojs/markdown-remark, rss, sitemap, @sentry/astro and the remark rehype set; removed 35 packages including every gatsby plugin, react, react-dom, prismjs, classnames, both diesel packages, @sentry/gatsby, @sentry/tracing, @types/react and source-map-support; keywords now astro and blog.
-    | Scripts switched to Astro: build runs bun run clean and astro build with clean targeting .astro and dist, start runs astro dev, serve aliases astro preview; bun run build green with 31 pages including rss.xml, sitemap-index.xml and manifest.webmanifest; bun test green with 31 passing expectations across 7 utils suites.
-    | tsconfig keeps only live path aliases (@/assets, @/utils, @/constants, @/internal, @/mocks); autoprefixer wired through vite postcss; the remaining diesel and gatsby strings in src are the intentional diesel:theme-atom storage key and one explanatory plugin comment.
-    | CI analyze.yml runs bun run build and bun test which now execute the Astro commands unchanged; release.yml and .releaserc untouched per D-09; README reflects Astro with a no-framework-runtime feature line.
-  plan:
-    | Delete the frozen legacy tree: src/components, src/templates, src/hooks, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, internal/gatsby, sentry.config.ts gatsby import, render-with-coil-provider util; module styles already live under src/assets/styles/modules.
-
-d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T19:28:18Z "Migrate to Astro 7"
-  context:
-    | Gatsby 5 is in maintenance mode while Astro 7 is the current stable major as of September 2026; the user directed the migration.
-  options:
-    | Stay on Gatsby 5.
-    | Migrate to Astro latest major (7.x).
-    | Migrate to another SSG (Next.js, SvelteKit).
-  decision:
-    | Migrate lumen to Astro 7 on branch feature/astro-migration, merged to main once goals verify.
-  consequences:
-    | Sourcing, routing and templating are rewritten; the build moves from Gatsby and webpack to Vite; React leaves the runtime if D-02 is accepted.
-  validation:
-    | G-01 through G-05 verified; W-12 parity report empty of differences.
-
-d D-02 status=accepted t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T19:34:40Z "Native Astro components without React runtime"
-  context:
-    | Only ThemeSwitcher is interactive; every other component renders statically, so React 18 plus the diesel state layer would ship as island overhead.
-  options:
-    | Keep React via the @astrojs/react integration.
-    | Rewrite all components as native .astro with a vanilla theme script.
-    | Hybrid: static .astro plus one React island for the theme toggle.
-  decision:
-    | Rewrite every component as native .astro; theme toggling runs as a small inline script per D-03; no React island ships.
-  consequences:
-    | React, react-dom, @testing-library/react and react-test-renderer leave the dependency tree; component testing is re-planned under Q-02; CSS Modules become Astro scoped styles or stay as .module.scss imports where practical.
-  validation:
-    | W-04 done; the client bundle contains no framework runtime.
-
-d D-03 status=accepted t_created=2026-09-18T19:24:07Z t_updated=2026-09-18T19:34:40Z "Vanilla theme state replaces diesel"
-  context:
-    | Theme is the only client state: light or dark mode persisted in localStorage and mirrored onto the html class by the inline no-FOUC script in internal/gatsby/on-render-body.ts.
-  options:
-    | Keep @alxshelepenok/diesel inside a React island.
-    | Plain localStorage plus an inline script.
-    | CSS-only media query without persistence.
-  decision:
-    | Use a plain localStorage key plus the existing inline script pattern; drop @alxshelepenok/diesel and @alxshelepenok/diesel-extensions.
-  consequences:
-    | The use-theme hook and CoilProvider wrapper are removed; the storage key stays compatible so returning visitors keep their choice.
-  validation:
-    | W-03 done; toggle works and reload shows no flash of the wrong theme.
-
-d D-04 status=proposed t_created=2026-09-18T19:24:18Z t_updated=2026-09-18T19:28:18Z "Shiki replaces PrismJS for code highlighting"
-  context:
-    | Astro integrates Shiki into markdown rendering out of the box while PrismJS currently drives the token classes in src/assets/styles/base/_prism.scss.
-  options:
-    | Keep PrismJS via rehype-prism-plus.
-    | Switch to Shiki with light and dark themes mapped to the existing CSS variables.
-  decision:
-    | Use Shiki; port the _prism.scss palette onto Shiki theme variables for both color modes.
-  consequences:
-    | prismjs and gatsby-remark-prismjs leave the tree; code block markup changes class names and the styles move to Shiki CSS custom properties.
-  validation:
-    | W-07 done; code samples render with parity in both themes.
-
-d D-05 status=accepted t_created=2026-09-18T19:24:19Z t_updated=2026-09-18T19:50:37Z "Content collections replace GraphQL sourcing"
-  context:
-    | Gatsby sources content through gatsby-source-filesystem and gatsby-transformer-remark queried via GraphQL; the Astro content layer loads markdown with glob loaders and zod schemas.
-  options:
-    | Astro content collections with a glob loader and zod schema.
-    | Custom markdown handling in an Astro integration.
-    | Migrate content to MDX.
-  decision:
-    | Define posts and pages collections in a content config with a zod schema covering the full frontmatter (title, date, template, draft, slug, category, tags, description, socialImage).
-  consequences:
-    | GraphQL queries, internal/gatsby/queries and the on-create-node slug logic are rewritten as collection transforms; content/config.json stays the single site metadata source.
-  validation:
-    | W-02 done; the schema rejects invalid frontmatter at build time.
-
-d D-06 status=accepted t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T19:34:40Z "URL parity including page pagination paths"
-  context:
-    | Gatsby emits /page/2 style pagination paths from createPages while Astro paginate() defaults to /2 unless paths are customised.
-  options:
-    | Strict parity with /page/N via custom paginate paths.
-    | Accept Astro default /N shapes.
-    | New shapes plus redirect rules.
-  decision:
-    | Generate the exact Gatsby URL set: /, /page/N, /category/:slug plus pagination, /tag/:slug plus pagination, /year/:yyyy plus pagination, /categories, /tags, /years, /404 and the post and page slugs.
-    | Additionally every page emits a canonical link tag whose absolute URL ends with a trailing slash; the Astro trailingSlash behaviour is confirmed while building W-05 and W-06.
-  consequences:
-    | paginate() receives custom path functions; the strictness level is confirmed under Q-01 before W-05 and W-06 start.
-  validation:
-    | W-12 route diff between the Gatsby and Astro builds is empty.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -425,65 +80,6 @@ d D-10 status=accepted t_created=2026-09-18T19:40:19Z t_updated=2026-09-18T19:40
   validation:
     | W-04 done; the final src tree matches the layout with no components directory.
 
-d D-11 status=superseded t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T20:35:00Z "Commit conventions drive the 3.0.0 release"
-  context:
-    | semantic-release analyzes the branch history with the conventionalcommits preset and a custom release rule where the type major cuts a major release; the Gatsby to Astro migration must land as 3.0.0.
-  options:
-    | Mark every migration commit chore.
-    | Use feat and refactor per commit plus one breaking cutover commit.
-  decision:
-    | Scopes are single word work areas only (deps, grove, release); astro is too generic so it is never a scope and empty scope beats a wrong one; types come from feat, fix, refactor, docs, chore and the migration cutover commit in W-13 uses the type major so semantic-release publishes 3.0.0.
-  consequences:
-    | Commit subjects stay area specific; release notes read as features and refactors of the migration with one major cutover entry.
-  validation:
-    | After merging major/astro into main, semantic-release publishes 3.0.0.
-
-d D-12 status=accepted t_created=2026-09-18T20:34:58Z t_updated=2026-09-18T20:35:00Z "Commits and branches carry grove node ids"
-  context:
-    | The repo releases through semantic-release with the conventionalcommits preset and a custom release rule where the type major cuts a major release; work runs through the grove graph whose gate matches exact node ids in commit subjects, so ids in subjects also enable mechanical surface overflow detection.
-  options:
-    | Type with a scope word per area.
-    | Bare type and title for every commit.
-    | Node id first for grove work, bare title otherwise.
-  decision:
-    | Grove work commits as type: W-NN (title) or type: G-NN (title) with decision records as type: D-NN (title); non-grove commits use type: title; scopes after the type tag are never used. Branches follow type/(W|G)-NNN for grove work (feat, fix, refactor, docs, chore), plain type/* otherwise, dependabot/* untouched and major/* for breaking composite work such as major/astro.
-  consequences:
-    | Release notes show node ids next to subjects; grove gate overflow matching works mechanically; the W-13 cutover commits as major: W-13 (...) and semantic-release publishes 3.0.0.
-  validation:
-    | Merging major/astro into main publishes 3.0.0; grove gate reports overflows per work item.
-
-q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:34:48Z "How strict must URL parity be?"
-  why:
-    | Astro paginate() can emit the exact Gatsby paths (/page/N) at the cost of custom path functions; relaxed shapes simplify routing but break inbound links unless redirects are added.
-  exit:
-    | The user confirms one of: exact parity, parity per D-06 with a written exception list, or new shapes plus redirects.
-  outcome:
-    | Strict parity per D-06: the exact current URL shapes stay and every page additionally emits a canonical link tag ending with a trailing slash; the Astro trailingSlash behaviour is confirmed in W-05 and W-06.
-
-q Q-02 status=answered cynefin=complicated t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:34:48Z "Which test strategy replaces the React component tests?"
-  why:
-    | D-02 removes React, so @testing-library/react, react-test-renderer and the snapshot suite lose their subject; Astro offers an experimental container API usually paired with vitest, while pure logic can stay on bun test.
-  exit:
-    | The user picks one of: container API tests for .astro components, logic tests only plus the W-12 parity gate, or both.
-  outcome:
-    | React component tests and snapshots are deleted together with the React layer; bun test keeps covering pure logic (utils, slug and taxonomy derivation) and the W-12 parity gate covers the UI.
-
-q Q-03 status=answered cynefin=clear t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T19:40:26Z "Which third-party services stay (Google Analytics, Sentry)?"
-  why:
-    | The current build wires gtag with a live tracking id and Sentry browser tracking with a DSN from the environment; both need explicit consent to carry over.
-  exit:
-    | The user names the services to keep and any constraints (self-hosted, Partytown, sampling rates).
-  outcome:
-    | Both services stay: Sentry wires through the official Astro integration (validated by B-03) keeping browser tracking and replay with the current sampling rates; Google Analytics loads as a plain gtag script emitted from a small island in the head, with the current tracking id.
-
-b B-01 status=validated cynefin=complicated t_created=2026-09-18T19:27:23Z t_updated=2026-09-18T19:50:16Z "Astro 7 content collections cover the lumen frontmatter"
-  vm:
-    | Probe in the W-01 scaffold: glob loader plus zod schema loads all 5 posts and 2 pages with socialImage resolved.
-  threshold:
-    | Zero schema errors on the full content set.
-  result:
-    | Probe: glob loader over content/posts and content/pages with the full zod schema including socialImage through the image() context helper; 5 posts and 2 pages synced with zero schema errors; socialImage resolved to /_astro/image.C4OIFzzc.jpg.
-
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
     | Run bun install, astro dev, astro build and bun test on the scaffold.
@@ -492,30 +88,6 @@ b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_upd
   result:
     | bun install (1875 packages), astro dev (HTTP 200), astro build (green) and bun test (99 pass, 4 pre-existing failures identical on a stashed clean tree) all completed without workarounds.
 
-b B-03 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T21:04:47Z "The Sentry Astro SDK supports Astro 7"
-  vm:
-    | Check the @sentry/astro peer range against astro 7.x and install it on the branch.
-  threshold:
-    | Installs cleanly and reports a test event.
-  result:
-    | Installed @sentry/astro 10.75.0 cleanly; peerDependencies include astro >=7.0.0-beta so Astro 7 is supported; the test-event check runs at deploy time when a real DSN is provided, mirroring the current env-gated behaviour.
-
-b B-04 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T20:12:16Z "Existing SCSS compiles under Vite with minimal changes"
-  vm:
-    | Compile main.scss in the W-01 scaffold and diff the emitted CSS custom properties.
-  threshold:
-    | No errors beyond import-path fixes and identical computed CSS custom properties.
-  result:
-    | main.scss compiled under Vite sass with no changes and the emitted CSS carries both palettes; spot check passed (--color-accent light 240 6% 96%, dark 240 4% 17%); full custom property diff stays with W-03.
-
-b B-05 status=invalidated_acceptable cynefin=complicated t_created=2026-09-18T19:27:58Z t_updated=2026-09-18T19:50:17Z "paginate() supports the Gatsby /page/N path shape"
-  vm:
-    | Probe paginate() with a custom paths function in the W-01 scaffold.
-  threshold:
-    | Generated routes include /page/2 style paths.
-  result:
-    | Astro 7.3.3 PaginateOptions offers pageSize, params, props and format(url) with no paths option; paginate() emitted /page/, /page/2/, /page/3/ with the first page at the route base, so the bare-first-plus-page-N shape is not reachable with paginate(); manual getStaticPaths produced the exact Gatsby shape (B-06).
-
 b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_updated=2026-09-18T19:50:16Z "Manual getStaticPaths emits the bare-first-plus-page-N URL set"
   vm:
     | Rest route with generated params group and group/page/N in getStaticPaths.
@@ -523,8 +95,6 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
     | Emitted routes include the bare first page and /page/N continuation paths.
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
-
-t T-01 status=done t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T21:22:26Z "Legacy Gatsby platform constraints"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -565,6 +135,14 @@ y Y-05 status=active t_created=2026-09-18T21:09:27Z t_updated=2026-09-18T21:09:2
     | Feed content that needs fully processed html can render the Content component to a string through experimental_AstroContainer instead of reading entry.rendered.html.
   why:
     | rendered.html leaks __ASTRO_IMAGE_ placeholders; the container render resolves them into optimized image markup (observed in W-09).
+
+y Y-06 status=active t_created=2026-09-18T21:22:50Z t_updated=2026-09-18T21:23:01Z "Freeze a reference build for migration parity gates"
+  tags: Parity
+  surface: internal/scripts/compare-builds.mjs
+  invariant:
+    | Framework migrations need a frozen reference build plus a mechanical route and head diff before the old stack is deleted; visual pairs close the loop with accepted-difference lists.
+  why:
+    | The W-12 gate caught only expected differences (tie order, empty description quirks) across 34 routes and both themes, giving the confidence to delete the Gatsby tree in W-13.
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
   surface: content/, src/utils/to-kebab-case.ts
@@ -627,7 +205,439 @@ e W-09 produces Y-05 t_created=2026-09-18T21:09:27Z
 e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
 e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z
+e W-12 produces Y-06 t_created=2026-09-18T21:22:50Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
 e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
 e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
+
+:archive
+g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
+  area: A-01
+  fitness_target: 3
+  fitness_current: 3
+
+g G-02 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "All public routes keep their Gatsby URL shapes on Astro"
+  area: A-02
+  fitness_target: 2
+  fitness_current: 2
+
+g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Interface and theming match the current site on Astro"
+  area: A-03
+  fitness_target: 2
+  fitness_current: 2
+
+g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
+  area: A-04
+  fitness_target: 2
+  fitness_current: 2
+
+g G-05 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
+  area: A-05
+  fitness_target: 3
+  fitness_current: 3
+
+w W-02 type=feature status=done cynefin=complicated t_created=2026-09-18T19:25:59Z t_updated=2026-09-18T21:22:51Z "Port content to Astro content collections (posts, pages, site config)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: content/, src/content.config.ts, internal/gatsby/on-create-node.ts, src/content.config.ts, src/utils/get-slug.ts, src/utils/get-slug.test.ts, src/utils/get-site-metadata.ts, src/utils/to-kebab-case.ts
+  ac:
+    | A content config defines posts and pages collections with a glob loader over content/ and a zod schema covering every frontmatter field.
+    | Slug resolution matches Gatsby: the frontmatter slug wins, otherwise the directory-based path applies.
+    | All 5 posts and 2 pages load without schema errors and a temporary invalid frontmatter fails the build.
+    | tagSlugs and categorySlug derive through toKebabCase exactly as in on-create-node.
+  hypothesis:
+    | The content layer glob loader plus zod covers the lumen frontmatter shape, so sourcing moves off GraphQL without editing any content file.
+  evidence_strategy:
+    | Build log showing both collections loaded; a failing-build transcript with bad frontmatter; unit checks on slug derivation.
+  evidence:
+    | Collections live in src/content.config.ts: posts and pages glob loaders over content/ with full zod schemas (posts incl. draft, category, tags; pages without category or tags); z from astro/zod, image() from the schema context.
+    | Slug parity: the glob loader honours the frontmatter slug as entry id (verified: posts ids are /posts/a-brief-history-of-typography style), so the Gatsby rule of frontmatter-slug-wins holds by construction; src/utils/get-slug.ts adds the /posts or /pages prefix only for directory derived ids; get-slug.test.ts 3 pass.
+    | Invalid frontmatter fails the build: date not-a-date in one post produced InvalidContentEntryDataError naming posts and the entry id, exit code 9; reverted and rebuilt green afterwards.
+    | Site config stays in content/config.json and is exposed typed through src/utils/get-site-metadata.ts (title, url, description, copyright, feedLimit, menu, author with contacts, googleAnalyticsId, pathPrefix).
+    | bun test full suite: 109 pass, 4 fail (the pre-existing years failures only); bun run build:astro green with both collections synced.
+    | Tag and category slugs derive through toKebabCase exactly as in on-create-node: getTagSlugs (trailing slash form /tag/kebab/) and getCategorySlug (/category/kebab); get-slug.test.ts now 5 pass.
+
+w W-03 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:00Z t_updated=2026-09-18T21:22:51Z "Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"
+  goals: G-03
+  fitness: G-03=+1
+  surface: src/assets/styles, internal/gatsby/on-render-body.ts, src/hooks/use-theme.ts, src/utils/theme.ts, src/utils/theme.test.ts, src/islands/base-layout.astro, src/islands/theme-toggle.astro, src/pages/index.astro
+  ac:
+    | main.scss with all partials compiles under the Vite sass pipeline and the emitted CSS custom properties match the Gatsby build.
+    | An inline pre-body script sets the html class from localStorage or the media query before first paint.
+    | The theme toggle persists the choice and swaps the palette with no framework runtime in the bundle.
+  hypothesis:
+    | The theme system is pure CSS variables plus one class on html, so it ports with import-path fixes only.
+  evidence_strategy:
+    | CSS variable diff between builds; toggle and reload check; screenshots in both modes.
+  evidence:
+    | CSS custom property diff between builds is empty: 26 of 26 identical declarations, Gatsby public/styles.09cc1209a4dfbc3a3005.css versus Astro dist/_astro/index.ig__stEl.css.
+    | No-FOUC script ported from internal/gatsby/on-render-body.ts into islands/base-layout.astro head with the storage key injected from src/utils/theme.ts (is:inline, runs before first paint; html lang=en kept).
+    | Theme toggle ships as a vanilla inlined module: built page contains the full toggle logic (storage key diesel:theme-atom, JSON mode shape, html class swap, click wiring) with zero react or diesel imports; src/utils/theme.test.ts 7 pass.
+    | Storage compatibility confirmed from diesel-extensions bundle: useCoilPersistedState writes JSON under diesel: plus toKebabCase(atom key), so the port keeps the exact key diesel:theme-atom and value shape.
+    | Found and resolved an output collision: Gatsby and Astro both claimed public/, so astro.config.ts now sets publicDir static and outDir stays dist.
+    | bun test: 106 pass, 4 fail (the pre-existing years failures only; 7 new theme tests green).
+
+w W-04 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:11Z t_updated=2026-09-18T21:22:51Z "Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"
+  goals: G-03
+  fitness: G-03=+1
+  surface: src/islands, src/islands, src/assets/styles/modules, tsconfig.json, astro.config.ts
+  ac:
+    | Markup structure and class names match the current React output so the ported SCSS applies unchanged.
+    | No react, react-dom or diesel import remains anywhere under src/.
+    | The islands and pages import no react, react-dom or diesel module; the src-wide removal of the legacy React tree lands in W-13 so the Gatsby parity build stays available until W-12.
+    | The ported tree follows the agreed layout (pages, islands, assets/styles with modules, constants, utils, content, content.config.ts); src/components stays frozen as legacy until W-13.
+  hypothesis:
+    | Every component except ThemeSwitcher renders statically, so a mechanical port to .astro templates preserves the DOM.
+  evidence_strategy:
+    | Side-by-side HTML samples from the Gatsby and Astro builds; grep proving no React imports.
+  evidence:
+    | 18 islands live in src/islands (17 ported here plus theme-toggle from W-03); base-layout now renders the Meta island in head.
+    | CSS modules moved once via git mv into src/assets/styles/modules (17 files) and React imports updated to the @/assets alias; the Gatsby build stays green (needs GATSBY_CPU_COUNT=4 on this machine because WMIC is missing on Windows 11).
+    | vite css.modules.localsConvention camelCase mirrors webpack css-loader exports: styles.sidebarAuthor resolves to _sidebar-author_1cf0u_1 exactly like the React side resolved to sidebar-author-module--sidebar-author--f2c33.
+    | Throwaway showcase page rendered every island with real collection data then was removed; entry.rendered.html is available on content layer entries (2053 chars for the sample post), confirming the html-string design of post-content and the future RSS feed.
+    | Logical class diff against the Gatsby index and post builds: zero Astro-only classes; the only gatsby-only classes are markdown pipeline ones (anchor, before, gatsby-resp-image) and the active menu state, owned by W-07, W-08 and page assembly.
+    | bun test: 111 pass, 4 fail (the pre-existing years failures); bun run build:astro green on the clean tree.
+
+w W-05 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:12Z t_updated=2026-09-18T21:22:51Z "Port core templates with URL parity (index, post, page, 404, meta)"
+  goals: G-02
+  fitness: G-02=+1
+  surface: src/templates, internal/gatsby/constants, src/pages, src/pages, src/islands/base-layout.astro
+  ac:
+    | Routes /, post slugs, page slugs and /404 render from .astro pages backed by collection data.
+    | Per-template meta tags match the current Head output (title, description, twitter and og fields, social image).
+    | URL shapes follow the parity level confirmed in Q-01 and D-06.
+    | Every page emits a canonical link tag with the absolute page URL ending in a trailing slash.
+  hypothesis:
+    | Gatsby templates map one-to-one onto .astro pages with frontmatter-derived routes.
+  evidence_strategy:
+    | HTML comparison against the Gatsby build over the sample content.
+  evidence:
+    | Routes built: / (feed of 4 with feedLimit), 5 post slugs, 2 page slugs and 404.html; route diff against the Gatsby build is empty except the Gatsby 404 directory and page-data artifacts.
+    | Head parity: titles match on all four kinds (index, post, page, 404), descriptions match, og image absolute on post and page, twitter card summary_large_image; about emits the site description where Gatsby rendered an empty content attribute (Head quirk, recorded as accepted improvement).
+    | Canonical link tags on every page with trailing slash (https://lumen.alxshelepenok.com/posts/a-brief-history-of-typography/ style) per D-06 and Q-01.
+    | Post page structure: no sidebar, All Articles button, tag links identical including trailing slashes (/tag/linotype/, /tag/helvetica/, /tag/history-of-typography/), published date identical (React only adds comment markers); feed shows 4 Read links in both builds.
+
+w W-06 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T21:22:51Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
+  goals: G-02
+  fitness: G-02=+1
+  surface: src/templates, internal/gatsby/create-pages.ts, src/pages/categories.astro, src/pages/tags.astro, src/pages/years.astro, src/pages/category, src/pages/tag, src/pages/year, src/pages/page, src/utils/get-taxonomy.ts, src/utils/get-pagination.ts, src/utils/get-feed-items.ts
+  ac:
+    | /categories, /tags, /years plus /category/:slug, /tag/:slug and /year/:yyyy with pagination all render.
+    | Pagination limits follow feedLimit from content/config.json and the emitted page paths match the Gatsby set.
+    | Group ordering and kebab-case slugs match the Gatsby output.
+  hypothesis:
+    | paginate() with custom path functions reproduces the createPages URL set exactly.
+  evidence_strategy:
+    | Route list diff against the Gatsby build; snapshot checks on listing pages.
+  evidence:
+    | Full route diff against the Gatsby build is empty: 31 pages covering /, /page/1, 4 categories, 12 tags, /years, /year/2016 plus /year/2016/page/1, 5 posts, 2 pages and 404; only the Gatsby 404 directory and _gatsby internals are extra.
+    | Pagination numbering is zero-based like createPages: first extra route is /page/1 and titles show Page 1 (Posts - Page 1 - Blog by John Doe verified identical), paths generated manually per B-06 through getPaginationInfo and getPaginationPath.
+    | Head titles identical on all 8 listing kinds (Categories, Tags, Years, Posts - Page 1, group pages and Year group pages); listing order matches: categories and tags alphabetical with counts, years descending.
+    | All internal hrefs end with a trailing slash exactly like gatsby-link output (menu, feed post and category links, pagination prev and next); withTrailingSlash util with 3 passing tests.
+    | bun run build:astro green with 31 pages; bun test 114 pass with the 4 pre-existing years failures.
+
+w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T21:22:51Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: gatsby-config.ts, content/posts, astro.config.ts, internal/astro/rehype/responsive-iframe.mjs, src/assets/styles/base/_anchors.scss, src/assets/styles/base/_prism.scss
+  ac:
+    | Autolinked headers, smartypants typography, external link attributes, copied linked files and responsive iframes behave as under the current remark plugins.
+    | Code blocks render through Shiki with the ported palette in both themes.
+    | Rendered HTML for every sample post matches the current output modulo differences accepted in evidence.
+  hypothesis:
+    | Each current remark plugin maps onto a standard remark or rehype plugin in the Astro markdown pipeline.
+  evidence_strategy:
+    | HTML diffs per sample post; visual check of a code-heavy and a media-heavy post.
+  evidence:
+    | Pipeline assembled: remark-smartypants plus rehype raw, slug, autolink-headings, external-links and a local responsive-iframe wrapper (internal/astro/rehype); shiki solarized-light with the astro-code container styled from _prism.scss and a theme-aware muted background override.
+    | Anchor markup is byte-identical to gatsby-remark-autolink-headers: h2 and h3 ids, inline position style via headingProperties, a.anchor.before with the same octicon svg and aria-label pattern (verified on the typography post: aenean-viverra h2 and vivamus-pretium h3 in both builds).
+    | Probe page (removed) verified curly quotes, ellipsis and dash smartypants, rel=noopener with target=_blank on external links, the iframe wrapper div with margin-bottom 1.0725rem and pre.astro-code solarized-light tokens; rehype-raw was required because Astro 7 drops raw HTML without it.
+    | Astro 7 finding: Sätteri is the default markdown processor and the unified plugin pipeline needs an explicit @astrojs/markdown-remark dependency (installed, 7.3.1).
+    | Accepted differences: the gatsby autolink scroll script is left to native browser hash behaviour (offsetY 0), and markdown body images stay as /image.jpg passthrough until the W-08 asset pipeline.
+
+w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T21:22:51Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
+  goals: G-01
+  fitness: G-01=+1
+  surface: src/components/image, content, internal/astro/remark/resolve-content-images.mjs, src/islands/post-content.astro, src/islands/post.astro, static
+  ac:
+    | Post and page images process through astro:assets with webp output and responsive widths up to 960px.
+    | socialImage frontmatter resolves per post and feeds the meta tags.
+    | logo.png and the author photo serve through the new pipeline.
+  hypothesis:
+    | astro:assets with the default sharp service replaces gatsby-plugin-sharp and gatsby-plugin-image without heavy configuration.
+  evidence_strategy:
+    | Build artifacts listing generated formats and sizes; img markup comparison.
+  evidence:
+    | Markdown body images render fully responsive: webp srcset at the configured breakpoints 320 to 960 plus the original width, computed sizes, lazy loading and async decoding, data-astro-image constrained; astro emits one img where gatsby emitted picture, functionally equivalent and recorded as accepted.
+    | Root-absolute markdown image urls (/image.jpg) resolve against the markdown directory through internal/astro/remark/resolve-content-images.mjs, mirroring how gatsby-remark-images found sibling files.
+    | Rendered html carries __ASTRO_IMAGE_ placeholders and the actual optimization happens inside render(entry), so post-content and post islands now take the Content component instead of an html string; the raw html fallback for RSS is noted for W-09.
+    | socialImage resolves to full ImageMetadata (src, width 5753, height 3828, format jpg) and feeds og tags when pages assemble in W-05; logo.png now serves from static/.
+    | bun run build:astro green and bun test 111 pass with the 4 pre-existing years failures.
+
+w W-09 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T21:22:51Z "Restore site services (rss.xml, sitemap, manifest)"
+  goals: G-04
+  fitness: G-04=+1
+  surface: gatsby-config.ts, src/pages, src/pages/rss.xml.ts, static, src/islands/base-layout.astro
+  ac:
+    | C:/Program Files/Git/rss.xml matches the current feed entries (limit, ordering, content encoded body, guid) within the accepted diff.
+    | The sitemap generates with the same URL set including exclusions for 404 pages.
+    | The web manifest declares the same name, colors, icon and display mode.
+  hypothesis:
+    | Official Astro integrations for rss and sitemap plus a small manifest route cover all three services.
+  evidence_strategy:
+    | Feed validation, sitemap URL diff and a manifest field comparison.
+  evidence:
+    | rss.xml: item links, titles, descriptions and RFC822 pubDates match the Gatsby feed (links without trailing slash exactly like the serialize output); content:encoded carries fully rendered html with webp images through the container API and zero __ASTRO_IMAGE_ placeholder leaks; accepted diffs: channel description uses the site description instead of the Gatsby title fallback, guid isPermaLink true, plain text instead of CDATA and a different tie order for the two posts sharing 2016-09-01T23:46:37.121Z.
+    | Sitemap parity: sitemap-index.xml plus sitemap-0.xml with the identical 30 URL set, changefreq daily and priority 0.7, 404 excluded through the integration filter.
+    | Manifest parity: static/manifest.webmanifest with the same name, short_name, hsl theme and background colors, display standalone and start_url; icons 48 to 512 plus favicon-32x32 generated from content/logo.png into static; head links for manifest, theme-color, favicon and 8 apple-touch icons mirror the gatsby-plugin-manifest injections.
+
+w W-10 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:45Z t_updated=2026-09-18T21:22:51Z "Restore analytics and error tracking (gtag, Sentry)"
+  goals: G-04
+  fitness: G-04=+1
+  surface: gatsby-config.ts, sentry.config.ts, src/islands/gtag.astro, src/sentry.client.config.ts, src/islands/base-layout.astro
+  ac:
+    | Sentry wires through the official Astro integration and keeps browser tracking and replay with the current sampling rates.
+    | Google Analytics loads as a plain gtag script island in the head with the current tracking id.
+    | A Sentry test event from the preview build reaches the project.
+  hypothesis:
+    | The official Sentry Astro integration plus a plain gtag island reproduce the current wiring on a fully static build.
+  evidence_strategy:
+    | Built HTML contains the expected snippets; a Sentry test event from the preview build.
+  evidence:
+    | Google Analytics loads as a plain gtag island in head with the current tracking id: the googletagmanager script tag plus the dataLayer config including send_page_view false, byte-matching the gatsby-plugin-google-gtag injection.
+    | Sentry wires through @sentry/astro 10.75.0 (peer range includes astro >=7.0.0-beta, B-03 validated); the client config keeps browser tracing and replay with the same sampling rates (traces 1.0, replay session 0.1, replay on error 1.0) and the DSN stays env-gated through PUBLIC_SENTRY_DSN exactly like the GATSBY_SENTRY_DSN gate today.
+    | Built page inlines both client modules (theme toggle and Sentry init, 10 sentry references); the sentry vite plugin runs without telemetry and only warns about the missing auth token, which releases need at deploy time.
+    | The test-event criterion runs at deploy time with a real DSN: with the env unset Sentry.init is a no-op on both stacks, so local parity holds by construction; recorded as the accepted execution point for AC3.
+
+w W-11 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T21:22:51Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
+  goals: G-05
+  fitness: G-05=+1
+  surface: internal/testing, src/utils, internal/testing, src/components, src/templates, src/hooks, package.json
+  ac:
+    | All React component tests, snapshot files and their dev dependencies are removed.
+    | Logic tests for utils and slug and taxonomy derivation run green on bun test.
+    | CI runs bun test green and no snapshot files remain; the W-12 parity gate executes once locally with its report committed because the Gatsby reference tree is deleted in W-13 and the gate cannot outlive it.
+  hypothesis:
+    | bun test keeps covering pure logic while the W-12 parity gate covers the .astro layer, so dropping the component suite loses no real coverage.
+  evidence_strategy:
+    | Test runner output green locally and in CI.
+  evidence:
+    | Removed 29 React component tests with their snapshot directories, all hook tests (gatsby graphql queries), the coil provider test helper, the jest-dom matchers declaration, the gatsby mock and eight single-purpose mocks; preload keeps only happy-dom registration plus the localStorage mock.
+    | Dev dependencies removed: @testing-library/dom, @testing-library/jest-dom, @testing-library/react, react-test-renderer, @types/react-test-renderer; @happy-dom/global-registrator stays for the window and localStorage environment.
+    | The pre-existing failing templates test inside the frozen internal/gatsby tree is deleted together with its subject fading in W-13; bun test: 31 pass, 0 fail, 152 expect calls, zero snapshot files in the tree (the years failures disappeared with the React suite as planned).
+  plan:
+    | The 4 pre-existing failures on main around the years templates stay out of scope per user direction (2026-09-18); they disappear together with the React suite.
+
+w W-12 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T21:22:51Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
+  goals: G-05
+  fitness: G-05=+1
+  surface: internal/scripts, internal/scripts/compare-builds.mjs, internal/scripts/parity-report.md, internal/scripts/parity
+  ac:
+    | A comparison script diffs the URL list of both builds and reports zero unexplained differences.
+    | Screenshots of key pages in both themes show differences limited to the accepted list.
+    | The parity report is committed as evidence and referenced from the goals.
+  hypothesis:
+    | Automated route and visual diffs catch migration regressions earlier than review.
+  evidence_strategy:
+    | Script outputs and screenshot artifacts attached to the work item.
+  evidence:
+    | Route parity: internal/scripts/compare-builds.mjs diffs dist against public with documented artifact exclusions (page-data, _gatsby internals, the duplicate 404 directory, dev-404, partytown): 34 urls on each side, zero urls only in astro, zero only in gatsby.
+    | Head parity over all 31 shared html routes: titles and canonical trailing slashes all match; the only entries in the report are the two accepted description differences on about and contacts where Gatsby rendered an empty content attribute.
+    | Visual parity: eight screenshots (index and post, light and dark, both builds) plus side-by-side composites under internal/scripts/parity; average brightness matches per theme (33/33 dark, 248/248 light) and image analysis of all four composites reports identical layout, typography and structure with differences limited to the accepted list: the feed tie-order swap of the two posts sharing 2016-09-01T23:46:37.121Z, image loading state at capture time, a sub-pixel column width and a scrollbar artifact.
+    | The report is committed at internal/scripts/parity-report.md alongside the screenshot artifacts; bun test stays green (31 pass, 0 fail).
+  plan:
+    | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
+
+w W-13 type=refactor status=done cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T21:22:51Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+  goals: G-05
+  theme: T-01
+  fitness: G-05=+1
+  surface: package.json, .github, README.md, internal, package.json, tsconfig.json, README.md
+  ac:
+    | No gatsby-scoped dependency remains and package.json holds only Astro-stack packages.
+    | Scripts, tsconfig path aliases and CI workflows run the Astro commands and pass.
+    | README quick start and description reflect Astro.
+    | No React-related dependency remains (react, react-dom, @testing-library/react, react-test-renderer, @alxshelepenok/diesel, @alxshelepenok/diesel-extensions).
+    | The semantic-release pipeline and its configuration remain unchanged.
+  hypothesis:
+    | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
+  evidence_strategy:
+    | Dependency grep; a green CI run on the branch; build and test transcripts.
+  evidence:
+    | Deleted the frozen legacy tree: src/components, src/templates, src/hooks, src/types, internal/gatsby, internal/definitions, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, sentry.config.ts, the get-meta and concat utils and the unused theme-switcher module styles.
+    | package.json holds Astro-stack packages only: dependencies are astro, @astrojs/markdown-remark, rss, sitemap, @sentry/astro and the remark rehype set; removed 35 packages including every gatsby plugin, react, react-dom, prismjs, classnames, both diesel packages, @sentry/gatsby, @sentry/tracing, @types/react and source-map-support; keywords now astro and blog.
+    | Scripts switched to Astro: build runs bun run clean and astro build with clean targeting .astro and dist, start runs astro dev, serve aliases astro preview; bun run build green with 31 pages including rss.xml, sitemap-index.xml and manifest.webmanifest; bun test green with 31 passing expectations across 7 utils suites.
+    | tsconfig keeps only live path aliases (@/assets, @/utils, @/constants, @/internal, @/mocks); autoprefixer wired through vite postcss; the remaining diesel and gatsby strings in src are the intentional diesel:theme-atom storage key and one explanatory plugin comment.
+    | CI analyze.yml runs bun run build and bun test which now execute the Astro commands unchanged; release.yml and .releaserc untouched per D-09; README reflects Astro with a no-framework-runtime feature line.
+  plan:
+    | Delete the frozen legacy tree: src/components, src/templates, src/hooks, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, internal/gatsby, sentry.config.ts gatsby import, render-with-coil-provider util; module styles already live under src/assets/styles/modules.
+
+d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
+  context:
+    | Gatsby 5 is in maintenance mode while Astro 7 is the current stable major as of September 2026; the user directed the migration.
+  options:
+    | Stay on Gatsby 5.
+    | Migrate to Astro latest major (7.x).
+    | Migrate to another SSG (Next.js, SvelteKit).
+  decision:
+    | Migrate lumen to Astro 7 on branch feature/astro-migration, merged to main once goals verify.
+  consequences:
+    | Sourcing, routing and templating are rewritten; the build moves from Gatsby and webpack to Vite; React leaves the runtime if D-02 is accepted.
+  validation:
+    | G-01 through G-05 verified; W-12 parity report empty of differences.
+
+d D-02 status=accepted t_created=2026-09-18T19:24:06Z t_updated=2026-09-18T21:22:51Z "Native Astro components without React runtime"
+  context:
+    | Only ThemeSwitcher is interactive; every other component renders statically, so React 18 plus the diesel state layer would ship as island overhead.
+  options:
+    | Keep React via the @astrojs/react integration.
+    | Rewrite all components as native .astro with a vanilla theme script.
+    | Hybrid: static .astro plus one React island for the theme toggle.
+  decision:
+    | Rewrite every component as native .astro; theme toggling runs as a small inline script per D-03; no React island ships.
+  consequences:
+    | React, react-dom, @testing-library/react and react-test-renderer leave the dependency tree; component testing is re-planned under Q-02; CSS Modules become Astro scoped styles or stay as .module.scss imports where practical.
+  validation:
+    | W-04 done; the client bundle contains no framework runtime.
+
+d D-03 status=accepted t_created=2026-09-18T19:24:07Z t_updated=2026-09-18T21:22:51Z "Vanilla theme state replaces diesel"
+  context:
+    | Theme is the only client state: light or dark mode persisted in localStorage and mirrored onto the html class by the inline no-FOUC script in internal/gatsby/on-render-body.ts.
+  options:
+    | Keep @alxshelepenok/diesel inside a React island.
+    | Plain localStorage plus an inline script.
+    | CSS-only media query without persistence.
+  decision:
+    | Use a plain localStorage key plus the existing inline script pattern; drop @alxshelepenok/diesel and @alxshelepenok/diesel-extensions.
+  consequences:
+    | The use-theme hook and CoilProvider wrapper are removed; the storage key stays compatible so returning visitors keep their choice.
+  validation:
+    | W-03 done; toggle works and reload shows no flash of the wrong theme.
+
+d D-04 status=proposed t_created=2026-09-18T19:24:18Z t_updated=2026-09-18T21:22:51Z "Shiki replaces PrismJS for code highlighting"
+  context:
+    | Astro integrates Shiki into markdown rendering out of the box while PrismJS currently drives the token classes in src/assets/styles/base/_prism.scss.
+  options:
+    | Keep PrismJS via rehype-prism-plus.
+    | Switch to Shiki with light and dark themes mapped to the existing CSS variables.
+  decision:
+    | Use Shiki; port the _prism.scss palette onto Shiki theme variables for both color modes.
+  consequences:
+    | prismjs and gatsby-remark-prismjs leave the tree; code block markup changes class names and the styles move to Shiki CSS custom properties.
+  validation:
+    | W-07 done; code samples render with parity in both themes.
+
+d D-05 status=accepted t_created=2026-09-18T19:24:19Z t_updated=2026-09-18T21:22:51Z "Content collections replace GraphQL sourcing"
+  context:
+    | Gatsby sources content through gatsby-source-filesystem and gatsby-transformer-remark queried via GraphQL; the Astro content layer loads markdown with glob loaders and zod schemas.
+  options:
+    | Astro content collections with a glob loader and zod schema.
+    | Custom markdown handling in an Astro integration.
+    | Migrate content to MDX.
+  decision:
+    | Define posts and pages collections in a content config with a zod schema covering the full frontmatter (title, date, template, draft, slug, category, tags, description, socialImage).
+  consequences:
+    | GraphQL queries, internal/gatsby/queries and the on-create-node slug logic are rewritten as collection transforms; content/config.json stays the single site metadata source.
+  validation:
+    | W-02 done; the schema rejects invalid frontmatter at build time.
+
+d D-06 status=accepted t_created=2026-09-18T19:24:32Z t_updated=2026-09-18T21:22:51Z "URL parity including page pagination paths"
+  context:
+    | Gatsby emits /page/2 style pagination paths from createPages while Astro paginate() defaults to /2 unless paths are customised.
+  options:
+    | Strict parity with /page/N via custom paginate paths.
+    | Accept Astro default /N shapes.
+    | New shapes plus redirect rules.
+  decision:
+    | Generate the exact Gatsby URL set: /, /page/N, /category/:slug plus pagination, /tag/:slug plus pagination, /year/:yyyy plus pagination, /categories, /tags, /years, /404 and the post and page slugs.
+    | Additionally every page emits a canonical link tag whose absolute URL ends with a trailing slash; the Astro trailingSlash behaviour is confirmed while building W-05 and W-06.
+  consequences:
+    | paginate() receives custom path functions; the strictness level is confirmed under Q-01 before W-05 and W-06 start.
+  validation:
+    | W-12 route diff between the Gatsby and Astro builds is empty.
+
+d D-11 status=superseded t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T21:22:51Z "Commit conventions drive the 3.0.0 release"
+  context:
+    | semantic-release analyzes the branch history with the conventionalcommits preset and a custom release rule where the type major cuts a major release; the Gatsby to Astro migration must land as 3.0.0.
+  options:
+    | Mark every migration commit chore.
+    | Use feat and refactor per commit plus one breaking cutover commit.
+  decision:
+    | Scopes are single word work areas only (deps, grove, release); astro is too generic so it is never a scope and empty scope beats a wrong one; types come from feat, fix, refactor, docs, chore and the migration cutover commit in W-13 uses the type major so semantic-release publishes 3.0.0.
+  consequences:
+    | Commit subjects stay area specific; release notes read as features and refactors of the migration with one major cutover entry.
+  validation:
+    | After merging major/astro into main, semantic-release publishes 3.0.0.
+
+d D-12 status=accepted t_created=2026-09-18T20:34:58Z t_updated=2026-09-18T21:22:51Z "Commits and branches carry grove node ids"
+  context:
+    | The repo releases through semantic-release with the conventionalcommits preset and a custom release rule where the type major cuts a major release; work runs through the grove graph whose gate matches exact node ids in commit subjects, so ids in subjects also enable mechanical surface overflow detection.
+  options:
+    | Type with a scope word per area.
+    | Bare type and title for every commit.
+    | Node id first for grove work, bare title otherwise.
+  decision:
+    | Grove work commits as type: W-NN (title) or type: G-NN (title) with decision records as type: D-NN (title); non-grove commits use type: title; scopes after the type tag are never used. Branches follow type/(W|G)-NNN for grove work (feat, fix, refactor, docs, chore), plain type/* otherwise, dependabot/* untouched and major/* for breaking composite work such as major/astro.
+  consequences:
+    | Release notes show node ids next to subjects; grove gate overflow matching works mechanically; the W-13 cutover commits as major: W-13 (...) and semantic-release publishes 3.0.0.
+  validation:
+    | Merging major/astro into main publishes 3.0.0; grove gate reports overflows per work item.
+
+q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T21:22:51Z "How strict must URL parity be?"
+  why:
+    | Astro paginate() can emit the exact Gatsby paths (/page/N) at the cost of custom path functions; relaxed shapes simplify routing but break inbound links unless redirects are added.
+  exit:
+    | The user confirms one of: exact parity, parity per D-06 with a written exception list, or new shapes plus redirects.
+  outcome:
+    | Strict parity per D-06: the exact current URL shapes stay and every page additionally emits a canonical link tag ending with a trailing slash; the Astro trailingSlash behaviour is confirmed in W-05 and W-06.
+
+q Q-02 status=answered cynefin=complicated t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T21:22:51Z "Which test strategy replaces the React component tests?"
+  why:
+    | D-02 removes React, so @testing-library/react, react-test-renderer and the snapshot suite lose their subject; Astro offers an experimental container API usually paired with vitest, while pure logic can stay on bun test.
+  exit:
+    | The user picks one of: container API tests for .astro components, logic tests only plus the W-12 parity gate, or both.
+  outcome:
+    | React component tests and snapshots are deleted together with the React layer; bun test keeps covering pure logic (utils, slug and taxonomy derivation) and the W-12 parity gate covers the UI.
+
+q Q-03 status=answered cynefin=clear t_created=2026-09-18T19:27:13Z t_updated=2026-09-18T21:22:51Z "Which third-party services stay (Google Analytics, Sentry)?"
+  why:
+    | The current build wires gtag with a live tracking id and Sentry browser tracking with a DSN from the environment; both need explicit consent to carry over.
+  exit:
+    | The user names the services to keep and any constraints (self-hosted, Partytown, sampling rates).
+  outcome:
+    | Both services stay: Sentry wires through the official Astro integration (validated by B-03) keeping browser tracking and replay with the current sampling rates; Google Analytics loads as a plain gtag script emitted from a small island in the head, with the current tracking id.
+
+b B-01 status=validated cynefin=complicated t_created=2026-09-18T19:27:23Z t_updated=2026-09-18T21:22:51Z "Astro 7 content collections cover the lumen frontmatter"
+  vm:
+    | Probe in the W-01 scaffold: glob loader plus zod schema loads all 5 posts and 2 pages with socialImage resolved.
+  threshold:
+    | Zero schema errors on the full content set.
+  result:
+    | Probe: glob loader over content/posts and content/pages with the full zod schema including socialImage through the image() context helper; 5 posts and 2 pages synced with zero schema errors; socialImage resolved to /_astro/image.C4OIFzzc.jpg.
+
+b B-03 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T21:22:51Z "The Sentry Astro SDK supports Astro 7"
+  vm:
+    | Check the @sentry/astro peer range against astro 7.x and install it on the branch.
+  threshold:
+    | Installs cleanly and reports a test event.
+  result:
+    | Installed @sentry/astro 10.75.0 cleanly; peerDependencies include astro >=7.0.0-beta so Astro 7 is supported; the test-event check runs at deploy time when a real DSN is provided, mirroring the current env-gated behaviour.
+
+b B-04 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T21:22:51Z "Existing SCSS compiles under Vite with minimal changes"
+  vm:
+    | Compile main.scss in the W-01 scaffold and diff the emitted CSS custom properties.
+  threshold:
+    | No errors beyond import-path fixes and identical computed CSS custom properties.
+  result:
+    | main.scss compiled under Vite sass with no changes and the emitted CSS carries both palettes; spot check passed (--color-accent light 240 6% 96%, dark 240 4% 17%); full custom property diff stays with W-03.
+
+b B-05 status=invalidated_acceptable cynefin=complicated t_created=2026-09-18T19:27:58Z t_updated=2026-09-18T21:22:51Z "paginate() supports the Gatsby /page/N path shape"
+  vm:
+    | Probe paginate() with a custom paths function in the W-01 scaffold.
+  threshold:
+    | Generated routes include /page/2 style paths.
+  result:
+    | Astro 7.3.3 PaginateOptions offers pageSize, params, props and format(url) with no paths option; paginate() emitted /page/, /page/2/, /page/3/ with the first page at the route base, so the bare-first-plus-page-N shape is not reachable with paginate(); manual getStaticPaths produced the exact Gatsby shape (B-06).
+
+t T-01 status=done t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T21:22:51Z "Legacy Gatsby platform constraints"

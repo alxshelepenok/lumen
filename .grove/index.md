@@ -6,90 +6,42 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 23 | validated B 5 · answered Q 3 · accepted D 10 · active Discovery 5 |
+| C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 9 | 0 | C: validated B 3 · answered Q 0 · accepted D 3 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-02 | Pages and routing | 5 | 0 | C: validated B 1 · answered Q 1 · accepted D 2 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 6 | 0 | C: validated B 1 · answered Q 0 · accepted D 3 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-04 | Site services | 3 | 0 | C: validated B 1 · answered Q 1 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 9 | 0 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-05 | Toolchain and delivery | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
-
-## Goals
-
-| ID | Outcome | Fitness function | Status |
-| --- | --- | --- | --- |
-| G-01 | Content pipeline runs on Astro with rendering parity | count; current=3 target=3 | verified |
-| G-02 | All public routes keep their Gatsby URL shapes on Astro | count; current=2 target=2 | verified |
-| G-03 | Interface and theming match the current site on Astro | count; current=2 target=2 | verified |
-| G-04 | Site services are restored (feed, sitemap, manifest, analytics, error tracking) | count; current=2 target=2 | verified |
-| G-05 | Delivery pipeline runs on Astro (tests, parity verification, cleanup) | count; current=3 target=3 | verified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
-| W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊤ | done |  |
-| W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊤ | done |  |
-| W-04 | feature | Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | done |  |
-| W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊤ | done |  |
-| W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊤ | done |  |
-| W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | done |  |
-| W-08 | feature | Port the image pipeline to astro:assets (webp, responsive sizes, social images) | G-01 | complicated | ⊤ | done |  |
-| W-09 | feature | Restore site services (rss.xml, sitemap, manifest) | G-04 | clear | ⊤ | done |  |
-| W-10 | feature | Restore analytics and error tracking (gtag, Sentry) | G-04 | clear | ⊤ | done |  |
-| W-11 | feature | Reduce the test suite to logic tests on bun test (drop React snapshots) | G-05 | complicated | ⊤ | done |  |
-| W-12 | feature | Verify parity against the Gatsby build (routes, HTML, screenshots) | G-05 | complicated | ⊤ | done |  |
-| W-13 | refactor | Remove Gatsby and close out tooling (deps, scripts, CI, docs) | G-05 | clear | ⊤ | done |  |
 
 ## Decisions
 
 | ID | Title | Status | Supersedes |
 | --- | --- | --- | --- |
-| D-01 | Migrate to Astro 7 | accepted |  |
-| D-02 | Native Astro components without React runtime | accepted |  |
-| D-03 | Vanilla theme state replaces diesel | accepted |  |
-| D-04 | Shiki replaces PrismJS for code highlighting | proposed |  |
-| D-05 | Content collections replace GraphQL sourcing | accepted |  |
-| D-06 | URL parity including page pagination paths | accepted |  |
 | D-07 | Static output only | accepted |  |
 | D-08 | Bun stays the package manager and script runner | accepted |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 | D-10 | Flat islands directory replaces the components tree | accepted |  |
-| D-11 | Commit conventions drive the 3.0.0 release | superseded |  |
-| D-12 | Commits and branches carry grove node ids | accepted | D-11 |
-
-## Open questions
-
-| ID | Question | Cynefin | Targets | Status |
-| --- | --- | --- | --- | --- |
-| Q-01 | How strict must URL parity be? | complicated | W-05, W-06 | answered |
-| Q-02 | Which test strategy replaces the React component tests? | complicated | W-11 | answered |
-| Q-03 | Which third-party services stay (Google Analytics, Sentry)? | clear | W-10 | answered |
 
 ## Assumptions
 
 | ID | Assumption | Tests | Targets | Status |
 | --- | --- | --- | --- | --- |
-| B-01 | Astro 7 content collections cover the lumen frontmatter |  | W-02 | validated |
 | B-02 | Bun drives the Astro 7 toolchain |  | W-01 | validated |
-| B-03 | The Sentry Astro SDK supports Astro 7 |  | W-10 | validated |
-| B-04 | Existing SCSS compiles under Vite with minimal changes |  | W-03 | validated |
-| B-05 | paginate() supports the Gatsby /page/N path shape |  | W-06 | invalidated_acceptable |
 | B-06 | Manual getStaticPaths emits the bare-first-plus-page-N URL set |  | W-06 | validated |
-
-## Themes
-
-| ID | Title | Status | Causes work | Themed work |
-| --- | --- | --- | --- | --- |
-| T-01 | Legacy Gatsby platform constraints | done | W-13 | W-13 |
 
 ## Discoveries
 
@@ -100,56 +52,25 @@
 | Y-03 | Content layer images optimize only through render | content-layer | active |
 | Y-04 | Port gatsby pagination as zero-based manual paths | pagination | active |
 | Y-05 | Render feed content through the container API | content-layer | active |
+| Y-06 | Freeze a reference build for migration parity gates | Parity | active |
 
 ## Dependency graph
 
 ```mermaid
 graph TD
-  G_01["G-01: Content pipeline runs on Astro with rendering parity"]:::goal
-  G_02["G-02: All public routes keep their Gatsby URL shapes on Astro"]:::goal
-  G_03["G-03: Interface and theming match the current site on Astro"]:::goal
-  G_04["G-04: Site services are restored (feed, sitemap, manifest, analytics, error tracking)"]:::goal
-  G_05["G-05: Delivery pipeline runs on Astro (tests, parity verification, cleanup)"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
-  W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::done
-  W_03["W-03: Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"]:::done
-  W_04["W-04: Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"]:::done
-  W_05["W-05: Port core templates with URL parity (index, post, page, 404, meta)"]:::done
-  W_06["W-06: Port taxonomy listings with pagination (categories, tags, years, /page/N)"]:::done
-  W_07["W-07: Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"]:::done
-  W_08["W-08: Port the image pipeline to astro:assets (webp, responsive sizes, social images)"]:::done
-  W_09["W-09: Restore site services (rss.xml, sitemap, manifest)"]:::done
-  W_10["W-10: Restore analytics and error tracking (gtag, Sentry)"]:::done
-  W_11["W-11: Reduce the test suite to logic tests on bun test (drop React snapshots)"]:::done
-  W_12["W-12: Verify parity against the Gatsby build (routes, HTML, screenshots)"]:::done
-  W_13["W-13: Remove Gatsby and close out tooling (deps, scripts, CI, docs)"]:::done
-  D_01["D-01: Migrate to Astro 7"]:::decision
-  D_02["D-02: Native Astro components without React runtime"]:::decision
-  D_03["D-03: Vanilla theme state replaces diesel"]:::decision
-  D_04["D-04: Shiki replaces PrismJS for code highlighting"]:::decision
-  D_05["D-05: Content collections replace GraphQL sourcing"]:::decision
-  D_06["D-06: URL parity including page pagination paths"]:::decision
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   D_10["D-10: Flat islands directory replaces the components tree"]:::decision
-  D_11["D-11: Commit conventions drive the 3.0.0 release"]:::decision
-  D_12["D-12: Commits and branches carry grove node ids"]:::decision
-  Q_01["Q-01: How strict must URL parity be?"]:::question
-  Q_02["Q-02: Which test strategy replaces the React component tests?"]:::question
-  Q_03["Q-03: Which third-party services stay (Google Analytics, Sentry)?"]:::question
-  B_01["B-01: Astro 7 content collections cover the lumen frontmatter"]:::assumption
   B_02["B-02: Bun drives the Astro 7 toolchain"]:::assumption
-  B_03["B-03: The Sentry Astro SDK supports Astro 7"]:::assumption
-  B_04["B-04: Existing SCSS compiles under Vite with minimal changes"]:::assumption
-  B_05["B-05: paginate() supports the Gatsby /page/N path shape"]:::assumption
   B_06["B-06: Manual getStaticPaths emits the bare-first-plus-page-N URL set"]:::assumption
-  T_01["T-01: Legacy Gatsby platform constraints"]:::theme
   Y_01["Y-01: Vite CSS modules must mirror webpack camelCase exports"]:::discovery
   Y_02["Y-02: Astro 7 needs explicit unified markdown setup"]:::discovery
   Y_03["Y-03: Content layer images optimize only through render"]:::discovery
   Y_04["Y-04: Port gatsby pagination as zero-based manual paths"]:::discovery
   Y_05["Y-05: Render feed content through the container API"]:::discovery
+  Y_06["Y-06: Freeze a reference build for migration parity gates"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -201,6 +122,7 @@ graph TD
   W_10 ==>|blocks| W_12
   W_11 ==>|blocks| W_13
   W_12 ==>|blocks| W_13
+  W_12 -->|produces| Y_06
   W_13 -->|implements| D_01
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
