@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:8719253302d90e3b3fd12a4bc176038b1086d08dcfd143d4a0ae0ccd7add6a6b
-g G-06 status=partial fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:43:17Z "Toolchain conventions follow the review refinements"
+# checksum: sha256:fddbef00bb9672879d083cc3f96c0b0ace6489a69532c5d806af9bb8f97212b9
+g G-06 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:45:12Z "Toolchain conventions follow the review refinements"
   area: A-05
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-07 status=unverified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:42:28Z "Icon delivery and code styles follow the review refinements"
   area: A-03
@@ -56,7 +56,7 @@ w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_
     | Icons unified: public carries icon-32x32 through icon-512x512 at the root, manifest.webmanifest references them and no favicon name or icons directory remains.
     | Lockfile switched to the text bun.lock format with CI cache keys in analyze.yml and release.yml hashing bun.lock; postcssrc deleted with autoprefixer living in astro.config only; tsconfig has no baseUrl and aliases resolve (build and tests green: 31 pages, 20 tests, 0 fail).
 
-w W-15 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:42:45Z "Prefer arrow functions across pages and scripts"
+w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:45:12Z "Prefer arrow functions across pages and scripts"
   goals: G-06
   theme: T-02
   fitness: G-06=+1
@@ -65,6 +65,9 @@ w W-15 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:42:45
     | No function declaration remains under src; getStaticPaths, the rss endpoint and the inline scripts use arrow functions.
   evidence_strategy:
     | Grep for function declarations returns nothing on src and the build stays green.
+  evidence:
+    | All function declarations replaced: six getStaticPaths exports and the rss GET endpoint became async arrows and both inline scripts (the no-FOUC theme guard and the gtag config) use arrow functions with rest args; grep for declarations under src returns nothing.
+    | bun run build green and bun test green (20 tests, 0 fail) after the conversion.
 
 w W-16 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:42:46Z "Replace prism styles with shiki oriented code styles"
   goals: G-07

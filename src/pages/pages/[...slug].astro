@@ -9,7 +9,7 @@ import Sidebar from "../../islands/sidebar.astro";
 import { getSlug } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const pages = await getCollection("pages", ({ data }) => !data.draft);
 
   return pages.map((entry) => ({

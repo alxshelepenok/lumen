@@ -6,7 +6,7 @@ import type { APIContext } from "astro";
 import { getSlug } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
-export async function GET(context: APIContext) {
+export const GET = async (context: APIContext) => {
   const { title, description } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(

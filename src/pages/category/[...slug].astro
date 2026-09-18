@@ -14,7 +14,7 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getCategories } from "@/utils/get-taxonomy";
 import { toKebabCase } from "@/utils/to-kebab-case";
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(

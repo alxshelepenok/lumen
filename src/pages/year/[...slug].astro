@@ -13,7 +13,7 @@ import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getYears } from "@/utils/get-taxonomy";
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(

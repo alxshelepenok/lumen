@@ -23,7 +23,7 @@ const canonical = Astro.site
   : canonicalPath;
 
 const themeScript = `
-  void function() {
+  (() => {
     var cachedMode;
 
     try {
@@ -34,14 +34,14 @@ const themeScript = `
       }
     } catch (err) { }
 
-    function setTheme(newTheme) {
+    const setTheme = (newTheme) => {
       document.documentElement.className = newTheme;
-    }
+    };
 
     var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     setTheme(cachedMode || (darkQuery.matches ? "dark" : "light"));
-  }()
+  })()
 `;
 ---
 

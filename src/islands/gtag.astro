@@ -5,7 +5,7 @@ const { googleAnalyticsId } = getSiteMetadata();
 
 const gtagConfig = `
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  const gtag = (...args) => { dataLayer.push(args); };
   gtag('js', new Date());
 
   gtag('config', '${googleAnalyticsId}', {"send_page_view":false});

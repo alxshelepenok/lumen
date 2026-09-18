@@ -8,7 +8,7 @@ import Post from "../../islands/post.astro";
 import { getSlug, getTagSlugs } from "@/utils/get-slug";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const posts = await getCollection("posts", ({ data }) => !data.draft);
 
   return posts.map((entry) => ({
