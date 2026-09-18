@@ -1,21 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:21026adbfb7448e7f5292a5a72002db84122df9e394a62f22200386496838882
-g G-09 status=partial fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Toolchain hardening follows the second review round"
-  area: A-05
-  fitness_target: 3
-  fitness_current: 2
-
-g G-10 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:03:08Z "Category and tag grouping share one call path"
-  area: A-01
-  fitness_target: 1
-  fitness_current: 1
-
-g G-11 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:03:35Z "Theme storage key drops the diesel prefix"
-  area: A-03
-  fitness_target: 1
-  fitness_current: 1
-
+# checksum: sha256:128be5121afb3604d4d4e69feacbfa3a6cc84b92326844a8bc54085996e63b02
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -39,68 +24,6 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
-
-w W-19 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T21:57:14Z "Drop the redundant clean script and rimraf"
-  goals: G-09
-  theme: T-02
-  fitness: G-09=+1
-  surface: package.json
-  ac:
-    | The clean script and the rimraf dependency are gone and build plus start run plain astro commands.
-  evidence_strategy:
-    | package.json review plus a green rebuild proving astro empties target itself.
-  evidence:
-    | Astro empties the outDir itself on every build, so the clean script and the rimraf dependency are gone; build and start run plain astro commands and a from-scratch rebuild is green with 31 pages in target.
-
-w W-20 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:56:51Z t_updated=2026-09-18T22:02:13Z "Type check the whole project and fix findings"
-  goals: G-09
-  theme: T-02
-  fitness: G-09=+1
-  surface: src, astro.config.ts, package.json
-  ac:
-    | astro check runs across the project through a check script and reports no errors.
-  evidence_strategy:
-    | astro check output clean plus a green build.
-  evidence:
-    | bun run check (astro check via the new check script and @astrojs/check) reports 0 errors, 0 warnings and 0 hints across 26 files.
-    | Fixed findings: rss endpoint params typed through CollectionEntry posts, and the markdown pipeline migrated to the Astro 7 processor API (markdown.processor unified options) which removed the smartypants plugin type clash and retired the remark-smartypants dependency since smartypants is built in.
-    | Build green with anchors and webp images intact; bun test 19 pass 0 fail.
-
-w W-21 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T22:03:08Z "Unify category and tag grouping through shared extractors"
-  goals: G-10
-  theme: T-02
-  fitness: G-10=+1
-  surface: src/utils/get-taxonomy.ts, src/pages
-  ac:
-    | Category and tag pages call one getGroups generic with named key extractors; no per-kind wrapper functions remain.
-    | Listing output stays identical across categories, tags and years.
-  evidence_strategy:
-    | Util review, green tests and unchanged listing markup.
-  evidence:
-    | All six listing pages now call one getGroups generic with named key extractors (categoryOf, tagsOf, yearOf) and orderings (alphabetical default, newestFirst for years); the per-kind wrapper functions are deleted from get-taxonomy.ts.
-    | Listing output identical after the rewiring: categories alphabetical (creative-process through technology-trends), 12 tags, years descending; build, tests (19 pass) and astro check all green.
-
-w W-22 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T22:03:35Z "Rename the theme storage key off the diesel prefix"
-  goals: G-11
-  theme: T-02
-  fitness: G-11=+1
-  surface: src/utils/theme.ts, src/utils/theme.test.ts
-  ac:
-    | The storage key becomes lumen:theme with the value shape unchanged and the theme test asserting the new key.
-  evidence_strategy:
-    | Green theme tests and the built inline script carrying the new key.
-  evidence:
-    | Storage key renamed from diesel:theme-atom to lumen:theme with the value shape unchanged; the built inline guard carries the new key and the theme suite (7 tests) is green.
-
-w W-23 type=refactor status=proposed cynefin=clear t_created=2026-09-18T21:56:54Z t_updated=2026-09-18T21:56:54Z "Strip code comments"
-  goals: G-09
-  theme: T-02
-  fitness: G-09=+1
-  surface: src, internal, astro.config.ts
-  ac:
-    | No line comments or block comments remain in source files; the typescript reference directive in env.d.ts stays as tooling syntax.
-  evidence_strategy:
-    | Grep for comment markers returns only tooling directives.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -173,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:56:54Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T22:04:55Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -338,6 +261,21 @@ g G-07 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updat
 
 g G-08 status=verified fitness_kind=count t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T21:47:07Z "Taxonomy grouping is unified"
   area: A-01
+  fitness_target: 1
+  fitness_current: 1
+
+g G-09 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:04:54Z "Toolchain hardening follows the second review round"
+  area: A-05
+  fitness_target: 3
+  fitness_current: 3
+
+g G-10 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:04:55Z "Category and tag grouping share one call path"
+  area: A-01
+  fitness_target: 1
+  fitness_current: 1
+
+g G-11 status=verified fitness_kind=count t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:04:55Z "Theme storage key drops the diesel prefix"
+  area: A-03
   fitness_target: 1
   fitness_current: 1
 
@@ -647,6 +585,70 @@ w W-18 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:48Z t_
     | Util review plus green tests and an unchanged listing render.
   evidence:
     | getCategories, getTags and getYears are one-line calls over a single getGroups helper taking key extraction and ordering; category and tag listings stay alphabetical, years stay descending and the suite stays green (19 tests, 0 fail).
+
+w W-19 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:50Z t_updated=2026-09-18T22:04:54Z "Drop the redundant clean script and rimraf"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: package.json
+  ac:
+    | The clean script and the rimraf dependency are gone and build plus start run plain astro commands.
+  evidence_strategy:
+    | package.json review plus a green rebuild proving astro empties target itself.
+  evidence:
+    | Astro empties the outDir itself on every build, so the clean script and the rimraf dependency are gone; build and start run plain astro commands and a from-scratch rebuild is green with 31 pages in target.
+
+w W-20 type=refactor status=done cynefin=complicated t_created=2026-09-18T21:56:51Z t_updated=2026-09-18T22:04:54Z "Type check the whole project and fix findings"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: src, astro.config.ts, package.json
+  ac:
+    | astro check runs across the project through a check script and reports no errors.
+  evidence_strategy:
+    | astro check output clean plus a green build.
+  evidence:
+    | bun run check (astro check via the new check script and @astrojs/check) reports 0 errors, 0 warnings and 0 hints across 26 files.
+    | Fixed findings: rss endpoint params typed through CollectionEntry posts, and the markdown pipeline migrated to the Astro 7 processor API (markdown.processor unified options) which removed the smartypants plugin type clash and retired the remark-smartypants dependency since smartypants is built in.
+    | Build green with anchors and webp images intact; bun test 19 pass 0 fail.
+
+w W-21 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:52Z t_updated=2026-09-18T22:04:55Z "Unify category and tag grouping through shared extractors"
+  goals: G-10
+  theme: T-02
+  fitness: G-10=+1
+  surface: src/utils/get-taxonomy.ts, src/pages
+  ac:
+    | Category and tag pages call one getGroups generic with named key extractors; no per-kind wrapper functions remain.
+    | Listing output stays identical across categories, tags and years.
+  evidence_strategy:
+    | Util review, green tests and unchanged listing markup.
+  evidence:
+    | All six listing pages now call one getGroups generic with named key extractors (categoryOf, tagsOf, yearOf) and orderings (alphabetical default, newestFirst for years); the per-kind wrapper functions are deleted from get-taxonomy.ts.
+    | Listing output identical after the rewiring: categories alphabetical (creative-process through technology-trends), 12 tags, years descending; build, tests (19 pass) and astro check all green.
+
+w W-22 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:53Z t_updated=2026-09-18T22:04:55Z "Rename the theme storage key off the diesel prefix"
+  goals: G-11
+  theme: T-02
+  fitness: G-11=+1
+  surface: src/utils/theme.ts, src/utils/theme.test.ts
+  ac:
+    | The storage key becomes lumen:theme with the value shape unchanged and the theme test asserting the new key.
+  evidence_strategy:
+    | Green theme tests and the built inline script carrying the new key.
+  evidence:
+    | Storage key renamed from diesel:theme-atom to lumen:theme with the value shape unchanged; the built inline guard carries the new key and the theme suite (7 tests) is green.
+
+w W-23 type=refactor status=done cynefin=clear t_created=2026-09-18T21:56:54Z t_updated=2026-09-18T22:04:54Z "Strip code comments"
+  goals: G-09
+  theme: T-02
+  fitness: G-09=+1
+  surface: src, internal, astro.config.ts
+  ac:
+    | No line comments or block comments remain in source files; the typescript reference directive in env.d.ts stays as tooling syntax.
+  evidence_strategy:
+    | Grep for comment markers returns only tooling directives.
+  evidence:
+    | All source comments removed: the code styles note, the theme storage catch note and the image resolver header block; grep for comment markers returns nothing beyond the typescript reference directive in env.d.ts and glob patterns.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:

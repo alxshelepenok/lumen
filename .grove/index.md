@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 1 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
@@ -17,28 +17,15 @@
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 2 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-05 | Toolchain and delivery | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
-
-## Goals
-
-| ID | Outcome | Fitness function | Status |
-| --- | --- | --- | --- |
-| G-09 | Toolchain hardening follows the second review round | count; current=2 target=3 | partial |
-| G-10 | Category and tag grouping share one call path | count; current=1 target=1 | verified |
-| G-11 | Theme storage key drops the diesel prefix | count; current=1 target=1 | verified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
-| W-19 | refactor | Drop the redundant clean script and rimraf | G-09 | clear | ⊤ | done |  |
-| W-20 | refactor | Type check the whole project and fix findings | G-09 | complicated | ⊤ | done |  |
-| W-21 | refactor | Unify category and tag grouping through shared extractors | G-10 | clear | ⊤ | done |  |
-| W-22 | refactor | Rename the theme storage key off the diesel prefix | G-11 | clear | ⊤ | done |  |
-| W-23 | refactor | Strip code comments | G-09 | clear | ⊤ | proposed | ★ |
 
 ## Decisions
 
@@ -60,7 +47,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23 | W-19, W-20, W-21, W-22, W-23 |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23 | – |
 
 ## Discoveries
 
@@ -77,15 +64,7 @@
 
 ```mermaid
 graph TD
-  G_09["G-09: Toolchain hardening follows the second review round"]:::goal
-  G_10["G-10: Category and tag grouping share one call path"]:::goal
-  G_11["G-11: Theme storage key drops the diesel prefix"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
-  W_19["W-19: Drop the redundant clean script and rimraf"]:::done
-  W_20["W-20: Type check the whole project and fix findings"]:::done
-  W_21["W-21: Unify category and tag grouping through shared extractors"]:::done
-  W_22["W-22: Rename the theme storage key off the diesel prefix"]:::done
-  W_23["W-23: Strip code comments"]:::feature,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -165,7 +144,6 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
-  class W_23 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

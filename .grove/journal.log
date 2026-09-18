@@ -640,3 +640,12 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T22:03:18Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-22","op":"set_w_status_with_goals","goal_statuses":{"G-11":"unverified"},"old_session_at":"","old_session":""}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T22:03:35Z","inv":{"id":"W-22","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T22:03:35Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-22","op":"set_w_status_with_goals","goal_statuses":{"G-11":"unverified"},"old_session_at":"2026-09-18T22:03:18Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T22:03:35Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-23","op":"set_w_status_with_goals","goal_statuses":{"G-09":"partial"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T22:04:54Z","inv":{"id":"W-23","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T22:04:54Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-23","op":"set_w_status_with_goals","goal_statuses":{"G-09":"partial"},"old_session_at":"2026-09-18T22:03:35Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T22:04:54Z","inv":{"goal":"G-09","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T22:04:54Z","inv":{"ids":["G-09","W-19","W-20","W-23"],"id":"G-09","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T22:04:54Z","inv":{"goal":"G-10","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T22:04:55Z","inv":{"ids":["G-10","W-21"],"id":"G-10","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T22:04:55Z","inv":{"goal":"G-11","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T22:04:55Z","inv":{"ids":["G-11","W-22"],"id":"G-11","op":"archive"}}

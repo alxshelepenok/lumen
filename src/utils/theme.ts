@@ -39,7 +39,6 @@ const writeStoredTheme = (theme: Theme): void => {
   try {
     window.localStorage.setItem(themeStorageKey, JSON.stringify(theme));
   } catch {
-    // storage can be unavailable (private mode); the media query fallback still applies
   }
 };
 
