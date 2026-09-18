@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
+| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 
 ## Areas
 
@@ -16,16 +16,27 @@
 | A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-04 | Site services | 1 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-05 | Toolchain and delivery | 2 | 2 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-12 | Repository layout and test environment follow the third review round | count; current=1 target=3 | partial |
+| G-13 | The feed is served as atom | count; current= target=1 | unverified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
+| W-24 | refactor | Flatten the internal directory (plugins and the dependency sorter at the root) | G-12 | clear | ⊤ | done |  |
+| W-25 | refactor | Drop happy-dom from the test environment | G-12 | complicated | ⊤ | proposed | ★ |
+| W-26 | refactor | Purge the one-shot parity artifacts from git history | G-12 | complicated | ⊤ | proposed |  |
+| W-27 | feature | Serve the feed as atom.xml | G-13 | clear | ⊤ | proposed |  |
 
 ## Decisions
 
@@ -47,7 +58,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23 | – |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27 | W-24, W-25, W-26, W-27 |
 
 ## Discoveries
 
@@ -64,7 +75,13 @@
 
 ```mermaid
 graph TD
+  G_12["G-12: Repository layout and test environment follow the third review round"]:::goal
+  G_13["G-13: The feed is served as atom"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
+  W_24["W-24: Flatten the internal directory (plugins and the dependency sorter at the root)"]:::done
+  W_25["W-25: Drop happy-dom from the test environment"]:::feature,critical
+  W_26["W-26: Purge the one-shot parity artifacts from git history"]:::feature
+  W_27["W-27: Serve the feed as atom.xml"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -105,6 +122,10 @@ graph TD
   T_02 -->|causes| W_21
   T_02 -->|causes| W_22
   T_02 -->|causes| W_23
+  T_02 -->|causes| W_24
+  T_02 -->|causes| W_25
+  T_02 -->|causes| W_26
+  T_02 -->|causes| W_27
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
@@ -144,6 +165,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
+  class W_25 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

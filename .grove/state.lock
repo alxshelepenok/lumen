@@ -1,6 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:128be5121afb3604d4d4e69feacbfa3a6cc84b92326844a8bc54085996e63b02
+# checksum: sha256:de02f1ee94296ee6bd2b49d70fe4a03fb2a8609098bdf90672f19dc38146dd73
+g G-12 status=partial fitness_kind=count t_created=2026-09-18T22:06:31Z t_updated=2026-09-18T22:07:28Z "Repository layout and test environment follow the third review round"
+  area: A-05
+  fitness_target: 3
+  fitness_current: 1
+
+g G-13 status=unverified fitness_kind=count t_created=2026-09-18T22:06:32Z t_updated=2026-09-18T22:06:32Z "The feed is served as atom"
+  area: A-04
+  fitness_target: 1
+
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -24,6 +33,50 @@ w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_u
     | bun test: 99 pass, 4 fail, 315 expect calls; identical 99/4 result on a stashed clean tree, so every failure pre-exists on main and is unrelated to the scaffold.
     | Clean scaffold rebuild green: 1 page built; probe files and probe-content/ removed before commit.
     | Exit criteria closed: B-01 validated, B-04 validated, B-05 invalidated_acceptable with a working alternative, B-06 produced and validated.
+
+w W-24 type=refactor status=done cynefin=clear t_created=2026-09-18T22:06:32Z t_updated=2026-09-18T22:07:28Z "Flatten the internal directory (plugins and the dependency sorter at the root)"
+  goals: G-12
+  theme: T-02
+  fitness: G-12=+1
+  surface: internal, astro.config.ts
+  ac:
+    | The remark and rehype plugins live directly under internal and sort-dependencies.py sits at the internal root.
+  evidence_strategy:
+    | Directory listing plus a green build reading the plugins from their new paths.
+  evidence:
+    | Plugins flattened to internal/resolve-content-images.mjs and internal/responsive-iframe.mjs with sort-dependencies.py beside them; astro.config imports updated and the build is green.
+
+w W-25 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22:06:33Z t_updated=2026-09-18T22:06:59Z "Drop happy-dom from the test environment"
+  goals: G-12
+  theme: T-02
+  fitness: G-12=+1
+  surface: internal/testing, src/utils/theme.ts, src/utils/theme.test.ts, bunfig.toml
+  ac:
+    | The theme util is environment safe (storage through globalThis, document guarded) and the suite runs on bun test alone with no preload and no happy-dom dependency.
+  evidence_strategy:
+    | Green bun test without the preload plus a removed devDependency.
+
+w W-26 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T22:06:59Z t_updated=2026-09-18T22:06:59Z "Purge the one-shot parity artifacts from git history"
+  goals: G-12
+  theme: T-02
+  fitness: G-12=+1
+  surface: internal/scripts
+  ac:
+    | No commit in the branch history touches the parity directory, the parity report or the comparison script and none of them exist in the working tree.
+  evidence_strategy:
+    | git log over the purged paths returns nothing and the tree is clean.
+
+w W-27 type=feature status=proposed cynefin=clear t_created=2026-09-18T22:07:00Z t_updated=2026-09-18T22:07:00Z "Serve the feed as atom.xml"
+  goals: G-13
+  theme: T-02
+  fitness: G-13=+1
+  surface: src/pages, package.json
+  ac:
+    | atom.xml serves a valid Atom feed with the same items (title, link, updated, summary and html content) and the rss endpoint plus the @astrojs/rss dependency are gone.
+  hypothesis:
+    | A small hand-rolled Atom endpoint keeps the feed dependency-free while reusing the container-rendered content.
+  evidence_strategy:
+    | Feed output inspection of the entry set and a green build.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -96,7 +149,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T22:04:55Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T22:07:00Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -183,6 +236,10 @@ e T-02 causes W-20 t_created=2026-09-18T21:56:52Z
 e T-02 causes W-21 t_created=2026-09-18T21:56:53Z
 e T-02 causes W-22 t_created=2026-09-18T21:56:53Z
 e T-02 causes W-23 t_created=2026-09-18T21:56:54Z
+e T-02 causes W-24 t_created=2026-09-18T22:06:32Z
+e T-02 causes W-25 t_created=2026-09-18T22:06:58Z
+e T-02 causes W-26 t_created=2026-09-18T22:06:59Z
+e T-02 causes W-27 t_created=2026-09-18T22:07:00Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z

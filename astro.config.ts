@@ -10,8 +10,8 @@ import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 
-import { rehypeResponsiveIframe } from "./internal/astro/rehype/responsive-iframe.mjs";
-import { remarkResolveContentImages } from "./internal/astro/remark/resolve-content-images.mjs";
+import { rehypeResponsiveIframe } from "./internal/responsive-iframe.mjs";
+import { remarkResolveContentImages } from "./internal/resolve-content-images.mjs";
 
 import config from "./content/config.json";
 
