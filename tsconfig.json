@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react",
     "target": "esnext",
     "module": "esnext",
     "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
     "paths": {
       "@/assets/*": ["./src/assets/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/types/*": ["./src/types/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/internal/*": ["./internal/*"],
       "@/constants/*": ["./src/constants/*"],
-      "@/components/*": ["./src/components/*"],
       "@/mocks": ["./internal/testing/mocks"]
     },
     "strict": true,

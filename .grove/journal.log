@@ -503,3 +503,14 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:20:20Z","inv":{"id":"W-12","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-18T21:20:21Z","inv":{"had_key":true,"wid":"W-12","gid":"G-05","previous":1,"op":"restore_fitness_key"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:20:21Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-12","op":"set_w_status_with_goals","goal_statuses":{"G-05":"partial"},"old_session_at":"2026-09-18T21:15:39Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:20:47Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-13","op":"set_w_status_with_goals","goal_statuses":{"G-05":"partial"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:25Z","inv":{"id":"W-13","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:25Z","inv":{"id":"W-13","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:25Z","inv":{"id":"W-13","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:25Z","inv":{"id":"W-13","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:25Z","inv":{"id":"W-13","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:26Z","inv":{"id":"W-13","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:26Z","inv":{"id":"W-13","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T21:22:26Z","inv":{"id":"W-13","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-18T21:22:26Z","inv":{"had_key":true,"wid":"W-13","gid":"G-05","previous":1,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T21:22:26Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-13","op":"set_w_status_with_goals","goal_statuses":{"G-05":"partial"},"old_session_at":"2026-09-18T21:20:47Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}

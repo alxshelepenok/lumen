@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:ceae5ccb6c7459bdce86b34765232095f1569ae1dca8ab82a02b99fd6f84b67e
+# checksum: sha256:50d896fc9daa25c9f58367e4b5b9aa730078b508729ac04c33931903e7c1ecb2
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -21,10 +21,10 @@ g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
   fitness_target: 2
   fitness_current: 2
 
-g G-05 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:15:20Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
+g G-05 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:26Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
   area: A-05
   fitness_target: 3
-  fitness_current: 2
+  fitness_current: 3
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -262,11 +262,11 @@ w W-12 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:5
   plan:
     | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
-w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:35:00Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+w W-13 type=refactor status=done cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T21:22:26Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
   theme: T-01
   fitness: G-05=+1
-  surface: package.json, .github, README.md, internal
+  surface: package.json, .github, README.md, internal, package.json, tsconfig.json, README.md
   ac:
     | No gatsby-scoped dependency remains and package.json holds only Astro-stack packages.
     | Scripts, tsconfig path aliases and CI workflows run the Astro commands and pass.
@@ -277,6 +277,12 @@ w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59
     | After parity verification the Gatsby layer is dead code whose removal is behaviour-neutral.
   evidence_strategy:
     | Dependency grep; a green CI run on the branch; build and test transcripts.
+  evidence:
+    | Deleted the frozen legacy tree: src/components, src/templates, src/hooks, src/types, internal/gatsby, internal/definitions, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, sentry.config.ts, the get-meta and concat utils and the unused theme-switcher module styles.
+    | package.json holds Astro-stack packages only: dependencies are astro, @astrojs/markdown-remark, rss, sitemap, @sentry/astro and the remark rehype set; removed 35 packages including every gatsby plugin, react, react-dom, prismjs, classnames, both diesel packages, @sentry/gatsby, @sentry/tracing, @types/react and source-map-support; keywords now astro and blog.
+    | Scripts switched to Astro: build runs bun run clean and astro build with clean targeting .astro and dist, start runs astro dev, serve aliases astro preview; bun run build green with 31 pages including rss.xml, sitemap-index.xml and manifest.webmanifest; bun test green with 31 passing expectations across 7 utils suites.
+    | tsconfig keeps only live path aliases (@/assets, @/utils, @/constants, @/internal, @/mocks); autoprefixer wired through vite postcss; the remaining diesel and gatsby strings in src are the intentional diesel:theme-atom storage key and one explanatory plugin comment.
+    | CI analyze.yml runs bun run build and bun test which now execute the Astro commands unchanged; release.yml and .releaserc untouched per D-09; README reflects Astro with a no-framework-runtime feature line.
   plan:
     | Delete the frozen legacy tree: src/components, src/templates, src/hooks, gatsby-browser.ts, gatsby-config.ts, gatsby-node.ts, gatsby-ssr.ts, internal/gatsby, sentry.config.ts gatsby import, render-with-coil-provider util; module styles already live under src/assets/styles/modules.
 
@@ -518,7 +524,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-01 status=open t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:27:00Z "Legacy Gatsby platform constraints"
+t T-01 status=done t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T21:22:26Z "Legacy Gatsby platform constraints"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite

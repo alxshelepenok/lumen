@@ -1,10 +1,11 @@
 # lumen
 
-A constantly evolving and thoughtful architecture for creating static blogs.
+A constantly evolving and thoughtful architecture for creating static blogs, built with [Astro](https://astro.build).
 
 ## Features
 
 - Mobile first approach in development.
+- No client framework runtime, plain islands.
 - Support for Sentry error tracking.
 - Support for categories and tags.
 

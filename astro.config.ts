@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
+import autoprefixer from "autoprefixer";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
@@ -81,6 +82,9 @@ export default defineConfig({
   },
   vite: {
     css: {
+      postcss: {
+        plugins: [autoprefixer()],
+      },
       modules: {
         localsConvention: "camelCase",
       },
