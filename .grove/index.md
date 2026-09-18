@@ -6,9 +6,8 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 17 | validated B 4 · answered Q 3 · accepted D 9 · active Discovery 1 |
+| C (content) | 18 | validated B 4 · answered Q 3 · accepted D 10 · active Discovery 1 |
 | V (uncertainty) | 11 | open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 9 |
-| Decay | 1 | Discovery with decay signals |
 
 ## Areas
 
@@ -18,7 +17,7 @@
 | A-02 | Pages and routing | 4 | 2 | C: validated B 1 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 | A-03 | Interface and theming | 5 | 0 | C: validated B 1 · answered Q 0 · accepted D 3 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 4 | C: validated B 0 · answered Q 1 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-05 | Toolchain and delivery | 7 | 3 | C: validated B 2 · answered Q 1 · accepted D 3 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| A-05 | Toolchain and delivery | 8 | 3 | C: validated B 2 · answered Q 1 · accepted D 4 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -64,6 +63,7 @@
 | D-08 | Bun stays the package manager and script runner | accepted |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 | D-10 | Flat islands directory replaces the components tree | accepted |  |
+| D-11 | Commit conventions drive the 3.0.0 release | accepted |  |
 
 ## Open questions
 
@@ -128,6 +128,7 @@ graph TD
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   D_10["D-10: Flat islands directory replaces the components tree"]:::decision
+  D_11["D-11: Commit conventions drive the 3.0.0 release"]:::decision
   Q_01["Q-01: How strict must URL parity be?"]:::question
   Q_02["Q-02: Which test strategy replaces the React component tests?"]:::question
   Q_03["Q-03: Which third-party services stay (Google Analytics, Sentry)?"]:::question
@@ -186,6 +187,7 @@ graph TD
   W_11 ==>|blocks| W_13
   W_12 ==>|blocks| W_13
   W_13 -->|implements| D_01
+  W_13 -->|implements| D_11
   Y_01 -->|distills| B_04
   class W_05,W_07,W_11,W_13 critical
 classDef area fill:#5a1e4a,color:#fff

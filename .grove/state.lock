@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:64857890c67d64153b2f55a5cb199d5c14e917e4214ca3cbe79cfcdfa8c3d711
+# checksum: sha256:f1bf4d4057f00f6f3019538a5f2164f1dcadca97e9fba35327b31bc206df38e5
 g G-01 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:01:55Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -219,7 +219,7 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   plan:
     | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
-w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:11:51Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:20:49Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
   theme: T-01
   fitness: G-05=+1
@@ -376,6 +376,19 @@ d D-10 status=accepted t_created=2026-09-18T19:40:19Z t_updated=2026-09-18T19:40
   validation:
     | W-04 done; the final src tree matches the layout with no components directory.
 
+d D-11 status=accepted t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T20:20:49Z "Commit conventions drive the 3.0.0 release"
+  context:
+    | semantic-release analyzes the branch history with the conventionalcommits preset and a custom release rule where the type major cuts a major release; the Gatsby to Astro migration must land as 3.0.0.
+  options:
+    | Mark every migration commit chore.
+    | Use feat and refactor per commit plus one breaking cutover commit.
+  decision:
+    | Scopes are single word work areas only (deps, grove, release); astro is too generic so it is never a scope and empty scope beats a wrong one; types come from feat, fix, refactor, docs, chore and the migration cutover commit in W-13 uses the type major so semantic-release publishes 3.0.0.
+  consequences:
+    | Commit subjects stay area specific; release notes read as features and refactors of the migration with one major cutover entry.
+  validation:
+    | After merging major/astro into main, semantic-release publishes 3.0.0.
+
 q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:34:48Z "How strict must URL parity be?"
   why:
     | Astro paginate() can emit the exact Gatsby paths (/page/N) at the cost of custom path functions; relaxed shapes simplify routing but break inbound links unless redirects are added.
@@ -513,4 +526,5 @@ e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
 e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
+e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
