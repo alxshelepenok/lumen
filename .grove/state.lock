@@ -1,7 +1,7 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:faa9f31b32345a7b63fd382b9f8767056eb778b658d24d188632ba48e516109e
-w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
+# checksum: sha256:14c91d6fae1489205ac394dfbb7418eb61e67a11ded27bdbd536e12cf8e2b17c
+w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
   surface: astro.config.ts, package.json, src/env.d.ts, src/pages/index.astro, .gitignore, bun.lockb
@@ -868,7 +868,7 @@ w W-35 type=refactor status=done cynefin=clear t_created=2026-09-18T23:11:25Z t_
   evidence:
     | Twelve modules reordered into one convention: external packages, then @ aliases, then relative imports, alphabetical inside each block; build, astro check, tsc and the suite green after the pass.
 
-w W-36 type=refactor status=done cynefin=clear t_created=2026-09-18T23:28:15Z t_updated=2026-09-18T23:28:22Z "Remove renovate config and its support"
+w W-36 type=refactor status=done cynefin=clear t_created=2026-09-18T23:28:15Z t_updated=2026-09-18T23:31:45Z "Remove renovate config and its support"
   goals: G-18
   theme: T-02
   fitness: G-18=+1
@@ -879,6 +879,7 @@ w W-36 type=refactor status=done cynefin=clear t_created=2026-09-18T23:28:15Z t_
     | Grep for renovate returns nothing outside git history.
   evidence:
     | renovate.json deleted (it still carried gatsby and react group rules from the old stack); a repository-wide grep finds no other renovate references and the build stays green.
+    | renovate config removal confirmed final; no references remain.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
