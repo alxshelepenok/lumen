@@ -11,3 +11,4 @@
 | Slug resolution | Rule that prefers the frontmatter slug and falls back to the directory-based path. | W-02 |
 | Shiki | The syntax highlighter bundled with Astro that replaces PrismJS in the markdown pipeline. | D-04 |
 | Canonical URL | The absolute preferred page URL emitted as a link rel canonical tag, always ending with a trailing slash. | D-06 |
+| Islands directory | The flat src/islands directory holding every kebab-case .astro partial; a house layout name, not framework islands. | D-10 |

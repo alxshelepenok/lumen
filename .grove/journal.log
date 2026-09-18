@@ -251,3 +251,29 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:57Z","inv":{"id":"W-11","field":"hypothesis","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:58Z","inv":{"id":"W-13","field":"ac","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:34:58Z","inv":{"id":"W-13","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-18T19:40:19Z","inv":{"id":"D-10","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:19Z","inv":{"id":"D-10","field":"context","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:19Z","inv":{"id":"D-10","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:20Z","inv":{"id":"D-10","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:20Z","inv":{"id":"D-10","field":"decision","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:20Z","inv":{"id":"D-10","field":"consequences","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:20Z","inv":{"id":"D-10","field":"validation","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:40:20Z","inv":{"old_status":"proposed","id":"D-10","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:25Z","inv":{"id":"Q-03","field":"outcome","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:40:26Z","inv":{"old_status":"open","id":"Q-03","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T19:40:26Z","inv":{"id":"W-04","old":"Port UI components to native Astro (sidebar, feed, post, pagination, icons)","op":"set_title"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:26Z","inv":{"line":"Layout, Sidebar with its four children, Feed, Page, Pagination, Post with its four children, Button, Icon and Meta exist as .astro components.","id":"W-04","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:26Z","inv":{"id":"W-04","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:26Z","inv":{"id":"W-04","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:27Z","inv":{"line":"src/components","id":"W-04","field":"surface","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:27Z","inv":{"id":"W-04","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T19:40:27Z","inv":{"label":"implements","to":"D-10","op":"unlink_edge","from":"W-04"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:27Z","inv":{"id":"W-05","field":"surface","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T19:40:27Z","inv":{"label":"implements","to":"D-10","op":"unlink_edge","from":"W-05"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"line":"Kept services per Q-03 load with the same ids and sampling as now (gtag in head, Sentry browser tracking).","id":"W-10","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"line":"Dropped services leave no trace in the bundle.","id":"W-10","field":"ac","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"id":"W-10","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"id":"W-10","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"id":"W-10","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:37Z","inv":{"line":"A plain script tag for gtag and the Sentry Astro SDK reproduce the current wiring on a static build.","id":"W-10","field":"hypothesis","op":"field_insert_line","index":1}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T19:40:38Z","inv":{"id":"W-10","field":"hypothesis","op":"field_pop_last"}}

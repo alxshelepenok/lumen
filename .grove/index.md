@@ -6,17 +6,17 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 7 | validated B 0 · answered Q 2 · accepted D 5 |
-| V (uncertainty) | 23 | open Q 1 · pending B 5 · W below DoR 4 · uncovered surface 13 |
+| C (content) | 9 | validated B 0 · answered Q 3 · accepted D 6 |
+| V (uncertainty) | 22 | open Q 0 · pending B 5 · W below DoR 4 · uncovered surface 13 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
 | A-01 | Content pipeline | 0 | 7 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 2 · W below DoR 1 · uncovered surface 4 |
-| A-02 | Pages and routing | 2 | 4 | C: validated B 0 · answered Q 1 · accepted D 1; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-03 | Interface and theming | 2 | 4 | C: validated B 0 · answered Q 0 · accepted D 2; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
-| A-04 | Site services | 0 | 5 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 1 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-02 | Pages and routing | 3 | 4 | C: validated B 0 · answered Q 1 · accepted D 2; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-03 | Interface and theming | 3 | 4 | C: validated B 0 · answered Q 0 · accepted D 3; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
+| A-04 | Site services | 1 | 4 | C: validated B 0 · answered Q 1 · accepted D 0; V: open Q 0 · pending B 1 · W below DoR 1 · uncovered surface 2 |
 | A-05 | Toolchain and delivery | 2 | 5 | C: validated B 0 · answered Q 1 · accepted D 1; V: open Q 0 · pending B 1 · W below DoR 0 · uncovered surface 4 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
@@ -38,7 +38,7 @@
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | ready | ★ |
 | W-02 | feature | Port content to Astro content collections (posts, pages, site config) | G-01 | complicated | ⊥ | proposed |  |
 | W-03 | feature | Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script) | G-03 | complicated | ⊥ | proposed | ★ |
-| W-04 | feature | Port UI components to native Astro (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | proposed | ★ |
+| W-04 | feature | Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons) | G-03 | complicated | ⊤ | proposed | ★ |
 | W-05 | feature | Port core templates with URL parity (index, post, page, 404, meta) | G-02 | complicated | ⊤ | proposed | ★ |
 | W-06 | feature | Port taxonomy listings with pagination (categories, tags, years, /page/N) | G-02 | complicated | ⊥ | proposed |  |
 | W-07 | feature | Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting) | G-01 | complicated | ⊤ | proposed |  |
@@ -62,6 +62,7 @@
 | D-07 | Static output only | proposed |  |
 | D-08 | Bun stays the package manager and script runner | proposed |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
+| D-10 | Flat islands directory replaces the components tree | accepted |  |
 
 ## Open questions
 
@@ -69,7 +70,7 @@
 | --- | --- | --- | --- | --- |
 | Q-01 | How strict must URL parity be? | complicated | W-05, W-06 | answered |
 | Q-02 | Which test strategy replaces the React component tests? | complicated | W-11 | answered |
-| Q-03 | Which third-party services stay (Google Analytics, Sentry)? | clear | W-10 | open |
+| Q-03 | Which third-party services stay (Google Analytics, Sentry)? | clear | W-10 | answered |
 
 ## Assumptions
 
@@ -99,7 +100,7 @@ graph TD
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike,critical
   W_02["W-02: Port content to Astro content collections (posts, pages, site config)"]:::feature
   W_03["W-03: Port global styles and theme switching (SCSS pipeline, palettes, no-FOUC script)"]:::feature,critical
-  W_04["W-04: Port UI components to native Astro (sidebar, feed, post, pagination, icons)"]:::feature,critical
+  W_04["W-04: Port UI components to flat Astro islands (sidebar, feed, post, pagination, icons)"]:::feature,critical
   W_05["W-05: Port core templates with URL parity (index, post, page, 404, meta)"]:::feature,critical
   W_06["W-06: Port taxonomy listings with pagination (categories, tags, years, /page/N)"]:::feature
   W_07["W-07: Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"]:::feature
@@ -118,6 +119,7 @@ graph TD
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
+  D_10["D-10: Flat islands directory replaces the components tree"]:::decision
   Q_01["Q-01: How strict must URL parity be?"]:::question
   Q_02["Q-02: Which test strategy replaces the React component tests?"]:::question
   Q_03["Q-03: Which third-party services stay (Google Analytics, Sentry)?"]:::question
@@ -158,8 +160,10 @@ graph TD
   W_04 ==>|blocks| W_05
   W_04 ==>|blocks| W_11
   W_04 -->|implements| D_02
+  W_04 -->|implements| D_10
   W_05 ==>|blocks| W_11
   W_05 ==>|blocks| W_12
+  W_05 -->|implements| D_10
   W_06 ==>|blocks| W_12
   W_06 -->|implements| D_06
   W_07 ==>|blocks| W_05
