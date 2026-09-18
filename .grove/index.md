@@ -7,13 +7,13 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 12 | open Q 0 · pending B 0 · W below DoR 5 · uncovered surface 7 |
+| V (uncertainty) | 11 | open Q 0 · pending B 0 · W below DoR 5 · uncovered surface 6 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 2 | 5 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 3 |
+| A-01 | Content pipeline | 2 | 4 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 2 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 4 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 2 · uncovered surface 2 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -27,7 +27,7 @@
 | --- | --- | --- | --- |
 | G-14 | Toolchain hygiene follows the fourth review round | count; current=1 target=3 | partial |
 | G-15 | Content images render with the right aspect | count; current= target=1 | unverified |
-| G-16 | Route building replaces scattered kebab case helpers | count; current= target=2 | unverified |
+| G-16 | Route building replaces scattered kebab case helpers | count; current=1 target=2 | partial |
 | G-17 | Markdown html transforms run through one own plugin | count; current= target=1 | unverified |
 
 ## Work items
@@ -37,7 +37,7 @@
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
 | W-28 | refactor | Pin exact dependency versions | G-14 | clear | ⊤ | done |  |
 | W-29 | refactor | Adopt island aliases and fix editor module resolution | G-14 | complicated | ⊤ | proposed | ★ |
-| W-30 | bug | Fix stretched content images | G-16 | complicated | ⊤ | proposed |  |
+| W-30 | bug | Fix stretched content images | G-16 | complicated | ⊤ | done |  |
 | W-31 | bug | Fix stretched content images | G-16 | complicated | ⊥ | proposed |  |
 | W-32 | spike | Research the routes module design | G-15 | complicated | ⊥ | proposed |  |
 | W-33 | refactor | Build routes on the Route module and retire to-kebab-case | G-15 | complicated | ⊥ | proposed |  |
@@ -88,7 +88,7 @@ graph TD
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
   W_28["W-28: Pin exact dependency versions"]:::done
   W_29["W-29: Adopt island aliases and fix editor module resolution"]:::feature,critical
-  W_30["W-30: Fix stretched content images"]:::feature
+  W_30["W-30: Fix stretched content images"]:::done
   W_31["W-31: Fix stretched content images"]:::feature
   W_32["W-32: Research the routes module design"]:::spike
   W_33["W-33: Build routes on the Route module and retire to-kebab-case"]:::feature

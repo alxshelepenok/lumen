@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:65a692d986534543630274067ae51261da11e364921db168c7904af7bab60e84
+# checksum: sha256:6a240a74c719c490af3c2c0e3ae1de107024967eba30b52cc4fefb8bebc65a0b
 g G-14 status=partial fitness_kind=count t_created=2026-09-18T23:10:59Z t_updated=2026-09-18T23:11:51Z "Toolchain hygiene follows the fourth review round"
   area: A-05
   fitness_target: 3
@@ -10,9 +10,10 @@ g G-15 status=unverified fitness_kind=count t_created=2026-09-18T23:10:59Z t_upd
   area: A-03
   fitness_target: 1
 
-g G-16 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Route building replaces scattered kebab case helpers"
+g G-16 status=partial fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:12:56Z "Route building replaces scattered kebab case helpers"
   area: A-01
   fitness_target: 2
+  fitness_current: 1
 
 g G-17 status=unverified fitness_kind=count t_created=2026-09-18T23:11:00Z t_updated=2026-09-18T23:11:00Z "Markdown html transforms run through one own plugin"
   area: A-01
@@ -67,7 +68,7 @@ w W-29 type=refactor status=proposed cynefin=complicated t_created=2026-09-18T23
   evidence_strategy:
     | tsc noEmit clean, grep for relative island imports empty, extensions recommendation in place.
 
-w W-30 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:11:22Z "Fix stretched content images"
+w W-30 type=bug status=done cynefin=complicated t_created=2026-09-18T23:11:01Z t_updated=2026-09-18T23:12:56Z "Fix stretched content images"
   goals: G-16
   theme: T-02
   fitness: G-16=+1
@@ -79,6 +80,9 @@ w W-30 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:0
     | The custom processor unified options stopped the automatic injection of image.responsiveStyles, so markdown images keep natural width and height attributes with no height auto rule and stretch in the live layout.
   evidence_strategy:
     | Built CSS contains the constrained rules and the rendered page keeps the aspect.
+  evidence:
+    | The custom processor stopped image.responsiveStyles injection (no data-astro-image rules in built CSS, only the generic img max-width); the astro.images layer is now carried by base/responsive-images.scss copied from the astro generator (height auto plus constrained and full-width widths, fit and position variants) with responsiveStyles disabled to avoid double injection.
+    | Built CSS carries :where([data-astro-image]) height auto and the constrained max-width rules; build, tests and astro check green.
 
 w W-31 type=bug status=proposed cynefin=complicated t_created=2026-09-18T23:11:21Z t_updated=2026-09-18T23:11:23Z "Fix stretched content images"
   goals: G-16

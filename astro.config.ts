@@ -55,7 +55,7 @@ export default defineConfig({
   image: {
     layout: "constrained",
     breakpoints: [320, 480, 640, 750, 828, 960],
-    responsiveStyles: true,
+    responsiveStyles: false,
   },
   markdown: {
     shikiConfig: {
