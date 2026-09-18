@@ -117,3 +117,17 @@ pre[class*="language-"]::selection {
 .token.italic {
   font-style: italic;
 }
+
+// shiki emits pre.astro-code with inline solarized colors; the container keeps
+// the theme-aware background while token colors stay fixed like before
+pre.astro-code {
+  background-color: hsl(var(--color-muted)) !important;
+  border-radius: 0.3em;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-size: variables.$typography-base-font-size;
+  margin: 0.5em 0;
+  overflow: auto;
+  padding: 1em;
+  tab-size: 4;
+  white-space: pre;
+}

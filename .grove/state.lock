@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:aa04359db9c7b31bd00acbaaf14144183914e442533f933570fe62747f5b0adf
-g G-01 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:01:55Z "Content pipeline runs on Astro with rendering parity"
+# checksum: sha256:549157a42fccb8b93bc70eac353280043cd1e7fc186508de2fa95a9fb1fa71af
+g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
-  fitness_current: 1
+  fitness_current: 3
 
 g G-02 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "All public routes keep their Gatsby URL shapes on Astro"
   area: A-02
@@ -137,10 +137,10 @@ w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
   evidence_strategy:
     | Route list diff against the Gatsby build; snapshot checks on listing pages.
 
-w W-07 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:01:56Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
+w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:43:17Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
   goals: G-01
   fitness: G-01=+1
-  surface: gatsby-config.ts, content/posts
+  surface: gatsby-config.ts, content/posts, astro.config.ts, internal/astro/rehype/responsive-iframe.mjs, src/assets/styles/base/_anchors.scss, src/assets/styles/base/_prism.scss
   ac:
     | Autolinked headers, smartypants typography, external link attributes, copied linked files and responsive iframes behave as under the current remark plugins.
     | Code blocks render through Shiki with the ported palette in both themes.
@@ -149,11 +149,17 @@ w W-07 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
     | Each current remark plugin maps onto a standard remark or rehype plugin in the Astro markdown pipeline.
   evidence_strategy:
     | HTML diffs per sample post; visual check of a code-heavy and a media-heavy post.
+  evidence:
+    | Pipeline assembled: remark-smartypants plus rehype raw, slug, autolink-headings, external-links and a local responsive-iframe wrapper (internal/astro/rehype); shiki solarized-light with the astro-code container styled from _prism.scss and a theme-aware muted background override.
+    | Anchor markup is byte-identical to gatsby-remark-autolink-headers: h2 and h3 ids, inline position style via headingProperties, a.anchor.before with the same octicon svg and aria-label pattern (verified on the typography post: aenean-viverra h2 and vivamus-pretium h3 in both builds).
+    | Probe page (removed) verified curly quotes, ellipsis and dash smartypants, rel=noopener with target=_blank on external links, the iframe wrapper div with margin-bottom 1.0725rem and pre.astro-code solarized-light tokens; rehype-raw was required because Astro 7 drops raw HTML without it.
+    | Astro 7 finding: Sätteri is the default markdown processor and the unified plugin pipeline needs an explicit @astrojs/markdown-remark dependency (installed, 7.3.1).
+    | Accepted differences: the gatsby autolink scroll script is left to native browser hash behaviour (offsetY 0), and markdown body images stay as /image.jpg passthrough until the W-08 asset pipeline.
 
-w W-08 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:01:56Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
+w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:35Z t_updated=2026-09-18T20:46:15Z "Port the image pipeline to astro:assets (webp, responsive sizes, social images)"
   goals: G-01
   fitness: G-01=+1
-  surface: src/components/image, content
+  surface: src/components/image, content, internal/astro/remark/resolve-content-images.mjs, src/islands/post-content.astro, src/islands/post.astro, static
   ac:
     | Post and page images process through astro:assets with webp output and responsive widths up to 960px.
     | socialImage frontmatter resolves per post and feeds the meta tags.
@@ -162,6 +168,12 @@ w W-08 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
     | astro:assets with the default sharp service replaces gatsby-plugin-sharp and gatsby-plugin-image without heavy configuration.
   evidence_strategy:
     | Build artifacts listing generated formats and sizes; img markup comparison.
+  evidence:
+    | Markdown body images render fully responsive: webp srcset at the configured breakpoints 320 to 960 plus the original width, computed sizes, lazy loading and async decoding, data-astro-image constrained; astro emits one img where gatsby emitted picture, functionally equivalent and recorded as accepted.
+    | Root-absolute markdown image urls (/image.jpg) resolve against the markdown directory through internal/astro/remark/resolve-content-images.mjs, mirroring how gatsby-remark-images found sibling files.
+    | Rendered html carries __ASTRO_IMAGE_ placeholders and the actual optimization happens inside render(entry), so post-content and post islands now take the Content component instead of an html string; the raw html fallback for RSS is noted for W-09.
+    | socialImage resolves to full ImageMetadata (src, width 5753, height 3828, format jpg) and feeds og tags when pages assemble in W-05; logo.png now serves from static/.
+    | bun run build:astro green and bun test 111 pass with the 4 pre-existing years failures.
 
 w W-09 type=feature status=ready cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T20:01:56Z "Restore site services (rss.xml, sitemap, manifest)"
   goals: G-04
