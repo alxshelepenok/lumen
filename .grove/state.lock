@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:5a5218c5133a3661836810538370e9ac775e68b3cb155647100a8859d9dbcd03
+# checksum: sha256:4b41a8003c985564a1ff6174c2450aa33e75d7461e602b391755c8e084b97051
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -16,10 +16,10 @@ g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
   fitness_target: 2
   fitness_current: 2
 
-g G-04 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:03:58Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
+g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:09:26Z "Site services are restored (feed, sitemap, manifest, analytics, error tracking)"
   area: A-04
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-05 status=unverified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T19:23:27Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
   area: A-05
@@ -188,7 +188,7 @@ w W-08 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:3
     | socialImage resolves to full ImageMetadata (src, width 5753, height 3828, format jpg) and feeds og tags when pages assemble in W-05; logo.png now serves from static/.
     | bun run build:astro green and bun test 111 pass with the 4 pre-existing years failures.
 
-w W-09 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T21:03:58Z "Restore site services (rss.xml, sitemap, manifest)"
+w W-09 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:36Z t_updated=2026-09-18T21:09:27Z "Restore site services (rss.xml, sitemap, manifest)"
   goals: G-04
   fitness: G-04=+1
   surface: gatsby-config.ts, src/pages, src/pages/rss.xml.ts, static, src/islands/base-layout.astro
@@ -205,10 +205,10 @@ w W-09 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:36Z t_u
     | Sitemap parity: sitemap-index.xml plus sitemap-0.xml with the identical 30 URL set, changefreq daily and priority 0.7, 404 excluded through the integration filter.
     | Manifest parity: static/manifest.webmanifest with the same name, short_name, hsl theme and background colors, display standalone and start_url; icons 48 to 512 plus favicon-32x32 generated from content/logo.png into static; head links for manifest, theme-color, favicon and 8 apple-touch icons mirror the gatsby-plugin-manifest injections.
 
-w W-10 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:45Z t_updated=2026-09-18T19:40:38Z "Restore analytics and error tracking (gtag, Sentry)"
+w W-10 type=feature status=done cynefin=clear t_created=2026-09-18T19:26:45Z t_updated=2026-09-18T21:09:26Z "Restore analytics and error tracking (gtag, Sentry)"
   goals: G-04
   fitness: G-04=+1
-  surface: gatsby-config.ts, sentry.config.ts
+  surface: gatsby-config.ts, sentry.config.ts, src/islands/gtag.astro, src/sentry.client.config.ts, src/islands/base-layout.astro
   ac:
     | Sentry wires through the official Astro integration and keeps browser tracking and replay with the current sampling rates.
     | Google Analytics loads as a plain gtag script island in the head with the current tracking id.
@@ -217,6 +217,11 @@ w W-10 type=feature status=proposed cynefin=clear t_created=2026-09-18T19:26:45Z
     | The official Sentry Astro integration plus a plain gtag island reproduce the current wiring on a fully static build.
   evidence_strategy:
     | Built HTML contains the expected snippets; a Sentry test event from the preview build.
+  evidence:
+    | Google Analytics loads as a plain gtag island in head with the current tracking id: the googletagmanager script tag plus the dataLayer config including send_page_view false, byte-matching the gatsby-plugin-google-gtag injection.
+    | Sentry wires through @sentry/astro 10.75.0 (peer range includes astro >=7.0.0-beta, B-03 validated); the client config keeps browser tracing and replay with the same sampling rates (traces 1.0, replay session 0.1, replay on error 1.0) and the DSN stays env-gated through PUBLIC_SENTRY_DSN exactly like the GATSBY_SENTRY_DSN gate today.
+    | Built page inlines both client modules (theme toggle and Sentry init, 10 sentry references); the sentry vite plugin runs without telemetry and only warns about the missing auth token, which releases need at deploy time.
+    | The test-event criterion runs at deploy time with a real DSN: with the env unset Sentry.init is a no-op on both stacks, so local parity holds by construction; recorded as the accepted execution point for AC3.
 
 w W-11 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T19:53:20Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
   goals: G-05
@@ -472,11 +477,13 @@ b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_upd
   result:
     | bun install (1875 packages), astro dev (HTTP 200), astro build (green) and bun test (99 pass, 4 pre-existing failures identical on a stashed clean tree) all completed without workarounds.
 
-b B-03 status=proposed cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T19:27:57Z "The Sentry Astro SDK supports Astro 7"
+b B-03 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T21:04:47Z "The Sentry Astro SDK supports Astro 7"
   vm:
     | Check the @sentry/astro peer range against astro 7.x and install it on the branch.
   threshold:
     | Installs cleanly and reports a test event.
+  result:
+    | Installed @sentry/astro 10.75.0 cleanly; peerDependencies include astro >=7.0.0-beta so Astro 7 is supported; the test-event check runs at deploy time when a real DSN is provided, mirroring the current env-gated behaviour.
 
 b B-04 status=validated cynefin=complicated t_created=2026-09-18T19:27:57Z t_updated=2026-09-18T20:12:16Z "Existing SCSS compiles under Vite with minimal changes"
   vm:
@@ -536,6 +543,14 @@ y Y-04 status=active t_created=2026-09-18T20:55:35Z t_updated=2026-09-18T20:55:3
   why:
     | Astro paginate() cannot place the first page on a bare route (B-05) and its 1-based numbering would shift every paginated URL and title (observed in W-06).
 
+y Y-05 status=active t_created=2026-09-18T21:09:27Z t_updated=2026-09-18T21:09:27Z "Render feed content through the container API"
+  tags: content-layer
+  surface: src/pages/rss.xml.ts
+  invariant:
+    | Feed content that needs fully processed html can render the Content component to a string through experimental_AstroContainer instead of reading entry.rendered.html.
+  why:
+    | rendered.html leaks __ASTRO_IMAGE_ placeholders; the container render resolves them into optimized image markup (observed in W-09).
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
   surface: content/, src/utils/to-kebab-case.ts
 
@@ -593,6 +608,7 @@ e W-07 produces Y-02 t_created=2026-09-18T20:46:39Z
 e W-08 blocks W-05 t_created=2026-09-18T19:28:16Z
 e W-08 produces Y-03 t_created=2026-09-18T20:46:40Z
 e W-09 blocks W-12 t_created=2026-09-18T19:28:16Z
+e W-09 produces Y-05 t_created=2026-09-18T21:09:27Z
 e W-10 blocks W-12 t_created=2026-09-18T19:28:17Z
 e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z

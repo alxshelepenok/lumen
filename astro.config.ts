@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
+import sentry from "@sentry/astro";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
@@ -42,6 +43,7 @@ export default defineConfig({
   publicDir: "static",
   site: config.url,
   integrations: [
+    sentry({ telemetry: false }),
     sitemap({
       changefreq: "daily",
       priority: 0.7,

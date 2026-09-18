@@ -1,0 +1,20 @@
+---
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+const { googleAnalyticsId } = getSiteMetadata();
+
+const gtagConfig = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${googleAnalyticsId}', {"send_page_view":false});
+`;
+---
+
+<script
+  is:inline
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+></script>
+<script is:inline set:html={gtagConfig} />

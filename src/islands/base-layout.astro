@@ -1,6 +1,7 @@
 ---
 import "../assets/styles/main.scss";
 
+import Gtag from "./gtag.astro";
 import Meta from "./meta.astro";
 
 import { themeStorageKey } from "@/utils/theme";
@@ -62,6 +63,8 @@ const themeScript = `
     <link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png" />
     <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png" />
     <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <Gtag />
     <script is:inline set:html={themeScript} />
   </head>
   <body>
