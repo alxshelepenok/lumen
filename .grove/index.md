@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
+| V (uncertainty) | 2 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 
 ## Areas
 
@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- |
 | A-01 | Content pipeline | 0 | 1 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 0 | 2 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
+| A-03 | Interface and theming | 0 | 1 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 
@@ -26,7 +26,7 @@
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
 | G-06 | Toolchain conventions follow the review refinements | count; current=2 target=2 | verified |
-| G-07 | Icon delivery and code styles follow the review refinements | count; current= target=2 | unverified |
+| G-07 | Icon delivery and code styles follow the review refinements | count; current=1 target=2 | partial |
 | G-08 | Taxonomy grouping is unified | count; current= target=1 | unverified |
 
 ## Work items
@@ -36,8 +36,8 @@
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
 | W-14 | refactor | Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl) | G-06 | clear | ⊤ | done |  |
 | W-15 | refactor | Prefer arrow functions across pages and scripts | G-06 | clear | ⊤ | done |  |
-| W-16 | refactor | Replace prism styles with shiki oriented code styles | G-07 | clear | ⊤ | proposed | ★ |
-| W-17 | refactor | Serve icons through an svg sprite | G-07 | complicated | ⊤ | proposed |  |
+| W-16 | refactor | Replace prism styles with shiki oriented code styles | G-07 | clear | ⊤ | done |  |
+| W-17 | refactor | Serve icons through an svg sprite | G-07 | complicated | ⊤ | proposed | ★ |
 | W-18 | refactor | Unify taxonomy grouping behind one helper | G-08 | clear | ⊤ | proposed |  |
 
 ## Decisions
@@ -83,8 +83,8 @@ graph TD
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
   W_14["W-14: Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"]:::done
   W_15["W-15: Prefer arrow functions across pages and scripts"]:::done
-  W_16["W-16: Replace prism styles with shiki oriented code styles"]:::feature,critical
-  W_17["W-17: Serve icons through an svg sprite"]:::feature
+  W_16["W-16: Replace prism styles with shiki oriented code styles"]:::done
+  W_17["W-17: Serve icons through an svg sprite"]:::feature,critical
   W_18["W-18: Unify taxonomy grouping behind one helper"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
@@ -160,7 +160,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
-  class W_16 critical
+  class W_17 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
