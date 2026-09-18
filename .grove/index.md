@@ -63,7 +63,8 @@
 | D-08 | Bun stays the package manager and script runner | accepted |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 | D-10 | Flat islands directory replaces the components tree | accepted |  |
-| D-11 | Commit conventions drive the 3.0.0 release | accepted |  |
+| D-11 | Commit conventions drive the 3.0.0 release | superseded |  |
+| D-12 | Commits and branches carry grove node ids | accepted | D-11 |
 
 ## Open questions
 
@@ -129,6 +130,7 @@ graph TD
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   D_10["D-10: Flat islands directory replaces the components tree"]:::decision
   D_11["D-11: Commit conventions drive the 3.0.0 release"]:::decision
+  D_12["D-12: Commits and branches carry grove node ids"]:::decision
   Q_01["Q-01: How strict must URL parity be?"]:::question
   Q_02["Q-02: Which test strategy replaces the React component tests?"]:::question
   Q_03["Q-03: Which third-party services stay (Google Analytics, Sentry)?"]:::question
@@ -151,6 +153,7 @@ graph TD
   B_04 -.->|targets| W_03
   B_05 -.->|targets| W_06
   B_06 -.->|targets| W_06
+  D_12 -->|supersedes| D_11
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
   Q_02 -->|asks| W_11
@@ -188,6 +191,7 @@ graph TD
   W_12 ==>|blocks| W_13
   W_13 -->|implements| D_01
   W_13 -->|implements| D_11
+  W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
   class W_05,W_07,W_11,W_13 critical
 classDef area fill:#5a1e4a,color:#fff

@@ -379,3 +379,14 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:20:49Z","inv":{"id":"D-11","field":"validation","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T20:20:49Z","inv":{"old_status":"proposed","id":"D-11","op":"set_status_plain"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T20:20:49Z","inv":{"label":"implements","to":"D-11","op":"unlink_edge","from":"W-13"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-18T20:34:58Z","inv":{"id":"D-12","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"context","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"decision","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"consequences","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T20:34:59Z","inv":{"id":"D-12","field":"validation","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T20:35:00Z","inv":{"old_status":"proposed","id":"D-12","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T20:35:00Z","inv":{"old_status":"accepted","id":"D-11","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T20:35:00Z","inv":{"label":"implements","to":"D-12","op":"unlink_edge","from":"W-13"}}

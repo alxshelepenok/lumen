@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f1bf4d4057f00f6f3019538a5f2164f1dcadca97e9fba35327b31bc206df38e5
+# checksum: sha256:aa04359db9c7b31bd00acbaaf14144183914e442533f933570fe62747f5b0adf
 g G-01 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:01:55Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -219,7 +219,7 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
   plan:
     | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
-w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:20:49Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
+w W-13 type=refactor status=proposed cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T20:35:00Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
   theme: T-01
   fitness: G-05=+1
@@ -376,7 +376,7 @@ d D-10 status=accepted t_created=2026-09-18T19:40:19Z t_updated=2026-09-18T19:40
   validation:
     | W-04 done; the final src tree matches the layout with no components directory.
 
-d D-11 status=accepted t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T20:20:49Z "Commit conventions drive the 3.0.0 release"
+d D-11 status=superseded t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T20:35:00Z "Commit conventions drive the 3.0.0 release"
   context:
     | semantic-release analyzes the branch history with the conventionalcommits preset and a custom release rule where the type major cuts a major release; the Gatsby to Astro migration must land as 3.0.0.
   options:
@@ -388,6 +388,20 @@ d D-11 status=accepted t_created=2026-09-18T20:20:48Z t_updated=2026-09-18T20:20
     | Commit subjects stay area specific; release notes read as features and refactors of the migration with one major cutover entry.
   validation:
     | After merging major/astro into main, semantic-release publishes 3.0.0.
+
+d D-12 status=accepted t_created=2026-09-18T20:34:58Z t_updated=2026-09-18T20:35:00Z "Commits and branches carry grove node ids"
+  context:
+    | The repo releases through semantic-release with the conventionalcommits preset and a custom release rule where the type major cuts a major release; work runs through the grove graph whose gate matches exact node ids in commit subjects, so ids in subjects also enable mechanical surface overflow detection.
+  options:
+    | Type with a scope word per area.
+    | Bare type and title for every commit.
+    | Node id first for grove work, bare title otherwise.
+  decision:
+    | Grove work commits as type: W-NN (title) or type: G-NN (title) with decision records as type: D-NN (title); non-grove commits use type: title; scopes after the type tag are never used. Branches follow type/(W|G)-NNN for grove work (feat, fix, refactor, docs, chore), plain type/* otherwise, dependabot/* untouched and major/* for breaking composite work such as major/astro.
+  consequences:
+    | Release notes show node ids next to subjects; grove gate overflow matching works mechanically; the W-13 cutover commits as major: W-13 (...) and semantic-release publishes 3.0.0.
+  validation:
+    | Merging major/astro into main publishes 3.0.0; grove gate reports overflows per work item.
 
 q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T19:34:48Z "How strict must URL parity be?"
   why:
@@ -490,6 +504,7 @@ e B-03 targets W-10 t_created=2026-09-18T19:27:57Z
 e B-04 targets W-03 t_created=2026-09-18T19:27:57Z
 e B-05 targets W-06 t_created=2026-09-18T19:27:58Z
 e B-06 targets W-06 t_created=2026-09-18T19:50:15Z
+e D-12 supersedes D-11 t_created=2026-09-18T20:34:58Z
 e Q-01 asks W-05 t_created=2026-09-18T19:27:12Z
 e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
 e Q-02 asks W-11 t_created=2026-09-18T19:27:13Z
@@ -527,4 +542,5 @@ e W-11 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-12 blocks W-13 t_created=2026-09-18T19:28:17Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
 e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
+e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
