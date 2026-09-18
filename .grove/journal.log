@@ -812,3 +812,14 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T23:27:16Z","inv":{"ids":["D-13","G-16","W-31","W-32","W-33"],"id":"G-16","op":"archive"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T23:27:16Z","inv":{"goal":"G-17","op":"distill","empty":true}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T23:27:16Z","inv":{"ids":["G-17","W-34"],"id":"G-17","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-18T23:28:14Z","inv":{"id":"G-18","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-18T23:28:15Z","inv":{"id":"W-36","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T23:28:15Z","inv":{"id":"W-36","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T23:28:15Z","inv":{"id":"W-36","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-18T23:28:15Z","inv":{"label":"causes","to":"W-36","op":"unlink_edge","from":"T-02"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-18T23:28:15Z","inv":{"had_key":false,"wid":"W-36","gid":"G-18","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T23:28:15Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-36","op":"set_w_status_with_goals","goal_statuses":{"G-18":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-18T23:28:21Z","inv":{"id":"W-36","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-18T23:28:22Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-36","op":"set_w_status_with_goals","goal_statuses":{"G-18":"unverified"},"old_session_at":"2026-09-18T23:28:15Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-18T23:28:22Z","inv":{"goal":"G-18","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-18T23:28:22Z","inv":{"ids":["G-18","W-36"],"id":"G-18","op":"archive"}}
