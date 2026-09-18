@@ -19,7 +19,7 @@
     "release": "semantic-release",
     "build": "astro build",
     "start": "astro dev",
-    "version": "bun ./internal/scripts/up-version.mjs"
+    "version": "bun ./internal/up-version.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.1",
