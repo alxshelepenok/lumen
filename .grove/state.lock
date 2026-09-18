@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:82eb5aa6ae673d302fd370d2ad5d1f60566d63ad1c09ab2ba0a20031489d49f0
+# checksum: sha256:6e66088a15f706517e9f07dc58ecffdc39eaaf0edd8493b7d5434a3274dd3d48
 w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -96,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:42:35Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:43:41Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -197,6 +197,7 @@ e T-02 causes W-35 t_created=2026-09-18T23:26:45Z
 e T-02 causes W-36 t_created=2026-09-18T23:28:15Z
 e T-02 causes W-37 t_created=2026-09-18T23:33:43Z
 e T-02 causes W-38 t_created=2026-09-18T23:42:34Z
+e T-02 causes W-39 t_created=2026-09-18T23:43:31Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -335,6 +336,11 @@ g G-19 status=verified fitness_kind=count t_created=2026-09-18T23:33:42Z t_updat
   fitness_current: 1
 
 g G-20 status=verified fitness_kind=count t_created=2026-09-18T23:42:33Z t_updated=2026-09-18T23:42:35Z "Editor and compiler share the generated content types"
+  area: A-05
+  fitness_target: 1
+  fitness_current: 1
+
+g G-21 status=verified fitness_kind=count t_created=2026-09-18T23:43:30Z t_updated=2026-09-18T23:43:41Z "Release configuration is valid json"
   area: A-05
   fitness_target: 1
   fitness_current: 1
@@ -923,6 +929,20 @@ w W-38 type=bug status=done cynefin=complicated t_created=2026-09-18T23:42:33Z t
     | tsconfig now extends astro/tsconfigs/strict and inherits the official include (.astro/types.d.ts plus everything) with node_modules, target and public excluded; house extras (paths aliases, noUnusedLocals, noImplicitReturns, noUnusedParameters, noFallthroughCasesInSwitch, allowJs false) kept as overrides.
     | bunx tsc --noEmit --listFiles confirms .astro/types.d.ts and .astro/content.d.ts inside the project with a clean exit; the wider typing surfaced one real gap fixed by adding the missing 0 0 16 16 viewBox to the mastodon icon that the sprite reads.
     | astro check 0 errors 0 warnings 0 hints, build green, suite green (21 tests).
+
+w W-39 type=bug status=done cynefin=clear t_created=2026-09-18T23:43:30Z t_updated=2026-09-18T23:43:41Z "Repair the releaserc trailing comma"
+  goals: G-21
+  theme: T-02
+  fitness: G-21=+1
+  surface: .releaserc
+  ac:
+    | The file parses as strict json with the semantic-release configuration semantically unchanged.
+  repro:
+    | A trailing comma after the prepareCmd line makes .releaserc invalid strict json (JSON parse error at line 50) and editors flag the file.
+  evidence_strategy:
+    | node JSON.parse passes and a git diff shows only the comma.
+  evidence:
+    | Trailing comma after the prepareCmd line removed; node JSON.parse now passes and the git diff shows the single comma as the only change, so the semantic-release pipeline stays semantically identical per D-09.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
