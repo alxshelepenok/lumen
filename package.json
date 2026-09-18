@@ -16,7 +16,7 @@
     "test": "bun test",
     "serve": "astro preview",
     "release": "semantic-release",
-    "clean": "rimraf .astro dist",
+    "clean": "rimraf .astro target",
     "build": "bun run clean && astro build",
     "start": "bun run clean && astro dev",
     "version": "bun ./internal/scripts/up-version.mjs"

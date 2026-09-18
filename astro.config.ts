@@ -41,7 +41,7 @@ const anchorIcon = {
 
 export default defineConfig({
   output: "static",
-  publicDir: "static",
+  outDir: "target",
   site: config.url,
   integrations: [
     sentry({ telemetry: false }),

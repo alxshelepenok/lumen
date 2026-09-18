@@ -7,25 +7,38 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
+| V (uncertainty) | 4 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 4 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 0 | 1 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-02 | Pages and routing | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 0 | 2 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 2 |
 | A-04 | Site services | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-05 | Toolchain and delivery | 2 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-06 | Toolchain conventions follow the review refinements | count; current=1 target=2 | partial |
+| G-07 | Icon delivery and code styles follow the review refinements | count; current= target=2 | unverified |
+| G-08 | Taxonomy grouping is unified | count; current= target=1 | unverified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-01 | spike | Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build) | G-01, G-05 | complex | ⊤ | done |  |
+| W-14 | refactor | Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl) | G-06 | clear | ⊤ | done |  |
+| W-15 | refactor | Prefer arrow functions across pages and scripts | G-06 | clear | ⊤ | proposed | ★ |
+| W-16 | refactor | Replace prism styles with shiki oriented code styles | G-07 | clear | ⊤ | proposed |  |
+| W-17 | refactor | Serve icons through an svg sprite | G-07 | complicated | ⊤ | proposed |  |
+| W-18 | refactor | Unify taxonomy grouping behind one helper | G-08 | clear | ⊤ | proposed |  |
 
 ## Decisions
 
@@ -43,6 +56,12 @@
 | B-02 | Bun drives the Astro 7 toolchain |  | W-01 | validated |
 | B-06 | Manual getStaticPaths emits the bare-first-plus-page-N URL set |  | W-06 | validated |
 
+## Themes
+
+| ID | Title | Status | Causes work | Themed work |
+| --- | --- | --- | --- | --- |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18 | W-14, W-15, W-16, W-17, W-18 |
+
 ## Discoveries
 
 | ID | Title | Tags | Status |
@@ -58,13 +77,22 @@
 
 ```mermaid
 graph TD
+  G_06["G-06: Toolchain conventions follow the review refinements"]:::goal
+  G_07["G-07: Icon delivery and code styles follow the review refinements"]:::goal
+  G_08["G-08: Taxonomy grouping is unified"]:::goal
   W_01["W-01: Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"]:::spike
+  W_14["W-14: Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"]:::done
+  W_15["W-15: Prefer arrow functions across pages and scripts"]:::feature,critical
+  W_16["W-16: Replace prism styles with shiki oriented code styles"]:::feature
+  W_17["W-17: Serve icons through an svg sprite"]:::feature
+  W_18["W-18: Unify taxonomy grouping behind one helper"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   D_10["D-10: Flat islands directory replaces the components tree"]:::decision
   B_02["B-02: Bun drives the Astro 7 toolchain"]:::assumption
   B_06["B-06: Manual getStaticPaths emits the bare-first-plus-page-N URL set"]:::assumption
+  T_02["T-02: Post-migration review findings"]:::theme
   Y_01["Y-01: Vite CSS modules must mirror webpack camelCase exports"]:::discovery
   Y_02["Y-02: Astro 7 needs explicit unified markdown setup"]:::discovery
   Y_03["Y-03: Content layer images optimize only through render"]:::discovery
@@ -88,6 +116,11 @@ graph TD
   Q_02 -->|asks| W_11
   Q_03 -->|asks| W_10
   T_01 -->|causes| W_13
+  T_02 -->|causes| W_14
+  T_02 -->|causes| W_15
+  T_02 -->|causes| W_16
+  T_02 -->|causes| W_17
+  T_02 -->|causes| W_18
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
@@ -127,6 +160,7 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   Y_01 -->|distills| B_04
+  class W_15 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
