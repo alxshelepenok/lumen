@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:816aea86669cd829dc7c99cd761df4e0479251fb644361a80e0ef7c77e164f36
+# checksum: sha256:ceae5ccb6c7459bdce86b34765232095f1569ae1dca8ab82a02b99fd6f84b67e
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
@@ -24,7 +24,7 @@ g G-04 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updat
 g G-05 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:15:20Z "Delivery pipeline runs on Astro (tests, parity verification, cleanup)"
   area: A-05
   fitness_target: 3
-  fitness_current: 1
+  fitness_current: 2
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T19:50:58Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -242,10 +242,10 @@ w W-11 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:4
   plan:
     | The 4 pre-existing failures on main around the years templates stay out of scope per user direction (2026-09-18); they disappear together with the React suite.
 
-w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T19:58:09Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
+w W-12 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:58Z t_updated=2026-09-18T21:20:21Z "Verify parity against the Gatsby build (routes, HTML, screenshots)"
   goals: G-05
   fitness: G-05=+1
-  surface: internal/scripts
+  surface: internal/scripts, internal/scripts/compare-builds.mjs, internal/scripts/parity-report.md, internal/scripts/parity
   ac:
     | A comparison script diffs the URL list of both builds and reports zero unexplained differences.
     | Screenshots of key pages in both themes show differences limited to the accepted list.
@@ -254,6 +254,11 @@ w W-12 type=feature status=proposed cynefin=complicated t_created=2026-09-18T19:
     | Automated route and visual diffs catch migration regressions earlier than review.
   evidence_strategy:
     | Script outputs and screenshot artifacts attached to the work item.
+  evidence:
+    | Route parity: internal/scripts/compare-builds.mjs diffs dist against public with documented artifact exclusions (page-data, _gatsby internals, the duplicate 404 directory, dev-404, partytown): 34 urls on each side, zero urls only in astro, zero only in gatsby.
+    | Head parity over all 31 shared html routes: titles and canonical trailing slashes all match; the only entries in the report are the two accepted description differences on about and contacts where Gatsby rendered an empty content attribute.
+    | Visual parity: eight screenshots (index and post, light and dark, both builds) plus side-by-side composites under internal/scripts/parity; average brightness matches per theme (33/33 dark, 248/248 light) and image analysis of all four composites reports identical layout, typography and structure with differences limited to the accepted list: the feed tie-order swap of the two posts sharing 2016-09-01T23:46:37.121Z, image loading state at capture time, a sub-pixel column width and a scrollbar artifact.
+    | The report is committed at internal/scripts/parity-report.md alongside the screenshot artifacts; bun test stays green (31 pass, 0 fail).
   plan:
     | Build outputs coexist on the branch: Gatsby writes public/ while Astro writes dist/ with static/ as publicDir (set in W-03); parity scripts read both roots.
 
