@@ -1,9 +1,7 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
     "lib": ["esnext", "dom", "dom.iterable"],
-    "moduleResolution": "bundler",
     "paths": {
       "@/assets/*": ["./src/assets/*"],
       "@/islands/*": ["./src/islands/*"],
@@ -12,20 +10,11 @@
       "@/constants/*": ["./src/constants/*"],
       "@/mocks": ["./internal/testing/mocks"]
     },
-    "strict": true,
     "allowJs": false,
-    "skipLibCheck": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
-    "verbatimModuleSyntax": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "noFallthroughCasesInSwitch": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules", "target", "public"]
 }

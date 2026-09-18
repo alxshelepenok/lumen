@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f96f61159b22eb31f64cbe03e82d63d5b30ca43e4364315240b0ad1a0c09920c
+# checksum: sha256:82eb5aa6ae673d302fd370d2ad5d1f60566d63ad1c09ab2ba0a20031489d49f0
 w W-01 type=spike status=archived cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:30:52Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -96,7 +96,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:36:08Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:42:35Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -196,6 +196,7 @@ e T-02 causes W-34 t_created=2026-09-18T23:11:26Z
 e T-02 causes W-35 t_created=2026-09-18T23:26:45Z
 e T-02 causes W-36 t_created=2026-09-18T23:28:15Z
 e T-02 causes W-37 t_created=2026-09-18T23:33:43Z
+e T-02 causes W-38 t_created=2026-09-18T23:42:34Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -330,6 +331,11 @@ g G-18 status=verified fitness_kind=count t_created=2026-09-18T23:28:14Z t_updat
 
 g G-19 status=verified fitness_kind=count t_created=2026-09-18T23:33:42Z t_updated=2026-09-18T23:36:08Z "The markdown pipeline carries no raw html pass"
   area: A-01
+  fitness_target: 1
+  fitness_current: 1
+
+g G-20 status=verified fitness_kind=count t_created=2026-09-18T23:42:33Z t_updated=2026-09-18T23:42:35Z "Editor and compiler share the generated content types"
+  area: A-05
   fitness_target: 1
   fitness_current: 1
 
@@ -900,6 +906,23 @@ w W-37 type=refactor status=done cynefin=clear t_created=2026-09-18T23:33:43Z t_
     | Research: rehype-raw exists only to parse raw html embedded in markdown into the tree (added in W-07 for gatsby parity when the iframe probe dropped); neither lumen posts and pages nor the house reference content carry raw html, and the reference pipeline runs without rehype-raw, so the dependency is a no-op pass here.
     | A/B proof: a stash build with rehype-raw and the rebuilt tree without it produce byte-identical pages, and two consecutive builds are byte-identical; an initial hash baseline proved stale and was superseded by this direct comparison.
     | rehype-raw removed from the processor chain and dependencies; the iframe wrapper branch it fed is deleted from internal/rehype-html.mjs with the visitor signature simplified; build, astro check, tsc and the suite green.
+
+w W-38 type=bug status=done cynefin=complicated t_created=2026-09-18T23:42:33Z t_updated=2026-09-18T23:42:35Z "Load generated content types into the project"
+  goals: G-20
+  theme: T-02
+  fitness: G-20=+1
+  surface: tsconfig.json, src/constants/icons.ts
+  ac:
+    | tsconfig extends astro/tsconfigs/strict with the official include of .astro/types.d.ts and the editor sees the same types as astro check.
+    | A standalone tsc run lists .astro/types.d.ts and .astro/content.d.ts in the project and exits clean.
+  repro:
+    | The hand-rolled include patterns (**/*.ts) never match dot directories, so .astro/types.d.ts with the content module augmentation stayed outside the project: astro check injected it itself and stayed green while the editor TS server lost getCollection inference (Parameter post implicitly any) and cascaded import errors such as @/utils/routes.
+  evidence_strategy:
+    | tsc listFiles proof plus green astro check, build and tests.
+  evidence:
+    | tsconfig now extends astro/tsconfigs/strict and inherits the official include (.astro/types.d.ts plus everything) with node_modules, target and public excluded; house extras (paths aliases, noUnusedLocals, noImplicitReturns, noUnusedParameters, noFallthroughCasesInSwitch, allowJs false) kept as overrides.
+    | bunx tsc --noEmit --listFiles confirms .astro/types.d.ts and .astro/content.d.ts inside the project with a clean exit; the wider typing surfaced one real gap fixed by adding the missing 0 0 16 16 viewBox to the mastodon icon that the sprite reads.
+    | astro check 0 errors 0 warnings 0 hints, build green, suite green (21 tests).
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
