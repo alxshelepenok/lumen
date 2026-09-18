@@ -8,7 +8,7 @@ import Page from "../islands/page.astro";
 import Pagination from "../islands/pagination.astro";
 import Sidebar from "../islands/sidebar.astro";
 
-import { getCategorySlug, getSlug } from "@/utils/get-slug";
+import { getFeedItems } from "@/utils/get-feed-items";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
 const { title, description, feedLimit } = getSiteMetadata();
@@ -18,17 +18,7 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
 );
 
 const totalPages = Math.ceil(posts.length / feedLimit);
-
-const items = posts.slice(0, feedLimit).map((entry) => ({
-  category: entry.data.category,
-  categorySlug: entry.data.category
-    ? getCategorySlug(entry.data.category)
-    : undefined,
-  date: entry.data.date,
-  description: entry.data.description,
-  slug: getSlug(entry.id, "posts"),
-  title: entry.data.title,
-}));
+const items = getFeedItems(posts.slice(0, feedLimit));
 ---
 
 <BaseLayout title={title} description={description}>
@@ -38,7 +28,7 @@ const items = posts.slice(0, feedLimit).map((entry) => ({
       <Feed items={items} />
       <Pagination
         prevPagePath="/"
-        nextPagePath="/page/2"
+        nextPagePath="/page/1"
         hasPrevPage={false}
         hasNextPage={totalPages > 1}
       />

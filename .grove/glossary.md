@@ -16,3 +16,4 @@
 | vite | The bundler and dev server underneath Astro, replacing webpack. | D-08 |
 | sätteri | The default markdown processor in Astro 7, replacing the unified pipeline. | W-07 |
 | content-layer | The Astro data layer behind content collections, including rendered html with image placeholders. | W-08 |
+| pagination | The zero-based page splitting driven by feedLimit; extra routes use /page/N starting at 1. | W-06 |

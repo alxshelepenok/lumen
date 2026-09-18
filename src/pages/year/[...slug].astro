@@ -1,0 +1,67 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../islands/base-layout.astro";
+import Feed from "../../islands/feed.astro";
+import Layout from "../../islands/layout.astro";
+import Page from "../../islands/page.astro";
+import Pagination from "../../islands/pagination.astro";
+import Sidebar from "../../islands/sidebar.astro";
+
+import { getFeedItems } from "@/utils/get-feed-items";
+import { getPaginationInfo } from "@/utils/get-pagination";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getYears } from "@/utils/get-taxonomy";
+
+export async function getStaticPaths() {
+  const { feedLimit } = getSiteMetadata();
+
+  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  return getYears(posts).flatMap((year) => {
+    const basePath = `/year/${year.fieldValue}`;
+    const inYear = posts.filter(
+      (post) => post.data.date.getFullYear().toString() === year.fieldValue
+    );
+    const total = Math.ceil(year.totalCount / feedLimit);
+
+    return Array.from({ length: total }, (_, page) => ({
+      params: {
+        slug: page === 0 ? year.fieldValue : `${year.fieldValue}/page/${page}`,
+      },
+      props: {
+        group: year.fieldValue,
+        items: getFeedItems(
+          inYear.slice(page * feedLimit, (page + 1) * feedLimit)
+        ),
+        pagination: getPaginationInfo(basePath, page, total),
+      },
+    }));
+  });
+}
+
+const { group, items, pagination } = Astro.props;
+const { title, description } = getSiteMetadata();
+
+const pageTitle =
+  pagination.currentPage > 0
+    ? `Year ${group} - Page ${pagination.currentPage} - ${title}`
+    : `Year ${group} - ${title}`;
+---
+
+<BaseLayout title={pageTitle} description={description}>
+  <Layout>
+    <Sidebar />
+    <Page title={group}>
+      <Feed items={items} />
+      <Pagination
+        prevPagePath={pagination.prevPagePath}
+        nextPagePath={pagination.nextPagePath}
+        hasPrevPage={pagination.hasPrevPage}
+        hasNextPage={pagination.hasNextPage}
+      />
+    </Page>
+  </Layout>
+</BaseLayout>

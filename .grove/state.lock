@@ -1,15 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:e160e8d93f832edc2a62078724e6eab387bf64fe8bdddc1dea2d88bd65aa2f4c
+# checksum: sha256:d68409cd88905daf50dedd70413c92e44c41275c49d64360674525645a868592
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:46:15Z "Content pipeline runs on Astro with rendering parity"
   area: A-01
   fitness_target: 3
   fitness_current: 3
 
-g G-02 status=partial fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:50:49Z "All public routes keep their Gatsby URL shapes on Astro"
+g G-02 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:55:27Z "All public routes keep their Gatsby URL shapes on Astro"
   area: A-02
   fitness_target: 2
-  fitness_current: 1
+  fitness_current: 2
 
 g G-03 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T20:11:51Z "Interface and theming match the current site on Astro"
   area: A-03
@@ -130,10 +130,10 @@ w W-05 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:1
     | Canonical link tags on every page with trailing slash (https://lumen.alxshelepenok.com/posts/a-brief-history-of-typography/ style) per D-06 and Q-01.
     | Post page structure: no sidebar, All Articles button, tag links identical including trailing slashes (/tag/linotype/, /tag/helvetica/, /tag/history-of-typography/), published date identical (React only adds comment markers); feed shows 4 Read links in both builds.
 
-w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T20:01:55Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
+w W-06 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:24Z t_updated=2026-09-18T20:55:35Z "Port taxonomy listings with pagination (categories, tags, years, /page/N)"
   goals: G-02
   fitness: G-02=+1
-  surface: src/templates, internal/gatsby/create-pages.ts
+  surface: src/templates, internal/gatsby/create-pages.ts, src/pages/categories.astro, src/pages/tags.astro, src/pages/years.astro, src/pages/category, src/pages/tag, src/pages/year, src/pages/page, src/utils/get-taxonomy.ts, src/utils/get-pagination.ts, src/utils/get-feed-items.ts
   ac:
     | /categories, /tags, /years plus /category/:slug, /tag/:slug and /year/:yyyy with pagination all render.
     | Pagination limits follow feedLimit from content/config.json and the emitted page paths match the Gatsby set.
@@ -142,6 +142,12 @@ w W-06 type=feature status=ready cynefin=complicated t_created=2026-09-18T19:26:
     | paginate() with custom path functions reproduces the createPages URL set exactly.
   evidence_strategy:
     | Route list diff against the Gatsby build; snapshot checks on listing pages.
+  evidence:
+    | Full route diff against the Gatsby build is empty: 31 pages covering /, /page/1, 4 categories, 12 tags, /years, /year/2016 plus /year/2016/page/1, 5 posts, 2 pages and 404; only the Gatsby 404 directory and _gatsby internals are extra.
+    | Pagination numbering is zero-based like createPages: first extra route is /page/1 and titles show Page 1 (Posts - Page 1 - Blog by John Doe verified identical), paths generated manually per B-06 through getPaginationInfo and getPaginationPath.
+    | Head titles identical on all 8 listing kinds (Categories, Tags, Years, Posts - Page 1, group pages and Year group pages); listing order matches: categories and tags alphabetical with counts, years descending.
+    | All internal hrefs end with a trailing slash exactly like gatsby-link output (menu, feed post and category links, pagination prev and next); withTrailingSlash util with 3 passing tests.
+    | bun run build:astro green with 31 pages; bun test 114 pass with the 4 pre-existing years failures.
 
 w W-07 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:25Z t_updated=2026-09-18T20:46:39Z "Reach markdown rendering parity (autolinks, smartypants, external links, copy files, iframes, code highlighting)"
   goals: G-01
@@ -517,6 +523,14 @@ y Y-03 status=active t_created=2026-09-18T20:46:40Z t_updated=2026-09-18T20:46:4
   why:
     | Reading rendered.html directly leaks placeholder attributes and loses webp srcset optimization (observed in W-08).
 
+y Y-04 status=active t_created=2026-09-18T20:55:35Z t_updated=2026-09-18T20:55:35Z "Port gatsby pagination as zero-based manual paths"
+  tags: pagination
+  surface: src/utils/get-pagination.ts, src/pages/page
+  invariant:
+    | Reproducing gatsby createPages pagination needs manual getStaticPaths paths where page indices are zero-based: the first extra route is /page/1 and page titles render the zero-based index.
+  why:
+    | Astro paginate() cannot place the first page on a bare route (B-05) and its 1-based numbering would shift every paginated URL and title (observed in W-06).
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T19:23:19Z "Content pipeline"
   surface: content/, src/utils/to-kebab-case.ts
 
@@ -567,6 +581,7 @@ e W-05 blocks W-12 t_created=2026-09-18T19:28:16Z
 e W-05 implements D-10 t_created=2026-09-18T19:40:27Z
 e W-06 blocks W-12 t_created=2026-09-18T19:28:16Z
 e W-06 implements D-06 t_created=2026-09-18T19:28:18Z
+e W-06 produces Y-04 t_created=2026-09-18T20:55:35Z
 e W-07 blocks W-05 t_created=2026-09-18T19:28:16Z
 e W-07 implements D-04 t_created=2026-09-18T19:28:18Z
 e W-07 produces Y-02 t_created=2026-09-18T20:46:39Z

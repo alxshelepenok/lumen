@@ -2,6 +2,8 @@
 import { pagination } from "@/constants/pagination";
 import styles from "@/assets/styles/modules/pagination.module.scss";
 
+import { withTrailingSlash } from "@/utils/with-trailing-slash";
+
 interface Props {
   prevPagePath: string;
   nextPagePath: string;
@@ -22,12 +24,12 @@ const nextClassName = hasNextPage
 
 <div class={styles.pagination}>
   <div class={styles.previous}>
-    <a rel="prev" href={hasPrevPage ? prevPagePath : "/"} class={prevClassName}>
+    <a rel="prev" href={withTrailingSlash(hasPrevPage ? prevPagePath : "/")} class={prevClassName}>
       {pagination.prevPage}
     </a>
   </div>
   <div class={styles.next}>
-    <a rel="next" href={hasNextPage ? nextPagePath : "/"} class={nextClassName}>
+    <a rel="next" href={withTrailingSlash(hasNextPage ? nextPagePath : "/")} class={nextClassName}>
       {pagination.nextPage}
     </a>
   </div>

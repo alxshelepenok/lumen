@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../islands/base-layout.astro";
+import Layout from "../islands/layout.astro";
+import Page from "../islands/page.astro";
+import Sidebar from "../islands/sidebar.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getTags } from "@/utils/get-taxonomy";
+import { toKebabCase } from "@/utils/to-kebab-case";
+
+const { title, description } = getSiteMetadata();
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const tags = getTags(posts);
+---
+
+<BaseLayout title={`Tags - ${title}`} description={description}>
+  <Layout>
+    <Sidebar />
+    <Page title="Tags">
+      <ul>
+        {
+          tags.map((tag) => (
+            <li>
+              <a href={`/tag/${toKebabCase(tag.fieldValue)}/`}>
+                {tag.fieldValue} ({tag.totalCount})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Page>
+  </Layout>
+</BaseLayout>

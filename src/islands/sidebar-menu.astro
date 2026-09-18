@@ -1,6 +1,8 @@
 ---
 import styles from "@/assets/styles/modules/sidebar-menu.module.scss";
 
+import { withTrailingSlash } from "@/utils/with-trailing-slash";
+
 interface Props {
   menu: {
     title: string;
@@ -21,7 +23,7 @@ const isActive = (url: string): boolean =>
       menu.map((item) => (
         <li class={styles.item}>
           <a
-            href={item.url}
+            href={withTrailingSlash(item.url)}
             class={[
               styles.link,
               isActive(item.url) ? styles.active : null,

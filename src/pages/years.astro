@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../islands/base-layout.astro";
+import Layout from "../islands/layout.astro";
+import Page from "../islands/page.astro";
+import Sidebar from "../islands/sidebar.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getYears } from "@/utils/get-taxonomy";
+
+const { title, description } = getSiteMetadata();
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const years = getYears(posts);
+---
+
+<BaseLayout title={`Years - ${title}`} description={description}>
+  <Layout>
+    <Sidebar />
+    <Page title="Years">
+      <ul>
+        {
+          years.map((year) => (
+            <li>
+              <a href={`/year/${year.fieldValue}/`}>
+                {year.fieldValue} ({year.totalCount})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Page>
+  </Layout>
+</BaseLayout>
