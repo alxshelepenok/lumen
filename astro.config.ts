@@ -4,7 +4,6 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
 import autoprefixer from "autoprefixer";
-import rehypeRaw from "rehype-raw";
 
 import { rehypeHtml } from "./internal/rehype-html.mjs";
 import { remarkResolveContentImages } from "./internal/resolve-content-images.mjs";
@@ -34,7 +33,7 @@ export default defineConfig({
     },
     processor: unified({
       remarkPlugins: [remarkResolveContentImages],
-      rehypePlugins: [rehypeRaw, rehypeHtml],
+      rehypePlugins: [rehypeHtml],
     }),
   },
   vite: {

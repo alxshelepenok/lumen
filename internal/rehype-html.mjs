@@ -50,7 +50,7 @@ const createSlugifier = () => {
 const rehypeHtml = () => (tree) => {
   const slugify = createSlugifier();
 
-  const visit = (node, parent, index) => {
+  const visit = (node) => {
     if (node.type !== "element") {
       return;
     }
@@ -79,18 +79,6 @@ const rehypeHtml = () => (tree) => {
         },
         children: [anchorIcon],
       });
-    }
-
-    if (node.tagName === "iframe" && parent) {
-      parent.children[index] = {
-        type: "element",
-        tagName: "div",
-        properties: {
-          className: ["responsive-iframe-wrapper"],
-          style: "margin-bottom: 1.0725rem",
-        },
-        children: [node],
-      };
     }
 
     node.children?.forEach((child, childIndex) => {

@@ -47,7 +47,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36 | – |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37 | – |
 
 ## Discoveries
 
@@ -118,6 +118,7 @@ graph TD
   T_02 -->|causes| W_34
   T_02 -->|causes| W_35
   T_02 -->|causes| W_36
+  T_02 -->|causes| W_37
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07

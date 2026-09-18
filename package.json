@@ -25,8 +25,7 @@
     "@astrojs/markdown-remark": "7.3.1",
     "@astrojs/sitemap": "3.7.4",
     "@sentry/astro": "10.75.0",
-    "astro": "7.3.3",
-    "rehype-raw": "7.0.0"
+    "astro": "7.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
