@@ -1,15 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f95038a445d7c3fc7f314f8e4a0a21546d9d88c35cd7391ed845f4a17dd19c4e
+# checksum: sha256:21933b842f9df8c3e540d6bb40a36f45fc6ed8664698ada753a59d133b12dd8d
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
   fitness_current: 6
 
-g G-33 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T14:42:28Z "Anchored JSON-LD entity graph on every page"
+g G-33 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:07:09Z "Anchored JSON-LD entity graph on every page"
   area: A-06
   fitness_target: 6
-  fitness_current: 5
+  fitness_current: 6
 
 g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
   area: A-06
@@ -200,7 +200,7 @@ w W-61 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:4
     | term pages (category/tag/year incl. pagination) emit CollectionPage+WebPage with mainEntity ItemList#articles and 3-crumb breadcrumb (home > hub > term, last crumb == mainEntity anchor); hubs emit CollectionPage with ItemList anchored to {categories,tags,years}-list DOM ids and 2-crumb trail; Blog node at /#blog (DOM section#blog) carries blogPost refs on home and paginated pages
     | anchor script ALL GROUNDED across 9 route types; reusable Breadcrumb island mirrors breadcrumb-item-* ids; bun test 29 pass; astro check 0 errors
 
-w W-62 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:45Z t_updated=2026-09-19T13:56:47Z "Static pages graph; 404 stays graph-free"
+w W-62 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:45Z t_updated=2026-09-19T15:07:09Z "Static pages graph; 404 stays graph-free"
   goals: G-33
   fitness: G-33=+1
   surface: src/pages/pages/[...slug].astro, src/pages/404.astro
@@ -211,6 +211,9 @@ w W-62 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:45Z
     | A minimal WebPage graph suits sparse static pages; an noindex error page gains nothing from a graph.
   evidence_strategy:
     | astro build on about/contacts/404; ld+json presence checks.
+  evidence:
+    | static pages emit WebPage#page (isPartOf #web, breadcrumb ref, description mirroring meta) with a 2-crumb trail whose last crumb targets #page; 404 emits no ld+json script
+    | anchor script ALL GROUNDED on /pages/about/; astro check 0 errors; bun test 29 pass
 
 w W-63 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:57Z t_updated=2026-09-19T13:56:59Z "base-head: ordered groups, robots directives, property og, og:url"
   goals: G-34

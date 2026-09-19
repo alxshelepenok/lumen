@@ -169,4 +169,29 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
   );
 };
 
-export { homeFeedGraph, hubGraph, postGraph, termGraph };
+const staticPageGraph = (
+  slug: string,
+  page: { description?: string; title: string }
+): JsonLdGraph => {
+  const { url: site, title: siteTitle, description: siteDescription } =
+    getSiteMetadata();
+  const route = routes.page(slug);
+  const description = page.description || siteDescription;
+  const breadcrumb = breadcrumbNode(route, [
+    { name: siteTitle, url: `${site}/` },
+    { name: page.title, url: route.id(site, SLICE.page) },
+  ]);
+
+  return mergeGraphs(
+    [personNode(), websiteNode(), breadcrumb],
+    [
+      webPageNode(route, {
+        name: page.title,
+        description,
+        breadcrumb: { "@id": route.id(site, SLICE.breadcrumb) },
+      }),
+    ]
+  );
+};
+
+export { homeFeedGraph, hubGraph, postGraph, staticPageGraph, termGraph };

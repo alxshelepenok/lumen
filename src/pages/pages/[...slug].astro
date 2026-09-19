@@ -3,10 +3,12 @@ import { getCollection, render } from "astro:content";
 
 import pageStyles from "@/assets/styles/modules/page.module.scss";
 import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
 import Layout from "@/islands/layout.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getSlug } from "@/utils/get-slug";
+import { staticPageGraph } from "@/utils/seo";
 
 export const getStaticPaths = async () => {
   const pages = await getCollection("pages", ({ data }) => !data.draft);
@@ -17,11 +19,16 @@ export const getStaticPaths = async () => {
         .replace(/^\/pages\/?/, "")
         .replace(/\/$/, ""),
     },
-    props: { page: entry },
+    props: {
+      page: entry,
+      slug: getSlug(entry.id, "pages")
+        .replace(/^\/pages\/?/, "")
+        .replace(/\/$/, ""),
+    },
   }));
 }
 
-const { page } = Astro.props;
+const { page, slug } = Astro.props;
 const { Content } = await render(page);
 
 const { title, description } = getSiteMetadata();
@@ -30,16 +37,22 @@ const image =
   socialImage?.src && Astro.site
     ? new URL(socialImage.src, Astro.site).href
     : undefined;
+const jsonLd = staticPageGraph(slug, {
+  description: page.data.description,
+  title: page.data.title,
+});
 ---
 
 <BaseLayout
   title={`${page.data.title} - ${title}`}
   description={page.data.description || description}
   image={image}
+  jsonLd={jsonLd}
 >
   <Layout>
     <article class={pageStyles.page} aria-labelledby="page-title">
       <header>
+        <Breadcrumb items={[{ name: title, href: "/" }, { name: page.data.title }]} />
         <h1 id="page-title" class={pageStyles.title}>
           {page.data.title}
         </h1>
