@@ -6,9 +6,8 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
+| C (content) | 26 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 12 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
-| Decay | 1 | Discovery with decay signals |
 
 ## Areas
 
@@ -19,7 +18,7 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 9 | 0 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-06 | Semantics and discoverability | 13 | 0 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 7; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -104,9 +103,13 @@
 | Y-03 | Content layer images optimize only through render | content-layer | active |
 | Y-04 | Port gatsby pagination as zero-based manual paths | pagination | active |
 | Y-05 | Render feed content through the container API | content-layer | active |
-| Y-06 | Freeze a reference build for migration parity gates | Parity | active |
+| Y-06 | Freeze a reference build for migration parity gates | parity | active |
 | Y-07 | Own rehype image pipeline replaces content layer images | content-layer | active |
-| Y-08 | Attribute sized images need the canonical height auto pair | Parity | active |
+| Y-08 | Attribute sized images need the canonical height auto pair | parity | active |
+| Y-09 | Semantic tag swaps keep pixels only with box-model parity | css-modules, parity | active |
+| Y-10 | Graph ids are urls whose fragments ground in visible DOM | graph-anchor, json-ld | active |
+| Y-11 | LLM surface is plain-text endpoints excluded from the sitemap | content-layer, llms | active |
+| Y-12 | Semantics audits must be pure functions over parsed input | graph-anchor, semantics-audit | active |
 
 ## Dependency graph
 
@@ -162,6 +165,10 @@ graph TD
   Y_06["Y-06: Freeze a reference build for migration parity gates"]:::discovery
   Y_07["Y-07: Own rehype image pipeline replaces content layer images"]:::discovery
   Y_08["Y-08: Attribute sized images need the canonical height auto pair"]:::discovery
+  Y_09["Y-09: Semantic tag swaps keep pixels only with box-model parity"]:::discovery
+  Y_10["Y-10: Graph ids are urls whose fragments ground in visible DOM"]:::discovery
+  Y_11["Y-11: LLM surface is plain-text endpoints excluded from the sitemap"]:::discovery
+  Y_12["Y-12: Semantics audits must be pure functions over parsed input"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -319,6 +326,10 @@ graph TD
   W_71 -->|implements| D_18
   W_72 -->|implements| D_18
   Y_01 -->|distills| B_04
+  Y_09 -->|distills| B_07
+  Y_10 -->|distills| D_15
+  Y_11 -->|distills| D_17
+  Y_12 -->|distills| D_18
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

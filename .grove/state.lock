@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:ee861623a7c5e4a3fd48f9d1291cac37b8ca6fa4f57eb2c0267cf6e649eb23be
+# checksum: sha256:8ac165f934f024961206beae5bc0dfe3b77ce4747c62d39fdcb3a37f58349d16
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -430,7 +430,7 @@ d D-14 status=accepted t_created=2026-09-19T13:53:38Z t_updated=2026-09-19T13:56
   validation:
     | Built-HTML inspection: one main, no orphan wrapper divs, every section has a heading, aria-labelledby refs resolve; visual parity across themes.
 
-d D-15 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:56:47Z "Anchored JSON-LD entity graph contract"
+d D-15 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T16:24:09Z "Anchored JSON-LD entity graph contract"
   context:
     | No structured data exists today. Reference implementations converge on one pattern: a single JSON-LD script per page carrying an @graph, where @id equals the node url and the url fragment names a slice of the page that exists as a real DOM id.
   decision:
@@ -450,7 +450,7 @@ d D-16 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:56
   validation:
     | Built-HTML head inspection per page type; audit cross-checks description and lang mirrors.
 
-d D-17 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57:14Z "LLM corpus surface contract"
+d D-17 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T16:24:22Z "LLM corpus surface contract"
   context:
     | No llms.txt, no full-text corpus endpoint today. Reference pattern: llms.txt as a curated index (H1 site name, blockquote description, grouped - [label](url): description lists) and llms-full.txt as the full markdown corpus (per page: title, URL, section, description, raw body), both prerendered text/plain endpoints excluded from the sitemap.
   decision:
@@ -460,7 +460,7 @@ d D-17 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57
   validation:
     | Built target/llms.txt and target/llms-full.txt content inspection; sitemap excludes them; bun tests for the generators.
 
-d D-18 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57:52Z "Dev-time semantics audit contract"
+d D-18 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T16:24:23Z "Dev-time semantics audit contract"
   context:
     | Reference implementations keep the JSON-LD/DOM contract honest with a build- or dev-time audit that re-parses the rendered page; without it anchors drift silently.
   decision:
@@ -494,7 +494,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-b B-07 status=validated cynefin=complicated t_created=2026-09-19T13:54:27Z t_updated=2026-09-19T14:13:15Z "CSS module classes re-attach to semantic tags without visual change"
+b B-07 status=validated cynefin=complicated t_created=2026-09-19T13:54:27Z t_updated=2026-09-19T15:41:08Z "CSS module classes re-attach to semantic tags without visual change"
   result:
     | Box-geometry parity proven: 8 page types old vs new identical layout/column/content rects (desktop 1280px) plus identical mobile stacking positions; only tag names changed.
 
@@ -518,9 +518,9 @@ y Y-02 status=active t_created=2026-09-18T20:46:39Z t_updated=2026-09-18T20:46:4
   why:
     | Without the dependency plugin configs fail validation, and without rehype-raw raw HTML like iframes silently disappears from the output (observed in W-07).
 
-y Y-03 status=active t_created=2026-09-18T20:46:40Z t_updated=2026-09-18T20:46:40Z "Content layer images optimize only through render"
+y Y-03 status=active t_created=2026-09-18T20:46:40Z t_updated=2026-09-19T15:39:34Z "Content layer images optimize only through render"
   tags: content-layer
-  surface: src/islands/post-content.astro
+  surface: src/islands/post.astro
   invariant:
     | entry.rendered.html carries __ASTRO_IMAGE_ placeholders; responsive image markup materializes only when the Content component returned by render(entry) renders.
   why:
@@ -542,8 +542,8 @@ y Y-05 status=active t_created=2026-09-18T21:09:27Z t_updated=2026-09-18T23:08:5
   why:
     | rendered.html leaks __ASTRO_IMAGE_ placeholders; the container render resolves them into optimized image markup (observed in W-09).
 
-y Y-06 status=active t_created=2026-09-18T21:22:50Z t_updated=2026-09-18T23:08:55Z "Freeze a reference build for migration parity gates"
-  tags: Parity
+y Y-06 status=active t_created=2026-09-18T21:22:50Z t_updated=2026-09-19T16:24:47Z "Freeze a reference build for migration parity gates"
+  tags: parity
   invariant:
     | Framework migrations need a frozen reference build plus a mechanical route and head diff before the old stack is deleted; visual pairs close the loop with accepted-difference lists.
   why:
@@ -557,13 +557,45 @@ y Y-07 status=active t_created=2026-09-19T00:09:34Z t_updated=2026-09-19T00:09:3
   why:
     | The content store caches rendered html by digest without tracking processor changes, so plugin iterations silently serve stale markup until the store is cleared (observed in W-47).
 
-y Y-08 status=active t_created=2026-09-19T00:18:29Z t_updated=2026-09-19T00:18:49Z "Attribute sized images need the canonical height auto pair"
-  tags: Parity
+y Y-08 status=active t_created=2026-09-19T00:18:29Z t_updated=2026-09-19T16:24:47Z "Attribute sized images need the canonical height auto pair"
+  tags: parity
   surface: src/assets/styles/base/_generic.scss
   invariant:
     | Whenever images carry natural width and height attributes and CSS constrains the width, the base stylesheet must pair max-width 100 percent with height auto or the attribute height stretches the box.
   why:
     | The same stretch bit twice: first when the astro responsive layer went missing (W-30) and again when that layer was removed with the astro pipeline (W-50).
+
+y Y-09 status=active t_created=2026-09-19T15:41:08Z t_updated=2026-09-19T16:25:05Z "Semantic tag swaps keep pixels only with box-model parity"
+  tags: css-modules, parity
+  surface: src/assets/styles/modules
+  invariant:
+    | Replacing wrapper divs with semantic tags preserves rendering iff module classes re-attach to the new element AND grid items that gain padding switch to border-box AND collapsed inline wrappers re-pin explicit line-height: mixed font-size inline boxes measure taller than either font alone.
+  why:
+    | W-51/W-52 geometry parity held only after border-box on the padded aside; W-55 pagination lost 4px until line-height 30px replaced the old mixed-size line box.
+
+y Y-10 status=active t_created=2026-09-19T16:24:09Z t_updated=2026-09-19T16:25:05Z "Graph ids are urls whose fragments ground in visible DOM"
+  tags: json-ld, graph-anchor
+  surface: src/utils/seo, src/utils/audit
+  invariant:
+    | A JSON-LD entity graph stays machine-honest iff every node has @id === url, global entities use static root-anchored ids, page entities use per-path ids, every same-page fragment resolves to a real DOM id, cross-page references are skipped rather than guessed, the last breadcrumb crumb targets the mainEntity fragment, and every emitted property mirrors visible content.
+  why:
+    | The integrity audit (W-68) plus mirror cross-checks (W-69) hold all ten page types to zero errors only because the id grammar is shared by links, DOM anchors and graph nodes.
+
+y Y-11 status=active t_created=2026-09-19T16:24:22Z t_updated=2026-09-19T16:25:05Z "LLM surface is plain-text endpoints excluded from the sitemap"
+  tags: llms, content-layer
+  surface: src/pages/llms.txt.ts, src/pages/llms-full.txt.ts
+  invariant:
+    | Agent discoverability needs a curated index (H1 name, blockquote description, grouped [label](absolute-url): description lists) plus a full corpus endpoint (per entry: title heading, URL, description, raw markdown body, --- separators), both prerendered text/plain and filtered out of the sitemap alongside robots.txt.
+  why:
+    | The content layer exposes entry.body raw markdown, so the corpus is a pure read (Q-04) and the endpoints double as the conventional path agents probe first.
+
+y Y-12 status=active t_created=2026-09-19T16:24:23Z t_updated=2026-09-19T16:25:05Z "Semantics audits must be pure functions over parsed input"
+  tags: semantics-audit, graph-anchor
+  surface: src/utils/audit
+  invariant:
+    | Dev-time audits stay testable and runnable at build time only when their checks are DOM-free functions over parsed input (graph objects, an element tree, anchor resolver callbacks) with a thin adapter collecting that input from the live document; wiring runs under import.meta.env.DEV so production HTML stays clean.
+  why:
+    | Bun fixtures and static-build sweeps (W-72, W-71) both drive the same pure core that the browser adapter feeds, catching seeded defects and real regressions alike.
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
@@ -733,6 +765,10 @@ e W-70 implements D-18 t_created=2026-09-19T13:57:39Z
 e W-71 implements D-18 t_created=2026-09-19T13:57:41Z
 e W-72 implements D-18 t_created=2026-09-19T13:57:52Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
+e Y-09 distills B-07 t_created=2026-09-19T15:41:08Z
+e Y-10 distills D-15 t_created=2026-09-19T16:24:09Z
+e Y-11 distills D-17 t_created=2026-09-19T16:24:22Z
+e Y-12 distills D-18 t_created=2026-09-19T16:24:23Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
