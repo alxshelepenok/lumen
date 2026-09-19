@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 13 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 7 |
+| C (content) | 14 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 8 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -54,6 +54,7 @@
 | Y-05 | Render feed content through the container API | content-layer | active |
 | Y-06 | Freeze a reference build for migration parity gates | Parity | active |
 | Y-07 | Own rehype image pipeline replaces content layer images | content-layer | active |
+| Y-08 | Attribute sized images need the canonical height auto pair | Parity | active |
 
 ## Dependency graph
 
@@ -73,6 +74,7 @@ graph TD
   Y_05["Y-05: Render feed content through the container API"]:::discovery
   Y_06["Y-06: Freeze a reference build for migration parity gates"]:::discovery
   Y_07["Y-07: Own rehype image pipeline replaces content layer images"]:::discovery
+  Y_08["Y-08: Attribute sized images need the canonical height auto pair"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -167,6 +169,7 @@ graph TD
   W_13 -->|implements| D_12
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
+  W_50 -->|produces| Y_08
   Y_01 -->|distills| B_04
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff

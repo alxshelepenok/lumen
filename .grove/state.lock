@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:1652cc0b93a0b6e101b426d44e511377d1000ff0bab65d7ca1f21854667aa298
+# checksum: sha256:96accaf6d12a73627608a03aec5cbfb488cf327bda7593a6e85f5c93ce7a362f
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -129,6 +129,14 @@ y Y-07 status=active t_created=2026-09-19T00:09:34Z t_updated=2026-09-19T00:09:3
   why:
     | The content store caches rendered html by digest without tracking processor changes, so plugin iterations silently serve stale markup until the store is cleared (observed in W-47).
 
+y Y-08 status=active t_created=2026-09-19T00:18:29Z t_updated=2026-09-19T00:18:49Z "Attribute sized images need the canonical height auto pair"
+  tags: Parity
+  surface: src/assets/styles/base/_generic.scss
+  invariant:
+    | Whenever images carry natural width and height attributes and CSS constrains the width, the base stylesheet must pair max-width 100 percent with height auto or the attribute height stretches the box.
+  why:
+    | The same stretch bit twice: first when the astro responsive layer went missing (W-30) and again when that layer was removed with the astro pipeline (W-50).
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
 
@@ -233,6 +241,7 @@ e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
 e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
+e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
 
 :archive
@@ -1158,7 +1167,7 @@ w W-49 type=refactor status=done cynefin=clear t_created=2026-09-19T00:14:37Z t_
     | Research: public/logo.png was a leftover from the static author photo era with zero references in the built pages (manifest moved to icon-NxN in W-14, the photo renders from the asset import since W-46); content/logo.png is the living source for the picture variants but sat inside the content collections directory, and the photo field in content/config.json was read by nothing.
     | The logo now lives once at src/assets/images/logo.png (house asset convention), sidebar-author imports it through the @/assets alias, the public copy and the photo config field with its type entry are removed; build shows the author picture variants intact with no /logo.png reference; tsc, astro check and tests green.
 
-w W-50 type=bug status=done cynefin=clear t_created=2026-09-19T00:16:13Z t_updated=2026-09-19T00:18:15Z "Restore height auto for responsive images"
+w W-50 type=bug status=done cynefin=clear t_created=2026-09-19T00:16:13Z t_updated=2026-09-19T00:18:29Z "Restore height auto for responsive images"
   goals: G-31
   theme: T-02
   fitness: G-31=+1
