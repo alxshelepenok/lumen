@@ -6,33 +6,20 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 1 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| C (content) | 13 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 7 |
+| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 2 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-01 | Content pipeline | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
-
-## Goals
-
-| ID | Outcome | Fitness function | Status |
-| --- | --- | --- | --- |
-| G-28 | Images embed through the reference picture pattern | count; current=1 target=2 | partial |
-
-## Work items
-
-| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| W-46 | feature | Port the picture island and the image srcset utils | G-28 | complicated | ⊤ | done |  |
-| W-47 | feature | Embed markdown images through the picture pattern | G-28 | complicated | ⊤ | progress | ★ |
 
 ## Decisions
 
@@ -54,7 +41,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46, W-47 | W-46, W-47 |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46, W-47 | – |
 
 ## Discoveries
 
@@ -66,14 +53,12 @@
 | Y-04 | Port gatsby pagination as zero-based manual paths | pagination | active |
 | Y-05 | Render feed content through the container API | content-layer | active |
 | Y-06 | Freeze a reference build for migration parity gates | Parity | active |
+| Y-07 | Own rehype image pipeline replaces content layer images | content-layer | active |
 
 ## Dependency graph
 
 ```mermaid
 graph TD
-  G_28["G-28: Images embed through the reference picture pattern"]:::goal
-  W_46["W-46: Port the picture island and the image srcset utils"]:::done
-  W_47["W-47: Embed markdown images through the picture pattern"]:::progress,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -87,6 +72,7 @@ graph TD
   Y_04["Y-04: Port gatsby pagination as zero-based manual paths"]:::discovery
   Y_05["Y-05: Render feed content through the container API"]:::discovery
   Y_06["Y-06: Freeze a reference build for migration parity gates"]:::discovery
+  Y_07["Y-07: Own rehype image pipeline replaces content layer images"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -177,8 +163,8 @@ graph TD
   W_13 -->|implements| D_11
   W_13 -->|implements| D_12
   W_32 -->|produces| D_13
+  W_47 -->|produces| Y_07
   Y_01 -->|distills| B_04
-  class W_47 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

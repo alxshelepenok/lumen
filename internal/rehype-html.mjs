@@ -1,4 +1,11 @@
+import { createHash } from "node:crypto";
+import path from "node:path";
+import { mkdir } from "node:fs/promises";
+import sharp from "sharp";
+
 const EXTERNAL_HREF = /^https?:\/\//;
+const WIDTHS = [320, 480, 640, 750, 828, 960];
+const GENERATED_DIR = "public/generated";
 
 const anchorIcon = {
   type: "element",
@@ -47,12 +54,134 @@ const createSlugifier = () => {
   };
 };
 
-const rehypeHtml = () => (tree) => {
-  const slugify = createSlugifier();
+const writeVariant = async (sourcePath, target, width, height, format) => {
+  const pipeline = sharp(sourcePath).resize(width, height);
 
-  const visit = (node) => {
+  if (format === "webp") {
+    pipeline.webp({ quality: 80 });
+  } else {
+    pipeline.toFormat(format, { quality: 80 });
+  }
+
+  await pipeline.toFile(target);
+};
+
+const generateVariants = async (sourcePath, sourceDir) => {
+  const { width = WIDTHS[0], height = WIDTHS[0], format = "jpeg" } =
+    await sharp(sourcePath).metadata();
+
+  const dirHash = createHash("md5")
+    .update(sourceDir.replaceAll("\\", "/"))
+    .digest("hex")
+    .slice(0, 8);
+  const base = path.basename(sourcePath, path.extname(sourcePath));
+  const outDir = path.join(GENERATED_DIR, `${base}-${dirHash}`);
+
+  await mkdir(outDir, { recursive: true });
+
+  const widths = [...new Set([...WIDTHS, width])].filter(
+    (candidate) => candidate <= width
+  );
+
+  const variants = await Promise.all(
+    widths.map(async (variantWidth) => {
+      const variantHeight = Math.round((variantWidth * height) / width);
+      const [src, srcWebp] = await Promise.all(
+        [format, "webp"].map(async (variantFormat) => {
+          const name = `${variantWidth}.${variantFormat}`;
+          const target = path.join(outDir, name);
+
+          await writeVariant(
+            sourcePath,
+            target,
+            variantWidth,
+            variantHeight,
+            variantFormat
+          );
+
+          return `/${path.join(outDir, name).replaceAll("\\", "/")}`.replace(/^\/public\//, "/");
+        })
+      );
+
+      return { src, srcWebp, width: variantWidth, height: variantHeight };
+    })
+  );
+
+  return { variants };
+};
+
+const pictureNode = (node, variants) => {
+  const largest = variants.reduce((best, variant) =>
+    variant.width > best.width ? variant : best
+  );
+  const sizes = `(min-width: ${largest.width}px) ${largest.width}px, 100vw`;
+  const srcset = variants
+    .map((variant) => `${variant.src} ${variant.width}w`)
+    .join(", ");
+  const srcsetWebp = variants
+    .map((variant) => `${variant.srcWebp} ${variant.width}w`)
+    .join(", ");
+
+  return {
+    type: "element",
+    tagName: "picture",
+    properties: {},
+    children: [
+      {
+        type: "element",
+        tagName: "source",
+        properties: { srcset: srcsetWebp, sizes, type: "image/webp" },
+        children: [],
+      },
+      {
+        type: "element",
+        tagName: "img",
+        properties: {
+          alt: node.properties?.alt ?? "",
+          src: largest.src,
+          srcset,
+          sizes,
+          width: largest.width,
+          height: largest.height,
+          loading: "lazy",
+          decoding: "async",
+        },
+        children: [],
+      },
+    ],
+  };
+};
+
+const rehypeHtml = () => async (tree, file) => {
+  const slugify = createSlugifier();
+  const sourceDir = file?.history?.[0]
+    ? path.dirname(file.history[0])
+    : null;
+
+  const visit = async (node, parent, index) => {
     if (node.type !== "element") {
       return;
+    }
+
+    if (node.tagName === "img" && parent && sourceDir) {
+      const src = node.properties?.src;
+
+      if (
+        typeof src === "string" &&
+        (src.startsWith("/") || src.startsWith("./")) &&
+        !src.startsWith("//")
+      ) {
+        const relative = src.startsWith("/") ? src.slice(1) : src;
+        const sourcePath = path.resolve(sourceDir, relative);
+
+        try {
+          const { variants } = await generateVariants(sourcePath, sourceDir);
+
+          parent.children[index] = pictureNode(node, variants);
+        } catch {
+          return;
+        }
+      }
     }
 
     if (node.tagName === "a") {
@@ -81,14 +210,14 @@ const rehypeHtml = () => (tree) => {
       });
     }
 
-    node.children?.forEach((child, childIndex) => {
-      visit(child, node, childIndex);
-    });
+    for (const [childIndex, child] of (node.children ?? []).entries()) {
+      await visit(child, node, childIndex);
+    }
   };
 
-  tree.children.forEach((child, index) => {
-    visit(child, tree, index);
-  });
+  for (const [index, child] of tree.children.entries()) {
+    await visit(child, tree, index);
+  }
 };
 
 export { rehypeHtml };

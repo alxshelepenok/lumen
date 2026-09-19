@@ -7,7 +7,6 @@ import autoprefixer from "autoprefixer";
 import config from "@/content/config.json";
 
 import { rehypeHtml } from "./internal/rehype-html.mjs";
-import { remarkResolveContentImages } from "./internal/resolve-content-images.mjs";
 
 export default defineConfig({
   output: "static",
@@ -21,17 +20,11 @@ export default defineConfig({
       filter: (page) => !page.includes("/404"),
     }),
   ],
-  image: {
-    layout: "constrained",
-    breakpoints: [320, 480, 640, 750, 828, 960],
-    responsiveStyles: false,
-  },
   markdown: {
     shikiConfig: {
       theme: "solarized-light",
     },
     processor: unified({
-      remarkPlugins: [remarkResolveContentImages],
       rehypePlugins: [rehypeHtml],
     }),
   },
