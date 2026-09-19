@@ -4,7 +4,6 @@ import config from "@/content/config.json";
 
 type SiteMetadataAuthor = {
   title: string;
-  photo: string;
   description: string;
   contacts: {
     name: keyof typeof icons;

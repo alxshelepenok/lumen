@@ -3,7 +3,7 @@ import { getImage } from "astro:assets";
 
 import styles from "@/assets/styles/modules/sidebar-author.module.scss";
 
-import logo from "@/content/logo.png";
+import logo from "@/assets/images/logo.png";
 import Picture from "@/islands/picture.astro";
 import ThemeToggle from "@/islands/theme-toggle.astro";
 import type { SiteMetadataAuthor } from "@/utils/get-site-metadata";
@@ -11,7 +11,7 @@ import { largestVariant, srcSetFrom, srcSetWebpFrom } from "@/utils/images";
 import type { ImageVariant } from "@/utils/images";
 
 interface Props {
-  author: Pick<SiteMetadataAuthor, "title" | "photo" | "description">;
+  author: Pick<SiteMetadataAuthor, "title" | "description">;
   isHome?: boolean;
 }
 
