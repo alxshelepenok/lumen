@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
-| V (uncertainty) | 5 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 5 |
+| V (uncertainty) | 4 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 4 |
 | Decay | 1 | Discovery with decay signals |
 
 ## Areas
@@ -19,7 +19,7 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 9 | 5 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 5 |
+| A-06 | Semantics and discoverability | 9 | 4 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 4 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -30,7 +30,7 @@
 | G-32 | Semantic landmark skeleton on every page type | count; current=6 target=6 | verified |
 | G-33 | Anchored JSON-LD entity graph on every page | count; current=6 target=6 | verified |
 | G-34 | Complete machine-readable head and LLM surface | count; current=5 target=5 | verified |
-| G-35 | Semantics kept honest by audits and tests | count; current= target=5 | unverified |
+| G-35 | Semantics kept honest by audits and tests | count; current=1 target=5 | partial |
 
 ## Work items
 
@@ -53,7 +53,7 @@
 | W-65 | feature | llms.txt endpoint: curated site index for agents | G-34 | clear | ⊤ | done |  |
 | W-66 | feature | llms-full.txt endpoint: full markdown corpus | G-34 | complicated | ⊤ | done |  |
 | W-67 | feature | robots.txt and sitemap exclusion wiring | G-34 | clear | ⊤ | done |  |
-| W-68 | feature | JSON-LD audit: id, anchor and reference integrity | G-35 | complicated | ⊤ | proposed | ★ |
+| W-68 | feature | JSON-LD audit: id, anchor and reference integrity | G-35 | complicated | ⊤ | done |  |
 | W-69 | feature | JSON-LD audit: mirror and list cross-checks | G-35 | complicated | ⊤ | proposed | ★ |
 | W-70 | feature | Accessibility tree audit for landmarks and anchors | G-35 | complicated | ⊤ | proposed |  |
 | W-71 | feature | Dev wiring and DOM budget check | G-35 | clear | ⊤ | proposed | ★ |
@@ -133,7 +133,7 @@ graph TD
   W_65["W-65: llms.txt endpoint: curated site index for agents"]:::done
   W_66["W-66: llms-full.txt endpoint: full markdown corpus"]:::done
   W_67["W-67: robots.txt and sitemap exclusion wiring"]:::done
-  W_68["W-68: JSON-LD audit: id, anchor and reference integrity"]:::feature,critical
+  W_68["W-68: JSON-LD audit: id, anchor and reference integrity"]:::done
   W_69["W-69: JSON-LD audit: mirror and list cross-checks"]:::feature,critical
   W_70["W-70: Accessibility tree audit for landmarks and anchors"]:::feature
   W_71["W-71: Dev wiring and DOM budget check"]:::feature,critical
@@ -319,7 +319,7 @@ graph TD
   W_71 -->|implements| D_18
   W_72 -->|implements| D_18
   Y_01 -->|distills| B_04
-  class W_68,W_69,W_71 critical
+  class W_69,W_71 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

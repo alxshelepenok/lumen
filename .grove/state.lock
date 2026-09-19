@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:fff72650ebdec2d5d97f0ec006f13d6106e4c400a669eecc9805b02aaec6bc78
+# checksum: sha256:f05697a803eb3800b2b996943fe703bd0a5028e053f7c58341e7ead47a016a5f
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -16,9 +16,10 @@ g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
   fitness_target: 5
   fitness_current: 5
 
-g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
+g G-35 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:16:33Z "Semantics kept honest by audits and tests"
   area: A-06
   fitness_target: 5
+  fitness_current: 1
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -289,7 +290,7 @@ w W-67 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:12Z t_u
   evidence:
     | robots.txt endpoint (from site config url) allows all and references the absolute sitemap-index; sitemap filter excludes .txt endpoints (robots, llms, llms-full) alongside 404 - verified 30 clean locs, zero txt/404 entries
 
-w W-68 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:25Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: id, anchor and reference integrity"
+w W-68 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:25Z t_updated=2026-09-19T15:16:33Z "JSON-LD audit: id, anchor and reference integrity"
   goals: G-35
   fitness: G-35=+1
   surface: src/utils/audit/schema-audit.ts
@@ -300,6 +301,9 @@ w W-68 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | Re-parsing the emitted graph against the DOM catches anchor drift at dev time before it ships.
   evidence_strategy:
     | bun test on fixture documents; dev run against home and a post page shows zero errors.
+  evidence:
+    | src/utils/audit/schema-audit.ts: auditSchemaGraph (pure, DOM-free input) checks missing @id/url, @id!==url, same-page fragments without DOM id, root ids missing slash before fragment, dangling same-page references; runSchemaAudit DOM adapter logs via [audit-schema] console.error
+    | smoke run over 11 built page types: CLEAN everywhere; seeded-defect harness catches dangling fragment, id/url mismatch, dangling ref, root-no-slash
 
 w W-69 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:27Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: mirror and list cross-checks"
   goals: G-35
