@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:00d91cd299cade73e20f27e8df774576419064b31d8e1a820a7f977a1d548aae
+# checksum: sha256:c4ac222991493c63df67f56df183f5c917d0241f970dd7463c1ed79173632a93
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -9,7 +9,7 @@ g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updat
 g G-33 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T14:42:28Z "Anchored JSON-LD entity graph on every page"
   area: A-06
   fitness_target: 6
-  fitness_current: 1
+  fitness_current: 2
 
 g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
   area: A-06
@@ -136,7 +136,7 @@ w W-57 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:19Z t_u
   evidence:
     | bun test 23 pass 0 fail incl. new cases: root id keeps slash before fragment (site/#page), nested post id (posts/x/#article), paginated id (category/x/page/1/#page), anchor links; SLICE constants exported
 
-w W-58 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:21Z t_updated=2026-09-19T13:57:26Z "SEO graph builders and JSON-LD emitter"
+w W-58 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:21Z t_updated=2026-09-19T14:47:04Z "SEO graph builders and JSON-LD emitter"
   goals: G-33
   fitness: G-33=+1
   surface: src/utils/seo, src/islands/json-ld.astro
@@ -148,6 +148,9 @@ w W-58 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | A typed builder module with one merge point keeps every page graph consistent and testable.
   evidence_strategy:
     | bun test on the seo module; built HTML shows exactly one ld+json script.
+  evidence:
+    | src/utils/seo module: nodes.ts (person, website, breadcrumb, itemList, webPage, blogPosting with reciprocal mainEntity/mainEntityOfPage), graph.ts mergeGraphs deduping by @id and stripping per-node @context, json-ld.astro emitter; DOM anchors added (html#web, section#person, article#article)
+    | bun test 29 pass 0 fail (root ids, @id===url, crumb positions, ItemList positions, merge dedupe and field merge); astro check 0 errors
 
 w W-59 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:32Z t_updated=2026-09-19T13:57:26Z "Home and paginated pages graph"
   goals: G-33

@@ -9,6 +9,8 @@ const SLICE = {
   article: "article",
   breadcrumb: "breadcrumb",
   articles: "articles",
+  web: "web",
+  person: "person",
 } as const;
 
 type Slice = string;
