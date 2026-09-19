@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:1a469581b65b21f7d12993153a2c9b332696663ad694fc9e8d44d09e51e998eb
+# checksum: sha256:9173e4eb0f562deaa7a4e20a4fc0180288351e8a1e8d63065ab384f57122ed4c
 g G-32 status=partial fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:13:16Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
-  fitness_current: 2
+  fitness_current: 3
 
 g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
   area: A-06
@@ -53,7 +53,7 @@ w W-52 type=refactor status=done cynefin=clear t_created=2026-09-19T13:55:39Z t_
     | built HTML: aside[aria-labelledby=sidebar-author-heading] > section(author h2)+nav[aria-labelledby]+section(contacts visually-hidden h2)+footer(copyright); div.inner gone (styles+separator merged onto aside with border-box)
     | geometry parity: sidebar 337x1145@105,0, menu 259x104@144,285, contacts 165x55@144,415, copyright 259x23@144,496 identical old vs new; astro check 0 errors
 
-w W-53 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:46Z t_updated=2026-09-19T13:57:38Z "Feed semantics: headed section with article entries"
+w W-53 type=refactor status=done cynefin=clear t_created=2026-09-19T13:55:46Z t_updated=2026-09-19T14:18:13Z "Feed semantics: headed section with article entries"
   goals: G-32
   theme: T-03
   fitness: G-32=+1
@@ -66,6 +66,9 @@ w W-53 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:46
     | article/header wrappers styled by the existing module classes render pixel-identical to the div versions.
   evidence_strategy:
     | astro build; entry HTML inspection; screenshot parity.
+  evidence:
+    | built HTML: section#articles[aria-labelledby=feed-heading] with visually-hidden h2, article#article-{slug} entries with header(time ISO datetime + category), h3 titles, aria-label'd Read links
+    | geometry parity: feed 651x946@498,39, item 651x206, title 651x39 font 27px margin 0 identical old vs new; astro check 0 errors
 
 w W-54 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:00Z t_updated=2026-09-19T13:57:39Z "Post page: article with header, hgroup, section and footer"
   goals: G-32

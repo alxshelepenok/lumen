@@ -2,6 +2,7 @@
 import styles from "@/assets/styles/modules/feed.module.scss";
 
 import type { FeedItem } from "@/utils/get-feed-items";
+import { toKebabCase } from "@/utils/routes";
 
 interface Props {
   items: FeedItem[];
@@ -12,19 +13,15 @@ const { items } = Astro.props;
 const formatDate = (date: Date): string =>
   date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
 
-const formatDateTime = (date: Date): string =>
-  date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+const formatDateTime = (date: Date): string => date.toISOString();
 ---
 
-<div class={styles.feed}>
+<section id="articles" class={styles.feed} aria-labelledby="feed-heading">
+  <h2 id="feed-heading" class="visually-hidden">Articles</h2>
   {
     items.map((item) => (
-      <div class={styles.item}>
-        <div class={styles.meta}>
+      <article class={styles.item} id={`article-${toKebabCase(item.title)}`}>
+        <header class={styles.meta}>
           <time class={styles.time} datetime={formatDateTime(item.date)}>
             {formatDate(item.date)}
           </time>
@@ -36,17 +33,21 @@ const formatDateTime = (date: Date): string =>
               </a>
             ) : null}
           </span>
-        </div>
-        <h2 class={styles.title}>
+        </header>
+        <h3 class={styles.title}>
           <a class={styles.link} href={item.slug}>
             {item.title}
           </a>
-        </h2>
+        </h3>
         <p class={styles.description}>{item.description}</p>
-        <a class={styles.more} href={item.slug}>
+        <a
+          class={styles.more}
+          href={item.slug}
+          aria-label={`Read more about ${item.title}`}
+        >
           Read
         </a>
-      </div>
+      </article>
     ))
   }
-</div>
+</section>
