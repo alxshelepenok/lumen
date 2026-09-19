@@ -1,6 +1,8 @@
 import { describe, expect, it } from "bun:test";
 
-import { Route, routes } from "@/utils/routes";
+import { Route, SLICE, routes } from "@/utils/routes";
+
+const site = "https://lumen.alxshelepenok.com";
 
 describe("Route", () => {
   it("keeps the root href as is", () => {
@@ -20,8 +22,28 @@ describe("Route", () => {
   });
 
   it("emits canonical urls with a trailing slash", () => {
-    expect(new Route("/pages/about").canonical("https://lumen.alxshelepenok.com")).toBe(
-      "https://lumen.alxshelepenok.com/pages/about/"
+    expect(new Route("/pages/about").canonical(site)).toBe(
+      `${site}/pages/about/`
+    );
+  });
+
+  it("builds graph ids with a slice fragment on the canonical form", () => {
+    expect(routes.home().id(site, SLICE.page)).toBe(`${site}/#page`);
+    expect(routes.post("a-brief-history").id(site, SLICE.article)).toBe(
+      `${site}/posts/a-brief-history/#article`
+    );
+    expect(
+      routes.paginated(routes.category("Design Culture"), 1).id(
+        site,
+        SLICE.page
+      )
+    ).toBe(`${site}/category/design-culture/page/1/#page`);
+  });
+
+  it("builds in-site anchor links with a slice fragment", () => {
+    expect(routes.home().anchor(SLICE.page)).toBe("/#page");
+    expect(routes.post("a-brief-history").anchor(SLICE.article)).toBe(
+      "/posts/a-brief-history/#article"
     );
   });
 });

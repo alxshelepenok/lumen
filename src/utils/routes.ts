@@ -1,8 +1,17 @@
-const toKebabCase = (str: string = ""): string =>
+const toKebabCase = (str: string = "") =>
   str
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     ?.map((word) => word.toLowerCase())
     .join("-") || "";
+
+const SLICE = {
+  page: "page",
+  article: "article",
+  breadcrumb: "breadcrumb",
+  articles: "articles",
+} as const;
+
+type Slice = string;
 
 class Route {
   constructor(readonly path: string) {}
@@ -15,12 +24,20 @@ class Route {
     return this.path === "/" ? "/" : `${this.clean}/`;
   }
 
+  anchor(slice: Slice): string {
+    return `${this.href()}#${slice}`;
+  }
+
   url(site?: string): string {
     return `${site ?? ""}${this.clean}`;
   }
 
   canonical(site: string): string {
     return `${site}${this.href()}`;
+  }
+
+  id(site: string, slice: Slice): string {
+    return `${this.canonical(site)}#${slice}`;
   }
 }
 
@@ -35,4 +52,5 @@ const routes = {
   year: (year: string) => new Route(`/year/${year}`),
 };
 
-export { Route, routes, toKebabCase };
+export { Route, SLICE, routes, toKebabCase };
+export type { Slice };

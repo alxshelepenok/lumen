@@ -1,14 +1,15 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:65adc51103d2bb787e2502f1d60d28da1ecf82649d7a9144bebac0ed659a5ad5
+# checksum: sha256:00d91cd299cade73e20f27e8df774576419064b31d8e1a820a7f977a1d548aae
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
   fitness_current: 6
 
-g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
+g G-33 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T14:42:28Z "Anchored JSON-LD entity graph on every page"
   area: A-06
   fitness_target: 6
+  fitness_current: 1
 
 g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
   area: A-06
@@ -121,7 +122,7 @@ w W-56 type=refactor status=done cynefin=clear t_created=2026-09-19T13:56:09Z t_
     | built HTML: static pages render article.page[aria-labelledby=page-title] > header(h1) + section[aria-labelledby] with bare Content div removed; 404 renders main#page with h1 NOT FOUND and a described home link
     | geometry parity on /pages/about/: column 703x927@472,0, h1 651x52@498,39, first p 651x52@498,129 identical old vs new; astro check 0 errors
 
-w W-57 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:19Z t_updated=2026-09-19T13:56:22Z "Route slice grammar: fragment-aware href and id"
+w W-57 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:19Z t_updated=2026-09-19T14:42:28Z "Route slice grammar: fragment-aware href and id"
   goals: G-33
   fitness: G-33=+1
   surface: src/utils/routes.ts, src/utils/routes.test.ts
@@ -132,6 +133,8 @@ w W-57 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:19Z
     | One shared id grammar for links and graph nodes prevents anchor drift between DOM and JSON-LD.
   evidence_strategy:
     | bun test routes.test.ts green covering id()/href() slice forms.
+  evidence:
+    | bun test 23 pass 0 fail incl. new cases: root id keeps slash before fragment (site/#page), nested post id (posts/x/#article), paginated id (category/x/page/1/#page), anchor links; SLICE constants exported
 
 w W-58 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:21Z t_updated=2026-09-19T13:57:26Z "SEO graph builders and JSON-LD emitter"
   goals: G-33
