@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:c4ac222991493c63df67f56df183f5c917d0241f970dd7463c1ed79173632a93
+# checksum: sha256:19524de1e74f3423763884962e80512984c6df558109caa985df618a0d8bafc9
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -9,7 +9,7 @@ g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updat
 g G-33 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T14:42:28Z "Anchored JSON-LD entity graph on every page"
   area: A-06
   fitness_target: 6
-  fitness_current: 2
+  fitness_current: 3
 
 g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
   area: A-06
@@ -152,7 +152,7 @@ w W-58 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:2
     | src/utils/seo module: nodes.ts (person, website, breadcrumb, itemList, webPage, blogPosting with reciprocal mainEntity/mainEntityOfPage), graph.ts mergeGraphs deduping by @id and stripping per-node @context, json-ld.astro emitter; DOM anchors added (html#web, section#person, article#article)
     | bun test 29 pass 0 fail (root ids, @id===url, crumb positions, ItemList positions, merge dedupe and field merge); astro check 0 errors
 
-w W-59 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:32Z t_updated=2026-09-19T13:57:26Z "Home and paginated pages graph"
+w W-59 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:32Z t_updated=2026-09-19T14:50:49Z "Home and paginated pages graph"
   goals: G-33
   fitness: G-33=+1
   surface: src/pages/index.astro, src/pages/page/[...slug].astro
@@ -164,6 +164,9 @@ w W-59 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | Anchoring the home graph to the feed landmarks produced by W-53 keeps the machine graph grounded in visible content.
   evidence_strategy:
     | astro build; extract ld+json from built home and page/1; check fragments against DOM ids.
+  evidence:
+    | home emits ProfilePage#page (isPartOf #web, mainEntity #person, hasPart ItemList #articles) with Person/WebSite nodes; paginated pages emit CollectionPage+WebPage with mainEntity ItemList; ItemList ListItems anchored to article-{slug} DOM ids, entries target post #page ids
+    | anchor-grounding script: all same-page JSON-LD fragments resolve to DOM ids on / and /page/1/; one ld+json script per page; bun test 29 pass
 
 w W-60 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:34Z t_updated=2026-09-19T13:56:35Z "Post page graph: WebPage, BlogPosting, BreadcrumbList"
   goals: G-33

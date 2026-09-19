@@ -89,17 +89,24 @@ const itemListNode = (
     "url": id,
     "name": name,
     "numberOfItems": items.length,
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "url": item.url,
-      "item": {
-        "@type": "WebPage",
-        "@id": item.url,
-        "url": item.url,
-        "name": item.name,
-      },
-    })),
+    "itemListElement": items.map((item, index) => {
+      const itemId = item.fragment
+        ? route.id(siteUrl(), item.fragment)
+        : item.url;
+
+      return {
+        "@type": "ListItem",
+        "@id": itemId,
+        "url": itemId,
+        "position": index + 1,
+        "item": {
+          "@type": "WebPage",
+          "@id": item.url,
+          "url": item.url,
+          "name": item.name,
+        },
+      };
+    }),
   };
 };
 

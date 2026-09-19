@@ -15,6 +15,7 @@ interface BreadcrumbItem {
 }
 
 interface ListItemEntry {
+  fragment?: string;
   name: string;
   url: string;
 }

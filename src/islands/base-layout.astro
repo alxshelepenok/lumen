@@ -2,19 +2,22 @@
 import "@/assets/styles/main.scss";
 
 import IconSprite from "@/islands/icon-sprite.astro";
+import JsonLd from "@/islands/json-ld.astro";
 import Meta from "@/islands/meta.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import type { JsonLdGraph } from "@/utils/seo";
 import { Route } from "@/utils/routes";
 import { themeStorageKey } from "@/utils/theme";
 
 interface Props {
   description?: string;
   image?: string;
+  jsonLd?: JsonLdGraph;
   title: string;
 }
 
-const { description = "", image, title } = Astro.props;
+const { description = "", image, jsonLd, title } = Astro.props;
 const { googleAnalyticsId } = getSiteMetadata();
 
 const canonical = new Route(Astro.url.pathname).canonical(
@@ -50,6 +53,7 @@ const themeScript = `
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Meta title={title} description={description} image={image} />
+    {jsonLd ? <JsonLd data={jsonLd} /> : null}
     <link rel="canonical" href={canonical} />
     <link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous" />
     <meta name="theme-color" content="hsl(31, 92%, 62%)" />
