@@ -14,6 +14,6 @@ const published = date.toLocaleDateString("en-US", {
 });
 ---
 
-<div class={styles.postFooter}>
-  <p class={styles.date}>Published {published}</p>
-</div>
+<p class={styles.date}>
+  Published <time datetime={date.toISOString()}>{published}</time>
+</p>

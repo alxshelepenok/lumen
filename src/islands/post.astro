@@ -5,7 +5,6 @@ import styles from "@/assets/styles/modules/post.module.scss";
 
 import Button from "@/islands/button.astro";
 import PostAuthor from "@/islands/post-author.astro";
-import PostContent from "@/islands/post-content.astro";
 import PostFooter from "@/islands/post-footer.astro";
 import PostTags from "@/islands/post-tags.astro";
 import ThemeToggle from "@/islands/theme-toggle.astro";
@@ -21,17 +20,24 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+const { Content } = post;
 ---
 
-<div class={styles.post}>
-  <div class={styles.buttons}>
-    <Button className={styles.buttonArticles} title="All Articles" to="/" />
-    <ThemeToggle />
-  </div>
-  <div class={styles.content}>
-    <PostContent Content={post.Content} title={post.title} />
-  </div>
-  <div class={styles.footer}>
+<article id="post" class={styles.post} aria-labelledby="post-title">
+  <header>
+    <div class={styles.buttons}>
+      <Button className={styles.buttonArticles} title="All Articles" to="/" />
+      <ThemeToggle />
+    </div>
+    <hgroup class={styles.titleWrap}>
+      <h1 id="post-title" class={styles.title}>{post.title}</h1>
+    </hgroup>
+  </header>
+  <section id="post-body" class={styles.body} aria-labelledby="post-title">
+    <Content />
+  </section>
+  <footer class={styles.footer}>
     <PostFooter date={post.date} />
     {
       post.tags && post.tagSlugs ? (
@@ -39,5 +45,5 @@ const { post } = Astro.props;
       ) : null
     }
     <PostAuthor />
-  </div>
-</div>
+  </footer>
+</article>
