@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:08543d76ba8adfefa3241794b80f2a78051525ed9e928252da6d5d0dad1aa40a
+# checksum: sha256:fff72650ebdec2d5d97f0ec006f13d6106e4c400a669eecc9805b02aaec6bc78
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -11,10 +11,10 @@ g G-33 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
   fitness_target: 6
   fitness_current: 6
 
-g G-34 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:10:04Z "Complete machine-readable head and LLM surface"
+g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:14:59Z "Complete machine-readable head and LLM surface"
   area: A-06
   fitness_target: 5
-  fitness_current: 4
+  fitness_current: 5
 
 g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
   area: A-06
@@ -275,7 +275,7 @@ w W-66 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:1
   evidence:
     | target/llms-full.txt prerendered (175 lines): site header (H1, quote, Site url), then per page/post: title heading, URL line, Description, Date/Tags for posts, raw markdown body, --- separators; Q-04 confirmed against astro content types (body?: string) before implementation
 
-w W-67 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:12Z t_updated=2026-09-19T13:57:14Z "robots.txt and sitemap exclusion wiring"
+w W-67 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:12Z t_updated=2026-09-19T15:14:59Z "robots.txt and sitemap exclusion wiring"
   goals: G-34
   fitness: G-34=+1
   surface: public/robots.txt, astro.config.ts
@@ -286,6 +286,8 @@ w W-67 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:12Z
     | Explicit robots plus a clean sitemap closes the discovery loop for both crawlers and agents.
   evidence_strategy:
     | astro build; inspect target/robots.txt and sitemap-0.xml for exclusions.
+  evidence:
+    | robots.txt endpoint (from site config url) allows all and references the absolute sitemap-index; sitemap filter excludes .txt endpoints (robots, llms, llms-full) alongside 404 - verified 30 clean locs, zero txt/404 entries
 
 w W-68 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:25Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: id, anchor and reference integrity"
   goals: G-35
