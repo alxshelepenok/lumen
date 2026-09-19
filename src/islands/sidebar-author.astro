@@ -35,7 +35,7 @@ const variants: ImageVariant[] = await Promise.all(
 );
 ---
 
-<div class={styles.sidebarAuthor}>
+<section class={styles.sidebarAuthor} aria-labelledby="sidebar-author-heading">
   <a href="/">
     <Picture
       class={styles.photo}
@@ -50,7 +50,7 @@ const variants: ImageVariant[] = await Promise.all(
   </a>
 
   <div class={styles.titleContainer}>
-    <h2 class={styles.title}>
+    <h2 id="sidebar-author-heading" class={styles.title}>
       <a class={styles.link} href="/">
         {author.title}
       </a>
@@ -58,4 +58,4 @@ const variants: ImageVariant[] = await Promise.all(
     <ThemeToggle />
   </div>
   <p class={styles.description}>{author.description}</p>
-</div>
+</section>

@@ -11,11 +11,9 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 const { author, copyright, menu } = getSiteMetadata();
 ---
 
-<aside class={styles.sidebar} aria-label="About the author">
-  <div class={styles.inner}>
-    <SidebarAuthor author={author} />
-    <SidebarMenu menu={menu} />
-    <SidebarContacts contacts={author.contacts} />
-    <SidebarCopyright copyright={copyright} />
-  </div>
+<aside class={styles.sidebar} aria-labelledby="sidebar-author-heading">
+  <SidebarAuthor author={author} />
+  <SidebarMenu menu={menu} />
+  <SidebarContacts contacts={author.contacts} />
+  <SidebarCopyright copyright={copyright} />
 </aside>

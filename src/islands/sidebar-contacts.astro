@@ -19,7 +19,8 @@ const { contacts } = Astro.props;
 
 {
   contacts.length > 0 && (
-    <div class={styles.sidebarContacts}>
+    <section class={styles.sidebarContacts} aria-labelledby="sidebar-contacts-heading">
+      <h2 id="sidebar-contacts-heading" class="visually-hidden">Contacts</h2>
       <ul class={styles.list}>
         {contacts.map(({ name, contact }) => (
           <li class={styles.item}>
@@ -43,7 +44,7 @@ const { contacts } = Astro.props;
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   )
 }
 

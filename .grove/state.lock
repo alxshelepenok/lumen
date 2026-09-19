@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:173d542ea14902e6b9bc5c00abc71383a14d1e04b753021de850a5a4dcc9be6e
+# checksum: sha256:1a469581b65b21f7d12993153a2c9b332696663ad694fc9e8d44d09e51e998eb
 g G-32 status=partial fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:13:16Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
-  fitness_current: 1
+  fitness_current: 2
 
 g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
   area: A-06
@@ -36,7 +36,7 @@ w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:
     | astro check 0 errors; build green (31 pages); built HTML: one main#page[tabindex=-1][aria-labelledby], aside sidebar inside main, zero div.page/div.inner/div.layout wrappers; skip-link first in body
     | geometry parity 1280px across /, post, categories, 404, /page/1, tags, years, about: identical boxes old vs new; mobile 375px stacking identical (aside@15,0 section@15,510 feed@35,536)
 
-w W-52 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:39Z t_updated=2026-09-19T13:57:38Z "Sidebar semantics: aside with nav, headed sections and footer"
+w W-52 type=refactor status=done cynefin=clear t_created=2026-09-19T13:55:39Z t_updated=2026-09-19T14:16:31Z "Sidebar semantics: aside with nav, headed sections and footer"
   goals: G-32
   theme: T-03
   fitness: G-32=+1
@@ -49,6 +49,9 @@ w W-52 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:39
     | Section/aside/footer swaps keep the same DOM boxes once module classes re-attach, so the column renders identically.
   evidence_strategy:
     | astro build; built-HTML landmark inspection; both-theme screenshot parity.
+  evidence:
+    | built HTML: aside[aria-labelledby=sidebar-author-heading] > section(author h2)+nav[aria-labelledby]+section(contacts visually-hidden h2)+footer(copyright); div.inner gone (styles+separator merged onto aside with border-box)
+    | geometry parity: sidebar 337x1145@105,0, menu 259x104@144,285, contacts 165x55@144,415, copyright 259x23@144,496 identical old vs new; astro check 0 errors
 
 w W-53 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:46Z t_updated=2026-09-19T13:57:38Z "Feed semantics: headed section with article entries"
   goals: G-32

@@ -17,7 +17,8 @@ const isActive = (url: string): boolean =>
   url === "/" ? currentPath === "/" : currentPath.startsWith(url);
 ---
 
-<nav class={styles.sidebarMenu}>
+<nav class={styles.sidebarMenu} aria-labelledby="sidebar-menu-heading">
+  <h2 id="sidebar-menu-heading" class="visually-hidden">Site menu</h2>
   <ul class={styles.list}>
     {
       menu.map((item) => (
