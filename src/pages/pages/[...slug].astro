@@ -1,9 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
 
+import pageStyles from "@/assets/styles/modules/page.module.scss";
 import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
-import Page from "@/islands/page.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getSlug } from "@/utils/get-slug";
@@ -38,10 +38,15 @@ const image =
   image={image}
 >
   <Layout>
-    <Page title={page.data.title}>
-      <div>
+    <article class={pageStyles.page} aria-labelledby="page-title">
+      <header>
+        <h1 id="page-title" class={pageStyles.title}>
+          {page.data.title}
+        </h1>
+      </header>
+      <section aria-labelledby="page-title">
         <Content />
-      </div>
-    </Page>
+      </section>
+    </article>
   </Layout>
 </BaseLayout>

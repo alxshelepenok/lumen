@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
-| V (uncertainty) | 17 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 17 |
+| V (uncertainty) | 16 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 16 |
 | Decay | 1 | Discovery with decay signals |
 
 ## Areas
@@ -19,7 +19,7 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 9 | 17 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 17 |
+| A-06 | Semantics and discoverability | 9 | 16 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 16 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -27,7 +27,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-32 | Semantic landmark skeleton on every page type | count; current=5 target=6 | partial |
+| G-32 | Semantic landmark skeleton on every page type | count; current=6 target=6 | verified |
 | G-33 | Anchored JSON-LD entity graph on every page | count; current= target=6 | unverified |
 | G-34 | Complete machine-readable head and LLM surface | count; current= target=5 | unverified |
 | G-35 | Semantics kept honest by audits and tests | count; current= target=5 | unverified |
@@ -41,7 +41,7 @@
 | W-53 | refactor | Feed semantics: headed section with article entries | G-32 | clear | ⊤ | done |  |
 | W-54 | refactor | Post page: article with header, hgroup, section and footer | G-32 | clear | ⊤ | done |  |
 | W-55 | refactor | List and hub pages: landmarks, headed lists, pagination nav | G-32 | clear | ⊤ | done |  |
-| W-56 | refactor | Static pages and 404: article landmark and honest 404 | G-32 | clear | ⊤ | proposed |  |
+| W-56 | refactor | Static pages and 404: article landmark and honest 404 | G-32 | clear | ⊤ | done |  |
 | W-57 | feature | Route slice grammar: fragment-aware href and id | G-33 | clear | ⊤ | proposed | ★ |
 | W-58 | feature | SEO graph builders and JSON-LD emitter | G-33 | complicated | ⊤ | proposed | ★ |
 | W-59 | feature | Home and paginated pages graph | G-33 | complicated | ⊤ | proposed | ★ |
@@ -93,7 +93,7 @@
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
 | T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46, W-47, W-48, W-49, W-50 | – |
-| T-03 | Wrapper-div markup without landmarks | open | W-51, W-52, W-53, W-54, W-55, W-56 | W-51, W-52, W-53, W-54, W-55, W-56 |
+| T-03 | Wrapper-div markup without landmarks | done | W-51, W-52, W-53, W-54, W-55, W-56 | W-51, W-52, W-53, W-54, W-55, W-56 |
 
 ## Discoveries
 
@@ -121,7 +121,7 @@ graph TD
   W_53["W-53: Feed semantics: headed section with article entries"]:::done
   W_54["W-54: Post page: article with header, hgroup, section and footer"]:::done
   W_55["W-55: List and hub pages: landmarks, headed lists, pagination nav"]:::done
-  W_56["W-56: Static pages and 404: article landmark and honest 404"]:::feature
+  W_56["W-56: Static pages and 404: article landmark and honest 404"]:::done
   W_57["W-57: Route slice grammar: fragment-aware href and id"]:::feature,critical
   W_58["W-58: SEO graph builders and JSON-LD emitter"]:::feature,critical
   W_59["W-59: Home and paginated pages graph"]:::feature,critical

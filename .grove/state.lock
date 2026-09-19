@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:0dc9c0753bb2fd71444c44efc183b1c9a61cd53813132e4a31d97570d5a00a8d
-g G-32 status=partial fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:13:16Z "Semantic landmark skeleton on every page type"
+# checksum: sha256:65adc51103d2bb787e2502f1d60d28da1ecf82649d7a9144bebac0ed659a5ad5
+g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
-  fitness_current: 5
+  fitness_current: 6
 
 g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
   area: A-06
@@ -104,7 +104,7 @@ w W-55 type=refactor status=done cynefin=clear t_created=2026-09-19T13:56:02Z t_
     | built HTML: hub lists carry id anchors (categories-list, tags-list, years-list) inside the headed page section; pagination is nav[aria-label=Pagination] with a[rel=prev/next] only when target exists, disabled state rendered as styled span (no dead links)
     | geometry parity: pagination nav 651x30@498,1037 prev/next 326x30 identical (after line-height 30px fix for old mixed-size line box); hub ul 651x134@498,129 identical; astro check 0 errors
 
-w W-56 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:09Z t_updated=2026-09-19T13:57:39Z "Static pages and 404: article landmark and honest 404"
+w W-56 type=refactor status=done cynefin=clear t_created=2026-09-19T13:56:09Z t_updated=2026-09-19T14:41:08Z "Static pages and 404: article landmark and honest 404"
   goals: G-32
   theme: T-03
   fitness: G-32=+1
@@ -117,6 +117,9 @@ w W-56 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:09
     | Static templates adopt the shared skeleton components without layout regressions.
   evidence_strategy:
     | astro build on about/contacts/404; landmark inspection; screenshots.
+  evidence:
+    | built HTML: static pages render article.page[aria-labelledby=page-title] > header(h1) + section[aria-labelledby] with bare Content div removed; 404 renders main#page with h1 NOT FOUND and a described home link
+    | geometry parity on /pages/about/: column 703x927@472,0, h1 651x52@498,39, first p 651x52@498,129 identical old vs new; astro check 0 errors
 
 w W-57 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:19Z t_updated=2026-09-19T13:56:22Z "Route slice grammar: fragment-aware href and id"
   goals: G-33
@@ -452,7 +455,7 @@ b B-07 status=validated cynefin=complicated t_created=2026-09-19T13:54:27Z t_upd
 
 t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-19T00:18:15Z "Post-migration review findings"
 
-t T-03 status=open t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:56:09Z "Wrapper-div markup without landmarks"
+t T-03 status=done t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Wrapper-div markup without landmarks"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
