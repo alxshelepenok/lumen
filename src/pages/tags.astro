@@ -2,21 +2,34 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, tagsOf } from "@/utils/get-taxonomy";
-import { routes } from "@/utils/routes";
+import { hubGraph } from "@/utils/seo";
+import { SLICE, routes } from "@/utils/routes";
 
-const { title, description } = getSiteMetadata();
+const { url, title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
 const tags = getGroups(posts, tagsOf);
+
+const jsonLd = hubGraph({
+  entries: tags.map((tag) => ({
+    name: `${tag.fieldValue} (${tag.totalCount})`,
+    url: routes.tag(tag.fieldValue).id(url, SLICE.page),
+  })),
+  fragment: "tags-list",
+  hubLabel: "Tags",
+  route: routes.tags(),
+});
 ---
 
-<BaseLayout title={`Tags - ${title}`} description={description}>
+<BaseLayout title={`Tags - ${title}`} description={description} jsonLd={jsonLd}>
   <Layout>
     <Page title="Tags">
+      <Breadcrumb items={[{ name: title, href: "/" }, { name: "Tags" }]} />
       <ul id="tags-list">
         {
           tags.map((tag) => (

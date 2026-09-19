@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
-| V (uncertainty) | 12 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 12 |
+| V (uncertainty) | 11 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 11 |
 | Decay | 1 | Discovery with decay signals |
 
 ## Areas
@@ -19,7 +19,7 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 9 | 12 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 12 |
+| A-06 | Semantics and discoverability | 9 | 11 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 11 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -28,7 +28,7 @@
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
 | G-32 | Semantic landmark skeleton on every page type | count; current=6 target=6 | verified |
-| G-33 | Anchored JSON-LD entity graph on every page | count; current=4 target=6 | partial |
+| G-33 | Anchored JSON-LD entity graph on every page | count; current=5 target=6 | partial |
 | G-34 | Complete machine-readable head and LLM surface | count; current= target=5 | unverified |
 | G-35 | Semantics kept honest by audits and tests | count; current= target=5 | unverified |
 
@@ -46,7 +46,7 @@
 | W-58 | feature | SEO graph builders and JSON-LD emitter | G-33 | complicated | ⊤ | done |  |
 | W-59 | feature | Home and paginated pages graph | G-33 | complicated | ⊤ | done |  |
 | W-60 | feature | Post page graph: WebPage, BlogPosting, BreadcrumbList | G-33 | complicated | ⊤ | done |  |
-| W-61 | feature | Taxonomy graphs: CollectionPage lists and hubs | G-33 | complicated | ⊤ | proposed |  |
+| W-61 | feature | Taxonomy graphs: CollectionPage lists and hubs | G-33 | complicated | ⊤ | done |  |
 | W-62 | feature | Static pages graph; 404 stays graph-free | G-33 | clear | ⊤ | proposed |  |
 | W-63 | feature | base-head: ordered groups, robots directives, property og, og:url | G-34 | clear | ⊤ | proposed |  |
 | W-64 | feature | Social card completeness: image dimensions and alt | G-34 | clear | ⊤ | proposed |  |
@@ -126,7 +126,7 @@ graph TD
   W_58["W-58: SEO graph builders and JSON-LD emitter"]:::done
   W_59["W-59: Home and paginated pages graph"]:::done
   W_60["W-60: Post page graph: WebPage, BlogPosting, BreadcrumbList"]:::done
-  W_61["W-61: Taxonomy graphs: CollectionPage lists and hubs"]:::feature
+  W_61["W-61: Taxonomy graphs: CollectionPage lists and hubs"]:::done
   W_62["W-62: Static pages graph; 404 stays graph-free"]:::feature
   W_63["W-63: base-head: ordered groups, robots directives, property og, og:url"]:::feature
   W_64["W-64: Social card completeness: image dimensions and alt"]:::feature

@@ -44,6 +44,7 @@ class Route {
 }
 
 const routes = {
+  categories: () => new Route("/categories"),
   category: (name: string) => new Route(`/category/${toKebabCase(name)}`),
   home: () => new Route("/"),
   page: (slug: string) => new Route(`/pages/${slug}`),
@@ -51,7 +52,9 @@ const routes = {
     new Route(page === 0 ? route.path : `${route.clean}/page/${page}`),
   post: (slug: string) => new Route(`/posts/${slug}`),
   tag: (name: string) => new Route(`/tag/${toKebabCase(name)}`),
+  tags: () => new Route("/tags"),
   year: (year: string) => new Route(`/year/${year}`),
+  years: () => new Route("/years"),
 };
 
 export { Route, SLICE, routes, toKebabCase };

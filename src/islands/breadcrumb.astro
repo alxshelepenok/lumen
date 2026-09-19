@@ -1,0 +1,31 @@
+---
+import { toKebabCase } from "@/utils/routes";
+
+interface Props {
+  items: {
+    href?: string;
+    name: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav id="breadcrumb" class="visually-hidden" aria-label="Breadcrumb">
+  <ol>
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        return (
+          <li
+            id={`breadcrumb-item-${toKebabCase(item.name)}`}
+            aria-current={isLast ? "page" : undefined}
+          >
+            {isLast || !item.href ? item.name : <a href={item.href}>{item.name}</a>}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

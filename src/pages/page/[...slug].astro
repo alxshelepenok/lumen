@@ -45,7 +45,7 @@ const jsonLd = homeFeedGraph(pagination.currentPage, items);
 
 <BaseLayout title={pageTitle} description={description} jsonLd={jsonLd}>
   <Layout>
-    <Page>
+    <Page id="blog">
       <Feed items={items} />
       <Pagination
         prevPagePath={pagination.prevPagePath}

@@ -2,21 +2,34 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
-import { routes } from "@/utils/routes";
+import { hubGraph } from "@/utils/seo";
+import { SLICE, routes } from "@/utils/routes";
 
-const { title, description } = getSiteMetadata();
+const { url, title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
 const categories = getGroups(posts, categoryOf);
+
+const jsonLd = hubGraph({
+  entries: categories.map((category) => ({
+    name: `${category.fieldValue} (${category.totalCount})`,
+    url: routes.category(category.fieldValue).id(url, SLICE.page),
+  })),
+  fragment: "categories-list",
+  hubLabel: "Categories",
+  route: routes.categories(),
+});
 ---
 
-<BaseLayout title={`Categories - ${title}`} description={description}>
+<BaseLayout title={`Categories - ${title}`} description={description} jsonLd={jsonLd}>
   <Layout>
     <Page title="Categories">
+      <Breadcrumb items={[{ name: title, href: "/" }, { name: "Categories" }]} />
       <ul id="categories-list">
         {
           categories.map((category) => (

@@ -3,13 +3,14 @@ import styles from "@/assets/styles/modules/page.module.scss";
 
 interface Props {
   heading?: string;
+  id?: string;
   title?: string;
 }
 
-const { heading = "Articles", title } = Astro.props;
+const { heading = "Articles", id, title } = Astro.props;
 ---
 
-<section class={styles.page} aria-labelledby="page-title">
+<section {...(id ? { id } : {})} class={styles.page} aria-labelledby="page-title">
   {
     title ? (
       <h1 id="page-title" class={styles.title}>
