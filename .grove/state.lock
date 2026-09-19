@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:5b85d08a39847d9d80ecfd668de9379e0d3e437d9062009aedd529a845a64b4d
+# checksum: sha256:1652cc0b93a0b6e101b426d44e511377d1000ff0bab65d7ca1f21854667aa298
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -72,7 +72,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-19T00:15:28Z "Post-migration review findings"
+t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-19T00:18:15Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -192,6 +192,7 @@ e T-02 causes W-46 t_created=2026-09-19T00:03:10Z
 e T-02 causes W-47 t_created=2026-09-19T00:04:45Z
 e T-02 causes W-48 t_created=2026-09-19T00:11:40Z
 e T-02 causes W-49 t_created=2026-09-19T00:14:37Z
+e T-02 causes W-50 t_created=2026-09-19T00:16:14Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -381,6 +382,11 @@ g G-29 status=verified fitness_kind=count t_created=2026-09-19T00:10:41Z t_updat
   fitness_current: 1
 
 g G-30 status=verified fitness_kind=count t_created=2026-09-19T00:14:37Z t_updated=2026-09-19T00:15:28Z "The logo lives once as a source asset"
+  area: A-03
+  fitness_target: 1
+  fitness_current: 1
+
+g G-31 status=verified fitness_kind=count t_created=2026-09-19T00:16:13Z t_updated=2026-09-19T00:18:15Z "Images keep their aspect in the picture pattern"
   area: A-03
   fitness_target: 1
   fitness_current: 1
@@ -1151,6 +1157,22 @@ w W-49 type=refactor status=done cynefin=clear t_created=2026-09-19T00:14:37Z t_
   evidence:
     | Research: public/logo.png was a leftover from the static author photo era with zero references in the built pages (manifest moved to icon-NxN in W-14, the photo renders from the asset import since W-46); content/logo.png is the living source for the picture variants but sat inside the content collections directory, and the photo field in content/config.json was read by nothing.
     | The logo now lives once at src/assets/images/logo.png (house asset convention), sidebar-author imports it through the @/assets alias, the public copy and the photo config field with its type entry are removed; build shows the author picture variants intact with no /logo.png reference; tsc, astro check and tests green.
+
+w W-50 type=bug status=done cynefin=clear t_created=2026-09-19T00:16:13Z t_updated=2026-09-19T00:18:15Z "Restore height auto for responsive images"
+  goals: G-31
+  theme: T-02
+  fitness: G-31=+1
+  surface: src/assets/styles/base/_generic.scss
+  ac:
+    | The base image rule carries the canonical responsive pair max-width 100 percent plus height auto and a browser screenshot confirms the natural aspect.
+  repro:
+    | The W-47 cleanup removed the height auto layer together with the astro pipeline while picture imgs carry natural width and height attributes: max-width 100 percent shrinks the width but the attribute height stays, stretching content images vertically.
+  evidence_strategy:
+    | Built CSS plus a rendered screenshot of a post page.
+  evidence:
+    | Root cause: the W-47 cleanup removed the height auto layer together with the astro pipeline while the picture imgs carry natural width and height attributes, so max-width 100 percent shrank the width but left the attribute height stretching the images.
+    | Fix at the right level: the base image rule in _generic.scss now carries the canonical responsive pair (border 0, display block, height auto, max-width 100 percent) applying to every image; built CSS confirms img{...height:auto;max-width:100%}.
+    | Browser verification: the post image renders 640 by 426 which is exactly the natural ratio 5753/3828 (1.502) instead of a stretched box.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
