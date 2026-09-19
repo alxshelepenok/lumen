@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:e93cb64237a83de2624fe6a2f0e05f2bfcba23fcfcf985daa03bb9ce0075c788
+# checksum: sha256:f3526a150d14e244cfa966171450f7fc56044070ea2c0b37210aaeae0d6339f3
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -19,7 +19,7 @@ g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
 g G-35 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:16:33Z "Semantics kept honest by audits and tests"
   area: A-06
   fitness_target: 5
-  fitness_current: 2
+  fitness_current: 3
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -320,7 +320,7 @@ w W-69 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:2
     | auditCrossChecks: inLanguage vs html[lang], graph description vs meta description, keywords vs article:tag metas as sets (article:tag metas now emitted for tagged posts), 1-based sequential ListItem positions, last-crumb target fragment equals mainEntity fragment (item-first lookup after bugfix), numberOfItems vs rendered li/article count
     | smoke runs CLEAN on 10 built page types for both integrity and cross-check audits; seeded harness catches lang mismatch, description mismatch, keyword set diff, position break, count mismatch, crumb/mainEntity divergence
 
-w W-70 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:37Z t_updated=2026-09-19T13:57:51Z "Accessibility tree audit for landmarks and anchors"
+w W-70 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:37Z t_updated=2026-09-19T15:24:10Z "Accessibility tree audit for landmarks and anchors"
   goals: G-35
   fitness: G-35=+1
   surface: src/utils/audit/accessibility-audit.ts
@@ -331,6 +331,9 @@ w W-70 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | A tree audit keyed to the same anchors as the graph keeps the accessibility tree and the machine graph aligned.
   evidence_strategy:
     | bun test fixtures; dev run across all page types with zero errors.
+  evidence:
+    | src/utils/audit/accessibility-audit.ts: pure auditAccessibility over an element tree (landmark naming incl scoped header/footer rules, named section/article regions, sibling landmark uniqueness, img alt, non-empty headings, interactive naming, graph anchors unique/resolvable/not hidden, tabindex=-1 warnings) + runAccessibilityAudit DOM adapter with [audit-a11y] prefix
+    | synthetic harness: healthy tree 0 errors; broken tree catches unnamed main/nav, unnamed link, missing alt, empty heading, hidden and dangling anchors; warnings for missing tabindex
 
 w W-71 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:39Z t_updated=2026-09-19T13:57:41Z "Dev wiring and DOM budget check"
   goals: G-35
