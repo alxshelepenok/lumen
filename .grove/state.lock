@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f05697a803eb3800b2b996943fe703bd0a5028e053f7c58341e7ead47a016a5f
+# checksum: sha256:e93cb64237a83de2624fe6a2f0e05f2bfcba23fcfcf985daa03bb9ce0075c788
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -19,7 +19,7 @@ g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
 g G-35 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:16:33Z "Semantics kept honest by audits and tests"
   area: A-06
   fitness_target: 5
-  fitness_current: 1
+  fitness_current: 2
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -305,7 +305,7 @@ w W-68 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:2
     | src/utils/audit/schema-audit.ts: auditSchemaGraph (pure, DOM-free input) checks missing @id/url, @id!==url, same-page fragments without DOM id, root ids missing slash before fragment, dangling same-page references; runSchemaAudit DOM adapter logs via [audit-schema] console.error
     | smoke run over 11 built page types: CLEAN everywhere; seeded-defect harness catches dangling fragment, id/url mismatch, dangling ref, root-no-slash
 
-w W-69 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:27Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: mirror and list cross-checks"
+w W-69 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:27Z t_updated=2026-09-19T15:20:51Z "JSON-LD audit: mirror and list cross-checks"
   goals: G-35
   fitness: G-35=+1
   surface: src/utils/audit/schema-audit.ts
@@ -316,6 +316,9 @@ w W-69 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | Cross-checking the graph against visible metas enforces the mirroring rule mechanically.
   evidence_strategy:
     | bun test fixtures with seeded mismatches; zero errors on real pages.
+  evidence:
+    | auditCrossChecks: inLanguage vs html[lang], graph description vs meta description, keywords vs article:tag metas as sets (article:tag metas now emitted for tagged posts), 1-based sequential ListItem positions, last-crumb target fragment equals mainEntity fragment (item-first lookup after bugfix), numberOfItems vs rendered li/article count
+    | smoke runs CLEAN on 10 built page types for both integrity and cross-check audits; seeded harness catches lang mismatch, description mismatch, keyword set diff, position break, count mismatch, crumb/mainEntity divergence
 
 w W-70 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:37Z t_updated=2026-09-19T13:57:51Z "Accessibility tree audit for landmarks and anchors"
   goals: G-35

@@ -19,6 +19,7 @@ interface Props {
   jsonLd?: JsonLdGraph;
   ogType?: string;
   robots?: string;
+  tags?: string[];
   title: string;
 }
 
@@ -31,6 +32,7 @@ const {
   jsonLd,
   ogType,
   robots,
+  tags,
   title,
 } = Astro.props;
 const { googleAnalyticsId } = getSiteMetadata();
@@ -77,6 +79,7 @@ const themeScript = `
       canonical={canonical}
       ogType={ogType}
       robots={robots}
+      tags={tags}
     />
     {jsonLd ? <JsonLd data={jsonLd} /> : null}
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />

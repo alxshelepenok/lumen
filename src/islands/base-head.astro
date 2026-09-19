@@ -10,6 +10,7 @@ interface Props {
   imageWidth?: number;
   ogType?: string;
   robots?: string;
+  tags?: string[];
   title: string;
 }
 
@@ -22,6 +23,7 @@ const {
   imageWidth,
   ogType = "website",
   robots = "index, follow, max-image-preview:large, max-snippet:-1",
+  tags,
   title,
 } = Astro.props;
 
@@ -67,3 +69,4 @@ const { title: siteTitle } = getSiteMetadata();
 }
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+{tags?.map((tag) => <meta name="article:tag" content={tag} />)}

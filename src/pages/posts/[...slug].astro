@@ -48,6 +48,7 @@ const jsonLd = postGraph(slug, {
   imageWidth={socialImage?.width}
   jsonLd={jsonLd}
   ogType="article"
+  tags={post.data.tags}
 >
   <Layout labelledBy="post-title" sidebar={false}>
     <Post

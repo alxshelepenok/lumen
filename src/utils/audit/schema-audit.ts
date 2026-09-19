@@ -9,9 +9,10 @@ interface AuditIssue {
 
 interface SchemaAuditInput {
   graphs: JsonLdValue[];
+  htmlLang?: string | null;
   listItemCount?: (fragment: string) => number | null;
   metaContent?: (name: string) => string | null;
-  htmlLang?: string | null;
+  metaContents?: (name: string) => string[];
   pagePathname: string;
   resolveAnchor?: (fragment: string) => boolean;
 }
@@ -152,6 +153,140 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
   return issues;
 };
 
+const fragmentOf = (value: unknown): string | null => {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    value = (value as JsonLdValue)["@id"];
+  }
+
+  if (typeof value !== "string" || !value.includes("#")) return null;
+  return value.slice(value.indexOf("#") + 1);
+};
+
+const typesOf = (node: JsonLdValue): string[] => {
+  const type = node["@type"];
+  return Array.isArray(type) ? (type as string[]) : typeof type === "string" ? [type] : [];
+};
+
+const auditCrossChecks = (input: SchemaAuditInput): AuditIssue[] => {
+  const issues: AuditIssue[] = [];
+  const nodes = collectNodes(input.graphs);
+
+  if (nodes.length === 0) {
+    return issues;
+  }
+
+  const pageNodes = nodes.filter((node) => typesOf(node).some((t) => t.endsWith("Page")));
+
+  for (const node of pageNodes) {
+    const id = typeof node["@id"] === "string" ? node["@id"] : undefined;
+    const lang = node["inLanguage"];
+
+    if (typeof lang === "string" && input.htmlLang && lang !== input.htmlLang) {
+      issues.push({
+        id,
+        message: `inLanguage "${lang}" does not match html lang "${input.htmlLang}"`,
+      });
+    }
+
+    const metaDescription = input.metaContent?.("description");
+
+    if (
+      typeof metaDescription === "string" &&
+      metaDescription.length > 0 &&
+      node["description"] !== metaDescription
+    ) {
+      issues.push({
+        id,
+        message: "graph description does not equal the meta description",
+      });
+    }
+
+    const mainEntityFragment = fragmentOf(node["mainEntity"]);
+    const breadcrumbFragment = fragmentOf(node["breadcrumb"]);
+
+    if (mainEntityFragment && breadcrumbFragment) {
+      const crumbs = nodes.find(
+        (candidate) => fragmentOf(candidate["@id"]) === breadcrumbFragment
+      );
+      const items = crumbs?.["itemListElement"];
+
+      if (Array.isArray(items) && items.length > 0) {
+        const last = items[items.length - 1] as JsonLdValue;
+        const item = last["item"] as JsonLdValue | undefined;
+        const lastFragment =
+          (item ? fragmentOf(item["@id"]) ?? fragmentOf(item["url"]) : null) ??
+          fragmentOf(last["url"]) ??
+          fragmentOf(last["@id"]);
+
+        if (lastFragment && lastFragment !== mainEntityFragment) {
+          issues.push({
+            id,
+            message: `last breadcrumb fragment "${lastFragment}" does not equal mainEntity fragment "${mainEntityFragment}"`,
+          });
+        }
+      }
+    }
+  }
+
+  const posting = nodes.find((node) => typesOf(node).includes("BlogPosting"));
+
+  if (posting) {
+    const metaTags = new Set(input.metaContents?.("article:tag") ?? []);
+    const graphTags = new Set(
+      typeof posting["keywords"] === "string"
+        ? (posting["keywords"] as string).split(", ").filter(Boolean)
+        : []
+    );
+
+    if (metaTags.size > 0 || graphTags.size > 0) {
+      const missingInMeta = [...graphTags].filter((tag) => !metaTags.has(tag));
+      const missingInGraph = [...metaTags].filter((tag) => !graphTags.has(tag));
+
+      if (missingInMeta.length > 0 || missingInGraph.length > 0) {
+        issues.push({
+          id: typeof posting["@id"] === "string" ? posting["@id"] : undefined,
+          message: `keywords and article:tag metas differ (meta missing: [${missingInMeta.join(", ")}], graph missing: [${missingInGraph.join(", ")}])`,
+        });
+      }
+    }
+  }
+
+  for (const node of nodes) {
+    const id = typeof node["@id"] === "string" ? node["@id"] : undefined;
+    const items = node["itemListElement"];
+
+    if (!Array.isArray(items)) {
+      continue;
+    }
+
+    items.forEach((item, index) => {
+      const position = (item as JsonLdValue)["position"];
+
+      if (position !== index + 1) {
+        issues.push({
+          id,
+          message: `ListItem position ${String(position)} at index ${index} breaks the 1-based sequence`,
+        });
+      }
+    });
+
+    const fragment = fragmentOf(node["@id"]);
+
+    if (fragment && typeof node["numberOfItems"] === "number") {
+      const rendered = input.listItemCount?.(fragment);
+
+      if (rendered !== null && rendered !== undefined && rendered !== node["numberOfItems"]) {
+        issues.push({
+          id,
+          message: `numberOfItems ${String(node["numberOfItems"])} does not equal ${rendered} rendered list items`,
+        });
+      }
+    }
+  }
+
+  return issues;
+};
+
 const runSchemaAudit = (doc: Document): void => {
   const scripts = Array.from(
     doc.querySelectorAll('script[type="application/ld+json"]')
@@ -167,11 +302,29 @@ const runSchemaAudit = (doc: Document): void => {
     }
   }
 
-  const issues = auditSchemaGraph({
-    graphs,
-    pagePathname: doc.defaultView?.location.pathname ?? "/",
-    resolveAnchor: (fragment) => doc.getElementById(fragment) !== null,
-  });
+  const issues = [
+    ...auditSchemaGraph({
+      graphs,
+      pagePathname: doc.defaultView?.location.pathname ?? "/",
+      resolveAnchor: (fragment) => doc.getElementById(fragment) !== null,
+    }),
+    ...auditCrossChecks({
+      graphs,
+      pagePathname: doc.defaultView?.location.pathname ?? "/",
+      htmlLang: doc.documentElement.getAttribute("lang"),
+      metaContent: (name) =>
+        doc.querySelector(`meta[name="${name}"]`)?.getAttribute("content") ??
+        null,
+      metaContents: (name) =>
+        Array.from(doc.querySelectorAll(`meta[name="${name}"]`))
+          .map((meta) => meta.getAttribute("content"))
+          .filter((content): content is string => content !== null),
+      listItemCount: (fragment) => {
+        const anchor = doc.getElementById(fragment);
+        return anchor ? anchor.querySelectorAll("li").length : null;
+      },
+    }),
+  ];
 
   for (const issue of issues) {
     console.error(
@@ -180,5 +333,5 @@ const runSchemaAudit = (doc: Document): void => {
   }
 };
 
-export { auditSchemaGraph, runSchemaAudit };
+export { auditCrossChecks, auditSchemaGraph, runSchemaAudit };
 export type { AuditIssue, JsonLdValue, SchemaAuditInput };
