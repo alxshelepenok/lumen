@@ -4,7 +4,6 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
-import Sidebar from "@/islands/sidebar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getSlug } from "@/utils/get-slug";
@@ -39,7 +38,6 @@ const image =
   image={image}
 >
   <Layout>
-    <Sidebar />
     <Page title={page.data.title}>
       <div>
         <Content />

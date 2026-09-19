@@ -2,17 +2,24 @@
 import styles from "@/assets/styles/modules/page.module.scss";
 
 interface Props {
+  heading?: string;
   title?: string;
 }
 
-const { title } = Astro.props;
+const { heading = "Articles", title } = Astro.props;
 ---
 
-<div class={styles.page}>
-  <div class={styles.inner}>
-    {title ? <h1 class={styles.title}>{title}</h1> : null}
-    <div class={styles.body}>
-      <slot />
-    </div>
-  </div>
-</div>
+<section class={styles.page} aria-labelledby="page-title">
+  {
+    title ? (
+      <h1 id="page-title" class={styles.title}>
+        {title}
+      </h1>
+    ) : (
+      <h1 id="page-title" class="visually-hidden">
+        {heading}
+      </h1>
+    )
+  }
+  <slot />
+</section>

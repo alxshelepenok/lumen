@@ -2,7 +2,6 @@
 import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
-import Sidebar from "@/islands/sidebar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
@@ -11,7 +10,6 @@ const { title, description } = getSiteMetadata();
 
 <BaseLayout title={`Not Found - ${title}`} description={description}>
   <Layout>
-    <Sidebar />
     <Page title="NOT FOUND">
       <p>You just hit a route that doesn't exist... the sadness.</p>
     </Page>

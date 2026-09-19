@@ -1,0 +1,28 @@
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.skip-link {
+  background: hsl(var(--color-background));
+  border: 1px solid hsl(var(--color-border));
+  color: hsl(var(--color-primary));
+  left: -999px;
+  padding: 8px 16px;
+  position: absolute;
+  top: auto;
+  z-index: 100;
+
+  &:focus {
+    left: 8px;
+    top: 8px;
+  }
+}

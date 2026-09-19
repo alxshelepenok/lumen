@@ -6,7 +6,6 @@ import Feed from "@/islands/feed.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
 import Pagination from "@/islands/pagination.astro";
-import Sidebar from "@/islands/sidebar.astro";
 
 import { getFeedItems } from "@/utils/get-feed-items";
 import { getPaginationInfo } from "@/utils/get-pagination";
@@ -44,7 +43,6 @@ const pageTitle = `Posts - Page ${pagination.currentPage} - ${title}`;
 
 <BaseLayout title={pageTitle} description={description}>
   <Layout>
-    <Sidebar isHome />
     <Page>
       <Feed items={items} />
       <Pagination

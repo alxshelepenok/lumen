@@ -6,8 +6,8 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 14 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 8 |
-| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
+| C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
+| V (uncertainty) | 21 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 21 |
 
 ## Areas
 
@@ -18,8 +18,45 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-06 | Semantics and discoverability | 9 | 21 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 21 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-32 | Semantic landmark skeleton on every page type | count; current=1 target=6 | partial |
+| G-33 | Anchored JSON-LD entity graph on every page | count; current= target=6 | unverified |
+| G-34 | Complete machine-readable head and LLM surface | count; current= target=5 | unverified |
+| G-35 | Semantics kept honest by audits and tests | count; current= target=5 | unverified |
+
+## Work items
+
+| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| W-51 | refactor | Body skeleton: main + aside + skip-link, no wrapper divs | G-32 | complicated | ⊤ | done |  |
+| W-52 | refactor | Sidebar semantics: aside with nav, headed sections and footer | G-32 | clear | ⊤ | proposed |  |
+| W-53 | refactor | Feed semantics: headed section with article entries | G-32 | clear | ⊤ | proposed |  |
+| W-54 | refactor | Post page: article with header, hgroup, section and footer | G-32 | clear | ⊤ | proposed |  |
+| W-55 | refactor | List and hub pages: landmarks, headed lists, pagination nav | G-32 | clear | ⊤ | proposed |  |
+| W-56 | refactor | Static pages and 404: article landmark and honest 404 | G-32 | clear | ⊤ | proposed |  |
+| W-57 | feature | Route slice grammar: fragment-aware href and id | G-33 | clear | ⊤ | proposed | ★ |
+| W-58 | feature | SEO graph builders and JSON-LD emitter | G-33 | complicated | ⊤ | proposed | ★ |
+| W-59 | feature | Home and paginated pages graph | G-33 | complicated | ⊤ | proposed | ★ |
+| W-60 | feature | Post page graph: WebPage, BlogPosting, BreadcrumbList | G-33 | complicated | ⊤ | proposed |  |
+| W-61 | feature | Taxonomy graphs: CollectionPage lists and hubs | G-33 | complicated | ⊤ | proposed |  |
+| W-62 | feature | Static pages graph; 404 stays graph-free | G-33 | clear | ⊤ | proposed |  |
+| W-63 | feature | base-head: ordered groups, robots directives, property og, og:url | G-34 | clear | ⊤ | proposed |  |
+| W-64 | feature | Social card completeness: image dimensions and alt | G-34 | clear | ⊤ | proposed |  |
+| W-65 | feature | llms.txt endpoint: curated site index for agents | G-34 | clear | ⊤ | proposed |  |
+| W-66 | feature | llms-full.txt endpoint: full markdown corpus | G-34 | complicated | ⊤ | proposed |  |
+| W-67 | feature | robots.txt and sitemap exclusion wiring | G-34 | clear | ⊤ | proposed |  |
+| W-68 | feature | JSON-LD audit: id, anchor and reference integrity | G-35 | complicated | ⊤ | proposed | ★ |
+| W-69 | feature | JSON-LD audit: mirror and list cross-checks | G-35 | complicated | ⊤ | proposed | ★ |
+| W-70 | feature | Accessibility tree audit for landmarks and anchors | G-35 | complicated | ⊤ | proposed |  |
+| W-71 | feature | Dev wiring and DOM budget check | G-35 | clear | ⊤ | proposed | ★ |
+| W-72 | feature | Audit unit tests on fixture documents | G-35 | complicated | ⊤ | proposed |  |
 
 ## Decisions
 
@@ -29,6 +66,18 @@
 | D-08 | Bun stays the package manager and script runner | accepted |  |
 | D-09 | Semantic versioning pipeline stays unchanged | accepted |  |
 | D-10 | Flat islands directory replaces the components tree | accepted |  |
+| D-14 | Semantic document skeleton contract | accepted |  |
+| D-15 | Anchored JSON-LD entity graph contract | accepted |  |
+| D-16 | Ordered machine-readable head contract | accepted |  |
+| D-17 | LLM corpus surface contract | accepted |  |
+| D-18 | Dev-time semantics audit contract | accepted |  |
+
+## Open questions
+
+| ID | Question | Cynefin | Targets | Status |
+| --- | --- | --- | --- | --- |
+| Q-04 | Does the content layer expose raw markdown body for the full-text corpus? | complicated |  | answered |
+| Q-05 | Default social card image when a post has none | complicated |  | answered |
 
 ## Assumptions
 
@@ -36,12 +85,14 @@
 | --- | --- | --- | --- | --- |
 | B-02 | Bun drives the Astro 7 toolchain |  | W-01 | validated |
 | B-06 | Manual getStaticPaths emits the bare-first-plus-page-N URL set |  | W-06 | validated |
+| B-07 | CSS module classes re-attach to semantic tags without visual change |  | W-51 | validated |
 
 ## Themes
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
 | T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46, W-47, W-48, W-49, W-50 | – |
+| T-03 | Wrapper-div markup without landmarks | open | W-51, W-52, W-53, W-54, W-55, W-56 | W-51, W-52, W-53, W-54, W-55, W-56 |
 
 ## Discoveries
 
@@ -60,13 +111,48 @@
 
 ```mermaid
 graph TD
+  G_32["G-32: Semantic landmark skeleton on every page type"]:::goal
+  G_33["G-33: Anchored JSON-LD entity graph on every page"]:::goal
+  G_34["G-34: Complete machine-readable head and LLM surface"]:::goal
+  G_35["G-35: Semantics kept honest by audits and tests"]:::goal
+  W_51["W-51: Body skeleton: main + aside + skip-link, no wrapper divs"]:::done
+  W_52["W-52: Sidebar semantics: aside with nav, headed sections and footer"]:::feature
+  W_53["W-53: Feed semantics: headed section with article entries"]:::feature
+  W_54["W-54: Post page: article with header, hgroup, section and footer"]:::feature
+  W_55["W-55: List and hub pages: landmarks, headed lists, pagination nav"]:::feature
+  W_56["W-56: Static pages and 404: article landmark and honest 404"]:::feature
+  W_57["W-57: Route slice grammar: fragment-aware href and id"]:::feature,critical
+  W_58["W-58: SEO graph builders and JSON-LD emitter"]:::feature,critical
+  W_59["W-59: Home and paginated pages graph"]:::feature,critical
+  W_60["W-60: Post page graph: WebPage, BlogPosting, BreadcrumbList"]:::feature
+  W_61["W-61: Taxonomy graphs: CollectionPage lists and hubs"]:::feature
+  W_62["W-62: Static pages graph; 404 stays graph-free"]:::feature
+  W_63["W-63: base-head: ordered groups, robots directives, property og, og:url"]:::feature
+  W_64["W-64: Social card completeness: image dimensions and alt"]:::feature
+  W_65["W-65: llms.txt endpoint: curated site index for agents"]:::feature
+  W_66["W-66: llms-full.txt endpoint: full markdown corpus"]:::feature
+  W_67["W-67: robots.txt and sitemap exclusion wiring"]:::feature
+  W_68["W-68: JSON-LD audit: id, anchor and reference integrity"]:::feature,critical
+  W_69["W-69: JSON-LD audit: mirror and list cross-checks"]:::feature,critical
+  W_70["W-70: Accessibility tree audit for landmarks and anchors"]:::feature
+  W_71["W-71: Dev wiring and DOM budget check"]:::feature,critical
+  W_72["W-72: Audit unit tests on fixture documents"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
   D_10["D-10: Flat islands directory replaces the components tree"]:::decision
+  D_14["D-14: Semantic document skeleton contract"]:::decision
+  D_15["D-15: Anchored JSON-LD entity graph contract"]:::decision
+  D_16["D-16: Ordered machine-readable head contract"]:::decision
+  D_17["D-17: LLM corpus surface contract"]:::decision
+  D_18["D-18: Dev-time semantics audit contract"]:::decision
+  Q_04["Q-04: Does the content layer expose raw markdown body for the full-text corpus?"]:::question
+  Q_05["Q-05: Default social card image when a post has none"]:::question
   B_02["B-02: Bun drives the Astro 7 toolchain"]:::assumption
   B_06["B-06: Manual getStaticPaths emits the bare-first-plus-page-N URL set"]:::assumption
+  B_07["B-07: CSS module classes re-attach to semantic tags without visual change"]:::assumption
   T_02["T-02: Post-migration review findings"]:::theme
+  T_03["T-03: Wrapper-div markup without landmarks"]:::theme
   Y_01["Y-01: Vite CSS modules must mirror webpack camelCase exports"]:::discovery
   Y_02["Y-02: Astro 7 needs explicit unified markdown setup"]:::discovery
   Y_03["Y-03: Content layer images optimize only through render"]:::discovery
@@ -80,12 +166,14 @@ graph TD
   A_03["A-03: Interface and theming"]:::area
   A_04["A-04: Site services"]:::area
   A_05["A-05: Toolchain and delivery"]:::area
+  A_06["A-06: Semantics and discoverability"]:::area
   B_01 -.->|targets| W_02
   B_02 -.->|targets| W_01
   B_03 -.->|targets| W_10
   B_04 -.->|targets| W_03
   B_05 -.->|targets| W_06
   B_06 -.->|targets| W_06
+  B_07 -.->|targets| W_51
   D_12 -->|supersedes| D_11
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
@@ -129,6 +217,12 @@ graph TD
   T_02 -->|causes| W_48
   T_02 -->|causes| W_49
   T_02 -->|causes| W_50
+  T_03 -->|causes| W_51
+  T_03 -->|causes| W_52
+  T_03 -->|causes| W_53
+  T_03 -->|causes| W_54
+  T_03 -->|causes| W_55
+  T_03 -->|causes| W_56
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
@@ -170,7 +264,61 @@ graph TD
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
+  W_51 ==>|blocks| W_52
+  W_51 ==>|blocks| W_53
+  W_51 ==>|blocks| W_54
+  W_51 ==>|blocks| W_55
+  W_51 ==>|blocks| W_56
+  W_51 -->|implements| D_14
+  W_52 ==>|blocks| W_70
+  W_52 -->|implements| D_14
+  W_53 ==>|blocks| W_59
+  W_53 ==>|blocks| W_70
+  W_53 -->|implements| D_14
+  W_54 ==>|blocks| W_60
+  W_54 ==>|blocks| W_70
+  W_54 -->|implements| D_14
+  W_55 ==>|blocks| W_61
+  W_55 ==>|blocks| W_70
+  W_55 -->|implements| D_14
+  W_56 ==>|blocks| W_62
+  W_56 ==>|blocks| W_70
+  W_56 -->|implements| D_14
+  W_57 ==>|blocks| W_58
+  W_57 -->|implements| D_15
+  W_58 ==>|blocks| W_59
+  W_58 ==>|blocks| W_60
+  W_58 ==>|blocks| W_61
+  W_58 ==>|blocks| W_62
+  W_58 ==>|blocks| W_68
+  W_58 -->|implements| D_15
+  W_59 ==>|blocks| W_68
+  W_59 -->|implements| D_15
+  W_60 -->|implements| D_15
+  W_61 -->|implements| D_15
+  W_62 -->|implements| D_15
+  W_63 ==>|blocks| W_64
+  W_63 -->|implements| D_16
+  W_64 -->|implements| D_16
+  W_65 ==>|blocks| W_67
+  W_65 -->|implements| D_17
+  W_66 ==>|blocks| W_67
+  W_66 -->|implements| D_17
+  W_67 -->|implements| D_17
+  W_68 ==>|blocks| W_69
+  W_68 ==>|blocks| W_71
+  W_68 ==>|blocks| W_72
+  W_68 -->|implements| D_18
+  W_69 ==>|blocks| W_71
+  W_69 ==>|blocks| W_72
+  W_69 -->|implements| D_18
+  W_70 ==>|blocks| W_71
+  W_70 ==>|blocks| W_72
+  W_70 -->|implements| D_18
+  W_71 -->|implements| D_18
+  W_72 -->|implements| D_18
   Y_01 -->|distills| B_04
+  class W_57,W_58,W_59,W_68,W_69,W_71 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

@@ -1,6 +1,310 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:96accaf6d12a73627608a03aec5cbfb488cf327bda7593a6e85f5c93ce7a362f
+# checksum: sha256:173d542ea14902e6b9bc5c00abc71383a14d1e04b753021de850a5a4dcc9be6e
+g G-32 status=partial fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:13:16Z "Semantic landmark skeleton on every page type"
+  area: A-06
+  fitness_target: 6
+  fitness_current: 1
+
+g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
+  area: A-06
+  fitness_target: 6
+
+g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
+  area: A-06
+  fitness_target: 5
+
+g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
+  area: A-06
+  fitness_target: 5
+
+w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/islands/layout.astro, src/islands/page.astro, src/islands/base-layout.astro, src/assets/styles/modules/layout.module.scss, src/assets/styles/modules/page.module.scss
+  ac:
+    | Built HTML has exactly one main#page[tabindex=-1][aria-labelledby] holding the aside sidebar and the content column
+    | div.layout, div.page, div.inner and div.body wrappers are gone; the grid lives on body
+    | First focusable element in body is a skip-link targeting #page
+    | Zero visual diff versus the previous build in both color themes
+  hypothesis:
+    | Grid and spacing rules re-attach from wrapper divs onto body/aside/main with selector-only changes, so rendering stays identical.
+  evidence_strategy:
+    | astro build; grep built HTML for wrapper classes and landmark counts; theme screenshots compared before/after.
+  evidence:
+    | astro check 0 errors; build green (31 pages); built HTML: one main#page[tabindex=-1][aria-labelledby], aside sidebar inside main, zero div.page/div.inner/div.layout wrappers; skip-link first in body
+    | geometry parity 1280px across /, post, categories, 404, /page/1, tags, years, about: identical boxes old vs new; mobile 375px stacking identical (aside@15,0 section@15,510 feed@35,536)
+
+w W-52 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:39Z t_updated=2026-09-19T13:57:38Z "Sidebar semantics: aside with nav, headed sections and footer"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/islands/sidebar.astro, src/islands/sidebar-menu.astro, src/islands/sidebar-author.astro, src/islands/sidebar-contacts.astro, src/islands/sidebar-copyright.astro
+  ac:
+    | aside[aria-label] replaces div.sidebar; menu stays nav[aria-label]; author and contacts become sections with visually-hidden h2
+    | Copyright block renders as a footer element inside the aside; div.inner wrapper gone
+    | Sidebar landmark tree passes the D-14 heading/naming rules with zero visual diff
+  hypothesis:
+    | Section/aside/footer swaps keep the same DOM boxes once module classes re-attach, so the column renders identically.
+  evidence_strategy:
+    | astro build; built-HTML landmark inspection; both-theme screenshot parity.
+
+w W-53 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:55:46Z t_updated=2026-09-19T13:57:38Z "Feed semantics: headed section with article entries"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/islands/feed.astro
+  ac:
+    | Feed renders as a section with a visually-hidden h2 wrapping article entries; each entry has a stable id for graph anchoring
+    | Entry article exposes header (time[datetime] + category link), h2 title link, description p and a descriptive link to the post
+    | Feed list element carries an id for the ItemList anchor; zero visual diff
+  hypothesis:
+    | article/header wrappers styled by the existing module classes render pixel-identical to the div versions.
+  evidence_strategy:
+    | astro build; entry HTML inspection; screenshot parity.
+
+w W-54 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:00Z t_updated=2026-09-19T13:57:39Z "Post page: article with header, hgroup, section and footer"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/islands/post.astro, src/islands/post-content.astro, src/islands/post-footer.astro, src/islands/post-tags.astro, src/islands/post-author.astro
+  ac:
+    | Post renders as article#post[aria-labelledby=post-title]; header holds hgroup (h1#post-title) and the all-articles/theme toolbar without extra wrapper divs
+    | Rendered content sits in section#post-body; date, tags and author land in the article footer with time[datetime] ISO dates
+    | Tag list is a nav or footer list with descriptive links; zero visual diff
+  hypothesis:
+    | The post tree re-expresses div.post/content/footer as article/section/footer with re-attached classes, keeping pixels stable.
+  evidence_strategy:
+    | astro build on a content post; landmark inspection; screenshot parity.
+
+w W-55 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:02Z t_updated=2026-09-19T13:57:39Z "List and hub pages: landmarks, headed lists, pagination nav"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/pages/categories.astro, src/pages/tags.astro, src/pages/years.astro, src/pages/category/[...slug].astro, src/pages/tag/[...slug].astro, src/pages/year/[...slug].astro, src/pages/page/[...slug].astro, src/islands/pagination.astro
+  ac:
+    | Hub pages (categories, tags, years) render one h1 and grouped link lists as sections with headings; term pages reuse the feed semantics
+    | Pagination is nav[aria-label] rendering a[rel=prev]/a[rel=next] only when the target page exists; disabled state stays visual only
+    | Zero visual diff across hub, term and paginated pages
+  hypothesis:
+    | Hubs and pagination re-express wrappers with headed sections and a nav without changing boxes; dead disabled links become spans.
+  evidence_strategy:
+    | astro build; route sweep over hub/term/paginated HTML; screenshot parity.
+
+w W-56 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:09Z t_updated=2026-09-19T13:57:39Z "Static pages and 404: article landmark and honest 404"
+  goals: G-32
+  theme: T-03
+  fitness: G-32=+1
+  surface: src/pages/pages/[...slug].astro, src/pages/404.astro
+  ac:
+    | Static pages render article[aria-labelledby] with header (h1) and section body
+    | 404 renders main#page with an h1, explanatory text and a described link home
+    | Zero visual diff
+  hypothesis:
+    | Static templates adopt the shared skeleton components without layout regressions.
+  evidence_strategy:
+    | astro build on about/contacts/404; landmark inspection; screenshots.
+
+w W-57 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:19Z t_updated=2026-09-19T13:56:22Z "Route slice grammar: fragment-aware href and id"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/utils/routes.ts, src/utils/routes.test.ts
+  ac:
+    | Route gains shared slice constants (page, article, breadcrumb, feed) and id(site, slice) returning {site}{path}#{slice}; href(slice) returns the in-site anchor link
+    | Root route ids keep the trailing slash before the fragment; unit tests cover root, nested, and paginated paths
+  hypothesis:
+    | One shared id grammar for links and graph nodes prevents anchor drift between DOM and JSON-LD.
+  evidence_strategy:
+    | bun test routes.test.ts green covering id()/href() slice forms.
+
+w W-58 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:21Z t_updated=2026-09-19T13:57:26Z "SEO graph builders and JSON-LD emitter"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/utils/seo, src/islands/json-ld.astro
+  ac:
+    | Builders emit Person (#person root id, sameAs from contacts), WebSite (#web), WebPage, CollectionPage, Blog, BlogPosting, BreadcrumbList, ItemList and SiteNavigationElement nodes with @id === url and fragment slices
+    | mergeGraphs dedupes nodes by @id, strips per-node @context and emits one { @context, @graph } object; JsonLd component renders a single script[type=application/ld+json]
+    | bun tests pin root ids, breadcrumb positions, ItemList positions and merge dedupe
+  hypothesis:
+    | A typed builder module with one merge point keeps every page graph consistent and testable.
+  evidence_strategy:
+    | bun test on the seo module; built HTML shows exactly one ld+json script.
+
+w W-59 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:32Z t_updated=2026-09-19T13:57:26Z "Home and paginated pages graph"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/pages/index.astro, src/pages/page/[...slug].astro
+  ac:
+    | Home emits ProfilePage#page with isPartOf #web, mainEntity #person, hasPart feed WebPageElement whose mainEntity ItemList anchors the feed section and entry ids
+    | WebSite and Person nodes ship in the same merged graph; paginated pages reuse the graph with page-specific #page ids
+    | Every fragment used by the graph resolves to a DOM id on the rendered page
+  hypothesis:
+    | Anchoring the home graph to the feed landmarks produced by W-53 keeps the machine graph grounded in visible content.
+  evidence_strategy:
+    | astro build; extract ld+json from built home and page/1; check fragments against DOM ids.
+
+w W-60 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:34Z t_updated=2026-09-19T13:56:35Z "Post page graph: WebPage, BlogPosting, BreadcrumbList"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/pages/posts/[...slug].astro
+  ac:
+    | BlogPosting#article carries headline, keywords mirroring tags, ISO datePublished (and dateModified when available), author and publisher pointing at Person#person
+    | WebPage#page links breadcrumb and mainEntity reciprocally with the article node; breadcrumb trail is home > articles > post with the last crumb anchored to the article fragment
+    | All fragments resolve to DOM ids from W-54; JSON-LD description equals the meta description
+  hypothesis:
+    | A BlogPosting graph anchored to the article element with mirrored metas is the highest-signal port for a personal blog.
+  evidence_strategy:
+    | astro build on a tagged post; ld+json extraction and fragment/DOM cross-check.
+
+w W-61 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:44Z t_updated=2026-09-19T13:56:45Z "Taxonomy graphs: CollectionPage lists and hubs"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/pages/category/[...slug].astro, src/pages/tag/[...slug].astro, src/pages/year/[...slug].astro, src/pages/categories.astro, src/pages/tags.astro, src/pages/years.astro, src/pages/index.astro, src/pages/page/[...slug].astro
+  ac:
+    | Term pages (category, tag, year) emit CollectionPage+WebPage with mainEntity ItemList of member posts and a breadcrumb whose last crumb fragment equals the mainEntity anchor
+    | Hub pages (categories, tags, years) emit CollectionPage+WebPage with an ItemList of term links; paginated article pages attach to the Blog node at /#blog
+    | All fragments resolve to DOM ids; ItemList positions sequential from 1
+  hypothesis:
+    | CollectionPage with anchored ItemLists turns every taxonomy surface into a crawlable entity list.
+  evidence_strategy:
+    | astro build; ld+json extraction across one term page per taxonomy and all hubs; fragment checks.
+
+w W-62 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:45Z t_updated=2026-09-19T13:56:47Z "Static pages graph; 404 stays graph-free"
+  goals: G-33
+  fitness: G-33=+1
+  surface: src/pages/pages/[...slug].astro, src/pages/404.astro
+  ac:
+    | Static pages emit WebPage#page (isPartOf #web) with a home > page breadcrumb; description mirrors the meta description
+    | 404 emits no JSON-LD script
+  hypothesis:
+    | A minimal WebPage graph suits sparse static pages; an noindex error page gains nothing from a graph.
+  evidence_strategy:
+    | astro build on about/contacts/404; ld+json presence checks.
+
+w W-63 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:57Z t_updated=2026-09-19T13:56:59Z "base-head: ordered groups, robots directives, property og, og:url"
+  goals: G-34
+  fitness: G-34=+1
+  surface: src/islands/meta.astro, src/islands/base-layout.astro
+  ac:
+    | Head renders ordered groups: charset/viewport, robots, description, title, canonical, icons+manifest, og (property=), twitter, ld+json slot, sitemap link
+    | Robots default is index, follow, max-image-preview:large, max-snippet:-1; 404 overrides to noindex, follow
+    | og:url mirrors the canonical URL; og:site_name and og:locale (en) present; generator meta present; twitter tags kept in the twitter group
+  hypothesis:
+    | A grouped, robots-complete head with property-based og metas matches the reference contract and removes the name= og mistake.
+  evidence_strategy:
+    | astro build across page types; head HTML inspection for group order and values.
+
+w W-64 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:58Z t_updated=2026-09-19T13:56:59Z "Social card completeness: image dimensions and alt"
+  goals: G-34
+  fitness: G-34=+1
+  surface: src/islands/meta.astro, src/islands/base-layout.astro
+  ac:
+    | When a socialImage exists the head emits og:image (absolute), og:image:width/height from image metadata, og:image:alt and twitter:image:alt
+    | No image metas are emitted when the page has no social image (Q-05 resolution)
+  hypothesis:
+    | Complete image cards with dimensions prevent layout surprises in link unfurlers without inventing site assets.
+  evidence_strategy:
+    | astro build on a post with and without socialImage; head diff.
+
+w W-65 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:10Z t_updated=2026-09-19T13:57:13Z "llms.txt endpoint: curated site index for agents"
+  goals: G-34
+  fitness: G-34=+1
+  surface: src/pages/llms.txt.ts
+  ac:
+    | GET /llms.txt is prerendered as text/plain; charset=utf-8 and excluded from the sitemap
+    | Body: H1 site title, blockquote description, then grouped lists (articles, taxonomy hubs, static pages, recent posts) as [label](canonical-url): description lines
+  hypothesis:
+    | A curated markdown index at the conventional path makes the site navigable for LLM agents without HTML parsing.
+  evidence_strategy:
+    | astro build; inspect target/llms.txt; confirm sitemap exclusion.
+
+w W-66 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:11Z t_updated=2026-09-19T13:57:14Z "llms-full.txt endpoint: full markdown corpus"
+  goals: G-34
+  fitness: G-34=+1
+  surface: src/pages/llms-full.txt.ts
+  ac:
+    | GET /llms-full.txt is prerendered text/plain and excluded from the sitemap
+    | Every non-draft post and page emits: title heading, canonical URL line, description line, then the raw markdown body, entries separated by ---; drafts excluded
+    | Q-04 assumption verified against astro:content types before implementation (entry.body availability)
+  hypothesis:
+    | The content layer exposes raw markdown bodies, so the corpus endpoint is a pure read with no re-markdown step.
+  evidence_strategy:
+    | bun test on the generator; inspect target/llms-full.txt against content sources.
+
+w W-67 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:12Z t_updated=2026-09-19T13:57:14Z "robots.txt and sitemap exclusion wiring"
+  goals: G-34
+  fitness: G-34=+1
+  surface: public/robots.txt, astro.config.ts
+  ac:
+    | public/robots.txt allows all user agents and references the absolute sitemap-index URL
+    | Sitemap filter excludes llms.txt and llms-full.txt alongside the existing 404 exclusion
+  hypothesis:
+    | Explicit robots plus a clean sitemap closes the discovery loop for both crawlers and agents.
+  evidence_strategy:
+    | astro build; inspect target/robots.txt and sitemap-0.xml for exclusions.
+
+w W-68 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:25Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: id, anchor and reference integrity"
+  goals: G-35
+  fitness: G-35=+1
+  surface: src/utils/audit/schema-audit.ts
+  ac:
+    | Audit parses every ld+json script on the page and flattens nodes; errors on missing @id or url, @id !== url, same-page fragments without a DOM id, and references to undefined @ids
+    | Root ids missing the slash before the fragment are flagged; output prefixed [audit-schema] via console.error
+  hypothesis:
+    | Re-parsing the emitted graph against the DOM catches anchor drift at dev time before it ships.
+  evidence_strategy:
+    | bun test on fixture documents; dev run against home and a post page shows zero errors.
+
+w W-69 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:27Z t_updated=2026-09-19T13:57:51Z "JSON-LD audit: mirror and list cross-checks"
+  goals: G-35
+  fitness: G-35=+1
+  surface: src/utils/audit/schema-audit.ts
+  ac:
+    | Checks inLanguage equals html[lang], graph description equals the meta description, keywords equal article:tag metas as sets
+    | ListItem positions must be sequential from 1; the last breadcrumb crumb fragment must equal the page mainEntity fragment; numberOfItems matches rendered li counts for anchored lists
+  hypothesis:
+    | Cross-checking the graph against visible metas enforces the mirroring rule mechanically.
+  evidence_strategy:
+    | bun test fixtures with seeded mismatches; zero errors on real pages.
+
+w W-70 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:37Z t_updated=2026-09-19T13:57:51Z "Accessibility tree audit for landmarks and anchors"
+  goals: G-35
+  fitness: G-35=+1
+  surface: src/utils/audit/accessibility-audit.ts
+  ac:
+    | Every landmark (main, aside, nav, header, footer, section, article as region) has an accessible name via aria-labelledby or aria-label; sibling landmarks of the same role have distinct names
+    | Graph-anchored ids are unique, resolve to elements, and are not pruned by aria-hidden/hidden ancestors; images carry alt; headings are non-empty; interactive elements are named; anchored landmarks missing tabindex=-1 produce warnings
+  hypothesis:
+    | A tree audit keyed to the same anchors as the graph keeps the accessibility tree and the machine graph aligned.
+  evidence_strategy:
+    | bun test fixtures; dev run across all page types with zero errors.
+
+w W-71 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:39Z t_updated=2026-09-19T13:57:41Z "Dev wiring and DOM budget check"
+  goals: G-35
+  fitness: G-35=+1
+  surface: src/islands/base-layout.astro, src/utils/audit
+  ac:
+    | Both audits run only under import.meta.env.DEV from the layout and never in production HTML
+    | DOM budget warns past 1500 nodes or nesting depth 32
+    | Dev run across all page types reports zero audit errors
+  hypothesis:
+    | Wiring audits into the dev layout gives immediate feedback exactly where markup is edited.
+  evidence_strategy:
+    | Built HTML contains no audit script in prod; dev console clean across routes.
+
+w W-72 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:50Z t_updated=2026-09-19T13:57:52Z "Audit unit tests on fixture documents"
+  goals: G-35
+  fitness: G-35=+1
+  surface: src/utils/audit/schema-audit.test.ts, src/utils/audit/accessibility-audit.test.ts
+  ac:
+    | bun tests build fixture documents covering: id mismatch, dangling fragment, unnamed landmark, duplicate sibling landmark names, empty heading, missing alt, DOM budget overflow
+    | Each seeded defect is detected (error or warning as specified) and clean fixtures pass silently; suite green
+  hypothesis:
+    | Fixture-driven tests pin audit behavior better than manual dev inspection and survive refactors.
+  evidence_strategy:
+    | bun test green; defect-detection matrix in evidence.
+
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -56,6 +360,64 @@ d D-10 status=accepted t_created=2026-09-18T19:40:19Z t_updated=2026-09-18T19:40
   validation:
     | W-04 done; the final src tree matches the layout with no components directory.
 
+d D-14 status=accepted t_created=2026-09-19T13:53:38Z t_updated=2026-09-19T13:56:10Z "Semantic document skeleton contract"
+  context:
+    | Markup today is div-only (div.layout, div.page > div.inner, div.post, div.sidebar > div.inner); there are no landmarks, no headings for sections, and the sidebar sits beside main content with no main at all. Distilled from two audited reference implementations plus the semantic-SEO skill: crawlers build a signal graph from the tag skeleton.
+  decision:
+    | Body: one skip-link then exactly one main#page[tabindex=-1][aria-labelledby=<page h1 id>]; the sidebar column lives INSIDE main as aside; header/footer only where real metadata exists (page-level footer optional, local article/section header/footer encouraged). Every section carries an h (visually-hidden class when design hides it); a block that cannot earn a heading must not become a section. article = content that keeps its meaning when lifted out (feed entries, posts, list items); section = a facet of one entity. Nesting is section/article only, one heading per article, hgroup pairs title+subtitle. Landmarks and anchored blocks get unique ids plus aria-labelledby to a real heading id; nav groups repeat heading suffixes or aria-labels so sibling landmarks stay uniquely named. Wrapper divs that exist only for styling are removed; CSS moves to the semantic element (body can be the grid).
+  consequences:
+    | Removes div.page/div.inner/div.layout wrappers; styles re-attach to main/aside/section/article; visually-hidden utility added; DOM node count drops; parity with the current render is the acceptance bar.
+  validation:
+    | Built-HTML inspection: one main, no orphan wrapper divs, every section has a heading, aria-labelledby refs resolve; visual parity across themes.
+
+d D-15 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:56:47Z "Anchored JSON-LD entity graph contract"
+  context:
+    | No structured data exists today. Reference implementations converge on one pattern: a single JSON-LD script per page carrying an @graph, where @id equals the node url and the url fragment names a slice of the page that exists as a real DOM id.
+  decision:
+    | One script[type=application/ld+json] per page with @context https://schema.org and a merged, @id-deduped @graph. Id grammar: {site}{path}#{slice} built by the Route class; static root ids for Person (#person), WebSite (#web), and site-level lists; dynamic per-page ids for #page, content (#article/#story), #breadcrumb, and list anchors. Person is the author/publisher hub (sameAs from contacts). WebSite is the isPartOf target for every page. Page nodes use mainEntity + reciprocal mainEntityOfPage, hasPart + reciprocal isPartOf. BlogPosting (headline, keywords from tags, ISO dates) for posts; Blog+WebPage multi-type node for the articles index; CollectionPage+WebPage for tag/category/year lists and hubs; BreadcrumbList on every non-home page whose last crumb fragment equals the page mainEntity fragment; ItemList with sequential 1-based positions for feeds and hub lists; SiteNavigationElement mirroring the sidebar nav ids. Every jsonld property must be visible in the UI (mirroring rule); every fragment must resolve to a DOM id.
+  consequences:
+    | Adds src/utils/seo graph builders + emitter component; Route gains slice-aware id()/href(); audits (D-18) enforce the contract; tests pin builders.
+  validation:
+    | Graph builder unit tests; JSON-LD audit green in dev on every page type.
+
+d D-16 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:56:59Z "Ordered machine-readable head contract"
+  context:
+    | Meta tags today: title/description/twitter/og via name= attributes (og metas must use property=), no robots directives, no og:url/site_name/locale, head order is ad-hoc.
+  decision:
+    | base-head emits ordered groups: charset+viewport; robots (default index, follow, max-image-preview:large, max-snippet:-1; noindex, follow for 404); description; title; canonical self-referencing; icons+manifest; og:* with property= (type, site_name, locale, title, description, url mirroring canonical, image with width/height/alt when present); twitter:* (card, title, description, image, image:alt); single JSON-LD script; sitemap link. Description doubles as og:description and the graph description.
+  consequences:
+    | meta.astro restructured into grouped base-head; og metas switch name= to property=; new robots/og:url/og:site_name/og:locale/generator tags.
+  validation:
+    | Built-HTML head inspection per page type; audit cross-checks description and lang mirrors.
+
+d D-17 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57:14Z "LLM corpus surface contract"
+  context:
+    | No llms.txt, no full-text corpus endpoint today. Reference pattern: llms.txt as a curated index (H1 site name, blockquote description, grouped - [label](url): description lists) and llms-full.txt as the full markdown corpus (per page: title, URL, section, description, raw body), both prerendered text/plain endpoints excluded from the sitemap.
+  decision:
+    | Add src/pages/llms.txt.ts and llms-full.txt.ts Astro endpoints (GET, prerendered, text/plain; charset=utf-8). llms.txt indexes the home route, articles index, hubs, static pages and recent posts with descriptions. llms-full.txt emits the raw markdown body of every non-draft post and page in menu order with URL lines pointing at the canonical page. Sitemap filter excludes the .txt endpoints; robots.txt references the sitemap.
+  consequences:
+    | Two new routes; sitemap filter extended; raw body access required from the content layer.
+  validation:
+    | Built target/llms.txt and target/llms-full.txt content inspection; sitemap excludes them; bun tests for the generators.
+
+d D-18 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57:52Z "Dev-time semantics audit contract"
+  context:
+    | Reference implementations keep the JSON-LD/DOM contract honest with a build- or dev-time audit that re-parses the rendered page; without it anchors drift silently.
+  decision:
+    | Two dev-only audits (import.meta.env.DEV) wired from the layout, failing loudly via console.error. JSON-LD audit: parse every ld+json script, flatten nodes; every node has @id+url, @id === url, same-page fragments resolve to real DOM ids, references resolvable, ListItem positions sequential from 1, last breadcrumb crumb fragment equals page mainEntity fragment, inLanguage equals html[lang], graph description equals meta description, keywords equal article:tag metas. Accessibility audit: every landmark (main/aside/nav/header/footer/section/article) named via aria-labelledby or aria-label; sibling landmarks of the same role uniquely named; anchored ids unique and resolvable, not inside aria-hidden/hidden subtrees; images have alt; headings non-empty; interactive elements named; anchored landmarks focusable (tabindex=-1, warn). DOM budget: warn past 1500 nodes or depth 32.
+  consequences:
+    | src/utils/audit module with tests on fixture DOMs; dev overlay errors drive fixes; audits never ship to production HTML.
+  validation:
+    | bun test for audit modules on fixtures; dev run shows zero errors on all page types.
+
+q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T13:54:35Z "Does the content layer expose raw markdown body for the full-text corpus?"
+  outcome:
+    | Astro glob-loader entries expose entry.body (raw markdown source); to be confirmed in W-66 by reading astro:content types before the endpoint is written.
+
+q Q-05 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T13:54:28Z "Default social card image when a post has none"
+  outcome:
+    | No invented site asset: og:image group (image, width, height, alt) emitted only when a socialImage exists; sites without one simply omit the image metas, keeping the mirroring rule honest.
+
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
     | Run bun install, astro dev, astro build and bun test on the scaffold.
@@ -72,7 +434,13 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
+b B-07 status=validated cynefin=complicated t_created=2026-09-19T13:54:27Z t_updated=2026-09-19T14:13:15Z "CSS module classes re-attach to semantic tags without visual change"
+  result:
+    | Box-geometry parity proven: 8 page types old vs new identical layout/column/content rects (desktop 1280px) plus identical mobile stacking positions; only tag names changed.
+
 t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-19T00:18:15Z "Post-migration review findings"
+
+t T-03 status=open t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:56:09Z "Wrapper-div markup without landmarks"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -152,12 +520,15 @@ a A-04 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:
 a A-05 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:37Z "Toolchain and delivery"
   surface: package.json, astro.config.ts, .github, internal
 
+a A-06 status=present t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:53:32Z "Semantics and discoverability"
+
 e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
 e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
 e B-03 targets W-10 t_created=2026-09-18T19:27:57Z
 e B-04 targets W-03 t_created=2026-09-18T19:27:57Z
 e B-05 targets W-06 t_created=2026-09-18T19:27:58Z
 e B-06 targets W-06 t_created=2026-09-18T19:50:15Z
+e B-07 targets W-51 t_created=2026-09-19T13:55:31Z
 e D-12 supersedes D-11 t_created=2026-09-18T20:34:58Z
 e Q-01 asks W-05 t_created=2026-09-18T19:27:12Z
 e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
@@ -201,6 +572,12 @@ e T-02 causes W-47 t_created=2026-09-19T00:04:45Z
 e T-02 causes W-48 t_created=2026-09-19T00:11:40Z
 e T-02 causes W-49 t_created=2026-09-19T00:14:37Z
 e T-02 causes W-50 t_created=2026-09-19T00:16:14Z
+e T-03 causes W-51 t_created=2026-09-19T13:55:30Z
+e T-03 causes W-52 t_created=2026-09-19T13:55:39Z
+e T-03 causes W-53 t_created=2026-09-19T13:55:46Z
+e T-03 causes W-54 t_created=2026-09-19T13:56:00Z
+e T-03 causes W-55 t_created=2026-09-19T13:56:02Z
+e T-03 causes W-56 t_created=2026-09-19T13:56:09Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
@@ -242,6 +619,59 @@ e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
+e W-51 blocks W-52 t_created=2026-09-19T13:55:40Z
+e W-51 blocks W-53 t_created=2026-09-19T13:55:48Z
+e W-51 blocks W-54 t_created=2026-09-19T13:56:01Z
+e W-51 blocks W-55 t_created=2026-09-19T13:56:03Z
+e W-51 blocks W-56 t_created=2026-09-19T13:56:10Z
+e W-51 implements D-14 t_created=2026-09-19T13:55:31Z
+e W-52 blocks W-70 t_created=2026-09-19T13:57:38Z
+e W-52 implements D-14 t_created=2026-09-19T13:55:40Z
+e W-53 blocks W-59 t_created=2026-09-19T13:56:33Z
+e W-53 blocks W-70 t_created=2026-09-19T13:57:38Z
+e W-53 implements D-14 t_created=2026-09-19T13:55:48Z
+e W-54 blocks W-60 t_created=2026-09-19T13:56:35Z
+e W-54 blocks W-70 t_created=2026-09-19T13:57:39Z
+e W-54 implements D-14 t_created=2026-09-19T13:56:01Z
+e W-55 blocks W-61 t_created=2026-09-19T13:56:45Z
+e W-55 blocks W-70 t_created=2026-09-19T13:57:39Z
+e W-55 implements D-14 t_created=2026-09-19T13:56:03Z
+e W-56 blocks W-62 t_created=2026-09-19T13:56:46Z
+e W-56 blocks W-70 t_created=2026-09-19T13:57:39Z
+e W-56 implements D-14 t_created=2026-09-19T13:56:10Z
+e W-57 blocks W-58 t_created=2026-09-19T13:56:22Z
+e W-57 implements D-15 t_created=2026-09-19T13:56:20Z
+e W-58 blocks W-59 t_created=2026-09-19T13:56:33Z
+e W-58 blocks W-60 t_created=2026-09-19T13:56:35Z
+e W-58 blocks W-61 t_created=2026-09-19T13:56:45Z
+e W-58 blocks W-62 t_created=2026-09-19T13:56:46Z
+e W-58 blocks W-68 t_created=2026-09-19T13:57:26Z
+e W-58 implements D-15 t_created=2026-09-19T13:56:22Z
+e W-59 blocks W-68 t_created=2026-09-19T13:57:26Z
+e W-59 implements D-15 t_created=2026-09-19T13:56:34Z
+e W-60 implements D-15 t_created=2026-09-19T13:56:35Z
+e W-61 implements D-15 t_created=2026-09-19T13:56:45Z
+e W-62 implements D-15 t_created=2026-09-19T13:56:47Z
+e W-63 blocks W-64 t_created=2026-09-19T13:56:59Z
+e W-63 implements D-16 t_created=2026-09-19T13:56:58Z
+e W-64 implements D-16 t_created=2026-09-19T13:56:59Z
+e W-65 blocks W-67 t_created=2026-09-19T13:57:13Z
+e W-65 implements D-17 t_created=2026-09-19T13:57:11Z
+e W-66 blocks W-67 t_created=2026-09-19T13:57:14Z
+e W-66 implements D-17 t_created=2026-09-19T13:57:12Z
+e W-67 implements D-17 t_created=2026-09-19T13:57:14Z
+e W-68 blocks W-69 t_created=2026-09-19T13:57:28Z
+e W-68 blocks W-71 t_created=2026-09-19T13:57:41Z
+e W-68 blocks W-72 t_created=2026-09-19T13:57:51Z
+e W-68 implements D-18 t_created=2026-09-19T13:57:27Z
+e W-69 blocks W-71 t_created=2026-09-19T13:57:41Z
+e W-69 blocks W-72 t_created=2026-09-19T13:57:51Z
+e W-69 implements D-18 t_created=2026-09-19T13:57:28Z
+e W-70 blocks W-71 t_created=2026-09-19T13:57:41Z
+e W-70 blocks W-72 t_created=2026-09-19T13:57:51Z
+e W-70 implements D-18 t_created=2026-09-19T13:57:39Z
+e W-71 implements D-18 t_created=2026-09-19T13:57:41Z
+e W-72 implements D-18 t_created=2026-09-19T13:57:52Z
 e Y-01 distills B-04 t_created=2026-09-18T20:12:16Z
 
 :archive

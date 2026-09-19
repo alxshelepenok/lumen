@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
-import Sidebar from "@/islands/sidebar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
@@ -17,7 +16,6 @@ const categories = getGroups(posts, categoryOf);
 
 <BaseLayout title={`Categories - ${title}`} description={description}>
   <Layout>
-    <Sidebar />
     <Page title="Categories">
       <ul>
         {

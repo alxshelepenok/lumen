@@ -12,11 +12,9 @@ import type { ImageVariant } from "@/utils/images";
 
 interface Props {
   author: Pick<SiteMetadataAuthor, "title" | "description">;
-  isHome?: boolean;
 }
 
-const { author, isHome } = Astro.props;
-const Title = isHome ? "h1" : "h2";
+const { author } = Astro.props;
 
 const widths = [48, 96, 192];
 
@@ -52,11 +50,11 @@ const variants: ImageVariant[] = await Promise.all(
   </a>
 
   <div class={styles.titleContainer}>
-    <Title class={styles.title}>
+    <h2 class={styles.title}>
       <a class={styles.link} href="/">
         {author.title}
       </a>
-    </Title>
+    </h2>
     <ThemeToggle />
   </div>
   <p class={styles.description}>{author.description}</p>

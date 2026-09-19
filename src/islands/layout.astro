@@ -1,7 +1,17 @@
 ---
 import styles from "@/assets/styles/modules/layout.module.scss";
+
+import Sidebar from "@/islands/sidebar.astro";
+
+interface Props {
+  labelledBy?: string;
+  sidebar?: boolean;
+}
+
+const { labelledBy = "page-title", sidebar = true } = Astro.props;
 ---
 
-<div class={styles.layout}>
+<main id="page" tabindex="-1" aria-labelledby={labelledBy} class={styles.layout}>
+  {sidebar && <Sidebar />}
   <slot />
-</div>
+</main>

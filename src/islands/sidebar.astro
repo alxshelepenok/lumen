@@ -8,19 +8,14 @@ import SidebarMenu from "@/islands/sidebar-menu.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
-interface Props {
-  isHome?: boolean;
-}
-
-const { isHome } = Astro.props;
 const { author, copyright, menu } = getSiteMetadata();
 ---
 
-<div class={styles.sidebar}>
+<aside class={styles.sidebar} aria-label="About the author">
   <div class={styles.inner}>
-    <SidebarAuthor author={author} isHome={isHome} />
+    <SidebarAuthor author={author} />
     <SidebarMenu menu={menu} />
     <SidebarContacts contacts={author.contacts} />
     <SidebarCopyright copyright={copyright} />
   </div>
-</div>
+</aside>
