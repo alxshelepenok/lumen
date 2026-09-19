@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:5d23a10c7299df1e1bc1a301eb07a80ab5cdfeb101c1e9f90e660ca56b4457bc
+# checksum: sha256:ee861623a7c5e4a3fd48f9d1291cac37b8ca6fa4f57eb2c0267cf6e649eb23be
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -16,10 +16,10 @@ g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
   fitness_target: 5
   fitness_current: 5
 
-g G-35 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:16:33Z "Semantics kept honest by audits and tests"
+g G-35 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:38:54Z "Semantics kept honest by audits and tests"
   area: A-06
   fitness_target: 5
-  fitness_current: 4
+  fitness_current: 5
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -351,7 +351,7 @@ w W-71 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:39Z t_u
     | both audits imported under import.meta.env.DEV in base-layout (dev bundle imports audit/schema-audit.ts and audit/accessibility-audit.ts, both resolve 200 on the dev server); prod build contains zero audit code; auditDomBudget warns past 1500 nodes / depth 32
     | full-page sweep via DOM-tree parser: errors=0 across all 11 route types (icon contact links now carry aria-label; photo link named by descendant img alt); DOM budget healthy: 68-141 nodes, depth 9-10; remaining warnings are tabindex=-1 hints on anchored landmarks
 
-w W-72 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:50Z t_updated=2026-09-19T13:57:52Z "Audit unit tests on fixture documents"
+w W-72 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:50Z t_updated=2026-09-19T15:38:54Z "Audit unit tests on fixture documents"
   goals: G-35
   fitness: G-35=+1
   surface: src/utils/audit/schema-audit.test.ts, src/utils/audit/accessibility-audit.test.ts
@@ -362,6 +362,8 @@ w W-72 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | Fixture-driven tests pin audit behavior better than manual dev inspection and survive refactors.
   evidence_strategy:
     | bun test green; defect-detection matrix in evidence.
+  evidence:
+    | src/utils/audit/audit.test.ts (bun): 14 audit tests covering id/url mismatch, dangling same-page fragment, root-no-slash, dangling reference, grounded pass-through, broken list positions, unnamed landmark, duplicate and distinct sibling landmark names, empty heading, missing alt, hidden anchor, tabindex warning, dom budget metrics; suite 43 pass 0 fail; astro check 0 errors
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

@@ -247,23 +247,28 @@ const toElement = (element: Element): A11yElement => {
   };
 };
 
-const auditDomBudget = (doc: Document): void => {
+const domBudgetOf = (root: A11yElement): { count: number; depth: number } => {
   let count = 0;
   let depth = 0;
 
-  const walk = (element: Element, level: number) => {
+  const walk = (element: A11yElement, level: number) => {
     count += 1;
 
     if (level > depth) {
       depth = level;
     }
 
-    for (const child of Array.from(element.children)) {
+    for (const child of element.children ?? []) {
       walk(child, level + 1);
     }
   };
 
-  walk(doc.body, 1);
+  walk(root, 1);
+  return { count, depth };
+};
+
+const auditDomBudget = (doc: Document): void => {
+  const { count, depth } = domBudgetOf(toElement(doc.body));
 
   if (count > 1500) {
     console.warn(`[audit-a11y] DOM node count ${count} exceeds the 1500 budget`);
@@ -320,5 +325,5 @@ const runAccessibilityAudit = (doc: Document): void => {
   auditDomBudget(doc);
 };
 
-export { auditAccessibility, auditDomBudget, runAccessibilityAudit };
+export { auditAccessibility, auditDomBudget, domBudgetOf, runAccessibilityAudit };
 export type { A11yAuditInput, A11yElement, A11yWarning };
