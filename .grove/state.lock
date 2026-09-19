@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:718ded50f8b3f145bbb67ec3fc289abdd79890ec4cf9fd3b82a47b9f0729bf68
+# checksum: sha256:08543d76ba8adfefa3241794b80f2a78051525ed9e928252da6d5d0dad1aa40a
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -14,7 +14,7 @@ g G-33 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
 g G-34 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:10:04Z "Complete machine-readable head and LLM surface"
   area: A-06
   fitness_target: 5
-  fitness_current: 3
+  fitness_current: 4
 
 g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
   area: A-06
@@ -260,7 +260,7 @@ w W-65 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:10Z t_u
   evidence:
     | target/llms.txt prerendered: H1 site title, blockquote description, groups Pages (hubs + static pages), Recent articles, Categories, Tags, Years as [label](absolute-url): description lines, 27 links total, pointer to llms-full.txt
 
-w W-66 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:11Z t_updated=2026-09-19T13:57:14Z "llms-full.txt endpoint: full markdown corpus"
+w W-66 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:11Z t_updated=2026-09-19T15:13:16Z "llms-full.txt endpoint: full markdown corpus"
   goals: G-34
   fitness: G-34=+1
   surface: src/pages/llms-full.txt.ts
@@ -272,6 +272,8 @@ w W-66 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | The content layer exposes raw markdown bodies, so the corpus endpoint is a pure read with no re-markdown step.
   evidence_strategy:
     | bun test on the generator; inspect target/llms-full.txt against content sources.
+  evidence:
+    | target/llms-full.txt prerendered (175 lines): site header (H1, quote, Site url), then per page/post: title heading, URL line, Description, Date/Tags for posts, raw markdown body, --- separators; Q-04 confirmed against astro content types (body?: string) before implementation
 
 w W-67 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:12Z t_updated=2026-09-19T13:57:14Z "robots.txt and sitemap exclusion wiring"
   goals: G-34
@@ -451,9 +453,9 @@ d D-18 status=accepted t_created=2026-09-19T13:53:39Z t_updated=2026-09-19T13:57
   validation:
     | bun test for audit modules on fixtures; dev run shows zero errors on all page types.
 
-q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T13:54:35Z "Does the content layer expose raw markdown body for the full-text corpus?"
+q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
-    | Astro glob-loader entries expose entry.body (raw markdown source); to be confirmed in W-66 by reading astro:content types before the endpoint is written.
+    | Confirmed in astro content types (data-store.d.ts: body?: string, the raw body of the content) and exercised by W-66: post.body and page.body return the markdown source.
 
 q Q-05 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T13:54:28Z "Default social card image when a post has none"
   outcome:
