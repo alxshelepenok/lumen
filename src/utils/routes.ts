@@ -35,7 +35,7 @@ class Route {
   }
 
   canonical(site: string): string {
-    return `${site}${this.href()}`;
+    return `${site.replace(/\/$/, "")}${this.href()}`;
   }
 
   id(site: string, slice: Slice): string {

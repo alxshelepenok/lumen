@@ -8,7 +8,11 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 const { title, description } = getSiteMetadata();
 ---
 
-<BaseLayout title={`Not Found - ${title}`} description={description}>
+<BaseLayout
+  title={`Not Found - ${title}`}
+  description={description}
+  robots="noindex, follow"
+>
   <Layout>
     <Page title="NOT FOUND">
       <p>You just hit a route that doesn't exist... the sadness.</p>

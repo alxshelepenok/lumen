@@ -1,9 +1,9 @@
 ---
 import "@/assets/styles/main.scss";
 
+import BaseHead from "@/islands/base-head.astro";
 import IconSprite from "@/islands/icon-sprite.astro";
 import JsonLd from "@/islands/json-ld.astro";
-import Meta from "@/islands/meta.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import type { JsonLdGraph } from "@/utils/seo";
@@ -14,10 +14,12 @@ interface Props {
   description?: string;
   image?: string;
   jsonLd?: JsonLdGraph;
+  ogType?: string;
+  robots?: string;
   title: string;
 }
 
-const { description = "", image, jsonLd, title } = Astro.props;
+const { description = "", image, jsonLd, ogType, robots, title } = Astro.props;
 const { googleAnalyticsId } = getSiteMetadata();
 
 const canonical = new Route(Astro.url.pathname).canonical(
@@ -52,20 +54,15 @@ const themeScript = `
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <Meta title={title} description={description} image={image} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      canonical={canonical}
+      ogType={ogType}
+      robots={robots}
+    />
     {jsonLd ? <JsonLd data={jsonLd} /> : null}
-    <link rel="canonical" href={canonical} />
-    <link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous" />
-    <meta name="theme-color" content="hsl(31, 92%, 62%)" />
-    <link rel="icon" href="/icon-32x32.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
-    <link rel="apple-touch-icon" sizes="256x256" href="/icon-256x256.png" />
-    <link rel="apple-touch-icon" sizes="384x384" href="/icon-384x384.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <script
       is:inline

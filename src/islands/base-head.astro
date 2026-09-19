@@ -1,0 +1,59 @@
+---
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+interface Props {
+  canonical: string;
+  description: string;
+  image?: string;
+  ogType?: string;
+  robots?: string;
+  title: string;
+}
+
+const {
+  canonical,
+  description,
+  image,
+  ogType = "website",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1",
+  title,
+} = Astro.props;
+
+const { title: siteTitle } = getSiteMetadata();
+---
+
+<meta name="robots" content={robots} />
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<link rel="canonical" href={canonical} />
+<link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous" />
+<meta name="theme-color" content="hsl(31, 92%, 62%)" />
+<link rel="icon" href="/icon-32x32.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="48x48" href="/icon-48x48.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="96x96" href="/icon-96x96.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.png" />
+<link rel="apple-touch-icon" sizes="256x256" href="/icon-256x256.png" />
+<link rel="apple-touch-icon" sizes="384x384" href="/icon-384x384.png" />
+<link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.png" />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteTitle} />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{
+  image ? (
+    <>
+      <meta property="og:image" content={image} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={image} />
+    </>
+  ) : (
+    <meta name="twitter:card" content="summary" />
+  )
+}
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />

@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:21933b842f9df8c3e540d6bb40a36f45fc6ed8664698ada753a59d133b12dd8d
+# checksum: sha256:c32e100d89d8794510402a89c6de196548859eab38ac1aa31fbc739e95acea6f
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -11,9 +11,10 @@ g G-33 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
   fitness_target: 6
   fitness_current: 6
 
-g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
+g G-34 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:10:04Z "Complete machine-readable head and LLM surface"
   area: A-06
   fitness_target: 5
+  fitness_current: 1
 
 g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
   area: A-06
@@ -215,7 +216,7 @@ w W-62 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:45Z t_u
     | static pages emit WebPage#page (isPartOf #web, breadcrumb ref, description mirroring meta) with a 2-crumb trail whose last crumb targets #page; 404 emits no ld+json script
     | anchor script ALL GROUNDED on /pages/about/; astro check 0 errors; bun test 29 pass
 
-w W-63 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:57Z t_updated=2026-09-19T13:56:59Z "base-head: ordered groups, robots directives, property og, og:url"
+w W-63 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:57Z t_updated=2026-09-19T15:10:04Z "base-head: ordered groups, robots directives, property og, og:url"
   goals: G-34
   fitness: G-34=+1
   surface: src/islands/meta.astro, src/islands/base-layout.astro
@@ -227,6 +228,9 @@ w W-63 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:57Z
     | A grouped, robots-complete head with property-based og metas matches the reference contract and removes the name= og mistake.
   evidence_strategy:
     | astro build across page types; head HTML inspection for group order and values.
+  evidence:
+    | base-head.astro replaces meta.astro with ordered groups (robots, description, generator, title, canonical, manifest+icons, property-based og incl og:url/site_name/locale/type, twitter with card type switching); 404 robots=noindex,follow; posts og:type=article; Route.canonical fixed trailing-slash doubling (old bug: https://site//)
+    | built HTML verified: robots default with max-snippet:-1 and max-image-preview:large, og metas via property=, og:url mirrors fixed canonical; bun test 29 pass; astro check 0 errors
 
 w W-64 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:56:58Z t_updated=2026-09-19T13:56:59Z "Social card completeness: image dimensions and alt"
   goals: G-34

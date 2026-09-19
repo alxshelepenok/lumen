@@ -44,6 +44,7 @@ const jsonLd = postGraph(slug, {
   description={post.data.description || description}
   image={image}
   jsonLd={jsonLd}
+  ogType="article"
 >
   <Layout labelledBy="post-title" sidebar={false}>
     <Post

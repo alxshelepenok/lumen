@@ -25,6 +25,7 @@ describe("Route", () => {
     expect(new Route("/pages/about").canonical(site)).toBe(
       `${site}/pages/about/`
     );
+    expect(new Route("/").canonical(`${site}/`)).toBe(`${site}/`);
   });
 
   it("builds graph ids with a slice fragment on the canonical form", () => {
