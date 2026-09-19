@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f3526a150d14e244cfa966171450f7fc56044070ea2c0b37210aaeae0d6339f3
+# checksum: sha256:5d23a10c7299df1e1bc1a301eb07a80ab5cdfeb101c1e9f90e660ca56b4457bc
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -19,7 +19,7 @@ g G-34 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
 g G-35 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:16:33Z "Semantics kept honest by audits and tests"
   area: A-06
   fitness_target: 5
-  fitness_current: 3
+  fitness_current: 4
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -335,7 +335,7 @@ w W-70 type=feature status=done cynefin=complicated t_created=2026-09-19T13:57:3
     | src/utils/audit/accessibility-audit.ts: pure auditAccessibility over an element tree (landmark naming incl scoped header/footer rules, named section/article regions, sibling landmark uniqueness, img alt, non-empty headings, interactive naming, graph anchors unique/resolvable/not hidden, tabindex=-1 warnings) + runAccessibilityAudit DOM adapter with [audit-a11y] prefix
     | synthetic harness: healthy tree 0 errors; broken tree catches unnamed main/nav, unnamed link, missing alt, empty heading, hidden and dangling anchors; warnings for missing tabindex
 
-w W-71 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:39Z t_updated=2026-09-19T13:57:41Z "Dev wiring and DOM budget check"
+w W-71 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:39Z t_updated=2026-09-19T15:36:25Z "Dev wiring and DOM budget check"
   goals: G-35
   fitness: G-35=+1
   surface: src/islands/base-layout.astro, src/utils/audit
@@ -347,6 +347,9 @@ w W-71 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:39Z
     | Wiring audits into the dev layout gives immediate feedback exactly where markup is edited.
   evidence_strategy:
     | Built HTML contains no audit script in prod; dev console clean across routes.
+  evidence:
+    | both audits imported under import.meta.env.DEV in base-layout (dev bundle imports audit/schema-audit.ts and audit/accessibility-audit.ts, both resolve 200 on the dev server); prod build contains zero audit code; auditDomBudget warns past 1500 nodes / depth 32
+    | full-page sweep via DOM-tree parser: errors=0 across all 11 route types (icon contact links now carry aria-label; photo link named by descendant img alt); DOM budget healthy: 68-141 nodes, depth 9-10; remaining warnings are tabindex=-1 hints on anchored landmarks
 
 w W-72 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:50Z t_updated=2026-09-19T13:57:52Z "Audit unit tests on fixture documents"
   goals: G-35

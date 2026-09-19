@@ -99,6 +99,19 @@ const themeScript = `
       `}
     />
     <script is:inline set:html={themeScript} />
+    {
+      import.meta.env.DEV && (
+        <script>
+          import { runSchemaAudit } from "@/utils/audit/schema-audit";
+          import { runAccessibilityAudit } from "@/utils/audit/accessibility-audit";
+
+          document.addEventListener("DOMContentLoaded", () => {
+            runSchemaAudit(document);
+            runAccessibilityAudit(document);
+          });
+        </script>
+      )
+    }
   </head>
   <body>
     <a href="#page" class="skip-link">

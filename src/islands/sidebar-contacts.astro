@@ -27,6 +27,7 @@ const { contacts } = Astro.props;
             {name === "email" ? (
               <span
                 class={styles.link}
+                aria-label={name.charAt(0).toUpperCase() + name.slice(1)}
                 data-email-contact={getContactHref(name, contact)}
               >
                 <Icon name={name} />
@@ -35,6 +36,7 @@ const { contacts } = Astro.props;
               <a
                 target="_blank"
                 class={styles.link}
+                aria-label={name.charAt(0).toUpperCase() + name.slice(1)}
                 href={getContactHref(name, contact)}
                 rel={`noopener noreferrer${name === "mastodon" ? " me" : ""}`}
               >

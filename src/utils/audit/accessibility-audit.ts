@@ -54,6 +54,20 @@ const flatten = (root: A11yElement): Visited[] => {
   return visited;
 };
 
+const descendantAlt = (element: A11yElement): string[] => {
+  const alts: string[] = [];
+
+  for (const child of element.children ?? []) {
+    if (child.tag.toLowerCase() === "img" && child.alt && child.alt.trim()) {
+      alts.push(child.alt);
+    }
+
+    alts.push(...descendantAlt(child));
+  }
+
+  return alts;
+};
+
 const auditAccessibility = (
   input: A11yAuditInput
 ): { errors: A11yWarning[]; warnings: A11yWarning[] } => {
@@ -125,10 +139,12 @@ const auditAccessibility = (
     }
 
     if (element.interactive) {
+      const descendantAlts = descendantAlt(element);
       const name =
         nameOf(element) ??
         (element.text && element.text.trim() ? element.text : null) ??
-        (element.alt && element.alt.trim() ? element.alt : null);
+        (element.alt && element.alt.trim() ? element.alt : null) ??
+        (descendantAlts.length > 0 ? descendantAlts.join(" ") : null);
 
       if (!name) {
         errors.push({
@@ -231,6 +247,33 @@ const toElement = (element: Element): A11yElement => {
   };
 };
 
+const auditDomBudget = (doc: Document): void => {
+  let count = 0;
+  let depth = 0;
+
+  const walk = (element: Element, level: number) => {
+    count += 1;
+
+    if (level > depth) {
+      depth = level;
+    }
+
+    for (const child of Array.from(element.children)) {
+      walk(child, level + 1);
+    }
+  };
+
+  walk(doc.body, 1);
+
+  if (count > 1500) {
+    console.warn(`[audit-a11y] DOM node count ${count} exceeds the 1500 budget`);
+  }
+
+  if (depth > 32) {
+    console.warn(`[audit-a11y] DOM depth ${depth} exceeds the 32 budget`);
+  }
+};
+
 const runAccessibilityAudit = (doc: Document): void => {
   const scripts = Array.from(
     doc.querySelectorAll('script[type="application/ld+json"]')
@@ -259,7 +302,7 @@ const runAccessibilityAudit = (doc: Document): void => {
 
   const { errors, warnings } = auditAccessibility({
     anchors: [...new Set(anchors)],
-    root: toElement(doc.body),
+    root: toElement(doc.documentElement),
   });
 
   for (const error of errors) {
@@ -273,7 +316,9 @@ const runAccessibilityAudit = (doc: Document): void => {
       `[audit-a11y] ${warning.id ? `${warning.id}: ` : ""}${warning.message}`
     );
   }
+
+  auditDomBudget(doc);
 };
 
-export { auditAccessibility, runAccessibilityAudit };
+export { auditAccessibility, auditDomBudget, runAccessibilityAudit };
 export type { A11yAuditInput, A11yElement, A11yWarning };
