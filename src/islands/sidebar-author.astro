@@ -1,9 +1,14 @@
 ---
+import { getImage } from "astro:assets";
+
 import styles from "@/assets/styles/modules/sidebar-author.module.scss";
 
+import logo from "@/content/logo.png";
+import Picture from "@/islands/picture.astro";
 import ThemeToggle from "@/islands/theme-toggle.astro";
-
 import type { SiteMetadataAuthor } from "@/utils/get-site-metadata";
+import { largestVariant, srcSetFrom, srcSetWebpFrom } from "@/utils/images";
+import type { ImageVariant } from "@/utils/images";
 
 interface Props {
   author: Pick<SiteMetadataAuthor, "title" | "photo" | "description">;
@@ -12,11 +17,38 @@ interface Props {
 
 const { author, isHome } = Astro.props;
 const Title = isHome ? "h1" : "h2";
+
+const widths = [48, 96, 192];
+
+const variants: ImageVariant[] = await Promise.all(
+  widths.map(async (width) => {
+    const [original, webp] = await Promise.all([
+      getImage({ src: logo, width, format: "png" }),
+      getImage({ src: logo, width, format: "webp" }),
+    ]);
+
+    return {
+      src: original.src,
+      srcWebp: webp.src,
+      width,
+      height: Math.round((width * logo.height) / logo.width),
+    };
+  })
+);
 ---
 
 <div class={styles.sidebarAuthor}>
   <a href="/">
-    <img src={author.photo} alt={author.title} class={styles.photo} />
+    <Picture
+      class={styles.photo}
+      alt={author.title}
+      src={largestVariant(variants).src}
+      srcset={srcSetFrom(variants)}
+      srcsetWebp={srcSetWebpFrom(variants)}
+      sizes="96px"
+      width={96}
+      height={Math.round((96 * logo.height) / logo.width)}
+    />
   </a>
 
   <div class={styles.titleContainer}>

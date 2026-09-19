@@ -21,6 +21,18 @@
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-28 | Images embed through the reference picture pattern | count; current=1 target=2 | partial |
+
+## Work items
+
+| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| W-46 | feature | Port the picture island and the image srcset utils | G-28 | complicated | ⊤ | done |  |
+
 ## Decisions
 
 | ID | Title | Status | Supersedes |
@@ -41,7 +53,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45 | – |
+| T-02 | Post-migration review findings | done | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46 | W-46 |
 
 ## Discoveries
 
@@ -58,6 +70,8 @@
 
 ```mermaid
 graph TD
+  G_28["G-28: Images embed through the reference picture pattern"]:::goal
+  W_46["W-46: Port the picture island and the image srcset utils"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -120,6 +134,7 @@ graph TD
   T_02 -->|causes| W_43
   T_02 -->|causes| W_44
   T_02 -->|causes| W_45
+  T_02 -->|causes| W_46
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07

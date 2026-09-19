@@ -1,6 +1,26 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:2d4400d8b9f32f693963090c84c474291e5d03d9118542ca737863a12a06fc33
+# checksum: sha256:4c2593ff9607fb5e8f73e903599ae51aa1db7b759434c2a20a5ff6c7006351b5
+g G-28 status=partial fitness_kind=count t_created=2026-09-19T00:03:09Z t_updated=2026-09-19T00:04:44Z "Images embed through the reference picture pattern"
+  area: A-01
+  fitness_target: 2
+  fitness_current: 1
+
+w W-46 type=feature status=done cynefin=complicated t_created=2026-09-19T00:03:09Z t_updated=2026-09-19T00:04:44Z "Port the picture island and the image srcset utils"
+  goals: G-28
+  theme: T-02
+  fitness: G-28=+1
+  surface: src/islands/picture.astro, src/utils/images.ts, src/islands/sidebar-author.astro
+  ac:
+    | A picture island renders the exact reference tag set (picture wrapper, webp source, img with original srcset, sizes, width, height, loading, decoding, fetchpriority) backed by srcset utils.
+    | The author photo embeds through the picture island with generated webp and original variants.
+  hypothesis:
+    | Porting the reference picture island and building variants through astro getImage keeps the markup identical to the house standard.
+  evidence_strategy:
+    | Rendered markup comparison against the reference tag set plus a green build.
+  evidence:
+    | picture.astro and images.ts ported one to one from the reference (same props, same tag set, same attribute order) and the author photo embeds through it with 48, 96 and 192 variants in webp plus png: the built markup shows the picture wrapper, the webp source and the img carrying the original srcset, sizes, width, height, loading and decoding exactly like the reference logo.
+
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -72,7 +92,7 @@ b B-06 status=validated cynefin=complicated t_created=2026-09-18T19:50:15Z t_upd
   result:
     | W-01 probe emitted /category/sample/, /category/sample/page/2/ and /category/sample/page/3/ in dist.
 
-t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-18T23:57:35Z "Post-migration review findings"
+t T-02 status=done t_created=2026-09-18T21:42:28Z t_updated=2026-09-19T00:04:44Z "Post-migration review findings"
 
 y Y-01 status=active t_created=2026-09-18T20:12:16Z t_updated=2026-09-18T20:12:17Z "Vite CSS modules must mirror webpack camelCase exports"
   tags: css-modules, vite
@@ -180,6 +200,7 @@ e T-02 causes W-42 t_created=2026-09-18T23:48:05Z
 e T-02 causes W-43 t_created=2026-09-18T23:49:24Z
 e T-02 causes W-44 t_created=2026-09-18T23:53:40Z
 e T-02 causes W-45 t_created=2026-09-18T23:57:34Z
+e T-02 causes W-46 t_created=2026-09-19T00:03:10Z
 e W-01 blocks W-02 t_created=2026-09-18T19:28:14Z
 e W-01 blocks W-03 t_created=2026-09-18T19:28:14Z
 e W-01 implements D-07 t_created=2026-09-18T19:28:17Z
