@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f55ae92edf9bb1d8f5e62bb0170fef6e983650042a42ce080e571d8b1547175c
+# checksum: sha256:718ded50f8b3f145bbb67ec3fc289abdd79890ec4cf9fd3b82a47b9f0729bf68
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -14,7 +14,7 @@ g G-33 status=verified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updat
 g G-34 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T15:10:04Z "Complete machine-readable head and LLM surface"
   area: A-06
   fitness_target: 5
-  fitness_current: 2
+  fitness_current: 3
 
 g G-35 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Semantics kept honest by audits and tests"
   area: A-06
@@ -246,7 +246,7 @@ w W-64 type=feature status=done cynefin=clear t_created=2026-09-19T13:56:58Z t_u
   evidence:
     | posts with socialImage emit og:image + og:image:width/height (from image metadata) + og:image:alt and twitter:image:alt (verified 5753x3828 + title alt on a tagged post); pages without a social image emit no image metas (Q-05), twitter:card falls back to summary
 
-w W-65 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:10Z t_updated=2026-09-19T13:57:13Z "llms.txt endpoint: curated site index for agents"
+w W-65 type=feature status=done cynefin=clear t_created=2026-09-19T13:57:10Z t_updated=2026-09-19T15:12:07Z "llms.txt endpoint: curated site index for agents"
   goals: G-34
   fitness: G-34=+1
   surface: src/pages/llms.txt.ts
@@ -257,6 +257,8 @@ w W-65 type=feature status=proposed cynefin=clear t_created=2026-09-19T13:57:10Z
     | A curated markdown index at the conventional path makes the site navigable for LLM agents without HTML parsing.
   evidence_strategy:
     | astro build; inspect target/llms.txt; confirm sitemap exclusion.
+  evidence:
+    | target/llms.txt prerendered: H1 site title, blockquote description, groups Pages (hubs + static pages), Recent articles, Categories, Tags, Years as [label](absolute-url): description lines, 27 links total, pointer to llms-full.txt
 
 w W-66 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:57:11Z t_updated=2026-09-19T13:57:14Z "llms-full.txt endpoint: full markdown corpus"
   goals: G-34
