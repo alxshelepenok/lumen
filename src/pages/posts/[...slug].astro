@@ -43,6 +43,9 @@ const jsonLd = postGraph(slug, {
   title={`${post.data.title} - ${title}`}
   description={post.data.description || description}
   image={image}
+  imageAlt={post.data.title}
+  imageHeight={socialImage?.height}
+  imageWidth={socialImage?.width}
   jsonLd={jsonLd}
   ogType="article"
 >

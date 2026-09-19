@@ -47,6 +47,9 @@ const jsonLd = staticPageGraph(slug, {
   title={`${page.data.title} - ${title}`}
   description={page.data.description || description}
   image={image}
+  imageAlt={page.data.title}
+  imageHeight={socialImage?.height}
+  imageWidth={socialImage?.width}
   jsonLd={jsonLd}
 >
   <Layout>

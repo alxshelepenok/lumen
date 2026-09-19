@@ -5,6 +5,9 @@ interface Props {
   canonical: string;
   description: string;
   image?: string;
+  imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
   ogType?: string;
   robots?: string;
   title: string;
@@ -14,6 +17,9 @@ const {
   canonical,
   description,
   image,
+  imageAlt,
+  imageHeight,
+  imageWidth,
   ogType = "website",
   robots = "index, follow, max-image-preview:large, max-snippet:-1",
   title,
@@ -48,8 +54,12 @@ const { title: siteTitle } = getSiteMetadata();
   image ? (
     <>
       <meta property="og:image" content={image} />
+      {imageWidth ? <meta property="og:image:width" content={String(imageWidth)} /> : null}
+      {imageHeight ? <meta property="og:image:height" content={String(imageHeight)} /> : null}
+      {imageAlt ? <meta property="og:image:alt" content={imageAlt} /> : null}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={image} />
+      {imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
     </>
   ) : (
     <meta name="twitter:card" content="summary" />

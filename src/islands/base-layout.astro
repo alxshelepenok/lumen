@@ -13,13 +13,26 @@ import { themeStorageKey } from "@/utils/theme";
 interface Props {
   description?: string;
   image?: string;
+  imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
   jsonLd?: JsonLdGraph;
   ogType?: string;
   robots?: string;
   title: string;
 }
 
-const { description = "", image, jsonLd, ogType, robots, title } = Astro.props;
+const {
+  description = "",
+  image,
+  imageAlt,
+  imageHeight,
+  imageWidth,
+  jsonLd,
+  ogType,
+  robots,
+  title,
+} = Astro.props;
 const { googleAnalyticsId } = getSiteMetadata();
 
 const canonical = new Route(Astro.url.pathname).canonical(
@@ -58,6 +71,9 @@ const themeScript = `
       title={title}
       description={description}
       image={image}
+      imageAlt={imageAlt}
+      imageHeight={imageHeight}
+      imageWidth={imageWidth}
       canonical={canonical}
       ogType={ogType}
       robots={robots}
