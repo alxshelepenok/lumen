@@ -7,13 +7,13 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 12 | validated B 2 · answered Q 0 · accepted D 4 · active Discovery 6 |
-| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
+| V (uncertainty) | 1 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 2 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 | A-02 | Pages and routing | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -32,6 +32,7 @@
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-46 | feature | Port the picture island and the image srcset utils | G-28 | complicated | ⊤ | done |  |
+| W-47 | feature | Embed markdown images through the picture pattern | G-28 | complicated | ⊤ | progress | ★ |
 
 ## Decisions
 
@@ -53,7 +54,7 @@
 
 | ID | Title | Status | Causes work | Themed work |
 | --- | --- | --- | --- | --- |
-| T-02 | Post-migration review findings | done | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46 | W-46 |
+| T-02 | Post-migration review findings | open | W-14, W-15, W-16, W-17, W-18, W-19, W-20, W-21, W-22, W-23, W-24, W-25, W-26, W-27, W-28, W-29, W-30, W-31, W-32, W-33, W-34, W-35, W-36, W-37, W-38, W-39, W-40, W-41, W-42, W-43, W-44, W-45, W-46, W-47 | W-46, W-47 |
 
 ## Discoveries
 
@@ -72,6 +73,7 @@
 graph TD
   G_28["G-28: Images embed through the reference picture pattern"]:::goal
   W_46["W-46: Port the picture island and the image srcset utils"]:::done
+  W_47["W-47: Embed markdown images through the picture pattern"]:::progress,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -135,6 +137,7 @@ graph TD
   T_02 -->|causes| W_44
   T_02 -->|causes| W_45
   T_02 -->|causes| W_46
+  T_02 -->|causes| W_47
   W_01 ==>|blocks| W_02
   W_01 ==>|blocks| W_03
   W_01 -->|implements| D_07
@@ -175,6 +178,7 @@ graph TD
   W_13 -->|implements| D_12
   W_32 -->|produces| D_13
   Y_01 -->|distills| B_04
+  class W_47 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
