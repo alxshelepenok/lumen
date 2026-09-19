@@ -6,6 +6,7 @@ import Layout from "@/islands/layout.astro";
 import Post from "@/islands/post.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { postGraph } from "@/utils/seo";
 import { getSlug, getTagSlugs } from "@/utils/get-slug";
 
 export const getStaticPaths = async () => {
@@ -17,11 +18,11 @@ export const getStaticPaths = async () => {
         .replace(/^\/posts\/?/, "")
         .replace(/\/$/, ""),
     },
-    props: { post: entry },
+    props: { post: entry, slug: getSlug(entry.id, "posts").replace(/^\/posts\/?/, "").replace(/\/$/, "") },
   }));
 }
 
-const { post } = Astro.props;
+const { post, slug } = Astro.props;
 const { Content } = await render(post);
 
 const { title, description } = getSiteMetadata();
@@ -30,12 +31,19 @@ const image =
   socialImage?.src && Astro.site
     ? new URL(socialImage.src, Astro.site).href
     : undefined;
+const jsonLd = postGraph(slug, {
+  date: post.data.date,
+  description: post.data.description,
+  tags: post.data.tags,
+  title: post.data.title,
+});
 ---
 
 <BaseLayout
   title={`${post.data.title} - ${title}`}
   description={post.data.description || description}
   image={image}
+  jsonLd={jsonLd}
 >
   <Layout labelledBy="post-title" sidebar={false}>
     <Post

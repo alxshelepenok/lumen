@@ -3,6 +3,8 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { SLICE, routes, toKebabCase } from "@/utils/routes";
 import { mergeGraphs } from "@/utils/seo/graph";
 import {
+  blogPostingNode,
+  breadcrumbNode,
   itemListNode,
   personNode,
   webPageNode,
@@ -46,4 +48,42 @@ const homeFeedGraph = (page: number, items: FeedItem[]): JsonLdGraph => {
   );
 };
 
-export { homeFeedGraph };
+interface PostGraphInput {
+  date: Date;
+  description?: string;
+  tags?: string[];
+  title: string;
+}
+
+const postGraph = (slug: string, post: PostGraphInput): JsonLdGraph => {
+  const { url: site, title: siteTitle, description: siteDescription } =
+    getSiteMetadata();
+  const route = routes.post(slug);
+  const description = post.description || siteDescription;
+  const datePublished = post.date.toISOString();
+  const breadcrumb = breadcrumbNode(route, [
+    { name: siteTitle, url: routes.home().canonical(site) },
+    { name: post.title, url: route.id(site, SLICE.article) },
+  ]);
+
+  return mergeGraphs(
+    [personNode(), websiteNode(), breadcrumb],
+    [
+      webPageNode(route, {
+        name: post.title,
+        description,
+        datePublished,
+        mainEntity: { "@id": route.id(site, SLICE.article) },
+        breadcrumb: { "@id": route.id(site, SLICE.breadcrumb) },
+      }),
+      blogPostingNode(route, {
+        headline: post.title,
+        description,
+        datePublished,
+        keywords: post.tags,
+      }),
+    ]
+  );
+};
+
+export { homeFeedGraph, postGraph };

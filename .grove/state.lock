@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:19524de1e74f3423763884962e80512984c6df558109caa985df618a0d8bafc9
+# checksum: sha256:ad5771314f9a288e86a662a5a97a3c76f359cb8247dc18471741f337000bb9ac
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -9,7 +9,7 @@ g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updat
 g G-33 status=partial fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T14:42:28Z "Anchored JSON-LD entity graph on every page"
   area: A-06
   fitness_target: 6
-  fitness_current: 3
+  fitness_current: 4
 
 g G-34 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Complete machine-readable head and LLM surface"
   area: A-06
@@ -168,7 +168,7 @@ w W-59 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:3
     | home emits ProfilePage#page (isPartOf #web, mainEntity #person, hasPart ItemList #articles) with Person/WebSite nodes; paginated pages emit CollectionPage+WebPage with mainEntity ItemList; ItemList ListItems anchored to article-{slug} DOM ids, entries target post #page ids
     | anchor-grounding script: all same-page JSON-LD fragments resolve to DOM ids on / and /page/1/; one ld+json script per page; bun test 29 pass
 
-w W-60 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:34Z t_updated=2026-09-19T13:56:35Z "Post page graph: WebPage, BlogPosting, BreadcrumbList"
+w W-60 type=feature status=done cynefin=complicated t_created=2026-09-19T13:56:34Z t_updated=2026-09-19T14:54:50Z "Post page graph: WebPage, BlogPosting, BreadcrumbList"
   goals: G-33
   fitness: G-33=+1
   surface: src/pages/posts/[...slug].astro
@@ -180,6 +180,9 @@ w W-60 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:
     | A BlogPosting graph anchored to the article element with mirrored metas is the highest-signal port for a personal blog.
   evidence_strategy:
     | astro build on a tagged post; ld+json extraction and fragment/DOM cross-check.
+  evidence:
+    | post page emits WebPage#page (breadcrumb ref, mainEntity ref, datePublished) + BlogPosting#article (headline, keywords 'Linotype, Helvetica, History of typography', ISO date, author/publisher Person) + 2-crumb BreadcrumbList; visually-hidden nav#breadcrumb with matching breadcrumb-item-* li ids added to the article header
+    | anchor script: all same-page fragments grounded on the post; bun test 29 pass; astro check 0 errors
 
 w W-61 type=feature status=proposed cynefin=complicated t_created=2026-09-19T13:56:44Z t_updated=2026-09-19T13:56:45Z "Taxonomy graphs: CollectionPage lists and hubs"
   goals: G-33

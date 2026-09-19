@@ -9,6 +9,9 @@ import PostFooter from "@/islands/post-footer.astro";
 import PostTags from "@/islands/post-tags.astro";
 import ThemeToggle from "@/islands/theme-toggle.astro";
 
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { toKebabCase } from "@/utils/routes";
+
 interface Props {
   post: {
     Content: AstroComponentFactory;
@@ -22,10 +25,21 @@ interface Props {
 const { post } = Astro.props;
 
 const { Content } = post;
+const { title: siteTitle } = getSiteMetadata();
 ---
 
 <article id="article" class={styles.post} aria-labelledby="post-title">
   <header>
+    <nav id="breadcrumb" class="visually-hidden" aria-label="Breadcrumb">
+      <ol>
+        <li id={`breadcrumb-item-${toKebabCase(siteTitle)}`}>
+          <a href="/">{siteTitle}</a>
+        </li>
+        <li id={`breadcrumb-item-${toKebabCase(post.title)}`} aria-current="page">
+          {post.title}
+        </li>
+      </ol>
+    </nav>
     <div class={styles.buttons}>
       <Button className={styles.buttonArticles} title="All Articles" to="/" />
       <ThemeToggle />
