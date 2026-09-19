@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:20a6d56c6a0343c158323b3c71953f71ad4a0196434d1f61edc8a471d0cad7b5
+# checksum: sha256:0dc9c0753bb2fd71444c44efc183b1c9a61cd53813132e4a31d97570d5a00a8d
 g G-32 status=partial fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:13:16Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
-  fitness_current: 4
+  fitness_current: 5
 
 g G-33 status=unverified fitness_kind=count t_created=2026-09-19T13:53:33Z t_updated=2026-09-19T13:53:33Z "Anchored JSON-LD entity graph on every page"
   area: A-06
@@ -87,7 +87,7 @@ w W-54 type=refactor status=done cynefin=clear t_created=2026-09-19T13:56:00Z t_
     | built HTML: article#post[aria-labelledby=post-title] > header(div.buttons toolbar + hgroup.titleWrap > h1#post-title) + section#post-body[aria-labelledby=post-title] + footer(PostFooter time ISO datetime + PostTags + PostAuthor); post-content island deleted, styles merged into post.module
     | geometry parity on post page: post 1070x2361, h1 640x117 font 48px, firstP 640x146@320,215, footer 640x202@320,2107, toolbar fixed @30,30 identical old vs new; astro check 0 errors
 
-w W-55 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:02Z t_updated=2026-09-19T13:57:39Z "List and hub pages: landmarks, headed lists, pagination nav"
+w W-55 type=refactor status=done cynefin=clear t_created=2026-09-19T13:56:02Z t_updated=2026-09-19T14:39:20Z "List and hub pages: landmarks, headed lists, pagination nav"
   goals: G-32
   theme: T-03
   fitness: G-32=+1
@@ -100,6 +100,9 @@ w W-55 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:02
     | Hubs and pagination re-express wrappers with headed sections and a nav without changing boxes; dead disabled links become spans.
   evidence_strategy:
     | astro build; route sweep over hub/term/paginated HTML; screenshot parity.
+  evidence:
+    | built HTML: hub lists carry id anchors (categories-list, tags-list, years-list) inside the headed page section; pagination is nav[aria-label=Pagination] with a[rel=prev/next] only when target exists, disabled state rendered as styled span (no dead links)
+    | geometry parity: pagination nav 651x30@498,1037 prev/next 326x30 identical (after line-height 30px fix for old mixed-size line box); hub ul 651x134@498,129 identical; astro check 0 errors
 
 w W-56 type=refactor status=proposed cynefin=clear t_created=2026-09-19T13:56:09Z t_updated=2026-09-19T13:57:39Z "Static pages and 404: article landmark and honest 404"
   goals: G-32

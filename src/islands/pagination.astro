@@ -21,15 +21,23 @@ const nextClassName = hasNextPage
   : `${styles.nextLink} ${styles.disable}`;
 ---
 
-<div class={styles.pagination}>
-  <div class={styles.previous}>
-    <a rel="prev" href={hasPrevPage ? prevPagePath : "/"} class={prevClassName}>
-      {pagination.prevPage}
-    </a>
-  </div>
-  <div class={styles.next}>
-    <a rel="next" href={hasNextPage ? nextPagePath : "/"} class={nextClassName}>
-      {pagination.nextPage}
-    </a>
-  </div>
-</div>
+<nav class={styles.pagination} aria-label="Pagination">
+  {
+    hasPrevPage ? (
+      <a rel="prev" href={prevPagePath} class={prevClassName}>
+        {pagination.prevPage}
+      </a>
+    ) : (
+      <span class={prevClassName}>{pagination.prevPage}</span>
+    )
+  }
+  {
+    hasNextPage ? (
+      <a rel="next" href={nextPagePath} class={nextClassName}>
+        {pagination.nextPage}
+      </a>
+    ) : (
+      <span class={nextClassName}>{pagination.nextPage}</span>
+    )
+  }
+</nav>

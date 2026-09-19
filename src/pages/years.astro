@@ -17,7 +17,7 @@ const years = getGroups(posts, yearOf, newestFirst);
 <BaseLayout title={`Years - ${title}`} description={description}>
   <Layout>
     <Page title="Years">
-      <ul>
+      <ul id="years-list">
         {
           years.map((year) => (
             <li>

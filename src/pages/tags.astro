@@ -17,7 +17,7 @@ const tags = getGroups(posts, tagsOf);
 <BaseLayout title={`Tags - ${title}`} description={description}>
   <Layout>
     <Page title="Tags">
-      <ul>
+      <ul id="tags-list">
         {
           tags.map((tag) => (
             <li>

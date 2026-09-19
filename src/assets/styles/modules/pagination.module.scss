@@ -5,45 +5,43 @@
   display: flex;
   @include mixins.margin-top(2);
 
-  .previous {
+  .previousLink {
+    color: hsl(var(--color-foreground));
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 30px;
     text-align: left;
     width: 50%;
 
-    .previousLink {
-      color: hsl(var(--color-foreground));
-      font-size: 26px;
-      font-weight: bold;
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
 
-      &:hover,
-      &:focus {
-        color: hsl(var(--color-primary));
-      }
-
-      &.disable {
-        color: hsl(var(--color-muted-foreground));
-        pointer-events: none;
-      }
+    &.disable {
+      color: hsl(var(--color-muted-foreground));
+      pointer-events: none;
     }
   }
 
-  .next {
+  .nextLink {
+    color: hsl(var(--color-foreground));
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 30px;
     text-align: right;
     width: 50%;
 
-    .nextLink {
-      color: hsl(var(--color-foreground));
-      font-size: 26px;
-      font-weight: bold;
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
 
-      &:hover,
-      &:focus {
-        color: hsl(var(--color-primary));
-      }
-
-      &.disable {
-        color: hsl(var(--color-muted-foreground));
-        pointer-events: none;
-      }
+    &.disable {
+      color: hsl(var(--color-muted-foreground));
+      pointer-events: none;
     }
   }
 }

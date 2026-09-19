@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 22 | validated B 3 · answered Q 2 · accepted D 9 · active Discovery 8 |
-| V (uncertainty) | 18 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 18 |
+| V (uncertainty) | 17 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 17 |
 | Decay | 1 | Discovery with decay signals |
 
 ## Areas
@@ -19,7 +19,7 @@
 | A-03 | Interface and theming | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 9 | 18 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 18 |
+| A-06 | Semantics and discoverability | 9 | 17 | C: validated B 1 · answered Q 0 · accepted D 5 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 17 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -27,7 +27,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-32 | Semantic landmark skeleton on every page type | count; current=4 target=6 | partial |
+| G-32 | Semantic landmark skeleton on every page type | count; current=5 target=6 | partial |
 | G-33 | Anchored JSON-LD entity graph on every page | count; current= target=6 | unverified |
 | G-34 | Complete machine-readable head and LLM surface | count; current= target=5 | unverified |
 | G-35 | Semantics kept honest by audits and tests | count; current= target=5 | unverified |
@@ -40,7 +40,7 @@
 | W-52 | refactor | Sidebar semantics: aside with nav, headed sections and footer | G-32 | clear | ⊤ | done |  |
 | W-53 | refactor | Feed semantics: headed section with article entries | G-32 | clear | ⊤ | done |  |
 | W-54 | refactor | Post page: article with header, hgroup, section and footer | G-32 | clear | ⊤ | done |  |
-| W-55 | refactor | List and hub pages: landmarks, headed lists, pagination nav | G-32 | clear | ⊤ | proposed |  |
+| W-55 | refactor | List and hub pages: landmarks, headed lists, pagination nav | G-32 | clear | ⊤ | done |  |
 | W-56 | refactor | Static pages and 404: article landmark and honest 404 | G-32 | clear | ⊤ | proposed |  |
 | W-57 | feature | Route slice grammar: fragment-aware href and id | G-33 | clear | ⊤ | proposed | ★ |
 | W-58 | feature | SEO graph builders and JSON-LD emitter | G-33 | complicated | ⊤ | proposed | ★ |
@@ -120,7 +120,7 @@ graph TD
   W_52["W-52: Sidebar semantics: aside with nav, headed sections and footer"]:::done
   W_53["W-53: Feed semantics: headed section with article entries"]:::done
   W_54["W-54: Post page: article with header, hgroup, section and footer"]:::done
-  W_55["W-55: List and hub pages: landmarks, headed lists, pagination nav"]:::feature
+  W_55["W-55: List and hub pages: landmarks, headed lists, pagination nav"]:::done
   W_56["W-56: Static pages and 404: article landmark and honest 404"]:::feature
   W_57["W-57: Route slice grammar: fragment-aware href and id"]:::feature,critical
   W_58["W-58: SEO graph builders and JSON-LD emitter"]:::feature,critical

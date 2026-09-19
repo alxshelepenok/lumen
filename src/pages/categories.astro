@@ -17,7 +17,7 @@ const categories = getGroups(posts, categoryOf);
 <BaseLayout title={`Categories - ${title}`} description={description}>
   <Layout>
     <Page title="Categories">
-      <ul>
+      <ul id="categories-list">
         {
           categories.map((category) => (
             <li>
