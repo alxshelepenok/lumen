@@ -5,6 +5,7 @@ import { getFeedItems } from "@/utils/get-feed-items";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getSlug } from "@/utils/get-slug";
 import { getGroups, categoryOf, tagsOf, yearOf, newestFirst } from "@/utils/get-taxonomy";
+import { articleCount } from "@/utils/pluralize";
 import { routes } from "@/utils/routes";
 
 export const GET: APIRoute = async () => {
@@ -52,7 +53,7 @@ export const GET: APIRoute = async () => {
 
   for (const group of getGroups(posts, categoryOf)) {
     lines.push(
-      `- [${group.fieldValue}](${url}${routes.category(group.fieldValue).href()}): ${group.totalCount} articles.`
+      `- [${group.fieldValue}](${url}${routes.category(group.fieldValue).href()}): ${articleCount(group.totalCount)}.`
     );
   }
 
@@ -60,7 +61,7 @@ export const GET: APIRoute = async () => {
 
   for (const group of getGroups(posts, tagsOf)) {
     lines.push(
-      `- [${group.fieldValue}](${url}${routes.tag(group.fieldValue).href()}): ${group.totalCount} articles.`
+      `- [${group.fieldValue}](${url}${routes.tag(group.fieldValue).href()}): ${articleCount(group.totalCount)}.`
     );
   }
 
@@ -68,7 +69,7 @@ export const GET: APIRoute = async () => {
 
   for (const group of getGroups(posts, yearOf, newestFirst)) {
     lines.push(
-      `- [${group.fieldValue}](${url}${routes.year(group.fieldValue).href()}): ${group.totalCount} articles.`
+      `- [${group.fieldValue}](${url}${routes.year(group.fieldValue).href()}): ${articleCount(group.totalCount)}.`
     );
   }
 

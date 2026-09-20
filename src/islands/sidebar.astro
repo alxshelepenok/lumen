@@ -6,14 +6,17 @@ import SidebarContacts from "@/islands/sidebar-contacts.astro";
 import SidebarCopyright from "@/islands/sidebar-copyright.astro";
 import SidebarMenu from "@/islands/sidebar-menu.astro";
 
+import { labels } from "@/constants/labels";
+
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
 const { author, copyright, menu } = getSiteMetadata();
 ---
 
-<aside class={styles.sidebar} aria-labelledby="sidebar-author-heading">
+<section class={styles.sidebar} aria-labelledby="sidebar-heading">
+  <h2 id="sidebar-heading" class="visually-hidden">{labels.overview}</h2>
   <SidebarAuthor author={author} />
   <SidebarMenu menu={menu} />
   <SidebarContacts contacts={author.contacts} />
   <SidebarCopyright copyright={copyright} />
-</aside>
+</section>

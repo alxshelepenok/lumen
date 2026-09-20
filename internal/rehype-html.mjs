@@ -12,19 +12,32 @@ const anchorIcon = {
   tagName: "svg",
   properties: {
     ariaHidden: "true",
+    fill: "none",
     focusable: "false",
-    height: 16,
-    version: "1.1",
-    viewBox: "0 0 16 16",
-    width: 16,
+    height: 18,
+    viewBox: "0 0 24 24",
+    width: 18,
   },
   children: [
     {
       type: "element",
       tagName: "path",
       properties: {
-        fillRule: "evenodd",
-        d: "M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z",
+        d: "M9.14339 10.691L9.35031 10.4841C11.329 8.50532 14.5372 8.50532 16.5159 10.4841C18.4947 12.4628 18.4947 15.671 16.5159 17.6497L13.6497 20.5159C11.671 22.4947 8.46279 22.4947 6.48405 20.5159C4.50532 18.5372 4.50532 15.329 6.48405 13.3503L6.9484 12.886",
+        stroke: "currentColor",
+        strokeLinecap: "round",
+        strokeWidth: "1.5",
+      },
+      children: [],
+    },
+    {
+      type: "element",
+      tagName: "path",
+      properties: {
+        d: "M17.0516 11.114L17.5159 10.6497C19.4947 8.67095 19.4947 5.46279 17.5159 3.48405C15.5372 1.50532 12.329 1.50532 10.3503 3.48405L7.48405 6.35031C5.50532 8.32904 5.50532 11.5372 7.48405 13.5159C9.46279 15.4947 12.671 15.4947 14.6497 13.5159L14.8566 13.309",
+        stroke: "currentColor",
+        strokeLinecap: "round",
+        strokeWidth: "1.5",
       },
       children: [],
     },
@@ -202,7 +215,7 @@ const rehypeHtml = () => async (tree, file) => {
         type: "element",
         tagName: "a",
         properties: {
-          ariaLabel: `${id.replace(/-/g, " ")} permalink`,
+          ariaLabel: `Link to heading "${id.replace(/-/g, " ")}"`,
           className: ["anchor", "before"],
           href: `#${id}`,
         },

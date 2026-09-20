@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 
-import { auditCrossChecks, auditSchemaGraph } from "@/utils/audit/schema-audit";
+import { auditCrossChecks, auditLinkGrammar, auditSchemaGraph } from "@/utils/audit/schema-audit";
 import {
   auditAccessibility,
   domBudgetOf,
@@ -60,9 +60,9 @@ describe("schema audit integrity", () => {
       graphs: [
         graphOf([
           {
-            "@type": "WebSite",
-            "@id": "https://s.test#web",
-            "url": "https://s.test#web",
+            "@type": "WebPage",
+            "@id": "https://s.test#page",
+            "url": "https://s.test#page",
           },
         ]),
       ],
@@ -131,6 +131,152 @@ describe("schema audit cross-checks", () => {
     });
 
     expect(issues.some((issue) => issue.message.includes("breaks the 1-based sequence"))).toBe(true);
+  });
+});
+
+describe("schema audit link grammar", () => {
+  const input = {
+    pagePathname: "/posts/x/",
+    resolveAnchor: (fragment: string) => fragment === "page",
+  };
+
+  it("flags internal links without a fragment", () => {
+    const issues = auditLinkGrammar({
+      ...input,
+      internalHrefs: ["/blog/", "/#page", "/llms.txt", "https://ext.test/a/", "//cdn.test/a/"],
+    });
+
+    expect(
+      issues.some((issue) => issue.message.includes('internal link "/blog/" carries no fragment'))
+    ).toBe(true);
+    expect(issues.length).toBe(1);
+  });
+
+  it("flags same-page links that resolve to nothing", () => {
+    const issues = auditLinkGrammar({
+      ...input,
+      internalHrefs: ["#ghost", "#page"],
+    });
+
+    expect(
+      issues.some((issue) => issue.message.includes('resolves to no element with id="ghost"'))
+    ).toBe(true);
+    expect(issues.length).toBe(1);
+  });
+});
+
+describe("schema audit locale and list names", () => {
+  const graphOf = (nodes: object[]) => ({
+    "@context": "https://schema.org",
+    "@graph": nodes,
+  });
+
+  it("flags og:locale disagreeing with inLanguage", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/x/",
+      graphs: [
+        graphOf([
+          {
+            "@type": "WebPage",
+            "@id": "https://s.test/x/#page",
+            "url": "https://s.test/x/#page",
+            "inLanguage": "en",
+          },
+        ]),
+      ],
+      metaPropertyContent: (property) =>
+        property === "og:locale" ? "de_DE" : null,
+    });
+
+    expect(
+      issues.some((issue) => issue.message.includes('og:locale "de_DE" does not agree with inLanguage "en"'))
+    ).toBe(true);
+  });
+
+  it("accepts an og:locale language prefix", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/x/",
+      graphs: [
+        graphOf([
+          {
+            "@type": "WebPage",
+            "@id": "https://s.test/x/#page",
+            "url": "https://s.test/x/#page",
+            "inLanguage": "en",
+          },
+        ]),
+      ],
+      metaPropertyContent: (property) =>
+        property === "og:locale" ? "en_US" : null,
+    });
+
+    expect(issues).toEqual([]);
+  });
+
+  it("flags ItemList names without an accessible name", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/x/",
+      graphs: [
+        graphOf([
+          {
+            "@type": "ItemList",
+            "@id": "https://s.test/x/#list",
+            "url": "https://s.test/x/#list",
+            "name": "Tags",
+            "itemListElement": [],
+          },
+        ]),
+      ],
+      accessibleName: () => null,
+    });
+
+    expect(
+      issues.some((issue) => issue.message.includes("has no accessible name"))
+    ).toBe(true);
+  });
+
+  it("flags ItemList names diverging from the accessible name", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/x/",
+      graphs: [
+        graphOf([
+          {
+            "@type": "ItemList",
+            "@id": "https://s.test/x/#list",
+            "url": "https://s.test/x/#list",
+            "name": "Design articles",
+            "itemListElement": [],
+          },
+        ]),
+      ],
+      accessibleName: () => "Graph theory",
+    });
+
+    expect(
+      issues.some((issue) =>
+        issue.message.includes('does not match the accessible name "Graph theory"')
+      )
+    ).toBe(true);
+  });
+
+  it("accepts containment between ItemList and accessible names", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/x/",
+      graphs: [
+        graphOf([
+          {
+            "@type": "ItemList",
+            "@id": "https://s.test/x/#list",
+            "url": "https://s.test/x/#list",
+            "name": "Design articles",
+            "itemListElement": [],
+          },
+        ]),
+      ],
+      accessibleName: () => "Articles",
+    });
+
+    expect(issues).toEqual([]);
   });
 });
 
@@ -204,7 +350,7 @@ describe("accessibility audit", () => {
     expect(errors.some((error) => error.message.includes("inside a hidden subtree"))).toBe(true);
   });
 
-  it("warns when an anchored landmark lacks tabindex", () => {
+  it("does not demand tabindex on anchored landmarks", () => {
     const { warnings } = auditAccessibility({
       anchors: ["page"],
       root: el({
@@ -213,7 +359,7 @@ describe("accessibility audit", () => {
       }),
     });
 
-    expect(warnings.some((warning) => warning.message.includes('tabindex="-1"'))).toBe(true);
+    expect(warnings.some((warning) => warning.message.includes("tabindex"))).toBe(false);
   });
 });
 

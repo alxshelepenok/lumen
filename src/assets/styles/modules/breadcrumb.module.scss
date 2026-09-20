@@ -1,0 +1,48 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.breadcrumb {
+  color: hsl(var(--color-muted-foreground));
+  font-size: variables.$typography-small-font-size;
+  @include mixins.line-height(1);
+  @include mixins.margin-bottom(0.5);
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li::before {
+    color: hsl(var(--color-border));
+    content: "/";
+    @include mixins.margin(0, 0.25);
+  }
+
+  a {
+    color: hsl(var(--color-muted-foreground));
+
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
+  }
+
+  [aria-current="page"] {
+    color: hsl(var(--color-foreground));
+  }
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  text-align: center;
+  width: fit-content;
+
+  ol {
+    justify-content: center;
+  }
+}

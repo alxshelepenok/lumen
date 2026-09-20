@@ -47,6 +47,12 @@ describe("Route", () => {
       "/posts/a-brief-history/#article"
     );
   });
+
+  it("normalizes paths when anchoring", () => {
+    expect(new Route("/tag/typography/").anchor(SLICE.page)).toBe(
+      "/tag/typography/#page"
+    );
+  });
 });
 
 describe("routes factories", () => {

@@ -1,5 +1,4 @@
-<div class="theme-switcher" data-theme-switcher>
-  <button type="button" class="button" data-theme-toggle aria-label="theme">
+<button type="button" class="theme-switcher" data-theme-toggle aria-label="theme">
     <svg
       width="24"
       height="24"
@@ -46,31 +45,28 @@
         y2="4.22"
       />
     </svg>
-  </button>
-</div>
+</button>
 
 <style lang="scss">
   .theme-switcher {
     --theme-switcher-color: hsl(var(--color-foreground));
 
-    .button {
-      align-items: center;
-      background: transparent;
-      border: 0;
-      outline: 0;
-      display: flex;
-      cursor: pointer;
-      justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
 
-      svg {
-        stroke: var(--theme-switcher-color);
-        pointer-events: none;
-        transition: stroke 400ms;
-      }
+    svg {
+      stroke: var(--theme-switcher-color);
+      pointer-events: none;
+      transition: stroke 400ms;
+    }
 
-      &:hover {
-        --theme-switcher-color: hsl(var(--color-primary));
-      }
+    &:hover {
+      --theme-switcher-color: hsl(var(--color-primary));
     }
 
     .moon {

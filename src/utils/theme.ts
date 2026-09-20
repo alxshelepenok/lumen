@@ -8,6 +8,11 @@ interface Theme {
 
 const themeStorageKey = "lumen:theme";
 
+const themeColors: Record<ThemeMode, string> = {
+  dark: "#1a1a1e",
+  light: "#ffffff",
+};
+
 const isThemeMode = (value: unknown): value is ThemeMode =>
   value === "dark" || value === "light";
 
@@ -64,5 +69,5 @@ const toggleTheme = (): Theme => {
   return next;
 };
 
-export { applyTheme, getTheme, readStoredTheme, themeStorageKey, toggleTheme, writeStoredTheme };
+export { applyTheme, getTheme, readStoredTheme, themeColors, themeStorageKey, toggleTheme, writeStoredTheme };
 export type { Theme, ThemeMode };

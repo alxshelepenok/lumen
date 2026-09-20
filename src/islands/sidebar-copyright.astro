@@ -8,4 +8,6 @@ interface Props {
 const { copyright } = Astro.props;
 ---
 
-<footer class={styles.sidebarCopyright}>{copyright}</footer>
+<footer class={styles.sidebarCopyright}>
+  <span class={styles.note} data-nosnippet>{copyright}</span>
+</footer>

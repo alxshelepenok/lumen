@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getSlug } from "@/utils/get-slug";
+import { articleCount } from "@/utils/pluralize";
 import { routes } from "@/utils/routes";
 
 export const GET: APIRoute = async () => {
@@ -18,6 +19,7 @@ export const GET: APIRoute = async () => {
     "",
     `> ${description}`,
     `Site: ${url}`,
+    `Articles: ${articleCount(posts.length)}`,
     "",
     "---",
   ];

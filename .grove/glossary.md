@@ -21,3 +21,13 @@
 | json-ld | The structured-data format emitted as a single application/ld+json script carrying an @graph per page. | D-15 |
 | llms | The llms.txt curated index and llms-full.txt raw corpus endpoints served for AI agents. | D-17 |
 | semantics-audit | The dev-only schema and accessibility checks that keep the graph and the landmark tree honest. | D-18 |
+| head-groups | The ordered meta and link groups emitted by base-head (robots, description, title, canonical, icons, og, twitter, alternates, theming). | D-19 |
+| link-grammar | The rule that every same-origin content link carries a #fragment naming the slice it lands on. | D-20 |
+| toc | The table of contents nav post pages used to carry; retired from DOM and graph by D-37. | D-37 |
+| social-card | The generated 1200x630 Open Graph image produced at build for posts without a social image. | D-22 |
+| breadcrumb | The visible nav#breadcrumb trail on post, collection and static pages, mirrored by an anchored BreadcrumbList in the graph. | D-23 |
+| post-toolbar | The theme toggle plus all-articles link rendered as body-level chrome before main on post pages. | D-26 |
+| sidebar | The secondary column (author identity, site menu, contacts, copyright) rendered as a headed section inside main. | D-29 |
+| scoped-wrapper | A bare, classless header or footer inside a scoped region; not a landmark, geometry-neutral through margin collapsing. | Y-31 |
+| content-column | The centered 640px post text column reproduced by per-element margin caps instead of a wrapper element. | Y-32 |
+| css-icon-sprite | The --icon-* custom properties in base/_icons.scss carrying shape-only SVG data URIs painted through masks. | Y-34 |

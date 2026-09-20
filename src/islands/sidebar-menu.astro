@@ -1,7 +1,9 @@
 ---
 import styles from "@/assets/styles/modules/sidebar-menu.module.scss";
 
-import { Route } from "@/utils/routes";
+import { labels } from "@/constants/labels";
+
+import { Route, SLICE, toKebabCase } from "@/utils/routes";
 
 interface Props {
   menu: {
@@ -17,14 +19,14 @@ const isActive = (url: string): boolean =>
   url === "/" ? currentPath === "/" : currentPath.startsWith(url);
 ---
 
-<nav class={styles.sidebarMenu} aria-labelledby="sidebar-menu-heading">
-  <h2 id="sidebar-menu-heading" class="visually-hidden">Site menu</h2>
-  <ul class={styles.list}>
+<nav id="sidebar-menu" class={styles.sidebarMenu} aria-labelledby="sidebar-menu-heading">
+  <h2 id="sidebar-menu-heading" class="visually-hidden">{labels.pages}</h2>
+  <ul id="sidebar-menu-list" class={styles.list} aria-labelledby="sidebar-menu-heading">
     {
       menu.map((item) => (
-        <li class={styles.item}>
+        <li class={styles.item} id={`sidebar-menu-item-${toKebabCase(item.title)}`}>
           <a
-            href={new Route(item.url).href()}
+            href={new Route(item.url).anchor(SLICE.page)}
             class={[
               styles.link,
               isActive(item.url) ? styles.active : null,

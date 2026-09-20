@@ -3,6 +3,7 @@
 
 .post-author {
   border-top: 1px solid hsl(var(--color-border));
+  font-style: normal;
   max-width: variables.$layout-post-width;
   @include mixins.padding-top(1);
   @include mixins.line-height(1);

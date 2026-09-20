@@ -33,26 +33,19 @@
       @include mixins.margin-bottom(0.75);
     }
 
-    .meta {
-      .time {
-        color: hsl(var(--color-foreground));
-        font-size: variables.$typography-small-font-size;
-        font-weight: 600;
-        text-transform: uppercase;
-      }
+    .time {
+      color: hsl(var(--color-foreground));
+      font-size: variables.$typography-small-font-size;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
 
-      .divider {
-        @include mixins.margin(0, 0.5);
-      }
-
-      .category {
-        .link {
-          font-weight: 600;
-          text-transform: uppercase;
-          color: hsl(var(--color-primary));
-          font-size: variables.$typography-small-font-size;
-        }
-      }
+    .category {
+      @include mixins.margin-left(1);
+      font-weight: 600;
+      text-transform: uppercase;
+      color: hsl(var(--color-primary));
+      font-size: variables.$typography-small-font-size;
     }
 
     .more {

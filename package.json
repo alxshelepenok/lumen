@@ -1,7 +1,7 @@
 {
   "name": "lumen",
   "version": "2.0.62",
-  "description": "A constantly evolving and thoughtful architecture for creating static blogs",
+  "description": "A constantly evolving and thoughtful architecture for creating static blogs.",
   "keywords": [
     "astro",
     "blog"
@@ -19,6 +19,7 @@
     "release": "semantic-release",
     "build": "astro build",
     "start": "astro dev",
+    "audit:sweep": "bun ./internal/testing/audit-sweep.ts",
     "version": "bun ./internal/up-version.mjs"
   },
   "dependencies": {
@@ -35,8 +36,10 @@
     "@types/sass": "1.45.0",
     "autoprefixer": "10.6.1",
     "conventional-changelog-conventionalcommits": "9.1.0",
+    "linkedom": "^0.18.13",
     "postcss": "8.5.28",
     "sass": "1.75.0",
+    "satori": "^0.33.4",
     "semantic-release": "24.2.9",
     "typescript": "5.9.3"
   }

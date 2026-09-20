@@ -13,6 +13,7 @@ import { getPaginationInfo } from "@/utils/get-pagination";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
 import { termGraph } from "@/utils/seo";
+import { labels } from "@/constants/labels";
 import { routes, toKebabCase } from "@/utils/routes";
 
 export const getStaticPaths = async () => {
@@ -57,7 +58,7 @@ const pageTitle =
     : `${group} - ${title}`;
 
 const jsonLd = termGraph({
-  hubName: "Categories",
+  hubName: labels.categories,
   hubPath: routes.categories().href(),
   items,
   name: group,
@@ -69,14 +70,16 @@ const jsonLd = termGraph({
   <Layout>
     <Page title={group}>
       <Breadcrumb
+        slot="breadcrumb"
         items={[
           { name: title, href: "/" },
-          { name: "Categories", href: routes.categories().href() },
+          { name: labels.categories, href: routes.categories().href() },
           { name: group },
         ]}
       />
-      <Feed items={items} />
+      <Feed heading={group} items={items} />
       <Pagination
+        slot="footer"
         prevPagePath={pagination.prevPagePath}
         nextPagePath={pagination.nextPagePath}
         hasPrevPage={pagination.hasPrevPage}

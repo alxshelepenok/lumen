@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
+import { getReadingTime } from "@/utils/get-reading-time";
 import { getCategorySlug, getSlug } from "@/utils/get-slug";
 import { Route } from "@/utils/routes";
 
@@ -8,6 +9,7 @@ interface FeedItem {
   categorySlug?: string;
   date: Date;
   description?: string;
+  readingTime?: number;
   slug: string;
   title: string;
 }
@@ -20,6 +22,7 @@ const getFeedItems = (posts: CollectionEntry<"posts">[]): FeedItem[] =>
       : undefined,
     date: entry.data.date,
     description: entry.data.description,
+    readingTime: getReadingTime(entry.body),
     slug: new Route(getSlug(entry.id, "posts")).href(),
     title: entry.data.title,
   }));

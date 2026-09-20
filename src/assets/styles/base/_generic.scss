@@ -108,6 +108,13 @@ a {
   }
 }
 
+main:focus,
+main:focus-visible,
+article:focus,
+article:focus-visible {
+  outline: none;
+}
+
 b,
 strong {
   font-weight: 600;

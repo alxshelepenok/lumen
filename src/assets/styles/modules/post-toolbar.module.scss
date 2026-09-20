@@ -1,0 +1,23 @@
+@use "src/assets/styles/mixins";
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  @include mixins.margin(1, 0, 0, 0);
+
+  .allArticles {
+    @include mixins.margin(0, 0.5, 0, 0);
+  }
+}
+
+@include mixins.breakpoint-lg {
+  .toolbar {
+    left: 30px;
+    max-width: none;
+    position: fixed;
+    top: 30px;
+    @include mixins.margin(0, 0.5, 0, 0);
+  }
+}

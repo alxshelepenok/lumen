@@ -10,6 +10,7 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { categoryOf, getGroups } from "@/utils/get-taxonomy";
 import { hubGraph } from "@/utils/seo";
 import { SLICE, routes } from "@/utils/routes";
+import { labels } from "@/constants/labels";
 
 const { url, title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -21,20 +22,23 @@ const jsonLd = hubGraph({
     url: routes.category(category.fieldValue).id(url, SLICE.page),
   })),
   fragment: "categories-list",
-  hubLabel: "Categories",
+  hubLabel: labels.categories,
   route: routes.categories(),
 });
 ---
 
-<BaseLayout title={`Categories - ${title}`} description={description} jsonLd={jsonLd}>
+<BaseLayout title={`${labels.categories} - ${title}`} description={description} jsonLd={jsonLd}>
   <Layout>
-    <Page title="Categories">
-      <Breadcrumb items={[{ name: title, href: "/" }, { name: "Categories" }]} />
-      <ul id="categories-list">
+    <Page title={labels.categories}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[{ name: title, href: "/" }, { name: labels.categories }]}
+      />
+      <ul id="categories-list" aria-labelledby="page-title">
         {
           categories.map((category) => (
             <li>
-              <a href={routes.category(category.fieldValue).href()}>
+              <a href={routes.category(category.fieldValue).anchor(SLICE.page)}>
                 {category.fieldValue} ({category.totalCount})
               </a>
             </li>

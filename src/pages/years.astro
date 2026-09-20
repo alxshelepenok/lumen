@@ -10,6 +10,7 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
 import { hubGraph } from "@/utils/seo";
 import { SLICE, routes } from "@/utils/routes";
+import { labels } from "@/constants/labels";
 
 const { url, title, description } = getSiteMetadata();
 const posts = await getCollection("posts", ({ data }) => !data.draft);
@@ -21,20 +22,23 @@ const jsonLd = hubGraph({
     url: routes.year(year.fieldValue).id(url, SLICE.page),
   })),
   fragment: "years-list",
-  hubLabel: "Years",
+  hubLabel: labels.years,
   route: routes.years(),
 });
 ---
 
-<BaseLayout title={`Years - ${title}`} description={description} jsonLd={jsonLd}>
+<BaseLayout title={`${labels.years} - ${title}`} description={description} jsonLd={jsonLd}>
   <Layout>
-    <Page title="Years">
-      <Breadcrumb items={[{ name: title, href: "/" }, { name: "Years" }]} />
-      <ul id="years-list">
+    <Page title={labels.years}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[{ name: title, href: "/" }, { name: labels.years }]}
+      />
+      <ul id="years-list" aria-labelledby="page-title">
         {
           years.map((year) => (
             <li>
-              <a href={routes.year(year.fieldValue).href()}>
+              <a href={routes.year(year.fieldValue).anchor(SLICE.page)}>
                 {year.fieldValue} ({year.totalCount})
               </a>
             </li>

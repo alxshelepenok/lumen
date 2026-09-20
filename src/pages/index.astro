@@ -12,6 +12,8 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { homeFeedGraph } from "@/utils/seo";
 import { routes } from "@/utils/routes";
 
+import { labels } from "@/constants/labels";
+
 const { title, description, feedLimit } = getSiteMetadata();
 
 const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
@@ -25,9 +27,10 @@ const jsonLd = homeFeedGraph(0, items);
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Layout>
-    <Page id="blog">
+    <Page id="blog" heading={labels.blog}>
       <Feed items={items} />
       <Pagination
+        slot="footer"
         prevPagePath="/"
         nextPagePath={routes.paginated(routes.home(), 1).href()}
         hasPrevPage={false}

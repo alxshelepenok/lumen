@@ -1,17 +1,29 @@
 ---
-import { toKebabCase } from "@/utils/routes";
+import styles from "@/assets/styles/modules/breadcrumb.module.scss";
+
+import { labels } from "@/constants/labels";
+
+import { Route, SLICE, toKebabCase } from "@/utils/routes";
 
 interface Props {
+  center?: boolean;
+  className?: string;
   items: {
     href?: string;
     name: string;
   }[];
 }
 
-const { items } = Astro.props;
+const { center = false, className, items } = Astro.props;
 ---
 
-<nav id="breadcrumb" class="visually-hidden" aria-label="Breadcrumb">
+<nav
+  id="breadcrumb"
+  class={[styles.breadcrumb, center && styles.center, className]
+    .filter(Boolean)
+    .join(" ")}
+  aria-label={labels.breadcrumb}
+>
   <ol>
     {
       items.map((item, index) => {
@@ -22,7 +34,11 @@ const { items } = Astro.props;
             id={`breadcrumb-item-${toKebabCase(item.name)}`}
             aria-current={isLast ? "page" : undefined}
           >
-            {isLast || !item.href ? item.name : <a href={item.href}>{item.name}</a>}
+            {isLast || !item.href ? (
+              item.name
+            ) : (
+              <a href={new Route(item.href).anchor(SLICE.page)}>{item.name}</a>
+            )}
           </li>
         );
       })

@@ -5,3 +5,9 @@
   color: hsl(var(--color-muted-foreground));
   font-size: variables.$typography-small-font-size;
 }
+
+.note {
+  display: block;
+  @include mixins.line-height(1);
+  margin: 0;
+}

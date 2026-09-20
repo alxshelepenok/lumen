@@ -1,12 +1,16 @@
 import type { FeedItem } from "@/utils/get-feed-items";
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { SLICE, Route, routes, toKebabCase } from "@/utils/routes";
+import { labels } from "@/constants/labels";
 import { mergeGraphs } from "@/utils/seo/graph";
 import {
   blogPostingNode,
   breadcrumbNode,
   itemListNode,
+  linksNodes,
   personNode,
+  regionNode,
+  siteNavigationNodes,
   webPageNode,
   websiteNode,
 } from "@/utils/seo/nodes";
@@ -19,19 +23,16 @@ const feedEntries = (site: string, items: FeedItem[]) =>
     url: `${site}${item.slug}#page`,
   }));
 
-const blogNode = (site: string, items: FeedItem[]) => {
-  const { title, description } = getSiteMetadata();
+const blogNode = (site: string) => {
   const id = routes.home().id(site, "blog");
 
   return {
     "@type": "Blog",
     "@id": id,
     "url": id,
-    "name": title,
-    "description": description,
-    "publisher": { "@id": routes.home().id(site, SLICE.person) },
+    "name": labels.blog,
     "isPartOf": { "@id": routes.home().id(site, SLICE.web) },
-    "blogPost": items.map((item) => ({ "@id": `${site}${item.slug}#page` })),
+    "publisher": { "@id": routes.home().id(site, SLICE.person) },
   };
 };
 
@@ -43,22 +44,39 @@ const homeFeedGraph = (page: number, items: FeedItem[]): JsonLdGraph => {
   const list = itemListNode(
     route,
     SLICE.articles,
-    "Articles",
+    labels.articles,
     feedEntries(site, items)
   );
 
   return mergeGraphs(
-    [personNode(), websiteNode(), list, blogNode(site, items)],
+    [
+      personNode(),
+      websiteNode(),
+      list,
+      ...(page === 0
+        ? [regionNode(routes.home(), "blog", labels.blog, SLICE.articles)]
+        : []),
+      ...siteNavigationNodes(),
+      ...linksNodes(route),
+    ],
     [
       webPageNode(route, {
-        name: page === 0 ? title : `Posts - Page ${page}`,
+        name: page === 0 ? title : `Articles`,
         description,
         types: page === 0 ? ["ProfilePage"] : ["CollectionPage", "WebPage"],
         mainEntity:
           page === 0
             ? { "@id": routes.home().id(site, SLICE.person) }
             : { "@id": listId },
-        ...(page === 0 ? { hasPart: [{ "@id": listId }] } : {}),
+        publisher: page !== 0,
+        ...(page === 0
+          ? {
+              hasPart: [
+                { "@id": routes.home().id(site, "blog") },
+                { "@id": routes.home().id(site, "links") },
+              ],
+            }
+          : {}),
       }),
     ]
   );
@@ -66,6 +84,7 @@ const homeFeedGraph = (page: number, items: FeedItem[]): JsonLdGraph => {
 
 interface PostGraphInput {
   date: Date;
+  dateModified?: string;
   description?: string;
   tags?: string[];
   title: string;
@@ -83,11 +102,17 @@ const postGraph = (slug: string, post: PostGraphInput): JsonLdGraph => {
   ]);
 
   return mergeGraphs(
-    [personNode(), websiteNode(), breadcrumb],
+    [
+      personNode(),
+      websiteNode(),
+      blogNode(site),
+      breadcrumb,
+    ],
     [
       webPageNode(route, {
         name: post.title,
         description,
+        dateModified: post.dateModified,
         datePublished,
         mainEntity: { "@id": route.id(site, SLICE.article) },
         breadcrumb: { "@id": route.id(site, SLICE.breadcrumb) },
@@ -95,6 +120,7 @@ const postGraph = (slug: string, post: PostGraphInput): JsonLdGraph => {
       blogPostingNode(route, {
         headline: post.title,
         description,
+        dateModified: post.dateModified,
         datePublished,
         keywords: post.tags,
       }),
@@ -116,7 +142,7 @@ const termGraph = (term: TermGraphInput): JsonLdGraph => {
   const list = itemListNode(
     term.route,
     SLICE.articles,
-    `${term.name} articles`,
+    term.name,
     feedEntries(site, term.items)
   );
   const breadcrumb = breadcrumbNode(term.route, [
@@ -126,7 +152,14 @@ const termGraph = (term: TermGraphInput): JsonLdGraph => {
   ]);
 
   return mergeGraphs(
-    [personNode(), websiteNode(), list, breadcrumb],
+    [
+      personNode(),
+      websiteNode(),
+      list,
+      breadcrumb,
+      ...siteNavigationNodes(),
+      ...linksNodes(term.route),
+    ],
     [
       webPageNode(term.route, {
         name: term.name,
@@ -134,6 +167,7 @@ const termGraph = (term: TermGraphInput): JsonLdGraph => {
         types: ["CollectionPage", "WebPage"],
         mainEntity: { "@id": listId },
         breadcrumb: { "@id": term.route.id(site, SLICE.breadcrumb) },
+        publisher: true,
       }),
     ]
   );
@@ -156,7 +190,14 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
   ]);
 
   return mergeGraphs(
-    [personNode(), websiteNode(), list, breadcrumb],
+    [
+      personNode(),
+      websiteNode(),
+      list,
+      breadcrumb,
+      ...siteNavigationNodes(),
+      ...linksNodes(hub.route),
+    ],
     [
       webPageNode(hub.route, {
         name: hub.hubLabel,
@@ -164,6 +205,7 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
         types: ["CollectionPage", "WebPage"],
         mainEntity: { "@id": listId },
         breadcrumb: { "@id": hub.route.id(site, SLICE.breadcrumb) },
+        publisher: true,
       }),
     ]
   );
@@ -171,7 +213,12 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
 
 const staticPageGraph = (
   slug: string,
-  page: { description?: string; title: string }
+  page: {
+    date?: Date;
+    dateModified?: string;
+    description?: string;
+    title: string;
+  }
 ): JsonLdGraph => {
   const { url: site, title: siteTitle, description: siteDescription } =
     getSiteMetadata();
@@ -183,11 +230,19 @@ const staticPageGraph = (
   ]);
 
   return mergeGraphs(
-    [personNode(), websiteNode(), breadcrumb],
+    [
+      personNode(),
+      websiteNode(),
+      breadcrumb,
+      ...siteNavigationNodes(),
+      ...linksNodes(route),
+    ],
     [
       webPageNode(route, {
         name: page.title,
         description,
+        dateModified: page.dateModified,
+        ...(page.date ? { datePublished: page.date.toISOString() } : {}),
         breadcrumb: { "@id": route.id(site, SLICE.breadcrumb) },
       }),
     ]

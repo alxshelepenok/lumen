@@ -1,6 +1,8 @@
 ---
 import styles from "@/assets/styles/modules/pagination.module.scss";
+import { labels } from "@/constants/labels";
 import { pagination } from "@/constants/pagination";
+import { Route, SLICE } from "@/utils/routes";
 
 
 interface Props {
@@ -12,6 +14,9 @@ interface Props {
 
 const { prevPagePath, nextPagePath, hasNextPage, hasPrevPage } = Astro.props;
 
+const prevHref = new Route(prevPagePath).anchor(SLICE.page);
+const nextHref = new Route(nextPagePath).anchor(SLICE.page);
+
 const prevClassName = hasPrevPage
   ? styles.previousLink
   : `${styles.previousLink} ${styles.disable}`;
@@ -21,23 +26,27 @@ const nextClassName = hasNextPage
   : `${styles.nextLink} ${styles.disable}`;
 ---
 
-<nav class={styles.pagination} aria-label="Pagination">
+<nav class={styles.pagination} aria-label={labels.pagination}>
   {
     hasPrevPage ? (
-      <a rel="prev" href={prevPagePath} class={prevClassName}>
-        {pagination.prevPage}
+      <a rel="prev" href={prevHref} class={prevClassName}>
+        <div class={styles.label}>{pagination.prevPage}</div>
       </a>
     ) : (
-      <span class={prevClassName}>{pagination.prevPage}</span>
+      <span class={prevClassName}>
+        <div class={styles.label}>{pagination.prevPage}</div>
+      </span>
     )
   }
   {
     hasNextPage ? (
-      <a rel="next" href={nextPagePath} class={nextClassName}>
-        {pagination.nextPage}
+      <a rel="next" href={nextHref} class={nextClassName}>
+        <div class={styles.label}>{pagination.nextPage}</div>
       </a>
     ) : (
-      <span class={nextClassName}>{pagination.nextPage}</span>
+      <span class={nextClassName}>
+        <div class={styles.label}>{pagination.nextPage}</div>
+      </span>
     )
   }
 </nav>

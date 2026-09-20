@@ -21,6 +21,8 @@ interface SiteMetadata {
   menu: SiteMetadataMenu;
   description: string;
   copyright: string;
+  lang: string;
+  logo: string;
   title: string;
   url: string;
   feedLimit: number;

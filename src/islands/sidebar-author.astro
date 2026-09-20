@@ -1,20 +1,37 @@
 ---
 import { getImage } from "astro:assets";
 
+import type { ImageMetadata } from "astro";
+
 import styles from "@/assets/styles/modules/sidebar-author.module.scss";
 
-import logo from "@/assets/images/logo.png";
 import Picture from "@/islands/picture.astro";
 import ThemeToggle from "@/islands/theme-toggle.astro";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
 import type { SiteMetadataAuthor } from "@/utils/get-site-metadata";
 import { largestVariant, srcSetFrom, srcSetWebpFrom } from "@/utils/images";
 import type { ImageVariant } from "@/utils/images";
+import { Route, SLICE } from "@/utils/routes";
 
 interface Props {
   author: Pick<SiteMetadataAuthor, "title" | "description">;
 }
 
 const { author } = Astro.props;
+
+const contentImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/content/*.{png,jpg,jpeg,webp}",
+  { eager: true }
+);
+const logoKey = Object.keys(contentImages).find((key) =>
+  key.replace(/\\/g, "/").endsWith(`/${getSiteMetadata().logo}`)
+);
+
+if (!logoKey) {
+  throw new Error(`config logo "${getSiteMetadata().logo}" not found in content`);
+}
+
+const logo = contentImages[logoKey].default;
 
 const widths = [48, 96, 192];
 
@@ -36,7 +53,7 @@ const variants: ImageVariant[] = await Promise.all(
 ---
 
 <section id="person" class={styles.sidebarAuthor} aria-labelledby="sidebar-author-heading">
-  <a href="/">
+  <a href={new Route("/").anchor(SLICE.page)}>
     <Picture
       class={styles.photo}
       alt={author.title}
@@ -51,7 +68,7 @@ const variants: ImageVariant[] = await Promise.all(
 
   <div class={styles.titleContainer}>
     <h2 id="sidebar-author-heading" class={styles.title}>
-      <a class={styles.link} href="/">
+      <a class={styles.link} href={new Route("/").anchor(SLICE.page)}>
         {author.title}
       </a>
     </h2>

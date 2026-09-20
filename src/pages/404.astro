@@ -3,21 +3,24 @@ import BaseLayout from "@/islands/base-layout.astro";
 import Layout from "@/islands/layout.astro";
 import Page from "@/islands/page.astro";
 
+import { labels } from "@/constants/labels";
+
 import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { SLICE, routes } from "@/utils/routes";
 
 const { title, description } = getSiteMetadata();
 ---
 
 <BaseLayout
-  title={`Not Found - ${title}`}
+  title={`${labels.notFound} - ${title}`}
   description={description}
   robots="noindex, follow"
 >
   <Layout>
-    <Page title="NOT FOUND">
+    <Page title={labels.notFound}>
       <p>You just hit a route that doesn't exist... the sadness.</p>
       <p>
-        <a href="/">Back to the homepage</a>
+        <a href={routes.home().anchor(SLICE.page)}>{labels.backToHomepage}</a>
       </p>
     </Page>
   </Layout>

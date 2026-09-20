@@ -8,17 +8,77 @@ interface AuditIssue {
 }
 
 interface SchemaAuditInput {
+  accessibleName?: (fragment: string) => string | null;
   graphs: JsonLdValue[];
   htmlLang?: string | null;
+  internalHrefs?: string[];
   listItemCount?: (fragment: string) => number | null;
   metaContent?: (name: string) => string | null;
   metaContents?: (name: string) => string[];
+  metaPropertyContent?: (property: string) => string | null;
   pagePathname: string;
   resolveAnchor?: (fragment: string) => boolean;
 }
 
 const normalizePath = (pathname: string): string =>
   pathname !== "/" ? pathname.replace(/\/$/, "") : "/";
+
+const FILE_LIKE_RE = /\.(txt|xml|md|png|ico|svg|webmanifest|jpe?g|webp|css|js|json)$/i;
+
+const isFileLike = (href: string): boolean => FILE_LIKE_RE.test(href.split("#")[0]);
+
+const normalizeName = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N} ]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+interface LinkGrammarInput {
+  internalHrefs?: string[];
+  pagePathname: string;
+  resolveAnchor?: (fragment: string) => boolean;
+}
+
+const auditLinkGrammar = (input: LinkGrammarInput): AuditIssue[] => {
+  const issues: AuditIssue[] = [];
+
+  for (const href of input.internalHrefs ?? []) {
+    if (href.startsWith("#")) {
+      const fragment = href.slice(1);
+
+      if (
+        fragment.length > 0 &&
+        input.resolveAnchor &&
+        !input.resolveAnchor(fragment)
+      ) {
+        issues.push({
+          id: href,
+          message: `same-page link "${href}" resolves to no element with id="${fragment}"`,
+        });
+      }
+
+      continue;
+    }
+
+    if (!href.startsWith("/") || href.startsWith("//")) {
+      continue;
+    }
+
+    if (isFileLike(href)) {
+      continue;
+    }
+
+    if (!href.includes("#")) {
+      issues.push({
+        id: href,
+        message: `internal link "${href}" carries no fragment (expected a #page style target)`,
+      });
+    }
+  }
+
+  return issues;
+};
 
 const collectNodes = (graphs: JsonLdValue[]): JsonLdValue[] => {
   const nodes: JsonLdValue[] = [];
@@ -85,10 +145,51 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
   }
 
   const knownIds = new Set<string>();
+  const typesOf = (node: JsonLdValue): string[] => {
+    const types = node["@type"];
+
+    if (Array.isArray(types)) {
+      return types.filter((t): t is string => typeof t === "string");
+    }
+
+    return typeof types === "string" ? [types] : [];
+  };
 
   for (const node of nodes) {
-    const id = node["@id"];
-    const url = node["url"];
+    const types = typesOf(node);
+
+    if (types.includes("WebSite")) {
+      const id = node["@id"];
+
+      if (typeof id !== "string" || id.length === 0) {
+        issues.push({ message: "node is missing @id" });
+      } else {
+        knownIds.add(id);
+      }
+
+      if (typeof node["name"] !== "string" || node["name"].length === 0) {
+        issues.push({ id: typeof id === "string" ? id : undefined, message: "missing name" });
+      }
+
+      continue;
+    }
+
+    let id = node["@id"];
+    let url = node["url"];
+
+    if (types.includes("ListItem")) {
+      const item = node["item"] as JsonLdValue | undefined;
+
+      if (item && typeof item === "object" && !Array.isArray(item)) {
+        if (typeof item["@id"] === "string") {
+          id = item["@id"];
+        }
+
+        if (typeof item["url"] === "string") {
+          url = item["url"];
+        }
+      }
+    }
 
     if (typeof id !== "string" || id.length === 0) {
       issues.push({ message: "node is missing @id" });
@@ -188,6 +289,15 @@ const auditCrossChecks = (input: SchemaAuditInput): AuditIssue[] => {
       });
     }
 
+    const ogLocale = input.metaPropertyContent?.("og:locale");
+
+    if (typeof lang === "string" && ogLocale && ogLocale !== lang && !ogLocale.startsWith(`${lang}_`)) {
+      issues.push({
+        id,
+        message: `og:locale "${ogLocale}" does not agree with inLanguage "${lang}"`,
+      });
+    }
+
     const metaDescription = input.metaContent?.("description");
 
     if (
@@ -272,6 +382,34 @@ const auditCrossChecks = (input: SchemaAuditInput): AuditIssue[] => {
 
     const fragment = fragmentOf(node["@id"]);
 
+    if (fragment && typeof node["name"] === "string" && input.accessibleName) {
+      const label = input.accessibleName(fragment);
+      const name = node["name"] as string;
+
+      if (label !== null) {
+        const target = normalizeName(label);
+        const candidate = normalizeName(name);
+
+        if (
+          candidate.length > 0 &&
+          target.length > 0 &&
+          candidate !== target &&
+          !candidate.includes(target) &&
+          !target.includes(candidate)
+        ) {
+          issues.push({
+            id,
+            message: `name "${name}" does not match the accessible name "${label}" of #${fragment}`,
+          });
+        }
+      } else {
+        issues.push({
+          id,
+          message: `name "${name}" has no accessible name (aria-label or aria-labelledby) on #${fragment}`,
+        });
+      }
+    }
+
     if (fragment && typeof node["numberOfItems"] === "number") {
       const rendered = input.listItemCount?.(fragment);
 
@@ -287,7 +425,7 @@ const auditCrossChecks = (input: SchemaAuditInput): AuditIssue[] => {
   return issues;
 };
 
-const runSchemaAudit = (doc: Document): void => {
+const collectSchemaIssues = (doc: Document, pagePathname: string): AuditIssue[] => {
   const scripts = Array.from(
     doc.querySelectorAll('script[type="application/ld+json"]')
   );
@@ -305,13 +443,43 @@ const runSchemaAudit = (doc: Document): void => {
   const issues = [
     ...auditSchemaGraph({
       graphs,
-      pagePathname: doc.defaultView?.location.pathname ?? "/",
+      pagePathname,
+      resolveAnchor: (fragment) => doc.getElementById(fragment) !== null,
+    }),
+    ...auditLinkGrammar({
+      pagePathname,
+      internalHrefs: Array.from(doc.querySelectorAll("a[href]")).map((link) =>
+        link.getAttribute("href") ?? ""
+      ),
       resolveAnchor: (fragment) => doc.getElementById(fragment) !== null,
     }),
     ...auditCrossChecks({
       graphs,
-      pagePathname: doc.defaultView?.location.pathname ?? "/",
+      pagePathname,
       htmlLang: doc.documentElement.getAttribute("lang"),
+      accessibleName: (fragment) => {
+        const anchor = doc.getElementById(fragment);
+
+        if (!anchor) {
+          return null;
+        }
+
+        const labelledBy = anchor.getAttribute("aria-labelledby");
+
+        if (labelledBy) {
+          const text = labelledBy
+            .split(/\s+/)
+            .map((ref) => doc.getElementById(ref)?.textContent?.trim() ?? "")
+            .filter(Boolean)
+            .join(" ");
+
+          if (text) {
+            return text;
+          }
+        }
+
+        return anchor.getAttribute("aria-label");
+      },
       metaContent: (name) =>
         doc.querySelector(`meta[name="${name}"]`)?.getAttribute("content") ??
         null,
@@ -319,12 +487,37 @@ const runSchemaAudit = (doc: Document): void => {
         Array.from(doc.querySelectorAll(`meta[name="${name}"]`))
           .map((meta) => meta.getAttribute("content"))
           .filter((content): content is string => content !== null),
+      metaPropertyContent: (property) =>
+        doc.querySelector(`meta[property="${property}"]`)?.getAttribute("content") ??
+        null,
       listItemCount: (fragment) => {
         const anchor = doc.getElementById(fragment);
-        return anchor ? anchor.querySelectorAll("li").length : null;
+
+        if (!anchor) {
+          return null;
+        }
+
+        const tag = anchor.tagName.toLowerCase();
+
+        if (tag === "ul" || tag === "ol") {
+          return anchor.querySelectorAll("li").length;
+        }
+
+        return Array.from(anchor.children).filter(
+          (child) => child.tagName.toLowerCase() === "article"
+        ).length;
       },
     }),
   ];
+
+  return issues;
+};
+
+const runSchemaAudit = (doc: Document): void => {
+  const issues = collectSchemaIssues(
+    doc,
+    doc.defaultView?.location.pathname ?? "/"
+  );
 
   for (const issue of issues) {
     console.error(
@@ -333,5 +526,5 @@ const runSchemaAudit = (doc: Document): void => {
   }
 };
 
-export { auditCrossChecks, auditSchemaGraph, runSchemaAudit };
+export { auditCrossChecks, auditLinkGrammar, auditSchemaGraph, collectSchemaIssues, runSchemaAudit };
 export type { AuditIssue, JsonLdValue, SchemaAuditInput };

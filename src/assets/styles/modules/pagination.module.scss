@@ -5,14 +5,31 @@
   display: flex;
   @include mixins.margin-top(2);
 
+  .label {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
   .previousLink {
     color: hsl(var(--color-foreground));
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 600;
+    gap: 10px;
+    justify-content: flex-start;
     line-height: 30px;
-    text-align: left;
     width: 50%;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 10px;
+      background-color: currentColor;
+      mask: var(--icon-arrow) center / contain no-repeat;
+      transform: scaleX(-1);
+    }
 
     &:hover,
     &:focus {
@@ -27,12 +44,23 @@
 
   .nextLink {
     color: hsl(var(--color-foreground));
-    display: block;
+    display: flex;
+    align-items: center;
     font-size: 26px;
-    font-weight: bold;
+    font-weight: 600;
+    gap: 10px;
+    justify-content: flex-end;
     line-height: 30px;
-    text-align: right;
     width: 50%;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 10px;
+      background-color: currentColor;
+      mask: var(--icon-arrow) center / contain no-repeat;
+    }
 
     &:hover,
     &:focus {

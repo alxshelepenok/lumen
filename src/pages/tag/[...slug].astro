@@ -14,6 +14,7 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, tagsOf } from "@/utils/get-taxonomy";
 import { routes, toKebabCase } from "@/utils/routes";
 import { termGraph } from "@/utils/seo";
+import { labels } from "@/constants/labels";
 
 export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
@@ -55,7 +56,7 @@ const pageTitle =
     : `${group} - ${title}`;
 
 const jsonLd = termGraph({
-  hubName: "Tags",
+  hubName: labels.tags,
   hubPath: routes.tags().href(),
   items,
   name: group,
@@ -67,14 +68,16 @@ const jsonLd = termGraph({
   <Layout>
     <Page title={group}>
       <Breadcrumb
+        slot="breadcrumb"
         items={[
           { name: title, href: "/" },
-          { name: "Tags", href: routes.tags().href() },
+          { name: labels.tags, href: routes.tags().href() },
           { name: group },
         ]}
       />
-      <Feed items={items} />
+      <Feed heading={group} items={items} />
       <Pagination
+        slot="footer"
         prevPagePath={pagination.prevPagePath}
         nextPagePath={pagination.nextPagePath}
         hasPrevPage={pagination.hasPrevPage}

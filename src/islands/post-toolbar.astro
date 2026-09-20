@@ -1,0 +1,15 @@
+---
+import styles from "@/assets/styles/modules/post-toolbar.module.scss";
+
+import { labels } from "@/constants/labels";
+
+import Button from "@/islands/button.astro";
+import ThemeToggle from "@/islands/theme-toggle.astro";
+---
+
+<aside aria-label={labels.readerControls}>
+  <div class={styles.toolbar} data-nosnippet>
+    <Button className={styles.allArticles} title={labels.allArticles} to="/" />
+    <ThemeToggle />
+  </div>
+</aside>

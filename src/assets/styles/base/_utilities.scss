@@ -1,3 +1,5 @@
+@use "../mixins";
+
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -12,17 +14,25 @@
 }
 
 .skip-link {
-  background: hsl(var(--color-background));
-  border: 1px solid hsl(var(--color-border));
-  color: hsl(var(--color-primary));
   left: -999px;
-  padding: 8px 16px;
+  margin: 0;
   position: absolute;
-  top: auto;
+  right: auto;
+  top: 30px;
   z-index: 100;
 
   &:focus {
-    left: 8px;
-    top: 8px;
+    left: auto;
+    right: 30px;
+  }
+}
+
+a.skip-link {
+  display: none;
+}
+
+@include mixins.breakpoint-sm {
+  a.skip-link {
+    display: inline-block;
   }
 }

@@ -1,9 +1,13 @@
 ---
 import "@/assets/styles/main.scss";
 
+import buttonStyles from "@/assets/styles/modules/button.module.scss";
+
 import BaseHead from "@/islands/base-head.astro";
 import IconSprite from "@/islands/icon-sprite.astro";
 import JsonLd from "@/islands/json-ld.astro";
+
+import { labels } from "@/constants/labels";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 import type { JsonLdGraph } from "@/utils/seo";
@@ -17,7 +21,9 @@ interface Props {
   imageHeight?: number;
   imageWidth?: number;
   jsonLd?: JsonLdGraph;
+  markdownSource?: string;
   ogType?: string;
+  publishedTime?: string;
   robots?: string;
   tags?: string[];
   title: string;
@@ -30,12 +36,14 @@ const {
   imageHeight,
   imageWidth,
   jsonLd,
+  markdownSource,
   ogType,
+  publishedTime,
   robots,
   tags,
   title,
 } = Astro.props;
-const { googleAnalyticsId } = getSiteMetadata();
+const { googleAnalyticsId, lang } = getSiteMetadata();
 
 const canonical = new Route(Astro.url.pathname).canonical(
   Astro.site?.href ?? ""
@@ -65,7 +73,7 @@ const themeScript = `
 ---
 
 <!doctype html>
-<html lang="en" id="web">
+<html lang={lang} id="web">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -78,6 +86,8 @@ const themeScript = `
       imageWidth={imageWidth}
       canonical={canonical}
       ogType={ogType}
+      markdownSource={markdownSource}
+      publishedTime={publishedTime}
       robots={robots}
       tags={tags}
     />
@@ -114,8 +124,8 @@ const themeScript = `
     }
   </head>
   <body>
-    <a href="#page" class="skip-link">
-      Skip to content
+    <a href="#page" class:list={["skip-link", buttonStyles.button]}>
+      {labels.skipToContent}
     </a>
     <slot />
     <IconSprite />

@@ -14,6 +14,7 @@ import { getSiteMetadata } from "@/utils/get-site-metadata";
 import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
 import { routes } from "@/utils/routes";
 import { termGraph } from "@/utils/seo";
+import { labels } from "@/constants/labels";
 
 export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
@@ -58,7 +59,7 @@ const pageTitle =
     : `Year ${group} - ${title}`;
 
 const jsonLd = termGraph({
-  hubName: "Years",
+  hubName: labels.years,
   hubPath: routes.years().href(),
   items,
   name: group,
@@ -70,14 +71,16 @@ const jsonLd = termGraph({
   <Layout>
     <Page title={group}>
       <Breadcrumb
+        slot="breadcrumb"
         items={[
           { name: title, href: "/" },
-          { name: "Years", href: routes.years().href() },
+          { name: labels.years, href: routes.years().href() },
           { name: group },
         ]}
       />
-      <Feed items={items} />
+      <Feed heading={group} items={items} />
       <Pagination
+        slot="footer"
         prevPagePath={pagination.prevPagePath}
         nextPagePath={pagination.nextPagePath}
         hasPrevPage={pagination.hasPrevPage}

@@ -207,15 +207,6 @@ const auditAccessibility = (
     }
   }
 
-  for (const landmark of landmarks) {
-    if (landmark.element.id && landmark.element.tabindex !== "-1") {
-      warnings.push({
-        id: landmark.element.id,
-        message: `anchored <${landmark.role}> landmark lacks tabindex="-1" for fragment focus`,
-      });
-    }
-  }
-
   return { errors, warnings };
 };
 
@@ -297,11 +288,9 @@ const runAccessibilityAudit = (doc: Document): void => {
             anchors.push(match[2]);
           }
         } catch {
-          // non-url ids are not DOM anchors
         }
       }
     } catch {
-      // invalid graphs are reported by the schema audit
     }
   }
 

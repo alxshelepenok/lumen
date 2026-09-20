@@ -3,12 +3,10 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 import styles from "@/assets/styles/modules/post.module.scss";
 
-import Button from "@/islands/button.astro";
 import Breadcrumb from "@/islands/breadcrumb.astro";
 import PostAuthor from "@/islands/post-author.astro";
 import PostFooter from "@/islands/post-footer.astro";
 import PostTags from "@/islands/post-tags.astro";
-import ThemeToggle from "@/islands/theme-toggle.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
 
@@ -16,6 +14,7 @@ interface Props {
   post: {
     Content: AstroComponentFactory;
     date: Date;
+    readingTime?: number;
     tagSlugs?: string[];
     tags?: string[];
     title: string;
@@ -30,18 +29,29 @@ const { title: siteTitle } = getSiteMetadata();
 
 <article id="article" class={styles.post} aria-labelledby="post-title">
   <header>
-    <Breadcrumb items={[{ name: siteTitle, href: "/" }, { name: post.title }]} />
-    <div class={styles.buttons}>
-      <Button className={styles.buttonArticles} title="All Articles" to="/" />
-      <ThemeToggle />
+    <div class={styles.metaLine}>
+      <Breadcrumb
+        center
+        className={styles.breadcrumb}
+        items={[{ name: siteTitle, href: "/" }, { name: post.title }]}
+      />
+      {
+        post.readingTime ? (
+          <p class={styles.readingTime}>
+            (
+            <time datetime={`PT${post.readingTime}M`}>
+              {post.readingTime} min read
+            </time>
+            )
+          </p>
+        ) : null
+      }
     </div>
     <hgroup class={styles.titleWrap}>
       <h1 id="post-title" class={styles.title}>{post.title}</h1>
     </hgroup>
   </header>
-  <section id="post-body" class={styles.body} aria-labelledby="post-title">
-    <Content />
-  </section>
+  <Content />
   <footer class={styles.footer}>
     <PostFooter date={post.date} />
     {

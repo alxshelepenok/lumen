@@ -8,6 +8,14 @@
   font-size: variables.$typography-base-font-size;
   @include mixins.line-height(1);
 
+  > section ul {
+    @include mixins.content-list-square;
+  }
+
+  > section ol {
+    @include mixins.content-list-numbered;
+  }
+
   > :last-child {
     @include mixins.margin-bottom(1);
   }

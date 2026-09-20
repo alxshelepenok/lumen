@@ -1,26 +1,38 @@
 ---
 import styles from "@/assets/styles/modules/page.module.scss";
 
+import { labels } from "@/constants/labels";
+
 interface Props {
   heading?: string;
   id?: string;
   title?: string;
 }
 
-const { heading = "Articles", id, title } = Astro.props;
+const { heading = labels.articles, id, title } = Astro.props;
 ---
 
 <section {...(id ? { id } : {})} class={styles.page} aria-labelledby="page-title">
+  <header>
+    <slot name="breadcrumb" />
+    {
+      title ? (
+        <h1 id="page-title" class={styles.title}>
+          {title}
+        </h1>
+      ) : (
+        <h1 id="page-title" class="visually-hidden">
+          {heading}
+        </h1>
+      )
+    }
+  </header>
+  <slot />
   {
-    title ? (
-      <h1 id="page-title" class={styles.title}>
-        {title}
-      </h1>
-    ) : (
-      <h1 id="page-title" class="visually-hidden">
-        {heading}
-      </h1>
+    Astro.slots.has("footer") && (
+      <footer>
+        <slot name="footer" />
+      </footer>
     )
   }
-  <slot />
 </section>

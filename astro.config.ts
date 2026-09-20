@@ -1,3 +1,8 @@
+import { existsSync } from "node:fs";
+import { cp } from "node:fs/promises";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { unified } from "@astrojs/markdown-remark";
 import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
@@ -8,6 +13,24 @@ import config from "@/content/config.json";
 
 import { rehypeHtml } from "./internal/rehype-html.mjs";
 
+const emitOgCards = () => ({
+  name: "emit-og-cards",
+  hooks: {
+    "astro:build:done": async ({ dir, logger }: { dir: URL; logger: { info: (message: string) => void } }) => {
+      const source = "public/generated/og";
+
+      if (!existsSync(source)) {
+        return;
+      }
+
+      await cp(source, join(fileURLToPath(dir), "generated/og"), {
+        recursive: true,
+      });
+      logger.info("og cards emitted");
+    },
+  },
+});
+
 export default defineConfig({
   output: "static",
   outDir: "target",
@@ -17,8 +40,9 @@ export default defineConfig({
     sitemap({
       changefreq: "daily",
       priority: 0.7,
-      filter: (page) => !page.includes("/404") && !page.endsWith(".txt"),
+      filter: (page) => !page.includes("/404") && !page.endsWith(".txt") && !page.endsWith(".md"),
     }),
+    emitOgCards(),
   ],
   markdown: {
     shikiConfig: {
