@@ -15,10 +15,10 @@
 
 @include mixins.breakpoint-lg {
   .toolbar {
-    left: 30px;
+    left: variables.$spacing-xl;
     max-width: none;
     position: fixed;
-    top: 30px;
+    top: variables.$spacing-xl;
     margin: 0 variables.$spacing-sm 0 0;
   }
 }

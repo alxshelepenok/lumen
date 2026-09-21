@@ -9,7 +9,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     list-style: none;
-    max-width: 165px;
+    max-width: 10.5rem;
     padding: 0;
     margin: variables.$spacing-sm 0;
 
@@ -27,8 +27,8 @@
         border: 0;
         align-items: center;
         justify-content: center;
-        width: variables.$button-height;
-        height: variables.$button-height;
+        width: variables.$control-height;
+        height: variables.$control-height;
         color: hsl(var(--color-foreground));
         cursor: pointer;
         display: flex;

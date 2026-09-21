@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:176eefbd4e448f35380fab59b6d0530d2820321adaa9b3f2c9c83e9c890a40ea
+# checksum: sha256:b3e7b0056fb7676ac66d3839d15be08a00c4d1060f93eb5431cd738644079758
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -259,7 +259,7 @@ g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updat
 g G-83 status=partial fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:32:53Z "Typography and spacing unified on a rem token scale"
   area: A-03
   fitness_target: 5
-  fitness_current: 3
+  fitness_current: 4
 
 w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_updated=2026-09-20T21:46:33Z "Relabel the toolbar aside to Reader controls"
   goals: G-52
@@ -807,7 +807,7 @@ w W-133 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
     | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
     | Vision review of w133 home and post shots at 375 and 1280: balanced rhythm, no clipped, overlapping or edge-touching elements; shots under .cache/shots.
 
-w W-134 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Layout widths, breakpoints and control sizing in rem"
+w W-134 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:43:51Z "Layout widths, breakpoints and control sizing in rem"
   goals: G-83
   fitness: G-83=+1
   surface: src/assets/styles/modules, src/assets/styles/mixins
@@ -819,6 +819,11 @@ w W-134 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23
     | Snapping structural constants to the rem grid shifts containers by only a few pixels without reflowing the grid.
   evidence_strategy:
     | Build, bun test and audit sweep green; screenshots at 375, 960 and 1280 pixels compared with the baseline.
+  evidence:
+    | Layout tokens snapped: container 67.5rem, post measure 40rem, single width 60rem, gap 2rem, breakpoints 42.5rem, 60rem and 68.75rem; controls group renamed to control-height 2.5rem and control-radius 1.25rem.
+    | Pagination arrows 1.5rem by 0.625rem, author photo 4.5rem, contacts width 10.5rem, figure floats 19.5rem, sidebar rule 34rem tall at xl offsets, skip link and fixed toolbar share the xl offset token, off-screen offset -62.5rem.
+    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; only 1px hairlines remain as px in the styles tree.
+    | Vision review at 960 and 1280: two column grid intact, divider placed between columns, no clipped or overlapping elements; shots under .cache/shots.
 
 w W-135 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:09Z "Retire the leading system and sweep stray px"
   goals: G-83

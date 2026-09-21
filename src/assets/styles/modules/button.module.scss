@@ -2,11 +2,11 @@
 
 .button {
   border: 1px solid hsl(var(--color-border));
-  border-radius: variables.$button-border-radius;
+  border-radius: variables.$control-radius;
   font-size: variables.$font-size-base;
-  line-height: variables.$button-height;
+  line-height: variables.$control-height;
   color: hsl(var(--color-foreground));
-  height: variables.$button-height;
+  height: variables.$control-height;
   text-decoration: none;
   display: inline-block;
   font-weight: normal;

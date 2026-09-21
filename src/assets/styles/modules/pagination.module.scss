@@ -23,8 +23,8 @@
     &::before {
       content: "";
       display: block;
-      width: 24px;
-      height: 10px;
+      width: 1.5rem;
+      height: 0.625rem;
       background-color: currentColor;
       mask: var(--icon-arrow) center / contain no-repeat;
       transform: scaleX(-1);
@@ -55,8 +55,8 @@
     &::after {
       content: "";
       display: block;
-      width: 24px;
-      height: 10px;
+      width: 1.5rem;
+      height: 0.625rem;
       background-color: currentColor;
       mask: var(--icon-arrow) center / contain no-repeat;
     }

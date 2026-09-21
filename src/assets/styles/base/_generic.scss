@@ -153,7 +153,7 @@ figcaption {
 @include mixins.breakpoint-sm {
   figure.float-left,
   figure.float-right {
-    max-width: 310px;
+    max-width: 19.5rem;
     padding: variables.$spacing-lg 0;
   }
 

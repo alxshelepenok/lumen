@@ -1,3 +1,4 @@
+@use "../variables";
 @use "../mixins";
 
 .visually-hidden {
@@ -14,16 +15,16 @@
 }
 
 .skip-link {
-  left: -999px;
+  left: -62.5rem;
   margin: 0;
   position: absolute;
   right: auto;
-  top: 30px;
+  top: variables.$spacing-xl;
   z-index: 100;
 
   &:focus {
     left: auto;
-    right: 30px;
+    right: variables.$spacing-xl;
   }
 }
 

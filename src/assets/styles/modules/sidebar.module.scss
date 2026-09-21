@@ -27,11 +27,11 @@
     &:after {
       bottom: 0;
       content: "";
-      height: 540px;
+      height: 34rem;
       position: absolute;
-      right: -10px;
+      right: -0.5rem;
       width: 1px;
-      top: 30px;
+      top: variables.$spacing-xl;
     }
   }
 }
