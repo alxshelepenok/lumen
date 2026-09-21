@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 118 | validated B 55 · answered Q 5 · accepted D 26 · active Discovery 32 |
+| C (content) | 119 | validated B 55 · answered Q 5 · accepted D 26 · active Discovery 33 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- |
 | A-01 | Content pipeline | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 4 | 0 | C: validated B 2 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 58 | 0 | C: validated B 24 · answered Q 1 · accepted D 12 · active Discovery 21; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 59 | 0 | C: validated B 24 · answered Q 1 · accepted D 12 · active Discovery 22; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 7 | 0 | C: validated B 5 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 56 | 0 | C: validated B 22 · answered Q 1 · accepted D 9 · active Discovery 24; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -324,6 +324,7 @@
 | Y-35 | Icons center on trimmed text boxes, not line boxes | css-icon-sprite | active |
 | Y-36 | Post markdown ships beside its page as a text alternate | llms | active |
 | Y-37 | Content lists carry their markers in a flex column | content-column | active |
+| Y-38 | Sizes and spacing live on named rem scales, not leading arithmetic | leading-arithmetic, rem-token-scale | active |
 
 ## Dependency graph
 
@@ -597,6 +598,7 @@ graph TD
   Y_35["Y-35: Icons center on trimmed text boxes, not line boxes"]:::discovery
   Y_36["Y-36: Post markdown ships beside its page as a text alternate"]:::discovery
   Y_37["Y-37: Content lists carry their markers in a flex column"]:::discovery
+  Y_38["Y-38: Sizes and spacing live on named rem scales, not leading arithmetic"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -916,6 +918,8 @@ graph TD
   Y_36 -->|distills| B_47
   Y_37 -->|distills| B_52
   Y_37 -->|distills| B_53
+  Y_38 -->|distills| D_38
+  Y_38 -->|distills| D_39
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

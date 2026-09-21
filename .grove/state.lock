@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:b65f77d34b34419bb3ffe1fb39f7538079135d154a3b7a614fad18bcad686f1c
+# checksum: sha256:0cf1ecc303aa57a0825c1dfe4954afeae70ed361b39607ce4af952ff1bb670cf
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -1966,7 +1966,7 @@ d D-37 status=accepted t_created=2026-09-20T22:27:47Z t_updated=2026-09-20T22:28
   consequences:
     | Post markup loses the rail wrapper and one script; the graph loses the SiteNavigationEntity/ItemList pair per post and the page hasPart; toc labels leave the constants; heading anchors stay as plain permalinks with no observer.
 
-d D-38 status=accepted t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:24:55Z "Semantic rem scales replace leading arithmetic"
+d D-38 status=accepted t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:45:50Z "Semantic rem scales replace leading arithmetic"
   context:
     | Spacing and type sizes derive from a 26px leading multiplied by unitless factors, so call sites like margin-top(0.5) equal 13px and cannot be explained, and px sizing blocks user font scaling.
   options:
@@ -1980,7 +1980,7 @@ d D-38 status=accepted t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:24
   validation:
     | Before and after screenshots of home and a post at 375 and 1280 pixels.
 
-d D-39 status=accepted t_created=2026-09-21T23:23:58Z t_updated=2026-09-21T23:24:56Z "Device anchored px stays outside the rem system"
+d D-39 status=accepted t_created=2026-09-21T23:23:58Z t_updated=2026-09-21T23:45:50Z "Device anchored px stays outside the rem system"
   context:
     | Hairlines, off-screen helpers and raster image geometry describe device pixels or non-visual mechanics, not user measurable sizes.
   decision:
@@ -2706,6 +2706,12 @@ y Y-37 status=active t_created=2026-09-21T13:19:12Z t_updated=2026-09-21T13:19:1
   invariant:
     | Content lists drop the UA marker gutter: li becomes a flex row (align-items baseline) whose ::before is a fixed marker column (7px currentColor square for ul, counters for ol) with a 13px gap, so wrapped lines align under the first line and the indent equals the marker column. The rules live in mixins/_content-list.scss; posts scope them through > ul / > ol (cap formula 640 plus the 20px marker column) and static pages through > section ul / ol because their content sits inside article.page > section, which also keeps hub lists on the generic styles.
 
+y Y-38 status=active t_created=2026-09-21T23:45:50Z t_updated=2026-09-21T23:46:10Z "Sizes and spacing live on named rem scales, not leading arithmetic"
+  tags: rem-token-scale, leading-arithmetic
+  surface: src/assets/styles/variables
+  invariant:
+    | Every font size, line height, spacing and layout constant in the styles tree resolves to a named rem token from the variables groups; no px to rem conversion function exists and device anchored 1px hairlines are the only px left.
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
 
@@ -3036,6 +3042,8 @@ e Y-35 distills B-43 t_created=2026-09-20T23:07:38Z
 e Y-36 distills B-47 t_created=2026-09-20T23:43:06Z
 e Y-37 distills B-52 t_created=2026-09-21T13:19:12Z
 e Y-37 distills B-53 t_created=2026-09-21T13:19:12Z
+e Y-38 distills D-38 t_created=2026-09-21T23:45:50Z
+e Y-38 distills D-39 t_created=2026-09-21T23:45:50Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"

@@ -31,3 +31,5 @@
 | scoped-wrapper | A bare, classless header or footer inside a scoped region; not a landmark, geometry-neutral through margin collapsing. | Y-31 |
 | content-column | The centered 640px post text column reproduced by per-element margin caps instead of a wrapper element. | Y-32 |
 | css-icon-sprite | The --icon-* custom properties in base/_icons.scss carrying shape-only SVG data URIs painted through masks. | Y-34 |
+| rem-token-scale | The named rem step scales (font sizes sm to 5xl, spacing 2xs to 4xl) in src/assets/styles/variables that own every size and rhythm value. | Y-35 |
+| leading-arithmetic | The retired system multiplying a 26px leading by unitless factors inside margin, padding and line-height mixins. | Y-35 |

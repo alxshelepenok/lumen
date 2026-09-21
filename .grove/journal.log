@@ -2825,3 +2825,6 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-21T23:45:23Z","inv":{"id":"W-135","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-21T23:45:23Z","inv":{"id":"W-135","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-21T23:45:23Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-135","op":"set_w_status_with_goals","goal_statuses":{"G-83":"partial"},"old_session_at":"2026-09-21T23:43:52Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-21T23:45:50Z","inv":{"id":"Y-38","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-21T23:46:02Z","inv":{"id":"Y-38","field":"invariant","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-21T23:46:10Z","inv":{"old_status":"proposed","id":"Y-38","op":"set_status_plain"}}
