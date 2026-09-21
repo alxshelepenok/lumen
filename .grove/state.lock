@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:b3e7b0056fb7676ac66d3839d15be08a00c4d1060f93eb5431cd738644079758
+# checksum: sha256:b65f77d34b34419bb3ffe1fb39f7538079135d154a3b7a614fad18bcad686f1c
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -256,10 +256,10 @@ g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updat
   fitness_target: 1
   fitness_current: 1
 
-g G-83 status=partial fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:32:53Z "Typography and spacing unified on a rem token scale"
+g G-83 status=verified fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:45:23Z "Typography and spacing unified on a rem token scale"
   area: A-03
   fitness_target: 5
-  fitness_current: 4
+  fitness_current: 5
 
 w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_updated=2026-09-20T21:46:33Z "Relabel the toolbar aside to Reader controls"
   goals: G-52
@@ -825,7 +825,7 @@ w W-134 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
     | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; only 1px hairlines remain as px in the styles tree.
     | Vision review at 960 and 1280: two column grid intact, divider placed between columns, no clipped or overlapping elements; shots under .cache/shots.
 
-w W-135 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:09Z "Retire the leading system and sweep stray px"
+w W-135 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:45:23Z "Retire the leading system and sweep stray px"
   goals: G-83
   fitness: G-83=+1
   surface: src/assets/styles
@@ -837,6 +837,10 @@ w W-135 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23
     | After the migrations the legacy arithmetic has no callers, so deletion is a pure removal.
   evidence_strategy:
     | Whitelist grep output recorded; build, bun test and audit sweep green.
+  evidence:
+    | Deleted mixins margin, padding and line-height with their forwards and the typography-leading token; no references remain in the styles tree.
+    | px census over src/assets/styles returns twelve 1px hairlines only (borders, visually hidden helper, sidebar rule width), matching the D-39 whitelist.
+    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; w135-post-1280 md5 identical to w134-post-1280.
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
