@@ -4,7 +4,7 @@
 .button {
   border: 1px solid hsl(var(--color-border));
   border-radius: variables.$button-border-radius;
-  font-size: variables.$typography-base-font-size;
+  font-size: variables.$font-size-base;
   line-height: variables.$button-height;
   color: hsl(var(--color-foreground));
   height: variables.$button-height;

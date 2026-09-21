@@ -3,11 +3,11 @@
 
 .sidebar-copyright {
   color: hsl(var(--color-muted-foreground));
-  font-size: variables.$typography-small-font-size;
+  font-size: variables.$font-size-sm;
 }
 
 .note {
   display: block;
-  @include mixins.line-height(1);
+  line-height: variables.$line-height-snug;
   margin: 0;
 }

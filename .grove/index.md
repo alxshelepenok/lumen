@@ -6,8 +6,8 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 116 | validated B 54 · answered Q 4 · accepted D 26 · active Discovery 32 |
-| V (uncertainty) | 9 | open Q 1 · pending B 1 · W below DoR 3 · uncovered surface 4 |
+| C (content) | 118 | validated B 55 · answered Q 5 · accepted D 26 · active Discovery 32 |
+| V (uncertainty) | 3 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 
 ## Areas
 
@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- |
 | A-01 | Content pipeline | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 4 | 0 | C: validated B 2 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 56 | 9 | C: validated B 23 · answered Q 0 · accepted D 12 · active Discovery 21; V: open Q 1 · pending B 1 · W below DoR 3 · uncovered surface 4 |
+| A-03 | Interface and theming | 58 | 3 | C: validated B 24 · answered Q 1 · accepted D 12 · active Discovery 21; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 3 |
 | A-04 | Site services | 7 | 0 | C: validated B 5 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 56 | 0 | C: validated B 22 · answered Q 1 · accepted D 9 · active Discovery 24; V: open Q 0 · pending B 0 · W below DoR 0 |
@@ -77,7 +77,7 @@
 | G-80 | Posts and pages carry published and modified dates into their graphs | count; current=1 target=1 | verified |
 | G-81 | Site language sourced from config.json | count; current=1 target=1 | verified |
 | G-82 | Logo lives in content with its path in config.json | count; current=1 target=1 | verified |
-| G-83 | Typography and spacing unified on a rem token scale | count; current=1 target=5 | partial |
+| G-83 | Typography and spacing unified on a rem token scale | count; current=2 target=5 | partial |
 
 ## Work items
 
@@ -115,9 +115,9 @@
 | W-129 | feature | Add lang to config.json and wire it through | G-81 | clear | ⊤ | done |  |
 | W-130 | refactor | Move logo.png into content and point config at it | G-82 | complicated | ⊤ | done |  |
 | W-131 | feature | De-px the token base and regroup variables | G-83 | complicated | ⊤ | done |  |
-| W-132 | feature | Typography migration onto the snapped rem scale | G-83 | complicated | ⊥ | proposed | ★ |
-| W-133 | feature | Spacing migration onto the snapped rem scale | G-83 | complicated | ⊥ | proposed | ★ |
-| W-134 | feature | Layout widths, breakpoints and control sizing in rem | G-83 | complicated | ⊥ | proposed | ★ |
+| W-132 | feature | Typography migration onto the snapped rem scale | G-83 | complicated | ⊤ | done |  |
+| W-133 | feature | Spacing migration onto the snapped rem scale | G-83 | complicated | ⊤ | proposed | ★ |
+| W-134 | feature | Layout widths, breakpoints and control sizing in rem | G-83 | complicated | ⊤ | proposed | ★ |
 | W-135 | feature | Retire the leading system and sweep stray px | G-83 | complicated | ⊤ | proposed | ★ |
 | W-51 | refactor | Body skeleton: main + aside + skip-link, no wrapper divs | G-32 | complicated | ⊤ | done |  |
 | W-52 | refactor | Sidebar semantics: aside with nav, headed sections and footer | G-32 | clear | ⊤ | done |  |
@@ -212,7 +212,7 @@
 | Q-05 | Default social card image when a post has none | complicated |  | answered |
 | Q-06 | Do render() heading slugs match the custom heading ids? | complicated | W-79 | answered |
 | Q-07 | Do audits or tests assert stylesheet values? | complicated |  | answered |
-| Q-08 | Does the snapped scale hold visual quality? | complicated | W-132 | open |
+| Q-08 | Does the snapped scale hold visual quality? | complicated | W-132 | answered |
 
 ## Assumptions
 
@@ -272,7 +272,7 @@
 | B-56 | Graph dates match frontmatter and file mtimes |  | W-128 | validated |
 | B-57 | Config lang reaches html and every graph node |  | W-129 | validated |
 | B-58 | Config-driven logo renders identically |  | W-130 | validated |
-| B-59 | Snapped rem values preserve the rendered design | Q-08 | W-132, W-133, W-134 | proposed |
+| B-59 | Snapped rem values preserve the rendered design | Q-08 | W-132, W-133, W-134 | validated |
 
 ## Themes
 
@@ -413,7 +413,7 @@ graph TD
   W_129["W-129: Add lang to config.json and wire it through"]:::done
   W_130["W-130: Move logo.png into content and point config at it"]:::done
   W_131["W-131: De-px the token base and regroup variables"]:::done
-  W_132["W-132: Typography migration onto the snapped rem scale"]:::feature,critical
+  W_132["W-132: Typography migration onto the snapped rem scale"]:::done
   W_133["W-133: Spacing migration onto the snapped rem scale"]:::feature,critical
   W_134["W-134: Layout widths, breakpoints and control sizing in rem"]:::feature,critical
   W_135["W-135: Retire the leading system and sweep stray px"]:::feature,critical
@@ -916,7 +916,7 @@ graph TD
   Y_36 -->|distills| B_47
   Y_37 -->|distills| B_52
   Y_37 -->|distills| B_53
-  class W_132,W_133,W_134,W_135 critical
+  class W_133,W_134,W_135 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

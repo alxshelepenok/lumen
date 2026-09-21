@@ -14,11 +14,11 @@
     color: hsl(var(--color-foreground));
     display: flex;
     align-items: center;
-    font-size: 26px;
+    font-size: variables.$font-size-2xl;
     font-weight: 600;
     gap: 10px;
     justify-content: flex-start;
-    line-height: 30px;
+    line-height: variables.$line-height-tight;
     width: 50%;
 
     &::before {
@@ -46,11 +46,11 @@
     color: hsl(var(--color-foreground));
     display: flex;
     align-items: center;
-    font-size: 26px;
+    font-size: variables.$font-size-2xl;
     font-weight: 600;
     gap: 10px;
     justify-content: flex-end;
-    line-height: 30px;
+    line-height: variables.$line-height-tight;
     width: 50%;
 
     &::after {

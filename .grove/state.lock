@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:30cd486f669eb617878c8c83eaa104053b6def214f7afce8258324b9fcbbe999
+# checksum: sha256:ff5a00555c1fdaa0f29eeb0104eece5449e4428cbf7d2e62d4fe48e97942859b
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -259,7 +259,7 @@ g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updat
 g G-83 status=partial fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:32:53Z "Typography and spacing unified on a rem token scale"
   area: A-03
   fitness_target: 5
-  fitness_current: 1
+  fitness_current: 2
 
 w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_updated=2026-09-20T21:46:33Z "Relabel the toolbar aside to Reader controls"
   goals: G-52
@@ -770,7 +770,7 @@ w W-131 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
     | Compiled css emits rem tokens (h1 2.5rem, leading multiples in rem); raw px literals limited to the pre-migration set for W-133 and W-134.
     | Screenshots home and post at 375 and 1280: three pairs md5 identical, post-375 pixel diff zero at delta 8 (raster noise only); shots under .cache/shots.
 
-w W-132 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Typography migration onto the snapped rem scale"
+w W-132 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:37:39Z "Typography migration onto the snapped rem scale"
   goals: G-83
   fitness: G-83=+1
   surface: src/assets/styles/base, src/assets/styles/modules
@@ -783,6 +783,10 @@ w W-132 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23
     | Nine named steps cover every current font size within one grid step, and the lg step fills the gap between emphasized body text and small headings.
   evidence_strategy:
     | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+  evidence:
+    | Typography group holds nine scale tokens including the new lg 1.25rem step; the 26px, 26.9px and 27px sizes unified on 2xl 1.75rem; line-height mixin has no callers and heights are unitless tokens.
+    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
+    | Vision review of w132-post-375 and w132-post-1280 shots: title, body, headings and lists render without clipping or overlap, hierarchy preserved; shots under .cache/shots.
 
 w W-133 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Spacing migration onto the snapped rem scale"
   goals: G-83
@@ -1986,7 +1990,9 @@ q Q-07 status=answered cynefin=complicated t_created=2026-09-21T23:24:05Z t_upda
   outcome:
     | audit-sweep walks built html for schema and dom issues only and bun test suites cover markup and helpers; nothing asserts stylesheet values, so the migration is verified by build, tests and screenshots.
 
-q Q-08 status=open cynefin=complicated t_created=2026-09-21T23:24:05Z t_updated=2026-09-21T23:24:56Z "Does the snapped scale hold visual quality?"
+q Q-08 status=answered cynefin=complicated t_created=2026-09-21T23:24:05Z t_updated=2026-09-21T23:34:37Z "Does the snapped scale hold visual quality?"
+  outcome:
+    | Yes: the feed prototype rendered clean at both viewports with drift within the 4px threshold, so snapping proceeds.
 
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
@@ -2415,11 +2421,13 @@ b B-58 status=validated cynefin=clear t_created=2026-09-21T14:26:44Z t_updated=2
   result:
     | Before and after at 375 and 1280: img box 77x77 at the same coordinates, natural 96x96, srcset widths 48/96/192 through the optimized /_image pipeline, currentSrc 200; the config value drives the lookup (a wrong path throws at build); the relative glob pattern needed the root-absolute /content form on this setup and backslash-normalized key matching on Windows.
 
-b B-59 status=proposed cynefin=complicated t_created=2026-09-21T23:24:56Z t_updated=2026-09-21T23:25:08Z "Snapped rem values preserve the rendered design"
+b B-59 status=validated cynefin=complicated t_created=2026-09-21T23:24:56Z t_updated=2026-09-21T23:34:37Z "Snapped rem values preserve the rendered design"
   vm:
     | Apply the snapped typography and spacing tokens to the feed module on the dev server, then compare screenshots of the feed against the baseline at 375 and 1280 pixels and revert the prototype.
   threshold:
     | No clipped, overlapping or overflowing elements and per element size drift at most 4px on the sampled viewports.
+  result:
+    | Feed prototype on the snapped scale (title 1.75rem, description margin 1rem, item rhythm 2rem and 0.75rem) rendered at 375 and 1280 with no clipped, overlapping or overflowing elements; per element drift at most 3.5px; shots b59-feed-375.png and b59-feed-1280.png under .cache/shots; prototype reverted.
 
 t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-20T10:50:32Z "Post-migration review findings"
 

@@ -19,10 +19,10 @@ $photo-size: 75px;
   }
 
   .title {
-    font-size: variables.$typography-base-font-size * 1.125;
+    font-size: variables.$font-size-md;
     font-weight: 600;
     margin: 0;
-    @include mixins.line-height(1.125);
+    line-height: variables.$line-height-heading;
 
     .link {
       color: hsl(var(--color-foreground));
@@ -36,7 +36,7 @@ $photo-size: 75px;
 
   .description {
     color: hsl(var(--color-muted-foreground));
-    @include mixins.line-height(1);
+    line-height: variables.$line-height-body;
     @include mixins.margin-bottom(1);
   }
 

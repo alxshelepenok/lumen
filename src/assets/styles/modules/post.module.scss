@@ -12,13 +12,13 @@
   }
 
   .title {
-    font-size: variables.$typography-base-font-size * 2;
+    font-size: variables.$font-size-3xl;
     font-weight: 600;
     margin-left: auto;
     margin-right: auto;
     max-width: variables.$layout-post-width;
     text-align: center;
-    @include mixins.line-height(1.65);
+    line-height: variables.$line-height-heading;
     @include mixins.margin-top(1);
     @include mixins.margin-bottom(0);
   }
@@ -69,11 +69,11 @@
       @include mixins.padding(1, 0);
 
       p {
-        font-size: variables.$typography-base-font-size * 1.6817;
+        font-size: variables.$font-size-2xl;
         max-width: variables.$layout-post-width;
         @include mixins.margin-top(0);
         @include mixins.margin-bottom(1);
-        @include mixins.line-height(1.5);
+        line-height: variables.$line-height-snug;
       }
     }
   }
@@ -120,8 +120,8 @@
 
   .readingTime {
     color: hsl(var(--color-muted-foreground));
-    font-size: variables.$typography-small-font-size;
-    @include mixins.line-height(1);
+    font-size: variables.$font-size-sm;
+    line-height: variables.$line-height-snug;
     margin: 0;
   }
 }
@@ -133,15 +133,15 @@
     }
 
     .title {
-      font-size: variables.$typography-base-font-size * 3;
-      @include mixins.line-height(2.25);
+      font-size: variables.$font-size-5xl;
+      line-height: variables.$line-height-heading;
       @include mixins.margin-top(1);
       @include mixins.margin-bottom(1.5);
     }
 
     > :is(p, ul, ol, figure, blockquote, table) {
-      font-size: variables.$typography-base-font-size * 1.125;
-      @include mixins.line-height(1.125);
+      font-size: variables.$font-size-md;
+      line-height: variables.$line-height-body;
     }
 
     > p {

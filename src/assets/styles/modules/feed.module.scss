@@ -10,8 +10,8 @@
     }
 
     .title {
-      font-size: variables.$typography-base-font-size * 1.6875;
-      @include mixins.line-height(1.5);
+      font-size: variables.$font-size-2xl;
+      line-height: variables.$line-height-snug;
       @include mixins.margin-top(0);
       @include mixins.margin-bottom(0.5);
 
@@ -28,14 +28,14 @@
 
     .description {
       color: hsl(var(--color-muted-foreground));
-      font-size: variables.$typography-base-font-size;
-      @include mixins.line-height(1);
+      font-size: variables.$font-size-base;
+      line-height: variables.$line-height-body;
       @include mixins.margin-bottom(0.75);
     }
 
     .time {
       color: hsl(var(--color-foreground));
-      font-size: variables.$typography-small-font-size;
+      font-size: variables.$font-size-sm;
       font-weight: 600;
       text-transform: uppercase;
     }
@@ -45,12 +45,12 @@
       font-weight: 600;
       text-transform: uppercase;
       color: hsl(var(--color-primary));
-      font-size: variables.$typography-small-font-size;
+      font-size: variables.$font-size-sm;
     }
 
     .more {
       color: hsl(var(--color-foreground));
-      font-size: variables.$typography-base-font-size;
+      font-size: variables.$font-size-base;
 
       &:hover,
       &:focus {

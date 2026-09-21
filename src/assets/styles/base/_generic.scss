@@ -8,11 +8,11 @@ html {
 body {
   background: hsl(var(--color-background));
   color: hsl(var(--color-foreground));
-  font-family: variables.$typography-font-family;
-  font-size: variables.$typography-base-font-size;
+  font-family: variables.$font-family-base;
+  font-size: variables.$font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: variables.$typography-base-line-height;
+  line-height: variables.$line-height-body;
   margin: 0 0 0 calc(100vw - 100%);
   text-rendering: optimizelegibility;
   -ms-text-size-adjust: 100%;
@@ -25,48 +25,43 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: variables.$typography-font-family;
+  font-family: variables.$font-family-base;
   font-weight: 600;
+  line-height: variables.$line-height-heading;
 }
 
 h1 {
-  font-size: variables.$typography-base-font-size * 2.5;
-  @include mixins.line-height(2);
+  font-size: variables.$font-size-4xl;
   @include mixins.margin-top(4);
   @include mixins.margin-bottom(1);
 }
 
 h2 {
-  font-size: variables.$typography-base-font-size * 1.6875;
-  @include mixins.line-height(1.5);
+  font-size: variables.$font-size-2xl;
   @include mixins.margin-top(2);
   @include mixins.margin-bottom(0.5);
 }
 
 h3 {
-  font-size: variables.$typography-base-font-size * 1.375;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-xl;
   @include mixins.margin-top(2);
   @include mixins.margin-bottom(0.5);
 }
 
 h4 {
-  font-size: variables.$typography-base-font-size * 1.2;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-lg;
   @include mixins.margin-top(1.5);
   @include mixins.margin-bottom(0.5);
 }
 
 h5 {
-  font-size: variables.$typography-base-font-size;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-base;
   @include mixins.margin-top(2.5);
   @include mixins.margin-bottom(0.5);
 }
 
 h6 {
-  font-size: variables.$typography-base-font-size;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-base;
   @include mixins.margin-top(2.5);
   @include mixins.margin-bottom(0.5);
 }
@@ -131,7 +126,7 @@ ul {
 }
 
 p {
-  @include mixins.line-height(1);
+  line-height: variables.$line-height-body;
   @include mixins.margin-bottom(1);
 }
 
@@ -148,11 +143,11 @@ figure {
 }
 
 figcaption {
-  @include mixins.line-height(0.75);
-  @include mixins.margin-top(0.25);
+  line-height: variables.$line-height-snug;
   color: hsl(var(--color-foreground));
-  font-size: variables.$typography-small-font-size;
+  font-size: variables.$font-size-sm;
   font-style: italic;
+  @include mixins.margin-top(0.25);
   margin-bottom: 0;
   text-align: center;
 }

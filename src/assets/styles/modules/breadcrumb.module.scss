@@ -3,8 +3,8 @@
 
 .breadcrumb {
   color: hsl(var(--color-muted-foreground));
-  font-size: variables.$typography-small-font-size;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-sm;
+  line-height: variables.$line-height-snug;
   @include mixins.margin-bottom(0.5);
 
   ol {

@@ -5,8 +5,8 @@
   grid-column: span 12;
   @include mixins.margin-bottom(2);
   @include mixins.padding(1, 0.75, 0);
-  font-size: variables.$typography-base-font-size;
-  @include mixins.line-height(1);
+  font-size: variables.$font-size-base;
+  line-height: variables.$line-height-body;
 
   > section ul {
     @include mixins.content-list-square;
@@ -22,8 +22,8 @@
 
   .title {
     font-weight: 600;
-    font-size: variables.$typography-base-font-size * 2.5;
-    @include mixins.line-height(2);
+    font-size: variables.$font-size-4xl;
+    line-height: variables.$line-height-heading;
     @include mixins.margin-top(0);
     @include mixins.margin-bottom(1.45);
   }

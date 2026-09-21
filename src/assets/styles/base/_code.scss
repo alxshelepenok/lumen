@@ -5,7 +5,7 @@
 pre.astro-code,
 :not(pre) > code {
   font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  font-size: variables.$typography-base-font-size;
+  font-size: variables.$font-size-base;
   hyphens: none;
   line-height: 1.5;
   tab-size: 4;
