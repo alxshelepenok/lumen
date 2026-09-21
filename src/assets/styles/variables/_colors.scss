@@ -1,5 +1,3 @@
-@use "sass:math";
-
 $dark-color-palette: (
   background: hsl(240, 7%, 11%),
   foreground: hsl(240, 4%, 98%),
@@ -35,22 +33,3 @@ $light-color-palette: (
   positive: hsl(162, 52%, 53%),
   positive-foreground: hsl(240, 7%, 11%)
 );
-
-$typography-root-font-size: 100;
-$typography-base-font-size: 16px;
-$typography-small-font-size: 14px;
-$typography-base-line-height: 1.625;
-$typography-leading: math.round(16 * math.div($typography-root-font-size, 100) * $typography-base-line-height);
-$typography-font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", sans-serif;
-
-$button-height: 40px;
-$button-border-radius: 20px;
-
-$layout-post-single-width: 945px;
-$layout-post-width: $layout-post-single-width - 305px;
-
-$layout-gap: 30px;
-$layout-width: 1070px;
-$layout-breakpoint-sm: 685px;
-$layout-breakpoint-md: 960px;
-$layout-breakpoint-lg: 1100px;

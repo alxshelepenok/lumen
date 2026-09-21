@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:ba5f10e4137c6fbf99038b1b0f6b8107fecd6266a77de8ced41a4734349b297a
+# checksum: sha256:30cd486f669eb617878c8c83eaa104053b6def214f7afce8258324b9fcbbe999
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -254,6 +254,11 @@ g G-81 status=verified fitness_kind=count t_created=2026-09-21T14:20:26Z t_updat
 g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updated=2026-09-21T14:33:01Z "Logo lives in content with its path in config.json"
   area: A-04
   fitness_target: 1
+  fitness_current: 1
+
+g G-83 status=partial fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:32:53Z "Typography and spacing unified on a rem token scale"
+  area: A-03
+  fitness_target: 5
   fitness_current: 1
 
 w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_updated=2026-09-20T21:46:33Z "Relabel the toolbar aside to Reader controls"
@@ -746,6 +751,78 @@ w W-130 type=refactor status=done cynefin=complicated t_created=2026-09-21T14:26
   evidence:
     | git mv preserves history as logo.png moves to content/; config.json declares logo: logo.png next to lang; getSiteMetadata types it; sidebar-author resolves the image via an eager import.meta.glob over /content/*.{png,jpg,jpeg,webp} keyed by the config value with backslash normalization, throwing at build when the path misses; the getImage pipeline and Picture markup are untouched.
     | B-58: byte-identical logo geometry and variants at both widths with status 200; bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean.
+
+w W-131 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:32:53Z "De-px the token base and regroup variables"
+  goals: G-83
+  fitness: G-83=+1
+  surface: src/assets/styles/variables
+  ac:
+    | Style variables live in grouped partials (colors, typography, layout, controls) behind a variables index that callers use unchanged.
+    | Every legacy token resolves to the exact rem equivalent of its px value, so rendering is unchanged at the default root size.
+    | The html rule sets the font size to 100 percent instead of the unitless 100.
+    | The restructured files carry no comments.
+  hypothesis:
+    | Exact unit conversion plus regrouping changes no computed style at the default root size while making every token user scalable.
+  evidence_strategy:
+    | Build and bun test green; compiled css diff shows only px to rem swaps; before and after screenshots of home and a post at 375 and 1280 pixels.
+  evidence:
+    | bun run build: 31 pages built; bun test: 65 pass, 0 fail; audit-sweep: 31 pages checked, 0 issues.
+    | Compiled css emits rem tokens (h1 2.5rem, leading multiples in rem); raw px literals limited to the pre-migration set for W-133 and W-134.
+    | Screenshots home and post at 375 and 1280: three pairs md5 identical, post-375 pixel diff zero at delta 8 (raster noise only); shots under .cache/shots.
+
+w W-132 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Typography migration onto the snapped rem scale"
+  goals: G-83
+  fitness: G-83=+1
+  surface: src/assets/styles/base, src/assets/styles/modules
+  ac:
+    | The typography group defines the nine step font scale including the new lg step between md and xl.
+    | Every font-size declaration in base and module styles uses a scale token.
+    | Line heights are unitless ratios and the line-height mixin has no callers.
+    | The near duplicate sizes 26px, 26.9px and 27px unify on one step.
+  hypothesis:
+    | Nine named steps cover every current font size within one grid step, and the lg step fills the gap between emphasized body text and small headings.
+  evidence_strategy:
+    | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+
+w W-133 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Spacing migration onto the snapped rem scale"
+  goals: G-83
+  fitness: G-83=+1
+  surface: src/assets/styles/base, src/assets/styles/modules
+  ac:
+    | The spacing group defines the nine step spacing scale.
+    | Every margin, padding and gap in base and module styles uses a spacing token or zero.
+    | The margin and padding mixins have no remaining callers.
+    | Content list markers, list rows and the hr ornament use rem values.
+  hypothesis:
+    | A nine step spacing scale covers every rhythm value the leading multipliers produced with at most 4px drift.
+  evidence_strategy:
+    | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+
+w W-134 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Layout widths, breakpoints and control sizing in rem"
+  goals: G-83
+  fitness: G-83=+1
+  surface: src/assets/styles/modules, src/assets/styles/mixins
+  ac:
+    | Container widths, the grid gap and breakpoints snap to clean rem tokens.
+    | Control sizing for button height and radius, contact icons, author photo and pagination arrows resolves to rem tokens.
+    | Decorative and offset constants for the sidebar rule, figure floats, contacts width, skip link and toolbar resolve to rem values.
+  hypothesis:
+    | Snapping structural constants to the rem grid shifts containers by only a few pixels without reflowing the grid.
+  evidence_strategy:
+    | Build, bun test and audit sweep green; screenshots at 375, 960 and 1280 pixels compared with the baseline.
+
+w W-135 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:09Z "Retire the leading system and sweep stray px"
+  goals: G-83
+  fitness: G-83=+1
+  surface: src/assets/styles
+  ac:
+    | The leading variable and the margin, padding and line-height mixins are deleted together with their forwards.
+    | A grep for px literals in the styles tree returns only the whitelisted set from D-39.
+    | The styles tree carries no comments.
+  hypothesis:
+    | After the migrations the legacy arithmetic has no callers, so deletion is a pure removal.
+  evidence_strategy:
+    | Whitelist grep output recorded; build, bun test and audit sweep green.
 
 w W-51 type=refactor status=done cynefin=complicated t_created=2026-09-19T13:55:30Z t_updated=2026-09-19T14:13:16Z "Body skeleton: main + aside + skip-link, no wrapper divs"
   goals: G-32
@@ -1871,6 +1948,28 @@ d D-37 status=accepted t_created=2026-09-20T22:27:47Z t_updated=2026-09-20T22:28
   consequences:
     | Post markup loses the rail wrapper and one script; the graph loses the SiteNavigationEntity/ItemList pair per post and the page hasPart; toc labels leave the constants; heading anchors stay as plain permalinks with no observer.
 
+d D-38 status=accepted t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:24:55Z "Semantic rem scales replace leading arithmetic"
+  context:
+    | Spacing and type sizes derive from a 26px leading multiplied by unitless factors, so call sites like margin-top(0.5) equal 13px and cannot be explained, and px sizing blocks user font scaling.
+  options:
+    | Keep exact px equivalents written as rem.
+    | Snap both scales to a 4px grid with named rem steps.
+    | Introduce fluid clamp sizing between breakpoints.
+  decision:
+    | Snap typography and spacing to named rem steps on a 4px grid, written as literal rem values with no conversion function: font sizes sm 0.875rem, base 1rem, md 1.125rem, lg 1.25rem, xl 1.5rem, 2xl 1.75rem, 3xl 2rem, 4xl 2.5rem, 5xl 3rem; spacing 2xs 0.25rem, xs 0.5rem, sm 0.75rem, md 1rem, lg 1.5rem, xl 2rem, 2xl 3rem, 3xl 4rem, 4xl 6rem; line heights become unitless ratios; the font scale gains the lg step between md and xl.
+  consequences:
+    | Rendered sizes drift up to 4px against today, values become measurable for a user, and rem sizing tracks the user font preference.
+  validation:
+    | Before and after screenshots of home and a post at 375 and 1280 pixels.
+
+d D-39 status=accepted t_created=2026-09-21T23:23:58Z t_updated=2026-09-21T23:24:56Z "Device anchored px stays outside the rem system"
+  context:
+    | Hairlines, off-screen helpers and raster image geometry describe device pixels or non-visual mechanics, not user measurable sizes.
+  decision:
+    | Border hairlines (1px), the visually hidden helper, the skip link off-screen offset target units aside from the spacing scale, satori og image geometry, srcset sizes attributes and inline svg stroke attributes keep their current units; the migration sweep greps with this whitelist.
+  consequences:
+    | The px sweep has a small stable whitelist and generated images stay pixel exact.
+
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
     | Confirmed in astro content types (data-store.d.ts: body?: string, the raw body of the content) and exercised by W-66: post.body and page.body return the markdown source.
@@ -1882,6 +1981,12 @@ q Q-05 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_upda
 q Q-06 status=answered cynefin=complicated t_created=2026-09-20T10:48:20Z t_updated=2026-09-20T10:50:06Z "Do render() heading slugs match the custom heading ids?"
   outcome:
     | Verified in @astrojs/markdown-remark: createMarkdownProcessor runs user rehype plugins before rehypeHeadingIds, and the collector keeps an existing node.properties.id and reports it as the heading slug; the built post html shows the custom slugified ids (aenean-viverra, vivamus-pretium), so render() headings are safe TOC input.
+
+q Q-07 status=answered cynefin=complicated t_created=2026-09-21T23:24:05Z t_updated=2026-09-21T23:24:09Z "Do audits or tests assert stylesheet values?"
+  outcome:
+    | audit-sweep walks built html for schema and dom issues only and bun test suites cover markup and helpers; nothing asserts stylesheet values, so the migration is verified by build, tests and screenshots.
+
+q Q-08 status=open cynefin=complicated t_created=2026-09-21T23:24:05Z t_updated=2026-09-21T23:24:56Z "Does the snapped scale hold visual quality?"
 
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
@@ -2310,6 +2415,12 @@ b B-58 status=validated cynefin=clear t_created=2026-09-21T14:26:44Z t_updated=2
   result:
     | Before and after at 375 and 1280: img box 77x77 at the same coordinates, natural 96x96, srcset widths 48/96/192 through the optimized /_image pipeline, currentSrc 200; the config value drives the lookup (a wrong path throws at build); the relative glob pattern needed the root-absolute /content form on this setup and backslash-normalized key matching on Windows.
 
+b B-59 status=proposed cynefin=complicated t_created=2026-09-21T23:24:56Z t_updated=2026-09-21T23:25:08Z "Snapped rem values preserve the rendered design"
+  vm:
+    | Apply the snapped typography and spacing tokens to the feed module on the dev server, then compare screenshots of the feed against the baseline at 375 and 1280 pixels and revert the prototype.
+  threshold:
+    | No clipped, overlapping or overflowing elements and per element size drift at most 4px on the sampled viewports.
+
 t T-02 status=open t_created=2026-09-18T21:42:28Z t_updated=2026-09-20T10:50:32Z "Post-migration review findings"
 
 t T-03 status=done t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Wrapper-div markup without landmarks"
@@ -2649,6 +2760,10 @@ e B-55 targets W-127 t_created=2026-09-21T13:51:01Z
 e B-56 targets W-128 t_created=2026-09-21T14:10:33Z
 e B-57 targets W-129 t_created=2026-09-21T14:20:50Z
 e B-58 targets W-130 t_created=2026-09-21T14:26:44Z
+e B-59 targets W-132 t_created=2026-09-21T23:24:56Z
+e B-59 targets W-133 t_created=2026-09-21T23:24:56Z
+e B-59 targets W-134 t_created=2026-09-21T23:24:56Z
+e B-59 tests Q-08 t_created=2026-09-21T23:24:56Z
 e D-12 supersedes D-11 t_created=2026-09-18T20:34:58Z
 e D-27 supersedes D-25 t_created=2026-09-20T21:14:52Z
 e D-30 supersedes D-28 t_created=2026-09-20T21:30:37Z
@@ -2660,6 +2775,7 @@ e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
 e Q-02 asks W-11 t_created=2026-09-18T19:27:13Z
 e Q-03 asks W-10 t_created=2026-09-18T19:27:13Z
 e Q-06 asks W-79 t_created=2026-09-20T10:50:06Z
+e Q-08 asks W-132 t_created=2026-09-21T23:24:54Z
 e T-01 causes W-13 t_created=2026-09-18T19:27:00Z
 e T-02 causes W-14 t_created=2026-09-18T21:42:45Z
 e T-02 causes W-15 t_created=2026-09-18T21:42:45Z
@@ -2771,6 +2887,16 @@ e W-12 produces Y-06 t_created=2026-09-18T21:22:50Z
 e W-13 implements D-01 t_created=2026-09-18T19:28:18Z
 e W-13 implements D-11 t_created=2026-09-18T20:20:49Z
 e W-13 implements D-12 t_created=2026-09-18T20:35:00Z
+e W-131 blocks W-132 t_created=2026-09-21T23:24:54Z
+e W-131 implements D-38 t_created=2026-09-21T23:24:55Z
+e W-132 blocks W-133 t_created=2026-09-21T23:24:54Z
+e W-132 implements D-38 t_created=2026-09-21T23:24:55Z
+e W-133 blocks W-134 t_created=2026-09-21T23:24:54Z
+e W-133 implements D-38 t_created=2026-09-21T23:24:55Z
+e W-134 blocks W-135 t_created=2026-09-21T23:24:54Z
+e W-134 implements D-38 t_created=2026-09-21T23:24:55Z
+e W-134 implements D-39 t_created=2026-09-21T23:24:55Z
+e W-135 implements D-39 t_created=2026-09-21T23:24:56Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z

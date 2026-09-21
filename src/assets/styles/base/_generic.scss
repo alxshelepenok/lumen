@@ -2,7 +2,7 @@
 @use "../mixins";
 
 html {
-  font-size: variables.$typography-root-font-size;
+  font-size: 100%;
 }
 
 body {

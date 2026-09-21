@@ -1,40 +1,40 @@
 @use "../variables";
 
 @mixin padding-left($number) {
-  padding-left: #{$number * variables.$typography-leading + "px"};
+  padding-left: $number * variables.$typography-leading;
 }
 
 @mixin padding-right($number) {
-  padding-right: #{$number * variables.$typography-leading + "px"};
+  padding-right: $number * variables.$typography-leading;
 }
 
 @mixin padding-top($number) {
-  padding-top: #{$number * variables.$typography-leading + "px"};
+  padding-top: $number * variables.$typography-leading;
 }
 
 @mixin padding-bottom($number) {
-  padding-bottom: #{$number * variables.$typography-leading + "px"};
+  padding-bottom: $number * variables.$typography-leading;
 }
 
 @mixin padding-equal($number) {
-  padding: #{$number * variables.$typography-leading + "px"};
+  padding: $number * variables.$typography-leading;
 }
 
 @mixin padding($top, $right, $bottom: null, $left: null) {
   @if not $left and not $bottom {
     padding:
-      #{$top * variables.$typography-leading + "px"}
-      #{$right * variables.$typography-leading + "px"};
+      $top * variables.$typography-leading
+      $right * variables.$typography-leading;
   } @else if not $left or $left == $right {
     padding:
-      #{$top * variables.$typography-leading + "px"}
-      #{$right * variables.$typography-leading + "px"}
-      #{$bottom * variables.$typography-leading + "px"};
+      $top * variables.$typography-leading
+      $right * variables.$typography-leading
+      $bottom * variables.$typography-leading;
   } @else {
     padding:
-      #{$top * variables.$typography-leading + "px"}
-      #{$right * variables.$typography-leading + "px"}
-      #{$bottom * variables.$typography-leading + "px"}
-      #{$left * variables.$typography-leading + "px"};
+      $top * variables.$typography-leading
+      $right * variables.$typography-leading
+      $bottom * variables.$typography-leading
+      $left * variables.$typography-leading;
   }
 }
