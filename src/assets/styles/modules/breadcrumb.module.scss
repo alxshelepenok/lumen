@@ -1,11 +1,10 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .breadcrumb {
   color: hsl(var(--color-muted-foreground));
   font-size: variables.$font-size-sm;
   line-height: variables.$line-height-snug;
-  @include mixins.margin-bottom(0.5);
+  margin-bottom: variables.$spacing-sm;
 
   ol {
     display: flex;
@@ -18,7 +17,7 @@
   li + li::before {
     color: hsl(var(--color-border));
     content: "/";
-    @include mixins.margin(0, 0.25);
+    margin: 0 variables.$spacing-xs;
   }
 
   a {

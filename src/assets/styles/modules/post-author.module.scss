@@ -5,10 +5,10 @@
   border-top: 1px solid hsl(var(--color-border));
   font-style: normal;
   max-width: variables.$layout-post-width;
-  @include mixins.padding-top(1);
+  padding-top: variables.$spacing-lg;
   line-height: variables.$line-height-body;
-  @include mixins.margin-top(1);
-  @include mixins.margin-bottom(2);
+  margin-top: variables.$spacing-lg;
+  margin-bottom: variables.$spacing-2xl;
 
   .description {
     .x {

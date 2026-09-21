@@ -32,38 +32,38 @@ h6 {
 
 h1 {
   font-size: variables.$font-size-4xl;
-  @include mixins.margin-top(4);
-  @include mixins.margin-bottom(1);
+  margin-top: variables.$spacing-4xl;
+  margin-bottom: variables.$spacing-lg;
 }
 
 h2 {
   font-size: variables.$font-size-2xl;
-  @include mixins.margin-top(2);
-  @include mixins.margin-bottom(0.5);
+  margin-top: variables.$spacing-2xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h3 {
   font-size: variables.$font-size-xl;
-  @include mixins.margin-top(2);
-  @include mixins.margin-bottom(0.5);
+  margin-top: variables.$spacing-2xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h4 {
   font-size: variables.$font-size-lg;
-  @include mixins.margin-top(1.5);
-  @include mixins.margin-bottom(0.5);
+  margin-top: variables.$spacing-xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h5 {
   font-size: variables.$font-size-base;
-  @include mixins.margin-top(2.5);
-  @include mixins.margin-bottom(0.5);
+  margin-top: variables.$spacing-3xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h6 {
   font-size: variables.$font-size-base;
-  @include mixins.margin-top(2.5);
-  @include mixins.margin-bottom(0.5);
+  margin-top: variables.$spacing-3xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 img {
@@ -76,20 +76,18 @@ img {
 hr {
   background-image: linear-gradient(
     to bottom,
-    transparent 1px,
-    transparent 11px,
-    hsl(var(--color-foreground)) 11px,
-    hsl(var(--color-foreground)) 15px,
-    transparent 15px,
-    transparent 26px
+    transparent 0.6875rem,
+    hsl(var(--color-foreground)) 0.6875rem,
+    hsl(var(--color-foreground)) 0.9375rem,
+    transparent 0.9375rem
   );
-  background-size: 100% 26px;
+  background-size: 100% 1.625rem;
   border: 0;
   color: hsl(var(--color-foreground));
   display: block;
-  height: 26px;
-  margin: 52px auto;
-  width: 100px;
+  height: 1.625rem;
+  margin: variables.$spacing-2xl auto;
+  width: 6.25rem;
 }
 
 a {
@@ -117,17 +115,17 @@ strong {
 
 ul {
   list-style: square;
-  @include mixins.margin-bottom(1);
+  margin-bottom: variables.$spacing-lg;
 
   & li {
-    margin-bottom: 10px;
-    padding: 0 5px;
+    margin-bottom: variables.$spacing-sm;
+    padding: 0 variables.$spacing-2xs;
   }
 }
 
 p {
   line-height: variables.$line-height-body;
-  @include mixins.margin-bottom(1);
+  margin-bottom: variables.$spacing-lg;
 }
 
 blockquote {
@@ -147,7 +145,7 @@ figcaption {
   color: hsl(var(--color-foreground));
   font-size: variables.$font-size-sm;
   font-style: italic;
-  @include mixins.margin-top(0.25);
+  margin-top: variables.$spacing-xs;
   margin-bottom: 0;
   text-align: center;
 }
@@ -156,7 +154,7 @@ figcaption {
   figure.float-left,
   figure.float-right {
     max-width: 310px;
-    @include mixins.padding(0, 1, 0, 1);
+    padding: variables.$spacing-lg 0;
   }
 
   .float-right {

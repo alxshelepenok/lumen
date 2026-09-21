@@ -1,4 +1,3 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 $photo-size: 75px;
@@ -11,7 +10,7 @@ $photo-size: 75px;
     border-radius: 50%;
     height: $photo-size;
     width: $photo-size;
-    @include mixins.margin-bottom(0);
+    margin-bottom: 0;
 
     img {
       border-radius: 50%;
@@ -37,13 +36,13 @@ $photo-size: 75px;
   .description {
     color: hsl(var(--color-muted-foreground));
     line-height: variables.$line-height-body;
-    @include mixins.margin-bottom(1);
+    margin-bottom: variables.$spacing-lg;
   }
 
   .titleContainer {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    @include mixins.margin(0.5, 0, 0.5, 0);
+    margin: variables.$spacing-sm 0;
   }
 }

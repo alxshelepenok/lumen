@@ -7,8 +7,8 @@
 
   .titleWrap {
     max-width: variables.$layout-post-single-width;
-    @include mixins.margin-auto();
-    @include mixins.padding(0, 0.5);
+    margin: 0 auto;
+    padding: 0 variables.$spacing-sm;
   }
 
   .title {
@@ -19,33 +19,33 @@
     max-width: variables.$layout-post-width;
     text-align: center;
     line-height: variables.$line-height-heading;
-    @include mixins.margin-top(1);
-    @include mixins.margin-bottom(0);
+    margin-top: variables.$spacing-lg;
+    margin-bottom: 0;
   }
 
   > :is(p, h2, h3, h4, h5, h6, blockquote, table) {
-    margin-left: max(13px, calc((100% - 640px) / 2));
-    margin-right: max(13px, calc((100% - 640px) / 2));
+    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
   }
 
   > ul {
-    margin-left: max(13px, calc((100% - 640px) / 2));
-    margin-right: max(13px, calc((100% - 640px) / 2));
+    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
     @include mixins.content-list-square;
   }
 
   > ol {
-    margin-left: max(13px, calc((100% - 640px) / 2));
-    margin-right: max(13px, calc((100% - 640px) / 2));
+    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
     @include mixins.content-list-numbered;
   }
 
   > pre {
-    margin-left: max(13px, calc((100% - 640px) / 2));
-    margin-right: max(13px, calc((100% - 640px) / 2));
+    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
   }
 
@@ -57,22 +57,22 @@
 
   > figure {
     width: auto;
-    margin-left: max(13px, calc((100% - 640px) / 2));
-    margin-right: max(13px, calc((100% - 640px) / 2));
+    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
-    @include mixins.margin-bottom(1);
+    margin-bottom: variables.$spacing-lg;
 
     blockquote {
       font-style: italic;
       text-align: center;
-      @include mixins.margin-top(0);
-      @include mixins.padding(1, 0);
+      margin-top: 0;
+      padding: variables.$spacing-lg 0;
 
       p {
         font-size: variables.$font-size-2xl;
         max-width: variables.$layout-post-width;
-        @include mixins.margin-top(0);
-        @include mixins.margin-bottom(1);
+        margin-top: 0;
+        margin-bottom: variables.$spacing-lg;
         line-height: variables.$line-height-snug;
       }
     }
@@ -98,18 +98,18 @@
 
   .footer {
     max-width: variables.$layout-post-width;
-    @include mixins.padding(0, 0.5);
-    @include mixins.margin-auto();
+    padding: 0 variables.$spacing-sm;
+    margin: 0 auto;
   }
 
   .metaLine {
     align-items: baseline;
-    column-gap: 6.5px;
+    column-gap: variables.$spacing-xs;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    @include mixins.margin-top(0.75);
-    @include mixins.padding(0, 0.5);
+    margin-top: variables.$spacing-md;
+    padding: 0 variables.$spacing-sm;
 
     .breadcrumb {
       margin-bottom: 0;
@@ -129,14 +129,14 @@
 @include mixins.breakpoint-lg {
   .post {
     .titleWrap {
-      @include mixins.padding-equal(0);
+      padding: 0;
     }
 
     .title {
       font-size: variables.$font-size-5xl;
       line-height: variables.$line-height-heading;
-      @include mixins.margin-top(1);
-      @include mixins.margin-bottom(1.5);
+      margin-top: variables.$spacing-lg;
+      margin-bottom: variables.$spacing-xl;
     }
 
     > :is(p, ul, ol, figure, blockquote, table) {
@@ -145,22 +145,22 @@
     }
 
     > p {
-      @include mixins.margin-bottom(1.125);
+      margin-bottom: variables.$spacing-xl;
     }
 
     > h2 > a {
       visibility: unset;
-      @include mixins.padding-right(0.5);
+      padding-right: variables.$spacing-sm;
     }
 
     .footer {
-      @include mixins.margin-top(1.125);
-      @include mixins.padding-equal(0);
+      margin-top: variables.$spacing-xl;
+      padding: 0;
     }
 
     .metaLine {
-      @include mixins.margin-top(2.25);
-      @include mixins.padding-equal(0);
+      margin-top: variables.$spacing-3xl;
+      padding: 0;
     }
   }
 }

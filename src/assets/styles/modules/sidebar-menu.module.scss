@@ -1,17 +1,16 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .sidebar-menu {
-  @include mixins.margin-bottom(1);
+  margin-bottom: variables.$spacing-lg;
 
   .list {
     list-style: none;
-    @include mixins.margin-equal(0);
-    @include mixins.padding-equal(0);
+    margin: 0;
+    padding: 0;
 
     .item {
-      @include mixins.margin(0.5, 0);
-      @include mixins.padding-equal(0);
+      margin: variables.$spacing-sm 0;
+      padding: 0;
 
       .link {
         border: 0;

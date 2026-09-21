@@ -1,7 +1,5 @@
-// Content lists replace the UA marker gutter with a flex marker column:
-// the marker is a fixed pseudo element, the text wraps as one flex item,
-// so every wrapped line aligns under the first and the indent equals the
-// marker column instead of the 40px padding.
+@use "../variables";
+
 @mixin content-list {
   list-style: none;
   padding: 0;
@@ -9,8 +7,8 @@
   li {
     align-items: baseline;
     display: flex;
-    gap: 13px;
-    margin-bottom: 10px;
+    gap: variables.$spacing-sm;
+    margin-bottom: variables.$spacing-sm;
     padding: 0;
 
     &::before {
@@ -25,8 +23,8 @@
 
   li::before {
     background-color: currentColor;
-    height: 7px;
-    width: 7px;
+    height: 0.375rem;
+    width: 0.375rem;
   }
 }
 

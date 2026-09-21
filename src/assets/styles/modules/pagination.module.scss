@@ -1,9 +1,8 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .pagination {
   display: flex;
-  @include mixins.margin-top(2);
+  margin-top: variables.$spacing-2xl;
 
   .label {
     text-box-trim: trim-both;
@@ -16,7 +15,7 @@
     align-items: center;
     font-size: variables.$font-size-2xl;
     font-weight: 600;
-    gap: 10px;
+    gap: variables.$spacing-xs;
     justify-content: flex-start;
     line-height: variables.$line-height-tight;
     width: 50%;
@@ -48,7 +47,7 @@
     align-items: center;
     font-size: variables.$font-size-2xl;
     font-weight: 600;
-    gap: 10px;
+    gap: variables.$spacing-xs;
     justify-content: flex-end;
     line-height: variables.$line-height-tight;
     width: 50%;

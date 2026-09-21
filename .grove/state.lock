@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:ff5a00555c1fdaa0f29eeb0104eece5449e4428cbf7d2e62d4fe48e97942859b
+# checksum: sha256:176eefbd4e448f35380fab59b6d0530d2820321adaa9b3f2c9c83e9c890a40ea
 g G-32 status=verified fitness_kind=count t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T14:41:08Z "Semantic landmark skeleton on every page type"
   area: A-06
   fitness_target: 6
@@ -259,7 +259,7 @@ g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updat
 g G-83 status=partial fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-21T23:32:53Z "Typography and spacing unified on a rem token scale"
   area: A-03
   fitness_target: 5
-  fitness_current: 2
+  fitness_current: 3
 
 w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_updated=2026-09-20T21:46:33Z "Relabel the toolbar aside to Reader controls"
   goals: G-52
@@ -788,7 +788,7 @@ w W-132 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
     | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
     | Vision review of w132-post-375 and w132-post-1280 shots: title, body, headings and lists render without clipping or overlap, hierarchy preserved; shots under .cache/shots.
 
-w W-133 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Spacing migration onto the snapped rem scale"
+w W-133 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:41:58Z "Spacing migration onto the snapped rem scale"
   goals: G-83
   fitness: G-83=+1
   surface: src/assets/styles/base, src/assets/styles/modules
@@ -801,6 +801,11 @@ w W-133 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23
     | A nine step spacing scale covers every rhythm value the leading multipliers produced with at most 4px drift.
   evidence_strategy:
     | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+  evidence:
+    | Spacing group holds nine tokens from 2xs 0.25rem to 4xl 6rem; every margin, padding and gap in base and module styles resolves to a token or zero; margin and padding mixins have no callers.
+    | Content list markers (0.375rem square), list rows and the hr ornament (1.625rem tile, 6.25rem width) run on rem; post gutters use max of the sm token and the centered measure calc.
+    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
+    | Vision review of w133 home and post shots at 375 and 1280: balanced rhythm, no clipped, overlapping or edge-touching elements; shots under .cache/shots.
 
 w W-134 type=feature status=proposed cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-21T23:25:08Z "Layout widths, breakpoints and control sizing in rem"
   goals: G-83

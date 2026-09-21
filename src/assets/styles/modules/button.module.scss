@@ -1,4 +1,3 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .button {
@@ -14,7 +13,7 @@
   margin-right: auto;
   text-align: center;
   margin-left: auto;
-  @include mixins.padding(0, 1);
+  padding: 0 variables.$spacing-lg;
 
   &:hover, &:focus {
     color: hsl(var(--color-accent-foreground));

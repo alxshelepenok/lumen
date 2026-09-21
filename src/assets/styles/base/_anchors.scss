@@ -1,16 +1,16 @@
-@charset "UTF-8";
+@use "../variables";
 
 .anchor.before {
   position: absolute;
   top: 0;
   left: 0;
   transform: translateX(-100%);
-  padding-right: 4px;
+  padding-right: variables.$spacing-2xs;
 }
 
 .anchor.after {
   display: inline-block;
-  padding-left: 4px;
+  padding-left: variables.$spacing-2xs;
 }
 
 h1 .anchor svg,

@@ -1,8 +1,7 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .sidebar-contacts {
-  @include mixins.margin-bottom(1);
+  margin-bottom: variables.$spacing-lg;
 
   .list {
     display: flex;
@@ -11,17 +10,17 @@
     flex-shrink: 0;
     list-style: none;
     max-width: 165px;
-    @include mixins.padding-equal(0);
-    @include mixins.margin(0.5, 0);
+    padding: 0;
+    margin: variables.$spacing-sm 0;
 
     .item {
       border-radius: 50%;
       border: 1px solid hsl(var(--color-muted));
-      @include mixins.padding-equal(0);
-      @include mixins.margin-equal(0.25);
+      padding: 0;
+      margin: variables.$spacing-xs;
 
       &:nth-child(3n + 1) {
-        @include mixins.margin-left(0);
+        margin-left: 0;
       }
 
       .link {

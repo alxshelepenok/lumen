@@ -1,19 +1,18 @@
-@use "src/assets/styles/mixins";
 @use "src/assets/styles/variables";
 
 .feed {
   .item {
-    @include mixins.margin-bottom(1.25);
+    margin-bottom: variables.$spacing-xl;
 
     &:last-child {
-      @include mixins.margin-bottom(0.5);
+      margin-bottom: variables.$spacing-sm;
     }
 
     .title {
       font-size: variables.$font-size-2xl;
       line-height: variables.$line-height-snug;
-      @include mixins.margin-top(0);
-      @include mixins.margin-bottom(0.5);
+      margin-top: 0;
+      margin-bottom: variables.$spacing-sm;
 
       .link {
         color: hsl(var(--color-foreground));
@@ -30,7 +29,7 @@
       color: hsl(var(--color-muted-foreground));
       font-size: variables.$font-size-base;
       line-height: variables.$line-height-body;
-      @include mixins.margin-bottom(0.75);
+      margin-bottom: variables.$spacing-md;
     }
 
     .time {
@@ -41,7 +40,7 @@
     }
 
     .category {
-      @include mixins.margin-left(1);
+      margin-left: variables.$spacing-lg;
       font-weight: 600;
       text-transform: uppercase;
       color: hsl(var(--color-primary));
