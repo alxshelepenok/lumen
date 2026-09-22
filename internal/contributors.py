@@ -2,7 +2,7 @@
 
 Reads the GitHub contributors endpoint, drops bot accounts and the
 repository owner and renders the historical six-per-row avatar table
-between marker comments.
+between marker comments; every row of six is its own GFM table.
 """
 
 import argparse
@@ -70,28 +70,32 @@ def fetch_contributors(repo, token):
 
 
 def render_table(contributors):
-    lines = []
+    tables = []
     for start in range(0, len(contributors), PER_ROW):
         row = contributors[start : start + PER_ROW]
-        lines.append(
-            " | ".join(
-                '[<img alt="{login}" src="{avatar}&s={size}" width="{size}">]({url})'.format(
-                    login=contributor["login"],
-                    avatar=contributor["avatar_url"],
-                    size=AVATAR_SIZE,
-                    url=contributor["html_url"],
-                )
-                for contributor in row
+        tables.append(
+            "\n".join(
+                [
+                    " | ".join(
+                        '[<img alt="{login}" src="{avatar}&s={size}" width="{size}">]({url})'.format(
+                            login=contributor["login"],
+                            avatar=contributor["avatar_url"],
+                            size=AVATAR_SIZE,
+                            url=contributor["html_url"],
+                        )
+                        for contributor in row
+                    ),
+                    " | ".join([":---:"] * len(row)),
+                    " | ".join(
+                        "[{login}]({url})".format(
+                            login=contributor["login"], url=contributor["html_url"]
+                        )
+                        for contributor in row
+                    ),
+                ]
             )
         )
-        lines.append(" | ".join([":---:"] * len(row)))
-        lines.append(
-            " | ".join(
-                "[{login}]({url})".format(login=contributor["login"], url=contributor["html_url"])
-                for contributor in row
-            )
-        )
-    return "\n".join(lines)
+    return "\n\n".join(tables)
 
 
 def build_section(table):

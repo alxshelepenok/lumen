@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:9d5916d1657a67220e11464e8b6042fbbcfefb02198ddf5e0634902240100b60
+# checksum: sha256:f035b87782829f0eb56410354bba6e1bf945a7b9b0fb52622bab5469f4cb2b97
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -54,6 +54,25 @@ w W-144 type=feature status=done cynefin=clear t_created=2026-09-22T17:06:58Z t_
   evidence:
     | Sponsors section diff: padded GFM table (two 442-char lines) replaced by a centered html paragraph; 2 anchor blocks, 0 table pipes, rel=noopener noreferrer and alt on both, max line length 190.
     | Logo urls unchanged; curl -I this session returned 200 image/svg+xml for both.
+
+w W-145 type=bug status=done cynefin=clear t_created=2026-09-22T17:08:12Z t_updated=2026-09-22T17:09:04Z "Contributors separator rows render as literal cells"
+  goals: G-86
+  fitness: G-86=+1
+  surface: internal/contributors.py, README.md
+  ac:
+    | Every avatar, delimiter and names triplet in the generated table is separated from the next by exactly one blank line, so each triplet parses as its own GFM table.
+    | A structural check over the marked block finds zero delimiter rows in body position.
+    | Regeneration keeps 40 contributors and a second --write run leaves README.md unchanged.
+  repro:
+    | Rendered README.md on GitHub shows literal :---: cells on every third row of the contributors section.
+  evidence_strategy:
+    | Count body-position delimiter rows before the fix, apply the fix, rerun the count to zero, then rerun --write to show a fixed point.
+  evidence:
+    | Red check before the fix: 6 delimiter rows in body position (block line indexes 4, 7, 10, 13, 16, 19); rendered on GitHub as literal :---: cells.
+    | Green check after the fix: 7 delimiter rows, each directly under its own avatar header row, 0 violations, blank line between all 7 triplets, 27 block lines total.
+    | Contributor set unchanged at 40 (owner and bots filtered); second --write run left README.md byte-identical (fixed point).
+  why:
+    | The generator joined all triplets into one GFM table; a delimiter row is only honored right after the header, so later :---: rows became body text. The 2019 source separated triplets with blank lines. No python test harness exists in the repo, so the red and green structural checks are recorded in evidence.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

@@ -36,6 +36,7 @@
 | W-142 | feature | Regenerate the README contributors table | G-86 | clear | ⊤ | done |  |
 | W-143 | feature | Exclude the repository owner from the contributors table | G-86 | clear | ⊤ | done |  |
 | W-144 | feature | Reformat the sponsors block | G-86 | clear | ⊤ | done |  |
+| W-145 | bug | Contributors separator rows render as literal cells | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -134,6 +135,7 @@ graph TD
   W_142["W-142: Regenerate the README contributors table"]:::done
   W_143["W-143: Exclude the repository owner from the contributors table"]:::done
   W_144["W-144: Reformat the sponsors block"]:::done
+  W_145["W-145: Contributors separator rows render as literal cells"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
