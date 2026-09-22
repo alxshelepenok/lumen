@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:3e806cf1491b0afaa7baa98e6e3d97a6c93268c96ea54175e56f30fad9df93cd
+# checksum: sha256:9d5916d1657a67220e11464e8b6042fbbcfefb02198ddf5e0634902240100b60
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -38,6 +38,22 @@ w W-143 type=feature status=done cynefin=clear t_created=2026-09-22T16:59:10Z t_
     | python -m py_compile internal/contributors.py: pass.
     | Live run with --write: 40 contributors rendered (was 41), owner alxshelepenok absent from the marked block, first cell vzhou842.
     | Second --write run left README.md byte-identical (fixed point).
+
+w W-144 type=feature status=done cynefin=clear t_created=2026-09-22T17:06:58Z t_updated=2026-09-22T17:07:57Z "Reformat the sponsors block"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md renders the sponsors through a centered html paragraph with one anchor block per sponsor and no GFM table left in the section.
+    | Every sponsor anchor carries target=_blank with rel=noopener noreferrer and its image carries width=250 plus an alt naming the sponsor.
+    | Both logo urls stay unchanged and answer 200 with image/svg+xml.
+  hypothesis:
+    | A centered html paragraph renders the same logo pair as the padded table while keeping the section source readable and diff-friendly.
+  evidence_strategy:
+    | Record the section diff and its maximum line length, then curl -I both logo urls for 200 image/svg+xml.
+  evidence:
+    | Sponsors section diff: padded GFM table (two 442-char lines) replaced by a centered html paragraph; 2 anchor blocks, 0 table pipes, rel=noopener noreferrer and alt on both, max line length 190.
+    | Logo urls unchanged; curl -I this session returned 200 image/svg+xml for both.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -226,6 +242,19 @@ d D-42 status=accepted t_created=2026-09-22T16:59:08Z t_updated=2026-09-22T16:59
     | The table lists external contributors only; the owner stays implicit as the project author and regeneration against any fork keeps working.
   validation:
     | Owner login absent from the output; rendered count drops by exactly one versus the previous run.
+
+d D-43 status=accepted t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T17:06:59Z "Sponsors block uses centered html instead of a padded table"
+  context:
+    | The sponsors table pads a 442-character delimiter row by hand, carries no image alt attributes and no rel on target=_blank anchors; diffs are unreadable and the alignment breaks on every edit.
+  options:
+    | OC1: Keep the GFM table and shorten the delimiter to :---: cells without padding.
+    | OC2: Replace the table with a centered html paragraph holding one anchor block per sponsor.
+  decision:
+    | OC2, maintainer approved; one four-line anchor block per sponsor with alt and rel attributes.
+  consequences:
+    | The section is html rather than GFM; adding a sponsor means appending one anchor block and alignment stays automatic.
+  validation:
+    | GitHub render shows both logos centered side by side at 250px with alt text; logo urls unchanged and alive.
 
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
@@ -775,6 +804,7 @@ e W-139 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-140 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-142 implements D-41 t_created=2026-09-22T16:54:06Z
 e W-143 implements D-42 t_created=2026-09-22T16:59:11Z
+e W-144 implements D-43 t_created=2026-09-22T17:06:59Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z

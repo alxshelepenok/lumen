@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 50 | validated B 2 · answered Q 3 · accepted D 9 · active Discovery 36 |
+| C (content) | 51 | validated B 2 · answered Q 3 · accepted D 10 · active Discovery 36 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -19,7 +19,7 @@
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-07 | Documentation | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -35,6 +35,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-142 | feature | Regenerate the README contributors table | G-86 | clear | ⊤ | done |  |
 | W-143 | feature | Exclude the repository owner from the contributors table | G-86 | clear | ⊤ | done |  |
+| W-144 | feature | Reformat the sponsors block | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -54,6 +55,7 @@
 | D-40 | Commit grammar anchors on any grove node id | accepted | D-12 |
 | D-41 | Contributors table regenerates from the GitHub API | superseded |  |
 | D-42 | Contributors table excludes the repository owner | accepted | D-41 |
+| D-43 | Sponsors block uses centered html instead of a padded table | accepted |  |
 
 ## Open questions
 
@@ -131,6 +133,7 @@ graph TD
   G_86["G-86: Improve the README"]:::goal
   W_142["W-142: Regenerate the README contributors table"]:::done
   W_143["W-143: Exclude the repository owner from the contributors table"]:::done
+  W_144["W-144: Reformat the sponsors block"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -145,6 +148,7 @@ graph TD
   D_40["D-40: Commit grammar anchors on any grove node id"]:::decision
   D_41["D-41: Contributors table regenerates from the GitHub API"]:::decision
   D_42["D-42: Contributors table excludes the repository owner"]:::decision
+  D_43["D-43: Sponsors block uses centered html instead of a padded table"]:::decision
   Q_04["Q-04: Does the content layer expose raw markdown body for the full-text corpus?"]:::question
   Q_05["Q-05: Default social card image when a post has none"]:::question
   Q_07["Q-07: Do audits or tests assert stylesheet values?"]:::question
@@ -406,6 +410,7 @@ graph TD
   W_140 -->|produces| Y_42
   W_142 -->|implements| D_41
   W_143 -->|implements| D_42
+  W_144 -->|implements| D_43
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
