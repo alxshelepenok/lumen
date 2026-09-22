@@ -3149,3 +3149,9 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T21:50:39Z","inv":{"line":"README.md lists five anchor-wrapped badges with alt attributes directly under the h1 in the order tests, license, release, runtime, json-ld; tests and license render brightgreen, release, runtime, and json-ld render c5c0ce; the json-ld badge is static and links to the Grounded structured data section; the dependencies badge is absent.","id":"W-148","field":"ac","op":"field_insert_line","index":5}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T21:50:40Z","inv":{"id":"W-148","field":"ac","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T21:50:40Z","inv":{"id":"W-148","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T21:53:43Z","inv":{"old_status":"unverified","id":"G-86","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T21:54:10Z","inv":{"id":"Y-43","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T21:54:10Z","inv":{"id":"Y-44","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T21:54:17Z","inv":{"old_status":"proposed","id":"Y-43","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T21:54:17Z","inv":{"old_status":"proposed","id":"Y-44","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-22T21:55:31Z","inv":{"ids":["D-41","D-42","D-43","D-44","G-86","W-142","W-143","W-144","W-145","W-146","W-147","W-148"],"id":"G-86","op":"archive"}}

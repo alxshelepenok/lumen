@@ -1,137 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:dda8a1dc5489167cf78238b2386715f3613023557f4a388dbcde68219b0e93ce
-g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
-  area: A-07
-
-w W-142 type=feature status=done cynefin=clear t_created=2026-09-22T16:54:05Z t_updated=2026-09-22T16:56:07Z "Regenerate the README contributors table"
-  goals: G-86
-  fitness: G-86=+1
-  surface: README.md, internal/contributors.py
-  ac:
-    | internal/contributors.py prints the historical table shape: rows of six avatar cells, a :---: separator and a username row under each.
-    | Contributor logins flagged as bots (bracket bot suffixes plus the dependabot, renovate and greenkeeper families) are absent from the output.
-    | README.md shows a Contributors section right after Sponsors whose marked block equals the script output.
-    | Running the script twice in a row leaves README.md unchanged.
-  hypothesis:
-    | The GitHub contributors endpoint returns every human contributor with avatar urls in a stable order, so the retired table can be regenerated deterministically.
-  evidence_strategy:
-    | Compile the script with python -m py_compile, run it against the live endpoint, record the rendered contributor count and filtered bot logins, then rerun to show README.md reaches a fixed point.
-  evidence:
-    | python -m py_compile internal/contributors.py: pass.
-    | Live run against api.github.com/repos/alxshelepenok/lumen/contributors: 46 entries, 41 humans rendered, 5 bots filtered (semantic-release-bot, renovate[bot], renovate-bot, dependabot[bot], greenkeeper[bot]).
-    | README.md: Contributors section inserted right after Sponsors, 28 lines added; second --write run left the file byte-identical (fixed point).
-
-w W-143 type=feature status=done cynefin=clear t_created=2026-09-22T16:59:10Z t_updated=2026-09-22T17:00:01Z "Exclude the repository owner from the contributors table"
-  goals: G-86
-  fitness: G-86=+1
-  surface: internal/contributors.py, README.md
-  ac:
-    | internal/contributors.py drops the repository owner login, derived from the owner segment of the owner/name slug, from the rendered table.
-    | The README marked block contains no alxshelepenok cell and renders 40 humans.
-    | A second --write run leaves README.md unchanged.
-  hypothesis:
-    | Filtering the slug-derived owner login keeps the table about external contributors and stays stable across regenerations.
-  evidence_strategy:
-    | Run the script with --write, grep the marked block for the owner login, compare the rendered count with the previous 41 and rerun to show a fixed point.
-  evidence:
-    | python -m py_compile internal/contributors.py: pass.
-    | Live run with --write: 40 contributors rendered (was 41), owner alxshelepenok absent from the marked block, first cell vzhou842.
-    | Second --write run left README.md byte-identical (fixed point).
-
-w W-144 type=feature status=done cynefin=clear t_created=2026-09-22T17:06:58Z t_updated=2026-09-22T17:07:57Z "Reformat the sponsors block"
-  goals: G-86
-  fitness: G-86=+1
-  surface: README.md
-  ac:
-    | README.md renders the sponsors through a centered html paragraph with one anchor block per sponsor and no GFM table left in the section.
-    | Every sponsor anchor carries target=_blank with rel=noopener noreferrer and its image carries width=250 plus an alt naming the sponsor.
-    | Both logo urls stay unchanged and answer 200 with image/svg+xml.
-  hypothesis:
-    | A centered html paragraph renders the same logo pair as the padded table while keeping the section source readable and diff-friendly.
-  evidence_strategy:
-    | Record the section diff and its maximum line length, then curl -I both logo urls for 200 image/svg+xml.
-  evidence:
-    | Sponsors section diff: padded GFM table (two 442-char lines) replaced by a centered html paragraph; 2 anchor blocks, 0 table pipes, rel=noopener noreferrer and alt on both, max line length 190.
-    | Logo urls unchanged; curl -I this session returned 200 image/svg+xml for both.
-
-w W-145 type=bug status=done cynefin=clear t_created=2026-09-22T17:08:12Z t_updated=2026-09-22T17:09:04Z "Contributors separator rows render as literal cells"
-  goals: G-86
-  fitness: G-86=+1
-  surface: internal/contributors.py, README.md
-  ac:
-    | Every avatar, delimiter and names triplet in the generated table is separated from the next by exactly one blank line, so each triplet parses as its own GFM table.
-    | A structural check over the marked block finds zero delimiter rows in body position.
-    | Regeneration keeps 40 contributors and a second --write run leaves README.md unchanged.
-  repro:
-    | Rendered README.md on GitHub shows literal :---: cells on every third row of the contributors section.
-  evidence_strategy:
-    | Count body-position delimiter rows before the fix, apply the fix, rerun the count to zero, then rerun --write to show a fixed point.
-  evidence:
-    | Red check before the fix: 6 delimiter rows in body position (block line indexes 4, 7, 10, 13, 16, 19); rendered on GitHub as literal :---: cells.
-    | Green check after the fix: 7 delimiter rows, each directly under its own avatar header row, 0 violations, blank line between all 7 triplets, 27 block lines total.
-    | Contributor set unchanged at 40 (owner and bots filtered); second --write run left README.md byte-identical (fixed point).
-  why:
-    | The generator joined all triplets into one GFM table; a delimiter row is only honored right after the header, so later :---: rows became body text. The 2019 source separated triplets with blank lines. No python test harness exists in the repo, so the red and green structural checks are recorded in evidence.
-
-w W-146 type=feature status=done cynefin=clear t_created=2026-09-22T17:10:30Z t_updated=2026-09-22T17:11:17Z "Restore the sponsors table layout"
-  goals: G-86
-  fitness: G-86=+1
-  surface: README.md
-  ac:
-    | README.md renders sponsors as a GFM table again: one header row with a cell per sponsor and an unpadded :---: delimiter row.
-    | The delimiter row is exactly | :---: | :---: | with no padding dashes.
-    | Anchors keep target=_blank with rel=noopener noreferrer and images keep width=250 with alt attributes; urls stay unchanged.
-  hypothesis:
-    | A GFM table with a short delimiter row renders identically to the original padded table because delimiter length carries no meaning.
-  evidence_strategy:
-    | Compare hrefs and image urls against the sponsors section at commit 8da577b6 and verify the delimiter row bytes.
-  evidence:
-    | Sponsors section at HEAD vs commit 8da577b6: all 4 hrefs and image urls identical, cell order unchanged, rendering restored to the original GFM table.
-    | Delimiter row is exactly | :---: | :---: | (19 chars, was 442); rel=noopener noreferrer and alt kept on both anchors; no centered html paragraph left.
-
-w W-147 type=feature status=done cynefin=clear t_created=2026-09-22T20:19:47Z t_updated=2026-09-22T20:21:54Z "Add the expanded Features section"
-  goals: G-86
-  fitness: G-86=+1
-  surface: README.md
-  ac:
-    | README.md presents the feature set as six subsections: minimal runtime, RAG and LLM indexing, JSON-LD structured data, semantic tree, crawl efficiency and SEO, and user experience.
-    | The semantic tree bullet closes the <section> code span and reads 'to separate it from the main content'.
-    | The contributors intro reads 'Thanks go to these wonderful people!'.
-  hypothesis:
-    | Grouping the verifiable properties of the current build under six subheadings communicates the architecture more precisely than the previous flat list.
-  evidence_strategy:
-    | Diff README.md against HEAD, grep the corrected strings, and confirm the contributors markers and sponsor links stay byte-identical.
-  evidence:
-    | README.md:27 closes the <section> code span and reads 'to separate it from the main content'; line backtick count 8, even parity.
-    | git diff vs HEAD touches only the Features section; zero browserstack, sentry, avatars, or contributors marker lines changed.
-    | README.md:61 reads 'Thanks go to these wonderful people'.
-    | User reverted the en dash; README.md:28 keeps the ASCII hyphen between <h2> and <h6> in the amended commit.
-
-w W-148 type=feature status=done cynefin=clear t_created=2026-09-22T21:19:20Z t_updated=2026-09-22T21:50:40Z "Add status badges with a live test count"
-  goals: G-86
-  fitness: G-86=+1
-  surface: README.md, .github/workflows/analyze.yml
-  ac:
-    | The tests badge is a shields.io endpoint badge fed by raw.githubusercontent.com/alxshelepenok/lumen/badges/.github/badges/tests.json; the count and color come from the JSON, not from the URL.
-    | analyze.yml triggers on push to main and workflow_dispatch, tees bun test with pipefail, uploads the log on non-PR runs, and a badge job with permissions contents: write publishes the count to the badges branch, mirroring the grove pattern.
-    | The badges branch is bootstrapped with the current count so the endpoint badge renders immediately.
-    | The Minimal runtime bullet reads 'Four direct dependencies.' and there is no dependencies badge.
-    | README.md lists five anchor-wrapped badges with alt attributes directly under the h1 in the order tests, license, release, runtime, json-ld; tests and license render brightgreen, release, runtime, and json-ld render c5c0ce; the json-ld badge is static and links to src/utils/audit; the dependencies badge is absent.
-  hypothesis:
-    | The endpoint mechanism with CI-published JSON keeps the test count and color driven by data, the tag badge replaces the empty releases feed, and the direct qualifier keeps the dependency count claim literally true.
-  evidence_strategy:
-    | curl the endpoint badge SVG for the count at height 28; validate analyze.yml with js-yaml; grep the bullet text and badge block; confirm the badges branch on origin contains tests.json.
-  evidence:
-    | bun test: 70 pass, 0 fail across 10 files; badges branch bootstrapped on origin (commit 1216a95a) with {label: tests, message: 70, color: brightgreen}.
-    | Endpoint badge verified by content: aria-label TESTS: 70 at height 28 on the canonical URL; release tag badge renders RELEASE: V3.0.3; badge block has 4 anchor-wrapped badges with alt attributes.
-    | analyze.yml validated with js-yaml: push+workflow_dispatch triggers, pipefail tee into test-log artifact on non-PR runs, badge job with contents: write publishes the count to the badges branch.
-    | README.md line 16 reads 'Four direct dependencies.'; no dependencies badge anywhere in the block.
-    | Amend per user: static badge URLs use the brightgreen segment, the tag badge gains color=brightgreen (SVG fill #4b0 verified vs #007ec6 default); user also hand-restructured the block (centering wrapper removed, tests first), preserved as-is.
-    | User recolored release and runtime to c5c0ce (license stays brightgreen) and moved license to second position; acceptance criteria and this record synced to the working tree.
-    | User picked variant json-ld | grounded: static badge json--ld-grounded-c5c0ce verified by content (aria-label JSON-LD: GROUNDED, fill c5c0ce) appended after runtime, linking to the Grounded structured data section; no CI changes.
-    | User retargeted the json-ld badge link to src/utils/audit (directory with schema-audit.ts, accessibility-audit.ts, audit.test.ts) instead of the README section anchor.
-
+# checksum: sha256:eb9d2b0aaeee99f260bdd788c49adeb651975efb83551c3a07224ca1cc4a6a8e
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -293,58 +162,6 @@ d D-40 status=accepted t_created=2026-09-22T11:37:27Z t_updated=2026-09-22T11:37
     | An agent reading one discovery gets an unambiguous recipe for the branch and the subject; release notes show node ids next to subjects; grove gate overflow matching keeps working.
   validation:
     | A grove maintenance session lands branch chore/Y-39 with the single-line commit chore: Y-39 (distill the commit grammar discovery) on the first attempt.
-
-d D-41 status=superseded t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T16:59:09Z "Contributors table regenerates from the GitHub API"
-  context:
-    | The 2019 README carried an avatar contributors table that later cleanups removed; the table must come back and stay maintainable.
-  options:
-    | OC1: Parse git log author lines into a table; fully offline but misses contributors whose commits were squashed or rewritten.
-    | OC2: Read the GitHub contributors endpoint in internal/contributors.py and render the historical table; needs one network call but matches how GitHub itself counts contributors.
-  decision:
-    | OC2; internal/contributors.py regenerates the table, filters bot accounts and rewrites the marked block in README.md.
-  consequences:
-    | Regeneration needs network access and an optional GITHUB_TOKEN for rate limits; the table reflects the API view, including the repository owner.
-  validation:
-    | Script output matches the GitHub contributor list minus filtered bots and the README block equals the script output.
-
-d D-42 status=accepted t_created=2026-09-22T16:59:08Z t_updated=2026-09-22T16:59:11Z "Contributors table excludes the repository owner"
-  context:
-    | D-41 kept the repository owner in the table; the 2019 table never listed the owner and the maintainer wants the section to credit external contributors only.
-  options:
-    | OC1: Hardcode the owner login in the bot filter; simple but breaks the moment the script runs against another fork.
-    | OC2: Derive the owner from the owner segment of the owner/name repository slug and drop that login during filtering.
-  decision:
-    | OC2; internal/contributors.py drops the repository owner login next to the bot accounts.
-  consequences:
-    | The table lists external contributors only; the owner stays implicit as the project author and regeneration against any fork keeps working.
-  validation:
-    | Owner login absent from the output; rendered count drops by exactly one versus the previous run.
-
-d D-43 status=superseded t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T17:10:30Z "Sponsors block uses centered html instead of a padded table"
-  context:
-    | The sponsors table pads a 442-character delimiter row by hand, carries no image alt attributes and no rel on target=_blank anchors; diffs are unreadable and the alignment breaks on every edit.
-  options:
-    | OC1: Keep the GFM table and shorten the delimiter to :---: cells without padding.
-    | OC2: Replace the table with a centered html paragraph holding one anchor block per sponsor.
-  decision:
-    | OC2, maintainer approved; one four-line anchor block per sponsor with alt and rel attributes.
-  consequences:
-    | The section is html rather than GFM; adding a sponsor means appending one anchor block and alignment stays automatic.
-  validation:
-    | GitHub render shows both logos centered side by side at 250px with alt text; logo urls unchanged and alive.
-
-d D-44 status=accepted t_created=2026-09-22T17:10:28Z t_updated=2026-09-22T17:10:31Z "Sponsors stay a GFM table with an unpadded delimiter row"
-  context:
-    | The centered html paragraph from D-43 dropped the table cells: the logos clump in the middle without cell spacing; the maintainer wants the original cell layout back.
-  options:
-    | OC1: Keep the GFM table exactly as before but shorten the delimiter to unpadded :---: cells.
-    | OC2: Use a raw html table with one td per sponsor for multi-line source.
-  decision:
-    | OC1; rendering fidelity wins, the delimiter padding was the only real formatting problem and alt plus rel attributes stay.
-  consequences:
-    | The logo row remains one long single line, inherent to GFM tables; the delimiter row drops from 442 to 19 characters and diffs become readable.
-  validation:
-    | Sponsors section renders as before: two table cells with centered logos; hrefs and image urls identical to the pre-reformat commit.
 
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
@@ -668,6 +485,14 @@ y Y-42 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T16:44:1
   surface: src/content.config.ts, src/utils/seo/nodes.ts
   invariant:
     | The graph claims only frontmatter truth: datePublished and dateModified frontmatter fields feed every graph and feed date (file mtimes never do), contact list entities emit only http urls through the same filter personNode.sameAs uses, and the integrity audit rejects any node id that is not an absolute http url.
+
+y Y-43 status=active t_created=2026-09-22T21:54:10Z t_updated=2026-09-22T21:54:17Z "Contributors table excludes the repository owner"
+  tags: contributors-table
+  surface: README.md
+
+y Y-44 status=active t_created=2026-09-22T21:54:10Z t_updated=2026-09-22T21:54:17Z "Sponsors stay a GFM table with an unpadded delimiter row"
+  tags: sponsors-table
+  surface: README.md
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
@@ -1020,6 +845,8 @@ e Y-38 distills D-39 t_created=2026-09-21T23:45:50Z
 e Y-39 distills D-12 t_created=2026-09-22T11:22:54Z
 e Y-39 distills D-40 t_created=2026-09-22T11:37:36Z
 e Y-41 supersedes Y-15 t_created=2026-09-22T14:52:36Z
+e Y-43 distills D-42 t_created=2026-09-22T21:54:10Z
+e Y-44 distills D-44 t_created=2026-09-22T21:54:10Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
@@ -1446,6 +1273,9 @@ g G-85 status=verified fitness_kind=count t_created=2026-09-22T16:06:22Z t_updat
   area: A-02
   fitness_target: 1
   fitness_current: 1
+
+g G-86 status=verified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T21:55:31Z "Improve the README"
+  area: A-07
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -2397,6 +2227,134 @@ w W-141 type=feature status=done cynefin=clear t_created=2026-09-22T16:06:28Z t_
   evidence:
     | grep over src and internal: zero matches for backToHomepage and Back to the homepage; 404.astro drops the routes and SLICE imports.
     | build 31 pages; target/404.html has zero Back to the homepage matches; audit 31 pages 0 issues; astro check exit 0; bun test 65 pass 0 fail.
+
+w W-142 type=feature status=done cynefin=clear t_created=2026-09-22T16:54:05Z t_updated=2026-09-22T21:55:31Z "Regenerate the README contributors table"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md, internal/contributors.py
+  ac:
+    | internal/contributors.py prints the historical table shape: rows of six avatar cells, a :---: separator and a username row under each.
+    | Contributor logins flagged as bots (bracket bot suffixes plus the dependabot, renovate and greenkeeper families) are absent from the output.
+    | README.md shows a Contributors section right after Sponsors whose marked block equals the script output.
+    | Running the script twice in a row leaves README.md unchanged.
+  hypothesis:
+    | The GitHub contributors endpoint returns every human contributor with avatar urls in a stable order, so the retired table can be regenerated deterministically.
+  evidence_strategy:
+    | Compile the script with python -m py_compile, run it against the live endpoint, record the rendered contributor count and filtered bot logins, then rerun to show README.md reaches a fixed point.
+  evidence:
+    | python -m py_compile internal/contributors.py: pass.
+    | Live run against api.github.com/repos/alxshelepenok/lumen/contributors: 46 entries, 41 humans rendered, 5 bots filtered (semantic-release-bot, renovate[bot], renovate-bot, dependabot[bot], greenkeeper[bot]).
+    | README.md: Contributors section inserted right after Sponsors, 28 lines added; second --write run left the file byte-identical (fixed point).
+
+w W-143 type=feature status=done cynefin=clear t_created=2026-09-22T16:59:10Z t_updated=2026-09-22T21:55:31Z "Exclude the repository owner from the contributors table"
+  goals: G-86
+  fitness: G-86=+1
+  surface: internal/contributors.py, README.md
+  ac:
+    | internal/contributors.py drops the repository owner login, derived from the owner segment of the owner/name slug, from the rendered table.
+    | The README marked block contains no alxshelepenok cell and renders 40 humans.
+    | A second --write run leaves README.md unchanged.
+  hypothesis:
+    | Filtering the slug-derived owner login keeps the table about external contributors and stays stable across regenerations.
+  evidence_strategy:
+    | Run the script with --write, grep the marked block for the owner login, compare the rendered count with the previous 41 and rerun to show a fixed point.
+  evidence:
+    | python -m py_compile internal/contributors.py: pass.
+    | Live run with --write: 40 contributors rendered (was 41), owner alxshelepenok absent from the marked block, first cell vzhou842.
+    | Second --write run left README.md byte-identical (fixed point).
+
+w W-144 type=feature status=done cynefin=clear t_created=2026-09-22T17:06:58Z t_updated=2026-09-22T21:55:31Z "Reformat the sponsors block"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md renders the sponsors through a centered html paragraph with one anchor block per sponsor and no GFM table left in the section.
+    | Every sponsor anchor carries target=_blank with rel=noopener noreferrer and its image carries width=250 plus an alt naming the sponsor.
+    | Both logo urls stay unchanged and answer 200 with image/svg+xml.
+  hypothesis:
+    | A centered html paragraph renders the same logo pair as the padded table while keeping the section source readable and diff-friendly.
+  evidence_strategy:
+    | Record the section diff and its maximum line length, then curl -I both logo urls for 200 image/svg+xml.
+  evidence:
+    | Sponsors section diff: padded GFM table (two 442-char lines) replaced by a centered html paragraph; 2 anchor blocks, 0 table pipes, rel=noopener noreferrer and alt on both, max line length 190.
+    | Logo urls unchanged; curl -I this session returned 200 image/svg+xml for both.
+
+w W-145 type=bug status=done cynefin=clear t_created=2026-09-22T17:08:12Z t_updated=2026-09-22T21:55:31Z "Contributors separator rows render as literal cells"
+  goals: G-86
+  fitness: G-86=+1
+  surface: internal/contributors.py, README.md
+  ac:
+    | Every avatar, delimiter and names triplet in the generated table is separated from the next by exactly one blank line, so each triplet parses as its own GFM table.
+    | A structural check over the marked block finds zero delimiter rows in body position.
+    | Regeneration keeps 40 contributors and a second --write run leaves README.md unchanged.
+  repro:
+    | Rendered README.md on GitHub shows literal :---: cells on every third row of the contributors section.
+  evidence_strategy:
+    | Count body-position delimiter rows before the fix, apply the fix, rerun the count to zero, then rerun --write to show a fixed point.
+  evidence:
+    | Red check before the fix: 6 delimiter rows in body position (block line indexes 4, 7, 10, 13, 16, 19); rendered on GitHub as literal :---: cells.
+    | Green check after the fix: 7 delimiter rows, each directly under its own avatar header row, 0 violations, blank line between all 7 triplets, 27 block lines total.
+    | Contributor set unchanged at 40 (owner and bots filtered); second --write run left README.md byte-identical (fixed point).
+  why:
+    | The generator joined all triplets into one GFM table; a delimiter row is only honored right after the header, so later :---: rows became body text. The 2019 source separated triplets with blank lines. No python test harness exists in the repo, so the red and green structural checks are recorded in evidence.
+
+w W-146 type=feature status=done cynefin=clear t_created=2026-09-22T17:10:30Z t_updated=2026-09-22T21:55:31Z "Restore the sponsors table layout"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md renders sponsors as a GFM table again: one header row with a cell per sponsor and an unpadded :---: delimiter row.
+    | The delimiter row is exactly | :---: | :---: | with no padding dashes.
+    | Anchors keep target=_blank with rel=noopener noreferrer and images keep width=250 with alt attributes; urls stay unchanged.
+  hypothesis:
+    | A GFM table with a short delimiter row renders identically to the original padded table because delimiter length carries no meaning.
+  evidence_strategy:
+    | Compare hrefs and image urls against the sponsors section at commit 8da577b6 and verify the delimiter row bytes.
+  evidence:
+    | Sponsors section at HEAD vs commit 8da577b6: all 4 hrefs and image urls identical, cell order unchanged, rendering restored to the original GFM table.
+    | Delimiter row is exactly | :---: | :---: | (19 chars, was 442); rel=noopener noreferrer and alt kept on both anchors; no centered html paragraph left.
+
+w W-147 type=feature status=done cynefin=clear t_created=2026-09-22T20:19:47Z t_updated=2026-09-22T21:55:31Z "Add the expanded Features section"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md presents the feature set as six subsections: minimal runtime, RAG and LLM indexing, JSON-LD structured data, semantic tree, crawl efficiency and SEO, and user experience.
+    | The semantic tree bullet closes the <section> code span and reads 'to separate it from the main content'.
+    | The contributors intro reads 'Thanks go to these wonderful people!'.
+  hypothesis:
+    | Grouping the verifiable properties of the current build under six subheadings communicates the architecture more precisely than the previous flat list.
+  evidence_strategy:
+    | Diff README.md against HEAD, grep the corrected strings, and confirm the contributors markers and sponsor links stay byte-identical.
+  evidence:
+    | README.md:27 closes the <section> code span and reads 'to separate it from the main content'; line backtick count 8, even parity.
+    | git diff vs HEAD touches only the Features section; zero browserstack, sentry, avatars, or contributors marker lines changed.
+    | README.md:61 reads 'Thanks go to these wonderful people'.
+    | User reverted the en dash; README.md:28 keeps the ASCII hyphen between <h2> and <h6> in the amended commit.
+
+w W-148 type=feature status=done cynefin=clear t_created=2026-09-22T21:19:20Z t_updated=2026-09-22T21:55:31Z "Add status badges with a live test count"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md, .github/workflows/analyze.yml
+  ac:
+    | The tests badge is a shields.io endpoint badge fed by raw.githubusercontent.com/alxshelepenok/lumen/badges/.github/badges/tests.json; the count and color come from the JSON, not from the URL.
+    | analyze.yml triggers on push to main and workflow_dispatch, tees bun test with pipefail, uploads the log on non-PR runs, and a badge job with permissions contents: write publishes the count to the badges branch, mirroring the grove pattern.
+    | The badges branch is bootstrapped with the current count so the endpoint badge renders immediately.
+    | The Minimal runtime bullet reads 'Four direct dependencies.' and there is no dependencies badge.
+    | README.md lists five anchor-wrapped badges with alt attributes directly under the h1 in the order tests, license, release, runtime, json-ld; tests and license render brightgreen, release, runtime, and json-ld render c5c0ce; the json-ld badge is static and links to src/utils/audit; the dependencies badge is absent.
+  hypothesis:
+    | The endpoint mechanism with CI-published JSON keeps the test count and color driven by data, the tag badge replaces the empty releases feed, and the direct qualifier keeps the dependency count claim literally true.
+  evidence_strategy:
+    | curl the endpoint badge SVG for the count at height 28; validate analyze.yml with js-yaml; grep the bullet text and badge block; confirm the badges branch on origin contains tests.json.
+  evidence:
+    | bun test: 70 pass, 0 fail across 10 files; badges branch bootstrapped on origin (commit 1216a95a) with {label: tests, message: 70, color: brightgreen}.
+    | Endpoint badge verified by content: aria-label TESTS: 70 at height 28 on the canonical URL; release tag badge renders RELEASE: V3.0.3; badge block has 4 anchor-wrapped badges with alt attributes.
+    | analyze.yml validated with js-yaml: push+workflow_dispatch triggers, pipefail tee into test-log artifact on non-PR runs, badge job with contents: write publishes the count to the badges branch.
+    | README.md line 16 reads 'Four direct dependencies.'; no dependencies badge anywhere in the block.
+    | Amend per user: static badge URLs use the brightgreen segment, the tag badge gains color=brightgreen (SVG fill #4b0 verified vs #007ec6 default); user also hand-restructured the block (centering wrapper removed, tests first), preserved as-is.
+    | User recolored release and runtime to c5c0ce (license stays brightgreen) and moved license to second position; acceptance criteria and this record synced to the working tree.
+    | User picked variant json-ld | grounded: static badge json--ld-grounded-c5c0ce verified by content (aria-label JSON-LD: GROUNDED, fill c5c0ce) appended after runtime, linking to the Grounded structured data section; no CI changes.
+    | User retargeted the json-ld badge link to src/utils/audit (directory with schema-audit.ts, accessibility-audit.ts, audit.test.ts) instead of the README section anchor.
 
 w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:47:06Z "Prefer arrow functions across pages and scripts"
   goals: G-06
@@ -4024,6 +3982,58 @@ d D-39 status=accepted t_created=2026-09-21T23:23:58Z t_updated=2026-09-22T11:09
     | Border hairlines (1px), the visually hidden helper, the skip link off-screen offset target units aside from the spacing scale, satori og image geometry, srcset sizes attributes and inline svg stroke attributes keep their current units; the migration sweep greps with this whitelist.
   consequences:
     | The px sweep has a small stable whitelist and generated images stay pixel exact.
+
+d D-41 status=superseded t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T21:55:31Z "Contributors table regenerates from the GitHub API"
+  context:
+    | The 2019 README carried an avatar contributors table that later cleanups removed; the table must come back and stay maintainable.
+  options:
+    | OC1: Parse git log author lines into a table; fully offline but misses contributors whose commits were squashed or rewritten.
+    | OC2: Read the GitHub contributors endpoint in internal/contributors.py and render the historical table; needs one network call but matches how GitHub itself counts contributors.
+  decision:
+    | OC2; internal/contributors.py regenerates the table, filters bot accounts and rewrites the marked block in README.md.
+  consequences:
+    | Regeneration needs network access and an optional GITHUB_TOKEN for rate limits; the table reflects the API view, including the repository owner.
+  validation:
+    | Script output matches the GitHub contributor list minus filtered bots and the README block equals the script output.
+
+d D-42 status=accepted t_created=2026-09-22T16:59:08Z t_updated=2026-09-22T21:55:31Z "Contributors table excludes the repository owner"
+  context:
+    | D-41 kept the repository owner in the table; the 2019 table never listed the owner and the maintainer wants the section to credit external contributors only.
+  options:
+    | OC1: Hardcode the owner login in the bot filter; simple but breaks the moment the script runs against another fork.
+    | OC2: Derive the owner from the owner segment of the owner/name repository slug and drop that login during filtering.
+  decision:
+    | OC2; internal/contributors.py drops the repository owner login next to the bot accounts.
+  consequences:
+    | The table lists external contributors only; the owner stays implicit as the project author and regeneration against any fork keeps working.
+  validation:
+    | Owner login absent from the output; rendered count drops by exactly one versus the previous run.
+
+d D-43 status=superseded t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T21:55:31Z "Sponsors block uses centered html instead of a padded table"
+  context:
+    | The sponsors table pads a 442-character delimiter row by hand, carries no image alt attributes and no rel on target=_blank anchors; diffs are unreadable and the alignment breaks on every edit.
+  options:
+    | OC1: Keep the GFM table and shorten the delimiter to :---: cells without padding.
+    | OC2: Replace the table with a centered html paragraph holding one anchor block per sponsor.
+  decision:
+    | OC2, maintainer approved; one four-line anchor block per sponsor with alt and rel attributes.
+  consequences:
+    | The section is html rather than GFM; adding a sponsor means appending one anchor block and alignment stays automatic.
+  validation:
+    | GitHub render shows both logos centered side by side at 250px with alt text; logo urls unchanged and alive.
+
+d D-44 status=accepted t_created=2026-09-22T17:10:28Z t_updated=2026-09-22T21:55:31Z "Sponsors stay a GFM table with an unpadded delimiter row"
+  context:
+    | The centered html paragraph from D-43 dropped the table cells: the logos clump in the middle without cell spacing; the maintainer wants the original cell layout back.
+  options:
+    | OC1: Keep the GFM table exactly as before but shorten the delimiter to unpadded :---: cells.
+    | OC2: Use a raw html table with one td per sponsor for multi-line source.
+  decision:
+    | OC1; rendering fidelity wins, the delimiter padding was the only real formatting problem and alt plus rel attributes stay.
+  consequences:
+    | The logo row remains one long single line, inherent to GFM tables; the delimiter row drops from 442 to 19 characters and diffs become readable.
+  validation:
+    | Sponsors section renders as before: two table cells with centered logos; hrefs and image urls identical to the pre-reformat commit.
 
 q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T21:22:51Z "How strict must URL parity be?"
   why:
