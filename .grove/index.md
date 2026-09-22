@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 49 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 36 |
+| C (content) | 51 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 38 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -19,6 +19,7 @@
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -106,7 +107,9 @@
 | Y-39 | Commits and branches carry grove node ids | commit-grammar | active |
 | Y-40 | Linked crumb urls match the visible breadcrumb hrefs | breadcrumb, link-grammar | active |
 | Y-41 | Site chrome anchors to the website through isPartOf | graph-anchor, json-ld | active |
-| Y-42 | Frontmatter owns graph dates and http contact urls | Frontmatter, graph-anchor | active |
+| Y-42 | Frontmatter owns graph dates and http contact urls | frontmatter, graph-anchor | active |
+| Y-43 | Contributors table excludes the repository owner | contributors-table | active |
+| Y-44 | Sponsors stay a GFM table with an unpadded delimiter row | sponsors-table | active |
 
 ## Dependency graph
 
@@ -173,12 +176,15 @@ graph TD
   Y_40["Y-40: Linked crumb urls match the visible breadcrumb hrefs"]:::discovery
   Y_41["Y-41: Site chrome anchors to the website through isPartOf"]:::discovery
   Y_42["Y-42: Frontmatter owns graph dates and http contact urls"]:::discovery
+  Y_43["Y-43: Contributors table excludes the repository owner"]:::discovery
+  Y_44["Y-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
   A_04["A-04: Site services"]:::area
   A_05["A-05: Toolchain and delivery"]:::area
   A_06["A-06: Semantics and discoverability"]:::area
+  A_07["A-07: Documentation"]:::area
   B_01 -.->|targets| W_02
   B_02 -.->|targets| W_01
   B_03 -.->|targets| W_10
@@ -249,6 +255,8 @@ graph TD
   D_33 -->|supersedes| D_30
   D_37 -->|supersedes| D_21
   D_40 -->|supersedes| D_12
+  D_42 -->|supersedes| D_41
+  D_44 -->|supersedes| D_43
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
   Q_02 -->|asks| W_11
@@ -381,6 +389,10 @@ graph TD
   W_138 -->|produces| Y_41
   W_139 -->|produces| Y_42
   W_140 -->|produces| Y_42
+  W_142 -->|implements| D_41
+  W_143 -->|implements| D_42
+  W_144 -->|implements| D_43
+  W_146 -->|implements| D_44
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -504,6 +516,8 @@ graph TD
   Y_39 -->|distills| D_12
   Y_39 -->|distills| D_40
   Y_41 -->|supersedes| Y_15
+  Y_43 -->|distills| D_42
+  Y_44 -->|distills| D_44
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

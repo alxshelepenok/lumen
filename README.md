@@ -1,13 +1,53 @@
 # lumen
 
+<a href="https://github.com/alxshelepenok/lumen/actions/workflows/analyze.yml"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Falxshelepenok%2Flumen%2Fbadges%2F.github%2Fbadges%2Ftests.json&style=for-the-badge" alt="Tests" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge" alt="MIT license" /></a>
+<a href="https://github.com/alxshelepenok/lumen/tags"><img src="https://img.shields.io/github/v/tag/alxshelepenok/lumen?style=for-the-badge&label=release&color=c5c0ce" alt="Latest release" /></a>
+<a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-Bun-c5c0ce?style=for-the-badge" alt="Bun runtime" /></a>
+<a href="src/utils/audit"><img src="https://img.shields.io/badge/json--ld-grounded-c5c0ce?style=for-the-badge" alt="JSON-LD grounded" /></a>
+
+
 A constantly evolving and thoughtful architecture for creating static blogs, built with [Astro](https://astro.build).
 
 ## Features
 
-- Mobile first approach in development.
-- No client framework runtime, plain islands.
-- Support for Sentry error tracking.
-- Support for categories and tags.
+### Minimal runtime
+
+- Four direct dependencies (Astro and Sentry).
+- Zero hydration and 0 KB of client JS by default.
+- Every page is rendered to plain HTML at build time (SSG).
+
+### Built for RAG and LLM indexing
+
+- Support for `llms.txt` and `llms-full.txt`. Generation of a text index and a condensed site summary in the root directory for quick discovery and aggregation by AI systems.
+- Direct access to Markdown sources. Every post serves clean raw Markdown (no HTML noise, layout, or scripts) at a stable URL for efficient loading into RAG context.
+
+### Grounded structured data (JSON-LD)
+
+- A single connected graph. `WebSite`, `Blog`, `BlogPosting`, `WebPage`, and `Person` nodes are explicitly linked into one knowledge network.
+- 100% consistency between the markup in the JSON-LD graph and the content actually visible on the page.
+- Stable node IDs. Canonical URLs with hash fragments (`#web`, `#blog`, `#article`, `#person`) for end-to-end data merging across pages.
+
+### Semantic tree
+
+- Hierarchical HTML structure with `<article>` for self-contained publications and `<section>` for logical subdivisions.
+- Logical grouping of metadata using `<header>` and `<footer>` tags within `<article>` and `<section>` to separate it from the main content.
+- Heading tags (`<h2>`-`<h6>`) are chosen in strict accordance with section nesting depth to form a clear table of contents.
+- A correct accessibility tree.
+- Standardized time markup.
+
+### Crawl efficiency and SEO
+
+- Explicit canonicalization on every page.
+- Hierarchical URL structure with hyphens separating words.
+- Automatically generated `sitemap.xml` and `robots.txt` at build time.
+
+### User experience optimization
+
+- Zero cumulative layout shift (CLS).
+- Asynchronous loading of visual assets (`decoding="async"` and `loading="lazy"`).
+- Images are converted to the modern WebP format at build time.
+- Automatic Atom feed generation for subscribers and aggregators.
 
 ## Quick Start
 
@@ -20,8 +60,42 @@ $ bun run start
 
 Special thanks to our sponsors and partners for supporting the project.
 
-| <a href="https://www.browserstack.com" target="_blank"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/94cbc6dc4a2cb8167ee188ddab33893a/raw/f869c9a67db7bfd5440a49178195efe811d8f7d8/browserstack.svg"></a> | <a href="https://sentry.io" target="_blank"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/1a74dbe123b2f7ad538f41c94e2da0a2/raw/aaeb3b38ef0873bae1f23f3605696b4e65362e67/sentry.svg"></a> |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://www.browserstack.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/94cbc6dc4a2cb8167ee188ddab33893a/raw/f869c9a67db7bfd5440a49178195efe811d8f7d8/browserstack.svg" alt="BrowserStack"></a> | <a href="https://sentry.io" target="_blank" rel="noopener noreferrer"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/1a74dbe123b2f7ad538f41c94e2da0a2/raw/aaeb3b38ef0873bae1f23f3605696b4e65362e67/sentry.svg" alt="Sentry"></a> |
+| :---: | :---: |
+
+## Contributors
+
+Thanks go to these wonderful people!
+
+<!-- contributors:start -->
+[<img alt="vzhou842" src="https://avatars.githubusercontent.com/u/10209814?v=4&s=117" width="117">](https://github.com/vzhou842) | [<img alt="abisz" src="https://avatars.githubusercontent.com/u/7287780?v=4&s=117" width="117">](https://github.com/abisz) | [<img alt="remi-bruguier" src="https://avatars.githubusercontent.com/u/7031328?v=4&s=117" width="117">](https://github.com/remi-bruguier) | [<img alt="sparklesam" src="https://avatars.githubusercontent.com/u/10287995?v=4&s=117" width="117">](https://github.com/sparklesam) | [<img alt="vinnymac" src="https://avatars.githubusercontent.com/u/1832781?v=4&s=117" width="117">](https://github.com/vinnymac) | [<img alt="alexxyjiang" src="https://avatars.githubusercontent.com/u/5335139?v=4&s=117" width="117">](https://github.com/alexxyjiang)
+:---: | :---: | :---: | :---: | :---: | :---:
+[vzhou842](https://github.com/vzhou842) | [abisz](https://github.com/abisz) | [remi-bruguier](https://github.com/remi-bruguier) | [sparklesam](https://github.com/sparklesam) | [vinnymac](https://github.com/vinnymac) | [alexxyjiang](https://github.com/alexxyjiang)
+
+[<img alt="mariolopjr" src="https://avatars.githubusercontent.com/u/2067324?v=4&s=117" width="117">](https://github.com/mariolopjr) | [<img alt="ihororlovskyi" src="https://avatars.githubusercontent.com/u/7969737?v=4&s=117" width="117">](https://github.com/ihororlovskyi) | [<img alt="Mastermindzh" src="https://avatars.githubusercontent.com/u/4190290?v=4&s=117" width="117">](https://github.com/Mastermindzh) | [<img alt="rtveitch" src="https://avatars.githubusercontent.com/u/25228001?v=4&s=117" width="117">](https://github.com/rtveitch) | [<img alt="timbroder" src="https://avatars.githubusercontent.com/u/121503?v=4&s=117" width="117">](https://github.com/timbroder) | [<img alt="yodahuang" src="https://avatars.githubusercontent.com/u/11242657?v=4&s=117" width="117">](https://github.com/yodahuang)
+:---: | :---: | :---: | :---: | :---: | :---:
+[mariolopjr](https://github.com/mariolopjr) | [ihororlovskyi](https://github.com/ihororlovskyi) | [Mastermindzh](https://github.com/Mastermindzh) | [rtveitch](https://github.com/rtveitch) | [timbroder](https://github.com/timbroder) | [yodahuang](https://github.com/yodahuang)
+
+[<img alt="ybbarng" src="https://avatars.githubusercontent.com/u/1793950?v=4&s=117" width="117">](https://github.com/ybbarng) | [<img alt="stigrune" src="https://avatars.githubusercontent.com/u/1052748?v=4&s=117" width="117">](https://github.com/stigrune) | [<img alt="seandearnaley" src="https://avatars.githubusercontent.com/u/5084762?v=4&s=117" width="117">](https://github.com/seandearnaley) | [<img alt="tranlehaiquan" src="https://avatars.githubusercontent.com/u/17347993?v=4&s=117" width="117">](https://github.com/tranlehaiquan) | [<img alt="tonyz0x0" src="https://avatars.githubusercontent.com/u/29159357?v=4&s=117" width="117">](https://github.com/tonyz0x0) | [<img alt="axelclark" src="https://avatars.githubusercontent.com/u/16856928?v=4&s=117" width="117">](https://github.com/axelclark)
+:---: | :---: | :---: | :---: | :---: | :---:
+[ybbarng](https://github.com/ybbarng) | [stigrune](https://github.com/stigrune) | [seandearnaley](https://github.com/seandearnaley) | [tranlehaiquan](https://github.com/tranlehaiquan) | [tonyz0x0](https://github.com/tonyz0x0) | [axelclark](https://github.com/axelclark)
+
+[<img alt="yairmark" src="https://avatars.githubusercontent.com/u/28291977?v=4&s=117" width="117">](https://github.com/yairmark) | [<img alt="wichopy" src="https://avatars.githubusercontent.com/u/24414632?v=4&s=117" width="117">](https://github.com/wichopy) | [<img alt="vstoms" src="https://avatars.githubusercontent.com/u/22646173?v=4&s=117" width="117">](https://github.com/vstoms) | [<img alt="yaaooo" src="https://avatars.githubusercontent.com/u/16640310?v=4&s=117" width="117">](https://github.com/yaaooo) | [<img alt="lune-sta" src="https://avatars.githubusercontent.com/u/1887764?v=4&s=117" width="117">](https://github.com/lune-sta) | [<img alt="vvasiloud" src="https://avatars.githubusercontent.com/u/5891530?v=4&s=117" width="117">](https://github.com/vvasiloud)
+:---: | :---: | :---: | :---: | :---: | :---:
+[yairmark](https://github.com/yairmark) | [wichopy](https://github.com/wichopy) | [vstoms](https://github.com/vstoms) | [yaaooo](https://github.com/yaaooo) | [lune-sta](https://github.com/lune-sta) | [vvasiloud](https://github.com/vvasiloud)
+
+[<img alt="swapnilmishra" src="https://avatars.githubusercontent.com/u/875450?v=4&s=117" width="117">](https://github.com/swapnilmishra) | [<img alt="Puterism" src="https://avatars.githubusercontent.com/u/2542730?v=4&s=117" width="117">](https://github.com/Puterism) | [<img alt="SayakaOno" src="https://avatars.githubusercontent.com/u/33141219?v=4&s=117" width="117">](https://github.com/SayakaOno) | [<img alt="reed-jones" src="https://avatars.githubusercontent.com/u/11511864?v=4&s=117" width="117">](https://github.com/reed-jones) | [<img alt="codejet" src="https://avatars.githubusercontent.com/u/802203?v=4&s=117" width="117">](https://github.com/codejet) | [<img alt="marktani" src="https://avatars.githubusercontent.com/u/1780597?v=4&s=117" width="117">](https://github.com/marktani)
+:---: | :---: | :---: | :---: | :---: | :---:
+[swapnilmishra](https://github.com/swapnilmishra) | [Puterism](https://github.com/Puterism) | [SayakaOno](https://github.com/SayakaOno) | [reed-jones](https://github.com/reed-jones) | [codejet](https://github.com/codejet) | [marktani](https://github.com/marktani)
+
+[<img alt="zollillo" src="https://avatars.githubusercontent.com/u/8833904?v=4&s=117" width="117">](https://github.com/zollillo) | [<img alt="marcelabomfim" src="https://avatars.githubusercontent.com/u/6224547?v=4&s=117" width="117">](https://github.com/marcelabomfim) | [<img alt="kalinchernev" src="https://avatars.githubusercontent.com/u/1923476?v=4&s=117" width="117">](https://github.com/kalinchernev) | [<img alt="sladinji" src="https://avatars.githubusercontent.com/u/8300799?v=4&s=117" width="117">](https://github.com/sladinji) | [<img alt="Tethik" src="https://avatars.githubusercontent.com/u/298627?v=4&s=117" width="117">](https://github.com/Tethik) | [<img alt="halferty" src="https://avatars.githubusercontent.com/u/1247866?v=4&s=117" width="117">](https://github.com/halferty)
+:---: | :---: | :---: | :---: | :---: | :---:
+[zollillo](https://github.com/zollillo) | [marcelabomfim](https://github.com/marcelabomfim) | [kalinchernev](https://github.com/kalinchernev) | [sladinji](https://github.com/sladinji) | [Tethik](https://github.com/Tethik) | [halferty](https://github.com/halferty)
+
+[<img alt="charandas" src="https://avatars.githubusercontent.com/u/542168?v=4&s=117" width="117">](https://github.com/charandas) | [<img alt="chmac" src="https://avatars.githubusercontent.com/u/690997?v=4&s=117" width="117">](https://github.com/chmac) | [<img alt="gipcompany" src="https://avatars.githubusercontent.com/u/130989?v=4&s=117" width="117">](https://github.com/gipcompany) | [<img alt="concreted" src="https://avatars.githubusercontent.com/u/4016897?v=4&s=117" width="117">](https://github.com/concreted)
+:---: | :---: | :---: | :---:
+[charandas](https://github.com/charandas) | [chmac](https://github.com/chmac) | [gipcompany](https://github.com/gipcompany) | [concreted](https://github.com/concreted)
+<!-- contributors:end -->
 
 ## License
 
