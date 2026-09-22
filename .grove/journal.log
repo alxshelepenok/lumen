@@ -2995,3 +2995,37 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T16:09:39Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-136","op":"set_w_status_with_goals","goal_statuses":{"G-84":"unverified"},"old_session_at":"2026-09-22T16:07:15Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-22T16:09:44Z","inv":{"goal":"G-84","op":"distill","empty":true}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-22T16:19:23Z","inv":{"ids":["G-84","W-136"],"id":"G-84","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:10Z","inv":{"new":"content-collection","glossary_changed":true,"old":"Content collection","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:11Z","inv":{"new":"no-fouc-script","glossary_changed":true,"old":"No-FOUC script","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:11Z","inv":{"new":"feed-limit","glossary_changed":true,"old":"Feed limit","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:11Z","inv":{"new":"slug-resolution","glossary_changed":true,"old":"Slug resolution","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:11Z","inv":{"new":"canonical-url","glossary_changed":true,"old":"Canonical URL","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:11Z","inv":{"new":"islands-directory","glossary_changed":true,"old":"Islands directory","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:12Z","inv":{"new":"frontmatter","glossary_changed":true,"old":"Frontmatter","tags":{"Y-42":["Frontmatter","graph-anchor"]},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:12Z","inv":{"new":"taxonomy","glossary_changed":true,"old":"Taxonomy","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"glossary","ts":"2026-09-22T16:44:12Z","inv":{"new":"shiki","glossary_changed":true,"old":"Shiki","tags":{},"op":"glossary_rename_restore"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T16:53:47Z","inv":{"id":"A-07","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T16:53:48Z","inv":{"id":"G-86","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T16:54:03Z","inv":{"id":"D-41","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:03Z","inv":{"id":"D-41","field":"context","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:03Z","inv":{"id":"D-41","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:04Z","inv":{"id":"D-41","field":"options","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:04Z","inv":{"id":"D-41","field":"decision","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:04Z","inv":{"id":"D-41","field":"consequences","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:04Z","inv":{"id":"D-41","field":"validation","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T16:54:04Z","inv":{"old_status":"proposed","id":"D-41","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T16:54:05Z","inv":{"id":"W-142","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:05Z","inv":{"id":"W-142","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:05Z","inv":{"id":"W-142","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:05Z","inv":{"id":"W-142","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:05Z","inv":{"id":"W-142","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:06Z","inv":{"id":"W-142","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:54:06Z","inv":{"id":"W-142","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-22T16:54:06Z","inv":{"label":"implements","to":"D-41","op":"unlink_edge","from":"W-142"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T16:54:32Z","inv":{"missing":["fitness deltas set ∀ g"],"id":"W-142","op":"dor_reject"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-22T16:54:45Z","inv":{"had_key":false,"wid":"W-142","gid":"G-86","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T16:54:45Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-142","op":"set_w_status_with_goals","goal_statuses":{"G-86":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:56:07Z","inv":{"id":"W-142","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:56:07Z","inv":{"id":"W-142","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T16:56:07Z","inv":{"id":"W-142","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T16:56:07Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-142","op":"set_w_status_with_goals","goal_statuses":{"G-86":"unverified"},"old_session_at":"2026-09-22T16:54:45Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}

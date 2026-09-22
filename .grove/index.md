@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 49 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 36 |
+| C (content) | 50 | validated B 2 · answered Q 3 · accepted D 9 · active Discovery 36 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -19,8 +19,21 @@
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-07 | Documentation | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-86 | Improve the README | manual | unverified |
+
+## Work items
+
+| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| W-142 | feature | Regenerate the README contributors table | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -38,6 +51,7 @@
 | D-32 | Sidebar heading Overview | accepted | D-29 |
 | D-33 | Toolbar aside labelled Reader controls | accepted | D-30 |
 | D-40 | Commit grammar anchors on any grove node id | accepted | D-12 |
+| D-41 | Contributors table regenerates from the GitHub API | accepted |  |
 
 ## Open questions
 
@@ -106,12 +120,14 @@
 | Y-39 | Commits and branches carry grove node ids | commit-grammar | active |
 | Y-40 | Linked crumb urls match the visible breadcrumb hrefs | breadcrumb, link-grammar | active |
 | Y-41 | Site chrome anchors to the website through isPartOf | graph-anchor, json-ld | active |
-| Y-42 | Frontmatter owns graph dates and http contact urls | Frontmatter, graph-anchor | active |
+| Y-42 | Frontmatter owns graph dates and http contact urls | frontmatter, graph-anchor | active |
 
 ## Dependency graph
 
 ```mermaid
 graph TD
+  G_86["G-86: Improve the README"]:::goal
+  W_142["W-142: Regenerate the README contributors table"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -124,6 +140,7 @@ graph TD
   D_32["D-32: Sidebar heading Overview"]:::decision
   D_33["D-33: Toolbar aside labelled Reader controls"]:::decision
   D_40["D-40: Commit grammar anchors on any grove node id"]:::decision
+  D_41["D-41: Contributors table regenerates from the GitHub API"]:::decision
   Q_04["Q-04: Does the content layer expose raw markdown body for the full-text corpus?"]:::question
   Q_05["Q-05: Default social card image when a post has none"]:::question
   Q_07["Q-07: Do audits or tests assert stylesheet values?"]:::question
@@ -179,6 +196,7 @@ graph TD
   A_04["A-04: Site services"]:::area
   A_05["A-05: Toolchain and delivery"]:::area
   A_06["A-06: Semantics and discoverability"]:::area
+  A_07["A-07: Documentation"]:::area
   B_01 -.->|targets| W_02
   B_02 -.->|targets| W_01
   B_03 -.->|targets| W_10
@@ -381,6 +399,7 @@ graph TD
   W_138 -->|produces| Y_41
   W_139 -->|produces| Y_42
   W_140 -->|produces| Y_42
+  W_142 -->|implements| D_41
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08

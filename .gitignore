@@ -35,6 +35,9 @@ coverage
 # eslint cache
 .eslintcache
 
+# python cache
+__pycache__/
+
 # dependency directory
 node_modules
 

@@ -1,6 +1,27 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:15a230a41acab56c178612e5d4ecf2a2ab1fa6678ed302e6e0e71523ec876653
+# checksum: sha256:be550eb2f7b8277747b551b9187ee6d090b2f00357015a162dbdea1f26b8bd3b
+g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
+  area: A-07
+
+w W-142 type=feature status=done cynefin=clear t_created=2026-09-22T16:54:05Z t_updated=2026-09-22T16:56:07Z "Regenerate the README contributors table"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md, internal/contributors.py
+  ac:
+    | internal/contributors.py prints the historical table shape: rows of six avatar cells, a :---: separator and a username row under each.
+    | Contributor logins flagged as bots (bracket bot suffixes plus the dependabot, renovate and greenkeeper families) are absent from the output.
+    | README.md shows a Contributors section right after Sponsors whose marked block equals the script output.
+    | Running the script twice in a row leaves README.md unchanged.
+  hypothesis:
+    | The GitHub contributors endpoint returns every human contributor with avatar urls in a stable order, so the retired table can be regenerated deterministically.
+  evidence_strategy:
+    | Compile the script with python -m py_compile, run it against the live endpoint, record the rendered contributor count and filtered bot logins, then rerun to show README.md reaches a fixed point.
+  evidence:
+    | python -m py_compile internal/contributors.py: pass.
+    | Live run against api.github.com/repos/alxshelepenok/lumen/contributors: 46 entries, 41 humans rendered, 5 bots filtered (semantic-release-bot, renovate[bot], renovate-bot, dependabot[bot], greenkeeper[bot]).
+    | README.md: Contributors section inserted right after Sponsors, 28 lines added; second --write run left the file byte-identical (fixed point).
+
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -162,6 +183,19 @@ d D-40 status=accepted t_created=2026-09-22T11:37:27Z t_updated=2026-09-22T11:37
     | An agent reading one discovery gets an unambiguous recipe for the branch and the subject; release notes show node ids next to subjects; grove gate overflow matching keeps working.
   validation:
     | A grove maintenance session lands branch chore/Y-39 with the single-line commit chore: Y-39 (distill the commit grammar discovery) on the first attempt.
+
+d D-41 status=accepted t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T16:54:06Z "Contributors table regenerates from the GitHub API"
+  context:
+    | The 2019 README carried an avatar contributors table that later cleanups removed; the table must come back and stay maintainable.
+  options:
+    | OC1: Parse git log author lines into a table; fully offline but misses contributors whose commits were squashed or rewritten.
+    | OC2: Read the GitHub contributors endpoint in internal/contributors.py and render the historical table; needs one network call but matches how GitHub itself counts contributors.
+  decision:
+    | OC2; internal/contributors.py regenerates the table, filters bot accounts and rewrites the marked block in README.md.
+  consequences:
+    | Regeneration needs network access and an optional GITHUB_TOKEN for rate limits; the table reflects the API view, including the repository owner.
+  validation:
+    | Script output matches the GitHub contributor list minus filtered bots and the README block equals the script output.
 
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
@@ -480,8 +514,8 @@ y Y-41 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T14:52:3
   invariant:
     | Site-wide chrome (the sidebar menu and the contacts links) keeps one root-anchored id and asserts isPartOf the website on every page that renders it, and a blog posting belongs to the home-anchored blog node through isPartOf while its page link stays in mainEntityOfPage, so no chrome entity carries per-page isPartOf values.
 
-y Y-42 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T14:52:36Z "Frontmatter owns graph dates and http contact urls"
-  tags: Frontmatter, graph-anchor
+y Y-42 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T16:44:12Z "Frontmatter owns graph dates and http contact urls"
+  tags: frontmatter, graph-anchor
   surface: src/content.config.ts, src/utils/seo/nodes.ts
   invariant:
     | The graph claims only frontmatter truth: datePublished and dateModified frontmatter fields feed every graph and feed date (file mtimes never do), contact list entities emit only http urls through the same filter personNode.sameAs uses, and the integrity audit rejects any node id that is not an absolute http url.
@@ -502,6 +536,9 @@ a A-05 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:
   surface: package.json, astro.config.ts, .github, internal
 
 a A-06 status=present t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:53:32Z "Semantics and discoverability"
+
+a A-07 status=present t_created=2026-09-22T16:53:47Z t_updated=2026-09-22T16:53:47Z "Documentation"
+  surface: README.md
 
 e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
 e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
@@ -705,6 +742,7 @@ e W-137 produces Y-41 t_created=2026-09-22T14:52:29Z
 e W-138 produces Y-41 t_created=2026-09-22T14:52:29Z
 e W-139 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-140 produces Y-42 t_created=2026-09-22T14:52:29Z
+e W-142 implements D-41 t_created=2026-09-22T16:54:06Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
