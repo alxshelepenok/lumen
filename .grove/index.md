@@ -34,6 +34,7 @@
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-142 | feature | Regenerate the README contributors table | G-86 | clear | ⊤ | done |  |
+| W-143 | feature | Exclude the repository owner from the contributors table | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -51,7 +52,8 @@
 | D-32 | Sidebar heading Overview | accepted | D-29 |
 | D-33 | Toolbar aside labelled Reader controls | accepted | D-30 |
 | D-40 | Commit grammar anchors on any grove node id | accepted | D-12 |
-| D-41 | Contributors table regenerates from the GitHub API | accepted |  |
+| D-41 | Contributors table regenerates from the GitHub API | superseded |  |
+| D-42 | Contributors table excludes the repository owner | accepted | D-41 |
 
 ## Open questions
 
@@ -128,6 +130,7 @@
 graph TD
   G_86["G-86: Improve the README"]:::goal
   W_142["W-142: Regenerate the README contributors table"]:::done
+  W_143["W-143: Exclude the repository owner from the contributors table"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -141,6 +144,7 @@ graph TD
   D_33["D-33: Toolbar aside labelled Reader controls"]:::decision
   D_40["D-40: Commit grammar anchors on any grove node id"]:::decision
   D_41["D-41: Contributors table regenerates from the GitHub API"]:::decision
+  D_42["D-42: Contributors table excludes the repository owner"]:::decision
   Q_04["Q-04: Does the content layer expose raw markdown body for the full-text corpus?"]:::question
   Q_05["Q-05: Default social card image when a post has none"]:::question
   Q_07["Q-07: Do audits or tests assert stylesheet values?"]:::question
@@ -267,6 +271,7 @@ graph TD
   D_33 -->|supersedes| D_30
   D_37 -->|supersedes| D_21
   D_40 -->|supersedes| D_12
+  D_42 -->|supersedes| D_41
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
   Q_02 -->|asks| W_11
@@ -400,6 +405,7 @@ graph TD
   W_139 -->|produces| Y_42
   W_140 -->|produces| Y_42
   W_142 -->|implements| D_41
+  W_143 -->|implements| D_42
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08

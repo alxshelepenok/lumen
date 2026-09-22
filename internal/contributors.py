@@ -1,7 +1,8 @@
 """Regenerate the contributors table in README.md.
 
-Reads the GitHub contributors endpoint, drops bot accounts and renders
-the historical six-per-row avatar table between marker comments.
+Reads the GitHub contributors endpoint, drops bot accounts and the
+repository owner and renders the historical six-per-row avatar table
+between marker comments.
 """
 
 import argparse
@@ -42,6 +43,10 @@ def is_bot(contributor):
         or login.endswith("-bot")
         or stem in BOT_LOGINS
     )
+
+
+def is_owner(contributor, repo):
+    return contributor.get("login", "").lower() == repo.split("/", 1)[0].lower()
 
 
 def fetch_contributors(repo, token):
@@ -123,7 +128,11 @@ def main():
     )
     args = parser.parse_args()
 
-    contributors = [c for c in fetch_contributors(args.repo, args.token) if not is_bot(c)]
+    contributors = [
+        c
+        for c in fetch_contributors(args.repo, args.token)
+        if not is_bot(c) and not is_owner(c, args.repo)
+    ]
     if not contributors:
         raise SystemExit("No human contributors returned for " + args.repo)
     table = render_table(contributors)
@@ -134,7 +143,7 @@ def main():
         with open(args.readme, "w", encoding="utf-8", newline="\n") as file:
             file.write(update_readme(content, table))
         print(
-            "Contributors table refreshed in {}: {} humans, bots filtered.".format(
+            "Contributors table refreshed in {}: {} contributors, bots and owner filtered.".format(
                 args.readme, len(contributors)
             )
         )

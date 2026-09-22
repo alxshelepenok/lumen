@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:be550eb2f7b8277747b551b9187ee6d090b2f00357015a162dbdea1f26b8bd3b
+# checksum: sha256:3e806cf1491b0afaa7baa98e6e3d97a6c93268c96ea54175e56f30fad9df93cd
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -21,6 +21,23 @@ w W-142 type=feature status=done cynefin=clear t_created=2026-09-22T16:54:05Z t_
     | python -m py_compile internal/contributors.py: pass.
     | Live run against api.github.com/repos/alxshelepenok/lumen/contributors: 46 entries, 41 humans rendered, 5 bots filtered (semantic-release-bot, renovate[bot], renovate-bot, dependabot[bot], greenkeeper[bot]).
     | README.md: Contributors section inserted right after Sponsors, 28 lines added; second --write run left the file byte-identical (fixed point).
+
+w W-143 type=feature status=done cynefin=clear t_created=2026-09-22T16:59:10Z t_updated=2026-09-22T17:00:01Z "Exclude the repository owner from the contributors table"
+  goals: G-86
+  fitness: G-86=+1
+  surface: internal/contributors.py, README.md
+  ac:
+    | internal/contributors.py drops the repository owner login, derived from the owner segment of the owner/name slug, from the rendered table.
+    | The README marked block contains no alxshelepenok cell and renders 40 humans.
+    | A second --write run leaves README.md unchanged.
+  hypothesis:
+    | Filtering the slug-derived owner login keeps the table about external contributors and stays stable across regenerations.
+  evidence_strategy:
+    | Run the script with --write, grep the marked block for the owner login, compare the rendered count with the previous 41 and rerun to show a fixed point.
+  evidence:
+    | python -m py_compile internal/contributors.py: pass.
+    | Live run with --write: 40 contributors rendered (was 41), owner alxshelepenok absent from the marked block, first cell vzhou842.
+    | Second --write run left README.md byte-identical (fixed point).
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -184,7 +201,7 @@ d D-40 status=accepted t_created=2026-09-22T11:37:27Z t_updated=2026-09-22T11:37
   validation:
     | A grove maintenance session lands branch chore/Y-39 with the single-line commit chore: Y-39 (distill the commit grammar discovery) on the first attempt.
 
-d D-41 status=accepted t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T16:54:06Z "Contributors table regenerates from the GitHub API"
+d D-41 status=superseded t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T16:59:09Z "Contributors table regenerates from the GitHub API"
   context:
     | The 2019 README carried an avatar contributors table that later cleanups removed; the table must come back and stay maintainable.
   options:
@@ -196,6 +213,19 @@ d D-41 status=accepted t_created=2026-09-22T16:54:03Z t_updated=2026-09-22T16:54
     | Regeneration needs network access and an optional GITHUB_TOKEN for rate limits; the table reflects the API view, including the repository owner.
   validation:
     | Script output matches the GitHub contributor list minus filtered bots and the README block equals the script output.
+
+d D-42 status=accepted t_created=2026-09-22T16:59:08Z t_updated=2026-09-22T16:59:11Z "Contributors table excludes the repository owner"
+  context:
+    | D-41 kept the repository owner in the table; the 2019 table never listed the owner and the maintainer wants the section to credit external contributors only.
+  options:
+    | OC1: Hardcode the owner login in the bot filter; simple but breaks the moment the script runs against another fork.
+    | OC2: Derive the owner from the owner segment of the owner/name repository slug and drop that login during filtering.
+  decision:
+    | OC2; internal/contributors.py drops the repository owner login next to the bot accounts.
+  consequences:
+    | The table lists external contributors only; the owner stays implicit as the project author and regeneration against any fork keeps working.
+  validation:
+    | Owner login absent from the output; rendered count drops by exactly one versus the previous run.
 
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
@@ -610,6 +640,7 @@ e D-32 supersedes D-29 t_created=2026-09-20T21:42:21Z
 e D-33 supersedes D-30 t_created=2026-09-20T21:45:10Z
 e D-37 supersedes D-21 t_created=2026-09-20T22:27:47Z
 e D-40 supersedes D-12 t_created=2026-09-22T11:37:27Z
+e D-42 supersedes D-41 t_created=2026-09-22T16:59:08Z
 e Q-01 asks W-05 t_created=2026-09-18T19:27:12Z
 e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
 e Q-02 asks W-11 t_created=2026-09-18T19:27:13Z
@@ -743,6 +774,7 @@ e W-138 produces Y-41 t_created=2026-09-22T14:52:29Z
 e W-139 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-140 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-142 implements D-41 t_created=2026-09-22T16:54:06Z
+e W-143 implements D-42 t_created=2026-09-22T16:59:11Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
