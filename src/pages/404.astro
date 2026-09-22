@@ -6,7 +6,6 @@ import Page from "@/islands/page.astro";
 import { labels } from "@/constants/labels";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { SLICE, routes } from "@/utils/routes";
 
 const { title, description } = getSiteMetadata();
 ---
@@ -19,9 +18,6 @@ const { title, description } = getSiteMetadata();
   <Layout>
     <Page title={labels.notFound}>
       <p>You just hit a route that doesn't exist... the sadness.</p>
-      <p>
-        <a href={routes.home().anchor(SLICE.page)}>{labels.backToHomepage}</a>
-      </p>
     </Page>
   </Layout>
 </BaseLayout>

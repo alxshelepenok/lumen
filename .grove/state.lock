@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:6051a617927c33f649ad5861089438a10a98b2e3476c69b73aeccdc66515286b
+# checksum: sha256:79d06920735563308922b61fc990fdf3e704ad89e1209a33dc606ed224484f73
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -68,7 +68,7 @@ d D-25 status=superseded t_created=2026-09-20T21:03:43Z t_updated=2026-09-20T21:
   consequences:
     | The reading time leaves the post footer and its word-count prop chain; the breadcrumb ordered list stays a pure trail (OC3 rejected because a duration is not a page reference); the note may wrap below the trail on narrow widths.
   validation:
-    | DOM measurements over the dev server at 375px and 1440px widths plus the audit sweep over a fresh build.
+    | DOM measurements over the dev server at 375px and 1440px widths plus the audit over a fresh build.
 
 d D-27 status=accepted t_created=2026-09-20T21:14:52Z t_updated=2026-09-20T21:18:16Z "Reading time as a nav sibling on the breadcrumb line"
   context:
@@ -94,7 +94,7 @@ d D-28 status=superseded t_created=2026-09-20T21:22:49Z t_updated=2026-09-20T21:
   consequences:
     | The toolbar aside adds a second body-level landmark type next to main on post pages; the copyright span keeps its block box through explicit module styles; both boxes stay pixel-identical to their previous elements.
   validation:
-    | DOM measurements at 375px and 1440px widths comparing the span and aside boxes against the recorded paragraph and div boxes, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px widths comparing the span and aside boxes against the recorded paragraph and div boxes, plus the audit over a fresh build.
 
 d D-29 status=superseded t_created=2026-09-20T21:26:53Z t_updated=2026-09-20T21:43:40Z "Sidebar section with its own hidden heading"
   context:
@@ -108,7 +108,7 @@ d D-29 status=superseded t_created=2026-09-20T21:26:53Z t_updated=2026-09-20T21:
   consequences:
     | The sidebar stops being an aside landmark and becomes a named section landmark inside main; the author block keeps its own heading and label; the hidden heading follows the Site menu and Contacts pattern of visually hidden h2 elements.
   validation:
-    | DOM measurements at 375px and 1440px widths proving the section, its resolved accessible name and the unchanged sidebar box, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px widths proving the section, its resolved accessible name and the unchanged sidebar box, plus the audit over a fresh build.
 
 d D-30 status=superseded t_created=2026-09-20T21:30:37Z t_updated=2026-09-20T21:47:06Z "Aside wrapper with the nosnippet div kept"
   context:
@@ -121,7 +121,7 @@ d D-30 status=superseded t_created=2026-09-20T21:30:37Z t_updated=2026-09-20T21:
   consequences:
     | The toolbar gains one wrapper node; below lg the aside is a zero-margin block around the in-flow div, from lg the fixed div leaves the aside an empty box, so no geometry moves.
   validation:
-    | DOM measurements at 375px and 1440px proving the attribute placement and the unchanged boxes, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px proving the attribute placement and the unchanged boxes, plus the audit over a fresh build.
 
 d D-32 status=accepted t_created=2026-09-20T21:42:21Z t_updated=2026-09-20T21:43:47Z "Sidebar heading Overview"
   context:
@@ -135,7 +135,7 @@ d D-32 status=accepted t_created=2026-09-20T21:42:21Z t_updated=2026-09-20T21:43
   consequences:
     | The section accessible name changes to Overview while the hidden heading shape, the label wiring and the box stay untouched.
   validation:
-    | DOM read of the resolved accessible name plus the audit sweep over a fresh build.
+    | DOM read of the resolved accessible name plus the audit over a fresh build.
 
 d D-33 status=accepted t_created=2026-09-20T21:45:10Z t_updated=2026-09-20T21:46:57Z "Toolbar aside labelled Reader controls"
   context:
@@ -148,7 +148,7 @@ d D-33 status=accepted t_created=2026-09-20T21:45:10Z t_updated=2026-09-20T21:46
   consequences:
     | Only the accessible name changes; the wrapper structure, the nosnippet div, the placement and the boxes stay as D-30 delivered them.
   validation:
-    | DOM read of the aria-label plus the audit sweep over a fresh build.
+    | DOM read of the aria-label plus the audit over a fresh build.
 
 d D-40 status=accepted t_created=2026-09-22T11:37:27Z t_updated=2026-09-22T11:37:36Z "Commit grammar anchors on any grove node id"
   context:
@@ -173,7 +173,7 @@ q Q-05 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_upda
 
 q Q-07 status=answered cynefin=complicated t_created=2026-09-21T23:24:05Z t_updated=2026-09-21T23:24:09Z "Do audits or tests assert stylesheet values?"
   outcome:
-    | audit-sweep walks built html for schema and dom issues only and bun test suites cover markup and helpers; nothing asserts stylesheet values, so the migration is verified by build, tests and screenshots.
+    | audit walks built html for schema and dom issues only and bun test suites cover markup and helpers; nothing asserts stylesheet values, so the migration is verified by build, tests and screenshots.
 
 b B-02 status=validated cynefin=complicated t_created=2026-09-18T19:27:56Z t_updated=2026-09-18T19:50:16Z "Bun drives the Astro 7 toolchain"
   vm:
@@ -380,9 +380,9 @@ y Y-25 status=superseded t_created=2026-09-20T21:39:15Z t_updated=2026-09-22T11:
 
 y Y-26 status=active t_created=2026-09-20T21:39:23Z t_updated=2026-09-20T21:39:30Z "Static sweeps must cover non-index html files"
   tags: link-grammar
-  surface: internal/testing/audit-sweep.ts, src/pages/404.astro
+  surface: internal/testing/audit.ts, src/pages/404.astro
   invariant:
-    | The audit sweep walks every emitted html document (index.html and 404.html), not only route indexes; a page type invisible to the sweep silently escapes the link grammar and anchor checks that the dev audits enforce.
+    | The audit walks every emitted html document (index.html and 404.html), not only route indexes; a page type invisible to the sweep silently escapes the link grammar and anchor checks that the dev audits enforce.
 
 y Y-27 status=active t_created=2026-09-20T21:43:47Z t_updated=2026-09-20T21:43:55Z "Composite regions carry a maintainer-chosen umbrella heading"
   tags: sidebar
@@ -1221,6 +1221,11 @@ g G-83 status=verified fitness_kind=count t_created=2026-09-21T23:23:47Z t_updat
   fitness_target: 5
   fitness_current: 5
 
+g G-84 status=verified fitness_kind=count t_created=2026-09-22T16:06:22Z t_updated=2026-09-22T16:19:23Z "404 page ships without a back-home link"
+  area: A-02
+  fitness_target: 1
+  fitness_current: 1
+
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
   fitness: G-01=+0, G-05=+0
@@ -1424,13 +1429,13 @@ w W-100 type=feature status=done cynefin=clear t_created=2026-09-20T21:45:26Z t_
   surface: src/islands/post-toolbar.astro
   ac:
     | The toolbar aside carries aria-label Reader controls with the wrapper structure, nosnippet div placement and boxes unchanged.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Swapping the aria-label string changes only the accessible name of the wrapper landmark and nothing in layout or audits.
   evidence_strategy:
-    | DOM read of the label, wrapper structure and boxes at 375px and 1440px; audit sweep over a fresh build; bun test; astro check.
+    | DOM read of the label, wrapper structure and boxes at 375px and 1440px; audit over a fresh build; bun test; astro check.
   evidence:
-    | DOM reads at 375px and 1440px: the aside carries aria-label Reader controls with no class and no data-nosnippet while the inner div keeps data-nosnippet and its recorded boxes (in flow 26..68 at 0..375 on 375; fixed 30..72 at 30..207.06 on 1440, aside collapsed to zero height); bun run build green; audit sweep 31 pages checked 0 issues; bun test 61 pass; astro check clean.
+    | DOM reads at 375px and 1440px: the aside carries aria-label Reader controls with no class and no data-nosnippet while the inner div keeps data-nosnippet and its recorded boxes (in flow 26..68 at 0..375 on 375; fixed 30..72 at 30..207.06 on 1440, aside collapsed to zero height); bun run build green; audit 31 pages checked 0 issues; bun test 61 pass; astro check clean.
 
 w W-101 type=feature status=done cynefin=complicated t_created=2026-09-20T21:49:11Z t_updated=2026-09-22T11:09:20Z "Post body content without the section wrapper"
   goals: G-53
@@ -1439,14 +1444,14 @@ w W-101 type=feature status=done cynefin=complicated t_created=2026-09-20T21:49:
   ac:
     | The article contains no section element: after the header the content renders inside a plain div with the body class, followed by the footer, and the post-body id and label are gone.
     | Box parity within 1px at 375px and 1440px: the body container top (267.31 and 266.5), the first paragraph box (267.31 at 13..362; 266.5 at 400..1040) and the header-to-body gap (16px and 39px) match the recorded values.
-    | The audit sweep over a fresh build reports zero issues, in-browser dev audits drop the post-body tabindex warning without new errors, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, in-browser dev audits drop the post-body tabindex warning without new errors, the bun test suite is green and astro check is clean.
   hypothesis:
     | Swapping the section for a div with the same class changes only the landmark algebra (one labelled section fewer) while every box stays put because all styles hang off the class.
   evidence_strategy:
-    | DOM tag and rect reads at 375px and 1440px compared against the recorded section boxes; audit sweep over a fresh build; bun test; astro check.
+    | DOM tag and rect reads at 375px and 1440px compared against the recorded section boxes; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements at 375x667 and 1440x900 (no screenshots): the article children are header, div, footer with zero section elements and the post-body id gone; box parity with the recorded section state is exact: body container top 267.31 and 266.5, first paragraph 267.31 at 13..362 and 266.5 at 400..1040 (center 720), header-to-body gaps 16px and 39px; the dev audit warning list drops post-body and keeps only the article and breadcrumb tabindex warnings.
-    | bun run build green (31 pages); bun run audit:sweep: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML confirms header, body div, footer order with no section inside the article and no post-body id anywhere.
+    | bun run build green (31 pages); bun run audit: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML confirms header, body div, footer order with no section inside the article and no post-body id anywhere.
   plan:
     | Replace the post-body section with a plain div carrying the body class, dropping the id and the aria-labelledby.
 
@@ -1457,14 +1462,14 @@ w W-102 type=feature status=done cynefin=complicated t_created=2026-09-20T21:52:
   ac:
     | Every feed item renders header with time, category and the h3 heading inside (no divider span), followed by the description and the read link directly under the article.
     | The category sources its gap through mixins.margin-left(1): computed margin-left 26px with the time-to-category gap staying 26px, and the heading keeps computed font-size 27px and its recorded box at 375px and 1440px.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Moving the heading into the header and replacing the divider margins with an equivalent mixin margin-left on the category changes no box because the heading styles are descendant selectors and the 26px gap is reproduced exactly.
   evidence_strategy:
-    | DOM structure, computed style and rect reads on the first feed item at 375px and 1440px compared against the recorded boxes; audit sweep over a fresh build; bun test; astro check.
+    | DOM structure, computed style and rect reads on the first feed item at 375px and 1440px compared against the recorded boxes; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements on the first feed item of the home page at 375x667 and 1440x900 (no screenshots): the article children are header, p, a with the h3 inside the header (header children time, category span, h3) and no divider span anywhere; the category computes to margin-left 26px (mixins.margin-left(1)) keeping the time-to-category gap exactly 26px; every recorded box matches: time 19.5..122.94 and 577.66..681.09, category 148.94..260.36 and 707.09..818.52, heading top 605.5 (19.5..355.5, 78px) and 66 (577.66..1229, 39px) at font-size 27px.
-    | bun run build green (31 pages); bun run audit:sweep: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints (after fixing the null-guard in the B-21 spike script); built HTML confirms no divider class anywhere, the h3 inside the header and the time still in the header.
+    | bun run build green (31 pages); bun run audit: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints (after fixing the null-guard in the B-21 spike script); built HTML confirms no divider class anywhere, the h3 inside the header and the time still in the header.
   plan:
     | Remove the divider span and move the h3 into the header after the category span in the feed island; drop the divider rule and add margin-left(1) to the category in the feed module.
 
@@ -1475,14 +1480,14 @@ w W-103 type=feature status=done cynefin=complicated t_created=2026-09-20T21:56:
   ac:
     | Every feed item renders the Read anchor inside a classless footer as the last article child, keeping the anchor class and its accessible name.
     | Box parity within 1px at 375px and 1440px: the Read anchor keeps its recorded box (825..846 at 19.5..54.53 and 194.5..215.5 at 577.66..612.69) and the description-to-link gap stays 21.5px.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | A block footer around the inline anchor changes no geometry because the anchor already started its own line after the description block, and the scoped footer adds no landmark.
   evidence_strategy:
-    | DOM structure and rect reads on the first feed item at 375px and 1440px compared against the recorded anchor boxes; audit sweep over a fresh build; bun test; astro check.
+    | DOM structure and rect reads on the first feed item at 375px and 1440px compared against the recorded anchor boxes; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements on the first feed item at 375x667 and 1440x900 (no screenshots): the article children are header, p, footer with the Read anchor inside a classless last footer keeping its accessible name; box parity is exact: the anchor stays at 825..846 on 19.5..54.53 (375) and 194.5..215.5 on 577.66..612.69 (1440) with the description-to-link gap 21.5px on both widths.
-    | bun run build green (31 pages); bun run audit:sweep: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
+    | bun run build green (31 pages); bun run audit: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
   plan:
     | Wrap the Read anchor in a classless footer element inside the feed item template.
 
@@ -1493,11 +1498,11 @@ w W-104 type=refactor status=done cynefin=complicated t_created=2026-09-20T21:59
   ac:
     | Every hardcoded heading and label string (landmark aria-labels, hidden and visible section headings, page titles, chrome link texts) renders from a constant exported by src/constants, following the pagination.ts object style.
     | The graph-facing names that mirror DOM labels (On this page, Table of contents, Site menu, Articles) import the same constants, leaving a single source for each name pair.
-    | Behaviour preserved: the bun test suite is green before and after, the audit sweep over a fresh build reports zero issues, astro check is clean and a DOM spot check finds identical label texts (Overview, Site menu, On this page, Breadcrumb, Reader controls).
+    | Behaviour preserved: the bun test suite is green before and after, the audit over a fresh build reports zero issues, astro check is clean and a DOM spot check finds identical label texts (Overview, Site menu, On this page, Breadcrumb, Reader controls).
   evidence_strategy:
-    | Test suite runs recorded before and after; exported-symbol diff empty; grep proving no leftover hardcoded label literals; DOM reads of the rendered labels; audit sweep; astro check.
+    | Test suite runs recorded before and after; exported-symbol diff empty; grep proving no leftover hardcoded label literals; DOM reads of the rendered labels; audit; astro check.
   evidence:
-    | Pre-existing suite green before the change (61 pass, 0 fail) and after (61 pass, 0 fail); bun run build green; audit sweep 31 pages checked, 0 issues; astro check clean; grep over islands, pages and seo sources shows no remaining hardcoded label literals outside the constants module and the test assertions that pin them; DOM spot checks render identical texts from the constants: Breadcrumb, Reader controls, All Articles, Skip to content, Overview, Site menu, Contacts, Tags (heading and trail item), Articles (feed heading), Pagination.
+    | Pre-existing suite green before the change (61 pass, 0 fail) and after (61 pass, 0 fail); bun run build green; audit 31 pages checked, 0 issues; astro check clean; grep over islands, pages and seo sources shows no remaining hardcoded label literals outside the constants module and the test assertions that pin them; DOM spot checks render identical texts from the constants: Breadcrumb, Reader controls, All Articles, Skip to content, Overview, Site menu, Contacts, Tags (heading and trail item), Articles (feed heading), Pagination.
     | Exported-symbol diff: the only new export is the requested src/constants/labels.ts module; every existing module keeps its export surface unchanged; causation closed: the graph-facing names (On this page, Table of contents, Site menu, Articles) and their DOM twins now import one constant each, so the duplicated-literal symptom no longer reproduces.
 
 w W-105 type=refactor status=done cynefin=complicated t_created=2026-09-20T22:07:57Z t_updated=2026-09-22T11:09:21Z "Collection section header and footer wrappers"
@@ -1509,13 +1514,13 @@ w W-105 type=refactor status=done cynefin=complicated t_created=2026-09-20T22:07
     | The pagination nav on those pages is wrapped in a footer element that is the last element of the section.
     | Hub pages (tags, categories, years) get the header wrapper; no empty footer is rendered when a page has no pagination.
     | Pixel geometry of the breadcrumb, the h1, the feed and the pagination is unchanged on the homepage and a term page at 375px and 1280px widths (before/after rect JSON identical).
-    | Audit output delta is zero on every affected page; bun test, build, audit:sweep and astro check all pass.
+    | Audit output delta is zero on every affected page; bun test, build, audit and astro check all pass.
   evidence_strategy:
-    | B-23 linkedom audit-delta spike, B-24 playwright rect parity at 375/1280, then bun test, build, audit:sweep over target and astro check.
+    | B-23 linkedom audit-delta spike, B-24 playwright rect parity at 375/1280, then bun test, build, audit over target and astro check.
   evidence:
     | page.astro renders header wrapping the breadcrumb slot and the h1 and a conditional footer (Astro.slots.has) wrapping the footer slot; index and the three term pages pass Pagination slot="footer"; hubs render header only without an empty footer.
     | B-23 spike over home/term/hub built pages: audit delta zero; B-24 playwright parity on home + term at 375/1280: zero rect mismatches (nav margin-top 52px kept, 26px bottom margin relocated to the footer, positions identical); hub and paginated-page structure verified in served HTML.
-    | bun test 61/61; build 31 pages; audit:sweep 31 pages 0 issues; astro check 0 errors 0 warnings 0 hints.
+    | bun test 61/61; build 31 pages; audit 31 pages 0 issues; astro check 0 errors 0 warnings 0 hints.
 
 w W-106 type=bug status=done cynefin=complicated t_created=2026-09-20T22:18:21Z t_updated=2026-09-22T11:09:21Z "Drop the post body wrapper div entirely"
   goals: G-58
@@ -1525,15 +1530,15 @@ w W-106 type=bug status=done cynefin=complicated t_created=2026-09-20T22:18:21Z 
     | article#article contains header, the toc rail (when present) and footer only as structural children; every markdown content element (p, h2, h3, ul, figure, hr) is a direct child of the article after the header.
     | The .body CSS block is gone; its centering, typography and nested rules are re-expressed on direct content children scoped so header, footer and toc rail chrome are untouched.
     | Pixel geometry and computed typography of every content element, the header and the footer are byte-identical before and after at 375px and 1440px on the richest post and a plain post.
-    | Audit delta zero; bun test, build, audit:sweep and astro check pass.
+    | Audit delta zero; bun test, build, audit and astro check pass.
   repro:
     | Built post page: article > div.body still wraps the Content elements; W-101 asked for the wrapper gone so the content follows the header directly.
   evidence_strategy:
-    | B-25 linkedom unwrap spike, B-26 playwright rect and computed-style parity at 375/1440, then bun test, build, audit:sweep and astro check.
+    | B-25 linkedom unwrap spike, B-26 playwright rect and computed-style parity at 375/1440, then bun test, build, audit and astro check.
   evidence:
     | post.astro renders Content directly after the header and toc rail; the div.body wrapper is gone from markup and every rebuilt post shows header, [rail, script], content elements, footer as article children.
     | post.module.scss re-expresses the wrapper on direct children: per-type margin caps (640px, 680px for lists with UA padding, 672px for pre, auto for hr/img) keep the 13px column inset and the 640px content cap; a descendant rule restores the old universal auto-margin/640px cap (suppressing UA blockquote margins); lg typography carrier covers p, ul, ol, figure, blockquote, table and the footer margin-top replaces the wrapper's collapsed bottom margin.
-    | B-25 unwrap spike audit delta zero; B-26 rect and computed-style parity zero mismatches at 375/1440 on rich and plain posts, hr centered on the hr post; bun test 61/61; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-25 unwrap spike audit delta zero; B-26 rect and computed-style parity zero mismatches at 375/1440 on rich and plain posts, hr centered on the hr post; bun test 61/61; build 31 pages; audit 0 issues; astro check clean.
 
 w W-107 type=refactor status=done cynefin=complicated t_created=2026-09-20T22:28:07Z t_updated=2026-09-22T11:09:21Z "Remove the table of contents end to end"
   goals: G-59
@@ -1543,13 +1548,13 @@ w W-107 type=refactor status=done cynefin=complicated t_created=2026-09-20T22:28
     | No toc island, rail, scroll-spy script or toc module styles remain in src; post pages render header, content elements and footer only.
     | postGraph emits no toc, toc-list or heading ListItem nodes and no hasPart edge; TocEntry, tocNodes and the toc labels are gone from seo utils and constants, with a regression test asserting the absence.
     | Post page geometry is byte-identical before and after at 375px and 1440px (the rail was out of flow); audits introduce no new errors or warnings.
-    | bun test, build, audit:sweep and astro check pass; D-37 supersedes the toc half of D-21.
+    | bun test, build, audit and astro check pass; D-37 supersedes the toc half of D-21.
   evidence_strategy:
-    | B-27 linkedom strip spike, B-28 playwright rect parity at 375/1440, then bun test, build, audit:sweep and astro check.
+    | B-27 linkedom strip spike, B-28 playwright rect parity at 375/1440, then bun test, build, audit and astro check.
   evidence:
     | Deleted src/islands/toc.astro and toc.module.scss; post.astro renders Content straight after the header; posts/[...slug].astro no longer extracts headings or passes toc; seo nodes/pages/types/index dropped tocNodes, TocEntry and the hasPart wiring; labels lost tableOfContents and tocHeading; seo.test gained the postGraph toc-removal regression.
     | B-27 spike: zero new audit findings after stripping rail, script and #toc graph nodes; B-28: zero rect mismatches at 375/1440, no #toc in the DOM; built posts contain no #toc anchors and no hasPart.
-    | bun test 60/60 (two toc describes replaced by one removal regression); build 31 pages; audit:sweep 0 issues; astro check clean; leftover grep shows toc only in the regression test.
+    | bun test 60/60 (two toc describes replaced by one removal regression); build 31 pages; audit 0 issues; astro check clean; leftover grep shows toc only in the regression test.
 
 w W-108 type=bug status=done cynefin=complicated t_created=2026-09-20T22:32:34Z t_updated=2026-09-22T11:09:22Z "Drop the span around the feed category"
   goals: G-60
@@ -1558,14 +1563,14 @@ w W-108 type=bug status=done cynefin=complicated t_created=2026-09-20T22:32:34Z 
   ac:
     | The feed item header renders time, the category anchor (when present) and the h3 as direct children; no span wrapper remains and the category class moves onto the anchor.
     | The category anchor keeps its gap (margin-left mixin), color, weight, uppercase transform and font size; its rect and the time, title, description and read-link rects are byte-identical before and after at 375px and 1280px.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   repro:
     | Built feed cards wrap the category anchor in span.category whose only job is the margin-left gap; the card header should carry the anchor as a bare child.
   evidence_strategy:
-    | B-29 linkedom unwrap spike on the built home page, B-30 playwright rect parity at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-29 linkedom unwrap spike on the built home page, B-30 playwright rect parity at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | feed.astro renders the category anchor bare with the category class; feed.module.scss declares the margin-left mixin, weight, uppercase, primary color and small size directly on the category rule; no span remains in any feed card header.
-    | B-29 spike: zero new findings unwrapping four spans on the home page; B-30: zero rect mismatches at 375/1280 with the 26px gap preserved on the anchor; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-29 spike: zero new findings unwrapping four spans on the home page; B-30: zero rect mismatches at 375/1280 with the 26px gap preserved on the anchor; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-109 type=bug status=done cynefin=clear t_created=2026-09-20T22:36:17Z t_updated=2026-09-22T11:09:22Z "Drop the phantom meta class from the feed header"
   goals: G-61
@@ -1574,14 +1579,14 @@ w W-109 type=bug status=done cynefin=clear t_created=2026-09-20T22:36:17Z t_upda
   ac:
     | The feed item header renders bare with no class attribute; styles.meta has no remaining references.
     | The .time and .category rules move up under .item and keep applying to the bare header children; every feed card rect (article, time, category, title, description, read link) is byte-identical before and after at 375px and 1280px.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   repro:
     | Feed cards render header class=_meta_19ww1_26, but the stylesheet has no ._meta rule of its own; the name appears only as a nesting combinator before ._time and ._category, so the header class references styling that does not exist.
   evidence_strategy:
-    | B-31 linkedom class-strip spike on the built home page, B-32 playwright rect parity at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-31 linkedom class-strip spike on the built home page, B-32 playwright rect parity at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | feed.astro renders the card header bare; feed.module.scss hoists the time and category rules from the deleted .meta nesting up under .item; no styles.meta reference remains and the built stylesheet contains no _meta_ selector.
-    | B-31 spike: zero new audit findings stripping four header classes; B-32: zero rect mismatches at 375/1280 with category styling intact on the bare header children; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-31 spike: zero new audit findings stripping four header classes; B-32: zero rect mismatches at 375/1280 with category styling intact on the bare header children; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-11 type=feature status=done cynefin=complicated t_created=2026-09-18T19:26:46Z t_updated=2026-09-18T21:22:51Z "Reduce the test suite to logic tests on bun test (drop React snapshots)"
   goals: G-05
@@ -1608,15 +1613,15 @@ w W-110 type=bug status=done cynefin=clear t_created=2026-09-20T22:38:39Z t_upda
   fitness: G-62=+1
   ac:
     | The site footer links list contains llms.txt, llms-full.txt and atom.xml only; no sitemap href remains in any footer.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
     | The right-aligned link group keeps the same right edge and the footer box its position and height at 375px and 1280px; inter-link gaps stay 13px; the sitemap endpoint itself keeps building untouched.
   repro:
     | The site footer renders a sitemap.xml link to /sitemap-index.xml; the W-97 task listed llms.txt and atom.xml and the sitemap link was an overreach.
   evidence_strategy:
-    | B-33 linkedom link-removal spike on the built home page, B-34 playwright rect parity of the remaining links at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-33 linkedom link-removal spike on the built home page, B-34 playwright rect parity of the remaining links at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | site-footer.astro links array reduced to llms.txt, llms-full.txt and atom.xml; the sitemap stays discoverable through the head link rel=sitemap and robots.txt wiring from W-67, only the footer reference is gone.
-    | B-33 spike: zero new audit findings removing the footer sitemap li; B-34: right edge, footer box, gaps and widths verified identical at 375/1280; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-33 spike: zero new audit findings removing the footer sitemap li; B-34: right edge, footer box, gaps and widths verified identical at 375/1280; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-111 type=bug status=done cynefin=clear t_created=2026-09-20T22:41:32Z t_updated=2026-09-22T11:09:22Z "Rename the home h1 to Blog"
   goals: G-63
@@ -1625,14 +1630,14 @@ w W-111 type=bug status=done cynefin=clear t_created=2026-09-20T22:41:32Z t_upda
   ac:
     | The home h1#page-title contains Blog, sourced from a new labels.blog constant; no other page heading changes.
     | The h1 stays visually hidden with an identical 1px box and the feed, pagination and section rects are byte-identical before and after at 375px and 1280px.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   repro:
     | The home page renders the visually-hidden h1#page-title with the default heading Articles (labels.articles); the home page heading must read Blog.
   evidence_strategy:
-    | B-35 linkedom text-swap spike on the built home page, B-36 playwright rect parity at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-35 linkedom text-swap spike on the built home page, B-36 playwright rect parity at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | labels.ts gains blog: "Blog"; index.astro passes heading={labels.blog} to Page id="blog"; no other page changes its heading.
-    | B-35 spike: zero new audit findings; B-36: h1 text Blog with byte-identical hidden box and section/feed/pagination rects at 375/1280; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-35 spike: zero new audit findings; B-36: h1 text Blog with byte-identical hidden box and section/feed/pagination rects at 375/1280; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-112 type=feature status=done cynefin=clear t_created=2026-09-20T22:43:51Z t_updated=2026-09-22T11:09:23Z "Outline none for focused main and article"
   goals: G-64
@@ -1641,14 +1646,14 @@ w W-112 type=feature status=done cynefin=clear t_created=2026-09-20T22:43:51Z t_
   ac:
     | A generic rule sets outline none on main and article in the :focus and :focus-visible states.
     | Focusing main#page and article#article yields computed outline none at both widths; keyboard-focused links and buttons inside keep their UA outline.
-    | Layout rects of main, article and their content are unchanged; bun test, build, audit:sweep and astro check pass.
+    | Layout rects of main, article and their content are unchanged; bun test, build, audit and astro check pass.
   hypothesis:
     | main and article carry tabindex=-1 for fragment focus, so anchor navigation paints a UA outline around the whole container; a generic outline:none on main/article in both :focus and :focus-visible states removes that noise while interactive children keep their own outlines.
   evidence_strategy:
-    | B-37 playwright focus-outline measurement at 375/1280 with a Tab-focused link control, then bun test, build, audit:sweep and astro check.
+    | B-37 playwright focus-outline measurement at 375/1280 with a Tab-focused link control, then bun test, build, audit and astro check.
   evidence:
     | _generic.scss adds outline none for main and article in :focus and :focus-visible; the article branch is inert today (article lacks tabindex) and waits on the standing audit warning; interactive children are untouched by the element-scoped rule.
-    | B-37: outline auto 1px to none on focused main at 375/1280 on both pages, link control intact, boxes identical, rule present in target/_astro/layout.BQWXqW-E.css; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-37: outline auto 1px to none on focused main at 375/1280 on both pages, link control intact, boxes identical, rule present in target/_astro/layout.BQWXqW-E.css; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-113 type=bug status=done cynefin=clear t_created=2026-09-20T22:46:38Z t_updated=2026-09-22T11:09:23Z "Move the sidebar llms links out into the site footer"
   goals: G-65
@@ -1657,14 +1662,14 @@ w W-113 type=bug status=done cynefin=clear t_created=2026-09-20T22:46:38Z t_upda
   ac:
     | The sidebar copyright footer contains only the nosnippet copyright note; no llms href remains in the sidebar and the links/link styles leave the module.
     | The copyright note keeps its exact rect and the sidebar footer its top edge at 375px and 1280px; the main column content does not move; the site footer keeps both links.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   repro:
     | The sidebar copyright footer still renders its own llms.txt and llms-full.txt links; W-97 was supposed to move them into the site-wide footer, which already carries them, so the sidebar copies are leftovers that must go.
   evidence_strategy:
-    | B-38 linkedom link-removal spike on a built sidebar page, B-39 playwright rect parity of the note, sidebar footer and main column at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-38 linkedom link-removal spike on a built sidebar page, B-39 playwright rect parity of the note, sidebar footer and main column at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | sidebar-copyright.astro keeps only the nosnippet note span; the links/link rules left sidebar-copyright.module.scss; the agent endpoints remain visible solely through the site-wide footer.
-    | B-38 spike: zero new audit findings removing the sidebar links list; B-39: note rect and footer top identical, footer height 65.25 to 26, each llms href appears once in the built page; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-38 spike: zero new audit findings removing the sidebar links list; B-39: note rect and footer top identical, footer height 65.25 to 26, each llms href appears once in the built page; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-114 type=feature status=done cynefin=complicated t_created=2026-09-20T22:50:22Z t_updated=2026-09-22T11:09:23Z "CSS icon sprite with the pagination arrow"
   goals: G-66
@@ -1674,14 +1679,14 @@ w W-114 type=feature status=done cynefin=complicated t_created=2026-09-20T22:50:
     | A new base/_icons.scss sprite defines --icon-* custom properties carrying data-URI SVGs, imported through _base.scss; the icon-sprite.astro component stays untouched for its existing uses.
     | The pagination labels drop their text arrows (PREV, NEXT); the previous link paints the arrow in ::before flipped horizontally and the next link in ::after, both 24x10 via the --icon-arrow mask.
     | The arrow color follows the theme: currentColor resolves to the light foreground in :root and the dark foreground under .dark, and switches to primary on link hover in both themes.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | A data-URI SVG held in a --icon-* custom property and painted through mask on a pseudo element keeps the shape colorless, so background-color: currentColor makes the arrow follow the link color across themes and hover states without a second asset; scaleX(-1) on the previous-link pseudo yields the flipped arrow.
   evidence_strategy:
-    | B-40 linkedom label-swap spike on a built listing page, B-41 playwright measurement of pseudo styles in both themes and hover at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-40 linkedom label-swap spike on a built listing page, B-41 playwright measurement of pseudo styles in both themes and hover at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | base/_icons.scss defines the --icon-arrow data-URI sprite imported through _base.scss; icon-sprite.astro untouched; pagination constants read PREV and NEXT; the pagination module paints the arrow via mask with background-color currentColor, prev flipped with scaleX(-1).
-    | B-40 spike: zero new findings on plain labels; B-41: themed, flipped, hover-following arrows proven in both themes at both widths; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-40 spike: zero new findings on plain labels; B-41: themed, flipped, hover-following arrows proven in both themes at both widths; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-115 type=feature status=done cynefin=complicated t_created=2026-09-20T23:04:54Z t_updated=2026-09-22T11:09:24Z "Trim the pagination label and flex-center the arrow"
   goals: G-67
@@ -1691,14 +1696,14 @@ w W-115 type=feature status=done cynefin=complicated t_created=2026-09-20T23:04:
     | pagination.astro wraps each label in a div inside the anchor or disabled span; the links become flex with align-items: center and a 10px gap, keeping the before/after arrow pseudos on the link itself.
     | The label div computes text-box-trim: trim-both and text-box-edge: cap alphabetic; the trimmed box is measurably shorter than the 30px line box.
     | The arrow and the label share one vertical center in both themes at 375px and 1280px: the label center equals the link center, the flip stays on prev::before, and hover color behavior is unchanged.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | The 26px label sits in a 30px line box whose half-leading misaligns it with the 10px arrow; wrapping the text in a div with text-box-trim: trim-both and text-box-edge: cap alphabetic collapses the box to the cap-to-baseline ink, so a flex anchor with align-items: center truly centers arrow and glyphs on one axis.
   evidence_strategy:
-    | B-42 linkedom wrap spike on a built listing page, B-43 playwright measurement of trim support, trimmed height, shared center, flip and hover at 375/1280 in both themes, then bun test, build, audit:sweep and astro check.
+    | B-42 linkedom wrap spike on a built listing page, B-43 playwright measurement of trim support, trimmed height, shared center, flip and hover at 375/1280 in both themes, then bun test, build, audit and astro check.
   evidence:
     | pagination.astro wraps PREV and NEXT in a div.label inside both the live anchors and the disabled spans; the link rules become flex with align-items center, justify-content per side and a 10px gap; the pseudos drop margins and vertical-align; .label sets text-box-trim: trim-both and text-box-edge: cap alphabetic.
-    | B-42 spike: zero new findings; B-43: trim computes, label 30px to 18.2px, zero center delta, flip and hover verified in both themes at both widths; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean; built page ships the declarations.
+    | B-42 spike: zero new findings; B-43: trim computes, label 30px to 18.2px, zero center delta, flip and hover verified in both themes at both widths; bun test 60/60; build 31 pages; audit 0 issues; astro check clean; built page ships the declarations.
 
 w W-116 type=feature status=done cynefin=clear t_created=2026-09-20T23:23:48Z t_updated=2026-09-22T11:09:24Z "Wrap the feed read link in a nosnippet span"
   goals: G-68
@@ -1707,14 +1712,14 @@ w W-116 type=feature status=done cynefin=clear t_created=2026-09-20T23:23:48Z t_
   ac:
     | Every feed card footer wraps the Read anchor in a span carrying data-nosnippet.
     | The Read anchor rect and the card footer layout are byte-identical before and after at 375px and 1280px.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | A bare inline span around the read anchor changes no geometry and is a valid data-nosnippet carrier, so the link can be excluded from snippets exactly like the toolbar and copyright chrome.
   evidence_strategy:
-    | B-44 linkedom wrap spike plus playwright rect parity at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-44 linkedom wrap spike plus playwright rect parity at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | feed.astro wraps the Read anchor in a bare inline span carrying data-nosnippet inside every card footer; the anchor keeps its class, href and aria-label.
-    | B-44 spike: zero new findings wrapping four anchors; anchor and footer rects byte-identical at 375/1280 with the span display inline; bun test 60/60; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-44 spike: zero new findings wrapping four anchors; anchor and footer rects byte-identical at 375/1280 with the span display inline; bun test 60/60; build 31 pages; audit 0 issues; astro check clean.
 
 w W-117 type=bug status=done cynefin=clear t_created=2026-09-20T23:38:35Z t_updated=2026-09-22T11:09:24Z "Remove the site-wide footer completely"
   goals: G-69
@@ -1722,11 +1727,11 @@ w W-117 type=bug status=done cynefin=clear t_created=2026-09-20T23:38:35Z t_upda
   fitness: G-69=+1
   ac:
     | site-footer.astro and its module styles are deleted; layout.astro renders no footer; main ends with the slot content; no footer hrefs remain in any built page.
-    | Content above the footer keeps its rects byte-identical at 375px and 1280px; audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Content above the footer keeps its rects byte-identical at 375px and 1280px; audits introduce no new findings; bun test, build, audit and astro check pass.
   repro:
     | Every page renders the site-wide footer with llms.txt, llms-full.txt and atom.xml inside main; the footer is to be gone completely with everything attached to it.
   evidence_strategy:
-    | B-45 linkedom footer-strip spike plus playwright rect parity of main content at 375/1280, then bun test, build, audit:sweep and astro check.
+    | B-45 linkedom footer-strip spike plus playwright rect parity of main content at 375/1280, then bun test, build, audit and astro check.
   evidence:
     | site-footer.astro and site-footer.module.scss deleted; layout.astro renders sidebar plus slot only; built pages contain no site footer (main children reduce to the sidebar section and page section) and the only atom.xml reference left is the head alternate.
     | B-45 spike: zero new findings; page section and pagination rects byte-identical at 375/1280; main bottom shrank by exactly the footer height.
@@ -1737,14 +1742,14 @@ w W-118 type=feature status=done cynefin=complicated t_created=2026-09-20T23:38:
   fitness: G-70=+1
   ac:
     | A pluralize util with a unit test renders 1 article and N articles; llms.txt group lines (categories, tags, years) use it; llms-full.txt gains a pluralized corpus count line in its header.
-    | Built endpoints expose the pluralized strings (verified against a singleton group if one exists, otherwise by unit test and output inspection); bun test, build, audit:sweep and astro check pass.
+    | Built endpoints expose the pluralized strings (verified against a singleton group if one exists, otherwise by unit test and output inspection); bun test, build, audit and astro check pass.
   hypothesis:
     | A shared articleCount helper returning one article for 1 and N articles otherwise fixes the 1 articles grammar in llms.txt group lines and gives llms-full a pluralized corpus total in its header.
   evidence_strategy:
-    | B-46 unit test of the pluralizer plus inspection of both built endpoint outputs, then bun test, build, audit:sweep and astro check.
+    | B-46 unit test of the pluralizer plus inspection of both built endpoint outputs, then bun test, build, audit and astro check.
   evidence:
     | src/utils/pluralize.ts with articleCount plus unit test; llms.txt group lines and the llms-full.txt header count use it; B-46 outputs verified in the built endpoints.
-    | bun test 62/62; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | bun test 62/62; build 31 pages; audit 0 issues; astro check clean.
 
 w W-119 type=feature status=done cynefin=complicated t_created=2026-09-20T23:38:40Z t_updated=2026-09-22T11:09:25Z "Serve post markdown and link it as alternate"
   goals: G-71
@@ -1753,11 +1758,11 @@ w W-119 type=feature status=done cynefin=complicated t_created=2026-09-20T23:38:
   ac:
     | A posts markdown endpoint serves every non-draft post's raw body as text/markdown; the URL set is disjoint from the HTML routes.
     | Post pages pass markdownSource through BaseLayout; base-head renders link rel=alternate type=text/markdown with the title pattern <page title> - Markdown source only when the source exists.
-    | Built post heads contain the alternate link; the markdown URL answers 200 with text/markdown and the exact source body; the sitemap omits .md routes; audits, bun test, build, audit:sweep and astro check pass.
+    | Built post heads contain the alternate link; the markdown URL answers 200 with text/markdown and the exact source body; the sitemap omits .md routes; audits, bun test, build, audit and astro check pass.
   hypothesis:
     | A static endpoint can serve each post's raw markdown body at /posts/<slug>/index.md, making an honest alternate target; base-head takes an optional markdownSource prop and emits the exact conditional link, and the sitemap filter learns to skip .md routes.
   evidence_strategy:
-    | B-47 fetch the built markdown URL and diff against the source body, grep the built post head, confirm sitemap exclusion, then bun test, build, audit:sweep and astro check.
+    | B-47 fetch the built markdown URL and diff against the source body, grep the built post head, confirm sitemap exclusion, then bun test, build, audit and astro check.
   evidence:
     | posts/[...slug].md.ts serves each post body as text/markdown (literal-extension route file like llms.txt.ts); posts/[...slug].astro passes /posts/<slug>.md through BaseLayout; base-head emits the exact conditional markdownSource alternate link; astro.config sitemap filter skips .md; B-47 verified body bytes, links and sitemap.
     | Link grammar already exempts .md in FILE_LIKE_RE; sweep and audits stay at zero issues with the new head links.
@@ -1790,14 +1795,14 @@ w W-120 type=feature status=done cynefin=complicated t_created=2026-09-20T23:44:
     | The skip link carries the button module class alongside skip-link; its computed chrome (height, radius, border, font, padding, focus accent) matches the all-articles button.
     | On focus the link appears at the top-right edge and its box never intersects the post toolbar box at desktop widths.
     | Below the sm breakpoint the skip link is display none; above it the link stays focusable and hidden off-screen until focused.
-    | bun test, build, audit:sweep and astro check pass with no new audit findings.
+    | bun test, build, audit and astro check pass with no new audit findings.
   hypothesis:
     | Composing the shared button module class onto the skip link gives it the exact all-articles button chrome; moving its focus position to the right edge clears the fixed top-left post toolbar, and hiding it below the sm breakpoint removes it from mobile where the toolbar is in flow.
   evidence_strategy:
-    | B-48 playwright measurement of computed chrome parity, focus position, toolbar intersection and mobile hiding on a post page and the home page, then bun test, build, audit:sweep and astro check.
+    | B-48 playwright measurement of computed chrome parity, focus position, toolbar intersection and mobile hiding on a post page and the home page, then bun test, build, audit and astro check.
   evidence:
     | base-layout composes the button module class onto the skip link (built markup class="skip-link _button_..."); _utilities.scss rewrites the skip-link rule to right-edge positioning (hidden at right -999px, focus at right 8px, top 8px, margin 0) with a.skip-link display none below sm and inline-block above it to out-rank the button module's display in cascade order.
-    | B-48: hidden at 375, right-edge focused rect, zero toolbar-control intersections and full chrome parity at 700/1280 on post and home; before-run proved the old left placement overlapped the toolbar at every width; bun test 62/62; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-48: hidden at 375, right-edge focused rect, zero toolbar-control intersections and full chrome parity at 700/1280 on post and home; before-run proved the old left placement overlapped the toolbar at every width; bun test 62/62; build 31 pages; audit 0 issues; astro check clean.
 
 w W-121 type=bug status=done cynefin=clear t_created=2026-09-20T23:49:05Z t_updated=2026-09-22T11:09:25Z "Fix skip link overflow and toolbar-matching offsets"
   goals: G-73
@@ -1805,14 +1810,14 @@ w W-121 type=bug status=done cynefin=clear t_created=2026-09-20T23:49:05Z t_upda
   fitness: G-73=+1
   ac:
     | The hidden state moves off-screen to the left (no scrollable overflow in either direction on any page at any width); the focused state sits at top 30px right 30px, mirroring the post-toolbar offsets.
-    | Chrome parity with the all-articles button, zero toolbar-control intersections and mobile hiding stay intact; bun test, build, audit:sweep and astro check pass.
+    | Chrome parity with the all-articles button, zero toolbar-control intersections and mobile hiding stay intact; bun test, build, audit and astro check pass.
   repro:
     | scrollWidth exceeds clientWidth by exactly 999px at 700 and 1280 on every page: the skip link hides at right: -999px, and rightward absolute overflow creates a horizontal scrollbar; its focused state also sits at top 8px instead of the post-toolbar 30px offsets.
   evidence_strategy:
-    | B-49 playwright overflow check plus focused-position, chrome-parity and overlap re-verification at 375/700/1280, then bun test, build, audit:sweep and astro check.
+    | B-49 playwright overflow check plus focused-position, chrome-parity and overlap re-verification at 375/700/1280, then bun test, build, audit and astro check.
   evidence:
     | The hidden state returns to left: -999px with right auto (leftward absolute overflow never scrolls); the focused state moves to top 30 right 30, mirroring the post-toolbar offsets; everything else from W-120 stays.
-    | B-49: zero overflow at every width on both pages (was scrollWidth clientWidth+999), focused top 30 and right 30 at 700/1280, chrome parity and overlap guarantees intact; bun test 62/62; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-49: zero overflow at every width on both pages (was scrollWidth clientWidth+999), focused top 30 and right 30 at 700/1280, chrome parity and overlap guarantees intact; bun test 62/62; build 31 pages; audit 0 issues; astro check clean.
 
 w W-122 type=refactor status=done cynefin=clear t_created=2026-09-21T00:01:22Z t_updated=2026-09-22T11:09:25Z "Drop the anchored-landmark tabindex warning"
   goals: G-74
@@ -1820,12 +1825,12 @@ w W-122 type=refactor status=done cynefin=clear t_created=2026-09-21T00:01:22Z t
   fitness: G-74=+1
   ac:
     | The anchored-landmark tabindex warning loop is gone from auditAccessibility; an anchored landmark without tabindex produces no warning; the anchors-must-resolve check and every other audit behavior stay intact.
-    | The fixture test now asserts the absence of tabindex warnings; bun test, build, audit:sweep and astro check pass with the person/menu/breadcrumb/blog/articles warnings gone from sweep output.
+    | The fixture test now asserts the absence of tabindex warnings; bun test, build, audit and astro check pass with the person/menu/breadcrumb/blog/articles warnings gone from sweep output.
   evidence_strategy:
-    | Unit tests over the audit fixtures plus sweep output inspection, then bun test, build, audit:sweep and astro check.
+    | Unit tests over the audit fixtures plus sweep output inspection, then bun test, build, audit and astro check.
   evidence:
     | auditAccessibility drops the anchored-landmark tabindex warning loop; the anchors-must-resolve and hidden-subtree checks, interactive detection via tabindex and sibling-landmark rules are untouched; the fixture test flipped to assert no tabindex warnings appear.
-    | Direct audit run on the built home page: 0 errors 0 warnings (was 4 tabindex warnings); bun test 62/62; build 31 pages; audit:sweep 0 issues; astro check clean. Two older spikes (w-105, w-107) no longer parse current markup — expected staleness of pre-checks, unrelated.
+    | Direct audit run on the built home page: 0 errors 0 warnings (was 4 tabindex warnings); bun test 62/62; build 31 pages; audit 0 issues; astro check clean. Two older spikes (w-105, w-107) no longer parse current markup — expected staleness of pre-checks, unrelated.
 
 w W-123 type=feature status=done cynefin=clear t_created=2026-09-21T00:05:24Z t_updated=2026-09-22T11:09:25Z "Reading time in parentheses on the feed Read link"
   goals: G-75
@@ -1834,14 +1839,14 @@ w W-123 type=feature status=done cynefin=clear t_created=2026-09-21T00:05:24Z t_
   ac:
     | A get-reading-time util with a unit test computes the time from the post body; both the post page and get-feed-items use it.
     | Every feed card reads Read (N min) inside the nosnippet span; the number equals the post page reading time for the same post.
-    | The post page reading-time text stays byte-identical; audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | The post page reading-time text stays byte-identical; audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | Extracting the posts-page word-count formula into a shared helper lets feed items carry the same reading time the post page renders, so every card can show Read (N min) with numbers guaranteed to match its post.
   evidence_strategy:
-    | B-50 spike plus card-versus-post playwright parity, then bun test, build, audit:sweep and astro check.
+    | B-50 spike plus card-versus-post playwright parity, then bun test, build, audit and astro check.
   evidence:
     | get-reading-time.ts computes Math.max(1, round(words/200)) with a unit test covering 1, 2 and 5 minutes; posts/[...slug].astro switched to it (post text byte-identical); get-feed-items adds readingTime to every FeedItem; feed.astro renders Read (N min) inside the nosnippet span keeping the aria-label.
-    | B-50: card and post times agree on every pair at both widths, audits clean; bun test 65/65 (+3 reading-time tests); build 31 pages; audit:sweep 0 issues; astro check clean; built home renders Read (1 min).
+    | B-50: card and post times agree on every pair at both widths, audits clean; bun test 65/65 (+3 reading-time tests); build 31 pages; audit 0 issues; astro check clean; built home renders Read (1 min).
 
 w W-124 type=feature status=done cynefin=clear t_created=2026-09-21T00:12:35Z t_updated=2026-09-22T11:09:26Z "Swap the heading anchor icon"
   goals: G-76
@@ -1849,14 +1854,14 @@ w W-124 type=feature status=done cynefin=clear t_created=2026-09-21T00:12:35Z t_
   fitness: G-76=+1
   ac:
     | Every markdown heading anchor renders the new 24x24 stroke icon with aria-hidden and focusable preserved; the old fill-based icon is gone.
-    | Heading boxes stay byte-identical (the anchor is out of flow); the icon stroke follows the theme colors; audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Heading boxes stay byte-identical (the anchor is out of flow); the icon stroke follows the theme colors; audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | The rehype anchorIcon node can carry the new 24x24 two-path chain icon with stroke=currentColor baked into the paths; since the anchor is absolutely positioned out of flow, the larger glyph shifts nothing, and the old svg fill rule becomes dead weight to drop.
   evidence_strategy:
-    | B-51 playwright measurement of heading boxes before and after, the new svg box, its stroke resolution in both themes and hover, plus audits diff on the rebuilt post, then bun test, build, audit:sweep and astro check.
+    | B-51 playwright measurement of heading boxes before and after, the new svg box, its stroke resolution in both themes and hover, plus audits diff on the rebuilt post, then bun test, build, audit and astro check.
   evidence:
     | internal/rehype-html.mjs anchorIcon replaced with the two-path 24x24 chain icon carrying fill none and stroke currentColor 1.5 round caps, keeping aria-hidden and focusable; post.module.scss drops the now-dead svg fill rule; visibility choreography untouched.
-    | B-51: 24x24 two-path icon, byte-identical heading boxes at both widths, stroke follows light/dark themes and turns primary on anchor hover; content-layer cache lesson recorded; bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean; built HTML carries the new path twice (h2 and h3 anchors).
+    | B-51: 24x24 two-path icon, byte-identical heading boxes at both widths, stroke follows light/dark themes and turns primary on anchor hover; content-layer cache lesson recorded; bun test 65/65; build 31 pages; audit 0 issues; astro check clean; built HTML carries the new path twice (h2 and h3 anchors).
 
 w W-125 type=feature status=done cynefin=complicated t_created=2026-09-21T13:07:36Z t_updated=2026-09-22T11:09:26Z "Flexbox content lists with a medium square marker"
   goals: G-77
@@ -1865,14 +1870,14 @@ w W-125 type=feature status=done cynefin=complicated t_created=2026-09-21T13:07:
   ac:
     | Content ul and ol in posts and static pages drop list-style and UA padding; every li renders as a flex row with a 13px gap, a 7x7 square pseudo marker on ul (currentColor) and counter numbers on ol; the shared rules live in a content-list mixin used by both modules.
     | Wrapped li lines align exactly with their first line; all items share one text column; elements above the first list keep their rects; hub, sidebar and footer lists keep their current styling.
-    | Audits introduce no new findings; bun test, build, audit:sweep and astro check pass.
+    | Audits introduce no new findings; bun test, build, audit and astro check pass.
   hypothesis:
     | Making each li a flex row with the marker as a fixed pseudo column (list-style none, padding zero) aligns wrapped lines under the first line instead of the UA 40px gutter; a drawn 7px square pseudo gives the medium bullet size no glyph provides, and currentColor keeps it themed.
   evidence_strategy:
-    | B-52 linkedom class-invariance spike, B-53 playwright measurement of text columns and wrapped-line alignment on the rich post and the contacts page at 375/1440, then bun test, build, audit:sweep and astro check.
+    | B-52 linkedom class-invariance spike, B-53 playwright measurement of text columns and wrapped-line alignment on the rich post and the contacts page at 375/1440, then bun test, build, audit and astro check.
   evidence:
     | mixins/_content-list.scss provides content-list-square (7px currentColor pseudo on flex baseline li, 13px gap, padding 0, list-style none) and content-list-numbered (counter markers); forwarded through _mixins.scss; post.module applies them to > ul / > ol with the cap formula retuned 680 to 660 for the 20px marker column; page.module scopes them to > section ul / ol (static page content) leaving hub lists on the generic styles.
-    | B-52 sweep clean; B-53 alignment, marker and isolation proven at 375/1440 on post and contacts; one concurrent user rename (sidebar menu entity to Pages labels) synced in seo.test.ts to unblock the suite; bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-52 sweep clean; B-53 alignment, marker and isolation proven at 375/1440 on post and contacts; one concurrent user rename (sidebar menu entity to Pages labels) synced in seo.test.ts to unblock the suite; bun test 65/65; build 31 pages; audit 0 issues; astro check clean.
 
 w W-126 type=bug status=done cynefin=complicated t_created=2026-09-21T13:38:16Z t_updated=2026-09-22T11:09:26Z "Point the home hasPart at the Blog node"
   goals: G-78
@@ -1881,14 +1886,14 @@ w W-126 type=bug status=done cynefin=complicated t_created=2026-09-21T13:38:16Z 
   ac:
     | The home graph includes the Blog node and the ProfilePage hasPart targets #blog (a CreativeWork), mirroring the schema.rs reference; paginated pages keep no hasPart.
     | A survey of every built page proves all hasPart and isPartOf edges connect CreativeWork nodes and no other property-target violations exist; the #blog anchor still resolves in the home DOM; audits stay clean.
-    | seo.test asserts the home hasPart targets the blog node; bun test, build, audit:sweep and astro check pass.
+    | seo.test asserts the home hasPart targets the blog node; bun test, build, audit and astro check pass.
   repro:
     | The home ProfilePage emits hasPart: [{@id: .../#articles}] whose target is an ItemList (an Intangible), and schema.org requires hasPart targets to be CreativeWork — the validator reports ItemList is not a known valid target type for the hasPart property.
   evidence_strategy:
-    | B-54 type-survey script over every built page graph (hasPart/isPartOf target types against the CreativeWork closure) plus audit runs, then bun test, build, audit:sweep and astro check.
+    | B-54 type-survey script over every built page graph (hasPart/isPartOf target types against the CreativeWork closure) plus audit runs, then bun test, build, audit and astro check.
   evidence:
     | homeFeedGraph includes blogNode(site) alongside the root entities and the ProfilePage hasPart targets routes.home #blog, mirroring the schema.rs reference where the home hasPart points at CreativeWork nodes; paginated pages keep the node but no hasPart; the seo.test blog describe rewritten to pin the contract.
-    | B-54 survey: zero part-edge violations across 31 pages after the fix (was one); bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean; built home graph carries hasPart #blog with the Blog node and the DOM #blog anchor.
+    | B-54 survey: zero part-edge violations across 31 pages after the fix (was one); bun test 65/65; build 31 pages; audit 0 issues; astro check clean; built home graph carries hasPart #blog with the Blog node and the DOM #blog anchor.
 
 w W-127 type=refactor status=done cynefin=complicated t_created=2026-09-21T13:50:41Z t_updated=2026-09-22T11:09:27Z "Port the reference graph patterns onto lumen routes"
   goals: G-79
@@ -1898,10 +1903,10 @@ w W-127 type=refactor status=done cynefin=complicated t_created=2026-09-21T13:50
     | Home: ProfilePage with mainEntity person and hasPart [#blog, #links]; #blog is a WebPageElement over the feed list (isPartOf #page, mainEntity ref #articles) and no Blog node rides the home graph, matching home_graph in schema.rs.
     | A linksNodes pair models the sidebar contacts everywhere the sidebar renders: WebPageElement #links (isPartOf that page, mainEntity ref) plus ItemList #links-list mirroring the contact items; the contacts section and list gain ids and the list an accessible name.
     | WebSite url is the bare canonical; the Blog node (name from labels.blog) stays on post graphs only; collection pages (paginated, term, hub) gain publisher refs; term list names drop the articles suffix per the reference.
-    | The part-edge survey stays at zero violations, audits stay clean with the new anchors (#blog, #links, #links-list resolve and the list count matches the DOM), seo.test pins the new structure; bun test, build, audit:sweep and astro check pass.
+    | The part-edge survey stays at zero violations, audits stay clean with the new anchors (#blog, #links, #links-list resolve and the list count matches the DOM), seo.test pins the new structure; bun test, build, audit and astro check pass.
   evidence:
     | nodes.ts: website url is the bare canonical; blogNode names itself labels.blog; regionNode builds page-region WebPageElements (#blog over #articles on home); linksNodes builds #links plus #links-list mirroring the contacts; webPageNode takes a publisher flag. pages.ts: home gains the #blog region and hasPart [blog, links] with no Blog node; paginated, term and hub pages gain publisher and linksNodes; static pages gain linksNodes; term lists drop the articles suffix. sidebar-contacts gains ids links/links-list and the list an accessible name; feed accepts a heading prop (term pages pass the term). schema-audit ports the reference rules: WebSite exempt from url checks, ListItems fall back to item @id/url.
-    | B-55: reference-shaped home graph with all anchors resolving; survey zero violations (2 hasPart, 91 isPartOf); bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-55: reference-shaped home graph with all anchors resolving; survey zero violations (2 hasPart, 91 isPartOf); bun test 65/65; build 31 pages; audit 0 issues; astro check clean.
 
 w W-128 type=feature status=done cynefin=complicated t_created=2026-09-21T14:10:17Z t_updated=2026-09-22T11:09:27Z "Publish and modify dates on posts and pages"
   goals: G-80
@@ -1910,29 +1915,29 @@ w W-128 type=feature status=done cynefin=complicated t_created=2026-09-21T14:10:
   ac:
     | A get-modified-time util stats the source file and returns the UTC ISO mtime, empty on failure; post graphs emit datePublished plus dateModified on both WebPage and BlogPosting.
     | Static page graphs emit datePublished when the frontmatter date exists and dateModified from the file mtime; the demo pages carry dates; both dates reach the schemas only, leaving the existing article:published_time meta untouched.
-    | Built graphs show dates equal to the frontmatter values and the file mtimes; seo.test pins the contract; audits, bun test, build, audit:sweep and astro check stay green.
+    | Built graphs show dates equal to the frontmatter values and the file mtimes; seo.test pins the contract; audits, bun test, build, audit and astro check stay green.
   hypothesis:
     | Following schema.rs: datePublished comes from frontmatter (pages already allow an optional date) and dateModified from the markdown file mtime in UTC; both belong on the WebPage and BlogPosting nodes of post graphs and the WebPage node of static pages, omitted when the source is missing.
   evidence_strategy:
-    | B-56 inspection of built post and page graphs against frontmatter dates and statSync mtimes, then bun test, build, audit:sweep and astro check.
+    | B-56 inspection of built post and page graphs against frontmatter dates and statSync mtimes, then bun test, build, audit and astro check.
   evidence:
     | get-modified-time.ts stats the entry filePath (falling back to content/<collection>/<id>) and returns the UTC ISO mtime or empty; webPageNode and blogPostingNode take optional dateModified; postGraph threads it to both nodes; staticPageGraph emits datePublished when the optional frontmatter date exists plus the mtime dateModified; the demo pages carry frontmatter dates; the content schema already allowed the pages date.
-    | B-56: dates verified against frontmatter and mtimes across five posts and two pages with zero mismatches; seo.test pins both dates on both nodes; bun test 65/65; fresh-store build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-56: dates verified against frontmatter and mtimes across five posts and two pages with zero mismatches; seo.test pins both dates on both nodes; bun test 65/65; fresh-store build 31 pages; audit 0 issues; astro check clean.
 
-w W-129 type=feature status=done cynefin=clear t_created=2026-09-21T14:20:35Z t_updated=2026-09-22T11:09:27Z "Add lang to config.json and wire it through"
+w W-129 type=feature status=done cynefin=clear t_created=2026-09-21T14:20:35Z t_updated=2026-09-22T16:06:55Z "Add lang to config.json and wire it through"
   goals: G-81
   theme: T-04
   fitness: G-81=+1
   ac:
     | config.json carries lang (en); getSiteMetadata exposes it; every inLanguage in the graphs and the html lang attribute derive from it.
-    | Built pages show lang on html and inLanguage in every graph equal to the config value; audits, bun test, build, audit:sweep and astro check stay green.
+    | Built pages show lang on html and inLanguage in every graph equal to the config value; audits, bun test, build, audit and astro check stay green.
   hypothesis:
     | A lang key in content/config.json, surfaced through getSiteMetadata, can replace the hardcoded IN_LANGUAGE in the seo nodes and the hardcoded html lang attribute, giving the site one language source like the reference website.lang.
   evidence_strategy:
-    | B-57 inspection of the built html lang attribute and every inLanguage value against the config, then bun test, build, audit:sweep and astro check.
+    | B-57 inspection of the built html lang attribute and every inLanguage value against the config, then bun test, build, audit and astro check.
   evidence:
     | config.json gains lang: en; getSiteMetadata types it; nodes.ts derives every inLanguage from siteLang() replacing IN_LANGUAGE; base-layout renders html lang from the same source.
-    | B-57: 31 pages with html lang and inLanguage equal to the config value, zero hardcodes; bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-57: 31 pages with html lang and inLanguage equal to the config value, zero hardcodes; bun test 65/65; build 31 pages; audit 0 issues; astro check clean.
 
 w W-13 type=refactor status=done cynefin=clear t_created=2026-09-18T19:26:59Z t_updated=2026-09-18T21:22:51Z "Remove Gatsby and close out tooling (deps, scripts, CI, docs)"
   goals: G-05
@@ -1965,12 +1970,12 @@ w W-130 type=refactor status=done cynefin=complicated t_created=2026-09-21T14:26
   ac:
     | logo.png moves from src/assets/images to content next to config.json; config.json declares its path and getSiteMetadata exposes it.
     | sidebar-author resolves the image through import.meta.glob keyed by the config value, keeping the getImage pipeline (48/96/192 png and webp variants) intact.
-    | The rendered logo keeps its box (96px, same aspect) and variant widths; audits, bun test, build, audit:sweep and astro check stay green.
+    | The rendered logo keeps its box (96px, same aspect) and variant widths; audits, bun test, build, audit and astro check stay green.
   evidence_strategy:
-    | B-58 playwright measurement of the sidebar photo box, srcset widths and loaded source before and after, then bun test, build, audit:sweep and astro check.
+    | B-58 playwright measurement of the sidebar photo box, srcset widths and loaded source before and after, then bun test, build, audit and astro check.
   evidence:
     | git mv preserves history as logo.png moves to content/; config.json declares logo: logo.png next to lang; getSiteMetadata types it; sidebar-author resolves the image via an eager import.meta.glob over /content/*.{png,jpg,jpeg,webp} keyed by the config value with backslash normalization, throwing at build when the path misses; the getImage pipeline and Picture markup are untouched.
-    | B-58: byte-identical logo geometry and variants at both widths with status 200; bun test 65/65; build 31 pages; audit:sweep 0 issues; astro check clean.
+    | B-58: byte-identical logo geometry and variants at both widths with status 200; bun test 65/65; build 31 pages; audit 0 issues; astro check clean.
 
 w W-131 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-22T11:09:28Z "De-px the token base and regroup variables"
   goals: G-83
@@ -1986,7 +1991,7 @@ w W-131 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
   evidence_strategy:
     | Build and bun test green; compiled css diff shows only px to rem swaps; before and after screenshots of home and a post at 375 and 1280 pixels.
   evidence:
-    | bun run build: 31 pages built; bun test: 65 pass, 0 fail; audit-sweep: 31 pages checked, 0 issues.
+    | bun run build: 31 pages built; bun test: 65 pass, 0 fail; audit: 31 pages checked, 0 issues.
     | Compiled css emits rem tokens (h1 2.5rem, leading multiples in rem); raw px literals limited to the pre-migration set for W-133 and W-134.
     | Screenshots home and post at 375 and 1280: three pairs md5 identical, post-375 pixel diff zero at delta 8 (raster noise only); shots under .cache/shots.
 
@@ -2002,10 +2007,10 @@ w W-132 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
   hypothesis:
     | Nine named steps cover every current font size within one grid step, and the lg step fills the gap between emphasized body text and small headings.
   evidence_strategy:
-    | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+    | Build, bun test and audit green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
   evidence:
     | Typography group holds nine scale tokens including the new lg 1.25rem step; the 26px, 26.9px and 27px sizes unified on 2xl 1.75rem; line-height mixin has no callers and heights are unitless tokens.
-    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
+    | bun run build: 31 pages; bun test: 65 pass; audit: 31 pages, 0 issues.
     | Vision review of w132-post-375 and w132-post-1280 shots: title, body, headings and lists render without clipping or overlap, hierarchy preserved; shots under .cache/shots.
 
 w W-133 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-22T11:09:28Z "Spacing migration onto the snapped rem scale"
@@ -2020,11 +2025,11 @@ w W-133 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
   hypothesis:
     | A nine step spacing scale covers every rhythm value the leading multipliers produced with at most 4px drift.
   evidence_strategy:
-    | Build, bun test and audit sweep green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
+    | Build, bun test and audit green; screenshots of home and a post at 375 and 1280 pixels compared with the baseline.
   evidence:
     | Spacing group holds nine tokens from 2xs 0.25rem to 4xl 6rem; every margin, padding and gap in base and module styles resolves to a token or zero; margin and padding mixins have no callers.
     | Content list markers (0.375rem square), list rows and the hr ornament (1.625rem tile, 6.25rem width) run on rem; post gutters use max of the sm token and the centered measure calc.
-    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues.
+    | bun run build: 31 pages; bun test: 65 pass; audit: 31 pages, 0 issues.
     | Vision review of w133 home and post shots at 375 and 1280: balanced rhythm, no clipped, overlapping or edge-touching elements; shots under .cache/shots.
 
 w W-134 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-22T11:09:28Z "Layout widths, breakpoints and control sizing in rem"
@@ -2038,11 +2043,11 @@ w W-134 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
   hypothesis:
     | Snapping structural constants to the rem grid shifts containers by only a few pixels without reflowing the grid.
   evidence_strategy:
-    | Build, bun test and audit sweep green; screenshots at 375, 960 and 1280 pixels compared with the baseline.
+    | Build, bun test and audit green; screenshots at 375, 960 and 1280 pixels compared with the baseline.
   evidence:
     | Layout tokens snapped: container 67.5rem, post measure 40rem, single width 60rem, gap 2rem, breakpoints 42.5rem, 60rem and 68.75rem; controls group renamed to control-height 2.5rem and control-radius 1.25rem.
     | Pagination arrows 1.5rem by 0.625rem, author photo 4.5rem, contacts width 10.5rem, figure floats 19.5rem, sidebar rule 34rem tall at xl offsets, skip link and fixed toolbar share the xl offset token, off-screen offset -62.5rem.
-    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; only 1px hairlines remain as px in the styles tree.
+    | bun run build: 31 pages; bun test: 65 pass; audit: 31 pages, 0 issues; only 1px hairlines remain as px in the styles tree.
     | Vision review at 960 and 1280: two column grid intact, divider placed between columns, no clipped or overlapping elements; shots under .cache/shots.
 
 w W-135 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:30Z t_updated=2026-09-22T11:09:28Z "Retire the leading system and sweep stray px"
@@ -2056,11 +2061,27 @@ w W-135 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
   hypothesis:
     | After the migrations the legacy arithmetic has no callers, so deletion is a pure removal.
   evidence_strategy:
-    | Whitelist grep output recorded; build, bun test and audit sweep green.
+    | Whitelist grep output recorded; build, bun test and audit green.
   evidence:
     | Deleted mixins margin, padding and line-height with their forwards and the typography-leading token; no references remain in the styles tree.
     | px census over src/assets/styles returns twelve 1px hairlines only (borders, visually hidden helper, sidebar rule width), matching the D-39 whitelist.
-    | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; w135-post-1280 md5 identical to w134-post-1280.
+    | bun run build: 31 pages; bun test: 65 pass; audit: 31 pages, 0 issues; w135-post-1280 md5 identical to w134-post-1280.
+
+w W-136 type=feature status=done cynefin=clear t_created=2026-09-22T16:06:28Z t_updated=2026-09-22T16:19:23Z "Remove the back-home link from the 404 page"
+  goals: G-84
+  fitness: G-84=+1
+  ac:
+    | The built 404.html contains no anchor whose accessible text is Back to the homepage.
+    | src/constants/labels.ts carries no backToHomepage key.
+    | src/pages/404.astro imports only symbols it still uses after the removal.
+    | The audit that walks 404.html reports zero issues after the change.
+  hypothesis:
+    | The link paragraph is the only consumer of the backToHomepage label and of the routes and SLICE imports inside 404.astro, so deleting the paragraph plus those now-dead references leaves no dangling observers; Y-33 records the same removal pattern.
+  evidence_strategy:
+    | Grep the source for backToHomepage and for the visible label text, then build the site, run the audit, astro check and the test suite, and record the outputs.
+  evidence:
+    | grep over src and internal: zero matches for backToHomepage and Back to the homepage; 404.astro drops the routes and SLICE imports.
+    | build 31 pages; target/404.html has zero Back to the homepage matches; audit 31 pages 0 issues; astro check exit 0; bun test 65 pass 0 fail.
 
 w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_updated=2026-09-18T21:47:06Z "Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"
   goals: G-06
@@ -3002,7 +3023,7 @@ w W-77 type=feature status=done cynefin=complicated t_created=2026-09-20T10:49:5
   evidence_strategy:
     | Seeded fixture documents in bun tests for each rule pass and fail; audits green on the real site.
   evidence:
-    | auditLinkGrammar plus cross-checks added as pure functions (internal hrefs need fragments, same-page fragments resolve, og:locale agrees with inLanguage, ItemList name matches the accessible name of its anchor with containment); new static sweep internal/testing/audit-sweep.ts runs the same core over the built target via linkedom: 30 pages, 0 issues after hub lists gained aria-labelledby; 43 tests green.
+    | auditLinkGrammar plus cross-checks added as pure functions (internal hrefs need fragments, same-page fragments resolve, og:locale agrees with inLanguage, ItemList name matches the accessible name of its anchor with containment); new static sweep internal/testing/audit.ts runs the same core over the built target via linkedom: 30 pages, 0 issues after hub lists gained aria-labelledby; 43 tests green.
 
 w W-78 type=feature status=done cynefin=complicated t_created=2026-09-20T10:50:03Z t_updated=2026-09-22T11:09:16Z "Audit and route tests pinning the link grammar"
   goals: G-37
@@ -3160,7 +3181,7 @@ w W-88 type=bug status=done cynefin=clear t_created=2026-09-20T11:41:26Z t_updat
   repro:
     | Built graphs: the root Blog node carries blogPost refs to #page fragments while BlogPosting lives at #article, and the same #blog id is re-emitted on home and every paginated page with different partial blogPost lists (home: 4 items, /page/1/: 1 item), producing contradictory snapshots of one global entity.
   evidence_strategy:
-    | Built graph inspection for home, /page/1/ and one post; bun tests; audit sweep.
+    | Built graph inspection for home, /page/1/ and one post; bun tests; audit.
   evidence:
     | Blog node rebuilt to the exact reference shape: @type, @id/url at the site root #blog, name, isPartOf #web, publisher #person; description and blogPost removed; node emitted only in post graphs like the reference article graph while home and /page/1/ carry no Blog-typed node (verified in built output); seo tests pin field set, placement and absence; 61 tests green; sweep 30 pages 0 issues; astro check clean.
 
@@ -3173,15 +3194,15 @@ w W-89 type=feature status=done cynefin=complicated t_created=2026-09-20T20:37:0
     | On the post page at 375px width the breadcrumb top edge sits below the toolbar bottom edge (theme toggle plus all-articles button).
     | On hub and term collection pages the breadcrumb bottom edge sits above the page title top edge and the breadcrumb left edge aligns with the title left edge within 1px.
     | The breadcrumb matches the interface scale: 14px font size, muted foreground color, rendered height at most 26px single line at 375px width.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
     | On the post page the breadcrumb box is horizontally centered within 1px of the article column center; where the toolbar is in flow (375px width) the breadcrumb keeps a vertical gap of at least 13px to the toolbar above and the title below, and at 1440px width the fixed toolbar box stays horizontally clear of the breadcrumb box by at least 13px.
   hypothesis:
     | A CSS-module breadcrumb with contextual placement (centered in the post header under the toolbar, above the title on collections) fits the existing vertical rhythm without new wrapper elements or audit regressions.
   evidence_strategy:
-    | getBoundingClientRect measurements over the dev server at 375px and 1440px viewports via DOM scripting (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | getBoundingClientRect measurements over the dev server at 375px and 1440px viewports via DOM scripting (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements over dev server (playwright-core, Edge headless, getBoundingClientRect; scratch script outside the repo): post at 375px nav box 13.47..361.52 h26, centerX 187.49 vs article 187.5 (delta 0.01px), toolbar bottom 68 < nav top 87.5 (gap 19.5px), nav-to-title gap 26px, header order div>nav>hgroup; post at 1440px nav box 558.97..881.02 centerX 719.99 (delta 0.01px), fixed toolbar box 30..207.06 so horizontal clearance 351.91px, nav top 58.5px; breadcrumb fontSize 14px, height 26px, clientRects 1, clip-path none on every page; collections (tags, categories, years, tag/architecture, year/2016, pages/about) at both widths: breadcrumbAboveTitle true, leftAlignDelta 0px, title gap 13px; home has no breadcrumb.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML order verified: post header renders the buttons div (All Articles link plus theme-switcher button) before nav#breadcrumb before the title, and nav#breadcrumb precedes h1#page-title on tags, tag/architecture and pages/about with no visually-hidden class on the nav; in-browser dev audits logged only the pre-existing tabindex warnings and no errors (the sole 504 Outdated Optimize Dep error is a vite re-optimization artifact also present on the untouched home page).
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML order verified: post header renders the buttons div (All Articles link plus theme-switcher button) before nav#breadcrumb before the title, and nav#breadcrumb precedes h1#page-title on tags, tag/architecture and pages/about with no visually-hidden class on the nav; in-browser dev audits logged only the pre-existing tabindex warnings and no errors (the sole 504 Outdated Optimize Dep error is a vite re-optimization artifact also present on the untouched home page).
   plan:
     | Create breadcrumb.module.scss; drop visually-hidden from the island; reorder the post header to toolbar, breadcrumb, title; add a named breadcrumb slot above the h1 on the page island; pass the slot from hub and term pages.
 
@@ -3194,14 +3215,14 @@ w W-90 type=feature status=done cynefin=complicated t_created=2026-09-20T20:56:2
     | The nav box hugs the right screen edge: at 1100px and 1440px widths the gap from the nav right edge to the viewport right edge is 24px plus at most the scrollbar width.
     | At 375px width the toc nav is visually hidden: computed width 1px, height 1px, position absolute and clip-path inset(50%).
     | The post keeps its centered column at 1440px: post-title, first body content child and article center X agree within 1px, and the rail wrapper is out of flow (computed position absolute, zero height contribution in the normal flow at 375px).
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | An absolute full-article rail with a sticky nav at top 50vh plus translateY(-50%) keeps the toc vertically centred against the scrollport while the rail offset calc((1070px - 100vw) / 2 + 24px) tracks the right screen edge without touching the centered post column.
   evidence_strategy:
-    | getBoundingClientRect and getComputedStyle reads over the dev server at 375px, 1100px and 1440px widths including scroll positions 0, 600 and 1200 (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | getBoundingClientRect and getComputedStyle reads over the dev server at 375px, 1100px and 1440px widths including scroll positions 0, 600 and 1200 (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements over dev server (playwright-core, Edge headless; no screenshots): at 1100x900 and 1440x900 nav#toc computes to position sticky with top 450px and transform translateY(-50%), nav height 132px, nav top 384px (= 450 - 66, exactly viewport-centred) identical at scrollY 0, 600 and 1200 on both widths; right-edge gap 24px on both widths (nav right 1076 at vw 1100, 1416 at vw 1440); at 375x667 the nav computes to position absolute, width 1px, height 1px, clip-path inset(50%), overflow hidden, and the rail wrapper is static with rect height 0; post centering untouched: article, post-title and first body paragraph share centerX 187.5 / 550 / 720 at 375 / 1100 / 1440; nav left 896 at 1100 stays 26px clear of the 640px text column right edge at 870.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML keeps the rail div wrapping nav#toc before the post body with the toc, toc-title and toc-list ids intact; in-browser dev audits report only the pre-existing tabindex warnings and the vite 504 re-optimization artifact also seen on untouched pages.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML keeps the rail div wrapping nav#toc before the post body with the toc, toc-title and toc-list ids intact; in-browser dev audits report only the pre-existing tabindex warnings and the vite 504 re-optimization artifact also seen on untouched pages.
   plan:
     | Wrap the toc nav in a rail div inside the island; below lg replicate the visually-hidden declarations on the nav; from lg make the rail absolute with the screen-edge right offset and the nav sticky with top 50vh, translateY(-50%) and a 180px border-box width.
 
@@ -3214,14 +3235,14 @@ w W-91 type=feature status=done cynefin=complicated t_created=2026-09-20T21:04:0
     | At 1440px width the note shares the trail line: the note rect sits fully inside the nav rect vertical band and the nav line stays horizontally centered within 1px of the article column center.
     | The note uses the breadcrumb typography: computed font-size 14px and the same muted foreground color as the trail links, and at 375px width the note follows the trail in the same flex row when it fits or wraps below otherwise.
     | The post header spacing stays: toolbar-to-nav gap at least 13px and nav-to-title gap at least 13px at 375px and 1440px widths.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | A slotted paragraph after the ordered list renders on the breadcrumb line through a baseline flex row on the nav without changing the trail list, its anchors or the audits.
   evidence_strategy:
-    | DOM rect and computed style reads over the dev server at 375px and 1440px widths (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | DOM rect and computed style reads over the dev server at 375px and 1440px widths (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements over dev server at 375x667 and 1440x900 (no screenshots): the note is a P element whose parent is nav#breadcrumb, outside the ordered list, with text "(1 min read)" and a time element datetime PT1M; computed font-size 14px and color rgb(111, 111, 125) equal to the trail link color; at 1440 the note shares the trail line (note rect top 58.5 and bottom 84.5 equal the nav rect band of height 26) and the nav line stays centered (centerX 719.99 vs article 720); at 375 the line wraps and the note centers on its own row (centerX 187.5) inside the nav band; header gaps preserved (toolbar-to-nav 19.5px, nav-to-title 26px); the post footer no longer contains a reading time.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML keeps the note paragraph between the ordered list close tag and the nav close tag with the PT1M duration and a footer free of reading time; in-browser dev audits report only the pre-existing tabindex warnings plus the vite 504 re-optimization artifact.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML keeps the note paragraph between the ordered list close tag and the nav close tag with the PT1M duration and a footer free of reading time; in-browser dev audits report only the pre-existing tabindex warnings plus the vite 504 re-optimization artifact.
   plan:
     | Add a note slot after the ordered list in the breadcrumb island and make the nav a baseline flex row; slot the parenthesised time paragraph from the post header with post-module reading time styles; drop the reading time from the post footer and its prop chain.
 
@@ -3234,14 +3255,14 @@ w W-92 type=feature status=done cynefin=complicated t_created=2026-09-20T21:09:4
     | At widths 320, 375, 685 and 960px the toolbar stays in flow and its box intersects no descendant box of the article (zero rect intersections).
     | At widths 1100, 1280, 1440 and 1920px the fixed toolbar box keeps at least 13px clearance from the text column left edge and never intersects the breadcrumb line or the toc rail.
     | The mobile geometry is preserved within 1px: toolbar top 26px, toolbar bottom 68px and breadcrumb top 87.5px at 375px width, and at 1440px the breadcrumb line still starts at 58.5px.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Rendering the toolbar before main reproduces the old in-article flow positions pixel-for-pixel below lg and leaves the fixed placement untouched from lg, so no content box can intersect the toolbar at any width.
   evidence_strategy:
-    | Rect-intersection sweep over the dev server at widths 320 to 1920 (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | Rect-intersection sweep over the dev server at widths 320 to 1920 (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | Width-sweep DOM measurements over the dev server (playwright-core, Edge headless, no screenshots): the toolbar div renders before main#page, outside article#article (ancestor chain check), carrying the theme toggle and the /#page home link; at 320, 375, 685 and 960px it is static in flow with zero rect intersections against breadcrumb, title, toc rail and every post-body child; at 1100, 1280, 1440 and 1920px it is fixed at top 30 left 30 with right edge 207.06 and keeps 22.94, 112.94, 192.94 and 432.94px clearance to the leftmost content box, zero intersections; pixel positions preserved exactly: toolbar top 26 bottom 68 and breadcrumb top 87.5 at 375px, breadcrumb top 58.5 at 1440px; the post header now starts with the breadcrumb nav.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the toolbar div before main and outside the article with the article header opening on the breadcrumb nav; in-browser dev audits report no errors beyond the vite 504 re-optimization artifact.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the toolbar div before main and outside the article with the article header opening on the breadcrumb nav; in-browser dev audits report no errors beyond the vite 504 re-optimization artifact.
   plan:
     | Create the post-toolbar island with its own module holding the flex row and the lg fixed block; drop the buttons div and its styles from the post island and module; render the toolbar before Layout on the post route.
 
@@ -3254,14 +3275,14 @@ w W-93 type=feature status=done cynefin=complicated t_created=2026-09-20T21:15:1
     | UI parity at 1440px within 1px of the recorded placement: line top 58.5, note vertical band 58.5 to 84.5, note right edge 925.95, line centered at 719.99, title top 110.5.
     | UI parity at 375px within 1px: line top 87.5 and bottom 139.5, note centered on its wrapped row at centerX 187.5, toolbar-to-line gap 19.5px, line-to-title gap 26px.
     | The note keeps the breadcrumb typography: computed font-size 14px and the muted foreground color equal to the trail links.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Moving the note from inside the nav to a baseline flex sibling under a consumer-owned wrapper reproduces the same line geometry because the wrapper inherits the exact margins, padding and gap the nav carried and nullifies the nav margins that would double-apply.
   evidence_strategy:
-    | DOM rect and computed style reads at 375px and 1440px compared value-by-value against the metrics recorded when the note lived inside the nav; audit sweep over a fresh build; bun test; astro check.
+    | DOM rect and computed style reads at 375px and 1440px compared value-by-value against the metrics recorded when the note lived inside the nav; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements over the dev server at 375x667 and 1440x900 (no screenshots): the note is outside nav#breadcrumb (!nav.contains(note)), the nav contains only the ordered list, and the meta line div in the article header holds nav plus paragraph as [nav, p]; UI parity with the recorded in-nav metrics is exact: at 1440 the note rect is 851.33..925.95 with top 58.5 and bottom 84.5, the trail starts at 514.03, the content span centers at 719.99 and the title top stays 110.5; at 375 the line spans 87.5..139.5, the wrapped note centers at 187.5 (150.19..224.81), the toolbar-to-line gap is 19.5px and the line-to-title gap 26px; note typography unchanged (14px, rgb(111, 111, 125) equal to the trail links, datetime PT1M); nav computed margins inside the line are 0 on bottom, left and right.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints after fixing a null-guard in the B-15 spike script; built HTML keeps the nav free of paragraphs with the note after the nav inside the meta line wrapper.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints after fixing a null-guard in the B-15 spike script; built HTML keeps the nav free of paragraphs with the note after the nav inside the meta line wrapper.
   plan:
     | Drop the note slot from the breadcrumb island and revert its module to the pure trail (block nav, no note slot); wrap the island and the note paragraph in a post-module meta line flex row that carries the line margins, padding and gap and zeroes the nav side and bottom margins.
 
@@ -3272,14 +3293,14 @@ w W-94 type=feature status=done cynefin=complicated t_created=2026-09-20T21:23:1
   ac:
     | The copyright note renders as a span carrying data-nosnippet (no paragraph) inside the sidebar footer, with its box identical to the recorded paragraph box within 1px at 375px and 1440px widths (top 457.25 and 496.25, height 26).
     | The post toolbar renders as an aside carrying data-nosnippet and aria-label Post actions, still before main and outside the article, with its box identical to the recorded div box (in flow top 26 bottom 68 at 375px; fixed left 30 top 30 right 207.06 at 1440px).
-    | The audit sweep over a fresh build reports zero issues, in-browser dev audits report no errors, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, in-browser dev audits report no errors, the bun test suite is green and astro check is clean.
   hypothesis:
     | Swapping the tag names while pinning the span to display block with zero margins and naming the aside keeps both boxes and the landmark algebra of the audits unchanged.
   evidence_strategy:
-    | DOM rect and attribute reads at 375px and 1440px compared against the recorded before boxes; audit sweep over a fresh build; bun test; astro check.
+    | DOM rect and attribute reads at 375px and 1440px compared against the recorded before boxes; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements at 375x667 and 1440x900 (no screenshots): the copyright note is a span with data-nosnippet, display block, margin 0 and line-height 26px, no footer paragraph remains, and its box matches the recorded paragraph box exactly (457.25..483.25 at 19.5..355.5 on 375; 496.25..522.25 at 224..482.66 on 1440, height 26); the post toolbar is an aside with data-nosnippet and aria-label Post actions before main and outside the article, box identical to the div (in flow 26..68 on 375; fixed 30..72 at 30..207.06 on 1440); zero in-browser audit errors.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
   plan:
     | Swap the copyright paragraph for a span with data-nosnippet and give the note class display block; turn the toolbar div into an aside with aria-label and data-nosnippet keeping the toolbar class and children.
 
@@ -3290,14 +3311,14 @@ w W-95 type=feature status=done cynefin=complicated t_created=2026-09-20T21:27:1
   ac:
     | The sidebar root renders as a section (no aside) whose first child is a visually hidden h2 with id sidebar-heading and the text About this site, and the root carries aria-labelledby sidebar-heading resolving to that heading.
     | The hidden heading computes to the visually hidden shape (width 1px, height 1px, position absolute, clip-path inset(50%)) and the sidebar box stays identical to the recorded aside box within 1px at 375px and 1440px widths.
-    | The nested landmarks keep distinct accessible names (sidebar section About this site, person section, menu nav, contacts section) and the audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The nested landmarks keep distinct accessible names (sidebar section About this site, person section, menu nav, contacts section) and the audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Renaming the root to a named section with a hidden heading keeps the landmark algebra sound because the audit already treats named sections as landmarks with resolvable labels, and the hidden heading takes no flow space.
   evidence_strategy:
-    | DOM tag, attribute, computed style and rect reads at 375px and 1440px widths (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | DOM tag, attribute, computed style and rect reads at 375px and 1440px widths (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements on the tags page at 375x667 and 1440x900 (no screenshots): the sidebar root is a section with aria-labelledby sidebar-heading resolving to About this site, its first child is the visually hidden h2 with that text computing to width 1px, height 1px, position absolute, clip-path inset(50%); the sidebar box matches the recorded aside box exactly (0..522.5 at 0..375 on 375; 0..667.69 at 185..521.66 on 1440); nested landmark names stay distinct (About this site, John Doe, Site menu, Contacts); zero in-browser audit errors.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the section root, no aside anywhere, the hidden heading first and the label wired to it.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the section root, no aside anywhere, the hidden heading first and the label wired to it.
   plan:
     | Change the sidebar island root from aside to section, prepend the visually hidden h2 About this site with id sidebar-heading and repoint the root aria-labelledby from the author heading to the new heading.
 
@@ -3308,14 +3329,14 @@ w W-96 type=feature status=done cynefin=complicated t_created=2026-09-20T21:31:0
   ac:
     | The toolbar renders as a div carrying data-nosnippet with the toolbar class and both controls, wrapped in an aside with aria-label Post actions that carries no data-nosnippet and no styles.
     | Box parity at 375px and 1440px: the div box matches the recorded toolbar box (in flow top 26 bottom 68 at 375px; fixed left 30 top 30 right 207.06 at 1440px) and the aside adds no offset below lg (aside box equals the div box) and collapses to an empty box from lg.
-    | The audit sweep over a fresh build reports zero issues, in-browser dev audits report no errors, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, in-browser dev audits report no errors, the bun test suite is green and astro check is clean.
   hypothesis:
     | A zero-margin block aside around the toolbar div changes no box geometry because the div keeps every style and the wrapper adds no padding, border or margin, while fixed positioning at lg ignores the wrapper entirely.
   evidence_strategy:
-    | DOM attribute and rect reads at 375px and 1440px compared against the recorded toolbar boxes; audit sweep over a fresh build; bun test; astro check.
+    | DOM attribute and rect reads at 375px and 1440px compared against the recorded toolbar boxes; audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements at 375x667 and 1440x900 (no screenshots): the toolbar renders as a div carrying data-nosnippet with the toolbar class and both controls, wrapped in a bare aside (no class, no data-nosnippet) with aria-label Post actions before main; at 375px the div box is 26..68 at 0..375 and the aside box equals it exactly; at 1440px the div keeps the fixed box 30..72 at 30..207.06 while the aside collapses to a zero-height box; zero in-browser audit errors.
-    | bun run build green (31 pages); bun run audit:sweep: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the aside without data-nosnippet wrapping the data-nosnippet div.
+    | bun run build green (31 pages); bun run audit: 30 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints; built HTML has the aside without data-nosnippet wrapping the data-nosnippet div.
   plan:
     | Restore the div root with the toolbar class and data-nosnippet and wrap it in a bare aside carrying only aria-label Post actions.
 
@@ -3325,33 +3346,33 @@ w W-97 type=feature status=done cynefin=complicated t_created=2026-09-20T21:34:2
   surface: src/islands/site-footer.astro, src/assets/styles/modules/site-footer.module.scss, src/islands/layout.astro
   ac:
     | Every page (home, post, hub, term, static, 404) renders the footer as the last element child of main#page with exactly the llms.txt, llms-full.txt, atom.xml and sitemap.xml links and no copyright text.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
     | The link row is right-aligned: the last link right edge sits within 1px of the footer content right edge (main right minus the horizontal padding) at 375px and 1440px, and at 1440px the whole row sits right of the column center.
     | The footer computes to zero border widths on all sides and carries the page rhythm paddings: 26px vertical and 19.5px horizontal at 375px, 39px vertical and 26px horizontal at 1440px.
   hypothesis:
     | A footer island appended to the layout slot area spans the full grid row inside main, and file-like hrefs pass the link grammar audit untouched while the footer stays a non-landmark inside main.
   evidence_strategy:
-    | DOM tag, attribute, rect and computed style reads across page types at 375px and 1440px widths (no screenshots); audit sweep over a fresh build; bun test; astro check.
+    | DOM tag, attribute, rect and computed style reads across page types at 375px and 1440px widths (no screenshots); audit over a fresh build; bun test; astro check.
   evidence:
     | DOM measurements across home, post, tags hub, tag term, static and 404 pages at 375x667 and 1440x900 (no screenshots): the footer renders as the last element child of main#page on every page type with exactly the llms.txt, llms-full.txt, atom.xml and sitemap.xml links and no copyright text; right alignment: the last link right edge sits at main right minus exactly the horizontal padding (355.5 vs 375 with 19.5px padding at 375; 1229 vs 1255 with 26px padding at 1440) and at 1440 the whole row (947.08..1229) stays right of the column center 720; computed border widths are 0px on all sides; paddings 26px vertical and 19.5px horizontal at 375, 39px vertical and 26px horizontal at 1440; zero in-browser audit errors.
-    | bun run build green (31 pages); bun run audit:sweep: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
+    | bun run build green (31 pages); bun run audit: 31 pages checked, 0 issues; bun test: 61 pass, 0 fail; astro check: 0 errors, 0 warnings, 0 hints.
   plan:
     | Create the site-footer island with a right-aligned link list styled by its own module; render it as the last child of main in the layout island.
 
 w W-98 type=bug status=done cynefin=clear t_created=2026-09-20T21:37:37Z t_updated=2026-09-22T11:09:19Z "Fix the fragmentless home link on the 404 page"
   goals: G-50
   fitness: G-50=+1
-  surface: src/pages/404.astro, internal/testing/audit-sweep.ts
+  surface: src/pages/404.astro, internal/testing/audit.ts
   ac:
     | The 404 home link carries the #page fragment (href /#page) and the dev schema audit logs no link grammar error on a missing path.
-    | The audit sweep walks 404.html alongside index.html files and reports zero issues over a fresh build.
+    | The audit walks 404.html alongside index.html files and reports zero issues over a fresh build.
   repro:
     | Open any missing path (for example /definitely-missing) on the dev server: the schema audit logs [audit-schema] /: internal link "/" carries no fragment (expected a #page style target); the 404 page renders Back to the homepage with href="/".
   evidence_strategy:
     | Record the failing dev audit line before the fix, then prove it gone in the browser after the fix; the extended sweep over the fresh build (now including 404.html) is the regression test.
   evidence:
     | Failing state before the fix: on http://localhost:4321/definitely-missing the dev console logs [audit-schema] /: internal link "/" carries no fragment (expected a #page style target), reproduced at 375px and 1440px viewports; the sweep never caught it because walkHtmlFiles only collects index.html files.
-    | Fixed state: the 404 back-home link renders href /#page and the dev schema audit logs zero errors on a missing path at 1440x900 (previously the fragmentless "/" error); the audit sweep now walks 404.html alongside index.html files (31 pages checked) and reports zero issues; bun test 61 pass; astro check clean.
+    | Fixed state: the 404 back-home link renders href /#page and the dev schema audit logs zero errors on a missing path at 1440x900 (previously the fragmentless "/" error); the audit now walks 404.html alongside index.html files (31 pages checked) and reports zero issues; bun test 61 pass; astro check clean.
 
 w W-99 type=feature status=done cynefin=clear t_created=2026-09-20T21:42:39Z t_updated=2026-09-22T11:09:19Z "Rename the sidebar heading to Overview"
   goals: G-51
@@ -3359,13 +3380,13 @@ w W-99 type=feature status=done cynefin=clear t_created=2026-09-20T21:42:39Z t_u
   surface: src/islands/sidebar.astro
   ac:
     | The hidden heading text becomes Overview and the section accessible name resolves to Overview with the label wiring, hidden shape and box unchanged.
-    | The audit sweep over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
+    | The audit over a fresh build reports zero issues, the bun test suite is green and astro check is clean.
   hypothesis:
     | Swapping only the heading text changes the resolved accessible name and nothing else in layout or audits.
   evidence_strategy:
-    | DOM read of the heading text and resolved name at 375px and 1440px; audit sweep over a fresh build; bun test; astro check.
+    | DOM read of the heading text and resolved name at 375px and 1440px; audit over a fresh build; bun test; astro check.
   evidence:
-    | DOM reads on the tags page at 375px and 1440px: the hidden heading text is Overview, the section aria-labelledby sidebar-heading resolves to Overview, the hidden shape stays width 1px height 1px position absolute clip-path inset(50%), and the sidebar box matches the recorded one (0..522.5 at 0..375 on 375; 0..667.69 at 185..521.66 on 1440, rounding differences only); bun run build green; audit sweep 31 pages checked 0 issues; bun test 61 pass; astro check clean.
+    | DOM reads on the tags page at 375px and 1440px: the hidden heading text is Overview, the section aria-labelledby sidebar-heading resolves to Overview, the hidden shape stays width 1px height 1px position absolute clip-path inset(50%), and the sidebar box matches the recorded one (0..522.5 at 0..375 on 375; 0..667.69 at 185..521.66 on 1440, rounding differences only); bun run build green; audit 31 pages checked 0 issues; bun test 61 pass; astro check clean.
 
 d D-01 status=accepted t_created=2026-09-18T19:23:55Z t_updated=2026-09-18T21:22:51Z "Migrate to Astro 7"
   context:
@@ -3594,7 +3615,7 @@ d D-23 status=accepted t_created=2026-09-20T20:36:50Z t_updated=2026-09-22T11:09
   consequences:
     | The post header DOM order changes to toolbar first and breadcrumb second, which puts the breadcrumb below the theme toggle and the home button on mobile; separators are CSS-generated so list textContent stays audit-clean; home and 404 stay breadcrumb-free.
   validation:
-    | DOM measurements over the dev server at 375px and 1440px viewports plus the audit sweep over a fresh build.
+    | DOM measurements over the dev server at 375px and 1440px viewports plus the audit over a fresh build.
 
 d D-24 status=accepted t_created=2026-09-20T20:55:54Z t_updated=2026-09-22T11:09:17Z "Table of contents rail contract"
   context:
@@ -3608,7 +3629,7 @@ d D-24 status=accepted t_created=2026-09-20T20:55:54Z t_updated=2026-09-22T11:09
   consequences:
     | The rail is out of flow, so the post body starts right after the title and keeps its centered column; the anchored toc, toc-title and toc-list ids move one wrapper deeper but stay inside the article; the inline toc box above the body disappears at every width.
   validation:
-    | DOM measurements over the dev server at 375px, 1100px and 1440px widths including sticky tracking across scroll positions, plus the audit sweep over a fresh build.
+    | DOM measurements over the dev server at 375px, 1100px and 1440px widths including sticky tracking across scroll positions, plus the audit over a fresh build.
 
 d D-26 status=accepted t_created=2026-09-20T21:09:21Z t_updated=2026-09-22T11:09:17Z "Post toolbar as body-level chrome"
   context:
@@ -3635,7 +3656,7 @@ d D-31 status=accepted t_created=2026-09-20T21:33:58Z t_updated=2026-09-22T11:09
   consequences:
     | The footer adds ten nodes per page inside the DOM budget; it sits inside main so it is not a page-level landmark and needs no accessible name; the sidebar footer keeps the copyright and its own links.
   validation:
-    | DOM measurements at 375px and 1440px widths across page types proving placement, right alignment, zero border and the paddings, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px widths across page types proving placement, right alignment, zero border and the paddings, plus the audit over a fresh build.
 
 d D-34 status=accepted t_created=2026-09-20T21:48:45Z t_updated=2026-09-22T11:09:20Z "Post body as plain content after the header"
   context:
@@ -3649,7 +3670,7 @@ d D-34 status=accepted t_created=2026-09-20T21:48:45Z t_updated=2026-09-22T11:09
   consequences:
     | The article keeps no section element and no post-body landmark; the id post-body disappears (nothing referenced it, the graph anchors the article through #article and #page); the boxes and the audit surface stay identical minus the post-body tabindex warning.
   validation:
-    | DOM measurements at 375px and 1440px proving zero sections in the article, the header-to-content adjacency and unchanged boxes, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px proving zero sections in the article, the header-to-content adjacency and unchanged boxes, plus the audit over a fresh build.
 
 d D-35 status=accepted t_created=2026-09-20T21:52:08Z t_updated=2026-09-22T11:09:20Z "Feed item header with heading and mixin gap"
   context:
@@ -3662,7 +3683,7 @@ d D-35 status=accepted t_created=2026-09-20T21:52:08Z t_updated=2026-09-22T11:09
   consequences:
     | The feed loses one node per item; the heading keeps its .item .title descendant styles inside the header; article anchors and the graph stay untouched.
   validation:
-    | DOM measurements at 375px and 1440px proving the header composition, the mixin-sourced gap and unchanged boxes, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px proving the header composition, the mixin-sourced gap and unchanged boxes, plus the audit over a fresh build.
 
 d D-36 status=accepted t_created=2026-09-20T21:56:09Z t_updated=2026-09-22T11:09:20Z "Feed item read action in an item footer"
   context:
@@ -3675,7 +3696,7 @@ d D-36 status=accepted t_created=2026-09-20T21:56:09Z t_updated=2026-09-22T11:09
   consequences:
     | The feed gains one wrapper node per item; the anchor box, the description gap and the audit surface stay unchanged.
   validation:
-    | DOM measurements at 375px and 1440px proving the wrapper and the unchanged anchor boxes, plus the audit sweep over a fresh build.
+    | DOM measurements at 375px and 1440px proving the wrapper and the unchanged anchor boxes, plus the audit over a fresh build.
 
 d D-37 status=accepted t_created=2026-09-20T22:27:47Z t_updated=2026-09-22T11:09:16Z "No table of contents on post pages"
   context:

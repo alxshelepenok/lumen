@@ -1,7 +1,6 @@
 const labels = {
   allArticles: "All Articles",
   articles: "Articles",
-  backToHomepage: "Back to the homepage",
   breadcrumb: "Breadcrumb",
   blog: "Blog",
   categories: "Categories",
