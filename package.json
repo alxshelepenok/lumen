@@ -1,6 +1,6 @@
 {
   "name": "lumen",
-  "version": "2.0.62",
+  "version": "3.0.0",
   "description": "A constantly evolving and thoughtful architecture for creating static blogs.",
   "keywords": [
     "astro",
