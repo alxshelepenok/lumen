@@ -3105,3 +3105,20 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T17:11:16Z","inv":{"id":"W-146","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T17:11:17Z","inv":{"id":"W-146","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T17:11:17Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-146","op":"set_w_status_with_goals","goal_statuses":{"G-86":"unverified"},"old_session_at":"2026-09-22T17:10:31Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T20:19:47Z","inv":{"id":"W-147","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:58Z","inv":{"id":"W-147","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:58Z","inv":{"id":"W-147","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:58Z","inv":{"id":"W-147","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:58Z","inv":{"id":"W-147","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:58Z","inv":{"id":"W-147","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:19:59Z","inv":{"id":"W-147","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-22T20:19:59Z","inv":{"had_key":false,"wid":"W-147","gid":"G-86","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T20:20:02Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-147","op":"set_w_status_with_goals","goal_statuses":{"G-86":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:20:21Z","inv":{"id":"W-147","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:20:21Z","inv":{"id":"W-147","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:20:21Z","inv":{"id":"W-147","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T20:20:21Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-147","op":"set_w_status_with_goals","goal_statuses":{"G-86":"unverified"},"old_session_at":"2026-09-22T20:20:02Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:21:53Z","inv":{"line":"The heading range between <h2> and <h6> uses an en dash.","id":"W-147","field":"ac","op":"field_insert_line","index":4}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:21:53Z","inv":{"line":"README.md:61 reads 'Thanks go to these wonderful people'; README.md:28 uses an en dash between <h2> and <h6>.","id":"W-147","field":"evidence","op":"field_insert_line","index":2}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:21:53Z","inv":{"id":"W-147","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T20:21:54Z","inv":{"id":"W-147","field":"evidence","op":"field_pop_last"}}

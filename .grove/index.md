@@ -38,6 +38,7 @@
 | W-144 | feature | Reformat the sponsors block | G-86 | clear | ⊤ | done |  |
 | W-145 | bug | Contributors separator rows render as literal cells | G-86 | clear | ⊤ | done |  |
 | W-146 | feature | Restore the sponsors table layout | G-86 | clear | ⊤ | done |  |
+| W-147 | feature | Add the expanded Features section | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -139,6 +140,7 @@ graph TD
   W_144["W-144: Reformat the sponsors block"]:::done
   W_145["W-145: Contributors separator rows render as literal cells"]:::done
   W_146["W-146: Restore the sponsors table layout"]:::done
+  W_147["W-147: Add the expanded Features section"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision

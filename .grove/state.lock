@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:be8a9e11a458e7d908f9acf9d3250c73e78e3acbf11f15e2282d299e4d8bc042
+# checksum: sha256:00cf833694d2285f3013f77d104bc2777edc06afa04cb595b96eb8c2ae0529e2
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -89,6 +89,24 @@ w W-146 type=feature status=done cynefin=clear t_created=2026-09-22T17:10:30Z t_
   evidence:
     | Sponsors section at HEAD vs commit 8da577b6: all 4 hrefs and image urls identical, cell order unchanged, rendering restored to the original GFM table.
     | Delimiter row is exactly | :---: | :---: | (19 chars, was 442); rel=noopener noreferrer and alt kept on both anchors; no centered html paragraph left.
+
+w W-147 type=feature status=done cynefin=clear t_created=2026-09-22T20:19:47Z t_updated=2026-09-22T20:21:54Z "Add the expanded Features section"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md presents the feature set as six subsections: minimal runtime, RAG and LLM indexing, JSON-LD structured data, semantic tree, crawl efficiency and SEO, and user experience.
+    | The semantic tree bullet closes the <section> code span and reads 'to separate it from the main content'.
+    | The contributors intro reads 'Thanks go to these wonderful people!'.
+  hypothesis:
+    | Grouping the verifiable properties of the current build under six subheadings communicates the architecture more precisely than the previous flat list.
+  evidence_strategy:
+    | Diff README.md against HEAD, grep the corrected strings, and confirm the contributors markers and sponsor links stay byte-identical.
+  evidence:
+    | README.md:27 closes the <section> code span and reads 'to separate it from the main content'; line backtick count 8, even parity.
+    | git diff vs HEAD touches only the Features section; zero browserstack, sentry, avatars, or contributors marker lines changed.
+    | README.md:61 reads 'Thanks go to these wonderful people'.
+    | User reverted the en dash; README.md:28 keeps the ASCII hyphen between <h2> and <h6> in the amended commit.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

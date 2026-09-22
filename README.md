@@ -4,10 +4,43 @@ A constantly evolving and thoughtful architecture for creating static blogs, bui
 
 ## Features
 
-- Mobile first approach in development.
-- No client framework runtime, plain islands.
-- Support for Sentry error tracking.
-- Support for categories and tags.
+### Minimal runtime
+
+- Four dependencies.
+- Zero hydration and 0 KB of client JS by default.
+- Every page is rendered to plain HTML at build time (SSG).
+
+### Built for RAG and LLM indexing
+
+- Support for `llms.txt` and `llms-full.txt`. Generation of a text index and a condensed site summary in the root directory for quick discovery and aggregation by AI systems.
+- Direct access to Markdown sources. Every post serves clean raw Markdown (no HTML noise, layout, or scripts) at a stable URL for efficient loading into RAG context.
+
+### Grounded structured data (JSON-LD)
+
+- A single connected graph. `WebSite`, `Blog`, `BlogPosting`, `WebPage`, and `Person` nodes are explicitly linked into one knowledge network.
+- 100% consistency between the markup in the JSON-LD graph and the content actually visible on the page.
+- Stable node IDs. Canonical URLs with hash fragments (`#web`, `#blog`, `#article`, `#person`) for end-to-end data merging across pages.
+
+### Semantic tree
+
+- Hierarchical HTML structure with `<article>` for self-contained publications and `<section>` for logical subdivisions.
+- Logical grouping of metadata using `<header>` and `<footer>` tags within `<article>` and `<section>` to separate it from the main content.
+- Heading tags (`<h2>`-`<h6>`) are chosen in strict accordance with section nesting depth to form a clear table of contents.
+- A correct accessibility tree.
+- Standardized time markup.
+
+### Crawl efficiency and SEO
+
+- Explicit canonicalization on every page.
+- Hierarchical URL structure with hyphens separating words.
+- Automatically generated `sitemap.xml` and `robots.txt` at build time.
+
+### User experience optimization
+
+- Zero cumulative layout shift (CLS).
+- Asynchronous loading of visual assets (`decoding="async"` and `loading="lazy"`).
+- Images are converted to the modern WebP format at build time.
+- Automatic Atom feed generation for subscribers and aggregators.
 
 ## Quick Start
 
@@ -25,7 +58,7 @@ Special thanks to our sponsors and partners for supporting the project.
 
 ## Contributors
 
-Thanks goes to these wonderful people!
+Thanks go to these wonderful people!
 
 <!-- contributors:start -->
 [<img alt="vzhou842" src="https://avatars.githubusercontent.com/u/10209814?v=4&s=117" width="117">](https://github.com/vzhou842) | [<img alt="abisz" src="https://avatars.githubusercontent.com/u/7287780?v=4&s=117" width="117">](https://github.com/abisz) | [<img alt="remi-bruguier" src="https://avatars.githubusercontent.com/u/7031328?v=4&s=117" width="117">](https://github.com/remi-bruguier) | [<img alt="sparklesam" src="https://avatars.githubusercontent.com/u/10287995?v=4&s=117" width="117">](https://github.com/sparklesam) | [<img alt="vinnymac" src="https://avatars.githubusercontent.com/u/1832781?v=4&s=117" width="117">](https://github.com/vinnymac) | [<img alt="alexxyjiang" src="https://avatars.githubusercontent.com/u/5335139?v=4&s=117" width="117">](https://github.com/alexxyjiang)
