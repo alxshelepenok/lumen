@@ -159,6 +159,7 @@ const blogPostingNode = (
 ): JsonLdNode => {
   const id = route.id(siteUrl(), SLICE.article);
   const pageRef = ref(route.id(siteUrl(), SLICE.page));
+  const blogRef = ref(rootId("blog"));
 
   return {
     "@type": "BlogPosting",
@@ -172,7 +173,7 @@ const blogPostingNode = (
     ...(extra.keywords?.length
       ? { "keywords": extra.keywords.join(", ") }
       : {}),
-    "isPartOf": pageRef,
+    "isPartOf": blogRef,
     "mainEntityOfPage": pageRef,
     "author": ref(rootId(SLICE.person)),
     "publisher": ref(rootId(SLICE.person)),

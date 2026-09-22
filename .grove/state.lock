@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:1268aba59a1ce97376682895409953df904414596174eef71886c80888c03bde
+# checksum: sha256:14eab44318281e683652c5f2ff7d865cac60d441ee81827a46304fc7358d99f3
 g G-84 status=partial fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:41:15Z "JSON-LD graph mirrors visible content"
   area: A-06
   fitness_target: 5
-  fitness_current: 1
+  fitness_current: 2
 
 w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
   goals: G-84
@@ -21,7 +21,7 @@ w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_upda
   evidence:
     | cross-check red first: audit-sweep over the unfixed tree reported 46 crumb issues on 31 pages; after the fix bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, crumb/href diff script reports zero divergent crumbs.
 
-w W-137 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Blog posting belongs to the blog node"
+w W-137 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:42:55Z "Blog posting belongs to the blog node"
   goals: G-84
   fitness: G-84=+1
   surface: src/utils/seo/nodes.ts
@@ -33,6 +33,8 @@ w W-137 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_
     | Post graphs point BlogPosting.isPartOf at the page slice, leaving the emitted Blog node without inbound references.
   evidence_strategy:
     | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+  evidence:
+    | seo test red first (posting isPartOf asserted against #blog), then bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, orphan scan reports no unreferenced Blog node on post graphs.
 
 w W-138 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Links region belongs to the website"
   goals: G-84
