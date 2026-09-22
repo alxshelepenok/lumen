@@ -9,7 +9,6 @@ import Post from "@/islands/post.astro";
 import PostToolbar from "@/islands/post-toolbar.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { getModifiedTime } from "@/utils/get-modified-time";
 import { getReadingTime } from "@/utils/get-reading-time";
 import { postGraph } from "@/utils/seo";
 import { getSlug, getTagSlugs } from "@/utils/get-slug";
@@ -56,15 +55,11 @@ if (socialImage?.src && Astro.site) {
   imageWidth = card.width;
   imageHeight = card.height;
 }
-const sourcePath =
-  (post as unknown as { filePath?: string }).filePath ??
-  `content/posts/${post.id}`;
-const dateModified = getModifiedTime(sourcePath);
 const jsonLd = postGraph(
   slug,
   {
-    date: post.data.date,
-    dateModified,
+    date: post.data.datePublished,
+    dateModified: post.data.dateModified?.toISOString(),
     description: post.data.description,
     tags: post.data.tags,
     title: post.data.title,
@@ -82,7 +77,7 @@ const jsonLd = postGraph(
   jsonLd={jsonLd}
   markdownSource={markdownSource}
   ogType="article"
-  publishedTime={post.data.date.toISOString()}
+  publishedTime={post.data.datePublished.toISOString()}
   tags={post.data.tags}
 >
   <PostToolbar />
@@ -90,7 +85,7 @@ const jsonLd = postGraph(
     <Post
       post={{
         Content,
-        date: post.data.date,
+        date: post.data.datePublished,
         readingTime,
         tagSlugs: post.data.tags ? getTagSlugs(post.data.tags) : undefined,
         tags: post.data.tags,

@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:d6fbc7eb7d503a03d1d5130dc76f2b3c89439b82e1315f1573c13e4fbdeedecb
+# checksum: sha256:21743bf3a34c061fe13bfcf1aa7e5594a022f8e9df4d4e76b6fc5f508a1f19e9
 g G-84 status=partial fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:41:15Z "JSON-LD graph mirrors visible content"
   area: A-06
   fitness_target: 5
-  fitness_current: 3
+  fitness_current: 4
 
 w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
   goals: G-84
@@ -51,7 +51,7 @@ w W-138 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_upda
   evidence:
     | seo test red first with the production fix reverted (links isPartOf asserted against #web), then bun test 68 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues.
 
-w W-139 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Frontmatter owns datePublished and dateModified"
+w W-139 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:49:10Z "Frontmatter owns datePublished and dateModified"
   goals: G-84
   fitness: G-84=+1
   surface: src/content.config.ts, content, src/pages/posts/[...slug].astro, src/pages/pages/[...slug].astro
@@ -64,6 +64,8 @@ w W-139 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_
     | getModifiedTime stamps dateModified from working-tree mtime, so /pages/about emits the branch checkout time 2026-09-22T11:00:08.495Z.
   evidence_strategy:
     | bun test, astro build plus audit:sweep, grep confirming no getModifiedTime imports remain, and git log dates recorded for every migrated content file.
+  evidence:
+    | no repro unit test: the defect was working-tree mtime noise, an environment artifact a test cannot pin; verified instead that astro check is clean, bun test 68 pass 0 fail, grep shows no getModifiedTime imports, and the built graph emits frontmatter values only: /posts/perfecting-the-art-of-perfection 2016-10-01/2024-12-02, /pages/about 2016-09-01/2026-09-20, atom updated fields use dateModified.
 
 w W-140 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:10Z "Graph contacts emit http urls only"
   goals: G-84

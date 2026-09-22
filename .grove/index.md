@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 47 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 34 |
-| V (uncertainty) | 1 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
@@ -18,7 +18,7 @@
 | A-03 | Interface and theming | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 4 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-06 | Semantics and discoverability | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -26,7 +26,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-84 | JSON-LD graph mirrors visible content | count; current=3 target=5 | partial |
+| G-84 | JSON-LD graph mirrors visible content | count; current=4 target=5 | partial |
 
 ## Work items
 
@@ -35,8 +35,8 @@
 | W-136 | bug | Breadcrumb crumb urls carry the page slice | G-84 | clear | ⊤ | done |  |
 | W-137 | bug | Blog posting belongs to the blog node | G-84 | clear | ⊤ | done |  |
 | W-138 | bug | Links region belongs to the website | G-84 | clear | ⊤ | done |  |
-| W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | proposed | ★ |
-| W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | proposed |  |
+| W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | done |  |
+| W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | proposed | ★ |
 
 ## Decisions
 
@@ -129,8 +129,8 @@ graph TD
   W_136["W-136: Breadcrumb crumb urls carry the page slice"]:::done
   W_137["W-137: Blog posting belongs to the blog node"]:::done
   W_138["W-138: Links region belongs to the website"]:::done
-  W_139["W-139: Frontmatter owns datePublished and dateModified"]:::feature,critical
-  W_140["W-140: Graph contacts emit http urls only"]:::feature
+  W_139["W-139: Frontmatter owns datePublished and dateModified"]:::done
+  W_140["W-140: Graph contacts emit http urls only"]:::feature,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -514,7 +514,7 @@ graph TD
   Y_38 -->|distills| D_39
   Y_39 -->|distills| D_12
   Y_39 -->|distills| D_40
-  class W_139 critical
+  class W_140 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
