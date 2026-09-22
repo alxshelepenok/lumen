@@ -20,14 +20,8 @@ $ bun run start
 
 Special thanks to our sponsors and partners for supporting the project.
 
-<p align="center">
-  <a href="https://www.browserstack.com" target="_blank" rel="noopener noreferrer">
-    <img width="250" src="https://gist.githubusercontent.com/alxshelepenok/94cbc6dc4a2cb8167ee188ddab33893a/raw/f869c9a67db7bfd5440a49178195efe811d8f7d8/browserstack.svg" alt="BrowserStack">
-  </a>
-  <a href="https://sentry.io" target="_blank" rel="noopener noreferrer">
-    <img width="250" src="https://gist.githubusercontent.com/alxshelepenok/1a74dbe123b2f7ad538f41c94e2da0a2/raw/aaeb3b38ef0873bae1f23f3605696b4e65362e67/sentry.svg" alt="Sentry">
-  </a>
-</p>
+| <a href="https://www.browserstack.com" target="_blank" rel="noopener noreferrer"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/94cbc6dc4a2cb8167ee188ddab33893a/raw/f869c9a67db7bfd5440a49178195efe811d8f7d8/browserstack.svg" alt="BrowserStack"></a> | <a href="https://sentry.io" target="_blank" rel="noopener noreferrer"><img width="250" src="https://gist.githubusercontent.com/alxshelepenok/1a74dbe123b2f7ad538f41c94e2da0a2/raw/aaeb3b38ef0873bae1f23f3605696b4e65362e67/sentry.svg" alt="Sentry"></a> |
+| :---: | :---: |
 
 ## Contributors
 

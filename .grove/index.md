@@ -37,6 +37,7 @@
 | W-143 | feature | Exclude the repository owner from the contributors table | G-86 | clear | ⊤ | done |  |
 | W-144 | feature | Reformat the sponsors block | G-86 | clear | ⊤ | done |  |
 | W-145 | bug | Contributors separator rows render as literal cells | G-86 | clear | ⊤ | done |  |
+| W-146 | feature | Restore the sponsors table layout | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -56,7 +57,8 @@
 | D-40 | Commit grammar anchors on any grove node id | accepted | D-12 |
 | D-41 | Contributors table regenerates from the GitHub API | superseded |  |
 | D-42 | Contributors table excludes the repository owner | accepted | D-41 |
-| D-43 | Sponsors block uses centered html instead of a padded table | accepted |  |
+| D-43 | Sponsors block uses centered html instead of a padded table | superseded |  |
+| D-44 | Sponsors stay a GFM table with an unpadded delimiter row | accepted | D-43 |
 
 ## Open questions
 
@@ -136,6 +138,7 @@ graph TD
   W_143["W-143: Exclude the repository owner from the contributors table"]:::done
   W_144["W-144: Reformat the sponsors block"]:::done
   W_145["W-145: Contributors separator rows render as literal cells"]:::done
+  W_146["W-146: Restore the sponsors table layout"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -151,6 +154,7 @@ graph TD
   D_41["D-41: Contributors table regenerates from the GitHub API"]:::decision
   D_42["D-42: Contributors table excludes the repository owner"]:::decision
   D_43["D-43: Sponsors block uses centered html instead of a padded table"]:::decision
+  D_44["D-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::decision
   Q_04["Q-04: Does the content layer expose raw markdown body for the full-text corpus?"]:::question
   Q_05["Q-05: Default social card image when a post has none"]:::question
   Q_07["Q-07: Do audits or tests assert stylesheet values?"]:::question
@@ -278,6 +282,7 @@ graph TD
   D_37 -->|supersedes| D_21
   D_40 -->|supersedes| D_12
   D_42 -->|supersedes| D_41
+  D_44 -->|supersedes| D_43
   Q_01 -->|asks| W_05
   Q_01 -->|asks| W_06
   Q_02 -->|asks| W_11
@@ -413,6 +418,7 @@ graph TD
   W_142 -->|implements| D_41
   W_143 -->|implements| D_42
   W_144 -->|implements| D_43
+  W_146 -->|implements| D_44
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08

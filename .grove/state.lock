@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:f035b87782829f0eb56410354bba6e1bf945a7b9b0fb52622bab5469f4cb2b97
+# checksum: sha256:be8a9e11a458e7d908f9acf9d3250c73e78e3acbf11f15e2282d299e4d8bc042
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -73,6 +73,22 @@ w W-145 type=bug status=done cynefin=clear t_created=2026-09-22T17:08:12Z t_upda
     | Contributor set unchanged at 40 (owner and bots filtered); second --write run left README.md byte-identical (fixed point).
   why:
     | The generator joined all triplets into one GFM table; a delimiter row is only honored right after the header, so later :---: rows became body text. The 2019 source separated triplets with blank lines. No python test harness exists in the repo, so the red and green structural checks are recorded in evidence.
+
+w W-146 type=feature status=done cynefin=clear t_created=2026-09-22T17:10:30Z t_updated=2026-09-22T17:11:17Z "Restore the sponsors table layout"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md
+  ac:
+    | README.md renders sponsors as a GFM table again: one header row with a cell per sponsor and an unpadded :---: delimiter row.
+    | The delimiter row is exactly | :---: | :---: | with no padding dashes.
+    | Anchors keep target=_blank with rel=noopener noreferrer and images keep width=250 with alt attributes; urls stay unchanged.
+  hypothesis:
+    | A GFM table with a short delimiter row renders identically to the original padded table because delimiter length carries no meaning.
+  evidence_strategy:
+    | Compare hrefs and image urls against the sponsors section at commit 8da577b6 and verify the delimiter row bytes.
+  evidence:
+    | Sponsors section at HEAD vs commit 8da577b6: all 4 hrefs and image urls identical, cell order unchanged, rendering restored to the original GFM table.
+    | Delimiter row is exactly | :---: | :---: | (19 chars, was 442); rel=noopener noreferrer and alt kept on both anchors; no centered html paragraph left.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
@@ -262,7 +278,7 @@ d D-42 status=accepted t_created=2026-09-22T16:59:08Z t_updated=2026-09-22T16:59
   validation:
     | Owner login absent from the output; rendered count drops by exactly one versus the previous run.
 
-d D-43 status=accepted t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T17:06:59Z "Sponsors block uses centered html instead of a padded table"
+d D-43 status=superseded t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T17:10:30Z "Sponsors block uses centered html instead of a padded table"
   context:
     | The sponsors table pads a 442-character delimiter row by hand, carries no image alt attributes and no rel on target=_blank anchors; diffs are unreadable and the alignment breaks on every edit.
   options:
@@ -274,6 +290,19 @@ d D-43 status=accepted t_created=2026-09-22T17:06:56Z t_updated=2026-09-22T17:06
     | The section is html rather than GFM; adding a sponsor means appending one anchor block and alignment stays automatic.
   validation:
     | GitHub render shows both logos centered side by side at 250px with alt text; logo urls unchanged and alive.
+
+d D-44 status=accepted t_created=2026-09-22T17:10:28Z t_updated=2026-09-22T17:10:31Z "Sponsors stay a GFM table with an unpadded delimiter row"
+  context:
+    | The centered html paragraph from D-43 dropped the table cells: the logos clump in the middle without cell spacing; the maintainer wants the original cell layout back.
+  options:
+    | OC1: Keep the GFM table exactly as before but shorten the delimiter to unpadded :---: cells.
+    | OC2: Use a raw html table with one td per sponsor for multi-line source.
+  decision:
+    | OC1; rendering fidelity wins, the delimiter padding was the only real formatting problem and alt plus rel attributes stay.
+  consequences:
+    | The logo row remains one long single line, inherent to GFM tables; the delimiter row drops from 442 to 19 characters and diffs become readable.
+  validation:
+    | Sponsors section renders as before: two table cells with centered logos; hrefs and image urls identical to the pre-reformat commit.
 
 q Q-04 status=answered cynefin=complicated t_created=2026-09-19T13:54:21Z t_updated=2026-09-19T15:12:46Z "Does the content layer expose raw markdown body for the full-text corpus?"
   outcome:
@@ -689,6 +718,7 @@ e D-33 supersedes D-30 t_created=2026-09-20T21:45:10Z
 e D-37 supersedes D-21 t_created=2026-09-20T22:27:47Z
 e D-40 supersedes D-12 t_created=2026-09-22T11:37:27Z
 e D-42 supersedes D-41 t_created=2026-09-22T16:59:08Z
+e D-44 supersedes D-43 t_created=2026-09-22T17:10:28Z
 e Q-01 asks W-05 t_created=2026-09-18T19:27:12Z
 e Q-01 asks W-06 t_created=2026-09-18T19:27:12Z
 e Q-02 asks W-11 t_created=2026-09-18T19:27:13Z
@@ -824,6 +854,7 @@ e W-140 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-142 implements D-41 t_created=2026-09-22T16:54:06Z
 e W-143 implements D-42 t_created=2026-09-22T16:59:11Z
 e W-144 implements D-43 t_created=2026-09-22T17:06:59Z
+e W-146 implements D-44 t_created=2026-09-22T17:10:31Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
