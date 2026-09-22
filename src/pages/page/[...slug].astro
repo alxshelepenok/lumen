@@ -16,7 +16,7 @@ export const getStaticPaths = async () => {
   const { feedLimit } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+    (a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()
   );
 
   const total = Math.ceil(posts.length / feedLimit);

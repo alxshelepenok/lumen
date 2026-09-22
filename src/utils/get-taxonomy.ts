@@ -38,7 +38,7 @@ const categoryOf = (entry: Post): string[] =>
 const tagsOf = (entry: Post): string[] => entry.data.tags ?? [];
 
 const yearOf = (entry: Post): string[] => [
-  entry.data.date.getFullYear().toString(),
+  entry.data.datePublished.getFullYear().toString(),
 ];
 
 export { alphabetical, categoryOf, getGroups, newestFirst, tagsOf, yearOf };

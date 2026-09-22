@@ -1,6 +1,7 @@
 ---
 title: "The Quantum Leap in Digital Architecture"
-date: "2016-09-01T23:46:37.121Z"
+datePublished: "2016-09-01T23:46:37.121Z"
+dateModified: "2024-12-02T22:36:52.000Z"
 template: "post"
 draft: false
 slug: "/posts/quantum-leap-digital-architecture"

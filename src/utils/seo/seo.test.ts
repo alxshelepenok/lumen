@@ -7,6 +7,7 @@ import {
   itemListNode,
   personNode,
   siteNavigationNodes,
+  webContacts,
   webPageNode,
   websiteNode,
 } from "@/utils/seo/nodes";
@@ -73,7 +74,7 @@ describe("itemListNode", () => {
 });
 
 describe("page nodes", () => {
-  it("links the blog posting reciprocally with its page", () => {
+  it("links the blog posting to the blog and its page", () => {
     const route = routes.post("hello");
     const page = webPageNode(route, {
       name: "Hello",
@@ -97,6 +98,7 @@ describe("page nodes", () => {
     expect(page.dateModified).toBe("2026-02-01T00:00:00.000Z");
 
     expect(posting["@id"]).toBe(`${site}/posts/hello/#article`);
+    expect(posting.isPartOf["@id"]).toBe(`${site}/#blog`);
     expect(posting.mainEntityOfPage["@id"]).toBe(`${site}/posts/hello/#page`);
     expect(posting.datePublished).toBe("2026-01-01T00:00:00.000Z");
     expect(posting.dateModified).toBe("2026-02-01T00:00:00.000Z");
@@ -204,6 +206,7 @@ describe("blog node", () => {
     const links = homeNodes.find((node) => node["@id"] === `${site}/#links`) as Record<string, any>;
 
     expect(links).toBeDefined();
+    expect(links.isPartOf["@id"]).toBe(`${site}/#web`);
     expect(links.mainEntity["@id"]).toBe(`${site}/#links-list`);
 
     const homePage = homeNodes.find(
@@ -224,6 +227,18 @@ describe("blog node", () => {
     expect(
       paginatedNodes.some((node) => node["@id"] === `${site}/#links`)
     ).toBe(true);
+  });
+});
+
+describe("web contacts", () => {
+  it("keeps only contacts whose href is an http url", () => {
+    expect(
+      webContacts([
+        { name: "email", contact: "john@example.com" },
+        { name: "line", contact: "abc123" },
+        { name: "github", contact: "alxshelepenok" },
+      ])
+    ).toEqual([{ name: "github", href: "https://github.com/alxshelepenok" }]);
   });
 });
 

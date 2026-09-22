@@ -7,7 +7,6 @@ import Breadcrumb from "@/islands/breadcrumb.astro";
 import Layout from "@/islands/layout.astro";
 
 import { getSiteMetadata } from "@/utils/get-site-metadata";
-import { getModifiedTime } from "@/utils/get-modified-time";
 import { getSlug } from "@/utils/get-slug";
 import { staticPageGraph } from "@/utils/seo";
 
@@ -38,12 +37,9 @@ const image =
   socialImage?.src && Astro.site
     ? new URL(socialImage.src, Astro.site).href
     : undefined;
-const sourcePath =
-  (page as unknown as { filePath?: string }).filePath ??
-  `content/pages/${page.id}`;
 const jsonLd = staticPageGraph(slug, {
-  date: page.data.date,
-  dateModified: getModifiedTime(sourcePath),
+  date: page.data.datePublished,
+  dateModified: page.data.dateModified?.toISOString(),
   description: page.data.description,
   title: page.data.title,
 });

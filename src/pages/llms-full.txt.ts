@@ -10,7 +10,7 @@ export const GET: APIRoute = async () => {
   const { url, title, description } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+    (a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()
   );
   const pages = await getCollection("pages", ({ data }) => !data.draft);
 
@@ -57,7 +57,7 @@ export const GET: APIRoute = async () => {
         `# ${post.data.title}`,
         `URL: ${url}${routes.post(slug).href()}`,
         `Description: ${post.data.description ?? description}`,
-        `Date: ${post.data.date.toISOString()}`,
+        `Date: ${post.data.datePublished.toISOString()}`,
         ...(post.data.tags?.length ? [`Tags: ${post.data.tags.join(", ")}`] : []),
       ],
       post.body

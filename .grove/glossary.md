@@ -3,7 +3,7 @@
 | Term | Definition | Source |
 | --- | --- | --- |
 | Content collection | Astro content layer entry that loads markdown through a glob loader and validates frontmatter against a zod schema. | D-05 |
-| Frontmatter | YAML metadata at the top of each markdown file (title, date, template, draft, slug, category, tags, description, socialImage). | A-01 |
+| Frontmatter | YAML metadata at the top of each markdown file (title, datePublished, dateModified, template, draft, slug, category, tags, description, socialImage). | A-01 |
 | Taxonomy | The category, tag and year groupings that drive the listing routes. | A-02 |
 | parity | Equivalence of routes, HTML output and visuals before and after a markup or framework change. | W-12 |
 | No-FOUC script | Inline pre-body script that applies the persisted theme class to html before first paint. | D-03 |

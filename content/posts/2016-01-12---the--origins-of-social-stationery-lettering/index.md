@@ -1,6 +1,7 @@
 ---
 title: The Origins of Social Stationery Lettering
-date: "2016-12-01T22:40:32.169Z"
+datePublished: "2016-12-01T22:40:32.169Z"
+dateModified: "2024-12-02T22:36:52.000Z"
 template: "post"
 draft: false
 slug: "/posts/the-origins-of-social-stationery-lettering"

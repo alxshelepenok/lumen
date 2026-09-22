@@ -7,7 +7,8 @@ const posts = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z.coerce.date(),
+      datePublished: z.coerce.date(),
+      dateModified: z.coerce.date().optional(),
       template: z.literal("post"),
       draft: z.boolean().default(false),
       slug: z.string().optional(),
@@ -23,7 +24,8 @@ const pages = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z.coerce.date().optional(),
+      datePublished: z.coerce.date().optional(),
+      dateModified: z.coerce.date().optional(),
       template: z.literal("page"),
       draft: z.boolean().default(false),
       slug: z.string().optional(),

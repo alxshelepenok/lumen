@@ -22,7 +22,7 @@ export const GET = async (context: APIContext) => {
 
   const posts = (
     await getCollection("posts", ({ data }: Post) => !data.draft)
-  ).sort((a: Post, b: Post) => b.data.date.valueOf() - a.data.date.valueOf());
+  ).sort((a: Post, b: Post) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf());
 
   const container = await AstroContainer.create();
 
@@ -33,13 +33,16 @@ export const GET = async (context: APIContext) => {
       const link = context.site
         ? new URL(getSlug(post.id, "posts"), context.site).href
         : getSlug(post.id, "posts");
+      const updated = (
+        post.data.dateModified ?? post.data.datePublished
+      ).toISOString();
 
       return [
         "  <entry>",
         `    <title type="html">${escapeXml(post.data.title)}</title>`,
         `    <link href="${link}" rel="alternate" type="text/html"/>`,
         `    <id>${link}</id>`,
-        `    <updated>${post.data.date.toISOString()}</updated>`,
+        `    <updated>${updated}</updated>`,
         `    <summary type="html">${escapeXml(post.data.description ?? "")}</summary>`,
         `    <content type="html">${escapeXml(content)}</content>`,
         "  </entry>",
@@ -47,7 +50,9 @@ export const GET = async (context: APIContext) => {
     })
   );
 
-  const updated = posts[0]?.data.date.toISOString() ?? new Date(0).toISOString();
+  const updated = (
+    posts[0]?.data.dateModified ?? posts[0]?.data.datePublished ?? new Date(0)
+  ).toISOString();
 
   const atom = [
     '<?xml version="1.0" encoding="utf-8"?>',

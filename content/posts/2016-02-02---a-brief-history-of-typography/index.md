@@ -1,6 +1,7 @@
 ---
 title: "A Brief History of Typography"
-date: "2016-02-02T22:40:32.169Z"
+datePublished: "2016-02-02T22:40:32.169Z"
+dateModified: "2024-12-02T22:36:52.000Z"
 template: "post"
 draft: false
 slug: "/posts/a-brief-history-of-typography"
