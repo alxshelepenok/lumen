@@ -26,7 +26,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-84 | JSON-LD graph mirrors visible content | count; current=2 target=5 | partial |
+| G-84 | JSON-LD graph mirrors visible content | count; current=3 target=5 | partial |
 
 ## Work items
 
@@ -34,8 +34,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-136 | bug | Breadcrumb crumb urls carry the page slice | G-84 | clear | ⊤ | done |  |
 | W-137 | bug | Blog posting belongs to the blog node | G-84 | clear | ⊤ | done |  |
-| W-138 | bug | Links region belongs to the website | G-84 | clear | ⊤ | proposed | ★ |
-| W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | proposed |  |
+| W-138 | bug | Links region belongs to the website | G-84 | clear | ⊤ | done |  |
+| W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | proposed | ★ |
 | W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | proposed |  |
 
 ## Decisions
@@ -128,8 +128,8 @@ graph TD
   G_84["G-84: JSON-LD graph mirrors visible content"]:::goal
   W_136["W-136: Breadcrumb crumb urls carry the page slice"]:::done
   W_137["W-137: Blog posting belongs to the blog node"]:::done
-  W_138["W-138: Links region belongs to the website"]:::feature,critical
-  W_139["W-139: Frontmatter owns datePublished and dateModified"]:::feature
+  W_138["W-138: Links region belongs to the website"]:::done
+  W_139["W-139: Frontmatter owns datePublished and dateModified"]:::feature,critical
   W_140["W-140: Graph contacts emit http urls only"]:::feature
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
@@ -514,7 +514,7 @@ graph TD
   Y_38 -->|distills| D_39
   Y_39 -->|distills| D_12
   Y_39 -->|distills| D_40
-  class W_138 critical
+  class W_139 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

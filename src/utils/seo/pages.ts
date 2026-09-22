@@ -57,7 +57,7 @@ const homeFeedGraph = (page: number, items: FeedItem[]): JsonLdGraph => {
         ? [regionNode(routes.home(), "blog", labels.blog, SLICE.articles)]
         : []),
       ...siteNavigationNodes(),
-      ...linksNodes(route),
+      ...linksNodes(),
     ],
     [
       webPageNode(route, {
@@ -158,7 +158,7 @@ const termGraph = (term: TermGraphInput): JsonLdGraph => {
       list,
       breadcrumb,
       ...siteNavigationNodes(),
-      ...linksNodes(term.route),
+      ...linksNodes(),
     ],
     [
       webPageNode(term.route, {
@@ -196,7 +196,7 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
       list,
       breadcrumb,
       ...siteNavigationNodes(),
-      ...linksNodes(hub.route),
+      ...linksNodes(),
     ],
     [
       webPageNode(hub.route, {
@@ -235,7 +235,7 @@ const staticPageGraph = (
       websiteNode(),
       breadcrumb,
       ...siteNavigationNodes(),
-      ...linksNodes(route),
+      ...linksNodes(),
     ],
     [
       webPageNode(route, {

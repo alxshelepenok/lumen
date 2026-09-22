@@ -199,8 +199,7 @@ const regionNode = (
   };
 };
 
-const linksNodes = (route: Route): JsonLdNode[] => {
-  const site = siteUrl();
+const linksNodes = (): JsonLdNode[] => {
   const { author } = getSiteMetadata();
   const elementId = rootId("links");
   const listId = rootId("links-list");
@@ -232,7 +231,7 @@ const linksNodes = (route: Route): JsonLdNode[] => {
     "@id": elementId,
     "url": elementId,
     "name": labels.contacts,
-    "isPartOf": ref(route.id(site, SLICE.page)),
+    "isPartOf": ref(rootId(SLICE.web)),
     "mainEntity": ref(listId),
   };
 

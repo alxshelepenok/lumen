@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:14eab44318281e683652c5f2ff7d865cac60d441ee81827a46304fc7358d99f3
+# checksum: sha256:d6fbc7eb7d503a03d1d5130dc76f2b3c89439b82e1315f1573c13e4fbdeedecb
 g G-84 status=partial fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:41:15Z "JSON-LD graph mirrors visible content"
   area: A-06
   fitness_target: 5
-  fitness_current: 2
+  fitness_current: 3
 
 w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
   goals: G-84
@@ -36,7 +36,7 @@ w W-137 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_upda
   evidence:
     | seo test red first (posting isPartOf asserted against #blog), then bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, orphan scan reports no unreferenced Blog node on post graphs.
 
-w W-138 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Links region belongs to the website"
+w W-138 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:44:47Z "Links region belongs to the website"
   goals: G-84
   fitness: G-84=+1
   surface: src/utils/seo/nodes.ts, src/utils/seo/pages.ts
@@ -48,6 +48,8 @@ w W-138 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_
     | The root-anchored links element claims isPartOf whichever page renders it, so one id carries different isPartOf values across pages.
   evidence_strategy:
     | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+  evidence:
+    | seo test red first with the production fix reverted (links isPartOf asserted against #web), then bun test 68 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues.
 
 w W-139 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Frontmatter owns datePublished and dateModified"
   goals: G-84

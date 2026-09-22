@@ -205,6 +205,7 @@ describe("blog node", () => {
     const links = homeNodes.find((node) => node["@id"] === `${site}/#links`) as Record<string, any>;
 
     expect(links).toBeDefined();
+    expect(links.isPartOf["@id"]).toBe(`${site}/#web`);
     expect(links.mainEntity["@id"]).toBe(`${site}/#links-list`);
 
     const homePage = homeNodes.find(
