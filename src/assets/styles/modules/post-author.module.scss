@@ -1,0 +1,26 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.post-author {
+  border-top: 1px solid hsl(var(--color-border));
+  font-style: normal;
+  max-width: variables.$layout-post-width;
+  padding-top: variables.$spacing-lg;
+  line-height: variables.$line-height-body;
+  margin-top: variables.$spacing-lg;
+  margin-bottom: variables.$spacing-2xl;
+
+  .description {
+    .x {
+      display: block;
+      text-decoration: underline;
+    }
+  }
+}
+
+@include mixins.breakpoint-sm {
+  .post-author {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,78 @@
+---
+import { getImage } from "astro:assets";
+
+import type { ImageMetadata } from "astro";
+
+import styles from "@/assets/styles/modules/sidebar-author.module.scss";
+
+import Picture from "@/islands/picture.astro";
+import ThemeToggle from "@/islands/theme-toggle.astro";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import type { SiteMetadataAuthor } from "@/utils/get-site-metadata";
+import { largestVariant, srcSetFrom, srcSetWebpFrom } from "@/utils/images";
+import type { ImageVariant } from "@/utils/images";
+import { Route, SLICE } from "@/utils/routes";
+
+interface Props {
+  author: Pick<SiteMetadataAuthor, "title" | "description">;
+}
+
+const { author } = Astro.props;
+
+const contentImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/content/*.{png,jpg,jpeg,webp}",
+  { eager: true }
+);
+const logoKey = Object.keys(contentImages).find((key) =>
+  key.replace(/\\/g, "/").endsWith(`/${getSiteMetadata().logo}`)
+);
+
+if (!logoKey) {
+  throw new Error(`config logo "${getSiteMetadata().logo}" not found in content`);
+}
+
+const logo = contentImages[logoKey].default;
+
+const widths = [48, 96, 192];
+
+const variants: ImageVariant[] = await Promise.all(
+  widths.map(async (width) => {
+    const [original, webp] = await Promise.all([
+      getImage({ src: logo, width, format: "png" }),
+      getImage({ src: logo, width, format: "webp" }),
+    ]);
+
+    return {
+      src: original.src,
+      srcWebp: webp.src,
+      width,
+      height: Math.round((width * logo.height) / logo.width),
+    };
+  })
+);
+---
+
+<section id="person" class={styles.sidebarAuthor} aria-labelledby="sidebar-author-heading">
+  <a href={new Route("/").anchor(SLICE.page)}>
+    <Picture
+      class={styles.photo}
+      alt={author.title}
+      src={largestVariant(variants).src}
+      srcset={srcSetFrom(variants)}
+      srcsetWebp={srcSetWebpFrom(variants)}
+      sizes="96px"
+      width={96}
+      height={Math.round((96 * logo.height) / logo.width)}
+    />
+  </a>
+
+  <div class={styles.titleContainer}>
+    <h2 id="sidebar-author-heading" class={styles.title}>
+      <a class={styles.link} href={new Route("/").anchor(SLICE.page)}>
+        {author.title}
+      </a>
+    </h2>
+    <ThemeToggle />
+  </div>
+  <p class={styles.description}>{author.description}</p>
+</section>

@@ -2,17 +2,17 @@
 @use "../mixins";
 
 html {
-  font-size: variables.$typography-root-font-size;
+  font-size: 100%;
 }
 
 body {
   background: hsl(var(--color-background));
   color: hsl(var(--color-foreground));
-  font-family: variables.$typography-font-family;
-  font-size: variables.$typography-base-font-size;
+  font-family: variables.$font-family-base;
+  font-size: variables.$font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: variables.$typography-base-line-height;
+  line-height: variables.$line-height-body;
   margin: 0 0 0 calc(100vw - 100%);
   text-rendering: optimizelegibility;
   -ms-text-size-adjust: 100%;
@@ -25,75 +25,69 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: variables.$typography-font-family;
+  font-family: variables.$font-family-base;
   font-weight: 600;
+  line-height: variables.$line-height-heading;
 }
 
 h1 {
-  font-size: variables.$typography-base-font-size * 2.5;
-  @include mixins.line-height(2);
-  @include mixins.margin-top(4);
-  @include mixins.margin-bottom(1);
+  font-size: variables.$font-size-4xl;
+  margin-top: variables.$spacing-4xl;
+  margin-bottom: variables.$spacing-lg;
 }
 
 h2 {
-  font-size: variables.$typography-base-font-size * 1.6875;
-  @include mixins.line-height(1.5);
-  @include mixins.margin-top(2);
-  @include mixins.margin-bottom(0.5);
+  font-size: variables.$font-size-2xl;
+  margin-top: variables.$spacing-2xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h3 {
-  font-size: variables.$typography-base-font-size * 1.375;
-  @include mixins.line-height(1);
-  @include mixins.margin-top(2);
-  @include mixins.margin-bottom(0.5);
+  font-size: variables.$font-size-xl;
+  margin-top: variables.$spacing-2xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h4 {
-  font-size: variables.$typography-base-font-size * 1.2;
-  @include mixins.line-height(1);
-  @include mixins.margin-top(1.5);
-  @include mixins.margin-bottom(0.5);
+  font-size: variables.$font-size-lg;
+  margin-top: variables.$spacing-xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h5 {
-  font-size: variables.$typography-base-font-size;
-  @include mixins.line-height(1);
-  @include mixins.margin-top(2.5);
-  @include mixins.margin-bottom(0.5);
+  font-size: variables.$font-size-base;
+  margin-top: variables.$spacing-3xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 h6 {
-  font-size: variables.$typography-base-font-size;
-  @include mixins.line-height(1);
-  @include mixins.margin-top(2.5);
-  @include mixins.margin-bottom(0.5);
+  font-size: variables.$font-size-base;
+  margin-top: variables.$spacing-3xl;
+  margin-bottom: variables.$spacing-sm;
 }
 
 img {
   border: 0;
   display: block;
+  height: auto;
   max-width: 100%;
 }
 
 hr {
   background-image: linear-gradient(
     to bottom,
-    transparent 1px,
-    transparent 11px,
-    hsl(var(--color-foreground)) 11px,
-    hsl(var(--color-foreground)) 15px,
-    transparent 15px,
-    transparent 26px
+    transparent 0.6875rem,
+    hsl(var(--color-foreground)) 0.6875rem,
+    hsl(var(--color-foreground)) 0.9375rem,
+    transparent 0.9375rem
   );
-  background-size: 100% 26px;
+  background-size: 100% 1.625rem;
   border: 0;
   color: hsl(var(--color-foreground));
   display: block;
-  height: 26px;
-  margin: 52px auto;
-  width: 100px;
+  height: 1.625rem;
+  margin: variables.$spacing-2xl auto;
+  width: 6.25rem;
 }
 
 a {
@@ -107,6 +101,13 @@ a {
   }
 }
 
+main:focus,
+main:focus-visible,
+article:focus,
+article:focus-visible {
+  outline: none;
+}
+
 b,
 strong {
   font-weight: 600;
@@ -114,17 +115,17 @@ strong {
 
 ul {
   list-style: square;
-  @include mixins.margin-bottom(1);
+  margin-bottom: variables.$spacing-lg;
 
   & li {
-    margin-bottom: 10px;
-    padding: 0 5px;
+    margin-bottom: variables.$spacing-sm;
+    padding: 0 variables.$spacing-2xs;
   }
 }
 
 p {
-  @include mixins.line-height(1);
-  @include mixins.margin-bottom(1);
+  line-height: variables.$line-height-body;
+  margin-bottom: variables.$spacing-lg;
 }
 
 blockquote {
@@ -140,11 +141,11 @@ figure {
 }
 
 figcaption {
-  @include mixins.line-height(0.75);
-  @include mixins.margin-top(0.25);
+  line-height: variables.$line-height-snug;
   color: hsl(var(--color-foreground));
-  font-size: variables.$typography-small-font-size;
+  font-size: variables.$font-size-sm;
   font-style: italic;
+  margin-top: variables.$spacing-xs;
   margin-bottom: 0;
   text-align: center;
 }
@@ -152,8 +153,8 @@ figcaption {
 @include mixins.breakpoint-sm {
   figure.float-left,
   figure.float-right {
-    max-width: 310px;
-    @include mixins.padding(0, 1, 0, 1);
+    max-width: 19.5rem;
+    padding: variables.$spacing-lg 0;
   }
 
   .float-right {

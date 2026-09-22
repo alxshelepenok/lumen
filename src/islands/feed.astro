@@ -1,0 +1,62 @@
+---
+import styles from "@/assets/styles/modules/feed.module.scss";
+
+import { labels } from "@/constants/labels";
+
+import type { FeedItem } from "@/utils/get-feed-items";
+import { Route, SLICE, toKebabCase } from "@/utils/routes";
+
+interface Props {
+  heading?: string;
+  items: FeedItem[];
+}
+
+const { heading = labels.articles, items } = Astro.props;
+
+const formatDate = (date: Date): string =>
+  date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+
+const formatDateTime = (date: Date): string => date.toISOString();
+---
+
+<section id="articles" class={styles.feed} aria-labelledby="feed-heading">
+  <h2 id="feed-heading" class="visually-hidden">{heading}</h2>
+  {
+    items.map((item) => (
+      <article class={styles.item} id={`article-${toKebabCase(item.title)}`}>
+        <header>
+          <time class={styles.time} datetime={formatDateTime(item.date)}>
+            {formatDate(item.date)}
+          </time>
+          {
+            item.category && item.categorySlug ? (
+              <a
+                href={new Route(item.categorySlug).anchor(SLICE.page)}
+                class={styles.category}
+              >
+                {item.category}
+              </a>
+            ) : null
+          }
+          <h3 class={styles.title}>
+            <a class={styles.link} href={new Route(item.slug).anchor(SLICE.page)}>
+              {item.title}
+            </a>
+          </h3>
+        </header>
+        <p class={styles.description}>{item.description}</p>
+        <footer>
+          <span data-nosnippet>
+            <a
+              class={styles.more}
+              href={new Route(item.slug).anchor(SLICE.page)}
+              aria-label={`Read more about ${item.title}`}
+            >
+              Read{item.readingTime ? ` (${item.readingTime} min)` : ""}
+            </a>
+          </span>
+        </footer>
+      </article>
+    ))
+  }
+</section>

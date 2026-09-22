@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Feed from "@/islands/feed.astro";
+import Layout from "@/islands/layout.astro";
+import Page from "@/islands/page.astro";
+import Pagination from "@/islands/pagination.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
+
+import { getFeedItems } from "@/utils/get-feed-items";
+import { getPaginationInfo } from "@/utils/get-pagination";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
+import { routes } from "@/utils/routes";
+import { termGraph } from "@/utils/seo";
+import { labels } from "@/constants/labels";
+
+export const getStaticPaths = async () => {
+  const { feedLimit } = getSiteMetadata();
+
+  const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
+  return getGroups(posts, yearOf, newestFirst).flatMap((year) => {
+    const basePath = routes.year(year.fieldValue).path;
+    const inYear = posts.filter(
+      (post) => post.data.date.getFullYear().toString() === year.fieldValue
+    );
+    const total = Math.ceil(year.totalCount / feedLimit);
+
+    return Array.from({ length: total }, (_, page) => ({
+      params: {
+        slug: page === 0 ? year.fieldValue : `${year.fieldValue}/page/${page}`,
+      },
+      props: {
+        group: year.fieldValue,
+        items: getFeedItems(
+          inYear.slice(page * feedLimit, (page + 1) * feedLimit)
+        ),
+        pagination: getPaginationInfo(basePath, page, total),
+      },
+    }));
+  });
+}
+
+const { group, items, pagination } = Astro.props;
+const { title, description } = getSiteMetadata();
+
+const route =
+  pagination.currentPage === 0
+    ? routes.year(group)
+    : routes.paginated(routes.year(group), pagination.currentPage);
+
+const pageTitle =
+  pagination.currentPage > 0
+    ? `Year ${group} - Page ${pagination.currentPage} - ${title}`
+    : `Year ${group} - ${title}`;
+
+const jsonLd = termGraph({
+  hubName: labels.years,
+  hubPath: routes.years().href(),
+  items,
+  name: group,
+  route,
+});
+---
+
+<BaseLayout title={pageTitle} description={description} jsonLd={jsonLd}>
+  <Layout>
+    <Page title={group}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[
+          { name: title, href: "/" },
+          { name: labels.years, href: routes.years().href() },
+          { name: group },
+        ]}
+      />
+      <Feed heading={group} items={items} />
+      <Pagination
+        slot="footer"
+        prevPagePath={pagination.prevPagePath}
+        nextPagePath={pagination.nextPagePath}
+        hasPrevPage={pagination.hasPrevPage}
+        hasNextPage={pagination.hasNextPage}
+      />
+    </Page>
+  </Layout>
+</BaseLayout>

@@ -1,0 +1,43 @@
+@use "src/assets/styles/variables";
+
+.sidebar-contacts {
+  margin-bottom: variables.$spacing-lg;
+
+  .list {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    list-style: none;
+    max-width: 10.5rem;
+    padding: 0;
+    margin: variables.$spacing-sm 0;
+
+    .item {
+      border-radius: 50%;
+      border: 1px solid hsl(var(--color-muted));
+      padding: 0;
+      margin: variables.$spacing-xs;
+
+      &:nth-child(3n + 1) {
+        margin-left: 0;
+      }
+
+      .link {
+        border: 0;
+        align-items: center;
+        justify-content: center;
+        width: variables.$control-height;
+        height: variables.$control-height;
+        color: hsl(var(--color-foreground));
+        cursor: pointer;
+        display: flex;
+
+        &:hover,
+        &:focus {
+          color: hsl(var(--color-primary));
+        }
+      }
+    }
+  }
+}

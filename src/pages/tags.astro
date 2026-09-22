@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
+import Layout from "@/islands/layout.astro";
+import Page from "@/islands/page.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getGroups, tagsOf } from "@/utils/get-taxonomy";
+import { hubGraph } from "@/utils/seo";
+import { SLICE, routes } from "@/utils/routes";
+import { labels } from "@/constants/labels";
+
+const { url, title, description } = getSiteMetadata();
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const tags = getGroups(posts, tagsOf);
+
+const jsonLd = hubGraph({
+  entries: tags.map((tag) => ({
+    name: `${tag.fieldValue} (${tag.totalCount})`,
+    url: routes.tag(tag.fieldValue).id(url, SLICE.page),
+  })),
+  fragment: "tags-list",
+  hubLabel: labels.tags,
+  route: routes.tags(),
+});
+---
+
+<BaseLayout title={`${labels.tags} - ${title}`} description={description} jsonLd={jsonLd}>
+  <Layout>
+    <Page title={labels.tags}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[{ name: title, href: "/" }, { name: labels.tags }]}
+      />
+      <ul id="tags-list" aria-labelledby="page-title">
+        {
+          tags.map((tag) => (
+            <li>
+              <a href={routes.tag(tag.fieldValue).anchor(SLICE.page)}>
+                {tag.fieldValue} ({tag.totalCount})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Page>
+  </Layout>
+</BaseLayout>

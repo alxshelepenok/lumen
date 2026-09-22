@@ -1,0 +1,17 @@
+---
+import styles from "@/assets/styles/modules/button.module.scss";
+
+import { Route, SLICE } from "@/utils/routes";
+
+interface Props {
+  className?: string;
+  title: string;
+  to: string;
+}
+
+const { className, title, to } = Astro.props;
+---
+
+<a class={[styles.button, className].filter(Boolean).join(" ")} href={new Route(to).anchor(SLICE.page)}>
+  {title}
+</a>

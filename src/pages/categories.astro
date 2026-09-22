@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
+import Layout from "@/islands/layout.astro";
+import Page from "@/islands/page.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { categoryOf, getGroups } from "@/utils/get-taxonomy";
+import { hubGraph } from "@/utils/seo";
+import { SLICE, routes } from "@/utils/routes";
+import { labels } from "@/constants/labels";
+
+const { url, title, description } = getSiteMetadata();
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const categories = getGroups(posts, categoryOf);
+
+const jsonLd = hubGraph({
+  entries: categories.map((category) => ({
+    name: `${category.fieldValue} (${category.totalCount})`,
+    url: routes.category(category.fieldValue).id(url, SLICE.page),
+  })),
+  fragment: "categories-list",
+  hubLabel: labels.categories,
+  route: routes.categories(),
+});
+---
+
+<BaseLayout title={`${labels.categories} - ${title}`} description={description} jsonLd={jsonLd}>
+  <Layout>
+    <Page title={labels.categories}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[{ name: title, href: "/" }, { name: labels.categories }]}
+      />
+      <ul id="categories-list" aria-labelledby="page-title">
+        {
+          categories.map((category) => (
+            <li>
+              <a href={routes.category(category.fieldValue).anchor(SLICE.page)}>
+                {category.fieldValue} ({category.totalCount})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Page>
+  </Layout>
+</BaseLayout>

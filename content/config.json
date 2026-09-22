@@ -1,7 +1,9 @@
 {
-  "title": "Blog by John Doe",
+  "title": "John Doe",
   "url": "https://lumen.alxshelepenok.com",
   "description": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+  "lang": "en",
+  "logo": "logo.png",
   "copyright": "© All rights reserved.",
   "googleAnalyticsId": "G-MSQGQG14PK",
   "pathPrefix": "/",
@@ -22,7 +24,6 @@
   ],
   "author": {
     "title": "John Doe",
-    "photo": "/logo.png",
     "description": "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
     "contacts": [
       {

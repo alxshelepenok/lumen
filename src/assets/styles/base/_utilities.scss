@@ -1,0 +1,39 @@
+@use "../variables";
+@use "../mixins";
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.skip-link {
+  left: -62.5rem;
+  margin: 0;
+  position: absolute;
+  right: auto;
+  top: variables.$spacing-xl;
+  z-index: 100;
+
+  &:focus {
+    left: auto;
+    right: variables.$spacing-xl;
+  }
+}
+
+a.skip-link {
+  display: none;
+}
+
+@include mixins.breakpoint-sm {
+  a.skip-link {
+    display: inline-block;
+  }
+}

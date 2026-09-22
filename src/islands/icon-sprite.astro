@@ -1,0 +1,15 @@
+---
+import { icons } from "@/constants/icons";
+
+const entries = Object.entries(icons);
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  {
+    entries.map(([name, icon]) => (
+      <symbol id={`icon-${name}`} viewBox={icon.viewBox}>
+        <path d={icon.path} />
+      </symbol>
+    ))
+  }
+</svg>

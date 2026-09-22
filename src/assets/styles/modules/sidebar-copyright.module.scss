@@ -1,0 +1,12 @@
+@use "src/assets/styles/variables";
+
+.sidebar-copyright {
+  color: hsl(var(--color-muted-foreground));
+  font-size: variables.$font-size-sm;
+}
+
+.note {
+  display: block;
+  line-height: variables.$line-height-snug;
+  margin: 0;
+}

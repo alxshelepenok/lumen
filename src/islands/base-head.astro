@@ -1,0 +1,102 @@
+---
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { themeColors } from "@/utils/theme";
+
+interface Props {
+  canonical: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
+  markdownSource?: string;
+  ogType?: string;
+  publishedTime?: string;
+  robots?: string;
+  tags?: string[];
+  title: string;
+}
+
+const {
+  canonical,
+  description,
+  image,
+  imageAlt,
+  imageHeight,
+  imageWidth,
+  markdownSource,
+  ogType = "website",
+  publishedTime,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1",
+  tags,
+  title,
+} = Astro.props;
+
+const { author, title: siteTitle } = getSiteMetadata();
+
+const imageAltText = image ? (imageAlt ?? description) : undefined;
+---
+
+<meta name="robots" content={robots} />
+<meta name="description" content={description} />
+<meta name="author" content={author.title} />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<link rel="canonical" href={canonical} />
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  title={`${siteTitle} feed`}
+  href="/atom.xml"
+/>
+{
+  markdownSource && (
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href={markdownSource}
+      title={`${title} - Markdown source`}
+    />
+  )
+}
+<link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous" />
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="color-scheme" content="light dark" />
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: light)"
+  content={themeColors.light}
+/>
+<meta
+  name="theme-color"
+  media="(prefers-color-scheme: dark)"
+  content={themeColors.dark}
+/>
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteTitle} />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+{publishedTime ? <meta property="article:published_time" content={publishedTime} /> : null}
+{
+  image ? (
+    <>
+      <meta property="og:image" content={image} />
+      {imageWidth ? <meta property="og:image:width" content={String(imageWidth)} /> : null}
+      {imageHeight ? <meta property="og:image:height" content={String(imageHeight)} /> : null}
+      {imageAltText ? <meta property="og:image:alt" content={imageAltText} /> : null}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={image} />
+      {imageAltText ? <meta name="twitter:image:alt" content={imageAltText} /> : null}
+    </>
+  ) : (
+    <meta name="twitter:card" content="summary" />
+  )
+}
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{tags?.map((tag) => <meta name="article:tag" content={tag} />)}

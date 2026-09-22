@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@use "../variables";
+
+pre.astro-code,
+:not(pre) > code {
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-size: variables.$font-size-base;
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+pre.astro-code {
+  background-color: hsl(var(--color-muted)) !important;
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  overflow: auto;
+  padding: 1em;
+}
+
+:not(pre) > code {
+  background-color: hsl(var(--color-muted));
+  border-radius: 0.3em;
+  padding: 0.1em;
+}

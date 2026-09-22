@@ -1,0 +1,44 @@
+---
+import styles from "@/assets/styles/modules/sidebar-menu.module.scss";
+
+import { labels } from "@/constants/labels";
+
+import { Route, SLICE, toKebabCase } from "@/utils/routes";
+
+interface Props {
+  menu: {
+    title: string;
+    url: string;
+  }[];
+}
+
+const { menu } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const isActive = (url: string): boolean =>
+  url === "/" ? currentPath === "/" : currentPath.startsWith(url);
+---
+
+<nav id="sidebar-menu" class={styles.sidebarMenu} aria-labelledby="sidebar-menu-heading">
+  <h2 id="sidebar-menu-heading" class="visually-hidden">{labels.pages}</h2>
+  <ul id="sidebar-menu-list" class={styles.list} aria-labelledby="sidebar-menu-heading">
+    {
+      menu.map((item) => (
+        <li class={styles.item} id={`sidebar-menu-item-${toKebabCase(item.title)}`}>
+          <a
+            href={new Route(item.url).anchor(SLICE.page)}
+            class={[
+              styles.link,
+              isActive(item.url) ? styles.active : null,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            aria-current={isActive(item.url) ? "page" : undefined}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

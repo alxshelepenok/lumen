@@ -1,0 +1,41 @@
+@use "../variables";
+
+@mixin content-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    align-items: baseline;
+    display: flex;
+    gap: variables.$spacing-sm;
+    margin-bottom: variables.$spacing-sm;
+    padding: 0;
+
+    &::before {
+      content: "";
+      flex: none;
+    }
+  }
+}
+
+@mixin content-list-square {
+  @include content-list;
+
+  li::before {
+    background-color: currentColor;
+    height: 0.375rem;
+    width: 0.375rem;
+  }
+}
+
+@mixin content-list-numbered {
+  @include content-list;
+
+  counter-reset: item;
+
+  li::before {
+    content: counter(item) ".";
+    counter-increment: item;
+    min-width: 2ch;
+  }
+}

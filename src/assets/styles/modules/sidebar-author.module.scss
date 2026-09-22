@@ -1,0 +1,48 @@
+@use "src/assets/styles/variables";
+
+$photo-size: 4.5rem;
+
+.sidebar-author {
+  .photo {
+    border: 1px solid hsl(var(--color-muted));
+    background-clip: padding-box;
+    display: inline-block;
+    border-radius: 50%;
+    height: $photo-size;
+    width: $photo-size;
+    margin-bottom: 0;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .title {
+    font-size: variables.$font-size-md;
+    font-weight: 600;
+    margin: 0;
+    line-height: variables.$line-height-heading;
+
+    .link {
+      color: hsl(var(--color-foreground));
+
+      &:hover,
+      &:focus {
+        color: hsl(var(--color-foreground));
+      }
+    }
+  }
+
+  .description {
+    color: hsl(var(--color-muted-foreground));
+    line-height: variables.$line-height-body;
+    margin-bottom: variables.$spacing-lg;
+  }
+
+  .titleContainer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: variables.$spacing-sm 0;
+  }
+}

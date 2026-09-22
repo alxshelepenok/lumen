@@ -1,0 +1,64 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+import styles from "@/assets/styles/modules/post.module.scss";
+
+import Breadcrumb from "@/islands/breadcrumb.astro";
+import PostAuthor from "@/islands/post-author.astro";
+import PostFooter from "@/islands/post-footer.astro";
+import PostTags from "@/islands/post-tags.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+
+interface Props {
+  post: {
+    Content: AstroComponentFactory;
+    date: Date;
+    readingTime?: number;
+    tagSlugs?: string[];
+    tags?: string[];
+    title: string;
+  };
+}
+
+const { post } = Astro.props;
+
+const { Content } = post;
+const { title: siteTitle } = getSiteMetadata();
+---
+
+<article id="article" class={styles.post} aria-labelledby="post-title">
+  <header>
+    <div class={styles.metaLine}>
+      <Breadcrumb
+        center
+        className={styles.breadcrumb}
+        items={[{ name: siteTitle, href: "/" }, { name: post.title }]}
+      />
+      {
+        post.readingTime ? (
+          <p class={styles.readingTime}>
+            (
+            <time datetime={`PT${post.readingTime}M`}>
+              {post.readingTime} min read
+            </time>
+            )
+          </p>
+        ) : null
+      }
+    </div>
+    <hgroup class={styles.titleWrap}>
+      <h1 id="post-title" class={styles.title}>{post.title}</h1>
+    </hgroup>
+  </header>
+  <Content />
+  <footer class={styles.footer}>
+    <PostFooter date={post.date} />
+    {
+      post.tags && post.tagSlugs ? (
+        <PostTags tags={post.tags} tagSlugs={post.tagSlugs} />
+      ) : null
+    }
+    <PostAuthor />
+  </footer>
+</article>

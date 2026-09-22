@@ -1,5 +1,0 @@
-@use "../variables";
-
-@mixin line-height($number) {
-  line-height: #{$number * variables.$typography-leading + "px"};
-}

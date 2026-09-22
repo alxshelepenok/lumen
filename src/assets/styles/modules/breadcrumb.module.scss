@@ -1,0 +1,47 @@
+@use "src/assets/styles/variables";
+
+.breadcrumb {
+  color: hsl(var(--color-muted-foreground));
+  font-size: variables.$font-size-sm;
+  line-height: variables.$line-height-snug;
+  margin-bottom: variables.$spacing-sm;
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li::before {
+    color: hsl(var(--color-border));
+    content: "/";
+    margin: 0 variables.$spacing-xs;
+  }
+
+  a {
+    color: hsl(var(--color-muted-foreground));
+
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
+  }
+
+  [aria-current="page"] {
+    color: hsl(var(--color-foreground));
+  }
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  text-align: center;
+  width: fit-content;
+
+  ol {
+    justify-content: center;
+  }
+}

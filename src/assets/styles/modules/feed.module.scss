@@ -1,0 +1,61 @@
+@use "src/assets/styles/variables";
+
+.feed {
+  .item {
+    margin-bottom: variables.$spacing-xl;
+
+    &:last-child {
+      margin-bottom: variables.$spacing-sm;
+    }
+
+    .title {
+      font-size: variables.$font-size-2xl;
+      line-height: variables.$line-height-snug;
+      margin-top: 0;
+      margin-bottom: variables.$spacing-sm;
+
+      .link {
+        color: hsl(var(--color-foreground));
+
+        &:hover,
+        &:focus {
+          border-bottom: 1px solid hsl(var(--color-foreground));
+          color: hsl(var(--color-foreground));
+        }
+      }
+    }
+
+    .description {
+      color: hsl(var(--color-muted-foreground));
+      font-size: variables.$font-size-base;
+      line-height: variables.$line-height-body;
+      margin-bottom: variables.$spacing-md;
+    }
+
+    .time {
+      color: hsl(var(--color-foreground));
+      font-size: variables.$font-size-sm;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .category {
+      margin-left: variables.$spacing-lg;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: hsl(var(--color-primary));
+      font-size: variables.$font-size-sm;
+    }
+
+    .more {
+      color: hsl(var(--color-foreground));
+      font-size: variables.$font-size-base;
+
+      &:hover,
+      &:focus {
+        border-bottom: 1px solid hsl(var(--color-primary));
+        color: hsl(var(--color-primary));
+      }
+    }
+  }
+}

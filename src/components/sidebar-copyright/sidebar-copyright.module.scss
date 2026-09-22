@@ -1,7 +1,0 @@
-@use "src/assets/styles/mixins";
-@use "src/assets/styles/variables";
-
-.sidebar-copyright {
-  color: hsl(var(--color-muted-foreground));
-  font-size: variables.$typography-small-font-size;
-}

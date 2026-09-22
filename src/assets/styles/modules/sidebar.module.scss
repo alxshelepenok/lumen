@@ -1,0 +1,44 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.sidebar {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  grid-column: span 12;
+  padding: variables.$spacing-lg variables.$spacing-md 0;
+
+  &:after {
+    background: hsl(var(--color-border));
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--color-border)) 0%,
+      hsl(var(--color-border)) 48%,
+      hsl(var(--color-background)) 100%
+    );
+  }
+}
+
+@include mixins.breakpoint-sm {
+  .sidebar {
+    grid-column: span 5;
+    padding: variables.$spacing-xl variables.$spacing-md 0;
+
+    &:after {
+      bottom: 0;
+      content: "";
+      height: 34rem;
+      position: absolute;
+      right: -0.5rem;
+      width: 1px;
+      top: variables.$spacing-xl;
+    }
+  }
+}
+
+@include mixins.breakpoint-md {
+  .sidebar {
+    grid-column: span 4;
+    padding: variables.$spacing-xl;
+  }
+}

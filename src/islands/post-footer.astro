@@ -1,0 +1,19 @@
+---
+import styles from "@/assets/styles/modules/post-footer.module.scss";
+
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+
+const published = date.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+
+<p class={styles.date}>
+  Published <time datetime={date.toISOString()}>{published}</time>
+</p>

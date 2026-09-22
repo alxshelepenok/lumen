@@ -46,7 +46,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "bun run version ${nextRelease.version}",
+        "prepareCmd": "bun run version ${nextRelease.version}"
       }
     ],
     [

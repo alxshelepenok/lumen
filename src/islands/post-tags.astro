@@ -1,0 +1,22 @@
+---
+import styles from "@/assets/styles/modules/post-tags.module.scss";
+
+import Button from "@/islands/button.astro";
+
+interface Props {
+  tags: string[];
+  tagSlugs: string[];
+}
+
+const { tags, tagSlugs } = Astro.props;
+---
+
+<ul class={styles.postTags}>
+  {
+    tagSlugs.map((slug, i) => (
+      <li class={styles.item}>
+        <Button title={tags[i]} to={slug} />
+      </li>
+    ))
+  }
+</ul>

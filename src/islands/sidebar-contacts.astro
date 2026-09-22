@@ -1,0 +1,66 @@
+---
+import styles from "@/assets/styles/modules/sidebar-contacts.module.scss";
+
+import { icons } from "@/constants/icons";
+import { labels } from "@/constants/labels";
+
+import Icon from "@/islands/icon.astro";
+
+import { getContactHref } from "@/utils/get-contact-href";
+
+interface Props {
+  contacts: {
+    name: keyof typeof icons;
+    contact: string;
+  }[];
+}
+
+const { contacts } = Astro.props;
+---
+
+{
+  contacts.length > 0 && (
+    <section id="links" class={styles.sidebarContacts} aria-labelledby="sidebar-contacts-heading">
+      <h2 id="sidebar-contacts-heading" class="visually-hidden">{labels.contacts}</h2>
+      <ul id="links-list" class={styles.list} aria-labelledby="sidebar-contacts-heading">
+        {contacts.map(({ name, contact }) => (
+          <li class={styles.item}>
+            {name === "email" ? (
+              <span
+                class={styles.link}
+                aria-label={name.charAt(0).toUpperCase() + name.slice(1)}
+                data-email-contact={getContactHref(name, contact)}
+              >
+                <Icon name={name} />
+              </span>
+            ) : (
+              <a
+                target="_blank"
+                class={styles.link}
+                aria-label={name.charAt(0).toUpperCase() + name.slice(1)}
+                href={getContactHref(name, contact)}
+                rel="noopener noreferrer me"
+              >
+                <Icon name={name} />
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-email-contact]")
+    .forEach((element) => {
+      element.addEventListener("click", () => {
+        const encoded = element.dataset.emailContact;
+
+        if (encoded) {
+          window.location.href = `mailto:${atob(encoded)}`;
+        }
+      });
+    });
+</script>

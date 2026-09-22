@@ -1,0 +1,34 @@
+@use "src/assets/styles/variables";
+
+.sidebar-menu {
+  margin-bottom: variables.$spacing-lg;
+
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .item {
+      margin: variables.$spacing-sm 0;
+      padding: 0;
+
+      .link {
+        border: 0;
+        color: hsl(var(--color-foreground));
+        font-size: variables.$font-size-base;
+        font-weight: normal;
+
+        &:hover,
+        &:focus {
+          border-bottom: 1px solid hsl(var(--color-primary));
+          color: hsl(var(--color-primary));
+        }
+
+        &.active {
+          border-bottom: 1px solid hsl(var(--color-foreground));
+          color: hsl(var(--color-foreground));
+        }
+      }
+    }
+  }
+}

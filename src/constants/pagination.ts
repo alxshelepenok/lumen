@@ -1,6 +1,6 @@
 const pagination = {
-  prevPage: "← PREV",
-  nextPage: "→ NEXT",
+  prevPage: "PREV",
+  nextPage: "NEXT",
 };
 
 export { pagination }

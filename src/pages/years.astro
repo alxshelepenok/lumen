@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Breadcrumb from "@/islands/breadcrumb.astro";
+import Layout from "@/islands/layout.astro";
+import Page from "@/islands/page.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getGroups, newestFirst, yearOf } from "@/utils/get-taxonomy";
+import { hubGraph } from "@/utils/seo";
+import { SLICE, routes } from "@/utils/routes";
+import { labels } from "@/constants/labels";
+
+const { url, title, description } = getSiteMetadata();
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+const years = getGroups(posts, yearOf, newestFirst);
+
+const jsonLd = hubGraph({
+  entries: years.map((year) => ({
+    name: `${year.fieldValue} (${year.totalCount})`,
+    url: routes.year(year.fieldValue).id(url, SLICE.page),
+  })),
+  fragment: "years-list",
+  hubLabel: labels.years,
+  route: routes.years(),
+});
+---
+
+<BaseLayout title={`${labels.years} - ${title}`} description={description} jsonLd={jsonLd}>
+  <Layout>
+    <Page title={labels.years}>
+      <Breadcrumb
+        slot="breadcrumb"
+        items={[{ name: title, href: "/" }, { name: labels.years }]}
+      />
+      <ul id="years-list" aria-labelledby="page-title">
+        {
+          years.map((year) => (
+            <li>
+              <a href={routes.year(year.fieldValue).anchor(SLICE.page)}>
+                {year.fieldValue} ({year.totalCount})
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Page>
+  </Layout>
+</BaseLayout>

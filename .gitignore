@@ -10,10 +10,9 @@ pids
 
 # editors
 .idea
-.vscode
+.vscode/*
 
 # build
-public
 
 # cache
 .cache
@@ -43,3 +42,11 @@ node_modules
 npm-shrinkwrap.json
 package-lock.json
 yarn.lock
+
+# grove
+.grove/locks/
+!.grove/journal.log
+
+# astro
+target/
+.astro/

@@ -1,0 +1,133 @@
+---
+import "@/assets/styles/main.scss";
+
+import buttonStyles from "@/assets/styles/modules/button.module.scss";
+
+import BaseHead from "@/islands/base-head.astro";
+import IconSprite from "@/islands/icon-sprite.astro";
+import JsonLd from "@/islands/json-ld.astro";
+
+import { labels } from "@/constants/labels";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import type { JsonLdGraph } from "@/utils/seo";
+import { Route } from "@/utils/routes";
+import { themeStorageKey } from "@/utils/theme";
+
+interface Props {
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
+  jsonLd?: JsonLdGraph;
+  markdownSource?: string;
+  ogType?: string;
+  publishedTime?: string;
+  robots?: string;
+  tags?: string[];
+  title: string;
+}
+
+const {
+  description = "",
+  image,
+  imageAlt,
+  imageHeight,
+  imageWidth,
+  jsonLd,
+  markdownSource,
+  ogType,
+  publishedTime,
+  robots,
+  tags,
+  title,
+} = Astro.props;
+const { googleAnalyticsId, lang } = getSiteMetadata();
+
+const canonical = new Route(Astro.url.pathname).canonical(
+  Astro.site?.href ?? ""
+);
+
+const themeScript = `
+  (() => {
+    var cachedMode;
+
+    try {
+      var preferredTheme = JSON.parse(localStorage.getItem("${themeStorageKey}"));
+
+      if (preferredTheme && preferredTheme.mode) {
+        cachedMode = preferredTheme.mode;
+      }
+    } catch (err) { }
+
+    const setTheme = (newTheme) => {
+      document.documentElement.className = newTheme;
+    };
+
+    var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    setTheme(cachedMode || (darkQuery.matches ? "dark" : "light"));
+  })()
+`;
+---
+
+<!doctype html>
+<html lang={lang} id="web">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      imageAlt={imageAlt}
+      imageHeight={imageHeight}
+      imageWidth={imageWidth}
+      canonical={canonical}
+      ogType={ogType}
+      markdownSource={markdownSource}
+      publishedTime={publishedTime}
+      robots={robots}
+      tags={tags}
+    />
+    {jsonLd ? <JsonLd data={jsonLd} /> : null}
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+    />
+    <script
+      is:inline
+      set:html={`
+        window.dataLayer = window.dataLayer || [];
+        const gtag = (...args) => { dataLayer.push(args); };
+        gtag("js", new Date());
+
+        gtag("config", "${googleAnalyticsId}");
+      `}
+    />
+    <script is:inline set:html={themeScript} />
+    {
+      import.meta.env.DEV && (
+        <script>
+          import { runSchemaAudit } from "@/utils/audit/schema-audit";
+          import { runAccessibilityAudit } from "@/utils/audit/accessibility-audit";
+
+          document.addEventListener("DOMContentLoaded", () => {
+            runSchemaAudit(document);
+            runAccessibilityAudit(document);
+          });
+        </script>
+      )
+    }
+  </head>
+  <body>
+    <a href="#page" class:list={["skip-link", buttonStyles.button]}>
+      {labels.skipToContent}
+    </a>
+    <slot />
+    <IconSprite />
+  </body>
+</html>

@@ -1,0 +1,101 @@
+---
+import { getCollection, render } from "astro:content";
+
+import { writeOgCard } from "../../../internal/og/render";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Layout from "@/islands/layout.astro";
+import Post from "@/islands/post.astro";
+import PostToolbar from "@/islands/post-toolbar.astro";
+
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { getModifiedTime } from "@/utils/get-modified-time";
+import { getReadingTime } from "@/utils/get-reading-time";
+import { postGraph } from "@/utils/seo";
+import { getSlug, getTagSlugs } from "@/utils/get-slug";
+
+export const getStaticPaths = async () => {
+  const posts = await getCollection("posts", ({ data }) => !data.draft);
+
+  return posts.map((entry) => ({
+    params: {
+      slug: getSlug(entry.id, "posts")
+        .replace(/^\/posts\/?/, "")
+        .replace(/\/$/, ""),
+    },
+    props: { post: entry, slug: getSlug(entry.id, "posts").replace(/^\/posts\/?/, "").replace(/\/$/, "") },
+  }));
+}
+
+const { post, slug } = Astro.props;
+const { Content } = await render(post);
+const readingTime = getReadingTime(post.body);
+
+const { title, description, url } = getSiteMetadata();
+const markdownSource = `/posts/${slug}.md`;
+const socialImage = post.data.socialImage;
+let image: string | undefined;
+let imageWidth: number | undefined;
+let imageHeight: number | undefined;
+
+if (socialImage?.src && Astro.site) {
+  image = new URL(socialImage.src, Astro.site).href;
+  imageWidth = socialImage.width;
+  imageHeight = socialImage.height;
+} else if (Astro.site) {
+  const card = await writeOgCard(
+    {
+      description: post.data.description || description,
+      siteLine: new URL(url).host,
+      title: post.data.title,
+    },
+    `public/generated/og/${slug}.png`
+  );
+
+  image = new URL(`generated/og/${slug}.png`, Astro.site).href;
+  imageWidth = card.width;
+  imageHeight = card.height;
+}
+const sourcePath =
+  (post as unknown as { filePath?: string }).filePath ??
+  `content/posts/${post.id}`;
+const dateModified = getModifiedTime(sourcePath);
+const jsonLd = postGraph(
+  slug,
+  {
+    date: post.data.date,
+    dateModified,
+    description: post.data.description,
+    tags: post.data.tags,
+    title: post.data.title,
+  }
+);
+---
+
+<BaseLayout
+  title={`${post.data.title} - ${title}`}
+  description={post.data.description || description}
+  image={image}
+  imageAlt={post.data.title}
+  imageHeight={imageHeight}
+  imageWidth={imageWidth}
+  jsonLd={jsonLd}
+  markdownSource={markdownSource}
+  ogType="article"
+  publishedTime={post.data.date.toISOString()}
+  tags={post.data.tags}
+>
+  <PostToolbar />
+  <Layout labelledBy="post-title" sidebar={false}>
+    <Post
+      post={{
+        Content,
+        date: post.data.date,
+        readingTime,
+        tagSlugs: post.data.tags ? getTagSlugs(post.data.tags) : undefined,
+        tags: post.data.tags,
+        title: post.data.title,
+      }}
+    />
+  </Layout>
+</BaseLayout>

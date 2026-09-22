@@ -1,0 +1,44 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.page {
+  grid-column: span 12;
+  margin-bottom: variables.$spacing-2xl;
+  padding: variables.$spacing-lg variables.$spacing-md 0;
+  font-size: variables.$font-size-base;
+  line-height: variables.$line-height-body;
+
+  > section ul {
+    @include mixins.content-list-square;
+  }
+
+  > section ol {
+    @include mixins.content-list-numbered;
+  }
+
+  > :last-child {
+    margin-bottom: variables.$spacing-lg;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: variables.$font-size-4xl;
+    line-height: variables.$line-height-heading;
+    margin-top: 0;
+    margin-bottom: variables.$spacing-xl;
+  }
+}
+
+@include mixins.breakpoint-sm {
+  .page {
+    grid-column: span 7;
+    padding: variables.$spacing-xl variables.$spacing-md 0;
+  }
+}
+
+@include mixins.breakpoint-lg {
+  .page {
+    grid-column: span 8;
+    padding: variables.$spacing-xl variables.$spacing-lg 0;
+  }
+}

@@ -1,0 +1,22 @@
+@use "src/assets/styles/variables";
+
+.button {
+  border: 1px solid hsl(var(--color-border));
+  border-radius: variables.$control-radius;
+  font-size: variables.$font-size-base;
+  line-height: variables.$control-height;
+  color: hsl(var(--color-foreground));
+  height: variables.$control-height;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: normal;
+  margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  padding: 0 variables.$spacing-lg;
+
+  &:hover, &:focus {
+    color: hsl(var(--color-accent-foreground));
+    background: hsl(var(--color-accent));
+  }
+}

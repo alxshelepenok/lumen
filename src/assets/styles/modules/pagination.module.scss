@@ -1,0 +1,74 @@
+@use "src/assets/styles/variables";
+
+.pagination {
+  display: flex;
+  margin-top: variables.$spacing-2xl;
+
+  .label {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
+  .previousLink {
+    color: hsl(var(--color-foreground));
+    display: flex;
+    align-items: center;
+    font-size: variables.$font-size-2xl;
+    font-weight: 600;
+    gap: variables.$spacing-xs;
+    justify-content: flex-start;
+    line-height: variables.$line-height-tight;
+    width: 50%;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 0.625rem;
+      background-color: currentColor;
+      mask: var(--icon-arrow) center / contain no-repeat;
+      transform: scaleX(-1);
+    }
+
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
+
+    &.disable {
+      color: hsl(var(--color-muted-foreground));
+      pointer-events: none;
+    }
+  }
+
+  .nextLink {
+    color: hsl(var(--color-foreground));
+    display: flex;
+    align-items: center;
+    font-size: variables.$font-size-2xl;
+    font-weight: 600;
+    gap: variables.$spacing-xs;
+    justify-content: flex-end;
+    line-height: variables.$line-height-tight;
+    width: 50%;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 0.625rem;
+      background-color: currentColor;
+      mask: var(--icon-arrow) center / contain no-repeat;
+    }
+
+    &:hover,
+    &:focus {
+      color: hsl(var(--color-primary));
+    }
+
+    &.disable {
+      color: hsl(var(--color-muted-foreground));
+      pointer-events: none;
+    }
+  }
+}

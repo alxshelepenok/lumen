@@ -1,0 +1,24 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: variables.$spacing-lg 0 0;
+
+  .allArticles {
+    margin: 0 variables.$spacing-sm 0 0;
+  }
+}
+
+@include mixins.breakpoint-lg {
+  .toolbar {
+    left: variables.$spacing-xl;
+    max-width: none;
+    position: fixed;
+    top: variables.$spacing-xl;
+    margin: 0 variables.$spacing-sm 0 0;
+  }
+}

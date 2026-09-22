@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "@/islands/base-layout.astro";
+import Feed from "@/islands/feed.astro";
+import Layout from "@/islands/layout.astro";
+import Page from "@/islands/page.astro";
+import Pagination from "@/islands/pagination.astro";
+
+import { getFeedItems } from "@/utils/get-feed-items";
+import { getSiteMetadata } from "@/utils/get-site-metadata";
+import { homeFeedGraph } from "@/utils/seo";
+import { routes } from "@/utils/routes";
+
+import { labels } from "@/constants/labels";
+
+const { title, description, feedLimit } = getSiteMetadata();
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const totalPages = Math.ceil(posts.length / feedLimit);
+const items = getFeedItems(posts.slice(0, feedLimit));
+const jsonLd = homeFeedGraph(0, items);
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Layout>
+    <Page id="blog" heading={labels.blog}>
+      <Feed items={items} />
+      <Pagination
+        slot="footer"
+        prevPagePath="/"
+        nextPagePath={routes.paginated(routes.home(), 1).href()}
+        hasPrevPage={false}
+        hasNextPage={totalPages > 1}
+      />
+    </Page>
+  </Layout>
+</BaseLayout>

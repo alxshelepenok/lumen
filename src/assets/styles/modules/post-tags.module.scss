@@ -1,0 +1,20 @@
+@use "src/assets/styles/mixins";
+@use "src/assets/styles/variables";
+
+.post-tags {
+  list-style: none;
+  margin-bottom: variables.$spacing-sm;
+  padding: 0;
+
+  .item {
+    display: inline-block;
+    margin: variables.$spacing-xs 0;
+
+    @include mixins.breakpoint-sm {
+      &:first-child {
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}

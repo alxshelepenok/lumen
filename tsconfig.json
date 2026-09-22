@@ -1,21 +1,18 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "react",
     "target": "esnext",
     "module": "esnext",
-    "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
-    "paths": {
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/types/*": ["./src/types/*"],
-      "@/utils/*": ["./src/utils/*"],
-      "@/internal/*": ["./internal/*"],
-      "@/constants/*": ["./src/constants/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/mocks": ["./internal/testing/mocks"]
-    },
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "jsx": "react",
     "strict": true,
+    "types": [
+      "bun"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "noUnusedLocals": true,
@@ -27,8 +24,38 @@
     "verbatimModuleSyntax": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "target",
+    "paths": {
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/constants/*": [
+        "./src/constants/*"
+      ],
+      "@/content/*": [
+        "./content/*"
+      ],
+      "@/internal/*": [
+        "./internal/*"
+      ],
+      "@/islands/*": [
+        "./src/islands/*"
+      ],
+      "@/mocks": [
+        "./internal/testing/mocks"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ]
+    }
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules",
+    "target"
+  ],
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ]
 }

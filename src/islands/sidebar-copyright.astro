@@ -1,0 +1,13 @@
+---
+import styles from "@/assets/styles/modules/sidebar-copyright.module.scss";
+
+interface Props {
+  copyright: string;
+}
+
+const { copyright } = Astro.props;
+---
+
+<footer class={styles.sidebarCopyright}>
+  <span class={styles.note} data-nosnippet>{copyright}</span>
+</footer>
