@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@semantic-release/exec": "6.0.3",
-    "@semantic-release/git": "10.0.1",
+    "@semantic-release/exec": "7.1.0",
+    "@semantic-release/git": "11.0.1",
     "@types/bun": "1.4.2",
     "@types/sass": "1.45.0",
     "autoprefixer": "10.6.1",
@@ -40,7 +40,7 @@
     "postcss": "8.5.28",
     "sass": "1.75.0",
     "satori": "^0.33.4",
-    "semantic-release": "24.2.9",
+    "semantic-release": "25.0.9",
     "typescript": "5.9.3"
   }
 }
