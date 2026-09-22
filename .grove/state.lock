@@ -1,6 +1,79 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:6051a617927c33f649ad5861089438a10a98b2e3476c69b73aeccdc66515286b
+# checksum: sha256:1268aba59a1ce97376682895409953df904414596174eef71886c80888c03bde
+g G-84 status=partial fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:41:15Z "JSON-LD graph mirrors visible content"
+  area: A-06
+  fitness_target: 5
+  fitness_current: 1
+
+w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/pages.ts, src/utils/audit/schema-audit.ts
+  ac:
+    | Every linked breadcrumb crumb url equals the visible breadcrumb href with the page slice.
+    | audit:sweep reports zero issues over a fresh build.
+    | A cross-check unit test flags a crumb url that diverges from the visible link.
+  repro:
+    | Built pages emit crumb item urls as bare canonical paths (/ and /tags/) while the visible links target /#page and /tags/#page across 28 pages.
+  evidence_strategy:
+    | Red-then-green unit run of the new cross-check, bun test on audit and seo suites, fresh build plus audit:sweep, and a script diffing every built crumb url against the rendered breadcrumb hrefs.
+  evidence:
+    | cross-check red first: audit-sweep over the unfixed tree reported 46 crumb issues on 31 pages; after the fix bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, crumb/href diff script reports zero divergent crumbs.
+
+w W-137 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Blog posting belongs to the blog node"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts
+  ac:
+    | BlogPosting.isPartOf references the home-anchored blog node.
+    | BlogPosting.mainEntityOfPage keeps the page slice reference.
+    | The pinned seo test asserts the new wiring and the sweep stays green.
+  repro:
+    | Post graphs point BlogPosting.isPartOf at the page slice, leaving the emitted Blog node without inbound references.
+  evidence_strategy:
+    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+
+w W-138 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Links region belongs to the website"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts, src/utils/seo/pages.ts
+  ac:
+    | The links element keeps its root id and asserts isPartOf the website on every page.
+    | linksNodes no longer takes a route argument.
+    | The pinned seo test asserts the wiring and the sweep stays green.
+  repro:
+    | The root-anchored links element claims isPartOf whichever page renders it, so one id carries different isPartOf values across pages.
+  evidence_strategy:
+    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+
+w W-139 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:09Z "Frontmatter owns datePublished and dateModified"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/content.config.ts, content, src/pages/posts/[...slug].astro, src/pages/pages/[...slug].astro
+  ac:
+    | Posts and pages schemas expose datePublished and dateModified.
+    | All content files carry both fields with git-derived modification dates.
+    | Graph and meta dates come from frontmatter only and get-modified-time is removed.
+    | bun test and audit:sweep stay green over a fresh build.
+  repro:
+    | getModifiedTime stamps dateModified from working-tree mtime, so /pages/about emits the branch checkout time 2026-09-22T11:00:08.495Z.
+  evidence_strategy:
+    | bun test, astro build plus audit:sweep, grep confirming no getModifiedTime imports remain, and git log dates recorded for every migrated content file.
+
+w W-140 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:10Z "Graph contacts emit http urls only"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts, src/utils/audit/schema-audit.ts
+  ac:
+    | linksNodes emits only contacts whose href is an http url and counts only emitted items.
+    | The contact filter is a pure helper with a unit test.
+    | The integrity audit rejects any non-http node id and the sweep stays green.
+  repro:
+    | An email contact would emit a WebPage whose id and url are btoa(contact), a base64 string, because linksNodes skips the http filter personNode.sameAs applies.
+  evidence_strategy:
+    | Red-then-green unit runs of the helper test and the audit id check, bun test, fresh build plus audit:sweep.
+
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.

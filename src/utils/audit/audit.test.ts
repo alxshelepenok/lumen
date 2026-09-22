@@ -280,6 +280,61 @@ describe("schema audit locale and list names", () => {
   });
 });
 
+describe("schema audit breadcrumb parity", () => {
+  const graphOf = (nodes: object[]) => ({
+    "@context": "https://schema.org",
+    "@graph": nodes,
+  });
+  const crumbs = (urls: string[]) => ({
+    "@type": "BreadcrumbList",
+    "@id": "https://s.test/tags/#breadcrumb",
+    "url": "https://s.test/tags/#breadcrumb",
+    "itemListElement": urls.map((url, index) => ({
+      "@type": "ListItem",
+      "@id": `https://s.test/tags/#breadcrumb-item-${index + 1}`,
+      "url": `https://s.test/tags/#breadcrumb-item-${index + 1}`,
+      "position": index + 1,
+      "item": { "@type": "WebPage", "@id": url, "url": url, "name": `Crumb ${index + 1}` },
+    })),
+  });
+
+  it("flags a crumb url that diverges from the visible link", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/tags/",
+      graphs: [graphOf([crumbs(["https://s.test/", "https://s.test/tags/#tags-list"])])],
+      breadcrumbLinks: ["/#page"],
+    });
+
+    expect(
+      issues.some((issue) =>
+        issue.message.includes('crumb url "https://s.test/" does not match the visible breadcrumb link "/#page"')
+      )
+    ).toBe(true);
+  });
+
+  it("accepts crumb urls equal to the visible links", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/tags/",
+      graphs: [graphOf([crumbs(["https://s.test/#page", "https://s.test/tags/#tags-list"])])],
+      breadcrumbLinks: ["/#page"],
+    });
+
+    expect(issues).toEqual([]);
+  });
+
+  it("flags a link count that does not match the linked crumbs", () => {
+    const issues = auditCrossChecks({
+      pagePathname: "/tags/",
+      graphs: [graphOf([crumbs(["https://s.test/#page", "https://s.test/tags/#tags-list"])])],
+      breadcrumbLinks: ["/#page", "/other/#page"],
+    });
+
+    expect(
+      issues.some((issue) => issue.message.includes("breadcrumb renders 2 links for 1 linked crumbs"))
+    ).toBe(true);
+  });
+});
+
 describe("accessibility audit", () => {
   it("detects an unnamed landmark", () => {
     const { errors } = auditAccessibility({

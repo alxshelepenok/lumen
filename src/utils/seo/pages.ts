@@ -97,7 +97,7 @@ const postGraph = (slug: string, post: PostGraphInput): JsonLdGraph => {
   const description = post.description || siteDescription;
   const datePublished = post.date.toISOString();
   const breadcrumb = breadcrumbNode(route, [
-    { name: siteTitle, url: routes.home().canonical(site) },
+    { name: siteTitle, url: routes.home().id(site, SLICE.page) },
     { name: post.title, url: route.id(site, SLICE.article) },
   ]);
 
@@ -146,8 +146,8 @@ const termGraph = (term: TermGraphInput): JsonLdGraph => {
     feedEntries(site, term.items)
   );
   const breadcrumb = breadcrumbNode(term.route, [
-    { name: siteTitle, url: `${site}/` },
-    { name: term.hubName, url: `${site}${term.hubPath}` },
+    { name: siteTitle, url: routes.home().id(site, SLICE.page) },
+    { name: term.hubName, url: new Route(term.hubPath).id(site, SLICE.page) },
     { name: term.name, url: listId },
   ]);
 
@@ -185,7 +185,7 @@ const hubGraph = (hub: HubGraphInput): JsonLdGraph => {
   const listId = hub.route.id(site, hub.fragment);
   const list = itemListNode(hub.route, hub.fragment, hub.hubLabel, hub.entries);
   const breadcrumb = breadcrumbNode(hub.route, [
-    { name: siteTitle, url: `${site}/` },
+    { name: siteTitle, url: routes.home().id(site, SLICE.page) },
     { name: hub.hubLabel, url: listId },
   ]);
 
@@ -225,7 +225,7 @@ const staticPageGraph = (
   const route = routes.page(slug);
   const description = page.description || siteDescription;
   const breadcrumb = breadcrumbNode(route, [
-    { name: siteTitle, url: `${site}/` },
+    { name: siteTitle, url: routes.home().id(site, SLICE.page) },
     { name: page.title, url: route.id(site, SLICE.page) },
   ]);
 
