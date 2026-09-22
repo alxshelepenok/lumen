@@ -45,12 +45,12 @@ const main = async (): Promise<void> => {
     for (const issue of pageIssues) {
       issues += 1;
       console.error(
-        `[audit-sweep] ${pathname} ${issue.id ? `${issue.id}: ` : ""}${issue.message}`
+        `[audit] ${pathname} ${issue.id ? `${issue.id}: ` : ""}${issue.message}`
       );
     }
   }
 
-  console.log(`[audit-sweep] ${files.length} pages checked, ${issues} issues`);
+  console.log(`[audit] ${files.length} pages checked, ${issues} issues`);
 
   if (issues > 0) {
     process.exitCode = 1;

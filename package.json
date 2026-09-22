@@ -19,7 +19,7 @@
     "release": "semantic-release",
     "build": "astro build",
     "start": "astro dev",
-    "audit:sweep": "bun ./internal/testing/audit-sweep.ts",
+    "audit": "bun ./internal/testing/audit.ts",
     "version": "bun ./internal/up-version.mjs"
   },
   "dependencies": {
