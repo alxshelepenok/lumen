@@ -93,21 +93,25 @@ const themeScript = `
     />
     {jsonLd ? <JsonLd data={jsonLd} /> : null}
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
-    <script
-      is:inline
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-    />
-    <script
-      is:inline
-      set:html={`
-        window.dataLayer = window.dataLayer || [];
-        const gtag = (...args) => { dataLayer.push(args); };
-        gtag("js", new Date());
+    {googleAnalyticsId ? (
+      <>
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        />
+        <script
+          is:inline
+          set:html={`
+            window.dataLayer = window.dataLayer || [];
+            const gtag = (...args) => { dataLayer.push(args); };
+            gtag("js", new Date());
 
-        gtag("config", "${googleAnalyticsId}");
-      `}
-    />
+            gtag("config", "${googleAnalyticsId}");
+          `}
+        />
+      </>
+    ) : null}
     <script is:inline set:html={themeScript} />
     {
       import.meta.env.DEV && (

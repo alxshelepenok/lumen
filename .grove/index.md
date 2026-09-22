@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 51 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 38 |
+| C (content) | 52 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 39 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -110,6 +110,7 @@
 | Y-42 | Frontmatter owns graph dates and http contact urls | frontmatter, graph-anchor | active |
 | Y-43 | Contributors table excludes the repository owner | contributors-table | active |
 | Y-44 | Sponsors stay a GFM table with an unpadded delimiter row | sponsors-table | active |
+| Y-45 | Analytics renders only when configured | analytics-guard | active |
 
 ## Dependency graph
 
@@ -178,6 +179,7 @@ graph TD
   Y_42["Y-42: Frontmatter owns graph dates and http contact urls"]:::discovery
   Y_43["Y-43: Contributors table excludes the repository owner"]:::discovery
   Y_44["Y-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::discovery
+  Y_45["Y-45: Analytics renders only when configured"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -393,6 +395,7 @@ graph TD
   W_143 -->|implements| D_42
   W_144 -->|implements| D_43
   W_146 -->|implements| D_44
+  W_149 -->|implements| D_45
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -518,6 +521,7 @@ graph TD
   Y_41 -->|supersedes| Y_15
   Y_43 -->|distills| D_42
   Y_44 -->|distills| D_44
+  Y_45 -->|distills| D_45
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
