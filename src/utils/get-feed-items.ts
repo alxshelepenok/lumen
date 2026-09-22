@@ -20,7 +20,7 @@ const getFeedItems = (posts: CollectionEntry<"posts">[]): FeedItem[] =>
     categorySlug: entry.data.category
       ? getCategorySlug(entry.data.category)
       : undefined,
-    date: entry.data.date,
+    date: entry.data.datePublished,
     description: entry.data.description,
     readingTime: getReadingTime(entry.body),
     slug: new Route(getSlug(entry.id, "posts")).href(),

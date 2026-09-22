@@ -9,6 +9,7 @@ interface AuditIssue {
 
 interface SchemaAuditInput {
   accessibleName?: (fragment: string) => string | null;
+  breadcrumbLinks?: string[];
   graphs: JsonLdValue[];
   htmlLang?: string | null;
   internalHrefs?: string[];
@@ -135,6 +136,15 @@ const collectRefs = (nodes: JsonLdValue[]): string[] => {
   return refs;
 };
 
+const isAbsoluteHttpUrl = (value: string): boolean => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
+};
+
 const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
   const issues: AuditIssue[] = [];
   const pagePath = normalizePath(input.pagePathname);
@@ -165,6 +175,10 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
         issues.push({ message: "node is missing @id" });
       } else {
         knownIds.add(id);
+
+        if (!isAbsoluteHttpUrl(id)) {
+          issues.push({ id, message: "@id is not an absolute http url" });
+        }
       }
 
       if (typeof node["name"] !== "string" || node["name"].length === 0) {
@@ -197,6 +211,11 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
     }
 
     knownIds.add(id);
+
+    if (!isAbsoluteHttpUrl(id)) {
+      issues.push({ id, message: "@id is not an absolute http url" });
+      continue;
+    }
 
     if (typeof url !== "string" || url.length === 0) {
       issues.push({ id, message: "node is missing url" });
@@ -268,12 +287,78 @@ const typesOf = (node: JsonLdValue): string[] => {
   return Array.isArray(type) ? (type as string[]) : typeof type === "string" ? [type] : [];
 };
 
+const auditBreadcrumbParity = (
+  nodes: JsonLdValue[],
+  links: string[]
+): AuditIssue[] => {
+  const issues: AuditIssue[] = [];
+
+  for (const node of nodes) {
+    if (!typesOf(node).includes("BreadcrumbList")) continue;
+
+    const items = node["itemListElement"];
+    if (!Array.isArray(items) || items.length === 0) continue;
+
+    let origin: string | null = null;
+
+    try {
+      origin = new URL(String(node["@id"])).origin;
+    } catch {
+      continue;
+    }
+
+    const id = typeof node["@id"] === "string" ? node["@id"] : undefined;
+    const linked = items.slice(0, -1) as JsonLdValue[];
+
+    if (links.length !== linked.length) {
+      issues.push({
+        id,
+        message: `breadcrumb renders ${links.length} links for ${linked.length} linked crumbs`,
+      });
+      continue;
+    }
+
+    linked.forEach((crumb, index) => {
+      const item = crumb["item"] as JsonLdValue | undefined;
+      const url =
+        item && typeof item === "object" && typeof item["url"] === "string"
+          ? item["url"]
+          : item && typeof item === "object" && typeof item["@id"] === "string"
+            ? item["@id"]
+            : null;
+
+      if (typeof url !== "string") return;
+
+      let expected: string | null = null;
+
+      try {
+        expected = new URL(links[index], origin as string).href;
+      } catch {
+        return;
+      }
+
+      if (url !== expected) {
+        issues.push({
+          id: url,
+          message: `crumb url "${url}" does not match the visible breadcrumb link "${links[index]}"`,
+        });
+      }
+    });
+  }
+
+  return issues;
+};
+
 const auditCrossChecks = (input: SchemaAuditInput): AuditIssue[] => {
   const issues: AuditIssue[] = [];
   const nodes = collectNodes(input.graphs);
 
   if (nodes.length === 0) {
     return issues;
+  }
+
+  if (input.breadcrumbLinks) {
+    issues.push(...auditBreadcrumbParity(nodes, input.breadcrumbLinks));
   }
 
   const pageNodes = nodes.filter((node) => typesOf(node).some((t) => t.endsWith("Page")));
@@ -456,6 +541,9 @@ const collectSchemaIssues = (doc: Document, pagePathname: string): AuditIssue[] 
     ...auditCrossChecks({
       graphs,
       pagePathname,
+      breadcrumbLinks: Array.from(doc.querySelectorAll("nav#breadcrumb a[href]")).map(
+        (link) => link.getAttribute("href") ?? ""
+      ),
       htmlLang: doc.documentElement.getAttribute("lang"),
       accessibleName: (fragment) => {
         const anchor = doc.getElementById(fragment);

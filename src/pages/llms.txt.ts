@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
   const { url, title, description, feedLimit } = getSiteMetadata();
 
   const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+    (a, b) => b.data.datePublished.valueOf() - a.data.datePublished.valueOf()
   );
   const pages = await getCollection("pages", ({ data }) => !data.draft);
   const recent = getFeedItems(posts.slice(0, feedLimit));
