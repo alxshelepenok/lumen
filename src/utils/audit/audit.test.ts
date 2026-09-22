@@ -89,6 +89,23 @@ describe("schema audit integrity", () => {
     expect(issues.some((issue) => issue.message.includes("no node in the graph"))).toBe(true);
   });
 
+  it("flags a node id that is not an http url", () => {
+    const issues = auditSchemaGraph({
+      ...base,
+      graphs: [
+        graphOf([
+          {
+            "@type": "WebPage",
+            "@id": "YWx4c2hlbGVwZW5va0BnbWFpbC5jb20=",
+            "url": "YWx4c2hlbGVwZW5va0BnbWFpbC5jb20=",
+          },
+        ]),
+      ],
+    });
+
+    expect(issues.some((issue) => issue.message.includes("@id is not an absolute http url"))).toBe(true);
+  });
+
   it("passes a grounded graph silently", () => {
     const issues = auditSchemaGraph({
       ...base,

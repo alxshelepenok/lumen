@@ -26,7 +26,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-84 | JSON-LD graph mirrors visible content | count; current=4 target=5 | partial |
+| G-84 | JSON-LD graph mirrors visible content | count; current=5 target=5 | verified |
 
 ## Work items
 
@@ -36,7 +36,7 @@
 | W-137 | bug | Blog posting belongs to the blog node | G-84 | clear | ⊤ | done |  |
 | W-138 | bug | Links region belongs to the website | G-84 | clear | ⊤ | done |  |
 | W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | done |  |
-| W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | proposed | ★ |
+| W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -130,7 +130,7 @@ graph TD
   W_137["W-137: Blog posting belongs to the blog node"]:::done
   W_138["W-138: Links region belongs to the website"]:::done
   W_139["W-139: Frontmatter owns datePublished and dateModified"]:::done
-  W_140["W-140: Graph contacts emit http urls only"]:::feature,critical
+  W_140["W-140: Graph contacts emit http urls only"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -514,7 +514,6 @@ graph TD
   Y_38 -->|distills| D_39
   Y_39 -->|distills| D_12
   Y_39 -->|distills| D_40
-  class W_140 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

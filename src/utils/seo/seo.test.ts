@@ -7,6 +7,7 @@ import {
   itemListNode,
   personNode,
   siteNavigationNodes,
+  webContacts,
   webPageNode,
   websiteNode,
 } from "@/utils/seo/nodes";
@@ -226,6 +227,18 @@ describe("blog node", () => {
     expect(
       paginatedNodes.some((node) => node["@id"] === `${site}/#links`)
     ).toBe(true);
+  });
+});
+
+describe("web contacts", () => {
+  it("keeps only contacts whose href is an http url", () => {
+    expect(
+      webContacts([
+        { name: "email", contact: "john@example.com" },
+        { name: "line", contact: "abc123" },
+        { name: "github", contact: "alxshelepenok" },
+      ])
+    ).toEqual([{ name: "github", href: "https://github.com/alxshelepenok" }]);
   });
 });
 

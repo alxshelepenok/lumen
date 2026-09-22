@@ -199,31 +199,35 @@ const regionNode = (
   };
 };
 
+const webContacts = (
+  contacts: { name: string; contact: string }[]
+): { name: string; href: string }[] =>
+  contacts
+    .map(({ name, contact }) => ({ name, href: getContactHref(name, contact) }))
+    .filter(({ href }) => href.startsWith("http"));
+
 const linksNodes = (): JsonLdNode[] => {
   const { author } = getSiteMetadata();
   const elementId = rootId("links");
   const listId = rootId("links-list");
+  const contacts = webContacts(author.contacts);
 
   const list: JsonLdNode = {
     "@type": "ItemList",
     "@id": listId,
     "url": listId,
     "name": labels.contacts,
-    "numberOfItems": author.contacts.length,
-    "itemListElement": author.contacts.map(({ name, contact }, index) => {
-      const href = getContactHref(name, contact);
-
-      return {
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "WebPage",
-          "@id": href,
-          "url": href,
-          "name": name.charAt(0).toUpperCase() + name.slice(1),
-        },
-      };
-    }),
+    "numberOfItems": contacts.length,
+    "itemListElement": contacts.map(({ name, href }, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "WebPage",
+        "@id": href,
+        "url": href,
+        "name": name.charAt(0).toUpperCase() + name.slice(1),
+      },
+    })),
   };
 
   const element: JsonLdNode = {
@@ -288,6 +292,7 @@ export {
   personNode,
   regionNode,
   siteNavigationNodes,
+  webContacts,
   webPageNode,
   websiteNode,
 };

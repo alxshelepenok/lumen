@@ -1,10 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:21743bf3a34c061fe13bfcf1aa7e5594a022f8e9df4d4e76b6fc5f508a1f19e9
-g G-84 status=partial fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:41:15Z "JSON-LD graph mirrors visible content"
+# checksum: sha256:6aee1c93ada261cad6691713ea0644e67b706d5b4828954176184c2127621e25
+g G-84 status=verified fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:51:16Z "JSON-LD graph mirrors visible content"
   area: A-06
   fitness_target: 5
-  fitness_current: 4
+  fitness_current: 5
 
 w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
   goals: G-84
@@ -67,7 +67,7 @@ w W-139 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_upda
   evidence:
     | no repro unit test: the defect was working-tree mtime noise, an environment artifact a test cannot pin; verified instead that astro check is clean, bun test 68 pass 0 fail, grep shows no getModifiedTime imports, and the built graph emits frontmatter values only: /posts/perfecting-the-art-of-perfection 2016-10-01/2024-12-02, /pages/about 2016-09-01/2026-09-20, atom updated fields use dateModified.
 
-w W-140 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:38:10Z "Graph contacts emit http urls only"
+w W-140 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:51:16Z "Graph contacts emit http urls only"
   goals: G-84
   fitness: G-84=+1
   surface: src/utils/seo/nodes.ts, src/utils/audit/schema-audit.ts
@@ -79,6 +79,8 @@ w W-140 type=bug status=proposed cynefin=clear t_created=2026-09-22T14:37:30Z t_
     | An email contact would emit a WebPage whose id and url are btoa(contact), a base64 string, because linksNodes skips the http filter personNode.sameAs applies.
   evidence_strategy:
     | Red-then-green unit runs of the helper test and the audit id check, bun test, fresh build plus audit:sweep.
+  evidence:
+    | red first: the http-id audit test and webContacts helper test failed on the unfixed tree; after the fix bun test 70 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues; linksNodes now counts only emitted http contacts.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

@@ -136,6 +136,15 @@ const collectRefs = (nodes: JsonLdValue[]): string[] => {
   return refs;
 };
 
+const isAbsoluteHttpUrl = (value: string): boolean => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
+};
+
 const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
   const issues: AuditIssue[] = [];
   const pagePath = normalizePath(input.pagePathname);
@@ -166,6 +175,10 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
         issues.push({ message: "node is missing @id" });
       } else {
         knownIds.add(id);
+
+        if (!isAbsoluteHttpUrl(id)) {
+          issues.push({ id, message: "@id is not an absolute http url" });
+        }
       }
 
       if (typeof node["name"] !== "string" || node["name"].length === 0) {
@@ -198,6 +211,11 @@ const auditSchemaGraph = (input: SchemaAuditInput): AuditIssue[] => {
     }
 
     knownIds.add(id);
+
+    if (!isAbsoluteHttpUrl(id)) {
+      issues.push({ id, message: "@id is not an absolute http url" });
+      continue;
+    }
 
     if (typeof url !== "string" || url.length === 0) {
       issues.push({ id, message: "node is missing url" });
