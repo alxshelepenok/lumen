@@ -6,37 +6,21 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 47 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 34 |
+| C (content) | 49 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 36 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
 | Area | Title | C (content) | V (uncertainty) | Composition |
 | --- | --- | --- | --- | --- |
-| A-01 | Content pipeline | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-01 | Content pipeline | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-02 | Pages and routing | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-03 | Interface and theming | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-03 | Interface and theming | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-06 | Semantics and discoverability | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
-
-## Goals
-
-| ID | Outcome | Fitness function | Status |
-| --- | --- | --- | --- |
-| G-84 | JSON-LD graph mirrors visible content | count; current=5 target=5 | verified |
-
-## Work items
-
-| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| W-136 | bug | Breadcrumb crumb urls carry the page slice | G-84 | clear | ⊤ | done |  |
-| W-137 | bug | Blog posting belongs to the blog node | G-84 | clear | ⊤ | done |  |
-| W-138 | bug | Links region belongs to the website | G-84 | clear | ⊤ | done |  |
-| W-139 | bug | Frontmatter owns datePublished and dateModified | G-84 | clear | ⊤ | done |  |
-| W-140 | bug | Graph contacts emit http urls only | G-84 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -95,7 +79,7 @@
 | Y-12 | Semantics audits must be pure functions over parsed input | graph-anchor, semantics-audit | active |
 | Y-13 | Head completeness is feed, article and theming metas plus visible agent links | head-groups, llms | active |
 | Y-14 | Internal links must land on named slices | graph-anchor, link-grammar | active |
-| Y-15 | In-page navigation is an anchored SiteNavigationElement | graph-anchor, json-ld, toc | active |
+| Y-15 | In-page navigation is an anchored SiteNavigationElement | graph-anchor, json-ld, toc | superseded |
 | Y-16 | Social cards are generated at build from page metadata | social-card | active |
 | Y-17 | Breadcrumb placement is contextual and CSS-only | breadcrumb | active |
 | Y-18 | Floating chrome rides absolute rails with sticky children | toc | superseded |
@@ -120,17 +104,14 @@
 | Y-37 | Content lists carry their markers in a flex column | content-column | active |
 | Y-38 | Sizes and spacing live on named rem scales, not leading arithmetic | leading-arithmetic, rem-token-scale | active |
 | Y-39 | Commits and branches carry grove node ids | commit-grammar | active |
+| Y-40 | Linked crumb urls match the visible breadcrumb hrefs | breadcrumb, link-grammar | active |
+| Y-41 | Site chrome anchors to the website through isPartOf | graph-anchor, json-ld | active |
+| Y-42 | Frontmatter owns graph dates and http contact urls | Frontmatter, graph-anchor | active |
 
 ## Dependency graph
 
 ```mermaid
 graph TD
-  G_84["G-84: JSON-LD graph mirrors visible content"]:::goal
-  W_136["W-136: Breadcrumb crumb urls carry the page slice"]:::done
-  W_137["W-137: Blog posting belongs to the blog node"]:::done
-  W_138["W-138: Links region belongs to the website"]:::done
-  W_139["W-139: Frontmatter owns datePublished and dateModified"]:::done
-  W_140["W-140: Graph contacts emit http urls only"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -189,6 +170,9 @@ graph TD
   Y_37["Y-37: Content lists carry their markers in a flex column"]:::discovery
   Y_38["Y-38: Sizes and spacing live on named rem scales, not leading arithmetic"]:::discovery
   Y_39["Y-39: Commits and branches carry grove node ids"]:::discovery
+  Y_40["Y-40: Linked crumb urls match the visible breadcrumb hrefs"]:::discovery
+  Y_41["Y-41: Site chrome anchors to the website through isPartOf"]:::discovery
+  Y_42["Y-42: Frontmatter owns graph dates and http contact urls"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -392,6 +376,11 @@ graph TD
   W_134 -->|implements| D_38
   W_134 -->|implements| D_39
   W_135 -->|implements| D_39
+  W_136 -->|produces| Y_40
+  W_137 -->|produces| Y_41
+  W_138 -->|produces| Y_41
+  W_139 -->|produces| Y_42
+  W_140 -->|produces| Y_42
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -514,6 +503,7 @@ graph TD
   Y_38 -->|distills| D_39
   Y_39 -->|distills| D_12
   Y_39 -->|distills| D_40
+  Y_41 -->|supersedes| Y_15
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

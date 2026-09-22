@@ -1,87 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:6aee1c93ada261cad6691713ea0644e67b706d5b4828954176184c2127621e25
-g G-84 status=verified fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:51:16Z "JSON-LD graph mirrors visible content"
-  area: A-06
-  fitness_target: 5
-  fitness_current: 5
-
-w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:41:15Z "Breadcrumb crumb urls carry the page slice"
-  goals: G-84
-  fitness: G-84=+1
-  surface: src/utils/seo/pages.ts, src/utils/audit/schema-audit.ts
-  ac:
-    | Every linked breadcrumb crumb url equals the visible breadcrumb href with the page slice.
-    | audit:sweep reports zero issues over a fresh build.
-    | A cross-check unit test flags a crumb url that diverges from the visible link.
-  repro:
-    | Built pages emit crumb item urls as bare canonical paths (/ and /tags/) while the visible links target /#page and /tags/#page across 28 pages.
-  evidence_strategy:
-    | Red-then-green unit run of the new cross-check, bun test on audit and seo suites, fresh build plus audit:sweep, and a script diffing every built crumb url against the rendered breadcrumb hrefs.
-  evidence:
-    | cross-check red first: audit-sweep over the unfixed tree reported 46 crumb issues on 31 pages; after the fix bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, crumb/href diff script reports zero divergent crumbs.
-
-w W-137 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:42:55Z "Blog posting belongs to the blog node"
-  goals: G-84
-  fitness: G-84=+1
-  surface: src/utils/seo/nodes.ts
-  ac:
-    | BlogPosting.isPartOf references the home-anchored blog node.
-    | BlogPosting.mainEntityOfPage keeps the page slice reference.
-    | The pinned seo test asserts the new wiring and the sweep stays green.
-  repro:
-    | Post graphs point BlogPosting.isPartOf at the page slice, leaving the emitted Blog node without inbound references.
-  evidence_strategy:
-    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
-  evidence:
-    | seo test red first (posting isPartOf asserted against #blog), then bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, orphan scan reports no unreferenced Blog node on post graphs.
-
-w W-138 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:44:47Z "Links region belongs to the website"
-  goals: G-84
-  fitness: G-84=+1
-  surface: src/utils/seo/nodes.ts, src/utils/seo/pages.ts
-  ac:
-    | The links element keeps its root id and asserts isPartOf the website on every page.
-    | linksNodes no longer takes a route argument.
-    | The pinned seo test asserts the wiring and the sweep stays green.
-  repro:
-    | The root-anchored links element claims isPartOf whichever page renders it, so one id carries different isPartOf values across pages.
-  evidence_strategy:
-    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
-  evidence:
-    | seo test red first with the production fix reverted (links isPartOf asserted against #web), then bun test 68 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues.
-
-w W-139 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:49:10Z "Frontmatter owns datePublished and dateModified"
-  goals: G-84
-  fitness: G-84=+1
-  surface: src/content.config.ts, content, src/pages/posts/[...slug].astro, src/pages/pages/[...slug].astro
-  ac:
-    | Posts and pages schemas expose datePublished and dateModified.
-    | All content files carry both fields with git-derived modification dates.
-    | Graph and meta dates come from frontmatter only and get-modified-time is removed.
-    | bun test and audit:sweep stay green over a fresh build.
-  repro:
-    | getModifiedTime stamps dateModified from working-tree mtime, so /pages/about emits the branch checkout time 2026-09-22T11:00:08.495Z.
-  evidence_strategy:
-    | bun test, astro build plus audit:sweep, grep confirming no getModifiedTime imports remain, and git log dates recorded for every migrated content file.
-  evidence:
-    | no repro unit test: the defect was working-tree mtime noise, an environment artifact a test cannot pin; verified instead that astro check is clean, bun test 68 pass 0 fail, grep shows no getModifiedTime imports, and the built graph emits frontmatter values only: /posts/perfecting-the-art-of-perfection 2016-10-01/2024-12-02, /pages/about 2016-09-01/2026-09-20, atom updated fields use dateModified.
-
-w W-140 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:51:16Z "Graph contacts emit http urls only"
-  goals: G-84
-  fitness: G-84=+1
-  surface: src/utils/seo/nodes.ts, src/utils/audit/schema-audit.ts
-  ac:
-    | linksNodes emits only contacts whose href is an http url and counts only emitted items.
-    | The contact filter is a pure helper with a unit test.
-    | The integrity audit rejects any non-http node id and the sweep stays green.
-  repro:
-    | An email contact would emit a WebPage whose id and url are btoa(contact), a base64 string, because linksNodes skips the http filter personNode.sameAs applies.
-  evidence_strategy:
-    | Red-then-green unit runs of the helper test and the audit id check, bun test, fresh build plus audit:sweep.
-  evidence:
-    | red first: the http-id audit test and webContacts helper test failed on the unfixed tree; after the fix bun test 70 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues; linksNodes now counts only emitted http contacts.
-
+# checksum: sha256:7883636aaa6767c4bb7c4692efac772b47993f6a7474f3751c3a9b3cfeb349eb
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -387,7 +306,7 @@ y Y-14 status=active t_created=2026-09-20T10:52:05Z t_updated=2026-09-20T10:52:1
   why:
     | The audited engines build links and graph ids from one Route grammar; the moment plain hrefs diverged, anchor drift appeared that only link-level audits caught.
 
-y Y-15 status=active t_created=2026-09-20T10:52:05Z t_updated=2026-09-20T10:52:19Z "In-page navigation is an anchored SiteNavigationElement"
+y Y-15 status=superseded t_created=2026-09-20T10:52:05Z t_updated=2026-09-22T14:52:36Z "In-page navigation is an anchored SiteNavigationElement"
   tags: toc, json-ld, graph-anchor
   surface: src/utils/seo, src/islands
   invariant:
@@ -548,6 +467,24 @@ y Y-39 status=active t_created=2026-09-22T11:22:54Z t_updated=2026-09-22T11:37:5
   why:
     | semantic-release parses the types through the conventionalcommits preset in .releaserc while grove gate matches exact node ids in commit subjects for surface overflow detection; ids in subjects keep both pipelines mechanical. Distilled from archived D-12 after the null-distill of its goal left the convention absent from the discovery layer.
     | D-40 supersedes D-12 because the W-and-G-only branch rule and the trailing-id subjects left agents guessing; the worked example pins the recipe so the branch and subject come out right on the first attempt.
+
+y Y-40 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T14:52:36Z "Linked crumb urls match the visible breadcrumb hrefs"
+  tags: link-grammar, breadcrumb
+  surface: src/utils/seo/pages.ts, src/utils/audit/schema-audit.ts
+  invariant:
+    | Linked breadcrumb crumbs carry the same slice-anchored url the visible link lands on (#page for page targets, the list or article fragment for terminal crumbs), a cross-check compares every crumb url against the rendered nav#breadcrumb hrefs, and the sweep holds all page types to zero issues.
+
+y Y-41 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T14:52:36Z "Site chrome anchors to the website through isPartOf"
+  tags: graph-anchor, json-ld
+  surface: src/utils/seo/nodes.ts
+  invariant:
+    | Site-wide chrome (the sidebar menu and the contacts links) keeps one root-anchored id and asserts isPartOf the website on every page that renders it, and a blog posting belongs to the home-anchored blog node through isPartOf while its page link stays in mainEntityOfPage, so no chrome entity carries per-page isPartOf values.
+
+y Y-42 status=active t_created=2026-09-22T14:52:29Z t_updated=2026-09-22T14:52:36Z "Frontmatter owns graph dates and http contact urls"
+  tags: Frontmatter, graph-anchor
+  surface: src/content.config.ts, src/utils/seo/nodes.ts
+  invariant:
+    | The graph claims only frontmatter truth: datePublished and dateModified frontmatter fields feed every graph and feed date (file mtimes never do), contact list entities emit only http urls through the same filter personNode.sameAs uses, and the integrity audit rejects any node id that is not an absolute http url.
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
@@ -763,6 +700,11 @@ e W-134 blocks W-135 t_created=2026-09-21T23:24:54Z
 e W-134 implements D-38 t_created=2026-09-21T23:24:55Z
 e W-134 implements D-39 t_created=2026-09-21T23:24:55Z
 e W-135 implements D-39 t_created=2026-09-21T23:24:56Z
+e W-136 produces Y-40 t_created=2026-09-22T14:52:29Z
+e W-137 produces Y-41 t_created=2026-09-22T14:52:29Z
+e W-138 produces Y-41 t_created=2026-09-22T14:52:29Z
+e W-139 produces Y-42 t_created=2026-09-22T14:52:29Z
+e W-140 produces Y-42 t_created=2026-09-22T14:52:29Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
@@ -885,6 +827,7 @@ e Y-38 distills D-38 t_created=2026-09-21T23:45:50Z
 e Y-38 distills D-39 t_created=2026-09-21T23:45:50Z
 e Y-39 distills D-12 t_created=2026-09-22T11:22:54Z
 e Y-39 distills D-40 t_created=2026-09-22T11:37:36Z
+e Y-41 supersedes Y-15 t_created=2026-09-22T14:52:36Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
@@ -1299,6 +1242,11 @@ g G-82 status=verified fitness_kind=count t_created=2026-09-21T14:26:26Z t_updat
 
 g G-83 status=verified fitness_kind=count t_created=2026-09-21T23:23:47Z t_updated=2026-09-22T11:09:28Z "Typography and spacing unified on a rem token scale"
   area: A-03
+  fitness_target: 5
+  fitness_current: 5
+
+g G-84 status=verified fitness_kind=count t_created=2026-09-22T14:37:20Z t_updated=2026-09-22T14:52:51Z "JSON-LD graph mirrors visible content"
+  area: A-06
   fitness_target: 5
   fitness_current: 5
 
@@ -2143,6 +2091,67 @@ w W-135 type=feature status=done cynefin=complicated t_created=2026-09-21T23:24:
     | px census over src/assets/styles returns twelve 1px hairlines only (borders, visually hidden helper, sidebar rule width), matching the D-39 whitelist.
     | bun run build: 31 pages; bun test: 65 pass; audit-sweep: 31 pages, 0 issues; w135-post-1280 md5 identical to w134-post-1280.
 
+w W-136 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:52:51Z "Breadcrumb crumb urls carry the page slice"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/pages.ts, src/utils/audit/schema-audit.ts
+  ac:
+    | Every linked breadcrumb crumb url equals the visible breadcrumb href with the page slice.
+    | audit:sweep reports zero issues over a fresh build.
+    | A cross-check unit test flags a crumb url that diverges from the visible link.
+  repro:
+    | Built pages emit crumb item urls as bare canonical paths (/ and /tags/) while the visible links target /#page and /tags/#page across 28 pages.
+  evidence_strategy:
+    | Red-then-green unit run of the new cross-check, bun test on audit and seo suites, fresh build plus audit:sweep, and a script diffing every built crumb url against the rendered breadcrumb hrefs.
+  evidence:
+    | cross-check red first: audit-sweep over the unfixed tree reported 46 crumb issues on 31 pages; after the fix bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, crumb/href diff script reports zero divergent crumbs.
+
+w W-137 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:52:51Z "Blog posting belongs to the blog node"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts
+  ac:
+    | BlogPosting.isPartOf references the home-anchored blog node.
+    | BlogPosting.mainEntityOfPage keeps the page slice reference.
+    | The pinned seo test asserts the new wiring and the sweep stays green.
+  repro:
+    | Post graphs point BlogPosting.isPartOf at the page slice, leaving the emitted Blog node without inbound references.
+  evidence_strategy:
+    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+  evidence:
+    | seo test red first (posting isPartOf asserted against #blog), then bun test 68 pass 0 fail, fresh build 31 pages, audit-sweep 0 issues, orphan scan reports no unreferenced Blog node on post graphs.
+
+w W-138 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:52:51Z "Links region belongs to the website"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts, src/utils/seo/pages.ts
+  ac:
+    | The links element keeps its root id and asserts isPartOf the website on every page.
+    | linksNodes no longer takes a route argument.
+    | The pinned seo test asserts the wiring and the sweep stays green.
+  repro:
+    | The root-anchored links element claims isPartOf whichever page renders it, so one id carries different isPartOf values across pages.
+  evidence_strategy:
+    | Red-then-green run of the updated seo test, bun test, fresh build plus audit:sweep.
+  evidence:
+    | seo test red first with the production fix reverted (links isPartOf asserted against #web), then bun test 68 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues.
+
+w W-139 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:52:51Z "Frontmatter owns datePublished and dateModified"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/content.config.ts, content, src/pages/posts/[...slug].astro, src/pages/pages/[...slug].astro
+  ac:
+    | Posts and pages schemas expose datePublished and dateModified.
+    | All content files carry both fields with git-derived modification dates.
+    | Graph and meta dates come from frontmatter only and get-modified-time is removed.
+    | bun test and audit:sweep stay green over a fresh build.
+  repro:
+    | getModifiedTime stamps dateModified from working-tree mtime, so /pages/about emits the branch checkout time 2026-09-22T11:00:08.495Z.
+  evidence_strategy:
+    | bun test, astro build plus audit:sweep, grep confirming no getModifiedTime imports remain, and git log dates recorded for every migrated content file.
+  evidence:
+    | no repro unit test: the defect was working-tree mtime noise, an environment artifact a test cannot pin; verified instead that astro check is clean, bun test 68 pass 0 fail, grep shows no getModifiedTime imports, and the built graph emits frontmatter values only: /posts/perfecting-the-art-of-perfection 2016-10-01/2024-12-02, /pages/about 2016-09-01/2026-09-20, atom updated fields use dateModified.
+
 w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_updated=2026-09-18T21:47:06Z "Adopt reviewed toolchain conventions (target output, public static, unified icons, text lockfile, no postcssrc, no baseUrl)"
   goals: G-06
   theme: T-02
@@ -2160,6 +2169,21 @@ w W-14 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:43Z t_
     | astro.config sets outDir target and relies on the default public static dir; bun run build emits 31 pages into target with icon assets, manifest and logo at its root.
     | Icons unified: public carries icon-32x32 through icon-512x512 at the root, manifest.webmanifest references them and no favicon name or icons directory remains.
     | Lockfile switched to the text bun.lock format with CI cache keys in analyze.yml and release.yml hashing bun.lock; postcssrc deleted with autoprefixer living in astro.config only; tsconfig has no baseUrl and aliases resolve (build and tests green: 31 pages, 20 tests, 0 fail).
+
+w W-140 type=bug status=done cynefin=clear t_created=2026-09-22T14:37:30Z t_updated=2026-09-22T14:52:51Z "Graph contacts emit http urls only"
+  goals: G-84
+  fitness: G-84=+1
+  surface: src/utils/seo/nodes.ts, src/utils/audit/schema-audit.ts
+  ac:
+    | linksNodes emits only contacts whose href is an http url and counts only emitted items.
+    | The contact filter is a pure helper with a unit test.
+    | The integrity audit rejects any non-http node id and the sweep stays green.
+  repro:
+    | An email contact would emit a WebPage whose id and url are btoa(contact), a base64 string, because linksNodes skips the http filter personNode.sameAs applies.
+  evidence_strategy:
+    | Red-then-green unit runs of the helper test and the audit id check, bun test, fresh build plus audit:sweep.
+  evidence:
+    | red first: the http-id audit test and webContacts helper test failed on the unfixed tree; after the fix bun test 70 pass 0 fail, astro check clean, fresh build 31 pages, audit-sweep 0 issues; linksNodes now counts only emitted http contacts.
 
 w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_updated=2026-09-18T21:47:06Z "Prefer arrow functions across pages and scripts"
   goals: G-06

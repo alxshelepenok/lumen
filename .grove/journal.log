@@ -2967,3 +2967,15 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:49:11Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-140","op":"set_w_status_with_goals","goal_statuses":{"G-84":"partial"},"old_session_at":"","old_session":""}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T14:51:16Z","inv":{"id":"W-140","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:51:16Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-140","op":"set_w_status_with_goals","goal_statuses":{"G-84":"partial"},"old_session_at":"2026-09-22T14:49:11Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T14:52:29Z","inv":{"id":"Y-40","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T14:52:29Z","inv":{"id":"Y-41","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-22T14:52:29Z","inv":{"id":"Y-42","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T14:52:35Z","inv":{"id":"Y-40","field":"invariant","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T14:52:35Z","inv":{"id":"Y-41","field":"invariant","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-22T14:52:35Z","inv":{"id":"Y-42","field":"invariant","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"link","ts":"2026-09-22T14:52:36Z","inv":{"label":"supersedes","to":"Y-15","op":"unlink_edge","from":"Y-41"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:52:36Z","inv":{"old_status":"active","id":"Y-15","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:52:36Z","inv":{"old_status":"proposed","id":"Y-40","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:52:36Z","inv":{"old_status":"proposed","id":"Y-41","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-22T14:52:36Z","inv":{"old_status":"proposed","id":"Y-42","op":"set_status_plain"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-22T14:52:51Z","inv":{"ids":["G-84","W-136","W-137","W-138","W-139","W-140"],"id":"G-84","op":"archive"}}
