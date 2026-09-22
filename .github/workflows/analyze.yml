@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   install:
@@ -95,4 +99,56 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run tests
-        run: bun run test
+        run: |
+          set -o pipefail
+          bun test 2>&1 | tee test.log
+
+      - name: Upload test log
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-log
+          path: test.log
+          retention-days: 1
+
+  badge:
+    name: Badge
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Download test log
+        uses: actions/download-artifact@v4
+        with:
+          name: test-log
+
+      - name: Count tests
+        id: count
+        run: |
+          total=$(grep -oE 'Ran [0-9]+ tests' test.log | grep -oE '[0-9]+' | head -1)
+          echo "total=$total" >> "$GITHUB_OUTPUT"
+
+      - name: Publish tests.json to the badges branch
+        env:
+          TOTAL: ${{ steps.count.outputs.total }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin badges 2>/dev/null || true
+          if git rev-parse --verify origin/badges >/dev/null 2>&1; then
+            git checkout -B badges origin/badges
+          else
+            git checkout -B badges
+          fi
+          mkdir -p .github/badges
+          printf '{"schemaVersion":1,"label":"tests","message":"%s","color":"brightgreen"}\n' "$TOTAL" > .github/badges/tests.json
+          git add .github/badges/tests.json
+          git diff --cached --quiet || git commit -m "chore: update badges (tests $TOTAL)"
+          git push origin badges

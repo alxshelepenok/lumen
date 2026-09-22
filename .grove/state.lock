@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:00cf833694d2285f3013f77d104bc2777edc06afa04cb595b96eb8c2ae0529e2
+# checksum: sha256:dda8a1dc5489167cf78238b2386715f3613023557f4a388dbcde68219b0e93ce
 g G-86 status=unverified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_updated=2026-09-22T16:53:48Z "Improve the README"
   area: A-07
 
@@ -107,6 +107,30 @@ w W-147 type=feature status=done cynefin=clear t_created=2026-09-22T20:19:47Z t_
     | git diff vs HEAD touches only the Features section; zero browserstack, sentry, avatars, or contributors marker lines changed.
     | README.md:61 reads 'Thanks go to these wonderful people'.
     | User reverted the en dash; README.md:28 keeps the ASCII hyphen between <h2> and <h6> in the amended commit.
+
+w W-148 type=feature status=done cynefin=clear t_created=2026-09-22T21:19:20Z t_updated=2026-09-22T21:50:40Z "Add status badges with a live test count"
+  goals: G-86
+  fitness: G-86=+1
+  surface: README.md, .github/workflows/analyze.yml
+  ac:
+    | The tests badge is a shields.io endpoint badge fed by raw.githubusercontent.com/alxshelepenok/lumen/badges/.github/badges/tests.json; the count and color come from the JSON, not from the URL.
+    | analyze.yml triggers on push to main and workflow_dispatch, tees bun test with pipefail, uploads the log on non-PR runs, and a badge job with permissions contents: write publishes the count to the badges branch, mirroring the grove pattern.
+    | The badges branch is bootstrapped with the current count so the endpoint badge renders immediately.
+    | The Minimal runtime bullet reads 'Four direct dependencies.' and there is no dependencies badge.
+    | README.md lists five anchor-wrapped badges with alt attributes directly under the h1 in the order tests, license, release, runtime, json-ld; tests and license render brightgreen, release, runtime, and json-ld render c5c0ce; the json-ld badge is static and links to src/utils/audit; the dependencies badge is absent.
+  hypothesis:
+    | The endpoint mechanism with CI-published JSON keeps the test count and color driven by data, the tag badge replaces the empty releases feed, and the direct qualifier keeps the dependency count claim literally true.
+  evidence_strategy:
+    | curl the endpoint badge SVG for the count at height 28; validate analyze.yml with js-yaml; grep the bullet text and badge block; confirm the badges branch on origin contains tests.json.
+  evidence:
+    | bun test: 70 pass, 0 fail across 10 files; badges branch bootstrapped on origin (commit 1216a95a) with {label: tests, message: 70, color: brightgreen}.
+    | Endpoint badge verified by content: aria-label TESTS: 70 at height 28 on the canonical URL; release tag badge renders RELEASE: V3.0.3; badge block has 4 anchor-wrapped badges with alt attributes.
+    | analyze.yml validated with js-yaml: push+workflow_dispatch triggers, pipefail tee into test-log artifact on non-PR runs, badge job with contents: write publishes the count to the badges branch.
+    | README.md line 16 reads 'Four direct dependencies.'; no dependencies badge anywhere in the block.
+    | Amend per user: static badge URLs use the brightgreen segment, the tag badge gains color=brightgreen (SVG fill #4b0 verified vs #007ec6 default); user also hand-restructured the block (centering wrapper removed, tests first), preserved as-is.
+    | User recolored release and runtime to c5c0ce (license stays brightgreen) and moved license to second position; acceptance criteria and this record synced to the working tree.
+    | User picked variant json-ld | grounded: static badge json--ld-grounded-c5c0ce verified by content (aria-label JSON-LD: GROUNDED, fill c5c0ce) appended after runtime, linking to the Grounded structured data section; no CI changes.
+    | User retargeted the json-ld badge link to src/utils/audit (directory with schema-audit.ts, accessibility-audit.ts, audit.test.ts) instead of the README section anchor.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

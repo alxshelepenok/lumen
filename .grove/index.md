@@ -39,6 +39,7 @@
 | W-145 | bug | Contributors separator rows render as literal cells | G-86 | clear | ⊤ | done |  |
 | W-146 | feature | Restore the sponsors table layout | G-86 | clear | ⊤ | done |  |
 | W-147 | feature | Add the expanded Features section | G-86 | clear | ⊤ | done |  |
+| W-148 | feature | Add status badges with a live test count | G-86 | clear | ⊤ | done |  |
 
 ## Decisions
 
@@ -141,6 +142,7 @@ graph TD
   W_145["W-145: Contributors separator rows render as literal cells"]:::done
   W_146["W-146: Restore the sponsors table layout"]:::done
   W_147["W-147: Add the expanded Features section"]:::done
+  W_148["W-148: Add status badges with a live test count"]:::done
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision

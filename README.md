@@ -1,12 +1,19 @@
 # lumen
 
+<a href="https://github.com/alxshelepenok/lumen/actions/workflows/analyze.yml"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Falxshelepenok%2Flumen%2Fbadges%2F.github%2Fbadges%2Ftests.json&style=for-the-badge" alt="Tests" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge" alt="MIT license" /></a>
+<a href="https://github.com/alxshelepenok/lumen/tags"><img src="https://img.shields.io/github/v/tag/alxshelepenok/lumen?style=for-the-badge&label=release&color=c5c0ce" alt="Latest release" /></a>
+<a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-Bun-c5c0ce?style=for-the-badge" alt="Bun runtime" /></a>
+<a href="src/utils/audit"><img src="https://img.shields.io/badge/json--ld-grounded-c5c0ce?style=for-the-badge" alt="JSON-LD grounded" /></a>
+
+
 A constantly evolving and thoughtful architecture for creating static blogs, built with [Astro](https://astro.build).
 
 ## Features
 
 ### Minimal runtime
 
-- Four dependencies.
+- Four direct dependencies (Astro and Sentry).
 - Zero hydration and 0 KB of client JS by default.
 - Every page is rendered to plain HTML at build time (SSG).
 
