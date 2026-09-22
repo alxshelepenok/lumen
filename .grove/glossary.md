@@ -33,3 +33,4 @@
 | css-icon-sprite | The --icon-* custom properties in base/_icons.scss carrying shape-only SVG data URIs painted through masks. | Y-34 |
 | rem-token-scale | The named rem step scales (font sizes sm to 5xl, spacing 2xs to 4xl) in src/assets/styles/variables that own every size and rhythm value. | Y-35 |
 | leading-arithmetic | The retired system multiplying a 26px leading by unitless factors inside margin, padding and line-height mixins. | Y-35 |
+| commit-grammar | The subject and branch pattern for grove work: single-line type: N-NN (title) subjects without scopes for any node id, type/N-NN branches and major/* for breaking composite work. | D-12, D-40 |
