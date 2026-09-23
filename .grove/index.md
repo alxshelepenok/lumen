@@ -103,7 +103,7 @@
 | Y-34 | CSS icon sprite paints shape-only SVGs through masks | css-icon-sprite | active |
 | Y-35 | Icons center on trimmed text boxes, not line boxes | css-icon-sprite | active |
 | Y-36 | Post markdown ships beside its page as a text alternate | llms | active |
-| Y-37 | Content lists carry their markers in a flex column | content-column | active |
+| Y-37 | Content lists carry their markers in a flex column | content-column | superseded |
 | Y-38 | Sizes and spacing live on named rem scales, not leading arithmetic | leading-arithmetic, rem-token-scale | active |
 | Y-39 | Commits and branches carry grove node ids | commit-grammar | active |
 | Y-40 | Linked crumb urls match the visible breadcrumb hrefs | breadcrumb, link-grammar | active |
@@ -115,6 +115,7 @@
 | Y-46 | Wire optional integrations only when their credential resolves | credential-gate | active |
 | Y-47 | v.Nu false-flags valid modern CSS | vnu-css-lag | proposed |
 | Y-48 | pathLength must sit on path for validator-clean SVG | pathlength-on-path | proposed |
+| Y-49 | Content list markers ride an absolute gutter, never flex li | content-column | active |
 
 ## Dependency graph
 
@@ -187,6 +188,7 @@ graph TD
   Y_46["Y-46: Wire optional integrations only when their credential resolves"]:::discovery
   Y_47["Y-47: v.Nu false-flags valid modern CSS"]:::discovery
   Y_48["Y-48: pathLength must sit on path for validator-clean SVG"]:::discovery
+  Y_49["Y-49: Content list markers ride an absolute gutter, never flex li"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -258,6 +260,7 @@ graph TD
   B_59 -.->|targets| W_133
   B_59 -.->|targets| W_134
   B_59 -->|tests| Q_08
+  B_60 -.->|targets| W_157
   D_12 -->|supersedes| D_11
   D_27 -->|supersedes| D_25
   D_30 -->|supersedes| D_28
@@ -408,6 +411,8 @@ graph TD
   W_150 -->|implements| D_47
   W_153 -->|produces| Y_48
   W_154 -->|produces| Y_47
+  W_156 -->|produces| B_60
+  W_157 -->|produces| Y_49
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -535,6 +540,7 @@ graph TD
   Y_44 -->|distills| D_44
   Y_45 -->|distills| D_45
   Y_46 -->|distills| D_47
+  Y_49 -->|supersedes| Y_37
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
