@@ -3293,3 +3293,20 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:29:20Z","inv":{"id":"W-154","field":"ac","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:29:21Z","inv":{"id":"W-154","field":"hypothesis","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:29:21Z","inv":{"id":"W-154","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:12Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-153","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"2026-09-23T01:21:16Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:13Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-154","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"2026-09-23T01:22:24Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:13Z","inv":{"id":"G-89","had_before":true,"old":"4","op":"set_g_fitness_target"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:13Z","inv":{"id":"G-89","old":"Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS)","op":"set_title"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T01:53:13Z","inv":{"id":"W-155","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:53:18Z","inv":{"id":"W-155","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:53:18Z","inv":{"id":"W-155","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:53:18Z","inv":{"id":"W-155","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-23T01:53:18Z","inv":{"had_key":false,"wid":"W-155","gid":"G-89","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:19Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-155","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:19Z","inv":{"had_session_at_before":false,"old_w_status":"ready","had_session_before":false,"id":"W-155","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:53:19Z","inv":{"id":"W-155","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:53:19Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-155","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"2026-09-23T01:53:19Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T01:55:44Z","inv":{"id":"Y-47","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T01:55:44Z","inv":{"id":"Y-48","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"distill","ts":"2026-09-23T01:56:56Z","inv":{"goal":"G-89","op":"distill","empty":true}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"archive","ts":"2026-09-23T01:56:57Z","inv":{"ids":["G-89","W-151","W-152","W-153","W-154","W-155"],"id":"G-89","op":"archive"}}

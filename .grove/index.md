@@ -7,7 +7,7 @@
 | Measure | Count | Composition |
 | --- | --- | --- |
 | C (content) | 53 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 40 |
-| V (uncertainty) | 1 | open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
 
@@ -20,24 +20,9 @@
 | A-05 | Toolchain and delivery | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-08 | Reading experience | 7 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 7; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-08 | Reading experience | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
-
-## Goals
-
-| ID | Outcome | Fitness function | Status |
-| --- | --- | --- | --- |
-| G-89 | Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS) | count; current=2 target=4 | partial |
-
-## Work items
-
-| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| W-151 | feature | Widen post gutters to 1.5rem and offset skip-link scroll | G-89 | clear | ⊤ | done |  |
-| W-152 | feature | Use flexbox content lists on collection hub pages | G-89 | clear | ⊤ | done |  |
-| W-153 | bug | Remove invalid pathLength attributes from theme toggle SVG | G-89 | clear | ⊤ | progress | ★ |
-| W-154 | bug | Fix pagination label markup and document text-box validator false positive | G-89 | clear | ⊤ | progress |  |
 
 ## Decisions
 
@@ -128,16 +113,13 @@
 | Y-44 | Sponsors stay a GFM table with an unpadded delimiter row | sponsors-table | active |
 | Y-45 | Analytics renders only when configured | analytics-guard | active |
 | Y-46 | Wire optional integrations only when their credential resolves | credential-gate | active |
+| Y-47 | v.Nu false-flags valid modern CSS | vnu-css-lag | proposed |
+| Y-48 | pathLength must sit on path for validator-clean SVG | pathlength-on-path | proposed |
 
 ## Dependency graph
 
 ```mermaid
 graph TD
-  G_89["G-89: Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS)"]:::goal
-  W_151["W-151: Widen post gutters to 1.5rem and offset skip-link scroll"]:::done
-  W_152["W-152: Use flexbox content lists on collection hub pages"]:::done
-  W_153["W-153: Remove invalid pathLength attributes from theme toggle SVG"]:::progress,critical
-  W_154["W-154: Fix pagination label markup and document text-box validator false positive"]:::progress
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -203,6 +185,8 @@ graph TD
   Y_44["Y-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::discovery
   Y_45["Y-45: Analytics renders only when configured"]:::discovery
   Y_46["Y-46: Wire optional integrations only when their credential resolves"]:::discovery
+  Y_47["Y-47: v.Nu false-flags valid modern CSS"]:::discovery
+  Y_48["Y-48: pathLength must sit on path for validator-clean SVG"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -422,6 +406,8 @@ graph TD
   W_149 -->|implements| D_45
   W_150 -->|implements| D_46
   W_150 -->|implements| D_47
+  W_153 -->|produces| Y_48
+  W_154 -->|produces| Y_47
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -549,7 +535,6 @@ graph TD
   Y_44 -->|distills| D_44
   Y_45 -->|distills| D_45
   Y_46 -->|distills| D_47
-  class W_153 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
