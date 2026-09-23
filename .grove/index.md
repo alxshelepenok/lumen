@@ -20,7 +20,7 @@
 | A-05 | Toolchain and delivery | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-08 | Reading experience | 5 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 5; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
+| A-08 | Reading experience | 7 | 1 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 7; V: open Q 0 · pending B 0 · W below DoR 0 · uncovered surface 1 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -28,7 +28,7 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-89 | Content presentation polish (post gutters, collection lists, theme toggle SVG) | count; current=2 target=3 | partial |
+| G-89 | Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS) | count; current=2 target=4 | partial |
 
 ## Work items
 
@@ -37,6 +37,7 @@
 | W-151 | feature | Widen post gutters to 1.5rem and offset skip-link scroll | G-89 | clear | ⊤ | done |  |
 | W-152 | feature | Use flexbox content lists on collection hub pages | G-89 | clear | ⊤ | done |  |
 | W-153 | bug | Remove invalid pathLength attributes from theme toggle SVG | G-89 | clear | ⊤ | progress | ★ |
+| W-154 | bug | Fix pagination label markup and document text-box validator false positive | G-89 | clear | ⊤ | progress |  |
 
 ## Decisions
 
@@ -132,10 +133,11 @@
 
 ```mermaid
 graph TD
-  G_89["G-89: Content presentation polish (post gutters, collection lists, theme toggle SVG)"]:::goal
+  G_89["G-89: Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS)"]:::goal
   W_151["W-151: Widen post gutters to 1.5rem and offset skip-link scroll"]:::done
   W_152["W-152: Use flexbox content lists on collection hub pages"]:::done
   W_153["W-153: Remove invalid pathLength attributes from theme toggle SVG"]:::progress,critical
+  W_154["W-154: Fix pagination label markup and document text-box validator false positive"]:::progress
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
