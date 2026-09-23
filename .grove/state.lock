@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:689f5f44e40aad0984585e2565c7e3410065bde94bf2c269dbf7775f2c5d7f45
+# checksum: sha256:00e0a4a7ec01486d55d816d059f56bdc44c10a41a328f67ea0493c6ec74162fc
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -498,6 +498,10 @@ y Y-45 status=active t_created=2026-09-22T22:24:39Z t_updated=2026-09-22T22:24:4
   tags: analytics-guard
   surface: src/islands/base-layout.astro
 
+y Y-46 status=active t_created=2026-09-22T22:43:23Z t_updated=2026-09-22T23:27:18Z "Wire optional integrations only when their credential resolves"
+  tags: credential-gate
+  surface: astro.config.ts, astro.config.test.ts
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
 
@@ -727,6 +731,8 @@ e W-143 implements D-42 t_created=2026-09-22T16:59:11Z
 e W-144 implements D-43 t_created=2026-09-22T17:06:59Z
 e W-146 implements D-44 t_created=2026-09-22T17:10:31Z
 e W-149 implements D-45 t_created=2026-09-22T22:21:12Z
+e W-150 implements D-46 t_created=2026-09-22T22:37:44Z
+e W-150 implements D-47 t_created=2026-09-22T22:37:44Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
@@ -853,6 +859,7 @@ e Y-41 supersedes Y-15 t_created=2026-09-22T14:52:36Z
 e Y-43 distills D-42 t_created=2026-09-22T21:54:10Z
 e Y-44 distills D-44 t_created=2026-09-22T21:54:10Z
 e Y-45 distills D-45 t_created=2026-09-22T22:24:39Z
+e Y-46 distills D-47 t_created=2026-09-22T22:43:23Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
@@ -1286,6 +1293,11 @@ g G-86 status=verified fitness_kind=manual t_created=2026-09-22T16:53:48Z t_upda
 g G-87 status=verified fitness_kind=boolean t_created=2026-09-22T22:21:04Z t_updated=2026-09-22T22:24:40Z "Analytics loads only when configured"
   area: A-04
   fitness_target: true
+  fitness_current: true
+
+g G-88 status=verified fitness_kind=boolean t_created=2026-09-22T22:37:15Z t_updated=2026-09-23T00:13:44Z "Deploys succeed without Sentry credentials"
+  area: A-05
+  fitness_target: true when a CI run with no Sentry credentials set completes build and wrangler deploy cleanly: no sentry-vite-plugin warnings, no Sentry adapter error, static assets deployed from ./target
   fitness_current: true
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
@@ -2396,6 +2408,33 @@ w W-15 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:45Z t_
   evidence:
     | All function declarations replaced: six getStaticPaths exports and the rss GET endpoint became async arrows and both inline scripts (the no-FOUC theme guard and the gtag config) use arrow functions with rest args; grep for declarations under src returns nothing.
     | bun run build green and bun test green (20 tests, 0 fail) after the conversion.
+
+w W-150 type=bug status=done cynefin=clear t_created=2026-09-22T22:37:35Z t_updated=2026-09-23T00:13:44Z "Keyless builds wire Sentry and Cloudflare deploys fall into adapter auto-config"
+  goals: G-88
+  fitness: G-88=+1
+  surface: astro.config.test.ts, wrangler.jsonc, .gitignore, astro.config.ts, astro.config.test.ts
+  ac:
+    | astro.config.ts includes the @sentry/astro integration only when SENTRY_AUTH_TOKEN or PUBLIC_SENTRY_DSN is set (process env or .env via loadEnv).
+    | A repro test asserts the keyless config wires no sentry integration and fails on the pre-fix config.
+    | `bun run build` with no Sentry credentials emits no sentry-vite-plugin warnings and ships no Sentry code in target/.
+    | A build with a Sentry credential set still wires the integration and ships the Sentry client bundle.
+    | The repository carries no deploy configuration: `wrangler deploy` in CI is governed by dashboard-managed Cloudflare settings, not a checked-in wrangler config.
+  repro:
+    | Cloudflare Workers Builds log 2026-09-22: with no Sentry env vars the static build succeeds but logs sentry-vite-plugin "No auth token provided" warnings; the deploy step `npx wrangler deploy` finds no wrangler config, runs `astro add cloudflare`, and the rebuild fails with "[@sentry/astro] You are using the Cloudflare adapter but `@sentry/cloudflare` is not installed" (exit 1).
+  evidence_strategy:
+    | Failing-first bun test on astro.config.ts (red pre-fix, green post-fix); keyless `bun run build` log free of sentry warnings plus empty `grep -ri sentry target/`; stub-DSN build grep shows the Sentry client in the bundle; `wrangler deploy --dry-run` validates the assets config; full `bun test` and `astro check` green.
+  evidence:
+    | failing-first: `bun test astro.config.test.ts` on the pre-fix config → 1 fail (Expected: false, Received: true — a sentry integration was wired with no credentials); post-fix → 1 pass.
+    | keyless build: `bun run build` log contains 0 "sentry" matches; `grep -ril sentry target/` finds nothing (exit 1); 31 pages built, Complete.
+    | enabled path: `PUBLIC_SENTRY_DSN=stub bun run build` → sentry-vite-plugin lines back in the log and Sentry code present in target/404.html — the integration still wires when a credential exists (loadEnv reads process.env).
+    | no regression: `bun test` → 71 pass / 0 fail across 11 files; `bun run check` → 0 errors, 0 warnings.
+    | deviation from bug DoD "committed before the fix": changes are left uncommitted because no commit was requested this session; the red→green sequence above replaces the usual SHA pair. End-to-end confirmation lands on the next Cloudflare build.
+    | amended at owner direction before commit: wrangler.jsonc was trialled (dry-run read 206 asset files) and then removed — the repository carries no deploy configuration (D-46); a follow-up Cloudflare build must confirm the dashboard-managed deploy path.
+    | post-done amendment at owner direction: @sentry/cloudflare@10.75.0 added (exact pin, lockstep with @sentry/astro); adapter+credential scenario reproduced locally with @astrojs/cloudflare 14.3.3 — the original "install @sentry/cloudflare" error is gone, but the adapter build now fails later in the workerd prerender with `No such module "chunks/sharp"` (sharp enters the build graph via internal/rehype-html.mjs); keyless build still shows 0 sentry lines and bun test stays 71 pass with the dependency present; the adapter experiment was reverted afterwards.
+    | final amendment at owner direction: @sentry/cloudflare removed after the deploy target settled on Cloudflare Pages — the package serves only the worker runtime, which Pages never runs; verified after removal: bun test 71 pass / 0 fail, keyless `bun run build` still 0 sentry lines.
+    | credential-matrix verified locally: token+DSN without SENTRY_ORG/SENTRY_PROJECT builds green (exit 0) but the plugin skips releases ("No project provided"); with all four set, sentry-cli runs `releases new <git sha>` and even a 401 invalid-token error only logs — build still exits 0, so a bad key cannot break the deploy; release/commit tracking additionally requires SENTRY_ORG and SENTRY_PROJECT (plugin source: org/project/authToken fall back to those env vars).
+    | production outcome on main @ 1a35f0ee (v3.0.5, both PRs merged): with credentials set, `bun run build` completed green — release 1a35f0ee created, sourcemaps uploaded (Organization alxshelepenok, Projects lumen), zero auth-token warnings; the gate and release tracking work in CI. Deploy still fails at the unchanged dashboard command `npx wrangler deploy`: Workers auto-config adds the Cloudflare adapter and, with Sentry now active, hits the @sentry/cloudflare error — the exact combination predicted when the package was removed; even with the package installed the adapter build dies on sharp in workerd (verified locally), so this path is unfixable from the repo under the owner's constraints (no wrangler config checked in). Resolution is panel-side: a Pages project.
+    | test refactored at owner direction: the repro test now imports the config with a static top-level import instead of a dynamic one wrapped in process.env cleanup (the suite runs in a credential-free environment, so the cleanup dance was unjustified); bun test 71 pass / 0 fail and astro check clean after the change.
 
 w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:47:06Z "Replace prism styles with shiki oriented code styles"
   goals: G-07
@@ -4074,6 +4113,14 @@ d D-45 status=accepted t_created=2026-09-22T22:21:04Z t_updated=2026-09-22T22:24
     | The guard stays three lines next to the scripts; markup for a configured id is byte-identical to before.
   validation:
     | astro build grep over target HTML with the id empty and with a temporary id.
+
+d D-46 status=accepted t_created=2026-09-22T22:37:23Z t_updated=2026-09-23T00:13:44Z "Deploy configuration stays out of the repository"
+  context:
+    | The SSG deploys to Cloudflare Pages as static files: build command `bun run build`, output directory `target` (set in the dashboard; the original failing log was Workers Builds running `npx wrangler deploy`, whose auto-config added the Cloudflare adapter at deploy time). No wrangler config is checked in and no adapter ships. Release, commit and deploy metrics flow from the build-time vite plugin inside @sentry/astro, gated by credentials (D-45); @sentry/cloudflare — the worker runtime SDK — was trialled and removed: Pages runs no server code, so the package has no code path there. A checked-in wrangler.jsonc was also trialled and removed before any commit.
+
+d D-47 status=accepted t_created=2026-09-22T22:37:20Z t_updated=2026-09-23T00:13:44Z "Sentry wires only when a credential is present"
+  context:
+    | @sentry/astro was unconditional in astro.config.ts, so keyless CI builds emitted sentry-vite-plugin auth-token warnings, and when wrangler auto-config added the Cloudflare adapter the rebuild hard-failed demanding @sentry/cloudflare.
 
 q Q-01 status=answered cynefin=complicated t_created=2026-09-18T19:27:12Z t_updated=2026-09-18T21:22:51Z "How strict must URL parity be?"
   why:

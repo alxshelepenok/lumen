@@ -6,7 +6,7 @@
 
 | Measure | Count | Composition |
 | --- | --- | --- |
-| C (content) | 52 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 39 |
+| C (content) | 53 | validated B 2 · answered Q 3 · accepted D 8 · active Discovery 40 |
 | V (uncertainty) | 0 | open Q 0 · pending B 0 · W below DoR 0 |
 
 ## Areas
@@ -17,7 +17,7 @@
 | A-02 | Pages and routing | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-03 | Interface and theming | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-04 | Site services | 1 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 1; V: open Q 0 · pending B 0 · W below DoR 0 |
-| A-05 | Toolchain and delivery | 3 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 3; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-05 | Toolchain and delivery | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
 
@@ -111,6 +111,7 @@
 | Y-43 | Contributors table excludes the repository owner | contributors-table | active |
 | Y-44 | Sponsors stay a GFM table with an unpadded delimiter row | sponsors-table | active |
 | Y-45 | Analytics renders only when configured | analytics-guard | active |
+| Y-46 | Wire optional integrations only when their credential resolves | credential-gate | active |
 
 ## Dependency graph
 
@@ -180,6 +181,7 @@ graph TD
   Y_43["Y-43: Contributors table excludes the repository owner"]:::discovery
   Y_44["Y-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::discovery
   Y_45["Y-45: Analytics renders only when configured"]:::discovery
+  Y_46["Y-46: Wire optional integrations only when their credential resolves"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -396,6 +398,8 @@ graph TD
   W_144 -->|implements| D_43
   W_146 -->|implements| D_44
   W_149 -->|implements| D_45
+  W_150 -->|implements| D_46
+  W_150 -->|implements| D_47
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08
@@ -522,6 +526,7 @@ graph TD
   Y_43 -->|distills| D_42
   Y_44 -->|distills| D_44
   Y_45 -->|distills| D_45
+  Y_46 -->|distills| D_47
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff
