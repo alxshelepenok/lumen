@@ -1,9 +1,10 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:c0dee552984846b18c6f2eb4050b299992d7bb753612b2fce93845182ee02d32
-g G-89 status=unverified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T00:55:23Z "Comfortable post reading on narrow viewports"
+# checksum: sha256:d55daf3263c730966e39de50a4deed16a6a98688f9a01fc92a9f4c38ad060e6c
+g G-89 status=unverified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:13:03Z "Comfortable content layout on narrow viewports (posts, collections)"
   area: A-08
-  fitness_target: 1
+  fitness_target: 2
+  fitness_current: 0
 
 w W-151 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T00:55:31Z t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T00:55:31Z "Widen post gutters to 1.5rem and offset skip-link scroll"
   goals: G-89
@@ -16,6 +17,17 @@ w W-151 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd
     | Doubling the gutter floor keeps desktop centering via calc while widening mobile gutters uniformly.
   evidence_strategy:
     | Diff of the two scss files plus commit SHA.
+
+w W-152 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T01:13:11Z t_created=2026-09-23T01:13:03Z t_updated=2026-09-23T01:13:11Z "Use flexbox content lists on collection hub pages"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/assets/styles/modules/page.module.scss
+  ac:
+    | The hub lists on categories, tags and years pages render with the content-list-square flexbox mixin (flex li, gap, ::before marker).
+  hypothesis:
+    | The > section ul selector never matched the hub ul elements because they are direct children of .page; adding a direct-child selector restores the intended flexbox styling.
+  evidence_strategy:
+    | Diff of page.module.scss plus commit SHA.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:

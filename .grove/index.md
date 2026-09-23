@@ -28,13 +28,14 @@
 
 | ID | Outcome | Fitness function | Status |
 | --- | --- | --- | --- |
-| G-89 | Comfortable post reading on narrow viewports | count; current= target=1 | unverified |
+| G-89 | Comfortable content layout on narrow viewports (posts, collections) | count; current=0 target=2 | unverified |
 
 ## Work items
 
 | ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | W-151 | feature | Widen post gutters to 1.5rem and offset skip-link scroll | G-89 | clear | ⊤ | progress | ★ |
+| W-152 | feature | Use flexbox content lists on collection hub pages | G-89 | clear | ⊤ | progress |  |
 
 ## Decisions
 
@@ -130,8 +131,9 @@
 
 ```mermaid
 graph TD
-  G_89["G-89: Comfortable post reading on narrow viewports"]:::goal
+  G_89["G-89: Comfortable content layout on narrow viewports (posts, collections)"]:::goal
   W_151["W-151: Widen post gutters to 1.5rem and offset skip-link scroll"]:::progress,critical
+  W_152["W-152: Use flexbox content lists on collection hub pages"]:::progress
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
