@@ -3232,3 +3232,12 @@
 {"v":1,"session":"mcp-6140-48a3d186","cmd":"field","ts":"2026-09-22T23:37:42Z","inv":{"id":"W-150","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"mcp-6140-48a3d186","cmd":"field","ts":"2026-09-23T00:10:47Z","inv":{"id":"W-150","field":"evidence","op":"field_pop_last"}}
 {"v":1,"session":"mcp-6140-48a3d186","cmd":"archive","ts":"2026-09-23T00:13:44Z","inv":{"ids":["D-46","D-47","G-88","W-150"],"id":"G-88","op":"archive"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T00:55:22Z","inv":{"id":"A-08","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T00:55:23Z","inv":{"id":"G-89","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T00:55:23Z","inv":{"id":"W-151","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T00:55:29Z","inv":{"id":"W-151","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T00:55:30Z","inv":{"id":"W-151","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T00:55:30Z","inv":{"id":"W-151","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T00:55:30Z","inv":{"id":"W-151","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-23T00:55:30Z","inv":{"had_key":false,"wid":"W-151","gid":"G-89","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T00:55:31Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-151","op":"set_w_status_with_goals","goal_statuses":{"G-89":"unverified"},"old_session_at":"","old_session":""}}

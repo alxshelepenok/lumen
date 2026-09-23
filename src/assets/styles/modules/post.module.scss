@@ -8,7 +8,7 @@
   .titleWrap {
     max-width: variables.$layout-post-single-width;
     margin: 0 auto;
-    padding: 0 variables.$spacing-sm;
+    padding: 0 variables.$spacing-lg;
   }
 
   .title {
@@ -24,28 +24,28 @@
   }
 
   > :is(p, h2, h3, h4, h5, h6, blockquote, table) {
-    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
-    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-left: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
   }
 
   > ul {
-    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
-    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-left: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
     @include mixins.content-list-square;
   }
 
   > ol {
-    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
-    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-left: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
     @include mixins.content-list-numbered;
   }
 
   > pre {
-    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
-    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-left: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
   }
 
@@ -57,8 +57,8 @@
 
   > figure {
     width: auto;
-    margin-left: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
-    margin-right: max(#{variables.$spacing-sm}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-left: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
+    margin-right: max(#{variables.$spacing-lg}, calc((100% - #{variables.$layout-post-width}) / 2));
     max-width: variables.$layout-post-width;
     margin-bottom: variables.$spacing-lg;
 
@@ -98,7 +98,7 @@
 
   .footer {
     max-width: variables.$layout-post-width;
-    padding: 0 variables.$spacing-sm;
+    padding: 0 variables.$spacing-lg;
     margin: 0 auto;
   }
 
@@ -109,7 +109,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: variables.$spacing-md;
-    padding: 0 variables.$spacing-sm;
+    padding: 0 variables.$spacing-lg;
 
     .breadcrumb {
       margin-bottom: 0;

@@ -20,8 +20,21 @@
 | A-05 | Toolchain and delivery | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-08 | Reading experience | 5 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 5; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
+
+## Goals
+
+| ID | Outcome | Fitness function | Status |
+| --- | --- | --- | --- |
+| G-89 | Comfortable post reading on narrow viewports | count; current= target=1 | unverified |
+
+## Work items
+
+| ID | Type | Title | Goals | Cynefin | DoR | Status | Critical |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| W-151 | feature | Widen post gutters to 1.5rem and offset skip-link scroll | G-89 | clear | ⊤ | progress | ★ |
 
 ## Decisions
 
@@ -117,6 +130,8 @@
 
 ```mermaid
 graph TD
+  G_89["G-89: Comfortable post reading on narrow viewports"]:::goal
+  W_151["W-151: Widen post gutters to 1.5rem and offset skip-link scroll"]:::progress,critical
   D_07["D-07: Static output only"]:::decision
   D_08["D-08: Bun stays the package manager and script runner"]:::decision
   D_09["D-09: Semantic versioning pipeline stays unchanged"]:::decision
@@ -189,6 +204,7 @@ graph TD
   A_05["A-05: Toolchain and delivery"]:::area
   A_06["A-06: Semantics and discoverability"]:::area
   A_07["A-07: Documentation"]:::area
+  A_08["A-08: Reading experience"]:::area
   B_01 -.->|targets| W_02
   B_02 -.->|targets| W_01
   B_03 -.->|targets| W_10
@@ -527,6 +543,7 @@ graph TD
   Y_44 -->|distills| D_44
   Y_45 -->|distills| D_45
   Y_46 -->|distills| D_47
+  class W_151 critical
 classDef area fill:#5a1e4a,color:#fff
 classDef goal fill:#1e3a5f,color:#fff
 classDef theme fill:#2a4a3a,color:#fff

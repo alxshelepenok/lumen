@@ -1,6 +1,22 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:00e0a4a7ec01486d55d816d059f56bdc44c10a41a328f67ea0493c6ec74162fc
+# checksum: sha256:c0dee552984846b18c6f2eb4050b299992d7bb753612b2fce93845182ee02d32
+g G-89 status=unverified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T00:55:23Z "Comfortable post reading on narrow viewports"
+  area: A-08
+  fitness_target: 1
+
+w W-151 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T00:55:31Z t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T00:55:31Z "Widen post gutters to 1.5rem and offset skip-link scroll"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/assets/styles/modules/post.module.scss, src/assets/styles/base/_generic.scss
+  ac:
+    | Every horizontal gutter of the post page (titleWrap, metaLine, footer paddings and the five max() content margin floors) uses 1.5rem (spacing-lg).
+    | A #page rule with scroll-margin-top 999px sits next to the main:focus rule in _generic.scss.
+  hypothesis:
+    | Doubling the gutter floor keeps desktop centering via calc while widening mobile gutters uniformly.
+  evidence_strategy:
+    | Diff of the two scss files plus commit SHA.
+
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -521,6 +537,9 @@ a A-06 status=present t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:53:
 
 a A-07 status=present t_created=2026-09-22T16:53:47Z t_updated=2026-09-22T16:53:47Z "Documentation"
   surface: README.md
+
+a A-08 status=present t_created=2026-09-23T00:55:22Z t_updated=2026-09-23T00:55:22Z "Reading experience"
+  surface: src/assets/styles
 
 e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
 e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
