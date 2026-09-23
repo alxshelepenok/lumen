@@ -3249,3 +3249,20 @@
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:13:10Z","inv":{"id":"W-152","field":"evidence_strategy","op":"field_pop_last"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-23T01:13:10Z","inv":{"had_key":false,"wid":"W-152","gid":"G-89","previous":null,"op":"restore_fitness_key"}}
 {"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:13:11Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-152","op":"set_w_status_with_goals","goal_statuses":{"G-89":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:19:38Z","inv":{"id":"G-89","old":"Comfortable content layout on narrow viewports (posts, collections)","op":"set_title"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:19:39Z","inv":{"id":"G-89","had_before":true,"old":"2","op":"set_g_fitness_target"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"add","ts":"2026-09-23T01:19:39Z","inv":{"id":"W-153","op":"rm_node"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:19:54Z","inv":{"id":"W-153","field":"repro","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:19:54Z","inv":{"id":"W-153","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:19:54Z","inv":{"id":"W-153","field":"ac","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:19:55Z","inv":{"id":"W-153","field":"hypothesis","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:19:55Z","inv":{"id":"W-153","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:20:03Z","inv":{"id":"W-153","field":"evidence_strategy","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"fitness","ts":"2026-09-23T01:20:03Z","inv":{"had_key":false,"wid":"W-153","gid":"G-89","previous":null,"op":"restore_fitness_key"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:20:04Z","inv":{"had_session_at_before":false,"old_w_status":"proposed","had_session_before":false,"id":"W-153","op":"set_w_status_with_goals","goal_statuses":{"G-89":"unverified"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:21:16Z","inv":{"id":"W-151","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:21:16Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-151","op":"set_w_status_with_goals","goal_statuses":{"G-89":"unverified"},"old_session_at":"2026-09-23T00:55:31Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:21:16Z","inv":{"id":"W-152","field":"evidence","op":"field_pop_last"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:21:16Z","inv":{"had_session_at_before":true,"old_w_status":"progress","had_session_before":true,"id":"W-152","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"2026-09-23T01:13:11Z","old_session":"desktop-5a9h5ko:b3abd0852f333f78"}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"set","ts":"2026-09-23T01:21:16Z","inv":{"had_session_at_before":false,"old_w_status":"ready","had_session_before":false,"id":"W-153","op":"set_w_status_with_goals","goal_statuses":{"G-89":"partial"},"old_session_at":"","old_session":""}}
+{"v":1,"session":"desktop-5a9h5ko:b3abd0852f333f78","cmd":"field","ts":"2026-09-23T01:21:19Z","inv":{"id":"W-153","field":"evidence","op":"field_pop_last"}}

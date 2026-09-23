@@ -1,12 +1,12 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:d55daf3263c730966e39de50a4deed16a6a98688f9a01fc92a9f4c38ad060e6c
-g G-89 status=unverified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:13:03Z "Comfortable content layout on narrow viewports (posts, collections)"
+# checksum: sha256:47320ccb0f2363f755f98ae06aecc9e82368aa5565dd30e8ec489f469d6dd868
+g G-89 status=partial fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:21:16Z "Content presentation polish (post gutters, collection lists, theme toggle SVG)"
   area: A-08
-  fitness_target: 2
-  fitness_current: 0
+  fitness_target: 3
+  fitness_current: 2
 
-w W-151 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T00:55:31Z t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T00:55:31Z "Widen post gutters to 1.5rem and offset skip-link scroll"
+w W-151 type=feature status=done cynefin=clear t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:21:16Z "Widen post gutters to 1.5rem and offset skip-link scroll"
   goals: G-89
   fitness: G-89=+1
   surface: src/assets/styles/modules/post.module.scss, src/assets/styles/base/_generic.scss
@@ -17,8 +17,10 @@ w W-151 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd
     | Doubling the gutter floor keeps desktop centering via calc while widening mobile gutters uniformly.
   evidence_strategy:
     | Diff of the two scss files plus commit SHA.
+  evidence:
+    | commit b4c824c9: post.module.scss gutters 1.5rem (titleWrap, metaLine, footer, five max() floors) and _generic.scss #page scroll-margin-top.
 
-w W-152 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T01:13:11Z t_created=2026-09-23T01:13:03Z t_updated=2026-09-23T01:13:11Z "Use flexbox content lists on collection hub pages"
+w W-152 type=feature status=done cynefin=clear t_created=2026-09-23T01:13:03Z t_updated=2026-09-23T01:21:16Z "Use flexbox content lists on collection hub pages"
   goals: G-89
   fitness: G-89=+1
   surface: src/assets/styles/modules/page.module.scss
@@ -28,6 +30,25 @@ w W-152 type=feature status=progress cynefin=clear session=desktop-5a9h5ko:b3abd
     | The > section ul selector never matched the hub ul elements because they are direct children of .page; adding a direct-child selector restores the intended flexbox styling.
   evidence_strategy:
     | Diff of page.module.scss plus commit SHA.
+  evidence:
+    | commit a5e9db5a: page.module.scss direct-child > ul / > ol selectors apply content-list mixins on hub pages.
+
+w W-153 type=bug status=progress cynefin=clear session=desktop-5a9h5ko:b3abd0852f333f78 session_at=2026-09-23T01:21:16Z t_created=2026-09-23T01:19:39Z t_updated=2026-09-23T01:21:19Z "Remove invalid pathLength attributes from theme toggle SVG"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/islands/theme-toggle.astro
+  ac:
+    | No pathLength attribute remains on a non-path SVG element in the theme toggle markup.
+    | Sun rays and circle render as path elements with identical geometry, classes and pathLength normalization.
+  hypothesis:
+    | pathLength is SVG 1.1 legal on path only; rewriting line and circle shapes as path keeps the dasharray animation byte-identical while satisfying the validator.
+  repro:
+    | v.Nu on any page: Attribute pathLength not allowed on element line at this point (theme toggle sun rays and circle).
+  evidence_strategy:
+    | Grep of built HTML for pathLength occurrences plus commit SHA.
+    | No failing-first test: no HTML conformance runner in the repo, fix scoped to markup.
+  evidence:
+    | bun run build green, 31 pages; grep of target/*.html: 310 pathLength occurrences, all on <path>, zero on line or circle.
 
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
