@@ -20,6 +20,7 @@
 | A-05 | Toolchain and delivery | 4 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 4; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-06 | Semantics and discoverability | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 | A-07 | Documentation | 2 | 0 | C: validated B 0 · answered Q 0 · accepted D 0 · active Discovery 2; V: open Q 0 · pending B 0 · W below DoR 0 |
+| A-08 | Reading experience | 0 | 0 | C: validated B 0 · answered Q 0 · accepted D 0; V: open Q 0 · pending B 0 · W below DoR 0 |
 
 > Relevance view, not a partition: a node touching two areas counts in both; a W without goals counts in none. The Content health totals above are primary.
 
@@ -112,6 +113,8 @@
 | Y-44 | Sponsors stay a GFM table with an unpadded delimiter row | sponsors-table | active |
 | Y-45 | Analytics renders only when configured | analytics-guard | active |
 | Y-46 | Wire optional integrations only when their credential resolves | credential-gate | active |
+| Y-47 | v.Nu false-flags valid modern CSS | vnu-css-lag | proposed |
+| Y-48 | pathLength must sit on path for validator-clean SVG | pathlength-on-path | proposed |
 
 ## Dependency graph
 
@@ -182,6 +185,8 @@ graph TD
   Y_44["Y-44: Sponsors stay a GFM table with an unpadded delimiter row"]:::discovery
   Y_45["Y-45: Analytics renders only when configured"]:::discovery
   Y_46["Y-46: Wire optional integrations only when their credential resolves"]:::discovery
+  Y_47["Y-47: v.Nu false-flags valid modern CSS"]:::discovery
+  Y_48["Y-48: pathLength must sit on path for validator-clean SVG"]:::discovery
   A_01["A-01: Content pipeline"]:::area
   A_02["A-02: Pages and routing"]:::area
   A_03["A-03: Interface and theming"]:::area
@@ -189,6 +194,7 @@ graph TD
   A_05["A-05: Toolchain and delivery"]:::area
   A_06["A-06: Semantics and discoverability"]:::area
   A_07["A-07: Documentation"]:::area
+  A_08["A-08: Reading experience"]:::area
   B_01 -.->|targets| W_02
   B_02 -.->|targets| W_01
   B_03 -.->|targets| W_10
@@ -400,6 +406,8 @@ graph TD
   W_149 -->|implements| D_45
   W_150 -->|implements| D_46
   W_150 -->|implements| D_47
+  W_153 -->|produces| Y_48
+  W_154 -->|produces| Y_47
   W_32 -->|produces| D_13
   W_47 -->|produces| Y_07
   W_50 -->|produces| Y_08

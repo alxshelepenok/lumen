@@ -30,22 +30,22 @@ const nextClassName = hasNextPage
   {
     hasPrevPage ? (
       <a rel="prev" href={prevHref} class={prevClassName}>
-        <div class={styles.label}>{pagination.prevPage}</div>
+        <span class={styles.label}>{pagination.prevPage}</span>
       </a>
     ) : (
       <span class={prevClassName}>
-        <div class={styles.label}>{pagination.prevPage}</div>
+        <span class={styles.label}>{pagination.prevPage}</span>
       </span>
     )
   }
   {
     hasNextPage ? (
       <a rel="next" href={nextHref} class={nextClassName}>
-        <div class={styles.label}>{pagination.nextPage}</div>
+        <span class={styles.label}>{pagination.nextPage}</span>
       </a>
     ) : (
       <span class={nextClassName}>
-        <div class={styles.label}>{pagination.nextPage}</div>
+        <span class={styles.label}>{pagination.nextPage}</span>
       </span>
     )
   }

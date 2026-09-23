@@ -108,6 +108,10 @@ article:focus-visible {
   outline: none;
 }
 
+#page {
+  scroll-margin-top: 999px;
+}
+
 b,
 strong {
   font-weight: 600;

@@ -38,3 +38,5 @@
 | sponsors-table | The README sponsors block rendered as a GFM table with one centered cell per sponsor and an unpadded :---: delimiter row. | D-44 |
 | analytics-guard | The conditional around the two gtag scripts in base-layout that suppresses every googletagmanager request when googleAnalyticsId is empty. | D-45 |
 | credential-gate | Rule that an optional integration wires only when its credential (SENTRY_AUTH_TOKEN or PUBLIC_SENTRY_DSN) resolves from env or .env; keyless builds stay warning-free and adapter-free. | D-47 |
+| vnu-css-lag | Known v.Nu false positive: its property database lags the CSS spec and flags valid modern declarations (text-box-trim, text-box-edge) in every static position, verified via the JSON API. | W-154 |
+| pathlength-on-path | Rule that pathLength stays on path elements only: v.Nu enforces the SVG 1.1 attribute table, so line and circle shapes carrying it are rewritten as equivalent paths. | W-153 |

@@ -8,11 +8,13 @@
   font-size: variables.$font-size-base;
   line-height: variables.$line-height-body;
 
-  > section ul {
+  > section ul,
+  > ul {
     @include mixins.content-list-square;
   }
 
-  > section ol {
+  > section ol,
+  > ol {
     @include mixins.content-list-numbered;
   }
 

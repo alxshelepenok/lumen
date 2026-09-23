@@ -3,7 +3,7 @@
 .breadcrumb {
   color: hsl(var(--color-muted-foreground));
   font-size: variables.$font-size-sm;
-  line-height: variables.$line-height-snug;
+  line-height: variables.$line-height-body;
   margin-bottom: variables.$spacing-sm;
 
   ol {

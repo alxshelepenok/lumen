@@ -20,4 +20,28 @@ Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risu
 
 Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
 
+```jl
+function health_tally!(c, v, st::State, n::Node)
+    if n.kind === :q
+        n.status === :open && (v[:q] += 1)
+        n.status === :answered && (c[:q] += 1)
+    elseif n.kind === :b
+        n.status in (:proposed, :testing) && (v[:b] += 1)
+        n.status === :validated && (c[:b] += 1)
+    elseif n.kind === :d
+        n.status === :accepted && (c[:d] += 1)
+    elseif n.kind === :y
+        n.status === :active && (c[:y] += 1)
+    elseif n.kind === :w
+        if !isterminal(:w, n.status)
+            !dor(st, n) && (v[:w] += 1)
+            if !isempty(get(n.fields, :surface, String[]))
+                cov, _, _ = coverage(st, n)
+                cov < 1 && (v[:surf] = get(v, :surf, 0) + 1)
+            end
+        end
+    end
+end
+```
+
 Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.

@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:00e0a4a7ec01486d55d816d059f56bdc44c10a41a328f67ea0493c6ec74162fc
+# checksum: sha256:05d4e46909c9ec48bad18a41526a920b15c42c39f15f39d9f03d638ebcdd21b4
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -502,6 +502,16 @@ y Y-46 status=active t_created=2026-09-22T22:43:23Z t_updated=2026-09-22T23:27:1
   tags: credential-gate
   surface: astro.config.ts, astro.config.test.ts
 
+y Y-47 status=proposed t_created=2026-09-23T01:55:44Z t_updated=2026-09-23T01:55:44Z "v.Nu false-flags valid modern CSS"
+  tags: vnu-css-lag
+  why:
+    | v.Nu reports Property does not exist for text-box-trim and text-box-edge in every static position (plain rules, @supports, text-box shorthand, style attributes, escaped names), verified via the v.Nu JSON API; the properties are in CSS Snapshot 2026, so static progressive enhancement stays and the two messages are documented false positives.
+
+y Y-48 status=proposed t_created=2026-09-23T01:55:44Z t_updated=2026-09-23T01:55:44Z "pathLength must sit on path for validator-clean SVG"
+  tags: pathlength-on-path
+  why:
+    | v.Nu enforces the SVG 1.1 attribute table where pathLength is path-only; Lucide-style icons carrying it on line and circle are rewritten as equivalent path elements, keeping stroke-dasharray normalization.
+
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
 
@@ -521,6 +531,9 @@ a A-06 status=present t_created=2026-09-19T13:53:32Z t_updated=2026-09-19T13:53:
 
 a A-07 status=present t_created=2026-09-22T16:53:47Z t_updated=2026-09-22T16:53:47Z "Documentation"
   surface: README.md
+
+a A-08 status=present t_created=2026-09-23T00:55:22Z t_updated=2026-09-23T00:55:22Z "Reading experience"
+  surface: src/assets/styles
 
 e B-01 targets W-02 t_created=2026-09-18T19:27:23Z
 e B-02 targets W-01 t_created=2026-09-18T19:27:56Z
@@ -733,6 +746,8 @@ e W-146 implements D-44 t_created=2026-09-22T17:10:31Z
 e W-149 implements D-45 t_created=2026-09-22T22:21:12Z
 e W-150 implements D-46 t_created=2026-09-22T22:37:44Z
 e W-150 implements D-47 t_created=2026-09-22T22:37:44Z
+e W-153 produces Y-48 t_created=2026-09-23T01:55:44Z
+e W-154 produces Y-47 t_created=2026-09-23T01:55:44Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
@@ -1299,6 +1314,11 @@ g G-88 status=verified fitness_kind=boolean t_created=2026-09-22T22:37:15Z t_upd
   area: A-05
   fitness_target: true when a CI run with no Sentry credentials set completes build and wrangler deploy cleanly: no sentry-vite-plugin warnings, no Sentry adapter error, static assets deployed from ./target
   fitness_current: true
+
+g G-89 status=verified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:56:57Z "Content presentation polish (post gutters, collection lists, theme toggle SVG, pagination CSS, code example)"
+  area: A-08
+  fitness_target: 5
+  fitness_current: 5
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -2435,6 +2455,79 @@ w W-150 type=bug status=done cynefin=clear t_created=2026-09-22T22:37:35Z t_upda
     | credential-matrix verified locally: token+DSN without SENTRY_ORG/SENTRY_PROJECT builds green (exit 0) but the plugin skips releases ("No project provided"); with all four set, sentry-cli runs `releases new <git sha>` and even a 401 invalid-token error only logs — build still exits 0, so a bad key cannot break the deploy; release/commit tracking additionally requires SENTRY_ORG and SENTRY_PROJECT (plugin source: org/project/authToken fall back to those env vars).
     | production outcome on main @ 1a35f0ee (v3.0.5, both PRs merged): with credentials set, `bun run build` completed green — release 1a35f0ee created, sourcemaps uploaded (Organization alxshelepenok, Projects lumen), zero auth-token warnings; the gate and release tracking work in CI. Deploy still fails at the unchanged dashboard command `npx wrangler deploy`: Workers auto-config adds the Cloudflare adapter and, with Sentry now active, hits the @sentry/cloudflare error — the exact combination predicted when the package was removed; even with the package installed the adapter build dies on sharp in workerd (verified locally), so this path is unfixable from the repo under the owner's constraints (no wrangler config checked in). Resolution is panel-side: a Pages project.
     | test refactored at owner direction: the repro test now imports the config with a static top-level import instead of a dynamic one wrapped in process.env cleanup (the suite runs in a credential-free environment, so the cleanup dance was unjustified); bun test 71 pass / 0 fail and astro check clean after the change.
+
+w W-151 type=feature status=done cynefin=clear t_created=2026-09-23T00:55:23Z t_updated=2026-09-23T01:56:57Z "Widen post gutters to 1.5rem and offset skip-link scroll"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/assets/styles/modules/post.module.scss, src/assets/styles/base/_generic.scss
+  ac:
+    | Every horizontal gutter of the post page (titleWrap, metaLine, footer paddings and the five max() content margin floors) uses 1.5rem (spacing-lg).
+    | A #page rule with scroll-margin-top 999px sits next to the main:focus rule in _generic.scss.
+  hypothesis:
+    | Doubling the gutter floor keeps desktop centering via calc while widening mobile gutters uniformly.
+  evidence_strategy:
+    | Diff of the two scss files plus commit SHA.
+  evidence:
+    | commit b4c824c9: post.module.scss gutters 1.5rem (titleWrap, metaLine, footer, five max() floors) and _generic.scss #page scroll-margin-top.
+
+w W-152 type=feature status=done cynefin=clear t_created=2026-09-23T01:13:03Z t_updated=2026-09-23T01:56:57Z "Use flexbox content lists on collection hub pages"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/assets/styles/modules/page.module.scss
+  ac:
+    | The hub lists on categories, tags and years pages render with the content-list-square flexbox mixin (flex li, gap, ::before marker).
+  hypothesis:
+    | The > section ul selector never matched the hub ul elements because they are direct children of .page; adding a direct-child selector restores the intended flexbox styling.
+  evidence_strategy:
+    | Diff of page.module.scss plus commit SHA.
+  evidence:
+    | commit a5e9db5a: page.module.scss direct-child > ul / > ol selectors apply content-list mixins on hub pages.
+
+w W-153 type=bug status=done cynefin=clear t_created=2026-09-23T01:19:39Z t_updated=2026-09-23T01:56:57Z "Remove invalid pathLength attributes from theme toggle SVG"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/islands/theme-toggle.astro
+  ac:
+    | No pathLength attribute remains on a non-path SVG element in the theme toggle markup.
+    | Sun rays and circle render as path elements with identical geometry, classes and pathLength normalization.
+  hypothesis:
+    | pathLength is SVG 1.1 legal on path only; rewriting line and circle shapes as path keeps the dasharray animation byte-identical while satisfying the validator.
+  repro:
+    | v.Nu on any page: Attribute pathLength not allowed on element line at this point (theme toggle sun rays and circle).
+  evidence_strategy:
+    | Grep of built HTML for pathLength occurrences plus commit SHA.
+    | No failing-first test: no HTML conformance runner in the repo, fix scoped to markup.
+  evidence:
+    | bun run build green, 31 pages; grep of target/*.html: 310 pathLength occurrences, all on <path>, zero on line or circle.
+
+w W-154 type=bug status=done cynefin=clear t_created=2026-09-23T01:22:16Z t_updated=2026-09-23T01:56:57Z "Fix pagination label markup and document text-box validator false positive"
+  goals: G-89
+  fitness: G-89=+1
+  surface: src/assets/styles/modules/pagination.module.scss
+  ac:
+    | Pagination labels render as span, valid inside both the a and span wrappers.
+    | text-box declarations stay static in pagination.module.scss; the two v.Nu messages are recorded as checker false positives.
+  hypothesis:
+    | div in span was the only real defect; the text-box errors stem from the checker property database lagging CSS Snapshot 2026, not from invalid CSS.
+  repro:
+    | v.Nu on any paginated page: Error: CSS: text-box-trim: Property text-box-trim doesn't exist; same for text-box-edge.
+  evidence_strategy:
+    | Grep of source and built CSS for text-box plus commit SHA; no failing-first test because no CSS conformance runner exists in the repo.
+  evidence:
+    | v.Nu on rebuilt target/category/creative-process/index.html: exactly the two known text-box false positives, zero markup errors; build green.
+
+w W-155 type=feature status=done cynefin=clear t_created=2026-09-23T01:53:13Z t_updated=2026-09-23T01:56:57Z "Add a code formatting example to a post"
+  goals: G-89
+  fitness: G-89=+1
+  surface: content/posts/2016-01-09---exploring-the-depths-of-innovation/index.md
+  ac:
+    | The post contains a fenced jl code block that exercises Shiki syntax highlighting and the pre gutters.
+  hypothesis:
+    | A realistic Julia sample with dense tokens showcases highlighting and the widened content margins better than the existing snippets.
+  evidence_strategy:
+    | Diff of the post plus the highlighted block present in the built page HTML.
+  evidence:
+    | bun run build green, 31 pages; target/posts/exploring-depths-of-innovation/index.html contains the Shiki-rendered block: pre.astro-code.solarized-light with data-language jl and 166 highlighted token spans.
 
 w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:47:06Z "Replace prism styles with shiki oriented code styles"
   goals: G-07
