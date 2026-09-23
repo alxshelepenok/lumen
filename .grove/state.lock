@@ -1,6 +1,6 @@
 @grove 1
 # AUTO-GENERATED. Do not edit. Use `grove` CLI.
-# checksum: sha256:05d4e46909c9ec48bad18a41526a920b15c42c39f15f39d9f03d638ebcdd21b4
+# checksum: sha256:a97eaa1e97ac0f33f1e2ae2754463144ecd9ec802501fa66888b476e688b2109
 d D-07 status=accepted t_created=2026-09-18T19:24:33Z t_updated=2026-09-18T19:50:37Z "Static output only"
   context:
     | lumen is a fully static blog with no server rendering; the Gatsby build is equivalent to a purely static output.
@@ -444,7 +444,7 @@ y Y-36 status=active t_created=2026-09-20T23:43:06Z t_updated=2026-09-20T23:43:1
   invariant:
     | Every post's raw markdown body is served at /posts/<slug>.md via a literal-extension route file (same pattern as llms.txt.ts) and linked from the post head as link rel=alternate type=text/markdown with the page title plus " - Markdown source"; the sitemap filter excludes .md routes like other file-like endpoints, and the link grammar already exempts .md hrefs.
 
-y Y-37 status=active t_created=2026-09-21T13:19:12Z t_updated=2026-09-21T13:19:18Z "Content lists carry their markers in a flex column"
+y Y-37 status=superseded t_created=2026-09-21T13:19:12Z t_updated=2026-09-23T03:39:01Z "Content lists carry their markers in a flex column"
   tags: content-column
   surface: src/assets/styles/mixins/_content-list.scss, src/assets/styles/modules/post.module.scss, src/assets/styles/modules/page.module.scss
   invariant:
@@ -511,6 +511,12 @@ y Y-48 status=proposed t_created=2026-09-23T01:55:44Z t_updated=2026-09-23T01:55
   tags: pathlength-on-path
   why:
     | v.Nu enforces the SVG 1.1 attribute table where pathLength is path-only; Lucide-style icons carrying it on line and circle are rewritten as equivalent path elements, keeping stroke-dasharray normalization.
+
+y Y-49 status=active t_created=2026-09-23T03:17:14Z t_updated=2026-09-23T03:38:38Z "Content list markers ride an absolute gutter, never flex li"
+  tags: content-column
+  surface: src/assets/styles/mixins/_content-list.scss
+  invariant:
+    | Content lists keep li in normal block flow: a calc gutter (ul 0.375rem marker + 0.75rem gap; ol 2ch + gap) with the square ::before as an inline-block hung into the gutter by a negative left margin and centered on the text through vertical-align middle (the font's own half x-height, immune to leading distribution across system fonts); li:has(> p) falls back to an absolute em-based top because a lone inline marker cannot share the anonymous block of a loose item; ol numbers stay absolute at top 0 so their line box shares the first line baseline. display:flex on li is forbidden for mixed inline content: flex blockifies every inline child into its own item, the 0.75rem gap opens between words, chunks shrink to min-content and split into parallel columns, and baseline alignment lifts nested blocks above the parent text
 
 a A-01 status=present t_created=2026-09-18T19:23:19Z t_updated=2026-09-18T23:29:32Z "Content pipeline"
   surface: content/, src/content.config.ts, internal/resolve-content-images.mjs, internal/rehype-html.mjs
@@ -598,6 +604,7 @@ e B-59 targets W-132 t_created=2026-09-21T23:24:56Z
 e B-59 targets W-133 t_created=2026-09-21T23:24:56Z
 e B-59 targets W-134 t_created=2026-09-21T23:24:56Z
 e B-59 tests Q-08 t_created=2026-09-21T23:24:56Z
+e B-60 targets W-157 t_created=2026-09-23T03:16:31Z
 e D-12 supersedes D-11 t_created=2026-09-18T20:34:58Z
 e D-27 supersedes D-25 t_created=2026-09-20T21:14:52Z
 e D-30 supersedes D-28 t_created=2026-09-20T21:30:37Z
@@ -748,6 +755,8 @@ e W-150 implements D-46 t_created=2026-09-22T22:37:44Z
 e W-150 implements D-47 t_created=2026-09-22T22:37:44Z
 e W-153 produces Y-48 t_created=2026-09-23T01:55:44Z
 e W-154 produces Y-47 t_created=2026-09-23T01:55:44Z
+e W-156 produces B-60 t_created=2026-09-23T03:15:46Z
+e W-157 produces Y-49 t_created=2026-09-23T03:17:14Z
 e W-32 produces D-13 t_created=2026-09-18T23:17:49Z
 e W-47 produces Y-07 t_created=2026-09-19T00:09:34Z
 e W-50 produces Y-08 t_created=2026-09-19T00:18:29Z
@@ -875,6 +884,7 @@ e Y-43 distills D-42 t_created=2026-09-22T21:54:10Z
 e Y-44 distills D-44 t_created=2026-09-22T21:54:10Z
 e Y-45 distills D-45 t_created=2026-09-22T22:24:39Z
 e Y-46 distills D-47 t_created=2026-09-22T22:43:23Z
+e Y-49 supersedes Y-37 t_created=2026-09-23T03:17:19Z
 
 :archive
 g G-01 status=verified fitness_kind=count t_created=2026-09-18T19:23:27Z t_updated=2026-09-18T21:22:51Z "Content pipeline runs on Astro with rendering parity"
@@ -1319,6 +1329,11 @@ g G-89 status=verified fitness_kind=count t_created=2026-09-23T00:55:23Z t_updat
   area: A-08
   fitness_target: 5
   fitness_current: 5
+
+g G-90 status=verified fitness_kind=count t_created=2026-09-23T02:41:08Z t_updated=2026-09-23T03:17:32Z "Content lists flow inline markup as continuous text"
+  area: A-08
+  fitness_target: 2
+  fitness_current: 2
 
 w W-01 type=spike status=done cynefin=complex t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T23:59:47Z "Verify Astro 7 baseline on Bun (scaffold, content probe, dev and build)"
   goals: G-01, G-05
@@ -2528,6 +2543,43 @@ w W-155 type=feature status=done cynefin=clear t_created=2026-09-23T01:53:13Z t_
     | Diff of the post plus the highlighted block present in the built page HTML.
   evidence:
     | bun run build green, 31 pages; target/posts/exploring-depths-of-innovation/index.html contains the Shiki-rendered block: pre.astro-code.solarized-light with data-language jl and 166 highlighted token spans.
+
+w W-156 type=spike status=done cynefin=complicated t_created=2026-09-23T02:41:14Z t_updated=2026-09-23T03:17:32Z "Verify flex content-list inline flow with strong and siblings"
+  goals: G-90
+  fitness: G-90=+1
+  surface: src/assets/styles/mixins/_content-list.scss, src/assets/styles/modules/post.module.scss, src/assets/styles/modules/page.module.scss, content/pages/contacts/index.md, content/posts/a-brief-history-of-typography/index.md
+  ac:
+    | Contacts page li with strong measured in a real browser: marker, strong and trailing text geometry recorded
+    | Inter-word spacing between inline siblings inside li compared to plain-text flow
+    | Wrapping of a long li with inline tags captured by screenshot for post and page scopes
+    | Verdict recorded as an assumption node with validation method, threshold and result
+  exit:
+    | Measurements cover strong em a code inside li in both post and page scopes; the assumption records validated or invalidated; a bug work item is created iff inline flow is broken
+  evidence_strategy:
+    | Inspect built HTML under target then measure layout in astro preview with browser geometry dumps and screenshots
+  evidence:
+    | Before fix, pixel projection of fixture page (viewport 1280x1300): paragraph word space 5-8px; li boundaries at strong/em/code/link measured 13-15px; mixed item showed nine >= 13px gaps; long item split into 3 columns (voids 48/50/33/34/83px); nested list above parent text; contacts page ships the strong case. Root cause confirmed in mixins/_content-list.scss: display:flex on li blockifies every inline child; compiled gap .75rem applies between all adjacent flex items
+  why:
+    | Y-37 made li a flex row with a gap; flex turns each inline child into its own flex item, so strong and sibling text may stop flowing as one line
+
+w W-157 type=bug status=done cynefin=clear t_created=2026-09-23T03:16:22Z t_updated=2026-09-23T03:17:32Z "Content list flex li fragments inline markup"
+  goals: G-90
+  fitness: G-90=+1
+  surface: src/assets/styles/mixins/_content-list.scss
+  ac:
+    | Inline siblings inside li flow as continuous text: no inter-word gap >= 10px except the marker gutter and the designed code chip padding
+    | Wrapped lines of a long item align under the first text column in one continuous flow
+    | Nested lists render below the parent line and keep the marker gutter per level
+    | ol numbers sit on the first line baseline and the text column starts at the 2ch gutter
+    | Marker geometry derives from em lh ch and rem scales so font-size and line-height changes keep alignment without px hardcoding
+  repro:
+    | Build the site and open a page whose markdown has a list item mixing bold with plain text (- **Lorem ipsum** dolor sit amet...): the gap after the bold run measures 13-15px against the 5-8px paragraph word space, and long mixed items collapse into parallel per-word columns; the shipped contacts page carries the bold-in-li case
+  evidence_strategy:
+    | Rebuild, full-viewport screenshots of the fixture page and post, pixel projection of inter-word gaps, hanging indents, marker and number alignment at both base and lg font sizes
+  evidence:
+    | Rewrote mixins/_content-list.scss: li keeps normal block flow with position relative and a calc gutter (ul: 0.375rem + 0.75rem; ol: 2ch + 0.75rem); ::before is absolute at left 0; square centered via top calc((1lh - 0.375rem)/2) with an @supports-not em fallback after the CSS minifier dropped a plain duplicate declaration; ol numbers ride top 0 with inherited line-height so digits share the first line baseline
+    | After fix, pixel projection: page scope inter-word gaps around strong/em/link match the 5-8px paragraph baseline (only the 12-14px marker gutter and the designed code chip padding remain wide); long item wraps as one column with continuation firstX 513 = gutter; nested list renders below the parent line; ol digits bottom 777 equals baseline with descenders to 781; ol continuation at firstX 525 = 2ch gutter; post scope at lg font 1.125rem verifies the same single-gutter pattern and a 20px ol gutter that tracks the ch scale
+    | Visual confirmation on full-viewport screenshots gui-test-screenshots/t2_after_fix.png (page scope) and t3_post_after_fix.png (post scope): no oversized gaps, single-column wrapping with hanging indent, markers aligned to first lines
 
 w W-16 type=refactor status=done cynefin=clear t_created=2026-09-18T21:42:46Z t_updated=2026-09-18T21:47:06Z "Replace prism styles with shiki oriented code styles"
   goals: G-07
@@ -4697,6 +4749,14 @@ b B-59 status=validated cynefin=complicated t_created=2026-09-21T23:24:56Z t_upd
     | No clipped, overlapping or overflowing elements and per element size drift at most 4px on the sampled viewports.
   result:
     | Feed prototype on the snapped scale (title 1.75rem, description margin 1rem, item rhythm 2rem and 0.75rem) rendered at 375 and 1280 with no clipped, overlapping or overflowing elements; per element drift at most 3.5px; shots b59-feed-375.png and b59-feed-1280.png under .cache/shots; prototype reverted.
+
+b B-60 status=invalidated_blocking cynefin=complicated t_created=2026-09-23T03:15:40Z t_updated=2026-09-23T03:17:32Z "Flex li keeps inline flow for strong and siblings"
+  vm:
+    | Pixel projection of a full-viewport screenshot on the built fixture page and post; inter-word gaps inside li measured against the paragraph baseline
+  threshold:
+    | No gap >= 10px between inline siblings and adjacent text inside li (paragraph word space is 5-8px); long items wrap as one text column; nested list renders below the parent line
+  result:
+    | INVALIDATED: gaps 13-15px at every strong/em/code/link boundary (the 0.75rem flex gap between blockified flex items) vs 5-8px paragraph word space; the long mixed item collapsed into three parallel columns with 33-83px voids (flex items shrank to min-content); the nested list rendered above its parent text (align-items baseline lifts the tall block). Root cause: display:flex on li turns each inline child into its own flex item, so no shared inline flow exists
 
 t T-01 status=done t_created=2026-09-18T19:25:47Z t_updated=2026-09-18T21:22:51Z "Legacy Gatsby platform constraints"
 
