@@ -8,10 +8,19 @@ import sitemap from "@astrojs/sitemap";
 import sentry from "@sentry/astro";
 import { defineConfig } from "astro/config";
 import autoprefixer from "autoprefixer";
+import { loadEnv } from "vite";
 
 import config from "@/content/config.json";
 
 import { rehypeHtml } from "./internal/rehype-html.mjs";
+
+const { SENTRY_AUTH_TOKEN, PUBLIC_SENTRY_DSN } = loadEnv(
+  "production",
+  fileURLToPath(new URL(".", import.meta.url)),
+  "",
+);
+
+const sentryEnabled = Boolean(SENTRY_AUTH_TOKEN || PUBLIC_SENTRY_DSN);
 
 const emitOgCards = () => ({
   name: "emit-og-cards",
@@ -36,7 +45,7 @@ export default defineConfig({
   outDir: "target",
   site: config.url,
   integrations: [
-    sentry({ telemetry: false }),
+    ...(sentryEnabled ? [sentry({ telemetry: false })] : []),
     sitemap({
       changefreq: "daily",
       priority: 0.7,
